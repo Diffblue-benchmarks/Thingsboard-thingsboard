@@ -5,10 +5,13 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashSet;
 import java.util.Set;
 import org.eclipse.jgit.diff.DiffEntry;
+import org.eclipse.jgit.diff.DiffEntry.ChangeType;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.thingsboard.server.service.sync.vc.GitRepository.Commit;
 import org.thingsboard.server.service.sync.vc.GitRepository.Diff;
@@ -17,25 +20,29 @@ import org.thingsboard.server.service.sync.vc.GitRepository.Status;
 class GitRepositoryDiffblueTest {
   /**
    * Test Commit {@link Commit#equals(Object)}, and {@link Commit#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link GitRepository.Commit#equals(Object)}
-   *   <li>{@link GitRepository.Commit#hashCode()}
+   *   <li>{@link Commit#equals(Object)}
+   *   <li>{@link Commit#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Commit equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Commit.equals(Object)", "int Commit.hashCode()"})
   void testCommitEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    GitRepository.Commit commit = new GitRepository.Commit(10L, "42", "Not all who wander are lost", "JaneDoe",
-        "jane.doe@example.org");
-    GitRepository.Commit commit2 = new GitRepository.Commit(10L, "42", "Not all who wander are lost", "JaneDoe",
-        "jane.doe@example.org");
+    Commit commit =
+        new Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org");
+    Commit commit2 =
+        new Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org");
 
     // Act and Assert
     assertEquals(commit, commit2);
@@ -45,25 +52,29 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Commit {@link Commit#equals(Object)}, and {@link Commit#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link GitRepository.Commit#equals(Object)}
-   *   <li>{@link GitRepository.Commit#hashCode()}
+   *   <li>{@link Commit#equals(Object)}
+   *   <li>{@link Commit#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Commit equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Commit.equals(Object)", "int Commit.hashCode()"})
   void testCommitEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    GitRepository.Commit commit = new GitRepository.Commit(10L, null, "Not all who wander are lost", "JaneDoe",
-        "jane.doe@example.org");
-    GitRepository.Commit commit2 = new GitRepository.Commit(10L, null, "Not all who wander are lost", "JaneDoe",
-        "jane.doe@example.org");
+    Commit commit =
+        new Commit(10L, null, "Not all who wander are lost", "JaneDoe", "jane.doe@example.org");
+    Commit commit2 =
+        new Commit(10L, null, "Not all who wander are lost", "JaneDoe", "jane.doe@example.org");
 
     // Act and Assert
     assertEquals(commit, commit2);
@@ -73,23 +84,27 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Commit {@link Commit#equals(Object)}, and {@link Commit#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link GitRepository.Commit#equals(Object)}
-   *   <li>{@link GitRepository.Commit#hashCode()}
+   *   <li>{@link Commit#equals(Object)}
+   *   <li>{@link Commit#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Commit equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Commit.equals(Object)", "int Commit.hashCode()"})
   void testCommitEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    GitRepository.Commit commit = new GitRepository.Commit(10L, "42", null, "JaneDoe", "jane.doe@example.org");
-    GitRepository.Commit commit2 = new GitRepository.Commit(10L, "42", null, "JaneDoe", "jane.doe@example.org");
+    Commit commit = new Commit(10L, "42", null, "JaneDoe", "jane.doe@example.org");
+    Commit commit2 = new Commit(10L, "42", null, "JaneDoe", "jane.doe@example.org");
 
     // Act and Assert
     assertEquals(commit, commit2);
@@ -99,25 +114,29 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Commit {@link Commit#equals(Object)}, and {@link Commit#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link GitRepository.Commit#equals(Object)}
-   *   <li>{@link GitRepository.Commit#hashCode()}
+   *   <li>{@link Commit#equals(Object)}
+   *   <li>{@link Commit#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Commit equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Commit.equals(Object)", "int Commit.hashCode()"})
   void testCommitEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
-    GitRepository.Commit commit = new GitRepository.Commit(10L, "42", "Not all who wander are lost", null,
-        "jane.doe@example.org");
-    GitRepository.Commit commit2 = new GitRepository.Commit(10L, "42", "Not all who wander are lost", null,
-        "jane.doe@example.org");
+    Commit commit =
+        new Commit(10L, "42", "Not all who wander are lost", null, "jane.doe@example.org");
+    Commit commit2 =
+        new Commit(10L, "42", "Not all who wander are lost", null, "jane.doe@example.org");
 
     // Act and Assert
     assertEquals(commit, commit2);
@@ -127,23 +146,27 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Commit {@link Commit#equals(Object)}, and {@link Commit#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link GitRepository.Commit#equals(Object)}
-   *   <li>{@link GitRepository.Commit#hashCode()}
+   *   <li>{@link Commit#equals(Object)}
+   *   <li>{@link Commit#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Commit equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Commit.equals(Object)", "int Commit.hashCode()"})
   void testCommitEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
-    GitRepository.Commit commit = new GitRepository.Commit(10L, "42", "Not all who wander are lost", "JaneDoe", null);
-    GitRepository.Commit commit2 = new GitRepository.Commit(10L, "42", "Not all who wander are lost", "JaneDoe", null);
+    Commit commit = new Commit(10L, "42", "Not all who wander are lost", "JaneDoe", null);
+    Commit commit2 = new Commit(10L, "42", "Not all who wander are lost", "JaneDoe", null);
 
     // Act and Assert
     assertEquals(commit, commit2);
@@ -153,23 +176,27 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Commit {@link Commit#equals(Object)}, and {@link Commit#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link GitRepository.Commit#equals(Object)}
-   *   <li>{@link GitRepository.Commit#hashCode()}
+   *   <li>{@link Commit#equals(Object)}
+   *   <li>{@link Commit#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Commit equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Commit.equals(Object)", "int Commit.hashCode()"})
   void testCommitEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    GitRepository.Commit commit = new GitRepository.Commit(10L, "42", "Not all who wander are lost", "JaneDoe",
-        "jane.doe@example.org");
+    Commit commit =
+        new Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org");
 
     // Act and Assert
     assertEquals(commit, commit);
@@ -179,244 +206,302 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Commit {@link Commit#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Commit#equals(Object)}
+   *
+   * <p>Method under test: {@link Commit#equals(Object)}
    */
   @Test
   @DisplayName("Test Commit equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Commit.equals(Object)", "int Commit.hashCode()"})
   void testCommitEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    GitRepository.Commit commit = new GitRepository.Commit(1L, "42", "Not all who wander are lost", "JaneDoe",
-        "jane.doe@example.org");
+    Commit commit =
+        new Commit(1L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org");
 
     // Act and Assert
-    assertNotEquals(commit,
-        new GitRepository.Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org"));
+    assertNotEquals(
+        commit,
+        new Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org"));
   }
 
   /**
    * Test Commit {@link Commit#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Commit#equals(Object)}
+   *
+   * <p>Method under test: {@link Commit#equals(Object)}
    */
   @Test
   @DisplayName("Test Commit equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Commit.equals(Object)", "int Commit.hashCode()"})
   void testCommitEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    GitRepository.Commit commit = new GitRepository.Commit(10L, "Not all who wander are lost",
-        "Not all who wander are lost", "JaneDoe", "jane.doe@example.org");
+    Commit commit =
+        new Commit(
+            10L,
+            "Not all who wander are lost",
+            "Not all who wander are lost",
+            "JaneDoe",
+            "jane.doe@example.org");
 
     // Act and Assert
-    assertNotEquals(commit,
-        new GitRepository.Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org"));
+    assertNotEquals(
+        commit,
+        new Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org"));
   }
 
   /**
    * Test Commit {@link Commit#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Commit#equals(Object)}
+   *
+   * <p>Method under test: {@link Commit#equals(Object)}
    */
   @Test
   @DisplayName("Test Commit equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Commit.equals(Object)", "int Commit.hashCode()"})
   void testCommitEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    GitRepository.Commit commit = new GitRepository.Commit(10L, null, "Not all who wander are lost", "JaneDoe",
-        "jane.doe@example.org");
+    Commit commit =
+        new Commit(10L, null, "Not all who wander are lost", "JaneDoe", "jane.doe@example.org");
 
     // Act and Assert
-    assertNotEquals(commit,
-        new GitRepository.Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org"));
+    assertNotEquals(
+        commit,
+        new Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org"));
   }
 
   /**
    * Test Commit {@link Commit#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Commit#equals(Object)}
+   *
+   * <p>Method under test: {@link Commit#equals(Object)}
    */
   @Test
   @DisplayName("Test Commit equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Commit.equals(Object)", "int Commit.hashCode()"})
   void testCommitEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    GitRepository.Commit commit = new GitRepository.Commit(10L, "42", "42", "JaneDoe", "jane.doe@example.org");
+    Commit commit = new Commit(10L, "42", "42", "JaneDoe", "jane.doe@example.org");
 
     // Act and Assert
-    assertNotEquals(commit,
-        new GitRepository.Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org"));
+    assertNotEquals(
+        commit,
+        new Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org"));
   }
 
   /**
    * Test Commit {@link Commit#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Commit#equals(Object)}
+   *
+   * <p>Method under test: {@link Commit#equals(Object)}
    */
   @Test
   @DisplayName("Test Commit equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Commit.equals(Object)", "int Commit.hashCode()"})
   void testCommitEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    GitRepository.Commit commit = new GitRepository.Commit(10L, "42", null, "JaneDoe", "jane.doe@example.org");
+    Commit commit = new Commit(10L, "42", null, "JaneDoe", "jane.doe@example.org");
 
     // Act and Assert
-    assertNotEquals(commit,
-        new GitRepository.Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org"));
+    assertNotEquals(
+        commit,
+        new Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org"));
   }
 
   /**
    * Test Commit {@link Commit#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Commit#equals(Object)}
+   *
+   * <p>Method under test: {@link Commit#equals(Object)}
    */
   @Test
   @DisplayName("Test Commit equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Commit.equals(Object)", "int Commit.hashCode()"})
   void testCommitEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    GitRepository.Commit commit = new GitRepository.Commit(10L, "42", "Not all who wander are lost", "42",
-        "jane.doe@example.org");
+    Commit commit =
+        new Commit(10L, "42", "Not all who wander are lost", "42", "jane.doe@example.org");
 
     // Act and Assert
-    assertNotEquals(commit,
-        new GitRepository.Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org"));
+    assertNotEquals(
+        commit,
+        new Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org"));
   }
 
   /**
    * Test Commit {@link Commit#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Commit#equals(Object)}
+   *
+   * <p>Method under test: {@link Commit#equals(Object)}
    */
   @Test
   @DisplayName("Test Commit equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Commit.equals(Object)", "int Commit.hashCode()"})
   void testCommitEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    GitRepository.Commit commit = new GitRepository.Commit(10L, "42", "Not all who wander are lost", null,
-        "jane.doe@example.org");
+    Commit commit =
+        new Commit(10L, "42", "Not all who wander are lost", null, "jane.doe@example.org");
 
     // Act and Assert
-    assertNotEquals(commit,
-        new GitRepository.Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org"));
+    assertNotEquals(
+        commit,
+        new Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org"));
   }
 
   /**
    * Test Commit {@link Commit#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Commit#equals(Object)}
+   *
+   * <p>Method under test: {@link Commit#equals(Object)}
    */
   @Test
   @DisplayName("Test Commit equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Commit.equals(Object)", "int Commit.hashCode()"})
   void testCommitEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    GitRepository.Commit commit = new GitRepository.Commit(10L, "42", "Not all who wander are lost", "JaneDoe",
-        "john.smith@example.org");
+    Commit commit =
+        new Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "john.smith@example.org");
 
     // Act and Assert
-    assertNotEquals(commit,
-        new GitRepository.Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org"));
+    assertNotEquals(
+        commit,
+        new Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org"));
   }
 
   /**
    * Test Commit {@link Commit#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Commit#equals(Object)}
+   *
+   * <p>Method under test: {@link Commit#equals(Object)}
    */
   @Test
   @DisplayName("Test Commit equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Commit.equals(Object)", "int Commit.hashCode()"})
   void testCommitEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
-    GitRepository.Commit commit = new GitRepository.Commit(10L, "42", "Not all who wander are lost", "JaneDoe", null);
+    Commit commit = new Commit(10L, "42", "Not all who wander are lost", "JaneDoe", null);
 
     // Act and Assert
-    assertNotEquals(commit,
-        new GitRepository.Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org"));
+    assertNotEquals(
+        commit,
+        new Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org"));
   }
 
   /**
    * Test Commit {@link Commit#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Commit#equals(Object)}
+   *
+   * <p>Method under test: {@link Commit#equals(Object)}
    */
   @Test
   @DisplayName("Test Commit equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Commit.equals(Object)", "int Commit.hashCode()"})
   void testCommitEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(
-        new GitRepository.Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org"), null);
+        new Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org"),
+        null);
   }
 
   /**
    * Test Commit {@link Commit#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Commit#equals(Object)}
+   *
+   * <p>Method under test: {@link Commit#equals(Object)}
    */
   @Test
   @DisplayName("Test Commit equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Commit.equals(Object)", "int Commit.hashCode()"})
   void testCommitEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(
-        new GitRepository.Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org"),
+        new Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org"),
         "Different type to Commit");
   }
 
   /**
    * Test Commit getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link GitRepository.Commit#toString()}
-   *   <li>{@link GitRepository.Commit#getAuthorEmail()}
-   *   <li>{@link GitRepository.Commit#getAuthorName()}
-   *   <li>{@link GitRepository.Commit#getId()}
-   *   <li>{@link GitRepository.Commit#getMessage()}
-   *   <li>{@link GitRepository.Commit#getTimestamp()}
+   *   <li>{@link Commit#toString()}
+   *   <li>{@link Commit#getAuthorEmail()}
+   *   <li>{@link Commit#getAuthorName()}
+   *   <li>{@link Commit#getId()}
+   *   <li>{@link Commit#getMessage()}
+   *   <li>{@link Commit#getTimestamp()}
    * </ul>
    */
   @Test
   @DisplayName("Test Commit getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "String Commit.getAuthorEmail()",
+    "String Commit.getAuthorName()",
+    "String Commit.getId()",
+    "String Commit.getMessage()",
+    "long Commit.getTimestamp()",
+    "String Commit.toString()"
+  })
   void testCommitGettersAndSetters() {
     // Arrange
-    GitRepository.Commit commit = new GitRepository.Commit(10L, "42", "Not all who wander are lost", "JaneDoe",
-        "jane.doe@example.org");
+    Commit commit =
+        new Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org");
 
     // Act
     String actualToStringResult = commit.toString();
@@ -427,8 +512,10 @@ class GitRepositoryDiffblueTest {
 
     // Assert
     assertEquals("42", actualId);
-    assertEquals("GitRepository.Commit(timestamp=10, id=42, message=Not all who wander are lost, authorName=JaneDoe,"
-        + " authorEmail=jane.doe@example.org)", actualToStringResult);
+    assertEquals(
+        "GitRepository.Commit(timestamp=10, id=42, message=Not all who wander are lost, authorName=JaneDoe,"
+            + " authorEmail=jane.doe@example.org)",
+        actualToStringResult);
     assertEquals("JaneDoe", actualAuthorName);
     assertEquals("Not all who wander are lost", actualMessage);
     assertEquals("jane.doe@example.org", actualAuthorEmail);
@@ -437,16 +524,17 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Commit {@link Commit#Commit(long, String, String, String, String)}.
-   * <p>
-   * Method under test:
-   * {@link GitRepository.Commit#Commit(long, String, String, String, String)}
+   *
+   * <p>Method under test: {@link Commit#Commit(long, String, String, String, String)}
    */
   @Test
   @DisplayName("Test Commit new Commit(long, String, String, String, String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void Commit.<init>(long, String, String, String, String)"})
   void testCommitNewCommit() {
     // Arrange and Act
-    GitRepository.Commit actualCommit = new GitRepository.Commit(10L, "42", "Not all who wander are lost", "JaneDoe",
-        "jane.doe@example.org");
+    Commit actualCommit =
+        new Commit(10L, "42", "Not all who wander are lost", "JaneDoe", "jane.doe@example.org");
 
     // Assert
     assertEquals("42", actualCommit.getId());
@@ -458,30 +546,34 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Diff {@link Diff#equals(Object)}, and {@link Diff#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link GitRepository.Diff#equals(Object)}
-   *   <li>{@link GitRepository.Diff#hashCode()}
+   *   <li>{@link Diff#equals(Object)}
+   *   <li>{@link Diff#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Diff equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Diff.equals(Object)", "int Diff.hashCode()"})
   void testDiffEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    GitRepository.Diff diff = new GitRepository.Diff();
-    diff.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff = new Diff();
+    diff.setChangeType(ChangeType.ADD);
     diff.setDiffStringValue("42");
     diff.setFileContentAtCommit1("Not all who wander are lost");
     diff.setFileContentAtCommit2("Not all who wander are lost");
     diff.setFilePath("/directory/foo.txt");
 
-    GitRepository.Diff diff2 = new GitRepository.Diff();
-    diff2.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff2 = new Diff();
+    diff2.setChangeType(ChangeType.ADD);
     diff2.setDiffStringValue("42");
     diff2.setFileContentAtCommit1("Not all who wander are lost");
     diff2.setFileContentAtCommit2("Not all who wander are lost");
@@ -495,29 +587,33 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Diff {@link Diff#equals(Object)}, and {@link Diff#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link GitRepository.Diff#equals(Object)}
-   *   <li>{@link GitRepository.Diff#hashCode()}
+   *   <li>{@link Diff#equals(Object)}
+   *   <li>{@link Diff#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Diff equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Diff.equals(Object)", "int Diff.hashCode()"})
   void testDiffEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
-    GitRepository.Diff diff = new GitRepository.Diff();
+    Diff diff = new Diff();
     diff.setChangeType(null);
     diff.setDiffStringValue("42");
     diff.setFileContentAtCommit1("Not all who wander are lost");
     diff.setFileContentAtCommit2("Not all who wander are lost");
     diff.setFilePath("/directory/foo.txt");
 
-    GitRepository.Diff diff2 = new GitRepository.Diff();
+    Diff diff2 = new Diff();
     diff2.setChangeType(null);
     diff2.setDiffStringValue("42");
     diff2.setFileContentAtCommit1("Not all who wander are lost");
@@ -532,30 +628,34 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Diff {@link Diff#equals(Object)}, and {@link Diff#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link GitRepository.Diff#equals(Object)}
-   *   <li>{@link GitRepository.Diff#hashCode()}
+   *   <li>{@link Diff#equals(Object)}
+   *   <li>{@link Diff#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Diff equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Diff.equals(Object)", "int Diff.hashCode()"})
   void testDiffEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
-    GitRepository.Diff diff = new GitRepository.Diff();
-    diff.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff = new Diff();
+    diff.setChangeType(ChangeType.ADD);
     diff.setDiffStringValue(null);
     diff.setFileContentAtCommit1("Not all who wander are lost");
     diff.setFileContentAtCommit2("Not all who wander are lost");
     diff.setFilePath("/directory/foo.txt");
 
-    GitRepository.Diff diff2 = new GitRepository.Diff();
-    diff2.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff2 = new Diff();
+    diff2.setChangeType(ChangeType.ADD);
     diff2.setDiffStringValue(null);
     diff2.setFileContentAtCommit1("Not all who wander are lost");
     diff2.setFileContentAtCommit2("Not all who wander are lost");
@@ -569,30 +669,34 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Diff {@link Diff#equals(Object)}, and {@link Diff#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link GitRepository.Diff#equals(Object)}
-   *   <li>{@link GitRepository.Diff#hashCode()}
+   *   <li>{@link Diff#equals(Object)}
+   *   <li>{@link Diff#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Diff equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Diff.equals(Object)", "int Diff.hashCode()"})
   void testDiffEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
-    GitRepository.Diff diff = new GitRepository.Diff();
-    diff.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff = new Diff();
+    diff.setChangeType(ChangeType.ADD);
     diff.setDiffStringValue("42");
     diff.setFileContentAtCommit1(null);
     diff.setFileContentAtCommit2("Not all who wander are lost");
     diff.setFilePath("/directory/foo.txt");
 
-    GitRepository.Diff diff2 = new GitRepository.Diff();
-    diff2.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff2 = new Diff();
+    diff2.setChangeType(ChangeType.ADD);
     diff2.setDiffStringValue("42");
     diff2.setFileContentAtCommit1(null);
     diff2.setFileContentAtCommit2("Not all who wander are lost");
@@ -606,30 +710,34 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Diff {@link Diff#equals(Object)}, and {@link Diff#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link GitRepository.Diff#equals(Object)}
-   *   <li>{@link GitRepository.Diff#hashCode()}
+   *   <li>{@link Diff#equals(Object)}
+   *   <li>{@link Diff#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Diff equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Diff.equals(Object)", "int Diff.hashCode()"})
   void testDiffEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
-    GitRepository.Diff diff = new GitRepository.Diff();
-    diff.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff = new Diff();
+    diff.setChangeType(ChangeType.ADD);
     diff.setDiffStringValue("42");
     diff.setFileContentAtCommit1("Not all who wander are lost");
     diff.setFileContentAtCommit2(null);
     diff.setFilePath("/directory/foo.txt");
 
-    GitRepository.Diff diff2 = new GitRepository.Diff();
-    diff2.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff2 = new Diff();
+    diff2.setChangeType(ChangeType.ADD);
     diff2.setDiffStringValue("42");
     diff2.setFileContentAtCommit1("Not all who wander are lost");
     diff2.setFileContentAtCommit2(null);
@@ -643,23 +751,68 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Diff {@link Diff#equals(Object)}, and {@link Diff#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link GitRepository.Diff#equals(Object)}
-   *   <li>{@link GitRepository.Diff#hashCode()}
+   *   <li>{@link Diff#equals(Object)}
+   *   <li>{@link Diff#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test Diff equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Diff.equals(Object)", "int Diff.hashCode()"})
+  void testDiffEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual6() {
+    // Arrange
+    Diff diff = new Diff();
+    diff.setChangeType(ChangeType.ADD);
+    diff.setDiffStringValue("42");
+    diff.setFileContentAtCommit1("Not all who wander are lost");
+    diff.setFileContentAtCommit2("Not all who wander are lost");
+    diff.setFilePath(null);
+
+    Diff diff2 = new Diff();
+    diff2.setChangeType(ChangeType.ADD);
+    diff2.setDiffStringValue("42");
+    diff2.setFileContentAtCommit1("Not all who wander are lost");
+    diff2.setFileContentAtCommit2("Not all who wander are lost");
+    diff2.setFilePath(null);
+
+    // Act and Assert
+    assertEquals(diff, diff2);
+    int expectedHashCodeResult = diff.hashCode();
+    assertEquals(expectedHashCodeResult, diff2.hashCode());
+  }
+
+  /**
+   * Test Diff {@link Diff#equals(Object)}, and {@link Diff#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is same.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link Diff#equals(Object)}
+   *   <li>{@link Diff#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Diff equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Diff.equals(Object)", "int Diff.hashCode()"})
   void testDiffEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    GitRepository.Diff diff = new GitRepository.Diff();
-    diff.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff = new Diff();
+    diff.setChangeType(ChangeType.ADD);
     diff.setDiffStringValue("42");
     diff.setFileContentAtCommit1("Not all who wander are lost");
     diff.setFileContentAtCommit2("Not all who wander are lost");
@@ -673,26 +826,29 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Diff {@link Diff#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Diff#equals(Object)}
+   *
+   * <p>Method under test: {@link Diff#equals(Object)}
    */
   @Test
   @DisplayName("Test Diff equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Diff.equals(Object)", "int Diff.hashCode()"})
   void testDiffEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    GitRepository.Diff diff = new GitRepository.Diff();
+    Diff diff = new Diff();
     diff.setChangeType(null);
     diff.setDiffStringValue("42");
     diff.setFileContentAtCommit1("Not all who wander are lost");
     diff.setFileContentAtCommit2("Not all who wander are lost");
     diff.setFilePath("/directory/foo.txt");
 
-    GitRepository.Diff diff2 = new GitRepository.Diff();
-    diff2.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff2 = new Diff();
+    diff2.setChangeType(ChangeType.ADD);
     diff2.setDiffStringValue("42");
     diff2.setFileContentAtCommit1("Not all who wander are lost");
     diff2.setFileContentAtCommit2("Not all who wander are lost");
@@ -704,26 +860,29 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Diff {@link Diff#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Diff#equals(Object)}
+   *
+   * <p>Method under test: {@link Diff#equals(Object)}
    */
   @Test
   @DisplayName("Test Diff equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Diff.equals(Object)", "int Diff.hashCode()"})
   void testDiffEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
-    GitRepository.Diff diff = new GitRepository.Diff();
-    diff.setChangeType(DiffEntry.ChangeType.MODIFY);
+    Diff diff = new Diff();
+    diff.setChangeType(ChangeType.MODIFY);
     diff.setDiffStringValue("42");
     diff.setFileContentAtCommit1("Not all who wander are lost");
     diff.setFileContentAtCommit2("Not all who wander are lost");
     diff.setFilePath("/directory/foo.txt");
 
-    GitRepository.Diff diff2 = new GitRepository.Diff();
-    diff2.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff2 = new Diff();
+    diff2.setChangeType(ChangeType.ADD);
     diff2.setDiffStringValue("42");
     diff2.setFileContentAtCommit1("Not all who wander are lost");
     diff2.setFileContentAtCommit2("Not all who wander are lost");
@@ -735,26 +894,29 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Diff {@link Diff#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Diff#equals(Object)}
+   *
+   * <p>Method under test: {@link Diff#equals(Object)}
    */
   @Test
   @DisplayName("Test Diff equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Diff.equals(Object)", "int Diff.hashCode()"})
   void testDiffEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
-    GitRepository.Diff diff = new GitRepository.Diff();
-    diff.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff = new Diff();
+    diff.setChangeType(ChangeType.ADD);
     diff.setDiffStringValue("/directory/foo.txt");
     diff.setFileContentAtCommit1("Not all who wander are lost");
     diff.setFileContentAtCommit2("Not all who wander are lost");
     diff.setFilePath("/directory/foo.txt");
 
-    GitRepository.Diff diff2 = new GitRepository.Diff();
-    diff2.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff2 = new Diff();
+    diff2.setChangeType(ChangeType.ADD);
     diff2.setDiffStringValue("42");
     diff2.setFileContentAtCommit1("Not all who wander are lost");
     diff2.setFileContentAtCommit2("Not all who wander are lost");
@@ -766,26 +928,29 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Diff {@link Diff#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Diff#equals(Object)}
+   *
+   * <p>Method under test: {@link Diff#equals(Object)}
    */
   @Test
   @DisplayName("Test Diff equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Diff.equals(Object)", "int Diff.hashCode()"})
   void testDiffEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
-    GitRepository.Diff diff = new GitRepository.Diff();
-    diff.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff = new Diff();
+    diff.setChangeType(ChangeType.ADD);
     diff.setDiffStringValue(null);
     diff.setFileContentAtCommit1("Not all who wander are lost");
     diff.setFileContentAtCommit2("Not all who wander are lost");
     diff.setFilePath("/directory/foo.txt");
 
-    GitRepository.Diff diff2 = new GitRepository.Diff();
-    diff2.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff2 = new Diff();
+    diff2.setChangeType(ChangeType.ADD);
     diff2.setDiffStringValue("42");
     diff2.setFileContentAtCommit1("Not all who wander are lost");
     diff2.setFileContentAtCommit2("Not all who wander are lost");
@@ -797,26 +962,29 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Diff {@link Diff#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Diff#equals(Object)}
+   *
+   * <p>Method under test: {@link Diff#equals(Object)}
    */
   @Test
   @DisplayName("Test Diff equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Diff.equals(Object)", "int Diff.hashCode()"})
   void testDiffEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
-    GitRepository.Diff diff = new GitRepository.Diff();
-    diff.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff = new Diff();
+    diff.setChangeType(ChangeType.ADD);
     diff.setDiffStringValue("42");
     diff.setFileContentAtCommit1("/directory/foo.txt");
     diff.setFileContentAtCommit2("Not all who wander are lost");
     diff.setFilePath("/directory/foo.txt");
 
-    GitRepository.Diff diff2 = new GitRepository.Diff();
-    diff2.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff2 = new Diff();
+    diff2.setChangeType(ChangeType.ADD);
     diff2.setDiffStringValue("42");
     diff2.setFileContentAtCommit1("Not all who wander are lost");
     diff2.setFileContentAtCommit2("Not all who wander are lost");
@@ -828,26 +996,29 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Diff {@link Diff#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Diff#equals(Object)}
+   *
+   * <p>Method under test: {@link Diff#equals(Object)}
    */
   @Test
   @DisplayName("Test Diff equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Diff.equals(Object)", "int Diff.hashCode()"})
   void testDiffEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
-    GitRepository.Diff diff = new GitRepository.Diff();
-    diff.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff = new Diff();
+    diff.setChangeType(ChangeType.ADD);
     diff.setDiffStringValue("42");
     diff.setFileContentAtCommit1(null);
     diff.setFileContentAtCommit2("Not all who wander are lost");
     diff.setFilePath("/directory/foo.txt");
 
-    GitRepository.Diff diff2 = new GitRepository.Diff();
-    diff2.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff2 = new Diff();
+    diff2.setChangeType(ChangeType.ADD);
     diff2.setDiffStringValue("42");
     diff2.setFileContentAtCommit1("Not all who wander are lost");
     diff2.setFileContentAtCommit2("Not all who wander are lost");
@@ -859,26 +1030,29 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Diff {@link Diff#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Diff#equals(Object)}
+   *
+   * <p>Method under test: {@link Diff#equals(Object)}
    */
   @Test
   @DisplayName("Test Diff equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Diff.equals(Object)", "int Diff.hashCode()"})
   void testDiffEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
-    GitRepository.Diff diff = new GitRepository.Diff();
-    diff.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff = new Diff();
+    diff.setChangeType(ChangeType.ADD);
     diff.setDiffStringValue("42");
     diff.setFileContentAtCommit1("Not all who wander are lost");
     diff.setFileContentAtCommit2("/directory/foo.txt");
     diff.setFilePath("/directory/foo.txt");
 
-    GitRepository.Diff diff2 = new GitRepository.Diff();
-    diff2.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff2 = new Diff();
+    diff2.setChangeType(ChangeType.ADD);
     diff2.setDiffStringValue("42");
     diff2.setFileContentAtCommit1("Not all who wander are lost");
     diff2.setFileContentAtCommit2("Not all who wander are lost");
@@ -890,26 +1064,29 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Diff {@link Diff#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Diff#equals(Object)}
+   *
+   * <p>Method under test: {@link Diff#equals(Object)}
    */
   @Test
   @DisplayName("Test Diff equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Diff.equals(Object)", "int Diff.hashCode()"})
   void testDiffEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
-    GitRepository.Diff diff = new GitRepository.Diff();
-    diff.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff = new Diff();
+    diff.setChangeType(ChangeType.ADD);
     diff.setDiffStringValue("42");
     diff.setFileContentAtCommit1("Not all who wander are lost");
     diff.setFileContentAtCommit2(null);
     diff.setFilePath("/directory/foo.txt");
 
-    GitRepository.Diff diff2 = new GitRepository.Diff();
-    diff2.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff2 = new Diff();
+    diff2.setChangeType(ChangeType.ADD);
     diff2.setDiffStringValue("42");
     diff2.setFileContentAtCommit1("Not all who wander are lost");
     diff2.setFileContentAtCommit2("Not all who wander are lost");
@@ -921,26 +1098,29 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Diff {@link Diff#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Diff#equals(Object)}
+   *
+   * <p>Method under test: {@link Diff#equals(Object)}
    */
   @Test
   @DisplayName("Test Diff equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Diff.equals(Object)", "int Diff.hashCode()"})
   void testDiffEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
-    GitRepository.Diff diff = new GitRepository.Diff();
-    diff.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff = new Diff();
+    diff.setChangeType(ChangeType.ADD);
     diff.setDiffStringValue("42");
     diff.setFileContentAtCommit1("Not all who wander are lost");
     diff.setFileContentAtCommit2("Not all who wander are lost");
     diff.setFilePath("Not all who wander are lost");
 
-    GitRepository.Diff diff2 = new GitRepository.Diff();
-    diff2.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff2 = new Diff();
+    diff2.setChangeType(ChangeType.ADD);
     diff2.setDiffStringValue("42");
     diff2.setFileContentAtCommit1("Not all who wander are lost");
     diff2.setFileContentAtCommit2("Not all who wander are lost");
@@ -952,26 +1132,29 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Diff {@link Diff#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Diff#equals(Object)}
+   *
+   * <p>Method under test: {@link Diff#equals(Object)}
    */
   @Test
   @DisplayName("Test Diff equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Diff.equals(Object)", "int Diff.hashCode()"})
   void testDiffEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
-    GitRepository.Diff diff = new GitRepository.Diff();
-    diff.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff = new Diff();
+    diff.setChangeType(ChangeType.ADD);
     diff.setDiffStringValue("42");
     diff.setFileContentAtCommit1("Not all who wander are lost");
     diff.setFileContentAtCommit2("Not all who wander are lost");
     diff.setFilePath(null);
 
-    GitRepository.Diff diff2 = new GitRepository.Diff();
-    diff2.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff2 = new Diff();
+    diff2.setChangeType(ChangeType.ADD);
     diff2.setDiffStringValue("42");
     diff2.setFileContentAtCommit1("Not all who wander are lost");
     diff2.setFileContentAtCommit2("Not all who wander are lost");
@@ -983,19 +1166,22 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Diff {@link Diff#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Diff#equals(Object)}
+   *
+   * <p>Method under test: {@link Diff#equals(Object)}
    */
   @Test
   @DisplayName("Test Diff equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Diff.equals(Object)", "int Diff.hashCode()"})
   void testDiffEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
-    GitRepository.Diff diff = new GitRepository.Diff();
-    diff.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff = new Diff();
+    diff.setChangeType(ChangeType.ADD);
     diff.setDiffStringValue("42");
     diff.setFileContentAtCommit1("Not all who wander are lost");
     diff.setFileContentAtCommit2("Not all who wander are lost");
@@ -1007,19 +1193,22 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Diff {@link Diff#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Diff#equals(Object)}
+   *
+   * <p>Method under test: {@link Diff#equals(Object)}
    */
   @Test
   @DisplayName("Test Diff equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Diff.equals(Object)", "int Diff.hashCode()"})
   void testDiffEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
-    GitRepository.Diff diff = new GitRepository.Diff();
-    diff.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff diff = new Diff();
+    diff.setChangeType(ChangeType.ADD);
     diff.setDiffStringValue("42");
     diff.setFileContentAtCommit1("Not all who wander are lost");
     diff.setFileContentAtCommit2("Not all who wander are lost");
@@ -1031,40 +1220,56 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Diff getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>default or parameterless constructor of {@link GitRepository.Diff}
-   *   <li>{@link GitRepository.Diff#setChangeType(DiffEntry.ChangeType)}
-   *   <li>{@link GitRepository.Diff#setDiffStringValue(String)}
-   *   <li>{@link GitRepository.Diff#setFileContentAtCommit1(String)}
-   *   <li>{@link GitRepository.Diff#setFileContentAtCommit2(String)}
-   *   <li>{@link GitRepository.Diff#setFilePath(String)}
-   *   <li>{@link GitRepository.Diff#toString()}
-   *   <li>{@link GitRepository.Diff#getChangeType()}
-   *   <li>{@link GitRepository.Diff#getDiffStringValue()}
-   *   <li>{@link GitRepository.Diff#getFileContentAtCommit1()}
-   *   <li>{@link GitRepository.Diff#getFileContentAtCommit2()}
-   *   <li>{@link GitRepository.Diff#getFilePath()}
+   *   <li>default or parameterless constructor of {@link Diff}
+   *   <li>{@link Diff#setChangeType(ChangeType)}
+   *   <li>{@link Diff#setDiffStringValue(String)}
+   *   <li>{@link Diff#setFileContentAtCommit1(String)}
+   *   <li>{@link Diff#setFileContentAtCommit2(String)}
+   *   <li>{@link Diff#setFilePath(String)}
+   *   <li>{@link Diff#toString()}
+   *   <li>{@link Diff#getChangeType()}
+   *   <li>{@link Diff#getDiffStringValue()}
+   *   <li>{@link Diff#getFileContentAtCommit1()}
+   *   <li>{@link Diff#getFileContentAtCommit2()}
+   *   <li>{@link Diff#getFilePath()}
    * </ul>
    */
   @Test
   @DisplayName("Test Diff getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "void Diff.<init>()",
+    "ChangeType Diff.getChangeType()",
+    "String Diff.getDiffStringValue()",
+    "String Diff.getFileContentAtCommit1()",
+    "String Diff.getFileContentAtCommit2()",
+    "String Diff.getFilePath()",
+    "void Diff.setChangeType(ChangeType)",
+    "void Diff.setDiffStringValue(String)",
+    "void Diff.setFileContentAtCommit1(String)",
+    "void Diff.setFileContentAtCommit2(String)",
+    "void Diff.setFilePath(String)",
+    "String Diff.toString()"
+  })
   void testDiffGettersAndSetters() {
     // Arrange and Act
-    GitRepository.Diff actualDiff = new GitRepository.Diff();
-    actualDiff.setChangeType(DiffEntry.ChangeType.ADD);
+    Diff actualDiff = new Diff();
+    actualDiff.setChangeType(ChangeType.ADD);
     actualDiff.setDiffStringValue("42");
     actualDiff.setFileContentAtCommit1("Not all who wander are lost");
     actualDiff.setFileContentAtCommit2("Not all who wander are lost");
     actualDiff.setFilePath("/directory/foo.txt");
     String actualToStringResult = actualDiff.toString();
-    DiffEntry.ChangeType actualChangeType = actualDiff.getChangeType();
+    ChangeType actualChangeType = actualDiff.getChangeType();
     String actualDiffStringValue = actualDiff.getDiffStringValue();
     String actualFileContentAtCommit1 = actualDiff.getFileContentAtCommit1();
     String actualFileContentAtCommit2 = actualDiff.getFileContentAtCommit2();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("/directory/foo.txt", actualDiff.getFilePath());
     assertEquals("42", actualDiffStringValue);
     assertEquals(
@@ -1073,20 +1278,23 @@ class GitRepositoryDiffblueTest {
         actualToStringResult);
     assertEquals("Not all who wander are lost", actualFileContentAtCommit1);
     assertEquals("Not all who wander are lost", actualFileContentAtCommit2);
-    assertEquals(DiffEntry.ChangeType.ADD, actualChangeType);
+    assertEquals(ChangeType.ADD, actualChangeType);
   }
 
   /**
    * Test {@link GitRepository#exists(String)}.
+   *
    * <ul>
-   *   <li>When {@code /directory}.</li>
-   *   <li>Then return {@code false}.</li>
+   *   <li>When {@code /directory}.
+   *   <li>Then return {@code false}.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository#exists(String)}
+   *
+   * <p>Method under test: {@link GitRepository#exists(String)}
    */
   @Test
   @DisplayName("Test exists(String); when '/directory'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean GitRepository.exists(String)"})
   void testExists_whenDirectory_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(GitRepository.exists("/directory"));
@@ -1094,27 +1302,31 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Status {@link Status#equals(Object)}, and {@link Status#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link GitRepository.Status#equals(Object)}
-   *   <li>{@link GitRepository.Status#hashCode()}
+   *   <li>{@link Status#equals(Object)}
+   *   <li>{@link Status#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Status equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Status.equals(Object)", "int Status.hashCode()"})
   void testStatusEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     HashSet<String> added = new HashSet<>();
     HashSet<String> modified = new HashSet<>();
-    GitRepository.Status status = new GitRepository.Status(added, modified, new HashSet<>());
+    Status status = new Status(added, modified, new HashSet<>());
     HashSet<String> added2 = new HashSet<>();
     HashSet<String> modified2 = new HashSet<>();
-    GitRepository.Status status2 = new GitRepository.Status(added2, modified2, new HashSet<>());
+    Status status2 = new Status(added2, modified2, new HashSet<>());
 
     // Act and Assert
     assertEquals(status, status2);
@@ -1124,24 +1336,28 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Status {@link Status#equals(Object)}, and {@link Status#hashCode()}.
+   *
    * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
+   *   <li>When other is same.
+   *   <li>Then return equal.
    * </ul>
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link GitRepository.Status#equals(Object)}
-   *   <li>{@link GitRepository.Status#hashCode()}
+   *   <li>{@link Status#equals(Object)}
+   *   <li>{@link Status#hashCode()}
    * </ul>
    */
   @Test
   @DisplayName("Test Status equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Status.equals(Object)", "int Status.hashCode()"})
   void testStatusEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     HashSet<String> added = new HashSet<>();
     HashSet<String> modified = new HashSet<>();
-    GitRepository.Status status = new GitRepository.Status(added, modified, new HashSet<>());
+    Status status = new Status(added, modified, new HashSet<>());
 
     // Act and Assert
     assertEquals(status, status);
@@ -1151,130 +1367,100 @@ class GitRepositoryDiffblueTest {
 
   /**
    * Test Status {@link Status#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Status#equals(Object)}
+   *
+   * <p>Method under test: {@link Status#equals(Object)}
    */
   @Test
   @DisplayName("Test Status equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Status.equals(Object)", "int Status.hashCode()"})
   void testStatusEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     HashSet<String> added = new HashSet<>();
     added.add("foo");
     HashSet<String> modified = new HashSet<>();
-    GitRepository.Status status = new GitRepository.Status(added, modified, new HashSet<>());
+    Status status = new Status(added, modified, new HashSet<>());
     HashSet<String> added2 = new HashSet<>();
     HashSet<String> modified2 = new HashSet<>();
 
     // Act and Assert
-    assertNotEquals(status, new GitRepository.Status(added2, modified2, new HashSet<>()));
+    assertNotEquals(status, new Status(added2, modified2, new HashSet<>()));
   }
 
   /**
    * Test Status {@link Status#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Status#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test Status equals(Object); when other is different; then return not equal")
-  void testStatusEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
-    // Arrange
-    HashSet<String> modified = new HashSet<>();
-    modified.add("foo");
-    HashSet<String> added = new HashSet<>();
-    GitRepository.Status status = new GitRepository.Status(added, modified, new HashSet<>());
-    HashSet<String> added2 = new HashSet<>();
-    HashSet<String> modified2 = new HashSet<>();
-
-    // Act and Assert
-    assertNotEquals(status, new GitRepository.Status(added2, modified2, new HashSet<>()));
-  }
-
-  /**
-   * Test Status {@link Status#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Status#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test Status equals(Object); when other is different; then return not equal")
-  void testStatusEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
-    // Arrange
-    HashSet<String> removed = new HashSet<>();
-    removed.add("foo");
-    HashSet<String> added = new HashSet<>();
-    GitRepository.Status status = new GitRepository.Status(added, new HashSet<>(), removed);
-    HashSet<String> added2 = new HashSet<>();
-    HashSet<String> modified = new HashSet<>();
-
-    // Act and Assert
-    assertNotEquals(status, new GitRepository.Status(added2, modified, new HashSet<>()));
-  }
-
-  /**
-   * Test Status {@link Status#equals(Object)}.
-   * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Status#equals(Object)}
+   *
+   * <p>Method under test: {@link Status#equals(Object)}
    */
   @Test
   @DisplayName("Test Status equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Status.equals(Object)", "int Status.hashCode()"})
   void testStatusEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     HashSet<String> added = new HashSet<>();
     HashSet<String> modified = new HashSet<>();
 
     // Act and Assert
-    assertNotEquals(new GitRepository.Status(added, modified, new HashSet<>()), null);
+    assertNotEquals(new Status(added, modified, new HashSet<>()), null);
   }
 
   /**
    * Test Status {@link Status#equals(Object)}.
+   *
    * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
    * </ul>
-   * <p>
-   * Method under test: {@link GitRepository.Status#equals(Object)}
+   *
+   * <p>Method under test: {@link Status#equals(Object)}
    */
   @Test
   @DisplayName("Test Status equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean Status.equals(Object)", "int Status.hashCode()"})
   void testStatusEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     HashSet<String> added = new HashSet<>();
     HashSet<String> modified = new HashSet<>();
 
     // Act and Assert
-    assertNotEquals(new GitRepository.Status(added, modified, new HashSet<>()), "Different type to Status");
+    assertNotEquals(new Status(added, modified, new HashSet<>()), "Different type to Status");
   }
 
   /**
    * Test Status getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
-   *   <li>{@link GitRepository.Status#Status(Set, Set, Set)}
-   *   <li>{@link GitRepository.Status#toString()}
-   *   <li>{@link GitRepository.Status#getAdded()}
-   *   <li>{@link GitRepository.Status#getModified()}
-   *   <li>{@link GitRepository.Status#getRemoved()}
+   *   <li>{@link Status#Status(Set, Set, Set)}
+   *   <li>{@link Status#toString()}
+   *   <li>{@link Status#getAdded()}
+   *   <li>{@link Status#getModified()}
+   *   <li>{@link Status#getRemoved()}
    * </ul>
    */
   @Test
   @DisplayName("Test Status getters and setters")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "void Status.<init>(Set, Set, Set)",
+    "Set Status.getAdded()",
+    "Set Status.getModified()",
+    "Set Status.getRemoved()",
+    "String Status.toString()"
+  })
   void testStatusGettersAndSetters() {
     // Arrange
     HashSet<String> added = new HashSet<>();
@@ -1282,7 +1468,7 @@ class GitRepositoryDiffblueTest {
     HashSet<String> removed = new HashSet<>();
 
     // Act
-    GitRepository.Status actualStatus = new GitRepository.Status(added, modified, removed);
+    Status actualStatus = new Status(added, modified, removed);
     String actualToStringResult = actualStatus.toString();
     Set<String> actualAdded = actualStatus.getAdded();
     Set<String> actualModified = actualStatus.getModified();
