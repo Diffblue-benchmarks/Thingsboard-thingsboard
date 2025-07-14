@@ -1,27 +1,27 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.MissingNode;
 import java.io.UnsupportedEncodingException;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.UserId;
 import org.thingsboard.server.common.data.settings.UserSettings;
 import org.thingsboard.server.common.data.settings.UserSettingsType;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class UserSettingsEntityDiffblueTest {
+class UserSettingsEntityDiffblueTest {
   /**
    * Test {@link UserSettingsEntity#equals(Object)}, and {@link UserSettingsEntity#hashCode()}.
    *
@@ -38,12 +38,13 @@ public class UserSettingsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserSettingsEntity.equals(Object)",
     "int UserSettingsEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     UserSettingsEntity userSettingsEntity = new UserSettingsEntity();
     userSettingsEntity.setSettings(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -77,12 +78,13 @@ public class UserSettingsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserSettingsEntity.equals(Object)",
     "int UserSettingsEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     UserSettingsEntity userSettingsEntity = new UserSettingsEntity();
     userSettingsEntity.setSettings(null);
@@ -116,12 +118,13 @@ public class UserSettingsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserSettingsEntity.equals(Object)",
     "int UserSettingsEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     UserSettingsEntity userSettingsEntity = new UserSettingsEntity();
     userSettingsEntity.setSettings(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -155,12 +158,13 @@ public class UserSettingsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserSettingsEntity.equals(Object)",
     "int UserSettingsEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     UserSettingsEntity userSettingsEntity = new UserSettingsEntity();
     userSettingsEntity.setSettings(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -194,12 +198,13 @@ public class UserSettingsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserSettingsEntity.equals(Object)",
     "int UserSettingsEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     UserSettingsEntity userSettingsEntity = new UserSettingsEntity();
     userSettingsEntity.setSettings(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -223,12 +228,13 @@ public class UserSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserSettingsEntity.equals(Object)",
     "int UserSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     UserSettingsEntity userSettingsEntity = new UserSettingsEntity();
     userSettingsEntity.setSettings(DoubleNode.valueOf(10.0d));
@@ -255,12 +261,13 @@ public class UserSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserSettingsEntity.equals(Object)",
     "int UserSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     UserSettingsEntity userSettingsEntity = new UserSettingsEntity();
     userSettingsEntity.setSettings(null);
@@ -287,12 +294,13 @@ public class UserSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserSettingsEntity.equals(Object)",
     "int UserSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     UserSettingsEntity userSettingsEntity = new UserSettingsEntity();
     userSettingsEntity.setSettings(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -319,12 +327,13 @@ public class UserSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserSettingsEntity.equals(Object)",
     "int UserSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     UserSettingsEntity userSettingsEntity = new UserSettingsEntity();
     userSettingsEntity.setSettings(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -351,12 +360,13 @@ public class UserSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserSettingsEntity.equals(Object)",
     "int UserSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     UserSettingsEntity userSettingsEntity = new UserSettingsEntity();
     userSettingsEntity.setSettings(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -383,12 +393,13 @@ public class UserSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserSettingsEntity.equals(Object)",
     "int UserSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     UserSettingsEntity userSettingsEntity = new UserSettingsEntity();
     userSettingsEntity.setSettings(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -415,12 +426,13 @@ public class UserSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserSettingsEntity.equals(Object)",
     "int UserSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     UserSettingsEntity userSettingsEntity = new UserSettingsEntity();
     userSettingsEntity.setSettings(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -442,12 +454,13 @@ public class UserSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserSettingsEntity.equals(Object)",
     "int UserSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     UserSettingsEntity userSettingsEntity = new UserSettingsEntity();
     userSettingsEntity.setSettings(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -475,7 +488,8 @@ public class UserSettingsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void UserSettingsEntity.<init>()",
     "JsonNode UserSettingsEntity.getSettings()",
@@ -486,7 +500,7 @@ public class UserSettingsEntityDiffblueTest {
     "void UserSettingsEntity.setUserId(UUID)",
     "String UserSettingsEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     UserSettingsEntity actualUserSettingsEntity = new UserSettingsEntity();
     JsonNode settings = CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON;
@@ -516,9 +530,10 @@ public class UserSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserSettingsEntity#UserSettingsEntity(UserSettings)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new UserSettingsEntity(UserSettings)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void UserSettingsEntity.<init>(UserSettings)"})
-  public void testNewUserSettingsEntity() throws UnsupportedEncodingException {
+  void testNewUserSettingsEntity() throws UnsupportedEncodingException {
     // Arrange
     UserSettings userSettings = new UserSettings();
     userSettings.setSettingsBytes("AXAXAXAX".getBytes("UTF-8"));
@@ -548,9 +563,11 @@ public class UserSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserSettingsEntity#UserSettingsEntity(UserSettings)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new UserSettingsEntity(UserSettings); given empty array of byte; then Settings return MissingNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void UserSettingsEntity.<init>(UserSettings)"})
-  public void testNewUserSettingsEntity_givenEmptyArrayOfByte_thenSettingsReturnMissingNode() {
+  void testNewUserSettingsEntity_givenEmptyArrayOfByte_thenSettingsReturnMissingNode() {
     // Arrange
     UserSettings userSettings = new UserSettings();
     userSettings.setSettingsBytes(new byte[] {});
@@ -571,9 +588,11 @@ public class UserSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserSettingsEntity#UserSettingsEntity(UserSettings)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new UserSettingsEntity(UserSettings); when UserSettings (default constructor) SettingsBytes is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void UserSettingsEntity.<init>(UserSettings)"})
-  public void testNewUserSettingsEntity_whenUserSettingsSettingsBytesIsNull() {
+  void testNewUserSettingsEntity_whenUserSettingsSettingsBytesIsNull() {
     // Arrange
     UserSettings userSettings = new UserSettings();
     userSettings.setSettingsBytes(null);
@@ -602,9 +621,10 @@ public class UserSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserSettingsEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return SettingsBytes is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UserSettings UserSettingsEntity.toData()"})
-  public void testToData_thenReturnSettingsBytesIsNull() throws UnsupportedEncodingException {
+  void testToData_thenReturnSettingsBytesIsNull() throws UnsupportedEncodingException {
     // Arrange
     UserSettings userSettings = new UserSettings();
     userSettings.setSettingsBytes("AXAXAXAX".getBytes("UTF-8"));
@@ -632,9 +652,10 @@ public class UserSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserSettingsEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Settings return MissingNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UserSettings UserSettingsEntity.toData()"})
-  public void testToData_thenSettingsReturnMissingNode() throws UnsupportedEncodingException {
+  void testToData_thenSettingsReturnMissingNode() throws UnsupportedEncodingException {
     // Arrange
     UserSettings userSettings = new UserSettings();
     userSettings.setSettingsBytes(new byte[] {});

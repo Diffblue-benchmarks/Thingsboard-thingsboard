@@ -1,21 +1,21 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.NullNode;
 import java.io.UnsupportedEncodingException;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.RuleChainId;
 import org.thingsboard.server.common.data.id.RuleNodeId;
@@ -24,7 +24,7 @@ import org.thingsboard.server.common.data.rule.RuleChainType;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class RuleChainEntityDiffblueTest {
+class RuleChainEntityDiffblueTest {
   /**
    * Test {@link RuleChainEntity#equals(Object)}, and {@link RuleChainEntity#hashCode()}.
    *
@@ -41,9 +41,10 @@ public class RuleChainEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -97,9 +98,10 @@ public class RuleChainEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(null);
@@ -153,9 +155,10 @@ public class RuleChainEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -189,9 +192,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(DoubleNode.valueOf(10.0d));
@@ -238,9 +242,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(null);
@@ -287,9 +292,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -336,9 +342,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -385,9 +392,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -434,9 +442,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -483,9 +492,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -532,9 +542,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -581,9 +592,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -630,9 +642,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -679,9 +692,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -728,9 +742,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -777,9 +792,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -826,9 +842,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -875,9 +892,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -924,9 +942,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -973,9 +992,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1022,9 +1042,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1056,9 +1077,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RuleChainEntity.equals(Object)", "int RuleChainEntity.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1108,7 +1130,8 @@ public class RuleChainEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void RuleChainEntity.<init>()",
     "JsonNode RuleChainEntity.getAdditionalInfo()",
@@ -1131,7 +1154,7 @@ public class RuleChainEntityDiffblueTest {
     "void RuleChainEntity.setType(RuleChainType)",
     "String RuleChainEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     RuleChainEntity actualRuleChainEntity = new RuleChainEntity();
     actualRuleChainEntity.setAdditionalInfo(
@@ -1189,9 +1212,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new RuleChainEntity(RuleChain)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleChainEntity.<init>(RuleChain)"})
-  public void testNewRuleChainEntity() {
+  void testNewRuleChainEntity() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
@@ -1218,9 +1242,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new RuleChainEntity(RuleChain)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleChainEntity.<init>(RuleChain)"})
-  public void testNewRuleChainEntity2() {
+  void testNewRuleChainEntity2() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
@@ -1249,9 +1274,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new RuleChainEntity(RuleChain)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleChainEntity.<init>(RuleChain)"})
-  public void testNewRuleChainEntity3() {
+  void testNewRuleChainEntity3() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
@@ -1284,9 +1310,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new RuleChainEntity(RuleChain); given 'A'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleChainEntity.<init>(RuleChain)"})
-  public void testNewRuleChainEntity_givenA() {
+  void testNewRuleChainEntity_givenA() {
     // Arrange
     RuleChain ruleChain = new RuleChain();
     ruleChain.setConfigurationBytes(new byte[] {'A', 3, 'A', 3, 'A', 3, 'A', 3});
@@ -1313,9 +1340,11 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new RuleChainEntity(RuleChain); given 'true'; when RuleChain() Root is 'true'; then return Root")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleChainEntity.<init>(RuleChain)"})
-  public void testNewRuleChainEntity_givenTrue_whenRuleChainRootIsTrue_thenReturnRoot() {
+  void testNewRuleChainEntity_givenTrue_whenRuleChainRootIsTrue_thenReturnRoot() {
     // Arrange
     RuleChain ruleChain = new RuleChain();
     ruleChain.setRoot(true);
@@ -1341,9 +1370,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new RuleChainEntity(RuleChain); then AdditionalInfo return NullNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleChainEntity.<init>(RuleChain)"})
-  public void testNewRuleChainEntity_thenAdditionalInfoReturnNullNode() {
+  void testNewRuleChainEntity_thenAdditionalInfoReturnNullNode() {
     // Arrange and Act
     RuleChainEntity actualRuleChainEntity = new RuleChainEntity(new RuleChain(new RuleChain()));
 
@@ -1364,9 +1394,11 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new RuleChainEntity(RuleChain); when RuleChain(RuleChainId) with id is RuleChainId(UUID) FirstRuleNodeId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleChainEntity.<init>(RuleChain)"})
-  public void testNewRuleChainEntity_whenRuleChainWithIdIsRuleChainIdFirstRuleNodeIdIsNull() {
+  void testNewRuleChainEntity_whenRuleChainWithIdIsRuleChainIdFirstRuleNodeIdIsNull() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
@@ -1396,9 +1428,11 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new RuleChainEntity(RuleChain); when RuleChain(RuleChain) with ruleChain is RuleChain(RuleChain)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleChainEntity.<init>(RuleChain)"})
-  public void testNewRuleChainEntity_whenRuleChainWithRuleChainIsRuleChain() {
+  void testNewRuleChainEntity_whenRuleChainWithRuleChainIsRuleChain() {
     // Arrange and Act
     RuleChainEntity actualRuleChainEntity =
         new RuleChainEntity(new RuleChain(new RuleChain(new RuleChain())));
@@ -1420,9 +1454,11 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#RuleChainEntity(RuleChain)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new RuleChainEntity(RuleChain); when RuleChain(); then return AdditionalInfo is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleChainEntity.<init>(RuleChain)"})
-  public void testNewRuleChainEntity_whenRuleChain_thenReturnAdditionalInfoIsNull() {
+  void testNewRuleChainEntity_whenRuleChain_thenReturnAdditionalInfoIsNull() {
     // Arrange and Act
     RuleChainEntity actualRuleChainEntity = new RuleChainEntity(new RuleChain());
 
@@ -1444,9 +1480,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given RuleChainEntity(); then AdditionalInfo return NullNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"RuleChain RuleChainEntity.toData()"})
-  public void testToData_givenRuleChainEntity_thenAdditionalInfoReturnNullNode()
+  void testToData_givenRuleChainEntity_thenAdditionalInfoReturnNullNode()
       throws UnsupportedEncodingException {
     // Arrange and Act
     RuleChain actualToDataResult = new RuleChainEntity().toData();
@@ -1475,9 +1512,11 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return FirstRuleNodeId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"RuleChain RuleChainEntity.toData()"})
-  public void testToData_thenReturnFirstRuleNodeIdIdToStringIs784f394c42b6435a983cB7beff2784f9()
+  void testToData_thenReturnFirstRuleNodeIdIdToStringIs784f394c42b6435a983cB7beff2784f9()
       throws UnsupportedEncodingException {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
@@ -1520,9 +1559,10 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return TenantId Id is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"RuleChain RuleChainEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdIsRandomUUID() throws UnsupportedEncodingException {
+  void testToData_thenReturnTenantIdIdIsRandomUUID() throws UnsupportedEncodingException {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();
     ruleChainEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1567,9 +1607,11 @@ public class RuleChainEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return TenantId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"RuleChain RuleChainEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9()
+  void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9()
       throws UnsupportedEncodingException {
     // Arrange
     RuleChainEntity ruleChainEntity = new RuleChainEntity();

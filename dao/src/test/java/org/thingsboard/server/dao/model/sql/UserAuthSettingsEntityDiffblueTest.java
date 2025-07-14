@@ -1,12 +1,11 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
@@ -16,8 +15,9 @@ import com.fasterxml.jackson.databind.node.POJONode;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.UserAuthSettingsId;
 import org.thingsboard.server.common.data.id.UserId;
@@ -29,7 +29,7 @@ import org.thingsboard.server.common.data.security.model.mfa.provider.TwoFaProvi
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class UserAuthSettingsEntityDiffblueTest {
+class UserAuthSettingsEntityDiffblueTest {
   /**
    * Test {@link UserAuthSettingsEntity#equals(Object)}, and {@link
    * UserAuthSettingsEntity#hashCode()}.
@@ -47,12 +47,13 @@ public class UserAuthSettingsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserAuthSettingsEntity.equals(Object)",
     "int UserAuthSettingsEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     UserAuthSettingsEntity userAuthSettingsEntity = new UserAuthSettingsEntity();
     userAuthSettingsEntity.setCreatedTime(1L);
@@ -93,12 +94,13 @@ public class UserAuthSettingsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserAuthSettingsEntity.equals(Object)",
     "int UserAuthSettingsEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     UserAuthSettingsEntity userAuthSettingsEntity = new UserAuthSettingsEntity();
     userAuthSettingsEntity.setCreatedTime(1L);
@@ -137,12 +139,13 @@ public class UserAuthSettingsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserAuthSettingsEntity.equals(Object)",
     "int UserAuthSettingsEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     UserAuthSettingsEntity userAuthSettingsEntity = new UserAuthSettingsEntity();
     userAuthSettingsEntity.setCreatedTime(1L);
@@ -183,12 +186,13 @@ public class UserAuthSettingsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserAuthSettingsEntity.equals(Object)",
     "int UserAuthSettingsEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     UserAuthSettingsEntity userAuthSettingsEntity = new UserAuthSettingsEntity();
     userAuthSettingsEntity.setCreatedTime(1L);
@@ -215,12 +219,13 @@ public class UserAuthSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserAuthSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserAuthSettingsEntity.equals(Object)",
     "int UserAuthSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     UserAuthSettingsEntity userAuthSettingsEntity = new UserAuthSettingsEntity();
     userAuthSettingsEntity.setCreatedTime(3L);
@@ -253,12 +258,13 @@ public class UserAuthSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserAuthSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserAuthSettingsEntity.equals(Object)",
     "int UserAuthSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     UserAuthSettingsEntity userAuthSettingsEntity = new UserAuthSettingsEntity();
     userAuthSettingsEntity.setCreatedTime(1L);
@@ -290,12 +296,13 @@ public class UserAuthSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserAuthSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserAuthSettingsEntity.equals(Object)",
     "int UserAuthSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     UserAuthSettingsEntity userAuthSettingsEntity = new UserAuthSettingsEntity();
     userAuthSettingsEntity.setCreatedTime(1L);
@@ -327,12 +334,13 @@ public class UserAuthSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserAuthSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserAuthSettingsEntity.equals(Object)",
     "int UserAuthSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     UserAuthSettingsEntity userAuthSettingsEntity = new UserAuthSettingsEntity();
     userAuthSettingsEntity.setCreatedTime(1L);
@@ -365,12 +373,13 @@ public class UserAuthSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserAuthSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserAuthSettingsEntity.equals(Object)",
     "int UserAuthSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     UserAuthSettingsEntity userAuthSettingsEntity = new UserAuthSettingsEntity();
     userAuthSettingsEntity.setCreatedTime(1L);
@@ -403,12 +412,13 @@ public class UserAuthSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserAuthSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserAuthSettingsEntity.equals(Object)",
     "int UserAuthSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     UserAuthSettingsEntity userAuthSettingsEntity = new UserAuthSettingsEntity();
     userAuthSettingsEntity.setCreatedTime(1L);
@@ -433,12 +443,13 @@ public class UserAuthSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserAuthSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserAuthSettingsEntity.equals(Object)",
     "int UserAuthSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     UserAuthSettingsEntity userAuthSettingsEntity = new UserAuthSettingsEntity();
     userAuthSettingsEntity.setCreatedTime(1L);
@@ -467,7 +478,8 @@ public class UserAuthSettingsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void UserAuthSettingsEntity.<init>()",
     "JsonNode UserAuthSettingsEntity.getTwoFaSettings()",
@@ -476,7 +488,7 @@ public class UserAuthSettingsEntityDiffblueTest {
     "void UserAuthSettingsEntity.setUserId(UUID)",
     "String UserAuthSettingsEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     UserAuthSettingsEntity actualUserAuthSettingsEntity = new UserAuthSettingsEntity();
     JsonNode twoFaSettings = CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON;
@@ -505,9 +517,10 @@ public class UserAuthSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserAuthSettingsEntity#UserAuthSettingsEntity(UserAuthSettings)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new UserAuthSettingsEntity(UserAuthSettings)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void UserAuthSettingsEntity.<init>(UserAuthSettings)"})
-  public void testNewUserAuthSettingsEntity() {
+  void testNewUserAuthSettingsEntity() {
     // Arrange
     UserAuthSettings userAuthSettings = new UserAuthSettings();
     userAuthSettings.setCreatedTime(1L);
@@ -533,9 +546,10 @@ public class UserAuthSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserAuthSettingsEntity#UserAuthSettingsEntity(UserAuthSettings)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new UserAuthSettingsEntity(UserAuthSettings)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void UserAuthSettingsEntity.<init>(UserAuthSettings)"})
-  public void testNewUserAuthSettingsEntity2() {
+  void testNewUserAuthSettingsEntity2() {
     // Arrange
     AccountTwoFaSettings twoFaSettings = new AccountTwoFaSettings();
     twoFaSettings.setConfigs(new LinkedHashMap<>());
@@ -575,9 +589,10 @@ public class UserAuthSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserAuthSettingsEntity#UserAuthSettingsEntity(UserAuthSettings)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new UserAuthSettingsEntity(UserAuthSettings)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void UserAuthSettingsEntity.<init>(UserAuthSettings)"})
-  public void testNewUserAuthSettingsEntity3() {
+  void testNewUserAuthSettingsEntity3() {
     // Arrange
     LinkedHashMap<TwoFaProviderType, TwoFaAccountConfig> configs = new LinkedHashMap<>();
     configs.put(TwoFaProviderType.SMS, new BackupCodeTwoFaAccountConfig());
@@ -639,9 +654,11 @@ public class UserAuthSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserAuthSettingsEntity#UserAuthSettingsEntity(UserAuthSettings)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new UserAuthSettingsEntity(UserAuthSettings); given 'null'; then return UserId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void UserAuthSettingsEntity.<init>(UserAuthSettings)"})
-  public void testNewUserAuthSettingsEntity_givenNull_thenReturnUserIdIsNull() {
+  void testNewUserAuthSettingsEntity_givenNull_thenReturnUserIdIsNull() {
     // Arrange
     AccountTwoFaSettings twoFaSettings = new AccountTwoFaSettings();
     twoFaSettings.setConfigs(new LinkedHashMap<>());
@@ -683,9 +700,11 @@ public class UserAuthSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserAuthSettingsEntity#UserAuthSettingsEntity(UserAuthSettings)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new UserAuthSettingsEntity(UserAuthSettings); given zero; then return CreatedTime is zero")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void UserAuthSettingsEntity.<init>(UserAuthSettings)"})
-  public void testNewUserAuthSettingsEntity_givenZero_thenReturnCreatedTimeIsZero() {
+  void testNewUserAuthSettingsEntity_givenZero_thenReturnCreatedTimeIsZero() {
     // Arrange
     AccountTwoFaSettings twoFaSettings = new AccountTwoFaSettings();
     twoFaSettings.setConfigs(new LinkedHashMap<>());
@@ -730,9 +749,11 @@ public class UserAuthSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserAuthSettingsEntity#UserAuthSettingsEntity(UserAuthSettings)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new UserAuthSettingsEntity(UserAuthSettings); then return TwoFaSettings is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void UserAuthSettingsEntity.<init>(UserAuthSettings)"})
-  public void testNewUserAuthSettingsEntity_thenReturnTwoFaSettingsIsNull() {
+  void testNewUserAuthSettingsEntity_thenReturnTwoFaSettingsIsNull() {
     // Arrange
     UserAuthSettings userAuthSettings = new UserAuthSettings();
     userAuthSettings.setCreatedTime(1L);
@@ -762,9 +783,11 @@ public class UserAuthSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserAuthSettingsEntity#UserAuthSettingsEntity(UserAuthSettings)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new UserAuthSettingsEntity(UserAuthSettings); when UserAuthSettings (default constructor) Id is 'null'; then return Id is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void UserAuthSettingsEntity.<init>(UserAuthSettings)"})
-  public void testNewUserAuthSettingsEntity_whenUserAuthSettingsIdIsNull_thenReturnIdIsNull() {
+  void testNewUserAuthSettingsEntity_whenUserAuthSettingsIdIsNull_thenReturnIdIsNull() {
     // Arrange
     AccountTwoFaSettings twoFaSettings = new AccountTwoFaSettings();
     twoFaSettings.setConfigs(new LinkedHashMap<>());
@@ -807,9 +830,11 @@ public class UserAuthSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserAuthSettingsEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given UserAuthSettings (default constructor) CreatedTime is one; then return UserAuthSettings (default constructor)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UserAuthSettings UserAuthSettingsEntity.toData()"})
-  public void testToData_givenUserAuthSettingsCreatedTimeIsOne_thenReturnUserAuthSettings() {
+  void testToData_givenUserAuthSettingsCreatedTimeIsOne_thenReturnUserAuthSettings() {
     // Arrange
     AccountTwoFaSettings twoFaSettings = new AccountTwoFaSettings();
     twoFaSettings.setConfigs(new LinkedHashMap<>());
@@ -836,9 +861,11 @@ public class UserAuthSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserAuthSettingsEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given UserAuthSettingsEntity() TwoFaSettings is POJONode(Object) with v is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UserAuthSettings UserAuthSettingsEntity.toData()"})
-  public void testToData_givenUserAuthSettingsEntityTwoFaSettingsIsPOJONodeWithVIsNull() {
+  void testToData_givenUserAuthSettingsEntityTwoFaSettingsIsPOJONodeWithVIsNull() {
     // Arrange
     UserAuthSettingsEntity userAuthSettingsEntity = new UserAuthSettingsEntity();
     userAuthSettingsEntity.setCreatedTime(1L);
@@ -871,9 +898,10 @@ public class UserAuthSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserAuthSettingsEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given UserAuthSettingsEntity(); then return UuidId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UserAuthSettings UserAuthSettingsEntity.toData()"})
-  public void testToData_givenUserAuthSettingsEntity_thenReturnUuidIdIsNull() {
+  void testToData_givenUserAuthSettingsEntity_thenReturnUuidIdIsNull() {
     // Arrange and Act
     UserAuthSettings actualToDataResult = new UserAuthSettingsEntity().toData();
 
@@ -894,9 +922,10 @@ public class UserAuthSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserAuthSettingsEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return TwoFaSettings Configs size is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UserAuthSettings UserAuthSettingsEntity.toData()"})
-  public void testToData_thenReturnTwoFaSettingsConfigsSizeIsOne() {
+  void testToData_thenReturnTwoFaSettingsConfigsSizeIsOne() {
     // Arrange
     LinkedHashMap<TwoFaProviderType, TwoFaAccountConfig> configs = new LinkedHashMap<>();
     BackupCodeTwoFaAccountConfig backupCodeTwoFaAccountConfig = new BackupCodeTwoFaAccountConfig();
@@ -931,9 +960,11 @@ public class UserAuthSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserAuthSettingsEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return TwoFaSettings is AccountTwoFaSettings (default constructor)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UserAuthSettings UserAuthSettingsEntity.toData()"})
-  public void testToData_thenReturnTwoFaSettingsIsAccountTwoFaSettings() {
+  void testToData_thenReturnTwoFaSettingsIsAccountTwoFaSettings() {
     // Arrange
     AccountTwoFaSettings accountTwoFaSettings = new AccountTwoFaSettings();
     accountTwoFaSettings.setConfigs(new LinkedHashMap<>());
@@ -960,9 +991,11 @@ public class UserAuthSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserAuthSettingsEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return UserId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UserAuthSettings UserAuthSettingsEntity.toData()"})
-  public void testToData_thenReturnUserIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnUserIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     UserAuthSettingsEntity userAuthSettingsEntity = new UserAuthSettingsEntity();
     userAuthSettingsEntity.setCreatedTime(1L);
@@ -991,9 +1024,11 @@ public class UserAuthSettingsEntityDiffblueTest {
    * <p>Method under test: {@link UserAuthSettingsEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return UuidId toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UserAuthSettings UserAuthSettingsEntity.toData()"})
-  public void testToData_thenReturnUuidIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnUuidIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     UserAuthSettingsEntity userAuthSettingsEntity = new UserAuthSettingsEntity();
     userAuthSettingsEntity.setCreatedTime(1L);

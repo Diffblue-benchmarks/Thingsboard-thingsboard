@@ -1,19 +1,19 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.notification.rule.trigger.config.NotificationRuleTriggerType;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 
-public class NotificationRuleInfoEntityDiffblueTest {
+class NotificationRuleInfoEntityDiffblueTest {
   /**
    * Test {@link NotificationRuleInfoEntity#NotificationRuleInfoEntity(NotificationRuleEntity,
    * String, Object)}.
@@ -22,11 +22,12 @@ public class NotificationRuleInfoEntityDiffblueTest {
    * NotificationRuleInfoEntity#NotificationRuleInfoEntity(NotificationRuleEntity, String, Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new NotificationRuleInfoEntity(NotificationRuleEntity, String, Object)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void NotificationRuleInfoEntity.<init>(NotificationRuleEntity, String, Object)"
   })
-  public void testNewNotificationRuleInfoEntity() {
+  void testNewNotificationRuleInfoEntity() {
     // Arrange
     NotificationRuleEntity ruleEntity = new NotificationRuleEntity();
     ruleEntity.setAdditionalConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);

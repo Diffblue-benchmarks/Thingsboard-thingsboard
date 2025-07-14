@@ -1,26 +1,26 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.NullNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.UserId;
 import org.thingsboard.server.common.data.security.UserCredentials;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class UserCredentialsEntityDiffblueTest {
+class UserCredentialsEntityDiffblueTest {
   /**
    * Test {@link UserCredentialsEntity#equals(Object)}, and {@link
    * UserCredentialsEntity#hashCode()}.
@@ -38,12 +38,13 @@ public class UserCredentialsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");
@@ -100,12 +101,13 @@ public class UserCredentialsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken(null);
@@ -162,12 +164,13 @@ public class UserCredentialsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");
@@ -202,12 +205,13 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("iloveyou");
@@ -256,12 +260,13 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken(null);
@@ -310,12 +315,13 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");
@@ -364,12 +370,13 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");
@@ -418,12 +425,13 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");
@@ -471,12 +479,13 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");
@@ -524,12 +533,13 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");
@@ -578,12 +588,13 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");
@@ -632,12 +643,13 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");
@@ -686,12 +698,13 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");
@@ -740,12 +753,13 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");
@@ -794,12 +808,13 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");
@@ -848,12 +863,13 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");
@@ -902,12 +918,13 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");
@@ -956,12 +973,13 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");
@@ -1010,12 +1028,13 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");
@@ -1064,12 +1083,13 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");
@@ -1118,12 +1138,13 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");
@@ -1172,12 +1193,13 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");
@@ -1226,12 +1248,13 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");
@@ -1280,12 +1303,13 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");
@@ -1318,12 +1342,13 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean UserCredentialsEntity.equals(Object)",
     "int UserCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");
@@ -1376,7 +1401,8 @@ public class UserCredentialsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void UserCredentialsEntity.<init>()",
     "String UserCredentialsEntity.getActivateToken()",
@@ -1401,7 +1427,7 @@ public class UserCredentialsEntityDiffblueTest {
     "void UserCredentialsEntity.setUserId(UUID)",
     "String UserCredentialsEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     UserCredentialsEntity actualUserCredentialsEntity = new UserCredentialsEntity();
     actualUserCredentialsEntity.setActivateToken("ABC123");
@@ -1456,9 +1482,10 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#UserCredentialsEntity(UserCredentials)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new UserCredentialsEntity(UserCredentials)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void UserCredentialsEntity.<init>(UserCredentials)"})
-  public void testNewUserCredentialsEntity() {
+  void testNewUserCredentialsEntity() {
     // Arrange
     UserCredentials userCredentials = new UserCredentials();
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -1494,9 +1521,11 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#UserCredentialsEntity(UserCredentials)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new UserCredentialsEntity(UserCredentials); when UserCredentials(); then return UserId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void UserCredentialsEntity.<init>(UserCredentials)"})
-  public void testNewUserCredentialsEntity_whenUserCredentials_thenReturnUserIdIsNull() {
+  void testNewUserCredentialsEntity_whenUserCredentials_thenReturnUserIdIsNull() {
     // Arrange and Act
     UserCredentialsEntity actualUserCredentialsEntity =
         new UserCredentialsEntity(new UserCredentials());
@@ -1528,9 +1557,10 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given UserCredentialsEntity(); then AdditionalInfo return NullNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UserCredentials UserCredentialsEntity.toData()"})
-  public void testToData_givenUserCredentialsEntity_thenAdditionalInfoReturnNullNode() {
+  void testToData_givenUserCredentialsEntity_thenAdditionalInfoReturnNullNode() {
     // Arrange and Act
     UserCredentials actualToDataResult = new UserCredentialsEntity().toData();
 
@@ -1563,9 +1593,10 @@ public class UserCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link UserCredentialsEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then AdditionalInfo return ObjectNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UserCredentials UserCredentialsEntity.toData()"})
-  public void testToData_thenAdditionalInfoReturnObjectNode() {
+  void testToData_thenAdditionalInfoReturnObjectNode() {
     // Arrange
     UserCredentialsEntity userCredentialsEntity = new UserCredentialsEntity();
     userCredentialsEntity.setActivateToken("ABC123");

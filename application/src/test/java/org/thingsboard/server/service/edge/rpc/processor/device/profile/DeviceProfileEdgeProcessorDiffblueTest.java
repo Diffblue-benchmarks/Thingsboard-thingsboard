@@ -65,8 +65,6 @@ class DeviceProfileEdgeProcessorDiffblueTest {
             edgeEvent, null, EdgeVersion.V_3_3_0);
 
     // Assert
-    boolean actualIsEmptyResult =
-        actualConvertDeviceProfileEventToDownlinkResult.findInitializationErrors().isEmpty();
     verify(edgeEvent).getAction();
     verify(edgeEvent).getEntityId();
     verify(deviceMsgConstructorFactory).getMsgConstructorByEdgeVersion(eq(EdgeVersion.V_3_3_0));
@@ -125,7 +123,8 @@ class DeviceProfileEdgeProcessorDiffblueTest {
     assertEquals(31, actualConvertDeviceProfileEventToDownlinkResult.getSerializedSize());
     assertFalse(actualConvertDeviceProfileEventToDownlinkResult.hasEdgeConfiguration());
     assertFalse(actualConvertDeviceProfileEventToDownlinkResult.hasSyncCompletedMsg());
-    assertTrue(actualIsEmptyResult);
+    assertTrue(
+        actualConvertDeviceProfileEventToDownlinkResult.findInitializationErrors().isEmpty());
     List<AdminSettingsUpdateMsg> adminSettingsUpdateMsgList =
         actualConvertDeviceProfileEventToDownlinkResult.getAdminSettingsUpdateMsgList();
     assertTrue(adminSettingsUpdateMsgList.isEmpty());

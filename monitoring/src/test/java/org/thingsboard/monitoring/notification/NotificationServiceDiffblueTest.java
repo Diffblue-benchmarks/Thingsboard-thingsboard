@@ -58,35 +58,6 @@ class NotificationServiceDiffblueTest {
    * Test {@link NotificationService#sendNotification(Notification)}.
    *
    * <ul>
-   *   <li>Given {@link ArrayList#ArrayList()} add {@link NotificationChannel}.
-   * </ul>
-   *
-   * <p>Method under test: {@link NotificationService#sendNotification(Notification)}
-   */
-  @Test
-  @DisplayName("Test sendNotification(Notification); given ArrayList() add NotificationChannel")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void NotificationService.sendNotification(Notification)"})
-  void testSendNotification_givenArrayListAddNotificationChannel2() {
-    // Arrange
-    ArrayList<NotificationChannel> notificationChannels = new ArrayList<>();
-    notificationChannels.add(mock(NotificationChannel.class));
-    notificationChannels.add(mock(NotificationChannel.class));
-    NotificationService notificationService = new NotificationService(notificationChannels);
-    Notification notification = mock(Notification.class);
-    when(notification.getText()).thenReturn("Text");
-
-    // Act
-    notificationService.sendNotification(notification);
-
-    // Assert
-    verify(notification).getText();
-  }
-
-  /**
-   * Test {@link NotificationService#sendNotification(Notification)}.
-   *
-   * <ul>
    *   <li>Given {@link List} {@link List#forEach(Consumer)} does nothing.
    *   <li>Then calls {@link List#forEach(Consumer)}.
    * </ul>

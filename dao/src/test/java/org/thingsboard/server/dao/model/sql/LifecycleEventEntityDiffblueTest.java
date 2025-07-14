@@ -1,25 +1,25 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.event.LifecycleEvent;
 import org.thingsboard.server.common.data.event.LifecycleEvent.LifecycleEventBuilder;
 import org.thingsboard.server.common.data.id.EventId;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class LifecycleEventEntityDiffblueTest {
+class LifecycleEventEntityDiffblueTest {
   /**
    * Test {@link LifecycleEventEntity#equals(Object)}, and {@link LifecycleEventEntity#hashCode()}.
    *
@@ -36,12 +36,13 @@ public class LifecycleEventEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean LifecycleEventEntity.equals(Object)",
     "int LifecycleEventEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     LifecycleEventEntity lifecycleEventEntity = new LifecycleEventEntity();
     lifecycleEventEntity.setCreatedTime(1L);
@@ -89,12 +90,13 @@ public class LifecycleEventEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean LifecycleEventEntity.equals(Object)",
     "int LifecycleEventEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     LifecycleEventEntity lifecycleEventEntity = new LifecycleEventEntity();
     lifecycleEventEntity.setCreatedTime(1L);
@@ -125,12 +127,13 @@ public class LifecycleEventEntityDiffblueTest {
    * <p>Method under test: {@link LifecycleEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean LifecycleEventEntity.equals(Object)",
     "int LifecycleEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     LifecycleEventEntity lifecycleEventEntity = new LifecycleEventEntity();
     lifecycleEventEntity.setCreatedTime(1L);
@@ -171,12 +174,13 @@ public class LifecycleEventEntityDiffblueTest {
    * <p>Method under test: {@link LifecycleEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean LifecycleEventEntity.equals(Object)",
     "int LifecycleEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     LifecycleEventEntity lifecycleEventEntity = new LifecycleEventEntity();
     lifecycleEventEntity.setCreatedTime(1L);
@@ -217,12 +221,13 @@ public class LifecycleEventEntityDiffblueTest {
    * <p>Method under test: {@link LifecycleEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean LifecycleEventEntity.equals(Object)",
     "int LifecycleEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     LifecycleEventEntity lifecycleEventEntity = new LifecycleEventEntity();
     lifecycleEventEntity.setCreatedTime(1L);
@@ -263,12 +268,13 @@ public class LifecycleEventEntityDiffblueTest {
    * <p>Method under test: {@link LifecycleEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean LifecycleEventEntity.equals(Object)",
     "int LifecycleEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     LifecycleEventEntity lifecycleEventEntity = new LifecycleEventEntity();
     lifecycleEventEntity.setCreatedTime(1L);
@@ -309,12 +315,13 @@ public class LifecycleEventEntityDiffblueTest {
    * <p>Method under test: {@link LifecycleEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean LifecycleEventEntity.equals(Object)",
     "int LifecycleEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     LifecycleEventEntity lifecycleEventEntity = new LifecycleEventEntity();
     lifecycleEventEntity.setCreatedTime(1L);
@@ -355,12 +362,13 @@ public class LifecycleEventEntityDiffblueTest {
    * <p>Method under test: {@link LifecycleEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean LifecycleEventEntity.equals(Object)",
     "int LifecycleEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     LifecycleEventEntity lifecycleEventEntity = new LifecycleEventEntity();
     lifecycleEventEntity.setCreatedTime(1L);
@@ -401,12 +409,13 @@ public class LifecycleEventEntityDiffblueTest {
    * <p>Method under test: {@link LifecycleEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean LifecycleEventEntity.equals(Object)",
     "int LifecycleEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     LifecycleEventEntity lifecycleEventEntity = new LifecycleEventEntity();
     lifecycleEventEntity.setCreatedTime(1L);
@@ -435,12 +444,13 @@ public class LifecycleEventEntityDiffblueTest {
    * <p>Method under test: {@link LifecycleEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean LifecycleEventEntity.equals(Object)",
     "int LifecycleEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     LifecycleEventEntity lifecycleEventEntity = new LifecycleEventEntity();
     lifecycleEventEntity.setCreatedTime(1L);
@@ -475,7 +485,8 @@ public class LifecycleEventEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void LifecycleEventEntity.<init>()",
     "String LifecycleEventEntity.getError()",
@@ -486,7 +497,7 @@ public class LifecycleEventEntityDiffblueTest {
     "void LifecycleEventEntity.setSuccess(boolean)",
     "String LifecycleEventEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     LifecycleEventEntity actualLifecycleEventEntity = new LifecycleEventEntity();
     actualLifecycleEventEntity.setError("An error occurred");
@@ -519,9 +530,10 @@ public class LifecycleEventEntityDiffblueTest {
    * <p>Method under test: {@link LifecycleEventEntity#LifecycleEventEntity(LifecycleEvent)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new LifecycleEventEntity(LifecycleEvent)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void LifecycleEventEntity.<init>(LifecycleEvent)"})
-  public void testNewLifecycleEventEntity() {
+  void testNewLifecycleEventEntity() {
     // Arrange
     LifecycleEventBuilder builderResult = LifecycleEvent.builder();
     UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -570,9 +582,11 @@ public class LifecycleEventEntityDiffblueTest {
    * <p>Method under test: {@link LifecycleEventEntity#LifecycleEventEntity(LifecycleEvent)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new LifecycleEventEntity(LifecycleEvent); given SYSTEM_TENANT; then calls getCreatedTime()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void LifecycleEventEntity.<init>(LifecycleEvent)"})
-  public void testNewLifecycleEventEntity_givenSystem_tenant_thenCallsGetCreatedTime() {
+  void testNewLifecycleEventEntity_givenSystem_tenant_thenCallsGetCreatedTime() {
     // Arrange
     LifecycleEvent event = mock(LifecycleEvent.class);
     when(event.isSuccess()).thenReturn(true);
@@ -627,9 +641,10 @@ public class LifecycleEventEntityDiffblueTest {
    * <p>Method under test: {@link LifecycleEventEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given LifecycleEventEntity(); then return ServiceId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"LifecycleEvent LifecycleEventEntity.toData()"})
-  public void testToData_givenLifecycleEventEntity_thenReturnServiceIdIsNull() {
+  void testToData_givenLifecycleEventEntity_thenReturnServiceIdIsNull() {
     // Arrange and Act
     LifecycleEvent actualToDataResult = new LifecycleEventEntity().toData();
 
@@ -655,9 +670,10 @@ public class LifecycleEventEntityDiffblueTest {
    * <p>Method under test: {@link LifecycleEventEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return TenantId Id is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"LifecycleEvent LifecycleEventEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdIsRandomUUID() {
+  void testToData_thenReturnTenantIdIdIsRandomUUID() {
     // Arrange
     LifecycleEventEntity lifecycleEventEntity = new LifecycleEventEntity();
     lifecycleEventEntity.setCreatedTime(1L);
@@ -703,9 +719,11 @@ public class LifecycleEventEntityDiffblueTest {
    * <p>Method under test: {@link LifecycleEventEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return TenantId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"LifecycleEvent LifecycleEventEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     LifecycleEventEntity lifecycleEventEntity = new LifecycleEventEntity();
     lifecycleEventEntity.setCreatedTime(1L);

@@ -1,19 +1,19 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.NullNode;
 import java.io.UnsupportedEncodingException;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.Device;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.CustomerId;
@@ -25,7 +25,7 @@ import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.entity.BaseEntityService;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class DeviceEntityDiffblueTest {
+class DeviceEntityDiffblueTest {
   /**
    * Test {@link DeviceEntity#equals(Object)}, and {@link DeviceEntity#hashCode()}.
    *
@@ -42,9 +42,10 @@ public class DeviceEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DeviceEntity.equals(Object)", "int DeviceEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DeviceEntity deviceEntity = new DeviceEntity();
     deviceEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -102,9 +103,10 @@ public class DeviceEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DeviceEntity.equals(Object)", "int DeviceEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DeviceEntity deviceEntity = new DeviceEntity();
     deviceEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -140,9 +142,10 @@ public class DeviceEntityDiffblueTest {
    * <p>Method under test: {@link DeviceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DeviceEntity.equals(Object)", "int DeviceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DeviceEntity deviceEntity = new DeviceEntity();
     deviceEntity.setAdditionalInfo(DoubleNode.valueOf(10.0d));
@@ -193,9 +196,10 @@ public class DeviceEntityDiffblueTest {
    * <p>Method under test: {@link DeviceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DeviceEntity.equals(Object)", "int DeviceEntity.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     DeviceEntity deviceEntity = new DeviceEntity();
     deviceEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -229,9 +233,10 @@ public class DeviceEntityDiffblueTest {
    * <p>Method under test: {@link DeviceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DeviceEntity.equals(Object)", "int DeviceEntity.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     DeviceEntity deviceEntity = new DeviceEntity();
     deviceEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -265,9 +270,10 @@ public class DeviceEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceEntity.<init>()", "java.lang.String DeviceEntity.toString()"})
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     DeviceEntity actualDeviceEntity = new DeviceEntity();
 
@@ -296,9 +302,10 @@ public class DeviceEntityDiffblueTest {
    * <p>Method under test: {@link DeviceEntity#DeviceEntity(Device)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new DeviceEntity(Device)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceEntity.<init>(Device)"})
-  public void testNewDeviceEntity() {
+  void testNewDeviceEntity() {
     // Arrange
     Device device = new Device();
     device.setCustomerId(BaseEntityService.NULL_CUSTOMER_ID);
@@ -321,9 +328,10 @@ public class DeviceEntityDiffblueTest {
    * <p>Method under test: {@link DeviceEntity#DeviceEntity(Device)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new DeviceEntity(Device)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceEntity.<init>(Device)"})
-  public void testNewDeviceEntity2() {
+  void testNewDeviceEntity2() {
     // Arrange
     Device device = new Device();
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -346,9 +354,10 @@ public class DeviceEntityDiffblueTest {
    * <p>Method under test: {@link DeviceEntity#DeviceEntity(Device)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new DeviceEntity(Device)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceEntity.<init>(Device)"})
-  public void testNewDeviceEntity3() {
+  void testNewDeviceEntity3() {
     // Arrange
     Device device = new Device();
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -371,9 +380,10 @@ public class DeviceEntityDiffblueTest {
    * <p>Method under test: {@link DeviceEntity#DeviceEntity(Device)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new DeviceEntity(Device)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceEntity.<init>(Device)"})
-  public void testNewDeviceEntity4() {
+  void testNewDeviceEntity4() {
     // Arrange
     Device device = new Device();
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -396,9 +406,10 @@ public class DeviceEntityDiffblueTest {
    * <p>Method under test: {@link DeviceEntity#DeviceEntity(Device)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new DeviceEntity(Device)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceEntity.<init>(Device)"})
-  public void testNewDeviceEntity5() {
+  void testNewDeviceEntity5() {
     // Arrange
     Device device = new Device();
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -425,9 +436,10 @@ public class DeviceEntityDiffblueTest {
    * <p>Method under test: {@link DeviceEntity#DeviceEntity(Device)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new DeviceEntity(Device); given 'AXAXAXAX' Bytes is 'UTF-8'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceEntity.<init>(Device)"})
-  public void testNewDeviceEntity_givenAxaxaxaxBytesIsUtf8() throws UnsupportedEncodingException {
+  void testNewDeviceEntity_givenAxaxaxaxBytesIsUtf8() throws UnsupportedEncodingException {
     // Arrange
     Device device = new Device();
     device.setDeviceDataBytes("AXAXAXAX".getBytes("UTF-8"));
@@ -461,9 +473,11 @@ public class DeviceEntityDiffblueTest {
    * <p>Method under test: {@link DeviceEntity#DeviceEntity(Device)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new DeviceEntity(Device); then return TenantId toString is '13814000-1dd2-11b2-8080-808080808080'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceEntity.<init>(Device)"})
-  public void testNewDeviceEntity_thenReturnTenantIdToStringIs138140001dd211b28080808080808080() {
+  void testNewDeviceEntity_thenReturnTenantIdToStringIs138140001dd211b28080808080808080() {
     // Arrange
     Device device = new Device();
     device.setTenantId(ModelConstants.SYSTEM_TENANT);
@@ -492,9 +506,10 @@ public class DeviceEntityDiffblueTest {
    * <p>Method under test: {@link DeviceEntity#DeviceEntity(Device)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new DeviceEntity(Device); when Device(); then return CustomerId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceEntity.<init>(Device)"})
-  public void testNewDeviceEntity_whenDevice_thenReturnCustomerIdIsNull() {
+  void testNewDeviceEntity_whenDevice_thenReturnCustomerIdIsNull() {
     // Arrange and Act
     DeviceEntity actualDeviceEntity = new DeviceEntity(new Device());
 
@@ -525,9 +540,10 @@ public class DeviceEntityDiffblueTest {
    * <p>Method under test: {@link DeviceEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given DeviceEntity(); then AdditionalInfo return NullNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Device DeviceEntity.toData()"})
-  public void testToData_givenDeviceEntity_thenAdditionalInfoReturnNullNode() {
+  void testToData_givenDeviceEntity_thenAdditionalInfoReturnNullNode() {
     // Arrange and Act
     Device actualToDataResult = new DeviceEntity().toData();
 
@@ -551,9 +567,11 @@ public class DeviceEntityDiffblueTest {
    * <p>Method under test: {@link DeviceEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return CustomerId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Device DeviceEntity.toData()"})
-  public void testToData_thenReturnCustomerIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnCustomerIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     DeviceEntity deviceEntity = new DeviceEntity();
     deviceEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -592,9 +610,11 @@ public class DeviceEntityDiffblueTest {
    * <p>Method under test: {@link DeviceEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return DeviceProfileId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Device DeviceEntity.toData()"})
-  public void testToData_thenReturnDeviceProfileIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnDeviceProfileIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     DeviceEntity deviceEntity = new DeviceEntity();
     deviceEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -633,9 +653,11 @@ public class DeviceEntityDiffblueTest {
    * <p>Method under test: {@link DeviceEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return ExternalId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Device DeviceEntity.toData()"})
-  public void testToData_thenReturnExternalIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnExternalIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     DeviceEntity deviceEntity = new DeviceEntity();
     deviceEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -678,9 +700,11 @@ public class DeviceEntityDiffblueTest {
    * <p>Method under test: {@link DeviceEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return FirmwareId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Device DeviceEntity.toData()"})
-  public void testToData_thenReturnFirmwareIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnFirmwareIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     DeviceEntity deviceEntity = new DeviceEntity();
     deviceEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -719,9 +743,11 @@ public class DeviceEntityDiffblueTest {
    * <p>Method under test: {@link DeviceEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return SoftwareId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Device DeviceEntity.toData()"})
-  public void testToData_thenReturnSoftwareIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnSoftwareIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     DeviceEntity deviceEntity = new DeviceEntity();
     deviceEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -760,9 +786,10 @@ public class DeviceEntityDiffblueTest {
    * <p>Method under test: {@link DeviceEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return TenantId Id is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Device DeviceEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdIsRandomUUID() {
+  void testToData_thenReturnTenantIdIdIsRandomUUID() {
     // Arrange
     DeviceEntity deviceEntity = new DeviceEntity();
     UUID tenantId = UUID.randomUUID();
@@ -786,9 +813,11 @@ public class DeviceEntityDiffblueTest {
    * <p>Method under test: {@link DeviceEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return TenantId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Device DeviceEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     DeviceEntity deviceEntity = new DeviceEntity();
     deviceEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));

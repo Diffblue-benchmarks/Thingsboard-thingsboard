@@ -124,6 +124,12 @@
             <artifactId>leshan-core</artifactId>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId>
+            <version>1.8.21</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>

@@ -1,23 +1,24 @@
 package org.thingsboard.server.dao.model;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.kv.Aggregation;
 
-public class ModelConstantsDiffblueTest {
+class ModelConstantsDiffblueTest {
   /**
    * Test {@link ModelConstants#min(String)}.
    *
    * <p>Method under test: {@link ModelConstants#min(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test min(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String ModelConstants.min(String)"})
-  public void testMin() {
+  void testMin() {
     // Arrange, Act and Assert
     assertEquals("min(foo)", ModelConstants.min("foo"));
   }
@@ -28,9 +29,10 @@ public class ModelConstantsDiffblueTest {
    * <p>Method under test: {@link ModelConstants#max(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test max(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String ModelConstants.max(String)"})
-  public void testMax() {
+  void testMax() {
     // Arrange, Act and Assert
     assertEquals("max(foo)", ModelConstants.max("foo"));
   }
@@ -41,9 +43,10 @@ public class ModelConstantsDiffblueTest {
    * <p>Method under test: {@link ModelConstants#sum(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test sum(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String ModelConstants.sum(String)"})
-  public void testSum() {
+  void testSum() {
     // Arrange, Act and Assert
     assertEquals("sum(foo)", ModelConstants.sum("foo"));
   }
@@ -54,9 +57,10 @@ public class ModelConstantsDiffblueTest {
    * <p>Method under test: {@link ModelConstants#count(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test count(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String ModelConstants.count(String)"})
-  public void testCount() {
+  void testCount() {
     // Arrange, Act and Assert
     assertEquals("count(foo)", ModelConstants.count("foo"));
   }
@@ -67,9 +71,10 @@ public class ModelConstantsDiffblueTest {
    * <p>Method under test: {@link ModelConstants#getFetchColumnNames(Aggregation)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getFetchColumnNames(Aggregation)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String[] ModelConstants.getFetchColumnNames(Aggregation)"})
-  public void testGetFetchColumnNames() {
+  void testGetFetchColumnNames() {
     // Arrange, Act and Assert
     assertArrayEquals(
         new String[] {
@@ -94,9 +99,10 @@ public class ModelConstantsDiffblueTest {
    * <p>Method under test: {@link ModelConstants#getFetchColumnNames(Aggregation)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getFetchColumnNames(Aggregation); when 'AVG'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String[] ModelConstants.getFetchColumnNames(Aggregation)"})
-  public void testGetFetchColumnNames_whenAvg() {
+  void testGetFetchColumnNames_whenAvg() {
     // Arrange, Act and Assert
     assertArrayEquals(
         new String[] {
@@ -122,9 +128,10 @@ public class ModelConstantsDiffblueTest {
    * <p>Method under test: {@link ModelConstants#getFetchColumnNames(Aggregation)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getFetchColumnNames(Aggregation); when 'COUNT'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String[] ModelConstants.getFetchColumnNames(Aggregation)"})
-  public void testGetFetchColumnNames_whenCount() {
+  void testGetFetchColumnNames_whenCount() {
     // Arrange, Act and Assert
     assertArrayEquals(
         new String[] {
@@ -149,9 +156,11 @@ public class ModelConstantsDiffblueTest {
    * <p>Method under test: {@link ModelConstants#getFetchColumnNames(Aggregation)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getFetchColumnNames(Aggregation); when 'MAX'; then return ninth element is 'max(bool_v)'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String[] ModelConstants.getFetchColumnNames(Aggregation)"})
-  public void testGetFetchColumnNames_whenMax_thenReturnNinthElementIsMaxBoolV() {
+  void testGetFetchColumnNames_whenMax_thenReturnNinthElementIsMaxBoolV() {
     // Arrange and Act
     String[] actualFetchColumnNames = ModelConstants.getFetchColumnNames(Aggregation.MAX);
 
@@ -175,9 +184,11 @@ public class ModelConstantsDiffblueTest {
    * <p>Method under test: {@link ModelConstants#getFetchColumnNames(Aggregation)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getFetchColumnNames(Aggregation); when 'MIN'; then return ninth element is 'min(bool_v)'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String[] ModelConstants.getFetchColumnNames(Aggregation)"})
-  public void testGetFetchColumnNames_whenMin_thenReturnNinthElementIsMinBoolV() {
+  void testGetFetchColumnNames_whenMin_thenReturnNinthElementIsMinBoolV() {
     // Arrange and Act
     String[] actualFetchColumnNames = ModelConstants.getFetchColumnNames(Aggregation.MIN);
 
@@ -200,9 +211,10 @@ public class ModelConstantsDiffblueTest {
    * <p>Method under test: {@link ModelConstants#getFetchColumnNames(Aggregation)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getFetchColumnNames(Aggregation); when 'SUM'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String[] ModelConstants.getFetchColumnNames(Aggregation)"})
-  public void testGetFetchColumnNames_whenSum() {
+  void testGetFetchColumnNames_whenSum() {
     // Arrange, Act and Assert
     assertArrayEquals(
         new String[] {

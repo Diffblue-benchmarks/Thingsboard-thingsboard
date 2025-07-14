@@ -1,30 +1,31 @@
 package org.thingsboard.server.dao.asset;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.AssetProfileId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class AssetProfileCacheKeyDiffblueTest {
+class AssetProfileCacheKeyDiffblueTest {
   /**
    * Test {@link AssetProfileCacheKey#forName(TenantId, String)}.
    *
    * <p>Method under test: {@link AssetProfileCacheKey#forName(TenantId, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test forName(TenantId, String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AssetProfileCacheKey AssetProfileCacheKey.forName(TenantId, String)"})
-  public void testForName() {
+  void testForName() {
     // Arrange
     TenantId tenantId = ModelConstants.SYSTEM_TENANT;
 
@@ -51,9 +52,10 @@ public class AssetProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link AssetProfileCacheKey#forId(AssetProfileId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test forId(AssetProfileId); when 'null'; then return Name is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AssetProfileCacheKey AssetProfileCacheKey.forId(AssetProfileId)"})
-  public void testForId_whenNull_thenReturnNameIsNull() {
+  void testForId_whenNull_thenReturnNameIsNull() {
     // Arrange and Act
     AssetProfileCacheKey actualForIdResult = AssetProfileCacheKey.forId(null);
 
@@ -71,9 +73,10 @@ public class AssetProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link AssetProfileCacheKey#forDefaultProfile(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test forDefaultProfile(TenantId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AssetProfileCacheKey AssetProfileCacheKey.forDefaultProfile(TenantId)"})
-  public void testForDefaultProfile() {
+  void testForDefaultProfile() {
     // Arrange
     TenantId tenantId = ModelConstants.SYSTEM_TENANT;
 
@@ -100,9 +103,10 @@ public class AssetProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link AssetProfileCacheKey#toString()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toString(); then return '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AssetProfileCacheKey.toString()"})
-  public void testToString_thenReturn784f394c42b6435a983cB7beff2784f9() {
+  void testToString_thenReturn784f394c42b6435a983cB7beff2784f9() {
     // Arrange, Act and Assert
     assertEquals(
         "784f394c-42b6-435a-983c-b7beff2784f9",
@@ -121,9 +125,10 @@ public class AssetProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link AssetProfileCacheKey#toString()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toString(); then return '13814000-1dd2-11b2-8080-808080808080'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AssetProfileCacheKey.toString()"})
-  public void testToString_thenReturn138140001dd211b28080808080808080() {
+  void testToString_thenReturn138140001dd211b28080808080808080() {
     // Arrange, Act and Assert
     assertEquals(
         "13814000-1dd2-11b2-8080-808080808080",
@@ -140,9 +145,10 @@ public class AssetProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link AssetProfileCacheKey#toString()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toString(); then return '13814000-1dd2-11b2-8080-808080808080_Name'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AssetProfileCacheKey.toString()"})
-  public void testToString_thenReturn138140001dd211b28080808080808080Name() {
+  void testToString_thenReturn138140001dd211b28080808080808080Name() {
     // Arrange, Act and Assert
     assertEquals(
         "13814000-1dd2-11b2-8080-808080808080_Name",
@@ -160,9 +166,10 @@ public class AssetProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link AssetProfileCacheKey#isVersioned()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test isVersioned(); given forDefaultProfile SYSTEM_TENANT; then return 'false'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetProfileCacheKey.isVersioned()"})
-  public void testIsVersioned_givenForDefaultProfileSystem_tenant_thenReturnFalse() {
+  void testIsVersioned_givenForDefaultProfileSystem_tenant_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(AssetProfileCacheKey.forDefaultProfile(ModelConstants.SYSTEM_TENANT).isVersioned());
   }
@@ -177,9 +184,10 @@ public class AssetProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link AssetProfileCacheKey#isVersioned()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test isVersioned(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetProfileCacheKey.isVersioned()"})
-  public void testIsVersioned_thenReturnTrue() {
+  void testIsVersioned_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue(
         AssetProfileCacheKey.forId(
@@ -203,12 +211,13 @@ public class AssetProfileCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileCacheKey.equals(Object)",
     "int AssetProfileCacheKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AssetProfileCacheKey forDefaultProfileResult =
         AssetProfileCacheKey.forDefaultProfile(ModelConstants.SYSTEM_TENANT);
@@ -237,12 +246,13 @@ public class AssetProfileCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileCacheKey.equals(Object)",
     "int AssetProfileCacheKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AssetProfileCacheKey forDefaultProfileResult = AssetProfileCacheKey.forDefaultProfile(null);
     AssetProfileCacheKey forDefaultProfileResult2 = AssetProfileCacheKey.forDefaultProfile(null);
@@ -269,12 +279,13 @@ public class AssetProfileCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileCacheKey.equals(Object)",
     "int AssetProfileCacheKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     AssetProfileCacheKey forNameResult =
         AssetProfileCacheKey.forName(ModelConstants.SYSTEM_TENANT, "Name");
@@ -303,12 +314,13 @@ public class AssetProfileCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileCacheKey.equals(Object)",
     "int AssetProfileCacheKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AssetProfileCacheKey forDefaultProfileResult =
         AssetProfileCacheKey.forDefaultProfile(ModelConstants.SYSTEM_TENANT);
@@ -330,12 +342,13 @@ public class AssetProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link AssetProfileCacheKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileCacheKey.equals(Object)",
     "int AssetProfileCacheKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AssetProfileCacheKey forDefaultProfileResult =
         AssetProfileCacheKey.forDefaultProfile(
@@ -358,12 +371,13 @@ public class AssetProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link AssetProfileCacheKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileCacheKey.equals(Object)",
     "int AssetProfileCacheKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AssetProfileCacheKey forDefaultProfileResult = AssetProfileCacheKey.forDefaultProfile(null);
 
@@ -384,12 +398,13 @@ public class AssetProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link AssetProfileCacheKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileCacheKey.equals(Object)",
     "int AssetProfileCacheKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AssetProfileCacheKey forNameResult =
         AssetProfileCacheKey.forName(ModelConstants.SYSTEM_TENANT, "Name");
@@ -410,12 +425,13 @@ public class AssetProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link AssetProfileCacheKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileCacheKey.equals(Object)",
     "int AssetProfileCacheKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AssetProfileCacheKey forNameResult =
         AssetProfileCacheKey.forName(ModelConstants.SYSTEM_TENANT, null);
@@ -436,12 +452,13 @@ public class AssetProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link AssetProfileCacheKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileCacheKey.equals(Object)",
     "int AssetProfileCacheKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AssetProfileCacheKey forNameResult =
         AssetProfileCacheKey.forName(
@@ -463,12 +480,13 @@ public class AssetProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link AssetProfileCacheKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileCacheKey.equals(Object)",
     "int AssetProfileCacheKey.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(AssetProfileCacheKey.forDefaultProfile(ModelConstants.SYSTEM_TENANT), null);
   }
@@ -484,12 +502,13 @@ public class AssetProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link AssetProfileCacheKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileCacheKey.equals(Object)",
     "int AssetProfileCacheKey.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(
         AssetProfileCacheKey.forDefaultProfile(ModelConstants.SYSTEM_TENANT),
@@ -509,14 +528,15 @@ public class AssetProfileCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AssetProfileId AssetProfileCacheKey.getAssetProfileId()",
     "String AssetProfileCacheKey.getName()",
     "TenantId AssetProfileCacheKey.getTenantId()",
     "boolean AssetProfileCacheKey.isDefaultProfile()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     AssetProfileCacheKey forDefaultProfileResult =
         AssetProfileCacheKey.forDefaultProfile(ModelConstants.SYSTEM_TENANT);

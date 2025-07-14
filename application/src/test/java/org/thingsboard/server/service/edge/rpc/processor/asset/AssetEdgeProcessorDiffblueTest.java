@@ -105,7 +105,7 @@ class AssetEdgeProcessorDiffblueTest {
    * Test {@link AssetEdgeProcessor#convertAssetEventToDownlink(EdgeEvent, EdgeId, EdgeVersion)}.
    *
    * <ul>
-   *   <li>Then return InitializationErrorString is empty string.
+   *   <li>Then return SerializedSize is thirty-one.
    * </ul>
    *
    * <p>Method under test: {@link AssetEdgeProcessor#convertAssetEventToDownlink(EdgeEvent, EdgeId,
@@ -113,12 +113,12 @@ class AssetEdgeProcessorDiffblueTest {
    */
   @Test
   @DisplayName(
-      "Test convertAssetEventToDownlink(EdgeEvent, EdgeId, EdgeVersion); then return InitializationErrorString is empty string")
+      "Test convertAssetEventToDownlink(EdgeEvent, EdgeId, EdgeVersion); then return SerializedSize is thirty-one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "DownlinkMsg AssetEdgeProcessor.convertAssetEventToDownlink(EdgeEvent, EdgeId, EdgeVersion)"
   })
-  void testConvertAssetEventToDownlink_thenReturnInitializationErrorStringIsEmptyString() {
+  void testConvertAssetEventToDownlink_thenReturnSerializedSizeIsThirtyOne() {
     // Arrange
     when(assetMsgConstructorFactory.getMsgConstructorByEdgeVersion(Mockito.<EdgeVersion>any()))
         .thenReturn(new AssetMsgConstructorV1());
@@ -172,6 +172,7 @@ class AssetEdgeProcessorDiffblueTest {
     assertEquals(1, assetUpdateMsgList.size());
     assertEquals(1, actualConvertAssetEventToDownlinkResult.getAssetUpdateMsgCount());
     assertEquals(2, actualConvertAssetEventToDownlinkResult.getAllFields().size());
+    assertEquals(31, actualConvertAssetEventToDownlinkResult.getSerializedSize());
     assertFalse(actualConvertAssetEventToDownlinkResult.hasEdgeConfiguration());
     assertFalse(actualConvertAssetEventToDownlinkResult.hasSyncCompletedMsg());
     assertTrue(actualConvertAssetEventToDownlinkResult.findInitializationErrors().isEmpty());
@@ -363,7 +364,7 @@ class AssetEdgeProcessorDiffblueTest {
    * Test {@link AssetEdgeProcessor#convertAssetEventToDownlink(EdgeEvent, EdgeId, EdgeVersion)}.
    *
    * <ul>
-   *   <li>Then return SerializedSize is thirty-one.
+   *   <li>When {@link EdgeEvent} {@link EdgeEvent#getAction()} return {@code UNASSIGNED_FROM_EDGE}.
    * </ul>
    *
    * <p>Method under test: {@link AssetEdgeProcessor#convertAssetEventToDownlink(EdgeEvent, EdgeId,
@@ -371,12 +372,12 @@ class AssetEdgeProcessorDiffblueTest {
    */
   @Test
   @DisplayName(
-      "Test convertAssetEventToDownlink(EdgeEvent, EdgeId, EdgeVersion); then return SerializedSize is thirty-one")
+      "Test convertAssetEventToDownlink(EdgeEvent, EdgeId, EdgeVersion); when EdgeEvent getAction() return 'UNASSIGNED_FROM_EDGE'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "DownlinkMsg AssetEdgeProcessor.convertAssetEventToDownlink(EdgeEvent, EdgeId, EdgeVersion)"
   })
-  void testConvertAssetEventToDownlink_thenReturnSerializedSizeIsThirtyOne() {
+  void testConvertAssetEventToDownlink_whenEdgeEventGetActionReturnUnassignedFromEdge() {
     // Arrange
     when(assetMsgConstructorFactory.getMsgConstructorByEdgeVersion(Mockito.<EdgeVersion>any()))
         .thenReturn(new AssetMsgConstructorV1());
@@ -430,7 +431,6 @@ class AssetEdgeProcessorDiffblueTest {
     assertEquals(1, assetUpdateMsgList.size());
     assertEquals(1, actualConvertAssetEventToDownlinkResult.getAssetUpdateMsgCount());
     assertEquals(2, actualConvertAssetEventToDownlinkResult.getAllFields().size());
-    assertEquals(31, actualConvertAssetEventToDownlinkResult.getSerializedSize());
     assertFalse(actualConvertAssetEventToDownlinkResult.hasEdgeConfiguration());
     assertFalse(actualConvertAssetEventToDownlinkResult.hasSyncCompletedMsg());
     assertTrue(actualConvertAssetEventToDownlinkResult.findInitializationErrors().isEmpty());

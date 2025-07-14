@@ -1,15 +1,15 @@
 package org.thingsboard.server.dao.audit;
 
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Map;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class AuditLogLevelPropertiesDiffblueTest {
+class AuditLogLevelPropertiesDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -21,12 +21,13 @@ public class AuditLogLevelPropertiesDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "Map AuditLogLevelProperties.getMask()",
     "void AuditLogLevelProperties.setMask(Map)"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     AuditLogLevelProperties auditLogLevelProperties = new AuditLogLevelProperties();
     HashMap<String, String> mask = new HashMap<>();

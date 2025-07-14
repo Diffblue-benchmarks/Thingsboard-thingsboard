@@ -1,16 +1,16 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.AlarmId;
 import org.thingsboard.server.common.data.relation.EntityRelation;
 import org.thingsboard.server.common.data.relation.RelationTypeGroup;
@@ -18,7 +18,7 @@ import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.entity.BaseEntityService;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class RelationEntityDiffblueTest {
+class RelationEntityDiffblueTest {
   /**
    * Test {@link RelationEntity#equals(Object)}, and {@link RelationEntity#hashCode()}.
    *
@@ -35,9 +35,10 @@ public class RelationEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -81,9 +82,10 @@ public class RelationEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(null);
@@ -127,9 +129,10 @@ public class RelationEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -173,9 +176,10 @@ public class RelationEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -219,9 +223,10 @@ public class RelationEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -250,9 +255,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(DoubleNode.valueOf(10.0d));
@@ -289,9 +295,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(null);
@@ -328,9 +335,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -367,9 +375,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -406,9 +415,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -445,9 +455,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -484,9 +495,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -523,9 +535,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -562,9 +575,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -601,9 +615,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -640,9 +655,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -679,9 +695,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -718,9 +735,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -757,9 +775,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -796,9 +815,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -835,9 +855,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -874,9 +895,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -903,9 +925,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean RelationEntity.equals(Object)", "int RelationEntity.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     RelationEntity relationEntity = new RelationEntity();
     relationEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -948,7 +971,8 @@ public class RelationEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void RelationEntity.<init>()",
     "JsonNode RelationEntity.getAdditionalInfo()",
@@ -969,7 +993,7 @@ public class RelationEntityDiffblueTest {
     "void RelationEntity.setVersion(Long)",
     "String RelationEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     RelationEntity actualRelationEntity = new RelationEntity();
     JsonNode additionalInfo = CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON;
@@ -1017,9 +1041,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#RelationEntity(EntityRelation)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new RelationEntity(EntityRelation)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RelationEntity.<init>(EntityRelation)"})
-  public void testNewRelationEntity() {
+  void testNewRelationEntity() {
     // Arrange and Act
     RelationEntity actualRelationEntity =
         new RelationEntity(
@@ -1046,9 +1071,11 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#RelationEntity(EntityRelation)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new RelationEntity(EntityRelation); given 'COMMON'; then return FromType is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RelationEntity.<init>(EntityRelation)"})
-  public void testNewRelationEntity_givenCommon_thenReturnFromTypeIsNull() {
+  void testNewRelationEntity_givenCommon_thenReturnFromTypeIsNull() {
     // Arrange
     EntityRelation relation = new EntityRelation();
     relation.setTypeGroup(RelationTypeGroup.COMMON);
@@ -1074,9 +1101,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#RelationEntity(EntityRelation)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new RelationEntity(EntityRelation); then return FromType is 'TENANT'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RelationEntity.<init>(EntityRelation)"})
-  public void testNewRelationEntity_thenReturnFromTypeIsTenant() {
+  void testNewRelationEntity_thenReturnFromTypeIsTenant() {
     // Arrange and Act
     RelationEntity actualRelationEntity =
         new RelationEntity(
@@ -1102,9 +1130,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#RelationEntity(EntityRelation)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new RelationEntity(EntityRelation); then return ToType is 'TENANT'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RelationEntity.<init>(EntityRelation)"})
-  public void testNewRelationEntity_thenReturnToTypeIsTenant() {
+  void testNewRelationEntity_thenReturnToTypeIsTenant() {
     // Arrange and Act
     RelationEntity actualRelationEntity =
         new RelationEntity(
@@ -1126,9 +1155,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityRelation RelationEntity.toData()"})
-  public void testToData() {
+  void testToData() {
     // Arrange
     EntityRelation relation =
         new EntityRelation(
@@ -1144,9 +1174,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityRelation RelationEntity.toData()"})
-  public void testToData2() {
+  void testToData2() {
     // Arrange
     EntityRelation relation =
         new EntityRelation(
@@ -1162,9 +1193,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityRelation RelationEntity.toData()"})
-  public void testToData3() {
+  void testToData3() {
     // Arrange
     EntityRelation relation =
         new EntityRelation(
@@ -1182,9 +1214,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityRelation RelationEntity.toData()"})
-  public void testToData4() {
+  void testToData4() {
     // Arrange
     EntityRelation relation = new EntityRelation(null, BaseEntityService.NULL_CUSTOMER_ID, "Type");
 
@@ -1201,9 +1234,10 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityRelation RelationEntity.toData()"})
-  public void testToData5() {
+  void testToData5() {
     // Arrange
     EntityRelation relation = new EntityRelation(BaseEntityService.NULL_CUSTOMER_ID, null, "Type");
 
@@ -1225,9 +1259,11 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return EntityRelation(EntityId, EntityId, String) with from is 'null' and to is NULL_CUSTOMER_ID and 'Type'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityRelation RelationEntity.toData()"})
-  public void testToData_thenReturnEntityRelationWithFromIsNullAndToIsNull_customer_idAndType() {
+  void testToData_thenReturnEntityRelationWithFromIsNullAndToIsNull_customer_idAndType() {
     // Arrange
     EntityRelation relation = new EntityRelation(null, BaseEntityService.NULL_CUSTOMER_ID, "Type");
 
@@ -1246,9 +1282,11 @@ public class RelationEntityDiffblueTest {
    * <p>Method under test: {@link RelationEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return EntityRelation(EntityId, EntityId, String) with from is NULL_CUSTOMER_ID and to is 'null' and 'Type'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityRelation RelationEntity.toData()"})
-  public void testToData_thenReturnEntityRelationWithFromIsNull_customer_idAndToIsNullAndType() {
+  void testToData_thenReturnEntityRelationWithFromIsNull_customer_idAndToIsNullAndType() {
     // Arrange
     EntityRelation relation = new EntityRelation(BaseEntityService.NULL_CUSTOMER_ID, null, "Type");
 

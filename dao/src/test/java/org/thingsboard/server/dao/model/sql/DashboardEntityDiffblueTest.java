@@ -1,12 +1,11 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -15,8 +14,9 @@ import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.util.HashSet;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.Dashboard;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.ShortCustomerInfo;
@@ -26,7 +26,7 @@ import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.entity.BaseEntityService;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class DashboardEntityDiffblueTest {
+class DashboardEntityDiffblueTest {
   /**
    * Test {@link DashboardEntity#equals(Object)}, and {@link DashboardEntity#hashCode()}.
    *
@@ -43,9 +43,10 @@ public class DashboardEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DashboardEntity.equals(Object)", "int DashboardEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setAssignedCustomers("Assigned Customers");
@@ -97,9 +98,10 @@ public class DashboardEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DashboardEntity.equals(Object)", "int DashboardEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setAssignedCustomers("Assigned Customers");
@@ -132,9 +134,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DashboardEntity.equals(Object)", "int DashboardEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setAssignedCustomers("Dr");
@@ -179,9 +182,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DashboardEntity.equals(Object)", "int DashboardEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setAssignedCustomers(null);
@@ -226,9 +230,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DashboardEntity.equals(Object)", "int DashboardEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setAssignedCustomers("Assigned Customers");
@@ -273,9 +278,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DashboardEntity.equals(Object)", "int DashboardEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setAssignedCustomers("Assigned Customers");
@@ -320,9 +326,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DashboardEntity.equals(Object)", "int DashboardEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setAssignedCustomers("Assigned Customers");
@@ -367,9 +374,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DashboardEntity.equals(Object)", "int DashboardEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setAssignedCustomers("Assigned Customers");
@@ -414,9 +422,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DashboardEntity.equals(Object)", "int DashboardEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setAssignedCustomers("Assigned Customers");
@@ -461,9 +470,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DashboardEntity.equals(Object)", "int DashboardEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setAssignedCustomers("Assigned Customers");
@@ -508,9 +518,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DashboardEntity.equals(Object)", "int DashboardEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setAssignedCustomers("Assigned Customers");
@@ -555,9 +566,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DashboardEntity.equals(Object)", "int DashboardEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setAssignedCustomers("Assigned Customers");
@@ -602,9 +614,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DashboardEntity.equals(Object)", "int DashboardEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setAssignedCustomers("Assigned Customers");
@@ -649,9 +662,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DashboardEntity.equals(Object)", "int DashboardEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setAssignedCustomers("Assigned Customers");
@@ -696,9 +710,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DashboardEntity.equals(Object)", "int DashboardEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setAssignedCustomers("Assigned Customers");
@@ -743,9 +758,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DashboardEntity.equals(Object)", "int DashboardEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setAssignedCustomers("Assigned Customers");
@@ -790,9 +806,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DashboardEntity.equals(Object)", "int DashboardEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setAssignedCustomers("Assigned Customers");
@@ -837,9 +854,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DashboardEntity.equals(Object)", "int DashboardEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setAssignedCustomers("Assigned Customers");
@@ -884,9 +902,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DashboardEntity.equals(Object)", "int DashboardEntity.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setAssignedCustomers("Assigned Customers");
@@ -917,9 +936,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DashboardEntity.equals(Object)", "int DashboardEntity.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setAssignedCustomers("Assigned Customers");
@@ -966,7 +986,8 @@ public class DashboardEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void DashboardEntity.<init>()",
     "String DashboardEntity.getAssignedCustomers()",
@@ -987,7 +1008,7 @@ public class DashboardEntityDiffblueTest {
     "void DashboardEntity.setTitle(String)",
     "String DashboardEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     DashboardEntity actualDashboardEntity = new DashboardEntity();
     actualDashboardEntity.setAssignedCustomers("Assigned Customers");
@@ -1039,9 +1060,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#DashboardEntity(Dashboard)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new DashboardEntity(Dashboard)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DashboardEntity.<init>(Dashboard)"})
-  public void testNewDashboardEntity() {
+  void testNewDashboardEntity() {
     // Arrange
     Dashboard dashboard = new Dashboard(new Dashboard());
     dashboard.setTenantId(null);
@@ -1072,9 +1094,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#DashboardEntity(Dashboard)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new DashboardEntity(Dashboard)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DashboardEntity.<init>(Dashboard)"})
-  public void testNewDashboardEntity2() {
+  void testNewDashboardEntity2() {
     // Arrange
     Dashboard dashboard = new Dashboard(new Dashboard());
     dashboard.setTenantId(ModelConstants.SYSTEM_TENANT);
@@ -1106,9 +1129,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#DashboardEntity(Dashboard)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new DashboardEntity(Dashboard)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DashboardEntity.<init>(Dashboard)"})
-  public void testNewDashboardEntity3() {
+  void testNewDashboardEntity3() {
     // Arrange
     Dashboard dashboard = new Dashboard(new Dashboard());
     dashboard.setTenantId(ModelConstants.SYSTEM_TENANT);
@@ -1140,9 +1164,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#DashboardEntity(Dashboard)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new DashboardEntity(Dashboard)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DashboardEntity.<init>(Dashboard)"})
-  public void testNewDashboardEntity4() {
+  void testNewDashboardEntity4() {
     // Arrange
     Dashboard dashboard = new Dashboard(new Dashboard());
     dashboard.setTenantId(null);
@@ -1171,9 +1196,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#DashboardEntity(Dashboard)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new DashboardEntity(Dashboard); then return AssignedCustomers is a string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DashboardEntity.<init>(Dashboard)"})
-  public void testNewDashboardEntity_thenReturnAssignedCustomersIsAString() {
+  void testNewDashboardEntity_thenReturnAssignedCustomersIsAString() {
     // Arrange
     HashSet<ShortCustomerInfo> assignedCustomers = new HashSet<>();
     assignedCustomers.add(new ShortCustomerInfo(BaseEntityService.NULL_CUSTOMER_ID, "Dr", true));
@@ -1215,9 +1241,11 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#DashboardEntity(Dashboard)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new DashboardEntity(Dashboard); when Dashboard(); then return AssignedCustomers is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DashboardEntity.<init>(Dashboard)"})
-  public void testNewDashboardEntity_whenDashboard_thenReturnAssignedCustomersIsNull() {
+  void testNewDashboardEntity_whenDashboard_thenReturnAssignedCustomersIsNull() {
     // Arrange and Act
     DashboardEntity actualDashboardEntity = new DashboardEntity(new Dashboard());
 
@@ -1246,9 +1274,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given DashboardEntity() AssignedCustomers is '42'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Dashboard DashboardEntity.toData()"})
-  public void testToData_givenDashboardEntityAssignedCustomersIs42() {
+  void testToData_givenDashboardEntityAssignedCustomersIs42() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1293,9 +1322,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given DashboardEntity() AssignedCustomers is 'foo'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Dashboard DashboardEntity.toData()"})
-  public void testToData_givenDashboardEntityAssignedCustomersIsFoo() {
+  void testToData_givenDashboardEntityAssignedCustomersIsFoo() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1341,9 +1371,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given DashboardEntity(); then return Configuration is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Dashboard DashboardEntity.toData()"})
-  public void testToData_givenDashboardEntity_thenReturnConfigurationIsNull() {
+  void testToData_givenDashboardEntity_thenReturnConfigurationIsNull() {
     // Arrange and Act
     Dashboard actualToDataResult = new DashboardEntity().toData();
 
@@ -1370,9 +1401,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return AssignedCustomers Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Dashboard DashboardEntity.toData()"})
-  public void testToData_thenReturnAssignedCustomersEmpty() throws JsonProcessingException {
+  void testToData_thenReturnAssignedCustomersEmpty() throws JsonProcessingException {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1418,9 +1450,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return AssignedCustomers is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Dashboard DashboardEntity.toData()"})
-  public void testToData_thenReturnAssignedCustomersIsNull() {
+  void testToData_thenReturnAssignedCustomersIsNull() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1465,9 +1498,11 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return ExternalId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Dashboard DashboardEntity.toData()"})
-  public void testToData_thenReturnExternalIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnExternalIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1507,9 +1542,11 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return ExternalId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Dashboard DashboardEntity.toData()"})
-  public void testToData_thenReturnExternalIdIdToStringIs784f394c42b6435a983cB7beff2784f92()
+  void testToData_thenReturnExternalIdIdToStringIs784f394c42b6435a983cB7beff2784f92()
       throws JsonProcessingException {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
@@ -1552,9 +1589,10 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return TenantId Id is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Dashboard DashboardEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdIsRandomUUID() {
+  void testToData_thenReturnTenantIdIdIsRandomUUID() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1589,9 +1627,11 @@ public class DashboardEntityDiffblueTest {
    * <p>Method under test: {@link DashboardEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return TenantId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Dashboard DashboardEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     DashboardEntity dashboardEntity = new DashboardEntity();
     dashboardEntity.setConfiguration(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);

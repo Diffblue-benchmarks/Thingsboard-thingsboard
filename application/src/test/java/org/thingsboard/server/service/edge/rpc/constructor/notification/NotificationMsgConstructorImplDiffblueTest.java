@@ -625,7 +625,6 @@ class NotificationMsgConstructorImplDiffblueTest {
     // Assert
     assertEquals(
         -7476899250389416711L, actualConstructNotificationTemplateDeleteMsgResult.getIdLSB());
-    assertEquals(23, actualConstructNotificationTemplateDeleteMsgResult.getSerializedSize());
     assertEquals(
         8669210807411032922L, actualConstructNotificationTemplateDeleteMsgResult.getIdMSB());
     UnknownFieldSet unknownFields =

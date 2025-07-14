@@ -1,9 +1,9 @@
 package org.thingsboard.server.dao.event;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.ArgumentMatchers.isNull;
@@ -15,7 +15,6 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.SettableFuture;
@@ -23,9 +22,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.function.Function;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -33,7 +33,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.aot.DisabledInAotMode;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.EventInfo;
 import org.thingsboard.server.common.data.event.ErrorEventFilter;
@@ -52,9 +52,9 @@ import org.thingsboard.server.dao.service.DataValidator;
 @ContextConfiguration(classes = {BaseEventService.class})
 @DisabledInAotMode
 @EnableConfigurationProperties
+@ExtendWith(SpringExtension.class)
 @PropertySource("classpath:application-test.properties")
-@RunWith(SpringJUnit4ClassRunner.class)
-public class BaseEventServiceDiffblueTest {
+class BaseEventServiceDiffblueTest {
   @Autowired private BaseEventService baseEventService;
 
   @MockBean private DataValidator<Event> dataValidator;
@@ -72,9 +72,11 @@ public class BaseEventServiceDiffblueTest {
    * <p>Method under test: {@link BaseEventService#saveAsync(Event)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test saveAsync(Event); given EventDao saveAsync(Event) return create; then return SettableFuture")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ListenableFuture BaseEventService.saveAsync(Event)"})
-  public void testSaveAsync_givenEventDaoSaveAsyncReturnCreate_thenReturnSettableFuture() {
+  void testSaveAsync_givenEventDaoSaveAsyncReturnCreate_thenReturnSettableFuture() {
     // Arrange
     SettableFuture<Void> createResult = SettableFuture.create();
     when(eventDao.saveAsync(Mockito.<Event>any())).thenReturn(createResult);
@@ -101,11 +103,12 @@ public class BaseEventServiceDiffblueTest {
    * TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEvents(TenantId, EntityId, EventType, TimePageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEventService.findEvents(TenantId, EntityId, EventType, TimePageLink)"
   })
-  public void testFindEvents() {
+  void testFindEvents() {
     // Arrange
     PageData<? extends Event> pageData = new PageData<>(new ArrayList<>(), 3, 3L, true);
 
@@ -138,11 +141,12 @@ public class BaseEventServiceDiffblueTest {
    * TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEvents(TenantId, EntityId, EventType, TimePageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEventService.findEvents(TenantId, EntityId, EventType, TimePageLink)"
   })
-  public void testFindEvents2() {
+  void testFindEvents2() {
     // Arrange
     PageData<? extends Event> pageData = new PageData<>(null, 3, 3L, true);
 
@@ -180,11 +184,13 @@ public class BaseEventServiceDiffblueTest {
    * TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEvents(TenantId, EntityId, EventType, TimePageLink); given 'DOMAIN'; then calls getEntityType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEventService.findEvents(TenantId, EntityId, EventType, TimePageLink)"
   })
-  public void testFindEvents_givenDomain_thenCallsGetEntityType() {
+  void testFindEvents_givenDomain_thenCallsGetEntityType() {
     // Arrange
     Event event = mock(Event.class);
     EventInfo eventInfo = new EventInfo();
@@ -245,11 +251,13 @@ public class BaseEventServiceDiffblueTest {
    * TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEvents(TenantId, EntityId, EventType, TimePageLink); given Event toInfo(EntityType) return EventInfo(); then return Data size is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEventService.findEvents(TenantId, EntityId, EventType, TimePageLink)"
   })
-  public void testFindEvents_givenEventToInfoReturnEventInfo_thenReturnDataSizeIsOne() {
+  void testFindEvents_givenEventToInfoReturnEventInfo_thenReturnDataSizeIsOne() {
     // Arrange
     Event event = mock(Event.class);
     EventInfo eventInfo = new EventInfo();
@@ -304,11 +312,13 @@ public class BaseEventServiceDiffblueTest {
    * TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEvents(TenantId, EntityId, EventType, TimePageLink); given Event toInfo(EntityType) return EventInfo(); then return Data size is two")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEventService.findEvents(TenantId, EntityId, EventType, TimePageLink)"
   })
-  public void testFindEvents_givenEventToInfoReturnEventInfo_thenReturnDataSizeIsTwo() {
+  void testFindEvents_givenEventToInfoReturnEventInfo_thenReturnDataSizeIsTwo() {
     // Arrange
     Event event = mock(Event.class);
     EventInfo eventInfo = new EventInfo();
@@ -366,11 +376,13 @@ public class BaseEventServiceDiffblueTest {
    * TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEvents(TenantId, EntityId, EventType, TimePageLink); given PageData hasNext() return 'true'; then return TotalPages is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEventService.findEvents(TenantId, EntityId, EventType, TimePageLink)"
   })
-  public void testFindEvents_givenPageDataHasNextReturnTrue_thenReturnTotalPagesIsOne() {
+  void testFindEvents_givenPageDataHasNextReturnTrue_thenReturnTotalPagesIsOne() {
     // Arrange
     PageData<? extends Event> pageData = mock(PageData.class);
     when(pageData.hasNext()).thenReturn(true);
@@ -417,11 +429,13 @@ public class BaseEventServiceDiffblueTest {
    * TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEvents(TenantId, EntityId, EventType, TimePageLink); then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEventService.findEvents(TenantId, EntityId, EventType, TimePageLink)"
   })
-  public void testFindEvents_thenReturnEmpty_page_data() {
+  void testFindEvents_thenReturnEmpty_page_data() {
     // Arrange
     PageData<? extends Event> emptyPageDataResult = PageData.emptyPageData();
     Mockito.<PageData<? extends Event>>when(
@@ -458,9 +472,11 @@ public class BaseEventServiceDiffblueTest {
    * int)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findLatestEvents(TenantId, EntityId, EventType, int); given 'DOMAIN'; then calls getEntityType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List BaseEventService.findLatestEvents(TenantId, EntityId, EventType, int)"})
-  public void testFindLatestEvents_givenDomain_thenCallsGetEntityType() {
+  void testFindLatestEvents_givenDomain_thenCallsGetEntityType() {
     // Arrange
     Event event = mock(Event.class);
     EventInfo eventInfo = new EventInfo();
@@ -506,9 +522,11 @@ public class BaseEventServiceDiffblueTest {
    * int)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findLatestEvents(TenantId, EntityId, EventType, int); when NULL_CUSTOMER_ID; then return Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List BaseEventService.findLatestEvents(TenantId, EntityId, EventType, int)"})
-  public void testFindLatestEvents_whenNull_customer_id_thenReturnEmpty() {
+  void testFindLatestEvents_whenNull_customer_id_thenReturnEmpty() {
     // Arrange
     Mockito.<List<? extends Event>>when(
             eventDao.findLatestEvents(
@@ -537,9 +555,11 @@ public class BaseEventServiceDiffblueTest {
    * int)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findLatestEvents(TenantId, EntityId, EventType, int); when NULL_CUSTOMER_ID; then return size is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List BaseEventService.findLatestEvents(TenantId, EntityId, EventType, int)"})
-  public void testFindLatestEvents_whenNull_customer_id_thenReturnSizeIsOne() {
+  void testFindLatestEvents_whenNull_customer_id_thenReturnSizeIsOne() {
     // Arrange
     Event event = mock(Event.class);
     EventInfo eventInfo = new EventInfo();
@@ -576,9 +596,11 @@ public class BaseEventServiceDiffblueTest {
    * int)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findLatestEvents(TenantId, EntityId, EventType, int); when NULL_CUSTOMER_ID; then return size is two")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List BaseEventService.findLatestEvents(TenantId, EntityId, EventType, int)"})
-  public void testFindLatestEvents_whenNull_customer_id_thenReturnSizeIsTwo() {
+  void testFindLatestEvents_whenNull_customer_id_thenReturnSizeIsTwo() {
     // Arrange
     Event event = mock(Event.class);
     EventInfo eventInfo = new EventInfo();
@@ -618,11 +640,13 @@ public class BaseEventServiceDiffblueTest {
    * EntityId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findLatestDebugRuleNodeInEvent(TenantId, EntityId); then calls getEntityType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "EventInfo BaseEventService.findLatestDebugRuleNodeInEvent(TenantId, EntityId)"
   })
-  public void testFindLatestDebugRuleNodeInEvent_thenCallsGetEntityType() {
+  void testFindLatestDebugRuleNodeInEvent_thenCallsGetEntityType() {
     // Arrange
     Event event = mock(Event.class);
     EventInfo eventInfo = new EventInfo();
@@ -656,11 +680,12 @@ public class BaseEventServiceDiffblueTest {
    * EntityId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findLatestDebugRuleNodeInEvent(TenantId, EntityId); then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "EventInfo BaseEventService.findLatestDebugRuleNodeInEvent(TenantId, EntityId)"
   })
-  public void testFindLatestDebugRuleNodeInEvent_thenReturnNull() {
+  void testFindLatestDebugRuleNodeInEvent_thenReturnNull() {
     // Arrange
     when(eventDao.findLatestDebugRuleNodeInEvent(Mockito.<UUID>any(), Mockito.<UUID>any()))
         .thenReturn(null);
@@ -687,11 +712,13 @@ public class BaseEventServiceDiffblueTest {
    * EntityId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findLatestDebugRuleNodeInEvent(TenantId, EntityId); when NULL_CUSTOMER_ID; then return EventInfo()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "EventInfo BaseEventService.findLatestDebugRuleNodeInEvent(TenantId, EntityId)"
   })
-  public void testFindLatestDebugRuleNodeInEvent_whenNull_customer_id_thenReturnEventInfo() {
+  void testFindLatestDebugRuleNodeInEvent_whenNull_customer_id_thenReturnEventInfo() {
     // Arrange
     Event event = mock(Event.class);
     EventInfo eventInfo = new EventInfo();
@@ -718,11 +745,12 @@ public class BaseEventServiceDiffblueTest {
    * EventFilter, TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEventsByFilter(TenantId, EntityId, EventFilter, TimePageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEventService.findEventsByFilter(TenantId, EntityId, EventFilter, TimePageLink)"
   })
-  public void testFindEventsByFilter() {
+  void testFindEventsByFilter() {
     // Arrange
     PageData<? extends Event> pageData = new PageData<>(new ArrayList<>(), 3, 3L, true);
 
@@ -758,11 +786,12 @@ public class BaseEventServiceDiffblueTest {
    * EventFilter, TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEventsByFilter(TenantId, EntityId, EventFilter, TimePageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEventService.findEventsByFilter(TenantId, EntityId, EventFilter, TimePageLink)"
   })
-  public void testFindEventsByFilter2() {
+  void testFindEventsByFilter2() {
     // Arrange
     PageData<? extends Event> pageData = new PageData<>(null, 3, 3L, true);
 
@@ -803,11 +832,13 @@ public class BaseEventServiceDiffblueTest {
    * EventFilter, TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEventsByFilter(TenantId, EntityId, EventFilter, TimePageLink); given 'DOMAIN'; then calls getEntityType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEventService.findEventsByFilter(TenantId, EntityId, EventFilter, TimePageLink)"
   })
-  public void testFindEventsByFilter_givenDomain_thenCallsGetEntityType() {
+  void testFindEventsByFilter_givenDomain_thenCallsGetEntityType() {
     // Arrange
     Event event = mock(Event.class);
     EventInfo eventInfo = new EventInfo();
@@ -871,11 +902,13 @@ public class BaseEventServiceDiffblueTest {
    * EventFilter, TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEventsByFilter(TenantId, EntityId, EventFilter, TimePageLink); given Event toInfo(EntityType) return EventInfo(); then return Data size is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEventService.findEventsByFilter(TenantId, EntityId, EventFilter, TimePageLink)"
   })
-  public void testFindEventsByFilter_givenEventToInfoReturnEventInfo_thenReturnDataSizeIsOne() {
+  void testFindEventsByFilter_givenEventToInfoReturnEventInfo_thenReturnDataSizeIsOne() {
     // Arrange
     Event event = mock(Event.class);
     EventInfo eventInfo = new EventInfo();
@@ -933,11 +966,13 @@ public class BaseEventServiceDiffblueTest {
    * EventFilter, TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEventsByFilter(TenantId, EntityId, EventFilter, TimePageLink); given Event toInfo(EntityType) return EventInfo(); then return Data size is two")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEventService.findEventsByFilter(TenantId, EntityId, EventFilter, TimePageLink)"
   })
-  public void testFindEventsByFilter_givenEventToInfoReturnEventInfo_thenReturnDataSizeIsTwo() {
+  void testFindEventsByFilter_givenEventToInfoReturnEventInfo_thenReturnDataSizeIsTwo() {
     // Arrange
     Event event = mock(Event.class);
     EventInfo eventInfo = new EventInfo();
@@ -998,11 +1033,13 @@ public class BaseEventServiceDiffblueTest {
    * EventFilter, TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEventsByFilter(TenantId, EntityId, EventFilter, TimePageLink); given PageData hasNext() return 'true'; then return TotalPages is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEventService.findEventsByFilter(TenantId, EntityId, EventFilter, TimePageLink)"
   })
-  public void testFindEventsByFilter_givenPageDataHasNextReturnTrue_thenReturnTotalPagesIsOne() {
+  void testFindEventsByFilter_givenPageDataHasNextReturnTrue_thenReturnTotalPagesIsOne() {
     // Arrange
     PageData<? extends Event> pageData = mock(PageData.class);
     when(pageData.hasNext()).thenReturn(true);
@@ -1052,11 +1089,13 @@ public class BaseEventServiceDiffblueTest {
    * EventFilter, TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEventsByFilter(TenantId, EntityId, EventFilter, TimePageLink); then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEventService.findEventsByFilter(TenantId, EntityId, EventFilter, TimePageLink)"
   })
-  public void testFindEventsByFilter_thenReturnEmpty_page_data() {
+  void testFindEventsByFilter_thenReturnEmpty_page_data() {
     // Arrange
     PageData<? extends Event> emptyPageDataResult = PageData.emptyPageData();
     Mockito.<PageData<? extends Event>>when(
@@ -1091,11 +1130,13 @@ public class BaseEventServiceDiffblueTest {
    * Long, Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test removeEvents(TenantId, EntityId, EventFilter, Long, Long) with 'tenantId', 'entityId', 'eventFilter', 'startTime', 'endTime'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void BaseEventService.removeEvents(TenantId, EntityId, EventFilter, Long, Long)"
   })
-  public void testRemoveEventsWithTenantIdEntityIdEventFilterStartTimeEndTime() {
+  void testRemoveEventsWithTenantIdEntityIdEventFilterStartTimeEndTime() {
     // Arrange
     doNothing()
         .when(eventDao)
@@ -1127,11 +1168,13 @@ public class BaseEventServiceDiffblueTest {
    * Long, Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test removeEvents(TenantId, EntityId, EventFilter, Long, Long) with 'tenantId', 'entityId', 'eventFilter', 'startTime', 'endTime'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void BaseEventService.removeEvents(TenantId, EntityId, EventFilter, Long, Long)"
   })
-  public void testRemoveEventsWithTenantIdEntityIdEventFilterStartTimeEndTime2() {
+  void testRemoveEventsWithTenantIdEntityIdEventFilterStartTimeEndTime2() {
     // Arrange
     doNothing()
         .when(eventDao)
@@ -1160,11 +1203,13 @@ public class BaseEventServiceDiffblueTest {
    * Long, Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test removeEvents(TenantId, EntityId, EventFilter, Long, Long) with 'tenantId', 'entityId', 'eventFilter', 'startTime', 'endTime'; then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void BaseEventService.removeEvents(TenantId, EntityId, EventFilter, Long, Long)"
   })
-  public void testRemoveEventsWithTenantIdEntityIdEventFilterStartTimeEndTime_thenCallsGetId() {
+  void testRemoveEventsWithTenantIdEntityIdEventFilterStartTimeEndTime_thenCallsGetId() {
     // Arrange
     doNothing()
         .when(eventDao)
@@ -1198,9 +1243,11 @@ public class BaseEventServiceDiffblueTest {
    * <p>Method under test: {@link BaseEventService#removeEvents(TenantId, EntityId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test removeEvents(TenantId, EntityId) with 'tenantId', 'entityId'; then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void BaseEventService.removeEvents(TenantId, EntityId)"})
-  public void testRemoveEventsWithTenantIdEntityId_thenCallsGetId() {
+  void testRemoveEventsWithTenantIdEntityId_thenCallsGetId() {
     // Arrange
     doNothing()
         .when(eventDao)
@@ -1229,9 +1276,11 @@ public class BaseEventServiceDiffblueTest {
    * <p>Method under test: {@link BaseEventService#removeEvents(TenantId, EntityId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test removeEvents(TenantId, EntityId) with 'tenantId', 'entityId'; when NULL_CUSTOMER_ID; then calls removeEvents(UUID, UUID, Long, Long)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void BaseEventService.removeEvents(TenantId, EntityId)"})
-  public void testRemoveEventsWithTenantIdEntityId_whenNull_customer_id_thenCallsRemoveEvents() {
+  void testRemoveEventsWithTenantIdEntityId_whenNull_customer_id_thenCallsRemoveEvents() {
     // Arrange
     doNothing()
         .when(eventDao)
@@ -1251,9 +1300,10 @@ public class BaseEventServiceDiffblueTest {
    * <p>Method under test: {@link BaseEventService#cleanupEvents(long, long, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test cleanupEvents(long, long, boolean)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void BaseEventService.cleanupEvents(long, long, boolean)"})
-  public void testCleanupEvents() {
+  void testCleanupEvents() {
     // Arrange
     doNothing().when(eventDao).cleanupEvents(anyLong(), anyLong(), anyBoolean());
 

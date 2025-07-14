@@ -1,17 +1,17 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.ResourceSubType;
 import org.thingsboard.server.common.data.ResourceType;
 import org.thingsboard.server.common.data.TbResourceInfo;
@@ -20,7 +20,7 @@ import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class TbResourceInfoEntityDiffblueTest {
+class TbResourceInfoEntityDiffblueTest {
   /**
    * Test {@link TbResourceInfoEntity#equals(Object)}, and {@link TbResourceInfoEntity#hashCode()}.
    *
@@ -37,12 +37,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -100,12 +101,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -141,12 +143,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(3L);
@@ -197,12 +200,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -253,12 +257,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -309,12 +314,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -365,12 +371,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -421,12 +428,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -477,12 +485,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -533,12 +542,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -589,12 +599,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -645,12 +656,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -701,12 +713,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -757,12 +770,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -813,12 +827,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -869,12 +884,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -925,12 +941,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -981,12 +998,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -1037,12 +1055,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -1093,12 +1112,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -1149,12 +1169,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -1205,12 +1226,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -1261,12 +1283,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -1317,12 +1340,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -1373,12 +1397,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -1429,12 +1454,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -1485,12 +1511,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -1541,12 +1568,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -1580,12 +1608,13 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TbResourceInfoEntity.equals(Object)",
     "int TbResourceInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     TbResourceInfoEntity tbResourceInfoEntity = new TbResourceInfoEntity();
     tbResourceInfoEntity.setCreatedTime(1L);
@@ -1643,7 +1672,8 @@ public class TbResourceInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void TbResourceInfoEntity.<init>()",
     "JsonNode TbResourceInfoEntity.getDescriptor()",
@@ -1672,7 +1702,7 @@ public class TbResourceInfoEntityDiffblueTest {
     "void TbResourceInfoEntity.setTitle(String)",
     "String TbResourceInfoEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     TbResourceInfoEntity actualTbResourceInfoEntity = new TbResourceInfoEntity();
     JsonNode descriptor = CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON;
@@ -1736,9 +1766,10 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#TbResourceInfoEntity(TbResourceInfo)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new TbResourceInfoEntity(TbResourceInfo)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceInfoEntity.<init>(TbResourceInfo)"})
-  public void testNewTbResourceInfoEntity() {
+  void testNewTbResourceInfoEntity() {
     // Arrange
     TbResourceInfo resource = new TbResourceInfo();
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -1764,9 +1795,10 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#TbResourceInfoEntity(TbResourceInfo)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new TbResourceInfoEntity(TbResourceInfo)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceInfoEntity.<init>(TbResourceInfo)"})
-  public void testNewTbResourceInfoEntity2() {
+  void testNewTbResourceInfoEntity2() {
     // Arrange
     TbResourceInfo resource = new TbResourceInfo();
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -1795,9 +1827,11 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#TbResourceInfoEntity(TbResourceInfo)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TbResourceInfoEntity(TbResourceInfo); given 'IMAGE'; then return ResourceSubType is 'IMAGE'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceInfoEntity.<init>(TbResourceInfo)"})
-  public void testNewTbResourceInfoEntity_givenImage_thenReturnResourceSubTypeIsImage() {
+  void testNewTbResourceInfoEntity_givenImage_thenReturnResourceSubTypeIsImage() {
     // Arrange
     TbResourceInfo resource = new TbResourceInfo();
     resource.setResourceSubType(ResourceSubType.IMAGE);
@@ -1825,9 +1859,11 @@ public class TbResourceInfoEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceInfoEntity#TbResourceInfoEntity(TbResourceInfo)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TbResourceInfoEntity(TbResourceInfo); given 'LWM2M_MODEL'; then return ResourceSubType is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceInfoEntity.<init>(TbResourceInfo)"})
-  public void testNewTbResourceInfoEntity_givenLwm2mModel_thenReturnResourceSubTypeIsNull() {
+  void testNewTbResourceInfoEntity_givenLwm2mModel_thenReturnResourceSubTypeIsNull() {
     // Arrange
     TbResourceInfo resource = new TbResourceInfo();
     resource.setResourceType(ResourceType.LWM2M_MODEL);

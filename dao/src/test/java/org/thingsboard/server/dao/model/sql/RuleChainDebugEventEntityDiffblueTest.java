@@ -1,23 +1,23 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.event.RuleChainDebugEvent;
 import org.thingsboard.server.common.data.event.RuleChainDebugEvent.RuleChainDebugEventBuilder;
 import org.thingsboard.server.common.data.id.EventId;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class RuleChainDebugEventEntityDiffblueTest {
+class RuleChainDebugEventEntityDiffblueTest {
   /**
    * Test {@link RuleChainDebugEventEntity#equals(Object)}, and {@link
    * RuleChainDebugEventEntity#hashCode()}.
@@ -35,12 +35,13 @@ public class RuleChainDebugEventEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleChainDebugEventEntity.equals(Object)",
     "int RuleChainDebugEventEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     RuleChainDebugEventEntity ruleChainDebugEventEntity = new RuleChainDebugEventEntity();
     ruleChainDebugEventEntity.setCreatedTime(1L);
@@ -87,12 +88,13 @@ public class RuleChainDebugEventEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleChainDebugEventEntity.equals(Object)",
     "int RuleChainDebugEventEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     RuleChainDebugEventEntity ruleChainDebugEventEntity = new RuleChainDebugEventEntity();
     ruleChainDebugEventEntity.setCreatedTime(1L);
@@ -122,12 +124,13 @@ public class RuleChainDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleChainDebugEventEntity.equals(Object)",
     "int RuleChainDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     RuleChainDebugEventEntity ruleChainDebugEventEntity = new RuleChainDebugEventEntity();
     ruleChainDebugEventEntity.setCreatedTime(1L);
@@ -166,12 +169,13 @@ public class RuleChainDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleChainDebugEventEntity.equals(Object)",
     "int RuleChainDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     RuleChainDebugEventEntity ruleChainDebugEventEntity = new RuleChainDebugEventEntity();
     ruleChainDebugEventEntity.setCreatedTime(1L);
@@ -210,12 +214,13 @@ public class RuleChainDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleChainDebugEventEntity.equals(Object)",
     "int RuleChainDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     RuleChainDebugEventEntity ruleChainDebugEventEntity = new RuleChainDebugEventEntity();
     ruleChainDebugEventEntity.setCreatedTime(1L);
@@ -254,12 +259,13 @@ public class RuleChainDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleChainDebugEventEntity.equals(Object)",
     "int RuleChainDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     RuleChainDebugEventEntity ruleChainDebugEventEntity = new RuleChainDebugEventEntity();
     ruleChainDebugEventEntity.setCreatedTime(1L);
@@ -298,12 +304,13 @@ public class RuleChainDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleChainDebugEventEntity.equals(Object)",
     "int RuleChainDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     RuleChainDebugEventEntity ruleChainDebugEventEntity = new RuleChainDebugEventEntity();
     ruleChainDebugEventEntity.setCreatedTime(1L);
@@ -342,12 +349,13 @@ public class RuleChainDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleChainDebugEventEntity.equals(Object)",
     "int RuleChainDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     RuleChainDebugEventEntity ruleChainDebugEventEntity = new RuleChainDebugEventEntity();
     ruleChainDebugEventEntity.setCreatedTime(1L);
@@ -375,12 +383,13 @@ public class RuleChainDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleChainDebugEventEntity.equals(Object)",
     "int RuleChainDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     RuleChainDebugEventEntity ruleChainDebugEventEntity = new RuleChainDebugEventEntity();
     ruleChainDebugEventEntity.setCreatedTime(1L);
@@ -412,7 +421,8 @@ public class RuleChainDebugEventEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void RuleChainDebugEventEntity.<init>()",
     "String RuleChainDebugEventEntity.getError()",
@@ -421,7 +431,7 @@ public class RuleChainDebugEventEntityDiffblueTest {
     "void RuleChainDebugEventEntity.setMessage(String)",
     "String RuleChainDebugEventEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     RuleChainDebugEventEntity actualRuleChainDebugEventEntity = new RuleChainDebugEventEntity();
     actualRuleChainDebugEventEntity.setError("An error occurred");
@@ -451,9 +461,10 @@ public class RuleChainDebugEventEntityDiffblueTest {
    * RuleChainDebugEventEntity#RuleChainDebugEventEntity(RuleChainDebugEvent)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new RuleChainDebugEventEntity(RuleChainDebugEvent)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleChainDebugEventEntity.<init>(RuleChainDebugEvent)"})
-  public void testNewRuleChainDebugEventEntity() {
+  void testNewRuleChainDebugEventEntity() {
     // Arrange
     RuleChainDebugEventBuilder builderResult = RuleChainDebugEvent.builder();
     UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -503,9 +514,11 @@ public class RuleChainDebugEventEntityDiffblueTest {
    * RuleChainDebugEventEntity#RuleChainDebugEventEntity(RuleChainDebugEvent)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new RuleChainDebugEventEntity(RuleChainDebugEvent); given SYSTEM_TENANT; then calls getCreatedTime()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleChainDebugEventEntity.<init>(RuleChainDebugEvent)"})
-  public void testNewRuleChainDebugEventEntity_givenSystem_tenant_thenCallsGetCreatedTime() {
+  void testNewRuleChainDebugEventEntity_givenSystem_tenant_thenCallsGetCreatedTime() {
     // Arrange
     RuleChainDebugEvent event = mock(RuleChainDebugEvent.class);
     when(event.getServiceId()).thenReturn("42");
@@ -558,9 +571,10 @@ public class RuleChainDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainDebugEventEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given RuleChainDebugEventEntity(); then return ServiceId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"RuleChainDebugEvent RuleChainDebugEventEntity.toData()"})
-  public void testToData_givenRuleChainDebugEventEntity_thenReturnServiceIdIsNull() {
+  void testToData_givenRuleChainDebugEventEntity_thenReturnServiceIdIsNull() {
     // Arrange and Act
     RuleChainDebugEvent actualToDataResult = new RuleChainDebugEventEntity().toData();
 
@@ -585,9 +599,10 @@ public class RuleChainDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainDebugEventEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return TenantId Id is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"RuleChainDebugEvent RuleChainDebugEventEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdIsRandomUUID() {
+  void testToData_thenReturnTenantIdIdIsRandomUUID() {
     // Arrange
     RuleChainDebugEventEntity ruleChainDebugEventEntity = new RuleChainDebugEventEntity();
     ruleChainDebugEventEntity.setCreatedTime(1L);
@@ -631,9 +646,11 @@ public class RuleChainDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleChainDebugEventEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return TenantId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"RuleChainDebugEvent RuleChainDebugEventEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     RuleChainDebugEventEntity ruleChainDebugEventEntity = new RuleChainDebugEventEntity();
     ruleChainDebugEventEntity.setCreatedTime(1L);

@@ -1,16 +1,16 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.alarm.AlarmComment;
 import org.thingsboard.server.common.data.alarm.AlarmCommentInfo;
 import org.thingsboard.server.common.data.alarm.AlarmCommentType;
@@ -18,7 +18,7 @@ import org.thingsboard.server.common.data.id.AlarmId;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class AlarmCommentEntityDiffblueTest {
+class AlarmCommentEntityDiffblueTest {
   /**
    * Test {@link AlarmCommentEntity#equals(Object)}, and {@link AlarmCommentEntity#hashCode()}.
    *
@@ -35,12 +35,13 @@ public class AlarmCommentEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AlarmCommentEntity.equals(Object)",
     "int AlarmCommentEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     alarmCommentEntity.setAlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -82,12 +83,13 @@ public class AlarmCommentEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AlarmCommentEntity.equals(Object)",
     "int AlarmCommentEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     alarmCommentEntity.setAlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -115,12 +117,13 @@ public class AlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AlarmCommentEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AlarmCommentEntity.equals(Object)",
     "int AlarmCommentEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     alarmCommentEntity.setAlarmId(ModelConstants.NULL_UUID);
@@ -155,12 +158,13 @@ public class AlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AlarmCommentEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AlarmCommentEntity.equals(Object)",
     "int AlarmCommentEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     alarmCommentEntity.setAlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -186,12 +190,13 @@ public class AlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AlarmCommentEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AlarmCommentEntity.equals(Object)",
     "int AlarmCommentEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     alarmCommentEntity.setAlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -217,12 +222,13 @@ public class AlarmCommentEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void AlarmCommentEntity.<init>()",
     "java.lang.String AlarmCommentEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     AlarmCommentEntity actualAlarmCommentEntity = new AlarmCommentEntity();
 
@@ -248,9 +254,11 @@ public class AlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AlarmCommentEntity#AlarmCommentEntity(AlarmComment)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new AlarmCommentEntity(AlarmComment); given one; then return toData CreatedTime is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmCommentEntity.<init>(AlarmComment)"})
-  public void testNewAlarmCommentEntity_givenOne_thenReturnToDataCreatedTimeIsOne() {
+  void testNewAlarmCommentEntity_givenOne_thenReturnToDataCreatedTimeIsOne() {
     // Arrange
     AlarmComment alarmComment = new AlarmComment();
     alarmComment.setCreatedTime(1L);
@@ -278,9 +286,11 @@ public class AlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AlarmCommentEntity#AlarmCommentEntity(AlarmCommentInfo)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new AlarmCommentEntity(AlarmCommentInfo); given one; then return toData CreatedTime is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmCommentEntity.<init>(AlarmCommentInfo)"})
-  public void testNewAlarmCommentEntity_givenOne_thenReturnToDataCreatedTimeIsOne2() {
+  void testNewAlarmCommentEntity_givenOne_thenReturnToDataCreatedTimeIsOne2() {
     // Arrange
     AlarmCommentInfo alarmCommentInfo = new AlarmCommentInfo();
     alarmCommentInfo.setCreatedTime(1L);
@@ -309,9 +319,11 @@ public class AlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AlarmCommentEntity#AlarmCommentEntity(AlarmComment)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new AlarmCommentEntity(AlarmComment); given 'SYSTEM'; then return toData Type is 'SYSTEM'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmCommentEntity.<init>(AlarmComment)"})
-  public void testNewAlarmCommentEntity_givenSystem_thenReturnToDataTypeIsSystem() {
+  void testNewAlarmCommentEntity_givenSystem_thenReturnToDataTypeIsSystem() {
     // Arrange
     AlarmComment alarmComment = new AlarmComment();
     alarmComment.setType(AlarmCommentType.SYSTEM);
@@ -339,9 +351,11 @@ public class AlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AlarmCommentEntity#AlarmCommentEntity(AlarmCommentInfo)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new AlarmCommentEntity(AlarmCommentInfo); given 'SYSTEM'; then return toData Type is 'SYSTEM'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmCommentEntity.<init>(AlarmCommentInfo)"})
-  public void testNewAlarmCommentEntity_givenSystem_thenReturnToDataTypeIsSystem2() {
+  void testNewAlarmCommentEntity_givenSystem_thenReturnToDataTypeIsSystem2() {
     // Arrange
     AlarmCommentInfo alarmCommentInfo = new AlarmCommentInfo();
     alarmCommentInfo.setType(AlarmCommentType.SYSTEM);
@@ -369,9 +383,10 @@ public class AlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AlarmCommentEntity#AlarmCommentEntity(AlarmComment)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new AlarmCommentEntity(AlarmComment); then return toData Type is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmCommentEntity.<init>(AlarmComment)"})
-  public void testNewAlarmCommentEntity_thenReturnToDataTypeIsNull() {
+  void testNewAlarmCommentEntity_thenReturnToDataTypeIsNull() {
     // Arrange
     AlarmComment alarmComment = new AlarmComment();
     alarmComment.setAlarmId(new AlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
@@ -397,9 +412,10 @@ public class AlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AlarmCommentEntity#AlarmCommentEntity(AlarmCommentInfo)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new AlarmCommentEntity(AlarmCommentInfo); then return toData Type is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmCommentEntity.<init>(AlarmCommentInfo)"})
-  public void testNewAlarmCommentEntity_thenReturnToDataTypeIsNull2() {
+  void testNewAlarmCommentEntity_thenReturnToDataTypeIsNull2() {
     // Arrange
     AlarmCommentInfo alarmCommentInfo = new AlarmCommentInfo();
     alarmCommentInfo.setAlarmId(
@@ -427,9 +443,10 @@ public class AlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AlarmCommentEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given AlarmCommentEntity(); then return Comment is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmComment AlarmCommentEntity.toData()"})
-  public void testToData_givenAlarmCommentEntity_thenReturnCommentIsNull() {
+  void testToData_givenAlarmCommentEntity_thenReturnCommentIsNull() {
     // Arrange and Act
     AlarmComment actualToDataResult = new AlarmCommentEntity().toData();
 
@@ -453,9 +470,10 @@ public class AlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AlarmCommentEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Comment return ObjectNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmComment AlarmCommentEntity.toData()"})
-  public void testToData_thenCommentReturnObjectNode() {
+  void testToData_thenCommentReturnObjectNode() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     alarmCommentEntity.setAlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));

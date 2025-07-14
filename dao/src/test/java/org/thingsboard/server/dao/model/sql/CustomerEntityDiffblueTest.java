@@ -1,26 +1,26 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.NullNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.Customer;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.entity.BaseEntityService;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class CustomerEntityDiffblueTest {
+class CustomerEntityDiffblueTest {
   /**
    * Test {@link CustomerEntity#equals(Object)}, and {@link CustomerEntity#hashCode()}.
    *
@@ -37,9 +37,10 @@ public class CustomerEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -101,9 +102,10 @@ public class CustomerEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -141,9 +143,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(DoubleNode.valueOf(10.0d));
@@ -198,9 +201,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(null);
@@ -255,9 +259,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -312,9 +317,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -369,9 +375,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -426,9 +433,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -483,9 +491,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -540,9 +549,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -597,9 +607,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -654,9 +665,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -711,9 +723,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -768,9 +781,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -825,9 +839,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -882,9 +897,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -939,9 +955,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -996,9 +1013,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1053,9 +1071,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1110,9 +1129,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1167,9 +1187,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1224,9 +1245,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1281,9 +1303,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1338,9 +1361,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1395,9 +1419,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1452,9 +1477,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1509,9 +1535,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1566,9 +1593,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1623,9 +1651,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1661,9 +1690,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean CustomerEntity.equals(Object)", "int CustomerEntity.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1725,7 +1755,8 @@ public class CustomerEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void CustomerEntity.<init>()",
     "JsonNode CustomerEntity.getAdditionalInfo()",
@@ -1756,7 +1787,7 @@ public class CustomerEntityDiffblueTest {
     "void CustomerEntity.setZip(String)",
     "String CustomerEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     CustomerEntity actualCustomerEntity = new CustomerEntity();
     JsonNode additionalInfo = CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON;
@@ -1828,9 +1859,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#CustomerEntity(Customer)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new CustomerEntity(Customer); given NULL_CUSTOMER_ID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void CustomerEntity.<init>(Customer)"})
-  public void testNewCustomerEntity_givenNull_customer_id() {
+  void testNewCustomerEntity_givenNull_customer_id() {
     // Arrange
     Customer customer = new Customer(new Customer());
     customer.setExternalId(BaseEntityService.NULL_CUSTOMER_ID);
@@ -1850,9 +1882,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#CustomerEntity(Customer)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new CustomerEntity(Customer); then return AdditionalInfo is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void CustomerEntity.<init>(Customer)"})
-  public void testNewCustomerEntity_thenReturnAdditionalInfoIsNull() {
+  void testNewCustomerEntity_thenReturnAdditionalInfoIsNull() {
     // Arrange
     Customer customer = new Customer();
     customer.setTenantId(ModelConstants.SYSTEM_TENANT);
@@ -1888,9 +1921,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#CustomerEntity(Customer)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new CustomerEntity(Customer); then return ExternalId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void CustomerEntity.<init>(Customer)"})
-  public void testNewCustomerEntity_thenReturnExternalIdIsNull() {
+  void testNewCustomerEntity_thenReturnExternalIdIsNull() {
     // Arrange
     Customer customer = new Customer(new Customer());
     customer.setTenantId(ModelConstants.SYSTEM_TENANT);
@@ -1909,9 +1943,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Customer CustomerEntity.toData()"})
-  public void testToData() {
+  void testToData() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1963,9 +1998,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given CustomerEntity() TenantId is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Customer CustomerEntity.toData()"})
-  public void testToData_givenCustomerEntityTenantIdIsRandomUUID() {
+  void testToData_givenCustomerEntityTenantIdIsRandomUUID() {
     // Arrange
     CustomerEntity customerEntity = new CustomerEntity();
     customerEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -2018,9 +2054,10 @@ public class CustomerEntityDiffblueTest {
    * <p>Method under test: {@link CustomerEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given CustomerEntity(); then AdditionalInfo return NullNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Customer CustomerEntity.toData()"})
-  public void testToData_givenCustomerEntity_thenAdditionalInfoReturnNullNode() {
+  void testToData_givenCustomerEntity_thenAdditionalInfoReturnNullNode() {
     // Arrange and Act
     Customer actualToDataResult = new CustomerEntity().toData();
 

@@ -1,22 +1,22 @@
 package org.thingsboard.server.dao.attributes;
 
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.kv.AttributeKvEntry;
 import org.thingsboard.server.common.data.kv.DataType;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.exception.IncorrectParameterException;
 
-public class AttributeUtilsDiffblueTest {
+class AttributeUtilsDiffblueTest {
   /**
    * Test {@link AttributeUtils#validate(AttributeKvEntry, boolean)} with {@code AttributeKvEntry},
    * {@code boolean}.
@@ -24,9 +24,10 @@ public class AttributeUtilsDiffblueTest {
    * <p>Method under test: {@link AttributeUtils#validate(AttributeKvEntry, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test validate(AttributeKvEntry, boolean) with 'AttributeKvEntry', 'boolean'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AttributeUtils.validate(AttributeKvEntry, boolean)"})
-  public void testValidateWithAttributeKvEntryBoolean() {
+  void testValidateWithAttributeKvEntryBoolean() {
     // Arrange
     AttributeKvEntry kvEntry = mock(AttributeKvEntry.class);
     when(kvEntry.getLastUpdateTs()).thenThrow(new IncorrectParameterException("An error occurred"));
@@ -53,9 +54,11 @@ public class AttributeUtilsDiffblueTest {
    * <p>Method under test: {@link AttributeUtils#validate(AttributeKvEntry, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test validate(AttributeKvEntry, boolean) with 'AttributeKvEntry', 'boolean'; given 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AttributeUtils.validate(AttributeKvEntry, boolean)"})
-  public void testValidateWithAttributeKvEntryBoolean_givenNull() {
+  void testValidateWithAttributeKvEntryBoolean_givenNull() {
     // Arrange
     AttributeKvEntry kvEntry = mock(AttributeKvEntry.class);
     when(kvEntry.getValue()).thenReturn(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -80,9 +83,11 @@ public class AttributeUtilsDiffblueTest {
    * <p>Method under test: {@link AttributeUtils#validate(AttributeKvEntry, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test validate(AttributeKvEntry, boolean) with 'AttributeKvEntry', 'boolean'; given one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AttributeUtils.validate(AttributeKvEntry, boolean)"})
-  public void testValidateWithAttributeKvEntryBoolean_givenOne() {
+  void testValidateWithAttributeKvEntryBoolean_givenOne() {
     // Arrange
     AttributeKvEntry kvEntry = mock(AttributeKvEntry.class);
     when(kvEntry.getLastUpdateTs()).thenReturn(1L);
@@ -111,9 +116,11 @@ public class AttributeUtilsDiffblueTest {
    * <p>Method under test: {@link AttributeUtils#validate(List, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test validate(List, boolean) with 'List', 'boolean'; given AttributeKvEntry getDataType() return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AttributeUtils.validate(List, boolean)"})
-  public void testValidateWithListBoolean_givenAttributeKvEntryGetDataTypeReturnNull() {
+  void testValidateWithListBoolean_givenAttributeKvEntryGetDataTypeReturnNull() {
     // Arrange
     AttributeKvEntry attributeKvEntry = mock(AttributeKvEntry.class);
     when(attributeKvEntry.getValue()).thenReturn("Value");
@@ -140,9 +147,10 @@ public class AttributeUtilsDiffblueTest {
    * <p>Method under test: {@link AttributeUtils#validate(List, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test validate(List, boolean) with 'List', 'boolean'; then calls getLastUpdateTs()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AttributeUtils.validate(List, boolean)"})
-  public void testValidateWithListBoolean_thenCallsGetLastUpdateTs() {
+  void testValidateWithListBoolean_thenCallsGetLastUpdateTs() {
     // Arrange
     AttributeKvEntry attributeKvEntry = mock(AttributeKvEntry.class);
     when(attributeKvEntry.getLastUpdateTs())
@@ -173,9 +181,11 @@ public class AttributeUtilsDiffblueTest {
    * <p>Method under test: {@link AttributeUtils#validate(List, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test validate(List, boolean) with 'List', 'boolean'; when 'false'; then calls getLastUpdateTs()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AttributeUtils.validate(List, boolean)"})
-  public void testValidateWithListBoolean_whenFalse_thenCallsGetLastUpdateTs() {
+  void testValidateWithListBoolean_whenFalse_thenCallsGetLastUpdateTs() {
     // Arrange
     AttributeKvEntry attributeKvEntry = mock(AttributeKvEntry.class);
     when(attributeKvEntry.getLastUpdateTs())

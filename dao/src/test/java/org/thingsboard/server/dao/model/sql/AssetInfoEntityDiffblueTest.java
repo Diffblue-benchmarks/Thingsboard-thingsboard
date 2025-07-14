@@ -1,12 +1,11 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -16,8 +15,9 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.node.TreeTraversingParser;
 import java.math.BigInteger;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.asset.AssetInfo;
 import org.thingsboard.server.common.data.id.AssetId;
@@ -26,7 +26,7 @@ import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 
-public class AssetInfoEntityDiffblueTest {
+class AssetInfoEntityDiffblueTest {
   /**
    * Test {@link AssetInfoEntity#equals(Object)}, and {@link AssetInfoEntity#hashCode()}.
    *
@@ -43,9 +43,10 @@ public class AssetInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetInfoEntity.equals(Object)", "int AssetInfoEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AssetInfoEntity assetInfoEntity = new AssetInfoEntity();
     AssetInfoEntity assetInfoEntity2 = new AssetInfoEntity();
@@ -72,9 +73,10 @@ public class AssetInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetInfoEntity.equals(Object)", "int AssetInfoEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AssetInfoEntity assetInfoEntity = new AssetInfoEntity();
     assetInfoEntity.setCustomerTitle("Dr");
@@ -104,9 +106,10 @@ public class AssetInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetInfoEntity.equals(Object)", "int AssetInfoEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     AssetInfoEntity assetInfoEntity = new AssetInfoEntity();
     assetInfoEntity.setAssetProfileName("foo.txt");
@@ -136,9 +139,10 @@ public class AssetInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetInfoEntity.equals(Object)", "int AssetInfoEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AssetInfoEntity assetInfoEntity = new AssetInfoEntity();
 
@@ -159,9 +163,10 @@ public class AssetInfoEntityDiffblueTest {
    * <p>Method under test: {@link AssetInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetInfoEntity.equals(Object)", "int AssetInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AssetInfoEntity assetInfoEntity = new AssetInfoEntity();
 
@@ -194,9 +199,10 @@ public class AssetInfoEntityDiffblueTest {
    * <p>Method under test: {@link AssetInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetInfoEntity.equals(Object)", "int AssetInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AssetInfoEntity assetInfoEntity = new AssetInfoEntity();
     assetInfoEntity.setCustomerTitle("Dr");
@@ -216,9 +222,10 @@ public class AssetInfoEntityDiffblueTest {
    * <p>Method under test: {@link AssetInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetInfoEntity.equals(Object)", "int AssetInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AssetInfoEntity assetInfoEntity = new AssetInfoEntity();
     assetInfoEntity.setCustomerIsPublic(true);
@@ -238,9 +245,10 @@ public class AssetInfoEntityDiffblueTest {
    * <p>Method under test: {@link AssetInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetInfoEntity.equals(Object)", "int AssetInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AssetInfoEntity assetInfoEntity = new AssetInfoEntity();
     assetInfoEntity.setAssetProfileName("foo.txt");
@@ -260,9 +268,10 @@ public class AssetInfoEntityDiffblueTest {
    * <p>Method under test: {@link AssetInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetInfoEntity.equals(Object)", "int AssetInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AssetInfoEntity assetInfoEntity = new AssetInfoEntity();
     assetInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -282,9 +291,10 @@ public class AssetInfoEntityDiffblueTest {
    * <p>Method under test: {@link AssetInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetInfoEntity.equals(Object)", "int AssetInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AssetInfoEntity assetInfoEntity = new AssetInfoEntity();
 
@@ -306,9 +316,10 @@ public class AssetInfoEntityDiffblueTest {
    * <p>Method under test: {@link AssetInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetInfoEntity.equals(Object)", "int AssetInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     AssetInfoEntity assetInfoEntity = new AssetInfoEntity();
 
@@ -330,9 +341,10 @@ public class AssetInfoEntityDiffblueTest {
    * <p>Method under test: {@link AssetInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetInfoEntity.equals(Object)", "int AssetInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AssetInfoEntity(), null);
   }
@@ -348,9 +360,10 @@ public class AssetInfoEntityDiffblueTest {
    * <p>Method under test: {@link AssetInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetInfoEntity.equals(Object)", "int AssetInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AssetInfoEntity(), "Different type to AssetInfoEntity");
   }
@@ -372,7 +385,8 @@ public class AssetInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void AssetInfoEntity.<init>()",
     "String AssetInfoEntity.getAssetProfileName()",
@@ -383,7 +397,7 @@ public class AssetInfoEntityDiffblueTest {
     "void AssetInfoEntity.setCustomerTitle(String)",
     "String AssetInfoEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     AssetInfoEntity actualAssetInfoEntity = new AssetInfoEntity();
     actualAssetInfoEntity.setAssetProfileName("foo.txt");
@@ -427,9 +441,11 @@ public class AssetInfoEntityDiffblueTest {
    * String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new AssetInfoEntity(AssetEntity, String, Object, String); when ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetInfoEntity.<init>(AssetEntity, String, Object, String)"})
-  public void testNewAssetInfoEntity_whenArrayNodeWithNfIsWithExactBigDecimalsTrue() {
+  void testNewAssetInfoEntity_whenArrayNodeWithNfIsWithExactBigDecimalsTrue() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     assetEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -471,9 +487,11 @@ public class AssetInfoEntityDiffblueTest {
    * String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new AssetInfoEntity(AssetEntity, String, Object, String); when BigIntegerNode(BigInteger) with v is valueOf one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetInfoEntity.<init>(AssetEntity, String, Object, String)"})
-  public void testNewAssetInfoEntity_whenBigIntegerNodeWithVIsValueOfOne() {
+  void testNewAssetInfoEntity_whenBigIntegerNodeWithVIsValueOfOne() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     assetEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -512,9 +530,10 @@ public class AssetInfoEntityDiffblueTest {
    * String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new AssetInfoEntity(AssetEntity, String, Object, String); when 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetInfoEntity.<init>(AssetEntity, String, Object, String)"})
-  public void testNewAssetInfoEntity_whenNull() {
+  void testNewAssetInfoEntity_whenNull() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     assetEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -551,9 +570,10 @@ public class AssetInfoEntityDiffblueTest {
    * <p>Method under test: {@link AssetInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given AssetInfoEntity(); then return ExternalId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AssetInfo AssetInfoEntity.toData()"})
-  public void testToData_givenAssetInfoEntity_thenReturnExternalIdIsNull() {
+  void testToData_givenAssetInfoEntity_thenReturnExternalIdIsNull() {
     // Arrange and Act
     AssetInfo actualToDataResult = new AssetInfoEntity().toData();
 
@@ -574,9 +594,11 @@ public class AssetInfoEntityDiffblueTest {
    * <p>Method under test: {@link AssetInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return AssetProfileId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AssetInfo AssetInfoEntity.toData()"})
-  public void testToData_thenReturnAssetProfileIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnAssetProfileIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     AssetInfoEntity assetInfoEntity = new AssetInfoEntity();
     UUID assetProfileId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -601,9 +623,11 @@ public class AssetInfoEntityDiffblueTest {
    * <p>Method under test: {@link AssetInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return CustomerId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AssetInfo AssetInfoEntity.toData()"})
-  public void testToData_thenReturnCustomerIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnCustomerIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     AssetInfoEntity assetInfoEntity = new AssetInfoEntity();
     UUID customerId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -628,9 +652,11 @@ public class AssetInfoEntityDiffblueTest {
    * <p>Method under test: {@link AssetInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return ExternalId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AssetInfo AssetInfoEntity.toData()"})
-  public void testToData_thenReturnExternalIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnExternalIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     AssetInfoEntity assetInfoEntity = new AssetInfoEntity();
     UUID externalId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -655,9 +681,10 @@ public class AssetInfoEntityDiffblueTest {
    * <p>Method under test: {@link AssetInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return TenantId Id is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AssetInfo AssetInfoEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdIsRandomUUID() {
+  void testToData_thenReturnTenantIdIdIsRandomUUID() {
     // Arrange
     AssetInfoEntity assetInfoEntity = new AssetInfoEntity();
     UUID tenantId = UUID.randomUUID();
@@ -681,9 +708,11 @@ public class AssetInfoEntityDiffblueTest {
    * <p>Method under test: {@link AssetInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return TenantId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AssetInfo AssetInfoEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     AssetInfoEntity assetInfoEntity = new AssetInfoEntity();
     assetInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));

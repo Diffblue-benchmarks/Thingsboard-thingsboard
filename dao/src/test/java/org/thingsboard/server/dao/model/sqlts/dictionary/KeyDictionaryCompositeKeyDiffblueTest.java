@@ -1,13 +1,13 @@
 package org.thingsboard.server.dao.model.sqlts.dictionary;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class KeyDictionaryCompositeKeyDiffblueTest {
+class KeyDictionaryCompositeKeyDiffblueTest {
   /**
    * Test {@link KeyDictionaryCompositeKey#equals(Object)}, and {@link
    * KeyDictionaryCompositeKey#hashCode()}.
@@ -25,12 +25,13 @@ public class KeyDictionaryCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean KeyDictionaryCompositeKey.equals(Object)",
     "int KeyDictionaryCompositeKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     KeyDictionaryCompositeKey keyDictionaryCompositeKey = new KeyDictionaryCompositeKey("Key");
     KeyDictionaryCompositeKey keyDictionaryCompositeKey2 = new KeyDictionaryCompositeKey("Key");
@@ -58,12 +59,13 @@ public class KeyDictionaryCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean KeyDictionaryCompositeKey.equals(Object)",
     "int KeyDictionaryCompositeKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     KeyDictionaryCompositeKey keyDictionaryCompositeKey = new KeyDictionaryCompositeKey(null);
     KeyDictionaryCompositeKey keyDictionaryCompositeKey2 = new KeyDictionaryCompositeKey(null);
@@ -91,12 +93,13 @@ public class KeyDictionaryCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean KeyDictionaryCompositeKey.equals(Object)",
     "int KeyDictionaryCompositeKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     KeyDictionaryCompositeKey keyDictionaryCompositeKey = new KeyDictionaryCompositeKey("Key");
 
@@ -117,12 +120,13 @@ public class KeyDictionaryCompositeKeyDiffblueTest {
    * <p>Method under test: {@link KeyDictionaryCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean KeyDictionaryCompositeKey.equals(Object)",
     "int KeyDictionaryCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     KeyDictionaryCompositeKey keyDictionaryCompositeKey = new KeyDictionaryCompositeKey(null);
 
@@ -141,12 +145,13 @@ public class KeyDictionaryCompositeKeyDiffblueTest {
    * <p>Method under test: {@link KeyDictionaryCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean KeyDictionaryCompositeKey.equals(Object)",
     "int KeyDictionaryCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     KeyDictionaryCompositeKey keyDictionaryCompositeKey =
         new KeyDictionaryCompositeKey(
@@ -167,12 +172,13 @@ public class KeyDictionaryCompositeKeyDiffblueTest {
    * <p>Method under test: {@link KeyDictionaryCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean KeyDictionaryCompositeKey.equals(Object)",
     "int KeyDictionaryCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new KeyDictionaryCompositeKey("Key"), null);
   }
@@ -188,12 +194,13 @@ public class KeyDictionaryCompositeKeyDiffblueTest {
    * <p>Method under test: {@link KeyDictionaryCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean KeyDictionaryCompositeKey.equals(Object)",
     "int KeyDictionaryCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(
         new KeyDictionaryCompositeKey("Key"), "Different type to KeyDictionaryCompositeKey");
@@ -212,7 +219,8 @@ public class KeyDictionaryCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void KeyDictionaryCompositeKey.<init>()",
     "void KeyDictionaryCompositeKey.<init>(String)",
@@ -220,7 +228,7 @@ public class KeyDictionaryCompositeKeyDiffblueTest {
     "void KeyDictionaryCompositeKey.setKey(String)",
     "String KeyDictionaryCompositeKey.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     KeyDictionaryCompositeKey actualKeyDictionaryCompositeKey = new KeyDictionaryCompositeKey();
     actualKeyDictionaryCompositeKey.setKey("Key");
@@ -248,7 +256,8 @@ public class KeyDictionaryCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters; when 'Key'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void KeyDictionaryCompositeKey.<init>()",
     "void KeyDictionaryCompositeKey.<init>(String)",
@@ -256,7 +265,7 @@ public class KeyDictionaryCompositeKeyDiffblueTest {
     "void KeyDictionaryCompositeKey.setKey(String)",
     "String KeyDictionaryCompositeKey.toString()"
   })
-  public void testGettersAndSetters_whenKey() {
+  void testGettersAndSetters_whenKey() {
     // Arrange and Act
     KeyDictionaryCompositeKey actualKeyDictionaryCompositeKey =
         new KeyDictionaryCompositeKey("Key");

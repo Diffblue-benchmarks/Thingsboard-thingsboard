@@ -226,6 +226,56 @@ class DefaultTbLogEntityActionServiceDiffblueTest {
 
   /**
    * Test {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName,
+   * ActionType, User, Exception, Object[])} with {@code tenantId}, {@code entityId}, {@code
+   * entity}, {@code actionType}, {@code user}, {@code e}, {@code additionalInfo}.
+   *
+   * <p>Method under test: {@link DefaultTbLogEntityActionService#logEntityAction(TenantId,
+   * EntityId, HasName, ActionType, User, Exception, Object[])}
+   */
+  @Test
+  @DisplayName(
+      "Test logEntityAction(TenantId, EntityId, HasName, ActionType, User, Exception, Object[]) with 'tenantId', 'entityId', 'entity', 'actionType', 'user', 'e', 'additionalInfo'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "void DefaultTbLogEntityActionService.logEntityAction(TenantId, EntityId, HasName, ActionType, User, Exception, Object[])"
+  })
+  void testLogEntityActionWithTenantIdEntityIdEntityActionTypeUserEAdditionalInfo2() {
+    // Arrange
+    doNothing()
+        .when(entityActionService)
+        .pushEntityActionToRuleEngine(
+            Mockito.<EntityId>any(),
+            Mockito.<HasName>any(),
+            Mockito.<TenantId>any(),
+            Mockito.<CustomerId>any(),
+            Mockito.<ActionType>any(),
+            Mockito.<User>any(),
+            isA(Object[].class));
+
+    // Act
+    defaultTbLogEntityActionService.logEntityAction(
+        new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")),
+        null,
+        mock(HasName.class),
+        ActionType.ADDED,
+        null,
+        null,
+        "Additional Info");
+
+    // Assert
+    verify(entityActionService)
+        .pushEntityActionToRuleEngine(
+            isNull(),
+            isA(HasName.class),
+            isA(TenantId.class),
+            isNull(),
+            eq(ActionType.ADDED),
+            isNull(),
+            isA(Object[].class));
+  }
+
+  /**
+   * Test {@link DefaultTbLogEntityActionService#logEntityAction(TenantId, EntityId, HasName,
    * CustomerId, ActionType, User, Object[])} with {@code tenantId}, {@code entityId}, {@code
    * entity}, {@code customerId}, {@code actionType}, {@code user}, {@code additionalInfo}.
    *

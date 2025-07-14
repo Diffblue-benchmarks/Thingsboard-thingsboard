@@ -1,13 +1,13 @@
 package org.thingsboard.server.dao.exception;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class DeviceCredentialsValidationExceptionDiffblueTest {
+class DeviceCredentialsValidationExceptionDiffblueTest {
   /**
    * Test {@link DeviceCredentialsValidationException#DeviceCredentialsValidationException(String)}.
    *
@@ -15,9 +15,10 @@ public class DeviceCredentialsValidationExceptionDiffblueTest {
    * DeviceCredentialsValidationException#DeviceCredentialsValidationException(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new DeviceCredentialsValidationException(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceCredentialsValidationException.<init>(String)"})
-  public void testNewDeviceCredentialsValidationException() {
+  void testNewDeviceCredentialsValidationException() {
     // Arrange and Act
     DeviceCredentialsValidationException actualDeviceCredentialsValidationException =
         new DeviceCredentialsValidationException("An error occurred");

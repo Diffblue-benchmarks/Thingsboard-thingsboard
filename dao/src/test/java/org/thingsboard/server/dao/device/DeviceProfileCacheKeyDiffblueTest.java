@@ -1,30 +1,31 @@
 package org.thingsboard.server.dao.device;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.DeviceProfileId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class DeviceProfileCacheKeyDiffblueTest {
+class DeviceProfileCacheKeyDiffblueTest {
   /**
    * Test {@link DeviceProfileCacheKey#forName(TenantId, String)}.
    *
    * <p>Method under test: {@link DeviceProfileCacheKey#forName(TenantId, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test forName(TenantId, String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DeviceProfileCacheKey DeviceProfileCacheKey.forName(TenantId, String)"})
-  public void testForName() {
+  void testForName() {
     // Arrange
     TenantId tenantId = ModelConstants.SYSTEM_TENANT;
 
@@ -52,9 +53,10 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link DeviceProfileCacheKey#forId(DeviceProfileId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test forId(DeviceProfileId); when 'null'; then return Name is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DeviceProfileCacheKey DeviceProfileCacheKey.forId(DeviceProfileId)"})
-  public void testForId_whenNull_thenReturnNameIsNull() {
+  void testForId_whenNull_thenReturnNameIsNull() {
     // Arrange and Act
     DeviceProfileCacheKey actualForIdResult = DeviceProfileCacheKey.forId(null);
 
@@ -73,9 +75,10 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link DeviceProfileCacheKey#forDefaultProfile(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test forDefaultProfile(TenantId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DeviceProfileCacheKey DeviceProfileCacheKey.forDefaultProfile(TenantId)"})
-  public void testForDefaultProfile() {
+  void testForDefaultProfile() {
     // Arrange
     TenantId tenantId = ModelConstants.SYSTEM_TENANT;
 
@@ -99,9 +102,10 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link DeviceProfileCacheKey#forProvisionKey(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test forProvisionKey(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DeviceProfileCacheKey DeviceProfileCacheKey.forProvisionKey(String)"})
-  public void testForProvisionKey() {
+  void testForProvisionKey() {
     // Arrange and Act
     DeviceProfileCacheKey actualForProvisionKeyResult =
         DeviceProfileCacheKey.forProvisionKey("Provision Device Key");
@@ -126,9 +130,10 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link DeviceProfileCacheKey#toString()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toString(); given forProvisionKey empty string; then return 'null_null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String DeviceProfileCacheKey.toString()"})
-  public void testToString_givenForProvisionKeyEmptyString_thenReturnNullNull() {
+  void testToString_givenForProvisionKeyEmptyString_thenReturnNullNull() {
     // Arrange, Act and Assert
     assertEquals("null_null", DeviceProfileCacheKey.forProvisionKey("").toString());
   }
@@ -144,9 +149,10 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link DeviceProfileCacheKey#toString()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toString(); given forProvisionKey 'null'; then return 'null_null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String DeviceProfileCacheKey.toString()"})
-  public void testToString_givenForProvisionKeyNull_thenReturnNullNull() {
+  void testToString_givenForProvisionKeyNull_thenReturnNullNull() {
     // Arrange, Act and Assert
     assertEquals("null_null", DeviceProfileCacheKey.forProvisionKey(null).toString());
   }
@@ -162,9 +168,11 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link DeviceProfileCacheKey#toString()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toString(); given forProvisionKey 'Provision Device Key'; then return 'Provision Device Key'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String DeviceProfileCacheKey.toString()"})
-  public void testToString_givenForProvisionKeyProvisionDeviceKey_thenReturnProvisionDeviceKey() {
+  void testToString_givenForProvisionKeyProvisionDeviceKey_thenReturnProvisionDeviceKey() {
     // Arrange, Act and Assert
     assertEquals(
         "Provision Device Key",
@@ -181,9 +189,10 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link DeviceProfileCacheKey#toString()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toString(); then return '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String DeviceProfileCacheKey.toString()"})
-  public void testToString_thenReturn784f394c42b6435a983cB7beff2784f9() {
+  void testToString_thenReturn784f394c42b6435a983cB7beff2784f9() {
     // Arrange, Act and Assert
     assertEquals(
         "784f394c-42b6-435a-983c-b7beff2784f9",
@@ -202,9 +211,10 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link DeviceProfileCacheKey#toString()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toString(); then return '13814000-1dd2-11b2-8080-808080808080'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String DeviceProfileCacheKey.toString()"})
-  public void testToString_thenReturn138140001dd211b28080808080808080() {
+  void testToString_thenReturn138140001dd211b28080808080808080() {
     // Arrange, Act and Assert
     assertEquals(
         "13814000-1dd2-11b2-8080-808080808080",
@@ -222,9 +232,11 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link DeviceProfileCacheKey#isVersioned()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test isVersioned(); given forProvisionKey 'Provision Device Key'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DeviceProfileCacheKey.isVersioned()"})
-  public void testIsVersioned_givenForProvisionKeyProvisionDeviceKey_thenReturnFalse() {
+  void testIsVersioned_givenForProvisionKeyProvisionDeviceKey_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(DeviceProfileCacheKey.forProvisionKey("Provision Device Key").isVersioned());
   }
@@ -239,9 +251,10 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link DeviceProfileCacheKey#isVersioned()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test isVersioned(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DeviceProfileCacheKey.isVersioned()"})
-  public void testIsVersioned_thenReturnTrue() {
+  void testIsVersioned_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue(
         DeviceProfileCacheKey.forId(
@@ -266,12 +279,13 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceProfileCacheKey.equals(Object)",
     "int DeviceProfileCacheKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DeviceProfileCacheKey forProvisionKeyResult =
         DeviceProfileCacheKey.forProvisionKey("Provision Device Key");
@@ -301,12 +315,13 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceProfileCacheKey.equals(Object)",
     "int DeviceProfileCacheKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     DeviceProfileCacheKey forProvisionKeyResult = DeviceProfileCacheKey.forProvisionKey(null);
     DeviceProfileCacheKey forProvisionKeyResult2 = DeviceProfileCacheKey.forProvisionKey(null);
@@ -334,12 +349,13 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceProfileCacheKey.equals(Object)",
     "int DeviceProfileCacheKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     DeviceProfileCacheKey forDefaultProfileResult =
         DeviceProfileCacheKey.forDefaultProfile(ModelConstants.SYSTEM_TENANT);
@@ -369,12 +385,13 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceProfileCacheKey.equals(Object)",
     "int DeviceProfileCacheKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DeviceProfileCacheKey forProvisionKeyResult =
         DeviceProfileCacheKey.forProvisionKey("Provision Device Key");
@@ -396,12 +413,13 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link DeviceProfileCacheKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceProfileCacheKey.equals(Object)",
     "int DeviceProfileCacheKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DeviceProfileCacheKey forProvisionKeyResult = DeviceProfileCacheKey.forProvisionKey(null);
 
@@ -421,12 +439,13 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link DeviceProfileCacheKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceProfileCacheKey.equals(Object)",
     "int DeviceProfileCacheKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DeviceProfileCacheKey forProvisionKeyResult =
         DeviceProfileCacheKey.forProvisionKey(
@@ -448,12 +467,13 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link DeviceProfileCacheKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceProfileCacheKey.equals(Object)",
     "int DeviceProfileCacheKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DeviceProfileCacheKey forDefaultProfileResult =
         DeviceProfileCacheKey.forDefaultProfile(ModelConstants.SYSTEM_TENANT);
@@ -474,12 +494,13 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link DeviceProfileCacheKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceProfileCacheKey.equals(Object)",
     "int DeviceProfileCacheKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     DeviceProfileCacheKey forDefaultProfileResult =
         DeviceProfileCacheKey.forDefaultProfile(
@@ -502,12 +523,13 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link DeviceProfileCacheKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceProfileCacheKey.equals(Object)",
     "int DeviceProfileCacheKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     DeviceProfileCacheKey forDefaultProfileResult = DeviceProfileCacheKey.forDefaultProfile(null);
 
@@ -528,12 +550,13 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link DeviceProfileCacheKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceProfileCacheKey.equals(Object)",
     "int DeviceProfileCacheKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     DeviceProfileCacheKey forIdResult =
         DeviceProfileCacheKey.forId(
@@ -554,12 +577,13 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link DeviceProfileCacheKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceProfileCacheKey.equals(Object)",
     "int DeviceProfileCacheKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     DeviceProfileCacheKey forProvisionKeyResult =
         DeviceProfileCacheKey.forProvisionKey("Provision Device Key");
@@ -582,12 +606,13 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link DeviceProfileCacheKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceProfileCacheKey.equals(Object)",
     "int DeviceProfileCacheKey.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(DeviceProfileCacheKey.forProvisionKey("Provision Device Key"), null);
   }
@@ -603,12 +628,13 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * <p>Method under test: {@link DeviceProfileCacheKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceProfileCacheKey.equals(Object)",
     "int DeviceProfileCacheKey.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(
         DeviceProfileCacheKey.forProvisionKey("Provision Device Key"),
@@ -629,7 +655,8 @@ public class DeviceProfileCacheKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "DeviceProfileId DeviceProfileCacheKey.getDeviceProfileId()",
     "String DeviceProfileCacheKey.getName()",
@@ -637,7 +664,7 @@ public class DeviceProfileCacheKeyDiffblueTest {
     "TenantId DeviceProfileCacheKey.getTenantId()",
     "boolean DeviceProfileCacheKey.isDefaultProfile()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     DeviceProfileCacheKey forProvisionKeyResult =
         DeviceProfileCacheKey.forProvisionKey("Provision Device Key");

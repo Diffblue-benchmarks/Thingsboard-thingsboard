@@ -1,15 +1,15 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class DomainOauth2ClientCompositeKeyDiffblueTest {
+class DomainOauth2ClientCompositeKeyDiffblueTest {
   /**
    * Test {@link DomainOauth2ClientCompositeKey#equals(Object)}, and {@link
    * DomainOauth2ClientCompositeKey#hashCode()}.
@@ -27,12 +27,13 @@ public class DomainOauth2ClientCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DomainOauth2ClientCompositeKey.equals(Object)",
     "int DomainOauth2ClientCompositeKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DomainOauth2ClientCompositeKey domainOauth2ClientCompositeKey =
         new DomainOauth2ClientCompositeKey();
@@ -62,12 +63,13 @@ public class DomainOauth2ClientCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DomainOauth2ClientCompositeKey.equals(Object)",
     "int DomainOauth2ClientCompositeKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     UUID domainId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     DomainOauth2ClientCompositeKey domainOauth2ClientCompositeKey =
@@ -101,12 +103,13 @@ public class DomainOauth2ClientCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DomainOauth2ClientCompositeKey.equals(Object)",
     "int DomainOauth2ClientCompositeKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DomainOauth2ClientCompositeKey domainOauth2ClientCompositeKey =
         new DomainOauth2ClientCompositeKey();
@@ -128,12 +131,13 @@ public class DomainOauth2ClientCompositeKeyDiffblueTest {
    * <p>Method under test: {@link DomainOauth2ClientCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DomainOauth2ClientCompositeKey.equals(Object)",
     "int DomainOauth2ClientCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     UUID domainId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     DomainOauth2ClientCompositeKey domainOauth2ClientCompositeKey =
@@ -155,12 +159,13 @@ public class DomainOauth2ClientCompositeKeyDiffblueTest {
    * <p>Method under test: {@link DomainOauth2ClientCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DomainOauth2ClientCompositeKey.equals(Object)",
     "int DomainOauth2ClientCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DomainOauth2ClientCompositeKey domainOauth2ClientCompositeKey =
         new DomainOauth2ClientCompositeKey();
@@ -184,12 +189,13 @@ public class DomainOauth2ClientCompositeKeyDiffblueTest {
    * <p>Method under test: {@link DomainOauth2ClientCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DomainOauth2ClientCompositeKey.equals(Object)",
     "int DomainOauth2ClientCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DomainOauth2ClientCompositeKey domainOauth2ClientCompositeKey =
         new DomainOauth2ClientCompositeKey();
@@ -211,12 +217,13 @@ public class DomainOauth2ClientCompositeKeyDiffblueTest {
    * <p>Method under test: {@link DomainOauth2ClientCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DomainOauth2ClientCompositeKey.equals(Object)",
     "int DomainOauth2ClientCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     DomainOauth2ClientCompositeKey domainOauth2ClientCompositeKey =
         new DomainOauth2ClientCompositeKey();
@@ -241,12 +248,13 @@ public class DomainOauth2ClientCompositeKeyDiffblueTest {
    * <p>Method under test: {@link DomainOauth2ClientCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DomainOauth2ClientCompositeKey.equals(Object)",
     "int DomainOauth2ClientCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DomainOauth2ClientCompositeKey(), null);
   }
@@ -262,12 +270,13 @@ public class DomainOauth2ClientCompositeKeyDiffblueTest {
    * <p>Method under test: {@link DomainOauth2ClientCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DomainOauth2ClientCompositeKey.equals(Object)",
     "int DomainOauth2ClientCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(
         new DomainOauth2ClientCompositeKey(), "Different type to DomainOauth2ClientCompositeKey");
@@ -288,7 +297,8 @@ public class DomainOauth2ClientCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void DomainOauth2ClientCompositeKey.<init>()",
     "void DomainOauth2ClientCompositeKey.<init>(UUID, UUID)",
@@ -298,7 +308,7 @@ public class DomainOauth2ClientCompositeKeyDiffblueTest {
     "void DomainOauth2ClientCompositeKey.setOauth2ClientId(UUID)",
     "String DomainOauth2ClientCompositeKey.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     DomainOauth2ClientCompositeKey actualDomainOauth2ClientCompositeKey =
         new DomainOauth2ClientCompositeKey();
@@ -340,7 +350,8 @@ public class DomainOauth2ClientCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters; when fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void DomainOauth2ClientCompositeKey.<init>()",
     "void DomainOauth2ClientCompositeKey.<init>(UUID, UUID)",
@@ -350,7 +361,7 @@ public class DomainOauth2ClientCompositeKeyDiffblueTest {
     "void DomainOauth2ClientCompositeKey.setOauth2ClientId(UUID)",
     "String DomainOauth2ClientCompositeKey.toString()"
   })
-  public void testGettersAndSetters_whenFromString784f394c42b6435a983cB7beff2784f9() {
+  void testGettersAndSetters_whenFromString784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     UUID domainId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 

@@ -1,11 +1,11 @@
 package org.thingsboard.server.dao.alarm;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.ArgumentMatchers.isNull;
@@ -17,7 +17,6 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -30,13 +29,14 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.thingsboard.server.common.data.EntitySubtype;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.alarm.Alarm;
@@ -78,8 +78,8 @@ import org.thingsboard.server.dao.service.validator.AlarmDataValidator;
 import org.thingsboard.server.dao.sql.alarm.JpaAlarmDao;
 import org.thingsboard.server.dao.tenant.TenantServiceImpl;
 
-@RunWith(MockitoJUnitRunner.class)
-public class BaseAlarmServiceDiffblueTest {
+@ExtendWith(MockitoExtension.class)
+class BaseAlarmServiceDiffblueTest {
   @Mock private AlarmDao alarmDao;
 
   @InjectMocks private BaseAlarmService baseAlarmService;
@@ -94,11 +94,12 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#acknowledgeAlarm(TenantId, AlarmId, long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test acknowledgeAlarm(TenantId, AlarmId, long); then return not Successful")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AlarmApiCallResult BaseAlarmService.acknowledgeAlarm(TenantId, AlarmId, long)"
   })
-  public void testAcknowledgeAlarm_thenReturnNotSuccessful() {
+  void testAcknowledgeAlarm_thenReturnNotSuccessful() {
     // Arrange
     AlarmApiCallResultBuilder alarmApiCallResultBuilder = mock(AlarmApiCallResultBuilder.class);
     when(alarmApiCallResultBuilder.alarm(Mockito.<AlarmInfo>any()))
@@ -169,11 +170,12 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#acknowledgeAlarm(TenantId, AlarmId, long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test acknowledgeAlarm(TenantId, AlarmId, long); then return Successful")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AlarmApiCallResult BaseAlarmService.acknowledgeAlarm(TenantId, AlarmId, long)"
   })
-  public void testAcknowledgeAlarm_thenReturnSuccessful() {
+  void testAcknowledgeAlarm_thenReturnSuccessful() {
     // Arrange
     AlarmApiCallResultBuilder alarmApiCallResultBuilder = mock(AlarmApiCallResultBuilder.class);
     when(alarmApiCallResultBuilder.alarm(Mockito.<AlarmInfo>any()))
@@ -244,11 +246,12 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#acknowledgeAlarm(TenantId, AlarmId, long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test acknowledgeAlarm(TenantId, AlarmId, long); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AlarmApiCallResult BaseAlarmService.acknowledgeAlarm(TenantId, AlarmId, long)"
   })
-  public void testAcknowledgeAlarm_thenThrowDataValidationException() {
+  void testAcknowledgeAlarm_thenThrowDataValidationException() {
     // Arrange
     when(alarmDao.acknowledgeAlarm(Mockito.<TenantId>any(), Mockito.<AlarmId>any(), anyLong()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -270,11 +273,12 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#clearAlarm(TenantId, AlarmId, long, JsonNode)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test clearAlarm(TenantId, AlarmId, long, JsonNode); then return not Successful")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AlarmApiCallResult BaseAlarmService.clearAlarm(TenantId, AlarmId, long, JsonNode)"
   })
-  public void testClearAlarm_thenReturnNotSuccessful() {
+  void testClearAlarm_thenReturnNotSuccessful() {
     // Arrange
     AlarmApiCallResultBuilder alarmApiCallResultBuilder = mock(AlarmApiCallResultBuilder.class);
     when(alarmApiCallResultBuilder.alarm(Mockito.<AlarmInfo>any()))
@@ -350,11 +354,12 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#clearAlarm(TenantId, AlarmId, long, JsonNode)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test clearAlarm(TenantId, AlarmId, long, JsonNode); then return Successful")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AlarmApiCallResult BaseAlarmService.clearAlarm(TenantId, AlarmId, long, JsonNode)"
   })
-  public void testClearAlarm_thenReturnSuccessful() {
+  void testClearAlarm_thenReturnSuccessful() {
     // Arrange
     AlarmApiCallResultBuilder alarmApiCallResultBuilder = mock(AlarmApiCallResultBuilder.class);
     when(alarmApiCallResultBuilder.alarm(Mockito.<AlarmInfo>any()))
@@ -430,11 +435,13 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#clearAlarm(TenantId, AlarmId, long, JsonNode)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test clearAlarm(TenantId, AlarmId, long, JsonNode); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AlarmApiCallResult BaseAlarmService.clearAlarm(TenantId, AlarmId, long, JsonNode)"
   })
-  public void testClearAlarm_thenThrowDataValidationException() {
+  void testClearAlarm_thenThrowDataValidationException() {
     // Arrange
     when(alarmDao.clearAlarm(
             Mockito.<TenantId>any(), Mockito.<AlarmId>any(), anyLong(), Mockito.<JsonNode>any()))
@@ -463,11 +470,13 @@ public class BaseAlarmServiceDiffblueTest {
    * EntityId, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findLatestActiveByOriginatorAndType(TenantId, EntityId, String); then Details return ObjectNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "Alarm BaseAlarmService.findLatestActiveByOriginatorAndType(TenantId, EntityId, String)"
   })
-  public void testFindLatestActiveByOriginatorAndType_thenDetailsReturnObjectNode() {
+  void testFindLatestActiveByOriginatorAndType_thenDetailsReturnObjectNode() {
     // Arrange
     AlarmBuilder propagateResult =
         Alarm.builder()
@@ -546,11 +555,13 @@ public class BaseAlarmServiceDiffblueTest {
    * EntityId, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findLatestActiveByOriginatorAndType(TenantId, EntityId, String); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "Alarm BaseAlarmService.findLatestActiveByOriginatorAndType(TenantId, EntityId, String)"
   })
-  public void testFindLatestActiveByOriginatorAndType_thenThrowDataValidationException() {
+  void testFindLatestActiveByOriginatorAndType_thenThrowDataValidationException() {
     // Arrange
     when(alarmDao.findLatestActiveByOriginatorAndType(
             Mockito.<TenantId>any(), Mockito.<EntityId>any(), Mockito.<String>any()))
@@ -574,11 +585,12 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmDataQuery, Collection)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAlarmDataByQueryForEntities(TenantId, AlarmDataQuery, Collection)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseAlarmService.findAlarmDataByQueryForEntities(TenantId, AlarmDataQuery, Collection)"
   })
-  public void testFindAlarmDataByQueryForEntities() {
+  void testFindAlarmDataByQueryForEntities() {
     // Arrange
     PageData<AlarmData> emptyPageDataResult = PageData.emptyPageData();
     when(alarmDao.findAlarmDataByQueryForEntities(
@@ -624,11 +636,12 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmDataQuery, Collection)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAlarmDataByQueryForEntities(TenantId, AlarmDataQuery, Collection)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseAlarmService.findAlarmDataByQueryForEntities(TenantId, AlarmDataQuery, Collection)"
   })
-  public void testFindAlarmDataByQueryForEntities2() {
+  void testFindAlarmDataByQueryForEntities2() {
     // Arrange
     PageData<AlarmData> emptyPageDataResult = PageData.emptyPageData();
     when(alarmDao.findAlarmDataByQueryForEntities(
@@ -674,11 +687,12 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmDataQuery, Collection)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAlarmDataByQueryForEntities(TenantId, AlarmDataQuery, Collection)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseAlarmService.findAlarmDataByQueryForEntities(TenantId, AlarmDataQuery, Collection)"
   })
-  public void testFindAlarmDataByQueryForEntities3() {
+  void testFindAlarmDataByQueryForEntities3() {
     // Arrange
     when(alarmDao.findAlarmDataByQueryForEntities(
             Mockito.<TenantId>any(),
@@ -725,11 +739,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmDataQuery, Collection)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAlarmDataByQueryForEntities(TenantId, AlarmDataQuery, Collection); given EntityDataSortOrder(EntityKey) with key is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseAlarmService.findAlarmDataByQueryForEntities(TenantId, AlarmDataQuery, Collection)"
   })
-  public void testFindAlarmDataByQueryForEntities_givenEntityDataSortOrderWithKeyIsNull() {
+  void testFindAlarmDataByQueryForEntities_givenEntityDataSortOrderWithKeyIsNull() {
     // Arrange
     PageData<AlarmData> emptyPageDataResult = PageData.emptyPageData();
     when(alarmDao.findAlarmDataByQueryForEntities(
@@ -779,11 +795,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmDataQuery, Collection)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAlarmDataByQueryForEntities(TenantId, AlarmDataQuery, Collection); given EntityKey(EntityKeyType, String) with type is 'ATTRIBUTE' and 'Key'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseAlarmService.findAlarmDataByQueryForEntities(TenantId, AlarmDataQuery, Collection)"
   })
-  public void testFindAlarmDataByQueryForEntities_givenEntityKeyWithTypeIsAttributeAndKey() {
+  void testFindAlarmDataByQueryForEntities_givenEntityKeyWithTypeIsAttributeAndKey() {
     // Arrange
     PageData<AlarmData> emptyPageDataResult = PageData.emptyPageData();
     when(alarmDao.findAlarmDataByQueryForEntities(
@@ -834,11 +852,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmDataQuery, Collection)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAlarmDataByQueryForEntities(TenantId, AlarmDataQuery, Collection); given EntityKey(EntityKeyType, String) with type is ENTITY_FIELD and 'Key'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseAlarmService.findAlarmDataByQueryForEntities(TenantId, AlarmDataQuery, Collection)"
   })
-  public void testFindAlarmDataByQueryForEntities_givenEntityKeyWithTypeIsEntity_fieldAndKey() {
+  void testFindAlarmDataByQueryForEntities_givenEntityKeyWithTypeIsEntity_fieldAndKey() {
     // Arrange
     PageData<AlarmData> emptyPageDataResult = PageData.emptyPageData();
     when(alarmDao.findAlarmDataByQueryForEntities(
@@ -888,11 +908,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmDataQuery, Collection)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAlarmDataByQueryForEntities(TenantId, AlarmDataQuery, Collection); given 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseAlarmService.findAlarmDataByQueryForEntities(TenantId, AlarmDataQuery, Collection)"
   })
-  public void testFindAlarmDataByQueryForEntities_givenNull() {
+  void testFindAlarmDataByQueryForEntities_givenNull() {
     // Arrange
     PageData<AlarmData> emptyPageDataResult = PageData.emptyPageData();
     when(alarmDao.findAlarmDataByQueryForEntities(
@@ -941,11 +963,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmDataQuery, Collection)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAlarmDataByQueryForEntities(TenantId, AlarmDataQuery, Collection); then calls getKey()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseAlarmService.findAlarmDataByQueryForEntities(TenantId, AlarmDataQuery, Collection)"
   })
-  public void testFindAlarmDataByQueryForEntities_thenCallsGetKey() {
+  void testFindAlarmDataByQueryForEntities_thenCallsGetKey() {
     // Arrange
     EntityDataSortOrder entityDataSortOrder = mock(EntityDataSortOrder.class);
     when(entityDataSortOrder.getKey()).thenThrow(new DataValidationException("An error occurred"));
@@ -985,11 +1009,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmDataQuery, Collection)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAlarmDataByQueryForEntities(TenantId, AlarmDataQuery, Collection); then calls getType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseAlarmService.findAlarmDataByQueryForEntities(TenantId, AlarmDataQuery, Collection)"
   })
-  public void testFindAlarmDataByQueryForEntities_thenCallsGetType() {
+  void testFindAlarmDataByQueryForEntities_thenCallsGetType() {
     // Arrange
     EntityKey key = mock(EntityKey.class);
     when(key.getType()).thenThrow(new DataValidationException("An error occurred"));
@@ -1025,9 +1051,10 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#delAlarm(TenantId, AlarmId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test delAlarm(TenantId, AlarmId) with 'tenantId', 'alarmId'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmApiCallResult BaseAlarmService.delAlarm(TenantId, AlarmId)"})
-  public void testDelAlarmWithTenantIdAlarmId() {
+  void testDelAlarmWithTenantIdAlarmId() {
     // Arrange
     when(alarmDao.findAlarmInfoById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -1049,9 +1076,11 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#delAlarm(TenantId, AlarmId, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test delAlarm(TenantId, AlarmId, boolean) with 'tenantId', 'alarmId', 'checkAndDeleteAlarmType'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmApiCallResult BaseAlarmService.delAlarm(TenantId, AlarmId, boolean)"})
-  public void testDelAlarmWithTenantIdAlarmIdCheckAndDeleteAlarmType() {
+  void testDelAlarmWithTenantIdAlarmIdCheckAndDeleteAlarmType() {
     // Arrange
     when(alarmDao.findAlarmInfoById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -1074,9 +1103,11 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#delAlarm(TenantId, AlarmId, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test delAlarm(TenantId, AlarmId, boolean) with 'tenantId', 'alarmId', 'checkAndDeleteAlarmType'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmApiCallResult BaseAlarmService.delAlarm(TenantId, AlarmId, boolean)"})
-  public void testDelAlarmWithTenantIdAlarmIdCheckAndDeleteAlarmType2() {
+  void testDelAlarmWithTenantIdAlarmIdCheckAndDeleteAlarmType2() {
     // Arrange
     when(alarmDao.findAlarmInfoById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(null);
 
@@ -1114,9 +1145,11 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#delAlarm(TenantId, AlarmId, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test delAlarm(TenantId, AlarmId, boolean) with 'tenantId', 'alarmId', 'checkAndDeleteAlarmType'; then calls removeById(TenantId, UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmApiCallResult BaseAlarmService.delAlarm(TenantId, AlarmId, boolean)"})
-  public void testDelAlarmWithTenantIdAlarmIdCheckAndDeleteAlarmType_thenCallsRemoveById() {
+  void testDelAlarmWithTenantIdAlarmIdCheckAndDeleteAlarmType_thenCallsRemoveById() {
     // Arrange
     doThrow(new DataValidationException("An error occurred"))
         .when(alarmDao)
@@ -1147,9 +1180,11 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#delAlarm(TenantId, AlarmId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test delAlarm(TenantId, AlarmId) with 'tenantId', 'alarmId'; then calls removeById(TenantId, UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmApiCallResult BaseAlarmService.delAlarm(TenantId, AlarmId)"})
-  public void testDelAlarmWithTenantIdAlarmId_thenCallsRemoveById() {
+  void testDelAlarmWithTenantIdAlarmId_thenCallsRemoveById() {
     // Arrange
     doThrow(new DataValidationException("An error occurred"))
         .when(alarmDao)
@@ -1179,9 +1214,11 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#delAlarm(TenantId, AlarmId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test delAlarm(TenantId, AlarmId) with 'tenantId', 'alarmId'; then return PropagatedEntitiesList is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmApiCallResult BaseAlarmService.delAlarm(TenantId, AlarmId)"})
-  public void testDelAlarmWithTenantIdAlarmId_thenReturnPropagatedEntitiesListIsNull() {
+  void testDelAlarmWithTenantIdAlarmId_thenReturnPropagatedEntitiesListIsNull() {
     // Arrange
     when(alarmDao.findAlarmInfoById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(null);
 
@@ -1218,9 +1255,11 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#delAlarmTypes(TenantId, Set)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test delAlarmTypes(TenantId, Set); given AlarmDao removeAlarmTypesIfNoAlarmsPresent(UUID, Set) return 'false'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void BaseAlarmService.delAlarmTypes(TenantId, Set)"})
-  public void testDelAlarmTypes_givenAlarmDaoRemoveAlarmTypesIfNoAlarmsPresentReturnFalse() {
+  void testDelAlarmTypes_givenAlarmDaoRemoveAlarmTypesIfNoAlarmsPresentReturnFalse() {
     // Arrange
     when(alarmDao.removeAlarmTypesIfNoAlarmsPresent(
             Mockito.<UUID>any(), Mockito.<Set<String>>any()))
@@ -1246,9 +1285,10 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#delAlarmTypes(TenantId, Set)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test delAlarmTypes(TenantId, Set); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void BaseAlarmService.delAlarmTypes(TenantId, Set)"})
-  public void testDelAlarmTypes_thenThrowDataValidationException() {
+  void testDelAlarmTypes_thenThrowDataValidationException() {
     // Arrange
     when(alarmDao.removeAlarmTypesIfNoAlarmsPresent(
             Mockito.<UUID>any(), Mockito.<Set<String>>any()))
@@ -1274,11 +1314,12 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#assignAlarm(TenantId, AlarmId, UserId, long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test assignAlarm(TenantId, AlarmId, UserId, long); then return not Successful")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AlarmApiCallResult BaseAlarmService.assignAlarm(TenantId, AlarmId, UserId, long)"
   })
-  public void testAssignAlarm_thenReturnNotSuccessful() {
+  void testAssignAlarm_thenReturnNotSuccessful() {
     // Arrange
     AlarmApiCallResultBuilder alarmApiCallResultBuilder = mock(AlarmApiCallResultBuilder.class);
     when(alarmApiCallResultBuilder.alarm(Mockito.<AlarmInfo>any()))
@@ -1350,11 +1391,12 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#assignAlarm(TenantId, AlarmId, UserId, long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test assignAlarm(TenantId, AlarmId, UserId, long); then return Successful")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AlarmApiCallResult BaseAlarmService.assignAlarm(TenantId, AlarmId, UserId, long)"
   })
-  public void testAssignAlarm_thenReturnSuccessful() {
+  void testAssignAlarm_thenReturnSuccessful() {
     // Arrange
     AlarmApiCallResultBuilder alarmApiCallResultBuilder = mock(AlarmApiCallResultBuilder.class);
     when(alarmApiCallResultBuilder.alarm(Mockito.<AlarmInfo>any()))
@@ -1426,11 +1468,13 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#assignAlarm(TenantId, AlarmId, UserId, long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test assignAlarm(TenantId, AlarmId, UserId, long); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AlarmApiCallResult BaseAlarmService.assignAlarm(TenantId, AlarmId, UserId, long)"
   })
-  public void testAssignAlarm_thenThrowDataValidationException() {
+  void testAssignAlarm_thenThrowDataValidationException() {
     // Arrange
     when(alarmDao.assignAlarm(
             Mockito.<TenantId>any(), Mockito.<AlarmId>any(), Mockito.<UserId>any(), anyLong()))
@@ -1453,9 +1497,10 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#unassignAlarm(TenantId, AlarmId, long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test unassignAlarm(TenantId, AlarmId, long); then return not Successful")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmApiCallResult BaseAlarmService.unassignAlarm(TenantId, AlarmId, long)"})
-  public void testUnassignAlarm_thenReturnNotSuccessful() {
+  void testUnassignAlarm_thenReturnNotSuccessful() {
     // Arrange
     AlarmApiCallResultBuilder alarmApiCallResultBuilder = mock(AlarmApiCallResultBuilder.class);
     when(alarmApiCallResultBuilder.alarm(Mockito.<AlarmInfo>any()))
@@ -1526,9 +1571,10 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#unassignAlarm(TenantId, AlarmId, long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test unassignAlarm(TenantId, AlarmId, long); then return Successful")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmApiCallResult BaseAlarmService.unassignAlarm(TenantId, AlarmId, long)"})
-  public void testUnassignAlarm_thenReturnSuccessful() {
+  void testUnassignAlarm_thenReturnSuccessful() {
     // Arrange
     AlarmApiCallResultBuilder alarmApiCallResultBuilder = mock(AlarmApiCallResultBuilder.class);
     when(alarmApiCallResultBuilder.alarm(Mockito.<AlarmInfo>any()))
@@ -1599,9 +1645,10 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#unassignAlarm(TenantId, AlarmId, long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test unassignAlarm(TenantId, AlarmId, long); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmApiCallResult BaseAlarmService.unassignAlarm(TenantId, AlarmId, long)"})
-  public void testUnassignAlarm_thenThrowDataValidationException() {
+  void testUnassignAlarm_thenThrowDataValidationException() {
     // Arrange
     when(alarmDao.unassignAlarm(Mockito.<TenantId>any(), Mockito.<AlarmId>any(), anyLong()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -1623,9 +1670,10 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#findAlarmById(TenantId, AlarmId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAlarmById(TenantId, AlarmId); then Details return ObjectNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Alarm BaseAlarmService.findAlarmById(TenantId, AlarmId)"})
-  public void testFindAlarmById_thenDetailsReturnObjectNode() {
+  void testFindAlarmById_thenDetailsReturnObjectNode() {
     // Arrange
     AlarmBuilder propagateResult =
         Alarm.builder()
@@ -1696,9 +1744,10 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#findAlarmById(TenantId, AlarmId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAlarmById(TenantId, AlarmId); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Alarm BaseAlarmService.findAlarmById(TenantId, AlarmId)"})
-  public void testFindAlarmById_thenThrowDataValidationException() {
+  void testFindAlarmById_thenThrowDataValidationException() {
     // Arrange
     when(alarmDao.findAlarmById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -1723,9 +1772,10 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#findAlarmByIdAsync(TenantId, AlarmId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAlarmByIdAsync(TenantId, AlarmId); then return SettableFuture")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ListenableFuture BaseAlarmService.findAlarmByIdAsync(TenantId, AlarmId)"})
-  public void testFindAlarmByIdAsync_thenReturnSettableFuture() {
+  void testFindAlarmByIdAsync_thenReturnSettableFuture() {
     // Arrange
     SettableFuture<Alarm> createResult = SettableFuture.create();
     when(alarmDao.findAlarmByIdAsync(Mockito.<TenantId>any(), Mockito.<UUID>any()))
@@ -1753,9 +1803,10 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#findAlarmInfoById(TenantId, AlarmId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAlarmInfoById(TenantId, AlarmId); then return AlarmInfo()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo BaseAlarmService.findAlarmInfoById(TenantId, AlarmId)"})
-  public void testFindAlarmInfoById_thenReturnAlarmInfo() {
+  void testFindAlarmInfoById_thenReturnAlarmInfo() {
     // Arrange
     AlarmInfo alarmInfo = new AlarmInfo();
     when(alarmDao.findAlarmInfoById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
@@ -1782,9 +1833,10 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#findAlarms(TenantId, AlarmQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAlarms(TenantId, AlarmQuery); then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData BaseAlarmService.findAlarms(TenantId, AlarmQuery)"})
-  public void testFindAlarms_thenReturnEmpty_page_data() {
+  void testFindAlarms_thenReturnEmpty_page_data() {
     // Arrange
     PageData<AlarmInfo> emptyPageDataResult = PageData.emptyPageData();
     when(alarmDao.findAlarms(Mockito.<TenantId>any(), Mockito.<AlarmQuery>any()))
@@ -1817,9 +1869,10 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#findAlarms(TenantId, AlarmQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAlarms(TenantId, AlarmQuery); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData BaseAlarmService.findAlarms(TenantId, AlarmQuery)"})
-  public void testFindAlarms_thenThrowDataValidationException() {
+  void testFindAlarms_thenThrowDataValidationException() {
     // Arrange
     when(alarmDao.findAlarms(Mockito.<TenantId>any(), Mockito.<AlarmQuery>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -1851,11 +1904,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findCustomerAlarms(TenantId, CustomerId, AlarmQuery); then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseAlarmService.findCustomerAlarms(TenantId, CustomerId, AlarmQuery)"
   })
-  public void testFindCustomerAlarms_thenReturnEmpty_page_data() {
+  void testFindCustomerAlarms_thenReturnEmpty_page_data() {
     // Arrange
     PageData<AlarmInfo> emptyPageDataResult = PageData.emptyPageData();
     when(alarmDao.findCustomerAlarms(
@@ -1892,11 +1947,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findCustomerAlarms(TenantId, CustomerId, AlarmQuery); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseAlarmService.findCustomerAlarms(TenantId, CustomerId, AlarmQuery)"
   })
-  public void testFindCustomerAlarms_thenThrowDataValidationException() {
+  void testFindCustomerAlarms_thenThrowDataValidationException() {
     // Arrange
     when(alarmDao.findCustomerAlarms(
             Mockito.<TenantId>any(), Mockito.<CustomerId>any(), Mockito.<AlarmQuery>any()))
@@ -1930,9 +1987,10 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#findAlarmsV2(TenantId, AlarmQueryV2)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAlarmsV2(TenantId, AlarmQueryV2); then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData BaseAlarmService.findAlarmsV2(TenantId, AlarmQueryV2)"})
-  public void testFindAlarmsV2_thenReturnEmpty_page_data() {
+  void testFindAlarmsV2_thenReturnEmpty_page_data() {
     // Arrange
     PageData<AlarmInfo> emptyPageDataResult = PageData.emptyPageData();
     when(alarmDao.findAlarmsV2(Mockito.<TenantId>any(), Mockito.<AlarmQueryV2>any()))
@@ -1968,9 +2026,10 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#findAlarmsV2(TenantId, AlarmQueryV2)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAlarmsV2(TenantId, AlarmQueryV2); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData BaseAlarmService.findAlarmsV2(TenantId, AlarmQueryV2)"})
-  public void testFindAlarmsV2_thenThrowDataValidationException() {
+  void testFindAlarmsV2_thenThrowDataValidationException() {
     // Arrange
     when(alarmDao.findAlarmsV2(Mockito.<TenantId>any(), Mockito.<AlarmQueryV2>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -2005,11 +2064,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmQueryV2)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findCustomerAlarmsV2(TenantId, CustomerId, AlarmQueryV2); then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseAlarmService.findCustomerAlarmsV2(TenantId, CustomerId, AlarmQueryV2)"
   })
-  public void testFindCustomerAlarmsV2_thenReturnEmpty_page_data() {
+  void testFindCustomerAlarmsV2_thenReturnEmpty_page_data() {
     // Arrange
     PageData<AlarmInfo> emptyPageDataResult = PageData.emptyPageData();
     when(alarmDao.findCustomerAlarmsV2(
@@ -2049,11 +2110,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmQueryV2)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findCustomerAlarmsV2(TenantId, CustomerId, AlarmQueryV2); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseAlarmService.findCustomerAlarmsV2(TenantId, CustomerId, AlarmQueryV2)"
   })
-  public void testFindCustomerAlarmsV2_thenThrowDataValidationException() {
+  void testFindCustomerAlarmsV2_thenThrowDataValidationException() {
     // Arrange
     when(alarmDao.findCustomerAlarmsV2(
             Mockito.<TenantId>any(), Mockito.<CustomerId>any(), Mockito.<AlarmQueryV2>any()))
@@ -2091,11 +2154,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmId, int)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAlarmIdsByAssigneeId(TenantId, UserId, long, AlarmId, int); then return Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "List BaseAlarmService.findAlarmIdsByAssigneeId(TenantId, UserId, long, AlarmId, int)"
   })
-  public void testFindAlarmIdsByAssigneeId_thenReturnEmpty() {
+  void testFindAlarmIdsByAssigneeId_thenReturnEmpty() {
     // Arrange
     PageData<TbPair<UUID, Long>> emptyPageDataResult = PageData.emptyPageData();
     when(alarmDao.findAlarmIdsByAssigneeId(
@@ -2131,11 +2196,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmId, int)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAlarmIdsByAssigneeId(TenantId, UserId, long, AlarmId, int); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "List BaseAlarmService.findAlarmIdsByAssigneeId(TenantId, UserId, long, AlarmId, int)"
   })
-  public void testFindAlarmIdsByAssigneeId_thenThrowDataValidationException() {
+  void testFindAlarmIdsByAssigneeId_thenThrowDataValidationException() {
     // Arrange
     when(alarmDao.findAlarmIdsByAssigneeId(
             Mockito.<TenantId>any(),
@@ -2170,11 +2237,13 @@ public class BaseAlarmServiceDiffblueTest {
    * long, AlarmId, int)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAlarmIdsByOriginatorId(TenantId, EntityId, long, AlarmId, int); then return Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "List BaseAlarmService.findAlarmIdsByOriginatorId(TenantId, EntityId, long, AlarmId, int)"
   })
-  public void testFindAlarmIdsByOriginatorId_thenReturnEmpty() {
+  void testFindAlarmIdsByOriginatorId_thenReturnEmpty() {
     // Arrange
     PageData<TbPair<UUID, Long>> emptyPageDataResult = PageData.emptyPageData();
     when(alarmDao.findAlarmIdsByOriginatorId(
@@ -2209,11 +2278,13 @@ public class BaseAlarmServiceDiffblueTest {
    * long, AlarmId, int)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAlarmIdsByOriginatorId(TenantId, EntityId, long, AlarmId, int); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "List BaseAlarmService.findAlarmIdsByOriginatorId(TenantId, EntityId, long, AlarmId, int)"
   })
-  public void testFindAlarmIdsByOriginatorId_thenThrowDataValidationException() {
+  void testFindAlarmIdsByOriginatorId_thenThrowDataValidationException() {
     // Arrange
     when(alarmDao.findAlarmIdsByOriginatorId(
             Mockito.<TenantId>any(),
@@ -2246,11 +2317,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmSearchStatus, AlarmStatus, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findHighestAlarmSeverity(TenantId, EntityId, AlarmSearchStatus, AlarmStatus, String); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AlarmSeverity BaseAlarmService.findHighestAlarmSeverity(TenantId, EntityId, AlarmSearchStatus, AlarmStatus, String)"
   })
-  public void testFindHighestAlarmSeverity_thenThrowDataValidationException() {
+  void testFindHighestAlarmSeverity_thenThrowDataValidationException() {
     // Arrange
     when(alarmDao.findAlarmSeverities(
             Mockito.<TenantId>any(),
@@ -2287,11 +2360,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmSearchStatus, AlarmStatus, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findHighestAlarmSeverity(TenantId, EntityId, AlarmSearchStatus, AlarmStatus, String); when 'ACK'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AlarmSeverity BaseAlarmService.findHighestAlarmSeverity(TenantId, EntityId, AlarmSearchStatus, AlarmStatus, String)"
   })
-  public void testFindHighestAlarmSeverity_whenAck_thenReturnNull() {
+  void testFindHighestAlarmSeverity_whenAck_thenReturnNull() {
     // Arrange
     when(alarmDao.findAlarmSeverities(
             Mockito.<TenantId>any(),
@@ -2329,11 +2404,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmSearchStatus, AlarmStatus, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findHighestAlarmSeverity(TenantId, EntityId, AlarmSearchStatus, AlarmStatus, String); when 'ACTIVE_ACK'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AlarmSeverity BaseAlarmService.findHighestAlarmSeverity(TenantId, EntityId, AlarmSearchStatus, AlarmStatus, String)"
   })
-  public void testFindHighestAlarmSeverity_whenActiveAck_thenReturnNull() {
+  void testFindHighestAlarmSeverity_whenActiveAck_thenReturnNull() {
     // Arrange
     when(alarmDao.findAlarmSeverities(
             Mockito.<TenantId>any(),
@@ -2371,11 +2448,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmSearchStatus, AlarmStatus, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findHighestAlarmSeverity(TenantId, EntityId, AlarmSearchStatus, AlarmStatus, String); when 'ACTIVE'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AlarmSeverity BaseAlarmService.findHighestAlarmSeverity(TenantId, EntityId, AlarmSearchStatus, AlarmStatus, String)"
   })
-  public void testFindHighestAlarmSeverity_whenActive_thenReturnNull() {
+  void testFindHighestAlarmSeverity_whenActive_thenReturnNull() {
     // Arrange
     when(alarmDao.findAlarmSeverities(
             Mockito.<TenantId>any(),
@@ -2413,11 +2492,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmSearchStatus, AlarmStatus, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findHighestAlarmSeverity(TenantId, EntityId, AlarmSearchStatus, AlarmStatus, String); when 'ANY'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AlarmSeverity BaseAlarmService.findHighestAlarmSeverity(TenantId, EntityId, AlarmSearchStatus, AlarmStatus, String)"
   })
-  public void testFindHighestAlarmSeverity_whenAny_thenReturnNull() {
+  void testFindHighestAlarmSeverity_whenAny_thenReturnNull() {
     // Arrange
     when(alarmDao.findAlarmSeverities(
             Mockito.<TenantId>any(),
@@ -2455,11 +2536,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmSearchStatus, AlarmStatus, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findHighestAlarmSeverity(TenantId, EntityId, AlarmSearchStatus, AlarmStatus, String); when 'CLEARED_ACK'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AlarmSeverity BaseAlarmService.findHighestAlarmSeverity(TenantId, EntityId, AlarmSearchStatus, AlarmStatus, String)"
   })
-  public void testFindHighestAlarmSeverity_whenClearedAck_thenReturnNull() {
+  void testFindHighestAlarmSeverity_whenClearedAck_thenReturnNull() {
     // Arrange
     when(alarmDao.findAlarmSeverities(
             Mockito.<TenantId>any(),
@@ -2497,11 +2580,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmSearchStatus, AlarmStatus, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findHighestAlarmSeverity(TenantId, EntityId, AlarmSearchStatus, AlarmStatus, String); when 'CLEARED_UNACK'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AlarmSeverity BaseAlarmService.findHighestAlarmSeverity(TenantId, EntityId, AlarmSearchStatus, AlarmStatus, String)"
   })
-  public void testFindHighestAlarmSeverity_whenClearedUnack_thenReturnNull() {
+  void testFindHighestAlarmSeverity_whenClearedUnack_thenReturnNull() {
     // Arrange
     when(alarmDao.findAlarmSeverities(
             Mockito.<TenantId>any(),
@@ -2539,11 +2624,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmSearchStatus, AlarmStatus, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findHighestAlarmSeverity(TenantId, EntityId, AlarmSearchStatus, AlarmStatus, String); when 'CLEARED'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AlarmSeverity BaseAlarmService.findHighestAlarmSeverity(TenantId, EntityId, AlarmSearchStatus, AlarmStatus, String)"
   })
-  public void testFindHighestAlarmSeverity_whenCleared_thenReturnNull() {
+  void testFindHighestAlarmSeverity_whenCleared_thenReturnNull() {
     // Arrange
     when(alarmDao.findAlarmSeverities(
             Mockito.<TenantId>any(),
@@ -2581,11 +2668,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmSearchStatus, AlarmStatus, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findHighestAlarmSeverity(TenantId, EntityId, AlarmSearchStatus, AlarmStatus, String); when 'null'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AlarmSeverity BaseAlarmService.findHighestAlarmSeverity(TenantId, EntityId, AlarmSearchStatus, AlarmStatus, String)"
   })
-  public void testFindHighestAlarmSeverity_whenNull_thenReturnNull() {
+  void testFindHighestAlarmSeverity_whenNull_thenReturnNull() {
     // Arrange
     when(alarmDao.findAlarmSeverities(
             Mockito.<TenantId>any(),
@@ -2623,11 +2712,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmSearchStatus, AlarmStatus, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findHighestAlarmSeverity(TenantId, EntityId, AlarmSearchStatus, AlarmStatus, String); when 'null'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AlarmSeverity BaseAlarmService.findHighestAlarmSeverity(TenantId, EntityId, AlarmSearchStatus, AlarmStatus, String)"
   })
-  public void testFindHighestAlarmSeverity_whenNull_thenReturnNull2() {
+  void testFindHighestAlarmSeverity_whenNull_thenReturnNull2() {
     // Arrange
     when(alarmDao.findAlarmSeverities(
             Mockito.<TenantId>any(),
@@ -2661,11 +2752,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmSearchStatus, AlarmStatus, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findHighestAlarmSeverity(TenantId, EntityId, AlarmSearchStatus, AlarmStatus, String); when 'UNACK'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AlarmSeverity BaseAlarmService.findHighestAlarmSeverity(TenantId, EntityId, AlarmSearchStatus, AlarmStatus, String)"
   })
-  public void testFindHighestAlarmSeverity_whenUnack_thenReturnNull() {
+  void testFindHighestAlarmSeverity_whenUnack_thenReturnNull() {
     // Arrange
     when(alarmDao.findAlarmSeverities(
             Mockito.<TenantId>any(),
@@ -2700,9 +2793,10 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#deleteEntityAlarmRecords(TenantId, EntityId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEntityAlarmRecords(TenantId, EntityId); then return one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"int BaseAlarmService.deleteEntityAlarmRecords(TenantId, EntityId)"})
-  public void testDeleteEntityAlarmRecords_thenReturnOne() {
+  void testDeleteEntityAlarmRecords_thenReturnOne() {
     // Arrange
     when(alarmDao.deleteEntityAlarmRecords(Mockito.<TenantId>any(), Mockito.<EntityId>any()))
         .thenReturn(1);
@@ -2727,9 +2821,11 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#deleteEntityAlarmRecords(TenantId, EntityId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteEntityAlarmRecords(TenantId, EntityId); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"int BaseAlarmService.deleteEntityAlarmRecords(TenantId, EntityId)"})
-  public void testDeleteEntityAlarmRecords_thenThrowDataValidationException() {
+  void testDeleteEntityAlarmRecords_thenThrowDataValidationException() {
     // Arrange
     when(alarmDao.deleteEntityAlarmRecords(Mockito.<TenantId>any(), Mockito.<EntityId>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -2749,9 +2845,10 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#deleteEntityAlarmRecordsByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEntityAlarmRecordsByTenantId(TenantId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void BaseAlarmService.deleteEntityAlarmRecordsByTenantId(TenantId)"})
-  public void testDeleteEntityAlarmRecordsByTenantId() {
+  void testDeleteEntityAlarmRecordsByTenantId() {
     // Arrange
     doNothing().when(alarmDao).deleteEntityAlarmRecordsByTenantId(Mockito.<TenantId>any());
 
@@ -2772,9 +2869,11 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#deleteEntityAlarmRecordsByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteEntityAlarmRecordsByTenantId(TenantId); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void BaseAlarmService.deleteEntityAlarmRecordsByTenantId(TenantId)"})
-  public void testDeleteEntityAlarmRecordsByTenantId_thenThrowDataValidationException() {
+  void testDeleteEntityAlarmRecordsByTenantId_thenThrowDataValidationException() {
     // Arrange
     doThrow(new DataValidationException("An error occurred"))
         .when(alarmDao)
@@ -2798,11 +2897,12 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmCountQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test countAlarmsByQuery(TenantId, CustomerId, AlarmCountQuery); then return three")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "long BaseAlarmService.countAlarmsByQuery(TenantId, CustomerId, AlarmCountQuery)"
   })
-  public void testCountAlarmsByQuery_thenReturnThree() {
+  void testCountAlarmsByQuery_thenReturnThree() {
     // Arrange
     when(alarmDao.countAlarmsByQuery(
             Mockito.<TenantId>any(), Mockito.<CustomerId>any(), Mockito.<AlarmCountQuery>any()))
@@ -2832,11 +2932,13 @@ public class BaseAlarmServiceDiffblueTest {
    * AlarmCountQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test countAlarmsByQuery(TenantId, CustomerId, AlarmCountQuery); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "long BaseAlarmService.countAlarmsByQuery(TenantId, CustomerId, AlarmCountQuery)"
   })
-  public void testCountAlarmsByQuery_thenThrowDataValidationException() {
+  void testCountAlarmsByQuery_thenThrowDataValidationException() {
     // Arrange
     when(alarmDao.countAlarmsByQuery(
             Mockito.<TenantId>any(), Mockito.<CustomerId>any(), Mockito.<AlarmCountQuery>any()))
@@ -2864,9 +2966,11 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#findAlarmTypesByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAlarmTypesByTenantId(TenantId, PageLink); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData BaseAlarmService.findAlarmTypesByTenantId(TenantId, PageLink)"})
-  public void testFindAlarmTypesByTenantId_thenThrowDataValidationException() {
+  void testFindAlarmTypesByTenantId_thenThrowDataValidationException() {
     // Arrange
     when(alarmDao.findTenantAlarmTypes(Mockito.<UUID>any(), Mockito.<PageLink>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -2891,9 +2995,11 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#findAlarmTypesByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAlarmTypesByTenantId(TenantId, PageLink); when 'null'; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData BaseAlarmService.findAlarmTypesByTenantId(TenantId, PageLink)"})
-  public void testFindAlarmTypesByTenantId_whenNull_thenReturnEmpty_page_data() {
+  void testFindAlarmTypesByTenantId_whenNull_thenReturnEmpty_page_data() {
     // Arrange
     PageData<EntitySubtype> emptyPageDataResult = PageData.emptyPageData();
     when(alarmDao.findTenantAlarmTypes(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -2920,9 +3026,11 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#findAlarmTypesByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAlarmTypesByTenantId(TenantId, PageLink); when SYSTEM_TENANT; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData BaseAlarmService.findAlarmTypesByTenantId(TenantId, PageLink)"})
-  public void testFindAlarmTypesByTenantId_whenSystem_tenant_thenReturnEmpty_page_data() {
+  void testFindAlarmTypesByTenantId_whenSystem_tenant_thenReturnEmpty_page_data() {
     // Arrange
     PageData<EntitySubtype> emptyPageDataResult = PageData.emptyPageData();
     when(alarmDao.findTenantAlarmTypes(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -2949,9 +3057,11 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#findAlarmTypesByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAlarmTypesByTenantId(TenantId, PageLink); when TimePageLink(int) with pageSize is three")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData BaseAlarmService.findAlarmTypesByTenantId(TenantId, PageLink)"})
-  public void testFindAlarmTypesByTenantId_whenTimePageLinkWithPageSizeIsThree() {
+  void testFindAlarmTypesByTenantId_whenTimePageLinkWithPageSizeIsThree() {
     // Arrange
     PageData<EntitySubtype> emptyPageDataResult = PageData.emptyPageData();
     when(alarmDao.findTenantAlarmTypes(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -2978,9 +3088,10 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#findEntity(TenantId, EntityId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntity(TenantId, EntityId); then get() return Alarm")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Optional BaseAlarmService.findEntity(TenantId, EntityId)"})
-  public void testFindEntity_thenGetReturnAlarm() {
+  void testFindEntity_thenGetReturnAlarm() {
     // Arrange
     AlarmBuilder propagateResult =
         Alarm.builder()
@@ -3030,9 +3141,11 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#findEntity(TenantId, EntityId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntity(TenantId, EntityId); when NULL_CUSTOMER_ID; then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Optional BaseAlarmService.findEntity(TenantId, EntityId)"})
-  public void testFindEntity_whenNull_customer_id_thenThrowDataValidationException() {
+  void testFindEntity_whenNull_customer_id_thenThrowDataValidationException() {
     // Arrange
     when(alarmDao.findAlarmById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -3052,9 +3165,10 @@ public class BaseAlarmServiceDiffblueTest {
    * <p>Method under test: {@link BaseAlarmService#getEntityType()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getEntityType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityType BaseAlarmService.getEntityType()"})
-  public void testGetEntityType() {
+  void testGetEntityType() {
     // Arrange
     TenantServiceImpl tenantService = new TenantServiceImpl();
     JpaAlarmDao alarmDao = new JpaAlarmDao();

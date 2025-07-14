@@ -1,14 +1,14 @@
 package org.thingsboard.server.dao.exception;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class DatabaseExceptionDiffblueTest {
+class DatabaseExceptionDiffblueTest {
   /**
    * Test {@link DatabaseException#DatabaseException()}.
    *
@@ -19,14 +19,15 @@ public class DatabaseExceptionDiffblueTest {
    * <p>Method under test: {@link DatabaseException#DatabaseException()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new DatabaseException(); then return Message is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void DatabaseException.<init>()",
     "void DatabaseException.<init>(String)",
     "void DatabaseException.<init>(String, Throwable)",
     "void DatabaseException.<init>(Throwable)"
   })
-  public void testNewDatabaseException_thenReturnMessageIsNull() {
+  void testNewDatabaseException_thenReturnMessageIsNull() {
     // Arrange and Act
     DatabaseException actualDatabaseException = new DatabaseException();
 
@@ -47,14 +48,16 @@ public class DatabaseExceptionDiffblueTest {
    * <p>Method under test: {@link DatabaseException#DatabaseException(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new DatabaseException(String); when 'An error occurred'; then return Message is 'An error occurred'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void DatabaseException.<init>()",
     "void DatabaseException.<init>(String)",
     "void DatabaseException.<init>(String, Throwable)",
     "void DatabaseException.<init>(Throwable)"
   })
-  public void testNewDatabaseException_whenAnErrorOccurred_thenReturnMessageIsAnErrorOccurred() {
+  void testNewDatabaseException_whenAnErrorOccurred_thenReturnMessageIsAnErrorOccurred() {
     // Arrange and Act
     DatabaseException actualDatabaseException = new DatabaseException("An error occurred");
 
@@ -75,14 +78,16 @@ public class DatabaseExceptionDiffblueTest {
    * <p>Method under test: {@link DatabaseException#DatabaseException(String, Throwable)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new DatabaseException(String, Throwable); when 'An error occurred'; then return Message is 'An error occurred'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void DatabaseException.<init>()",
     "void DatabaseException.<init>(String)",
     "void DatabaseException.<init>(String, Throwable)",
     "void DatabaseException.<init>(Throwable)"
   })
-  public void testNewDatabaseException_whenAnErrorOccurred_thenReturnMessageIsAnErrorOccurred2() {
+  void testNewDatabaseException_whenAnErrorOccurred_thenReturnMessageIsAnErrorOccurred2() {
     // Arrange
     Throwable cause = new Throwable();
 
@@ -106,14 +111,16 @@ public class DatabaseExceptionDiffblueTest {
    * <p>Method under test: {@link DatabaseException#DatabaseException(Throwable)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new DatabaseException(Throwable); when Throwable(); then return Message is 'java.lang.Throwable'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void DatabaseException.<init>()",
     "void DatabaseException.<init>(String)",
     "void DatabaseException.<init>(String, Throwable)",
     "void DatabaseException.<init>(Throwable)"
   })
-  public void testNewDatabaseException_whenThrowable_thenReturnMessageIsJavaLangThrowable() {
+  void testNewDatabaseException_whenThrowable_thenReturnMessageIsJavaLangThrowable() {
     // Arrange
     Throwable cause = new Throwable();
 

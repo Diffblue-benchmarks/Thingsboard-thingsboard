@@ -195,178 +195,24 @@ class MqttClientImplDiffblueTest {
     mqttClientImpl.setEventLoop(new DefaultEventLoop());
 
     // Act
-    mqttClientImpl.once("Topic", mock(MqttHandler.class));
+    Future<Void> actualOnceResult = mqttClientImpl.once("Topic", mock(MqttHandler.class));
 
     // Assert
     ConcurrentMap<Integer, MqttPendingSubscription> pendingSubscriptions =
         mqttClientImpl.getPendingSubscriptions();
     assertEquals(1, pendingSubscriptions.size());
     MqttPendingSubscription getResult = pendingSubscriptions.get(1);
-    List<MqttTopicSubscription> topicSubscriptionsResult =
-        getResult.getSubscribeMessage().payload().topicSubscriptions();
-    assertEquals(1, topicSubscriptionsResult.size());
-    assertEquals("Topic", topicSubscriptionsResult.get(0).topicFilter());
+    assertTrue(
+        getResult.getSubscribeMessage().variableHeader()
+            instanceof MqttMessageIdAndPropertiesVariableHeader);
+    assertTrue(actualOnceResult instanceof DefaultPromise);
     assertEquals("Topic", getResult.getTopic());
     Set<String> pendingSubscribeTopics = mqttClientImpl.getPendingSubscribeTopics();
     assertEquals(1, pendingSubscribeTopics.size());
+    assertEquals(1, getResult.getHandlers().size());
+    assertFalse(getResult.isSent());
     assertTrue(pendingSubscribeTopics.contains("Topic"));
-  }
-
-  /**
-   * Test {@link MqttClientImpl#once(String, MqttHandler)} with {@code topic}, {@code handler}.
-   *
-   * <p>Method under test: {@link MqttClientImpl#once(String, MqttHandler)}
-   */
-  @Test
-  @DisplayName("Test once(String, MqttHandler) with 'topic', 'handler'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Future MqttClientImpl.once(String, MqttHandler)"})
-  void testOnceWithTopicHandler2() {
-    // Arrange
-    DefaultEventLoop defaultEventLoop = new DefaultEventLoop();
-    defaultEventLoop.addShutdownHook(mock(Runnable.class));
-    DefaultEventLoop eventLoop = mock(DefaultEventLoop.class);
-    when(eventLoop.next()).thenReturn(defaultEventLoop);
-
-    MqttClientImpl mqttClientImpl =
-        new MqttClientImpl(mock(MqttHandler.class), mock(ListeningExecutor.class));
-    mqttClientImpl.setEventLoop(eventLoop);
-
-    // Act
-    mqttClientImpl.once("Topic", mock(MqttHandler.class));
-
-    // Assert
-    verify(eventLoop, atLeast(1)).next();
-    ConcurrentMap<Integer, MqttPendingSubscription> pendingSubscriptions =
-        mqttClientImpl.getPendingSubscriptions();
-    assertEquals(1, pendingSubscriptions.size());
-    MqttPendingSubscription getResult = pendingSubscriptions.get(1);
-    List<MqttTopicSubscription> topicSubscriptionsResult =
-        getResult.getSubscribeMessage().payload().topicSubscriptions();
-    assertEquals(1, topicSubscriptionsResult.size());
-    assertEquals("Topic", topicSubscriptionsResult.get(0).topicFilter());
-    assertEquals("Topic", getResult.getTopic());
-    Set<String> pendingSubscribeTopics = mqttClientImpl.getPendingSubscribeTopics();
-    assertEquals(1, pendingSubscribeTopics.size());
-    assertTrue(pendingSubscribeTopics.contains("Topic"));
-  }
-
-  /**
-   * Test {@link MqttClientImpl#once(String, MqttHandler)} with {@code topic}, {@code handler}.
-   *
-   * <p>Method under test: {@link MqttClientImpl#once(String, MqttHandler)}
-   */
-  @Test
-  @DisplayName("Test once(String, MqttHandler) with 'topic', 'handler'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Future MqttClientImpl.once(String, MqttHandler)"})
-  void testOnceWithTopicHandler3() {
-    // Arrange
-    DefaultEventLoop defaultEventLoop = new DefaultEventLoop();
-    defaultEventLoop.addShutdownHook(mock(Runnable.class));
-    DefaultEventLoop eventLoop = mock(DefaultEventLoop.class);
-    when(eventLoop.next()).thenReturn(defaultEventLoop);
-
-    MqttClientImpl mqttClientImpl =
-        new MqttClientImpl(mock(MqttHandler.class), mock(ListeningExecutor.class));
-    mqttClientImpl.setEventLoop(eventLoop);
-
-    // Act
-    mqttClientImpl.once("[{}] Creating subscription to {}", mock(MqttHandler.class));
-
-    // Assert
-    verify(eventLoop, atLeast(1)).next();
-    ConcurrentMap<Integer, MqttPendingSubscription> pendingSubscriptions =
-        mqttClientImpl.getPendingSubscriptions();
-    assertEquals(1, pendingSubscriptions.size());
-    MqttPendingSubscription getResult = pendingSubscriptions.get(1);
-    List<MqttTopicSubscription> topicSubscriptionsResult =
-        getResult.getSubscribeMessage().payload().topicSubscriptions();
-    assertEquals(1, topicSubscriptionsResult.size());
-    assertEquals("[{}] Creating subscription to {}", topicSubscriptionsResult.get(0).topicFilter());
-    assertEquals("[{}] Creating subscription to {}", getResult.getTopic());
-    Set<String> pendingSubscribeTopics = mqttClientImpl.getPendingSubscribeTopics();
-    assertEquals(1, pendingSubscribeTopics.size());
-    assertTrue(pendingSubscribeTopics.contains("[{}] Creating subscription to {}"));
-  }
-
-  /**
-   * Test {@link MqttClientImpl#once(String, MqttHandler)} with {@code topic}, {@code handler}.
-   *
-   * <p>Method under test: {@link MqttClientImpl#once(String, MqttHandler)}
-   */
-  @Test
-  @DisplayName("Test once(String, MqttHandler) with 'topic', 'handler'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Future MqttClientImpl.once(String, MqttHandler)"})
-  void testOnceWithTopicHandler4() {
-    // Arrange
-    DefaultEventLoop defaultEventLoop = new DefaultEventLoop();
-    defaultEventLoop.addShutdownHook(mock(Runnable.class));
-    DefaultEventLoop eventLoop = mock(DefaultEventLoop.class);
-    when(eventLoop.next()).thenReturn(defaultEventLoop);
-
-    MqttClientImpl mqttClientImpl =
-        new MqttClientImpl(mock(MqttHandler.class), mock(ListeningExecutor.class));
-    mqttClientImpl.setEventLoop(eventLoop);
-
-    // Act
-    mqttClientImpl.once("UNKNOWN", mock(MqttHandler.class));
-
-    // Assert
-    verify(eventLoop, atLeast(1)).next();
-    ConcurrentMap<Integer, MqttPendingSubscription> pendingSubscriptions =
-        mqttClientImpl.getPendingSubscriptions();
-    assertEquals(1, pendingSubscriptions.size());
-    MqttPendingSubscription getResult = pendingSubscriptions.get(1);
-    List<MqttTopicSubscription> topicSubscriptionsResult =
-        getResult.getSubscribeMessage().payload().topicSubscriptions();
-    assertEquals(1, topicSubscriptionsResult.size());
-    assertEquals("UNKNOWN", topicSubscriptionsResult.get(0).topicFilter());
-    assertEquals("UNKNOWN", getResult.getTopic());
-    Set<String> pendingSubscribeTopics = mqttClientImpl.getPendingSubscribeTopics();
-    assertEquals(1, pendingSubscribeTopics.size());
-    assertTrue(pendingSubscribeTopics.contains("UNKNOWN"));
-  }
-
-  /**
-   * Test {@link MqttClientImpl#once(String, MqttHandler)} with {@code topic}, {@code handler}.
-   *
-   * <p>Method under test: {@link MqttClientImpl#once(String, MqttHandler)}
-   */
-  @Test
-  @DisplayName("Test once(String, MqttHandler) with 'topic', 'handler'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Future MqttClientImpl.once(String, MqttHandler)"})
-  void testOnceWithTopicHandler5() {
-    // Arrange
-    DefaultEventLoop defaultEventLoop = new DefaultEventLoop();
-    defaultEventLoop.addShutdownHook(mock(Runnable.class));
-    DefaultEventLoop eventLoop = mock(DefaultEventLoop.class);
-    when(eventLoop.next()).thenReturn(defaultEventLoop);
-
-    MqttClientImpl mqttClientImpl =
-        new MqttClientImpl(
-            new MqttClientConfig(), mock(MqttHandler.class), mock(ListeningExecutor.class));
-    mqttClientImpl.setEventLoop(eventLoop);
-
-    // Act
-    mqttClientImpl.once("42", mock(MqttHandler.class));
-
-    // Assert
-    verify(eventLoop, atLeast(1)).next();
-    ConcurrentMap<Integer, MqttPendingSubscription> pendingSubscriptions =
-        mqttClientImpl.getPendingSubscriptions();
-    assertEquals(1, pendingSubscriptions.size());
-    MqttPendingSubscription getResult = pendingSubscriptions.get(1);
-    List<MqttTopicSubscription> topicSubscriptionsResult =
-        getResult.getSubscribeMessage().payload().topicSubscriptions();
-    assertEquals(1, topicSubscriptionsResult.size());
-    assertEquals("42", topicSubscriptionsResult.get(0).topicFilter());
-    assertEquals("42", getResult.getTopic());
-    Set<String> pendingSubscribeTopics = mqttClientImpl.getPendingSubscribeTopics();
-    assertEquals(1, pendingSubscribeTopics.size());
-    assertTrue(pendingSubscribeTopics.contains("42"));
+    assertTrue(mqttClientImpl.getHandlerToSubscription().entries().isEmpty());
   }
 
   /**
@@ -469,7 +315,7 @@ class MqttClientImplDiffblueTest {
     mqttClientImpl.setEventLoop(eventLoop);
 
     // Act
-    mqttClientImpl.once(null, mock(MqttHandler.class), MqttQoS.AT_MOST_ONCE);
+    mqttClientImpl.once("Topic", mock(MqttHandler.class), MqttQoS.EXACTLY_ONCE);
 
     // Assert
     verify(eventLoop, atLeast(1)).next();
@@ -481,12 +327,12 @@ class MqttClientImplDiffblueTest {
         getResult.getSubscribeMessage().payload().topicSubscriptions();
     assertEquals(1, topicSubscriptionsResult.size());
     MqttTopicSubscription getResult2 = topicSubscriptionsResult.get(0);
-    assertNull(getResult2.topicFilter());
-    assertNull(getResult.getTopic());
+    assertEquals("Topic", getResult2.topicFilter());
+    assertEquals("Topic", getResult.getTopic());
     Set<String> pendingSubscribeTopics = mqttClientImpl.getPendingSubscribeTopics();
     assertEquals(1, pendingSubscribeTopics.size());
-    assertEquals(MqttQoS.AT_MOST_ONCE, getResult2.option().qos());
-    assertTrue(pendingSubscribeTopics.contains(null));
+    assertEquals(MqttQoS.EXACTLY_ONCE, getResult2.option().qos());
+    assertTrue(pendingSubscribeTopics.contains("Topic"));
   }
 
   /**
@@ -511,7 +357,8 @@ class MqttClientImplDiffblueTest {
     mqttClientImpl.setEventLoop(eventLoop);
 
     // Act
-    mqttClientImpl.once("42", mock(MqttHandler.class), MqttQoS.AT_MOST_ONCE);
+    mqttClientImpl.once(
+        "org.thingsboard.mqtt.MqttClientImpl", mock(MqttHandler.class), MqttQoS.EXACTLY_ONCE);
 
     // Assert
     verify(eventLoop, atLeast(1)).next();
@@ -523,12 +370,12 @@ class MqttClientImplDiffblueTest {
         getResult.getSubscribeMessage().payload().topicSubscriptions();
     assertEquals(1, topicSubscriptionsResult.size());
     MqttTopicSubscription getResult2 = topicSubscriptionsResult.get(0);
-    assertEquals("42", getResult2.topicFilter());
-    assertEquals("42", getResult.getTopic());
+    assertEquals("org.thingsboard.mqtt.MqttClientImpl", getResult2.topicFilter());
+    assertEquals("org.thingsboard.mqtt.MqttClientImpl", getResult.getTopic());
     Set<String> pendingSubscribeTopics = mqttClientImpl.getPendingSubscribeTopics();
     assertEquals(1, pendingSubscribeTopics.size());
-    assertEquals(MqttQoS.AT_MOST_ONCE, getResult2.option().qos());
-    assertTrue(pendingSubscribeTopics.contains("42"));
+    assertEquals(MqttQoS.EXACTLY_ONCE, getResult2.option().qos());
+    assertTrue(pendingSubscribeTopics.contains("org.thingsboard.mqtt.MqttClientImpl"));
   }
 
   /**
@@ -549,14 +396,12 @@ class MqttClientImplDiffblueTest {
     when(eventLoop.next()).thenReturn(defaultEventLoop);
 
     MqttClientImpl mqttClientImpl =
-        new MqttClientImpl(mock(MqttHandler.class), mock(ListeningExecutor.class));
+        new MqttClientImpl(
+            new MqttClientConfig(), mock(MqttHandler.class), mock(ListeningExecutor.class));
     mqttClientImpl.setEventLoop(eventLoop);
 
     // Act
-    mqttClientImpl.once(
-        "org.thingsboard.mqtt.MqttPendingSubscription",
-        mock(MqttHandler.class),
-        MqttQoS.AT_MOST_ONCE);
+    mqttClientImpl.once("Topic", mock(MqttHandler.class), MqttQoS.AT_LEAST_ONCE);
 
     // Assert
     verify(eventLoop, atLeast(1)).next();
@@ -568,12 +413,12 @@ class MqttClientImplDiffblueTest {
         getResult.getSubscribeMessage().payload().topicSubscriptions();
     assertEquals(1, topicSubscriptionsResult.size());
     MqttTopicSubscription getResult2 = topicSubscriptionsResult.get(0);
-    assertEquals("org.thingsboard.mqtt.MqttPendingSubscription", getResult2.topicFilter());
-    assertEquals("org.thingsboard.mqtt.MqttPendingSubscription", getResult.getTopic());
+    assertEquals("Topic", getResult2.topicFilter());
+    assertEquals("Topic", getResult.getTopic());
     Set<String> pendingSubscribeTopics = mqttClientImpl.getPendingSubscribeTopics();
     assertEquals(1, pendingSubscribeTopics.size());
-    assertEquals(MqttQoS.AT_MOST_ONCE, getResult2.option().qos());
-    assertTrue(pendingSubscribeTopics.contains("org.thingsboard.mqtt.MqttPendingSubscription"));
+    assertEquals(MqttQoS.AT_LEAST_ONCE, getResult2.option().qos());
+    assertTrue(pendingSubscribeTopics.contains("Topic"));
   }
 
   /**
@@ -599,7 +444,57 @@ class MqttClientImplDiffblueTest {
     mqttClientImpl.setEventLoop(eventLoop);
 
     // Act
-    mqttClientImpl.once("Topic", mock(MqttHandler.class), MqttQoS.FAILURE);
+    mqttClientImpl.once("42", mock(MqttHandler.class), MqttQoS.AT_LEAST_ONCE);
+
+    // Assert
+    verify(eventLoop, atLeast(1)).next();
+    ConcurrentMap<Integer, MqttPendingSubscription> pendingSubscriptions =
+        mqttClientImpl.getPendingSubscriptions();
+    assertEquals(1, pendingSubscriptions.size());
+    MqttPendingSubscription getResult = pendingSubscriptions.get(1);
+    List<MqttTopicSubscription> topicSubscriptionsResult =
+        getResult.getSubscribeMessage().payload().topicSubscriptions();
+    assertEquals(1, topicSubscriptionsResult.size());
+    MqttTopicSubscription getResult2 = topicSubscriptionsResult.get(0);
+    assertEquals("42", getResult2.topicFilter());
+    assertEquals("42", getResult.getTopic());
+    Set<String> pendingSubscribeTopics = mqttClientImpl.getPendingSubscribeTopics();
+    assertEquals(1, pendingSubscribeTopics.size());
+    assertEquals(MqttQoS.AT_LEAST_ONCE, getResult2.option().qos());
+    assertTrue(pendingSubscribeTopics.contains("42"));
+  }
+
+  /**
+   * Test {@link MqttClientImpl#once(String, MqttHandler, MqttQoS)} with {@code topic}, {@code
+   * handler}, {@code qos}.
+   *
+   * <ul>
+   *   <li>Given {@link MqttClientConfig#MqttClientConfig()} Password is {@code iloveyou}.
+   * </ul>
+   *
+   * <p>Method under test: {@link MqttClientImpl#once(String, MqttHandler, MqttQoS)}
+   */
+  @Test
+  @DisplayName(
+      "Test once(String, MqttHandler, MqttQoS) with 'topic', 'handler', 'qos'; given MqttClientConfig() Password is 'iloveyou'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Future MqttClientImpl.once(String, MqttHandler, MqttQoS)"})
+  void testOnceWithTopicHandlerQos_givenMqttClientConfigPasswordIsIloveyou() {
+    // Arrange
+    DefaultEventLoop defaultEventLoop = new DefaultEventLoop();
+    defaultEventLoop.addShutdownHook(mock(Runnable.class));
+    DefaultEventLoop eventLoop = mock(DefaultEventLoop.class);
+    when(eventLoop.next()).thenReturn(defaultEventLoop);
+
+    MqttClientConfig clientConfig = new MqttClientConfig();
+    clientConfig.setPassword("iloveyou");
+
+    MqttClientImpl mqttClientImpl =
+        new MqttClientImpl(clientConfig, mock(MqttHandler.class), mock(ListeningExecutor.class));
+    mqttClientImpl.setEventLoop(eventLoop);
+
+    // Act
+    mqttClientImpl.once("Topic", mock(MqttHandler.class), MqttQoS.AT_LEAST_ONCE);
 
     // Assert
     verify(eventLoop, atLeast(1)).next();
@@ -615,26 +510,73 @@ class MqttClientImplDiffblueTest {
     assertEquals("Topic", getResult.getTopic());
     Set<String> pendingSubscribeTopics = mqttClientImpl.getPendingSubscribeTopics();
     assertEquals(1, pendingSubscribeTopics.size());
-    assertEquals(MqttQoS.FAILURE, getResult2.option().qos());
+    assertEquals(MqttQoS.AT_LEAST_ONCE, getResult2.option().qos());
     assertTrue(pendingSubscribeTopics.contains("Topic"));
   }
 
   /**
-   * Test {@link MqttClientImpl#once(String, MqttHandler, MqttQoS)} with {@code topic}, {@code
-   * handler}, {@code qos}.
+   * Test {@link MqttClientImpl#once(String, MqttHandler)} with {@code topic}, {@code handler}.
    *
    * <ul>
-   *   <li>Given {@link DefaultEventLoop} {@link DefaultEventLoop#next()} return {@link EventLoop}.
+   *   <li>Given {@link DefaultEventLoop#DefaultEventLoop()} addShutdownHook {@link Runnable}.
    * </ul>
    *
-   * <p>Method under test: {@link MqttClientImpl#once(String, MqttHandler, MqttQoS)}
+   * <p>Method under test: {@link MqttClientImpl#once(String, MqttHandler)}
    */
   @Test
   @DisplayName(
-      "Test once(String, MqttHandler, MqttQoS) with 'topic', 'handler', 'qos'; given DefaultEventLoop next() return EventLoop")
+      "Test once(String, MqttHandler) with 'topic', 'handler'; given DefaultEventLoop() addShutdownHook Runnable")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Future MqttClientImpl.once(String, MqttHandler, MqttQoS)"})
-  void testOnceWithTopicHandlerQos_givenDefaultEventLoopNextReturnEventLoop() {
+  @MethodsUnderTest({"Future MqttClientImpl.once(String, MqttHandler)"})
+  void testOnceWithTopicHandler_givenDefaultEventLoopAddShutdownHookRunnable() {
+    // Arrange
+    DefaultEventLoop defaultEventLoop = new DefaultEventLoop();
+    defaultEventLoop.addShutdownHook(mock(Runnable.class));
+    DefaultEventLoop eventLoop = mock(DefaultEventLoop.class);
+    when(eventLoop.next()).thenReturn(defaultEventLoop);
+
+    MqttClientImpl mqttClientImpl =
+        new MqttClientImpl(mock(MqttHandler.class), mock(ListeningExecutor.class));
+    mqttClientImpl.setEventLoop(eventLoop);
+
+    // Act
+    Future<Void> actualOnceResult = mqttClientImpl.once("Topic", mock(MqttHandler.class));
+
+    // Assert
+    verify(eventLoop, atLeast(1)).next();
+    ConcurrentMap<Integer, MqttPendingSubscription> pendingSubscriptions =
+        mqttClientImpl.getPendingSubscriptions();
+    assertEquals(1, pendingSubscriptions.size());
+    MqttPendingSubscription getResult = pendingSubscriptions.get(1);
+    assertTrue(
+        getResult.getSubscribeMessage().variableHeader()
+            instanceof MqttMessageIdAndPropertiesVariableHeader);
+    assertTrue(actualOnceResult instanceof DefaultPromise);
+    assertEquals("Topic", getResult.getTopic());
+    Set<String> pendingSubscribeTopics = mqttClientImpl.getPendingSubscribeTopics();
+    assertEquals(1, pendingSubscribeTopics.size());
+    assertEquals(1, getResult.getHandlers().size());
+    assertFalse(getResult.isSent());
+    assertTrue(pendingSubscribeTopics.contains("Topic"));
+    assertTrue(mqttClientImpl.getHandlerToSubscription().entries().isEmpty());
+  }
+
+  /**
+   * Test {@link MqttClientImpl#once(String, MqttHandler)} with {@code topic}, {@code handler}.
+   *
+   * <ul>
+   *   <li>Given {@link DefaultEventLoop} {@link DefaultEventLoop#next()} return {@link EventLoop}.
+   *   <li>Then calls {@link DefaultEventLoop#next()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link MqttClientImpl#once(String, MqttHandler)}
+   */
+  @Test
+  @DisplayName(
+      "Test once(String, MqttHandler) with 'topic', 'handler'; given DefaultEventLoop next() return EventLoop; then calls next()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Future MqttClientImpl.once(String, MqttHandler)"})
+  void testOnceWithTopicHandler_givenDefaultEventLoopNextReturnEventLoop_thenCallsNext() {
     // Arrange
     DefaultEventLoop eventLoop = mock(DefaultEventLoop.class);
     when(eventLoop.next()).thenReturn(mock(EventLoop.class));
@@ -644,7 +586,7 @@ class MqttClientImplDiffblueTest {
     mqttClientImpl.setEventLoop(eventLoop);
 
     // Act
-    mqttClientImpl.once("Topic", mock(MqttHandler.class), MqttQoS.AT_MOST_ONCE);
+    Future<Void> actualOnceResult = mqttClientImpl.once("Topic", mock(MqttHandler.class));
 
     // Assert
     verify(eventLoop, atLeast(1)).next();
@@ -652,16 +594,17 @@ class MqttClientImplDiffblueTest {
         mqttClientImpl.getPendingSubscriptions();
     assertEquals(1, pendingSubscriptions.size());
     MqttPendingSubscription getResult = pendingSubscriptions.get(1);
-    List<MqttTopicSubscription> topicSubscriptionsResult =
-        getResult.getSubscribeMessage().payload().topicSubscriptions();
-    assertEquals(1, topicSubscriptionsResult.size());
-    MqttTopicSubscription getResult2 = topicSubscriptionsResult.get(0);
-    assertEquals("Topic", getResult2.topicFilter());
+    assertTrue(
+        getResult.getSubscribeMessage().variableHeader()
+            instanceof MqttMessageIdAndPropertiesVariableHeader);
+    assertTrue(actualOnceResult instanceof DefaultPromise);
     assertEquals("Topic", getResult.getTopic());
     Set<String> pendingSubscribeTopics = mqttClientImpl.getPendingSubscribeTopics();
     assertEquals(1, pendingSubscribeTopics.size());
-    assertEquals(MqttQoS.AT_MOST_ONCE, getResult2.option().qos());
+    assertEquals(1, getResult.getHandlers().size());
+    assertFalse(getResult.isSent());
     assertTrue(pendingSubscribeTopics.contains("Topic"));
+    assertTrue(mqttClientImpl.getHandlerToSubscription().entries().isEmpty());
   }
 
   /**
@@ -701,213 +644,6 @@ class MqttClientImplDiffblueTest {
     // Arrange
     DefaultEventLoop defaultEventLoop = new DefaultEventLoop();
     defaultEventLoop.addShutdownHook(mock(Runnable.class));
-    defaultEventLoop.addShutdownHook(mock(Runnable.class));
-    DefaultEventLoop eventLoop = mock(DefaultEventLoop.class);
-    when(eventLoop.next()).thenReturn(defaultEventLoop);
-
-    MqttClientImpl mqttClientImpl =
-        new MqttClientImpl(
-            new MqttClientConfig(), mock(MqttHandler.class), mock(ListeningExecutor.class));
-    mqttClientImpl.setEventLoop(eventLoop);
-
-    // Act
-    Future<Void> actualOffResult = mqttClientImpl.off("");
-
-    // Assert
-    verify(eventLoop).next();
-    assertTrue(actualOffResult instanceof DefaultPromise);
-    assertNull(actualOffResult.get());
-    assertTrue(actualOffResult.isDone());
-  }
-
-  /**
-   * Test {@link MqttClientImpl#off(String, MqttHandler)} with {@code topic}, {@code handler}.
-   *
-   * <p>Method under test: {@link MqttClientImpl#off(String, MqttHandler)}
-   */
-  @Test
-  @DisplayName("Test off(String, MqttHandler) with 'topic', 'handler'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Future MqttClientImpl.off(String, MqttHandler)"})
-  void testOffWithTopicHandler() throws InterruptedException, ExecutionException {
-    // Arrange
-    MqttClientImpl mqttClientImpl =
-        new MqttClientImpl(mock(MqttHandler.class), mock(ListeningExecutor.class));
-    mqttClientImpl.setEventLoop(new DefaultEventLoop());
-
-    // Act
-    Future<Void> actualOffResult = mqttClientImpl.off("Topic", mock(MqttHandler.class));
-
-    // Assert
-    assertTrue(actualOffResult instanceof DefaultPromise);
-    assertNull(actualOffResult.get());
-    assertTrue(actualOffResult.isDone());
-  }
-
-  /**
-   * Test {@link MqttClientImpl#off(String, MqttHandler)} with {@code topic}, {@code handler}.
-   *
-   * <ul>
-   *   <li>Then calls {@link DefaultEventLoop#next()}.
-   * </ul>
-   *
-   * <p>Method under test: {@link MqttClientImpl#off(String, MqttHandler)}
-   */
-  @Test
-  @DisplayName("Test off(String, MqttHandler) with 'topic', 'handler'; then calls next()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Future MqttClientImpl.off(String, MqttHandler)"})
-  void testOffWithTopicHandler_thenCallsNext() throws InterruptedException, ExecutionException {
-    // Arrange
-    DefaultEventLoop defaultEventLoop = new DefaultEventLoop();
-    defaultEventLoop.addShutdownHook(mock(Runnable.class));
-    DefaultEventLoop eventLoop = mock(DefaultEventLoop.class);
-    when(eventLoop.next()).thenReturn(defaultEventLoop);
-
-    MqttClientImpl mqttClientImpl =
-        new MqttClientImpl(mock(MqttHandler.class), mock(ListeningExecutor.class));
-    mqttClientImpl.setEventLoop(eventLoop);
-
-    // Act
-    Future<Void> actualOffResult = mqttClientImpl.off("Topic", mock(MqttHandler.class));
-
-    // Assert
-    verify(eventLoop).next();
-    assertTrue(actualOffResult instanceof DefaultPromise);
-    assertNull(actualOffResult.get());
-    assertTrue(actualOffResult.isDone());
-  }
-
-  /**
-   * Test {@link MqttClientImpl#off(String, MqttHandler)} with {@code topic}, {@code handler}.
-   *
-   * <ul>
-   *   <li>When {@code UNKNOWN}.
-   *   <li>Then calls {@link DefaultEventLoop#next()}.
-   * </ul>
-   *
-   * <p>Method under test: {@link MqttClientImpl#off(String, MqttHandler)}
-   */
-  @Test
-  @DisplayName(
-      "Test off(String, MqttHandler) with 'topic', 'handler'; when 'UNKNOWN'; then calls next()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Future MqttClientImpl.off(String, MqttHandler)"})
-  void testOffWithTopicHandler_whenUnknown_thenCallsNext()
-      throws InterruptedException, ExecutionException {
-    // Arrange
-    DefaultEventLoop defaultEventLoop = new DefaultEventLoop();
-    defaultEventLoop.addShutdownHook(mock(Runnable.class));
-    DefaultEventLoop eventLoop = mock(DefaultEventLoop.class);
-    when(eventLoop.next()).thenReturn(defaultEventLoop);
-
-    MqttClientImpl mqttClientImpl =
-        new MqttClientImpl(mock(MqttHandler.class), mock(ListeningExecutor.class));
-    mqttClientImpl.setEventLoop(eventLoop);
-
-    // Act
-    Future<Void> actualOffResult = mqttClientImpl.off("UNKNOWN", mock(MqttHandler.class));
-
-    // Assert
-    verify(eventLoop).next();
-    assertTrue(actualOffResult instanceof DefaultPromise);
-    assertNull(actualOffResult.get());
-    assertTrue(actualOffResult.isDone());
-  }
-
-  /**
-   * Test {@link MqttClientImpl#off(String)} with {@code topic}.
-   *
-   * <ul>
-   *   <li>When empty string.
-   *   <li>Then calls {@link DefaultEventLoop#next()}.
-   * </ul>
-   *
-   * <p>Method under test: {@link MqttClientImpl#off(String)}
-   */
-  @Test
-  @DisplayName("Test off(String) with 'topic'; when empty string; then calls next()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Future MqttClientImpl.off(String)"})
-  void testOffWithTopic_whenEmptyString_thenCallsNext()
-      throws InterruptedException, ExecutionException {
-    // Arrange
-    DefaultEventLoop defaultEventLoop = new DefaultEventLoop();
-    defaultEventLoop.addShutdownHook(mock(Runnable.class));
-    defaultEventLoop.addShutdownHook(mock(Runnable.class));
-    DefaultEventLoop eventLoop = mock(DefaultEventLoop.class);
-    when(eventLoop.next()).thenReturn(defaultEventLoop);
-
-    MqttClientImpl mqttClientImpl =
-        new MqttClientImpl(mock(MqttHandler.class), mock(ListeningExecutor.class));
-    mqttClientImpl.setEventLoop(eventLoop);
-
-    // Act
-    Future<Void> actualOffResult = mqttClientImpl.off("");
-
-    // Assert
-    verify(eventLoop).next();
-    assertTrue(actualOffResult instanceof DefaultPromise);
-    assertNull(actualOffResult.get());
-    assertTrue(actualOffResult.isDone());
-  }
-
-  /**
-   * Test {@link MqttClientImpl#off(String)} with {@code topic}.
-   *
-   * <ul>
-   *   <li>When {@code MqttClientImpl}.
-   *   <li>Then calls {@link DefaultEventLoop#next()}.
-   * </ul>
-   *
-   * <p>Method under test: {@link MqttClientImpl#off(String)}
-   */
-  @Test
-  @DisplayName(
-      "Test off(String) with 'topic'; when 'org.thingsboard.mqtt.MqttClientImpl'; then calls next()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Future MqttClientImpl.off(String)"})
-  void testOffWithTopic_whenOrgThingsboardMqttMqttClientImpl_thenCallsNext()
-      throws InterruptedException, ExecutionException {
-    // Arrange
-    DefaultEventLoop defaultEventLoop = new DefaultEventLoop();
-    defaultEventLoop.addShutdownHook(mock(Runnable.class));
-    defaultEventLoop.addShutdownHook(mock(Runnable.class));
-    DefaultEventLoop eventLoop = mock(DefaultEventLoop.class);
-    when(eventLoop.next()).thenReturn(defaultEventLoop);
-
-    MqttClientImpl mqttClientImpl =
-        new MqttClientImpl(mock(MqttHandler.class), mock(ListeningExecutor.class));
-    mqttClientImpl.setEventLoop(eventLoop);
-
-    // Act
-    Future<Void> actualOffResult = mqttClientImpl.off("org.thingsboard.mqtt.MqttClientImpl");
-
-    // Assert
-    verify(eventLoop).next();
-    assertTrue(actualOffResult instanceof DefaultPromise);
-    assertNull(actualOffResult.get());
-    assertTrue(actualOffResult.isDone());
-  }
-
-  /**
-   * Test {@link MqttClientImpl#off(String)} with {@code topic}.
-   *
-   * <ul>
-   *   <li>When {@code Topic}.
-   *   <li>Then calls {@link DefaultEventLoop#next()}.
-   * </ul>
-   *
-   * <p>Method under test: {@link MqttClientImpl#off(String)}
-   */
-  @Test
-  @DisplayName("Test off(String) with 'topic'; when 'Topic'; then calls next()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Future MqttClientImpl.off(String)"})
-  void testOffWithTopic_whenTopic_thenCallsNext() throws InterruptedException, ExecutionException {
-    // Arrange
-    DefaultEventLoop defaultEventLoop = new DefaultEventLoop();
-    defaultEventLoop.addShutdownHook(mock(Runnable.class));
     DefaultEventLoop eventLoop = mock(DefaultEventLoop.class);
     when(eventLoop.next()).thenReturn(defaultEventLoop);
 
@@ -928,18 +664,112 @@ class MqttClientImplDiffblueTest {
   /**
    * Test {@link MqttClientImpl#off(String)} with {@code topic}.
    *
+   * <p>Method under test: {@link MqttClientImpl#off(String)}
+   */
+  @Test
+  @DisplayName("Test off(String) with 'topic'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Future MqttClientImpl.off(String)"})
+  void testOffWithTopic3() throws InterruptedException, ExecutionException {
+    // Arrange
+    DefaultEventLoop defaultEventLoop = new DefaultEventLoop();
+    defaultEventLoop.addShutdownHook(mock(Runnable.class));
+    DefaultEventLoop eventLoop = mock(DefaultEventLoop.class);
+    when(eventLoop.next()).thenReturn(defaultEventLoop);
+
+    MqttClientImpl mqttClientImpl =
+        new MqttClientImpl(
+            new MqttClientConfig(), mock(MqttHandler.class), mock(ListeningExecutor.class));
+    mqttClientImpl.setEventLoop(eventLoop);
+
+    // Act
+    Future<Void> actualOffResult = mqttClientImpl.off("Topic");
+
+    // Assert
+    verify(eventLoop).next();
+    assertTrue(actualOffResult instanceof DefaultPromise);
+    assertNull(actualOffResult.get());
+    assertTrue(actualOffResult.isDone());
+  }
+
+  /**
+   * Test {@link MqttClientImpl#off(String)} with {@code topic}.
+   *
+   * <p>Method under test: {@link MqttClientImpl#off(String)}
+   */
+  @Test
+  @DisplayName("Test off(String) with 'topic'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Future MqttClientImpl.off(String)"})
+  void testOffWithTopic4() throws InterruptedException, ExecutionException {
+    // Arrange
+    DefaultEventLoop defaultEventLoop = new DefaultEventLoop();
+    defaultEventLoop.addShutdownHook(mock(Runnable.class));
+    DefaultEventLoop eventLoop = mock(DefaultEventLoop.class);
+    when(eventLoop.next()).thenReturn(defaultEventLoop);
+
+    MqttClientImpl mqttClientImpl =
+        new MqttClientImpl(null, mock(MqttHandler.class), mock(ListeningExecutor.class));
+    mqttClientImpl.setEventLoop(eventLoop);
+
+    // Act
+    Future<Void> actualOffResult = mqttClientImpl.off("");
+
+    // Assert
+    verify(eventLoop).next();
+    assertTrue(actualOffResult instanceof DefaultPromise);
+    assertNull(actualOffResult.get());
+    assertTrue(actualOffResult.isDone());
+  }
+
+  /**
+   * Test {@link MqttClientImpl#off(String)} with {@code topic}.
+   *
    * <ul>
-   *   <li>When {@code [{}] Unsubscribing from {}MqttPendingSubscription}.
+   *   <li>When {@code 42}.
    * </ul>
    *
    * <p>Method under test: {@link MqttClientImpl#off(String)}
    */
   @Test
-  @DisplayName(
-      "Test off(String) with 'topic'; when '[{}] Unsubscribing from {}org.thingsboard.mqtt.MqttPendingSubscription'")
+  @DisplayName("Test off(String) with 'topic'; when '42'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Future MqttClientImpl.off(String)"})
-  void testOffWithTopic_whenUnsubscribingFromOrgThingsboardMqttMqttPendingSubscription()
+  void testOffWithTopic_when42() throws InterruptedException, ExecutionException {
+    // Arrange
+    DefaultEventLoop defaultEventLoop = new DefaultEventLoop();
+    defaultEventLoop.addShutdownHook(mock(Runnable.class));
+    DefaultEventLoop eventLoop = mock(DefaultEventLoop.class);
+    when(eventLoop.next()).thenReturn(defaultEventLoop);
+
+    MqttClientImpl mqttClientImpl =
+        new MqttClientImpl(mock(MqttHandler.class), mock(ListeningExecutor.class));
+    mqttClientImpl.setEventLoop(eventLoop);
+
+    // Act
+    Future<Void> actualOffResult = mqttClientImpl.off("42");
+
+    // Assert
+    verify(eventLoop).next();
+    assertTrue(actualOffResult instanceof DefaultPromise);
+    assertNull(actualOffResult.get());
+    assertTrue(actualOffResult.isDone());
+  }
+
+  /**
+   * Test {@link MqttClientImpl#off(String)} with {@code topic}.
+   *
+   * <ul>
+   *   <li>When {@code MqttSubscription}.
+   * </ul>
+   *
+   * <p>Method under test: {@link MqttClientImpl#off(String)}
+   */
+  @Test
+  @DisplayName("Test off(String) with 'topic'; when 'org.thingsboard.mqtt.MqttSubscription'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Future MqttClientImpl.off(String)"})
+  void testOffWithTopic_whenOrgThingsboardMqttMqttSubscription()
       throws InterruptedException, ExecutionException {
     // Arrange
     DefaultEventLoop defaultEventLoop = new DefaultEventLoop();
@@ -952,9 +782,7 @@ class MqttClientImplDiffblueTest {
     mqttClientImpl.setEventLoop(eventLoop);
 
     // Act
-    Future<Void> actualOffResult =
-        mqttClientImpl.off(
-            "[{}] Unsubscribing from {}org.thingsboard.mqtt.MqttPendingSubscription");
+    Future<Void> actualOffResult = mqttClientImpl.off("org.thingsboard.mqtt.MqttSubscription");
 
     // Assert
     verify(eventLoop).next();

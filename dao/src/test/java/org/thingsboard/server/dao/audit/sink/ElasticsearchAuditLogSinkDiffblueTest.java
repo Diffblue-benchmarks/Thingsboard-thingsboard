@@ -1,21 +1,22 @@
 package org.thingsboard.server.dao.audit.sink;
 
-import static org.junit.Assert.assertThrows;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class ElasticsearchAuditLogSinkDiffblueTest {
+class ElasticsearchAuditLogSinkDiffblueTest {
   /**
    * Test {@link ElasticsearchAuditLogSink#init()}.
    *
    * <p>Method under test: {@link ElasticsearchAuditLogSink#init()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test init()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ElasticsearchAuditLogSink.init()"})
-  public void testInit() {
+  void testInit() {
     // Arrange, Act and Assert
     assertThrows(RuntimeException.class, () -> new ElasticsearchAuditLogSink().init());
   }

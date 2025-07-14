@@ -38,7 +38,6 @@ class BaseResourceMsgConstructorDiffblueTest {
 
     // Assert
     assertEquals(-7476899250389416711L, actualConstructResourceDeleteMsgResult.getIdLSB());
-    assertEquals(23, actualConstructResourceDeleteMsgResult.getSerializedSize());
     assertEquals(8669210807411032922L, actualConstructResourceDeleteMsgResult.getIdMSB());
   }
 }

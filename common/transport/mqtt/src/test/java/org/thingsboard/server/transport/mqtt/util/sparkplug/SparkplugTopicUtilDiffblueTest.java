@@ -55,6 +55,28 @@ class SparkplugTopicUtilDiffblueTest {
    * Test {@link SparkplugTopicUtil#sparkplugTopicToString(SparkplugTopic)}.
    *
    * <ul>
+   *   <li>Then return a string.
+   * </ul>
+   *
+   * <p>Method under test: {@link SparkplugTopicUtil#sparkplugTopicToString(SparkplugTopic)}
+   */
+  @Test
+  @DisplayName("Test sparkplugTopicToString(SparkplugTopic); then return a string")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"String SparkplugTopicUtil.sparkplugTopicToString(SparkplugTopic)"})
+  void testSparkplugTopicToString_thenReturnAString() throws JsonProcessingException {
+    // Arrange, Act and Assert
+    assertEquals(
+        "{\"namespace\":\"Namespace\",\"groupId\":\"42\",\"edgeNodeId\":\"42\",\"type\":\"NBIRTH\",\"node\":true,\"nodeDeviceName"
+            + "\":\"42\"}",
+        SparkplugTopicUtil.sparkplugTopicToString(
+            new SparkplugTopic("Namespace", "42", "42", SparkplugMessageType.NBIRTH)));
+  }
+
+  /**
+   * Test {@link SparkplugTopicUtil#sparkplugTopicToString(SparkplugTopic)}.
+   *
+   * <ul>
    *   <li>Then return {@code {"namespace":"spBv1.0","node":true}}.
    * </ul>
    *

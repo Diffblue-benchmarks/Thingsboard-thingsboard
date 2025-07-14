@@ -1,9 +1,12 @@
 package org.thingsboard.common.util;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListenableFutureTask;
@@ -14,6 +17,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.springframework.core.task.SyncTaskExecutor;
 
 class DonAsynchronDiffblueTest {
   /**
@@ -138,6 +142,44 @@ class DonAsynchronDiffblueTest {
 
     // Assert
     verify(executor).execute(isA(Runnable.class));
+  }
+
+  /**
+   * Test {@link DonAsynchron#submit(Callable, Consumer, Consumer, Executor)} with {@code task},
+   * {@code onSuccess}, {@code onFailure}, {@code executor}.
+   *
+   * <ul>
+   *   <li>Given {@code Call}.
+   *   <li>Then return {@link ListenableFuture#get()} is {@code Call}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DonAsynchron#submit(Callable, Consumer, Consumer, Executor)}
+   */
+  @Test
+  @DisplayName(
+      "Test submit(Callable, Consumer, Consumer, Executor) with 'task', 'onSuccess', 'onFailure', 'executor'; given 'Call'; then return get() is 'Call'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "ListenableFuture DonAsynchron.submit(Callable, Consumer, Consumer, Executor)"
+  })
+  void testSubmitWithTaskOnSuccessOnFailureExecutor_givenCall_thenReturnGetIsCall()
+      throws Exception {
+    // Arrange
+    Callable<Object> task = mock(Callable.class);
+    when(task.call()).thenReturn("Call");
+    Consumer<Object> onSuccess = mock(Consumer.class);
+    doNothing().when(onSuccess).accept(Mockito.<Object>any());
+    Consumer<Throwable> onFailure = mock(Consumer.class);
+
+    // Act
+    ListenableFuture<Object> actualSubmitResult =
+        DonAsynchron.submit(task, onSuccess, onFailure, new SyncTaskExecutor());
+
+    // Assert
+    verify(task).call();
+    verify(onSuccess).accept(isA(Object.class));
+    assertEquals("Call", actualSubmitResult.get());
+    assertTrue(actualSubmitResult.isDone());
   }
 
   /**

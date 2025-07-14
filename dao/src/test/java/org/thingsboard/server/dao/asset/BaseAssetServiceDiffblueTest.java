@@ -1,22 +1,23 @@
 package org.thingsboard.server.dao.asset;
 
-import static org.junit.Assert.assertEquals;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 
-public class BaseAssetServiceDiffblueTest {
+class BaseAssetServiceDiffblueTest {
   /**
    * Test {@link BaseAssetService#getEntityType()}.
    *
    * <p>Method under test: {@link BaseAssetService#getEntityType()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getEntityType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityType BaseAssetService.getEntityType()"})
-  public void testGetEntityType() {
+  void testGetEntityType() {
     // Arrange, Act and Assert
     assertEquals(EntityType.ASSET, new BaseAssetService().getEntityType());
   }

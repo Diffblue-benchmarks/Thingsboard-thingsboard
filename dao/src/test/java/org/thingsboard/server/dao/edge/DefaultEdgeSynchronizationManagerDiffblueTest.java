@@ -1,21 +1,22 @@
 package org.thingsboard.server.dao.edge;
 
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class DefaultEdgeSynchronizationManagerDiffblueTest {
+class DefaultEdgeSynchronizationManagerDiffblueTest {
   /**
    * Test {@link DefaultEdgeSynchronizationManager#getEdgeId()}.
    *
    * <p>Method under test: {@link DefaultEdgeSynchronizationManager#getEdgeId()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getEdgeId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"java.lang.ThreadLocal DefaultEdgeSynchronizationManager.getEdgeId()"})
-  public void testGetEdgeId() {
+  void testGetEdgeId() {
     // Arrange, Act and Assert
     assertNull(new DefaultEdgeSynchronizationManager().getEdgeId().get());
   }

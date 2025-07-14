@@ -1,21 +1,21 @@
 package org.thingsboard.server.dao.eventsourcing;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.EntityId;
@@ -25,8 +25,8 @@ import org.thingsboard.server.dao.eventsourcing.SaveEntityEvent.SaveEntityEventB
 import org.thingsboard.server.dao.model.ModelConstants;
 
 @ContextConfiguration(classes = {SaveEntityEventBuilder.class})
-@RunWith(SpringJUnit4ClassRunner.class)
-public class SaveEntityEventDiffblueTest {
+@ExtendWith(SpringExtension.class)
+class SaveEntityEventDiffblueTest {
   @Autowired private SaveEntityEventBuilder<Object> saveEntityEventBuilder;
 
   /**
@@ -45,9 +45,10 @@ public class SaveEntityEventDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean SaveEntityEvent.equals(Object)", "int SaveEntityEvent.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     SaveEntityEventBuilder<Object> builderResult = SaveEntityEvent.builder();
     SaveEntityEvent<Object> buildResult =
@@ -90,9 +91,10 @@ public class SaveEntityEventDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean SaveEntityEvent.equals(Object)", "int SaveEntityEvent.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     SaveEntityEventBuilder<Object> saveEntityEventBuilder = mock(SaveEntityEventBuilder.class);
     SaveEntityEventBuilder<Object> builderResult = SaveEntityEvent.builder();
@@ -139,9 +141,10 @@ public class SaveEntityEventDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean SaveEntityEvent.equals(Object)", "int SaveEntityEvent.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     SaveEntityEventBuilder<Object> saveEntityEventBuilder = mock(SaveEntityEventBuilder.class);
     SaveEntityEventBuilder<Object> builderResult = SaveEntityEvent.builder();
@@ -194,9 +197,10 @@ public class SaveEntityEventDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean SaveEntityEvent.equals(Object)", "int SaveEntityEvent.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     SaveEntityEventBuilder<Object> saveEntityEventBuilder = mock(SaveEntityEventBuilder.class);
     SaveEntityEventBuilder<Object> builderResult = SaveEntityEvent.builder();
@@ -256,9 +260,10 @@ public class SaveEntityEventDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean SaveEntityEvent.equals(Object)", "int SaveEntityEvent.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     SaveEntityEventBuilder<Object> builderResult = SaveEntityEvent.builder();
     SaveEntityEvent<Object> buildResult =
@@ -287,9 +292,10 @@ public class SaveEntityEventDiffblueTest {
    * <p>Method under test: {@link SaveEntityEvent#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean SaveEntityEvent.equals(Object)", "int SaveEntityEvent.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     SaveEntityEventBuilder<Object> saveEntityEventBuilder = mock(SaveEntityEventBuilder.class);
     SaveEntityEventBuilder<Object> builderResult = SaveEntityEvent.builder();
@@ -327,9 +333,10 @@ public class SaveEntityEventDiffblueTest {
    * <p>Method under test: {@link SaveEntityEvent#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean SaveEntityEvent.equals(Object)", "int SaveEntityEvent.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     SaveEntityEventBuilder<Object> saveEntityEventBuilder = mock(SaveEntityEventBuilder.class);
     SaveEntityEventBuilder<Object> builderResult = SaveEntityEvent.builder();
@@ -372,9 +379,10 @@ public class SaveEntityEventDiffblueTest {
    * <p>Method under test: {@link SaveEntityEvent#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean SaveEntityEvent.equals(Object)", "int SaveEntityEvent.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     SaveEntityEventBuilder<Object> saveEntityEventBuilder = mock(SaveEntityEventBuilder.class);
     SaveEntityEventBuilder<Object> builderResult = SaveEntityEvent.builder();
@@ -419,9 +427,10 @@ public class SaveEntityEventDiffblueTest {
    * <p>Method under test: {@link SaveEntityEvent#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean SaveEntityEvent.equals(Object)", "int SaveEntityEvent.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     SaveEntityEventBuilder<Object> saveEntityEventBuilder = mock(SaveEntityEventBuilder.class);
     SaveEntityEventBuilder<Object> builderResult = SaveEntityEvent.builder();
@@ -464,9 +473,10 @@ public class SaveEntityEventDiffblueTest {
    * <p>Method under test: {@link SaveEntityEvent#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean SaveEntityEvent.equals(Object)", "int SaveEntityEvent.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     SaveEntityEventBuilder<Object> saveEntityEventBuilder = mock(SaveEntityEventBuilder.class);
     SaveEntityEventBuilder<Object> builderResult = SaveEntityEvent.builder();
@@ -514,9 +524,10 @@ public class SaveEntityEventDiffblueTest {
    * <p>Method under test: {@link SaveEntityEvent#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean SaveEntityEvent.equals(Object)", "int SaveEntityEvent.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     SaveEntityEventBuilder<Object> saveEntityEventBuilder = mock(SaveEntityEventBuilder.class);
     SaveEntityEventBuilder<Object> builderResult = SaveEntityEvent.builder();
@@ -567,9 +578,10 @@ public class SaveEntityEventDiffblueTest {
    * <p>Method under test: {@link SaveEntityEvent#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean SaveEntityEvent.equals(Object)", "int SaveEntityEvent.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     SaveEntityEventBuilder<Object> saveEntityEventBuilder = mock(SaveEntityEventBuilder.class);
     SaveEntityEventBuilder<Object> builderResult = SaveEntityEvent.builder();
@@ -620,9 +632,10 @@ public class SaveEntityEventDiffblueTest {
    * <p>Method under test: {@link SaveEntityEvent#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean SaveEntityEvent.equals(Object)", "int SaveEntityEvent.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     SaveEntityEventBuilder<Object> builderResult = SaveEntityEvent.builder();
     builderResult.entity("Entity");
@@ -674,9 +687,10 @@ public class SaveEntityEventDiffblueTest {
    * <p>Method under test: {@link SaveEntityEvent#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean SaveEntityEvent.equals(Object)", "int SaveEntityEvent.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     SaveEntityEventBuilder<Object> builderResult = SaveEntityEvent.builder();
     builderResult.created(true);
@@ -728,9 +742,10 @@ public class SaveEntityEventDiffblueTest {
    * <p>Method under test: {@link SaveEntityEvent#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean SaveEntityEvent.equals(Object)", "int SaveEntityEvent.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     SaveEntityEventBuilder<Object> builderResult = SaveEntityEvent.builder();
     builderResult.oldEntity("Old Entity");
@@ -784,9 +799,10 @@ public class SaveEntityEventDiffblueTest {
    * <p>Method under test: {@link SaveEntityEvent#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean SaveEntityEvent.equals(Object)", "int SaveEntityEvent.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     SaveEntityEventBuilder<Object> builderResult = SaveEntityEvent.builder();
     builderResult.entityId(BaseEntityService.NULL_CUSTOMER_ID);
@@ -840,9 +856,10 @@ public class SaveEntityEventDiffblueTest {
    * <p>Method under test: {@link SaveEntityEvent#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean SaveEntityEvent.equals(Object)", "int SaveEntityEvent.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     SaveEntityEventBuilder<Object> builderResult = SaveEntityEvent.builder();
     SaveEntityEventBuilder<Object> builderResult2 = SaveEntityEvent.builder();
@@ -905,9 +922,10 @@ public class SaveEntityEventDiffblueTest {
    * <p>Method under test: {@link SaveEntityEvent#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean SaveEntityEvent.equals(Object)", "int SaveEntityEvent.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     SaveEntityEventBuilder<Object> builderResult = SaveEntityEvent.builder();
     SaveEntityEvent<Object> buildResult =
@@ -934,9 +952,10 @@ public class SaveEntityEventDiffblueTest {
    * <p>Method under test: {@link SaveEntityEvent#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean SaveEntityEvent.equals(Object)", "int SaveEntityEvent.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     SaveEntityEventBuilder<Object> builderResult = SaveEntityEvent.builder();
     SaveEntityEvent<Object> buildResult =
@@ -968,7 +987,8 @@ public class SaveEntityEventDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void SaveEntityEvent.<init>(TenantId, Object, Object, EntityId, Boolean)",
     "Boolean SaveEntityEvent.getCreated()",
@@ -978,7 +998,7 @@ public class SaveEntityEventDiffblueTest {
     "TenantId SaveEntityEvent.getTenantId()",
     "String SaveEntityEvent.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     CustomerId entityId = BaseEntityService.NULL_CUSTOMER_ID;
 
@@ -1019,7 +1039,8 @@ public class SaveEntityEventDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test SaveEntityEventBuilder build()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void SaveEntityEventBuilder.<init>()",
     "SaveEntityEvent SaveEntityEventBuilder.build()",
@@ -1030,7 +1051,7 @@ public class SaveEntityEventDiffblueTest {
     "SaveEntityEventBuilder SaveEntityEventBuilder.tenantId(TenantId)",
     "String SaveEntityEventBuilder.toString()"
   })
-  public void testSaveEntityEventBuilderBuild() {
+  void testSaveEntityEventBuilderBuild() {
     // Arrange
     SaveEntityEventBuilder<Object> builderResult = SaveEntityEvent.builder();
 

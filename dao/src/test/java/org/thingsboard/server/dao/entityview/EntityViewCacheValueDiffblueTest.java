@@ -1,28 +1,28 @@
 package org.thingsboard.server.dao.entityview;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.EntityView;
 import org.thingsboard.server.dao.entityview.EntityViewCacheValue.EntityViewCacheValueBuilder;
 
 @ContextConfiguration(classes = {EntityViewCacheValueBuilder.class})
-@RunWith(SpringJUnit4ClassRunner.class)
-public class EntityViewCacheValueDiffblueTest {
+@ExtendWith(SpringExtension.class)
+class EntityViewCacheValueDiffblueTest {
   @Autowired private EntityViewCacheValueBuilder entityViewCacheValueBuilder;
 
   /**
@@ -37,7 +37,8 @@ public class EntityViewCacheValueDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test EntityViewCacheValueBuilder build()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void EntityViewCacheValueBuilder.<init>()",
     "EntityViewCacheValue EntityViewCacheValueBuilder.build()",
@@ -45,7 +46,7 @@ public class EntityViewCacheValueDiffblueTest {
     "EntityViewCacheValueBuilder EntityViewCacheValueBuilder.entityViews(List)",
     "java.lang.String EntityViewCacheValueBuilder.toString()"
   })
-  public void testEntityViewCacheValueBuilderBuild() {
+  void testEntityViewCacheValueBuilderBuild() {
     // Arrange
     EntityViewCacheValueBuilder builderResult = EntityViewCacheValue.builder();
     EntityView entityView = new EntityView();
@@ -73,9 +74,10 @@ public class EntityViewCacheValueDiffblueTest {
    * <p>Method under test: {@link EntityViewCacheValue#getVersion()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getVersion(); given EntityView() Version is one; then return longValue is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"java.lang.Long EntityViewCacheValue.getVersion()"})
-  public void testGetVersion_givenEntityViewVersionIsOne_thenReturnLongValueIsOne() {
+  void testGetVersion_givenEntityViewVersionIsOne_thenReturnLongValueIsOne() {
     // Arrange
     EntityView entityView = new EntityView();
     entityView.setVersion(1L);
@@ -95,9 +97,10 @@ public class EntityViewCacheValueDiffblueTest {
    * <p>Method under test: {@link EntityViewCacheValue#getVersion()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getVersion(); then return longValue is zero")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"java.lang.Long EntityViewCacheValue.getVersion()"})
-  public void testGetVersion_thenReturnLongValueIsZero() {
+  void testGetVersion_thenReturnLongValueIsZero() {
     // Arrange, Act and Assert
     assertEquals(0L, new EntityViewCacheValue(null, new ArrayList<>()).getVersion().longValue());
   }
@@ -118,12 +121,13 @@ public class EntityViewCacheValueDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean EntityViewCacheValue.equals(Object)",
     "int EntityViewCacheValue.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EntityViewCacheValueBuilder builderResult = EntityViewCacheValue.builder();
     EntityViewCacheValueBuilder entityViewResult = builderResult.entityView(new EntityView());
@@ -154,12 +158,13 @@ public class EntityViewCacheValueDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean EntityViewCacheValue.equals(Object)",
     "int EntityViewCacheValue.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     EntityViewCacheValueBuilder entityViewCacheValueBuilder =
         mock(EntityViewCacheValueBuilder.class);
@@ -198,12 +203,13 @@ public class EntityViewCacheValueDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean EntityViewCacheValue.equals(Object)",
     "int EntityViewCacheValue.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EntityViewCacheValueBuilder builderResult = EntityViewCacheValue.builder();
     EntityViewCacheValueBuilder entityViewResult = builderResult.entityView(new EntityView());
@@ -226,12 +232,13 @@ public class EntityViewCacheValueDiffblueTest {
    * <p>Method under test: {@link EntityViewCacheValue#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean EntityViewCacheValue.equals(Object)",
     "int EntityViewCacheValue.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     EntityViewCacheValueBuilder entityViewCacheValueBuilder =
         mock(EntityViewCacheValueBuilder.class);
@@ -259,12 +266,13 @@ public class EntityViewCacheValueDiffblueTest {
    * <p>Method under test: {@link EntityViewCacheValue#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean EntityViewCacheValue.equals(Object)",
     "int EntityViewCacheValue.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EntityViewCacheValueBuilder entityViewCacheValueBuilder =
         mock(EntityViewCacheValueBuilder.class);
@@ -300,12 +308,13 @@ public class EntityViewCacheValueDiffblueTest {
    * <p>Method under test: {@link EntityViewCacheValue#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean EntityViewCacheValue.equals(Object)",
     "int EntityViewCacheValue.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     EntityViewCacheValueBuilder entityViewCacheValueBuilder =
         mock(EntityViewCacheValueBuilder.class);
@@ -347,12 +356,13 @@ public class EntityViewCacheValueDiffblueTest {
    * <p>Method under test: {@link EntityViewCacheValue#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean EntityViewCacheValue.equals(Object)",
     "int EntityViewCacheValue.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     ArrayList<EntityView> entityViews = new ArrayList<>();
     entityViews.add(new EntityView());
@@ -395,12 +405,13 @@ public class EntityViewCacheValueDiffblueTest {
    * <p>Method under test: {@link EntityViewCacheValue#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean EntityViewCacheValue.equals(Object)",
     "int EntityViewCacheValue.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     EntityViewCacheValueBuilder builderResult = EntityViewCacheValue.builder();
     EntityViewCacheValueBuilder entityViewResult = builderResult.entityView(new EntityView());
@@ -421,12 +432,13 @@ public class EntityViewCacheValueDiffblueTest {
    * <p>Method under test: {@link EntityViewCacheValue#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean EntityViewCacheValue.equals(Object)",
     "int EntityViewCacheValue.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     EntityViewCacheValueBuilder builderResult = EntityViewCacheValue.builder();
     EntityViewCacheValueBuilder entityViewResult = builderResult.entityView(new EntityView());
@@ -448,13 +460,14 @@ public class EntityViewCacheValueDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void EntityViewCacheValue.<init>(EntityView, List)",
     "EntityView EntityViewCacheValue.getEntityView()",
     "List EntityViewCacheValue.getEntityViews()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     EntityView entityView = new EntityView();
     ArrayList<EntityView> entityViews = new ArrayList<>();

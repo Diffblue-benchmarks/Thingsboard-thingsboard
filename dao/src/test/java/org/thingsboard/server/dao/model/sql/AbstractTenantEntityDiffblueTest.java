@@ -1,33 +1,34 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.NullNode;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.Tenant;
 import org.thingsboard.server.common.data.id.TenantProfileId;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 
-public class AbstractTenantEntityDiffblueTest {
+class AbstractTenantEntityDiffblueTest {
   /**
    * Test {@link AbstractTenantEntity#toTenant()}.
    *
    * <p>Method under test: {@link AbstractTenantEntity#toTenant()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toTenant()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Tenant AbstractTenantEntity.toTenant()"})
-  public void testToTenant() {
+  void testToTenant() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     UUID tenantProfileId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -53,9 +54,11 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#toTenant()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toTenant(); given TenantEntity() Uuid is randomUUID; then return TenantProfileId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Tenant AbstractTenantEntity.toTenant()"})
-  public void testToTenant_givenTenantEntityUuidIsRandomUUID_thenReturnTenantProfileIdIsNull() {
+  void testToTenant_givenTenantEntityUuidIsRandomUUID_thenReturnTenantProfileIdIsNull() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     UUID id = UUID.randomUUID();
@@ -81,9 +84,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#toTenant()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toTenant(); given TenantEntity(); then AdditionalInfo return NullNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Tenant AbstractTenantEntity.toTenant()"})
-  public void testToTenant_givenTenantEntity_thenAdditionalInfoReturnNullNode() {
+  void testToTenant_givenTenantEntity_thenAdditionalInfoReturnNullNode() {
     // Arrange and Act
     Tenant actualToTenantResult = new TenantEntity().toTenant();
 
@@ -116,9 +120,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#canEqual(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test canEqual(Object); when 'Other'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AbstractTenantEntity.canEqual(Object)"})
-  public void testCanEqual_whenOther_thenReturnFalse() {
+  void testCanEqual_whenOther_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(new TenantEntity().canEqual("Other"));
   }
@@ -134,9 +139,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#canEqual(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test canEqual(Object); when TenantEntity(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AbstractTenantEntity.canEqual(Object)"})
-  public void testCanEqual_whenTenantEntity_thenReturnTrue() {
+  void testCanEqual_whenTenantEntity_thenReturnTrue() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -155,12 +161,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     TenantEntity tenantEntity2 = new TenantEntity();
@@ -182,12 +189,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -208,12 +216,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -246,12 +255,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     tenantEntity.setTitle("Dr");
@@ -271,12 +281,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     tenantEntity.setRegion("us-east-2");
@@ -296,12 +307,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     tenantEntity.setCountry("GB");
@@ -321,12 +333,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     tenantEntity.setState("MD");
@@ -346,12 +359,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     tenantEntity.setCity("Oxford");
@@ -371,12 +385,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     tenantEntity.setAddress("42 Main St");
@@ -396,12 +411,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     tenantEntity.setAddress2("42 Main St");
@@ -421,12 +437,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     tenantEntity.setZip("21654");
@@ -446,12 +463,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     tenantEntity.setPhone("6625550144");
@@ -471,12 +489,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     tenantEntity.setEmail("jane.doe@example.org");
@@ -496,12 +515,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     tenantEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -521,12 +541,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     tenantEntity.setTenantProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -546,12 +567,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     tenantEntity.setVersion(1L);
@@ -571,12 +593,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -598,12 +621,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -625,12 +649,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -652,12 +677,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -679,12 +705,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -706,12 +733,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -733,12 +761,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -760,12 +789,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -787,12 +817,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -814,12 +845,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -841,12 +873,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -868,12 +901,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -895,12 +929,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TenantEntity(), null);
   }
@@ -916,12 +951,13 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractTenantEntity.equals(Object)",
     "int AbstractTenantEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TenantEntity(), "Different type to AbstractTenantEntity");
   }
@@ -932,9 +968,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#getAdditionalInfo()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getAdditionalInfo()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonNode AbstractTenantEntity.getAdditionalInfo()"})
-  public void testGetAdditionalInfo() {
+  void testGetAdditionalInfo() {
     // Arrange, Act and Assert
     assertNull(new TenantEntity().getAdditionalInfo());
   }
@@ -945,9 +982,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#getAddress()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getAddress()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractTenantEntity.getAddress()"})
-  public void testGetAddress() {
+  void testGetAddress() {
     // Arrange, Act and Assert
     assertNull(new TenantEntity().getAddress());
   }
@@ -958,9 +996,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#getAddress2()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getAddress2()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractTenantEntity.getAddress2()"})
-  public void testGetAddress2() {
+  void testGetAddress2() {
     // Arrange, Act and Assert
     assertNull(new TenantEntity().getAddress2());
   }
@@ -971,9 +1010,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#getCity()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getCity()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractTenantEntity.getCity()"})
-  public void testGetCity() {
+  void testGetCity() {
     // Arrange, Act and Assert
     assertNull(new TenantEntity().getCity());
   }
@@ -984,9 +1024,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#getCountry()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getCountry()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractTenantEntity.getCountry()"})
-  public void testGetCountry() {
+  void testGetCountry() {
     // Arrange, Act and Assert
     assertNull(new TenantEntity().getCountry());
   }
@@ -997,9 +1038,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#getEmail()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getEmail()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractTenantEntity.getEmail()"})
-  public void testGetEmail() {
+  void testGetEmail() {
     // Arrange, Act and Assert
     assertNull(new TenantEntity().getEmail());
   }
@@ -1010,9 +1052,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#getPhone()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getPhone()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractTenantEntity.getPhone()"})
-  public void testGetPhone() {
+  void testGetPhone() {
     // Arrange, Act and Assert
     assertNull(new TenantEntity().getPhone());
   }
@@ -1023,9 +1066,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#getRegion()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getRegion()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractTenantEntity.getRegion()"})
-  public void testGetRegion() {
+  void testGetRegion() {
     // Arrange, Act and Assert
     assertNull(new TenantEntity().getRegion());
   }
@@ -1036,9 +1080,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#getState()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getState()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractTenantEntity.getState()"})
-  public void testGetState() {
+  void testGetState() {
     // Arrange, Act and Assert
     assertNull(new TenantEntity().getState());
   }
@@ -1049,9 +1094,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#getTenantProfileId()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getTenantProfileId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID AbstractTenantEntity.getTenantProfileId()"})
-  public void testGetTenantProfileId() {
+  void testGetTenantProfileId() {
     // Arrange, Act and Assert
     assertNull(new TenantEntity().getTenantProfileId());
   }
@@ -1062,9 +1108,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#getTitle()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getTitle()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractTenantEntity.getTitle()"})
-  public void testGetTitle() {
+  void testGetTitle() {
     // Arrange, Act and Assert
     assertNull(new TenantEntity().getTitle());
   }
@@ -1075,9 +1122,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#getZip()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getZip()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractTenantEntity.getZip()"})
-  public void testGetZip() {
+  void testGetZip() {
     // Arrange, Act and Assert
     assertNull(new TenantEntity().getZip());
   }
@@ -1088,9 +1136,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#setAdditionalInfo(JsonNode)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setAdditionalInfo(JsonNode)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractTenantEntity.setAdditionalInfo(JsonNode)"})
-  public void testSetAdditionalInfo() {
+  void testSetAdditionalInfo() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     JsonNode additionalInfo = CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON;
@@ -1109,9 +1158,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#setAddress(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setAddress(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractTenantEntity.setAddress(String)"})
-  public void testSetAddress() {
+  void testSetAddress() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -1129,9 +1179,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#setAddress2(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setAddress2(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractTenantEntity.setAddress2(String)"})
-  public void testSetAddress2() {
+  void testSetAddress2() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -1149,9 +1200,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#setCity(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setCity(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractTenantEntity.setCity(String)"})
-  public void testSetCity() {
+  void testSetCity() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -1169,9 +1221,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#setCountry(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setCountry(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractTenantEntity.setCountry(String)"})
-  public void testSetCountry() {
+  void testSetCountry() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -1189,9 +1242,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#setEmail(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setEmail(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractTenantEntity.setEmail(String)"})
-  public void testSetEmail() {
+  void testSetEmail() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -1209,9 +1263,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#setPhone(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setPhone(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractTenantEntity.setPhone(String)"})
-  public void testSetPhone() {
+  void testSetPhone() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -1229,9 +1284,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#setRegion(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setRegion(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractTenantEntity.setRegion(String)"})
-  public void testSetRegion() {
+  void testSetRegion() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -1249,9 +1305,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#setState(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setState(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractTenantEntity.setState(String)"})
-  public void testSetState() {
+  void testSetState() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -1269,9 +1326,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#setTenantProfileId(UUID)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setTenantProfileId(UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractTenantEntity.setTenantProfileId(UUID)"})
-  public void testSetTenantProfileId() {
+  void testSetTenantProfileId() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     UUID tenantProfileId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -1293,9 +1351,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#setTitle(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setTitle(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractTenantEntity.setTitle(String)"})
-  public void testSetTitle() {
+  void testSetTitle() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -1315,9 +1374,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#setZip(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setZip(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractTenantEntity.setZip(String)"})
-  public void testSetZip() {
+  void testSetZip() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
 
@@ -1335,9 +1395,10 @@ public class AbstractTenantEntityDiffblueTest {
    * <p>Method under test: {@link AbstractTenantEntity#toString()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toString()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractTenantEntity.toString()"})
-  public void testToString() {
+  void testToString() {
     // Arrange, Act and Assert
     assertEquals("TenantEntity()", new TenantEntity().toString());
   }

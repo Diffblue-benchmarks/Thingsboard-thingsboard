@@ -1,14 +1,14 @@
 package org.thingsboard.server.dao.exception;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class DataValidationExceptionDiffblueTest {
+class DataValidationExceptionDiffblueTest {
   /**
    * Test {@link DataValidationException#DataValidationException(String)}.
    *
@@ -20,12 +20,14 @@ public class DataValidationExceptionDiffblueTest {
    * <p>Method under test: {@link DataValidationException#DataValidationException(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new DataValidationException(String); when 'An error occurred'; then return Cause is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void DataValidationException.<init>(String)",
     "void DataValidationException.<init>(String, Throwable)"
   })
-  public void testNewDataValidationException_whenAnErrorOccurred_thenReturnCauseIsNull() {
+  void testNewDataValidationException_whenAnErrorOccurred_thenReturnCauseIsNull() {
     // Arrange and Act
     DataValidationException actualDataValidationException =
         new DataValidationException("An error occurred");
@@ -48,12 +50,14 @@ public class DataValidationExceptionDiffblueTest {
    * Throwable)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new DataValidationException(String, Throwable); when Throwable(); then return Cause is Throwable()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void DataValidationException.<init>(String)",
     "void DataValidationException.<init>(String, Throwable)"
   })
-  public void testNewDataValidationException_whenThrowable_thenReturnCauseIsThrowable() {
+  void testNewDataValidationException_whenThrowable_thenReturnCauseIsThrowable() {
     // Arrange
     Throwable cause = new Throwable();
 

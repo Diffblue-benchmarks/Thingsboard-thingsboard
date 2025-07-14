@@ -1,15 +1,14 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -19,8 +18,9 @@ import com.fasterxml.jackson.databind.node.JsonNodeType;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.util.Iterator;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.EntityView;
@@ -38,16 +38,17 @@ import org.thingsboard.server.common.data.id.UserId;
 import org.thingsboard.server.common.data.objects.TelemetryEntityView;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 
-public class AbstractEntityViewEntityDiffblueTest {
+class AbstractEntityViewEntityDiffblueTest {
   /**
    * Test {@link AbstractEntityViewEntity#toEntityView()}.
    *
    * <p>Method under test: {@link AbstractEntityViewEntity#toEntityView()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toEntityView()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView AbstractEntityViewEntity.toEntityView()"})
-  public void testToEntityView() {
+  void testToEntityView() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setEntityId(null);
@@ -72,9 +73,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#toEntityView()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toEntityView()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView AbstractEntityViewEntity.toEntityView()"})
-  public void testToEntityView2() throws JsonProcessingException {
+  void testToEntityView2() throws JsonProcessingException {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setEntityId(null);
@@ -105,9 +107,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#toEntityView()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toEntityView()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView AbstractEntityViewEntity.toEntityView()"})
-  public void testToEntityView3() {
+  void testToEntityView3() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setEntityId(null);
@@ -132,9 +135,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#toEntityView()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toEntityView()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView AbstractEntityViewEntity.toEntityView()"})
-  public void testToEntityView4() throws JsonProcessingException {
+  void testToEntityView4() throws JsonProcessingException {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setEntityId(null);
@@ -165,9 +169,11 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#toEntityView()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toEntityView(); given EntityViewEntity() EntityType is 'USER'; then EntityId return UserId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView AbstractEntityViewEntity.toEntityView()"})
-  public void testToEntityView_givenEntityViewEntityEntityTypeIsUser_thenEntityIdReturnUserId() {
+  void testToEntityView_givenEntityViewEntityEntityTypeIsUser_thenEntityIdReturnUserId() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setEntityType(EntityType.USER);
@@ -199,9 +205,11 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#toEntityView()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toEntityView(); given EntityViewEntity() Keys is '42'; then return ExternalId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView AbstractEntityViewEntity.toEntityView()"})
-  public void testToEntityView_givenEntityViewEntityKeysIs42_thenReturnExternalIdIsNull() {
+  void testToEntityView_givenEntityViewEntityKeysIs42_thenReturnExternalIdIsNull() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setEntityId(null);
@@ -230,9 +238,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#toEntityView()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toEntityView(); given EntityViewEntity() Keys is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView AbstractEntityViewEntity.toEntityView()"})
-  public void testToEntityView_givenEntityViewEntityKeysIsEmptyString() {
+  void testToEntityView_givenEntityViewEntityKeysIsEmptyString() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setEntityId(null);
@@ -262,9 +271,11 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#toEntityView()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toEntityView(); given EntityViewEntity() Keys is 'foo'; then return ExternalId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView AbstractEntityViewEntity.toEntityView()"})
-  public void testToEntityView_givenEntityViewEntityKeysIsFoo_thenReturnExternalIdIsNull() {
+  void testToEntityView_givenEntityViewEntityKeysIsFoo_thenReturnExternalIdIsNull() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setEntityId(null);
@@ -294,9 +305,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#toEntityView()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toEntityView(); given EntityViewEntity(); then return ExternalId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView AbstractEntityViewEntity.toEntityView()"})
-  public void testToEntityView_givenEntityViewEntity_thenReturnExternalIdIsNull() {
+  void testToEntityView_givenEntityViewEntity_thenReturnExternalIdIsNull() {
     // Arrange and Act
     EntityView actualToEntityViewResult = new EntityViewEntity().toEntityView();
 
@@ -317,9 +329,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#toEntityView()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toEntityView(); then AdditionalInfo iterator next return BooleanNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView AbstractEntityViewEntity.toEntityView()"})
-  public void testToEntityView_thenAdditionalInfoIteratorNextReturnBooleanNode() {
+  void testToEntityView_thenAdditionalInfoIteratorNextReturnBooleanNode() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -350,9 +363,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#toEntityView()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toEntityView(); then EntityId return AlarmId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView AbstractEntityViewEntity.toEntityView()"})
-  public void testToEntityView_thenEntityIdReturnAlarmId() {
+  void testToEntityView_thenEntityIdReturnAlarmId() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setEntityType(EntityType.ALARM);
@@ -383,9 +397,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#toEntityView()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toEntityView(); then EntityId return AssetId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView AbstractEntityViewEntity.toEntityView()"})
-  public void testToEntityView_thenEntityIdReturnAssetId() {
+  void testToEntityView_thenEntityIdReturnAssetId() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setEntityType(EntityType.ASSET);
@@ -416,9 +431,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#toEntityView()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toEntityView(); then EntityId return CustomerId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView AbstractEntityViewEntity.toEntityView()"})
-  public void testToEntityView_thenEntityIdReturnCustomerId() {
+  void testToEntityView_thenEntityIdReturnCustomerId() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setEntityType(EntityType.CUSTOMER);
@@ -449,9 +465,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#toEntityView()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toEntityView(); then EntityId return DashboardId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView AbstractEntityViewEntity.toEntityView()"})
-  public void testToEntityView_thenEntityIdReturnDashboardId() {
+  void testToEntityView_thenEntityIdReturnDashboardId() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setEntityType(EntityType.DASHBOARD);
@@ -482,9 +499,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#toEntityView()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toEntityView(); then EntityId return DeviceId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView AbstractEntityViewEntity.toEntityView()"})
-  public void testToEntityView_thenEntityIdReturnDeviceId() {
+  void testToEntityView_thenEntityIdReturnDeviceId() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setEntityType(EntityType.DEVICE);
@@ -515,9 +533,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#toEntityView()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toEntityView(); then EntityId return RuleChainId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView AbstractEntityViewEntity.toEntityView()"})
-  public void testToEntityView_thenEntityIdReturnRuleChainId() {
+  void testToEntityView_thenEntityIdReturnRuleChainId() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setEntityType(EntityType.RULE_CHAIN);
@@ -548,9 +567,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#toEntityView()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toEntityView(); then EntityId return RuleNodeId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView AbstractEntityViewEntity.toEntityView()"})
-  public void testToEntityView_thenEntityIdReturnRuleNodeId() {
+  void testToEntityView_thenEntityIdReturnRuleNodeId() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setEntityType(EntityType.RULE_NODE);
@@ -581,9 +601,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#toEntityView()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toEntityView(); then EntityId return TenantId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView AbstractEntityViewEntity.toEntityView()"})
-  public void testToEntityView_thenEntityIdReturnTenantId() {
+  void testToEntityView_thenEntityIdReturnTenantId() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setEntityType(EntityType.TENANT);
@@ -612,10 +633,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#toEntityView()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toEntityView(); then return Keys is TelemetryEntityView()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView AbstractEntityViewEntity.toEntityView()"})
-  public void testToEntityView_thenReturnKeysIsTelemetryEntityView()
-      throws JsonProcessingException {
+  void testToEntityView_thenReturnKeysIsTelemetryEntityView() throws JsonProcessingException {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setEntityId(null);
@@ -644,9 +665,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#toEntityView()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toEntityView(); then return TenantId Id is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView AbstractEntityViewEntity.toEntityView()"})
-  public void testToEntityView_thenReturnTenantIdIdIsRandomUUID() {
+  void testToEntityView_thenReturnTenantIdIdIsRandomUUID() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setEntityId(null);
@@ -674,9 +696,11 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#toEntityView()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toEntityView(); then return TenantId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView AbstractEntityViewEntity.toEntityView()"})
-  public void testToEntityView_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToEntityView_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setEntityId(null);
@@ -704,9 +728,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#canEqual(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test canEqual(Object); when EntityViewEntity(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AbstractEntityViewEntity.canEqual(Object)"})
-  public void testCanEqual_whenEntityViewEntity_thenReturnTrue() {
+  void testCanEqual_whenEntityViewEntity_thenReturnTrue() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
 
@@ -725,9 +750,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#canEqual(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test canEqual(Object); when 'Other'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AbstractEntityViewEntity.canEqual(Object)"})
-  public void testCanEqual_whenOther_thenReturnFalse() {
+  void testCanEqual_whenOther_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(new EntityViewEntity().canEqual("Other"));
   }
@@ -744,12 +770,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     EntityViewEntity entityViewEntity2 = new EntityViewEntity();
@@ -772,12 +799,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     EntityViewEntity entityViewEntity2 = mock(EntityViewEntity.class);
@@ -815,12 +843,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
 
@@ -841,12 +870,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
 
@@ -879,12 +909,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     EntityViewEntity entityViewEntity2 = mock(EntityViewEntity.class);
@@ -908,12 +939,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     EntityViewEntity entityViewEntity2 = mock(EntityViewEntity.class);
@@ -948,12 +980,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     EntityViewEntity entityViewEntity2 = mock(EntityViewEntity.class);
@@ -988,12 +1021,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     EntityViewEntity entityViewEntity2 = mock(EntityViewEntity.class);
@@ -1029,12 +1063,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     EntityViewEntity entityViewEntity2 = mock(EntityViewEntity.class);
@@ -1069,12 +1104,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     EntityViewEntity entityViewEntity2 = mock(EntityViewEntity.class);
@@ -1109,12 +1145,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     EntityViewEntity entityViewEntity2 = mock(EntityViewEntity.class);
@@ -1149,12 +1186,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     EntityViewEntity entityViewEntity2 = mock(EntityViewEntity.class);
@@ -1190,12 +1228,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     EntityViewEntity entityViewEntity2 = mock(EntityViewEntity.class);
@@ -1231,12 +1270,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     EntityViewEntity entityViewEntity2 = mock(EntityViewEntity.class);
@@ -1272,12 +1312,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     EntityViewEntity entityViewEntity2 = mock(EntityViewEntity.class);
@@ -1313,12 +1354,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     EntityViewEntity entityViewEntity2 = mock(EntityViewEntity.class);
@@ -1353,12 +1395,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -1394,12 +1437,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setEntityType(EntityType.TENANT);
@@ -1435,12 +1479,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -1476,12 +1521,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setCustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -1517,12 +1563,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setType("Type");
@@ -1558,12 +1605,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setName("Name");
@@ -1599,12 +1647,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setKeys("Keys");
@@ -1640,12 +1689,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1681,12 +1731,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -1722,12 +1773,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then throw exception")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenThrowException() {
+  void testEquals_whenOtherIsDifferent_thenThrowException() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     EntityViewEntity entityViewEntity2 = mock(EntityViewEntity.class);
@@ -1762,12 +1814,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityViewEntity(), null);
   }
@@ -1783,12 +1836,13 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractEntityViewEntity.equals(Object)",
     "int AbstractEntityViewEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityViewEntity(), "Different type to AbstractEntityViewEntity");
   }
@@ -1799,9 +1853,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#getAdditionalInfo()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getAdditionalInfo()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonNode AbstractEntityViewEntity.getAdditionalInfo()"})
-  public void testGetAdditionalInfo() {
+  void testGetAdditionalInfo() {
     // Arrange, Act and Assert
     assertNull(new EntityViewEntity().getAdditionalInfo());
   }
@@ -1812,9 +1867,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#getCustomerId()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getCustomerId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID AbstractEntityViewEntity.getCustomerId()"})
-  public void testGetCustomerId() {
+  void testGetCustomerId() {
     // Arrange, Act and Assert
     assertNull(new EntityViewEntity().getCustomerId());
   }
@@ -1825,9 +1881,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#getEndTs()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getEndTs()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"long AbstractEntityViewEntity.getEndTs()"})
-  public void testGetEndTs() {
+  void testGetEndTs() {
     // Arrange, Act and Assert
     assertEquals(0L, new EntityViewEntity().getEndTs());
   }
@@ -1838,9 +1895,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#getEntityId()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getEntityId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID AbstractEntityViewEntity.getEntityId()"})
-  public void testGetEntityId() {
+  void testGetEntityId() {
     // Arrange, Act and Assert
     assertNull(new EntityViewEntity().getEntityId());
   }
@@ -1851,9 +1909,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#getEntityType()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getEntityType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityType AbstractEntityViewEntity.getEntityType()"})
-  public void testGetEntityType() {
+  void testGetEntityType() {
     // Arrange, Act and Assert
     assertNull(new EntityViewEntity().getEntityType());
   }
@@ -1864,9 +1923,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#getExternalId()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getExternalId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID AbstractEntityViewEntity.getExternalId()"})
-  public void testGetExternalId() {
+  void testGetExternalId() {
     // Arrange, Act and Assert
     assertNull(new EntityViewEntity().getExternalId());
   }
@@ -1877,9 +1937,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#getKeys()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getKeys()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractEntityViewEntity.getKeys()"})
-  public void testGetKeys() {
+  void testGetKeys() {
     // Arrange, Act and Assert
     assertNull(new EntityViewEntity().getKeys());
   }
@@ -1890,9 +1951,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#getName()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getName()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractEntityViewEntity.getName()"})
-  public void testGetName() {
+  void testGetName() {
     // Arrange, Act and Assert
     assertNull(new EntityViewEntity().getName());
   }
@@ -1903,9 +1965,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#getStartTs()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getStartTs()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"long AbstractEntityViewEntity.getStartTs()"})
-  public void testGetStartTs() {
+  void testGetStartTs() {
     // Arrange, Act and Assert
     assertEquals(0L, new EntityViewEntity().getStartTs());
   }
@@ -1916,9 +1979,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#getTenantId()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getTenantId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID AbstractEntityViewEntity.getTenantId()"})
-  public void testGetTenantId() {
+  void testGetTenantId() {
     // Arrange, Act and Assert
     assertNull(new EntityViewEntity().getTenantId());
   }
@@ -1929,9 +1993,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#getType()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractEntityViewEntity.getType()"})
-  public void testGetType() {
+  void testGetType() {
     // Arrange, Act and Assert
     assertNull(new EntityViewEntity().getType());
   }
@@ -1942,9 +2007,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#setAdditionalInfo(JsonNode)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setAdditionalInfo(JsonNode)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractEntityViewEntity.setAdditionalInfo(JsonNode)"})
-  public void testSetAdditionalInfo() {
+  void testSetAdditionalInfo() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     JsonNode additionalInfo = CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON;
@@ -1963,9 +2029,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#setCustomerId(UUID)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setCustomerId(UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractEntityViewEntity.setCustomerId(UUID)"})
-  public void testSetCustomerId() {
+  void testSetCustomerId() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     UUID customerId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -1987,9 +2054,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#setEndTs(long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setEndTs(long)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractEntityViewEntity.setEndTs(long)"})
-  public void testSetEndTs() {
+  void testSetEndTs() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
 
@@ -2007,9 +2075,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#setEntityId(UUID)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setEntityId(UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractEntityViewEntity.setEntityId(UUID)"})
-  public void testSetEntityId() {
+  void testSetEntityId() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -2027,9 +2096,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#setEntityType(EntityType)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setEntityType(EntityType)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractEntityViewEntity.setEntityType(EntityType)"})
-  public void testSetEntityType() {
+  void testSetEntityType() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
 
@@ -2046,9 +2116,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#setExternalId(UUID)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setExternalId(UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractEntityViewEntity.setExternalId(UUID)"})
-  public void testSetExternalId() {
+  void testSetExternalId() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     UUID externalId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -2070,9 +2141,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#setKeys(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setKeys(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractEntityViewEntity.setKeys(String)"})
-  public void testSetKeys() {
+  void testSetKeys() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
 
@@ -2089,9 +2161,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#setName(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setName(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractEntityViewEntity.setName(String)"})
-  public void testSetName() {
+  void testSetName() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
 
@@ -2109,9 +2182,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#setStartTs(long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setStartTs(long)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractEntityViewEntity.setStartTs(long)"})
-  public void testSetStartTs() {
+  void testSetStartTs() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
 
@@ -2129,9 +2203,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#setTenantId(UUID)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setTenantId(UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractEntityViewEntity.setTenantId(UUID)"})
-  public void testSetTenantId() {
+  void testSetTenantId() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -2154,9 +2229,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#setType(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setType(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractEntityViewEntity.setType(String)"})
-  public void testSetType() {
+  void testSetType() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
 
@@ -2174,9 +2250,10 @@ public class AbstractEntityViewEntityDiffblueTest {
    * <p>Method under test: {@link AbstractEntityViewEntity#toString()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toString()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractEntityViewEntity.toString()"})
-  public void testToString() {
+  void testToString() {
     // Arrange, Act and Assert
     assertEquals("EntityViewEntity()", new EntityViewEntity().toString());
   }

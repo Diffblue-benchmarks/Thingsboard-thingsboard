@@ -1,22 +1,22 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.QueueStatsId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.queue.QueueStats;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class QueueStatsEntityDiffblueTest {
+class QueueStatsEntityDiffblueTest {
   /**
    * Test {@link QueueStatsEntity#equals(Object)}, and {@link QueueStatsEntity#hashCode()}.
    *
@@ -33,9 +33,10 @@ public class QueueStatsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
@@ -75,9 +76,10 @@ public class QueueStatsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
@@ -117,9 +119,10 @@ public class QueueStatsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
@@ -159,9 +162,10 @@ public class QueueStatsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
@@ -201,9 +205,10 @@ public class QueueStatsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
@@ -230,9 +235,10 @@ public class QueueStatsEntityDiffblueTest {
    * <p>Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(3L);
@@ -265,9 +271,10 @@ public class QueueStatsEntityDiffblueTest {
    * <p>Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
@@ -300,9 +307,10 @@ public class QueueStatsEntityDiffblueTest {
    * <p>Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
@@ -335,9 +343,10 @@ public class QueueStatsEntityDiffblueTest {
    * <p>Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
@@ -370,9 +379,10 @@ public class QueueStatsEntityDiffblueTest {
    * <p>Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
@@ -405,9 +415,10 @@ public class QueueStatsEntityDiffblueTest {
    * <p>Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
@@ -440,9 +451,10 @@ public class QueueStatsEntityDiffblueTest {
    * <p>Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
@@ -475,9 +487,10 @@ public class QueueStatsEntityDiffblueTest {
    * <p>Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
@@ -502,9 +515,10 @@ public class QueueStatsEntityDiffblueTest {
    * <p>Method under test: {@link QueueStatsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueStatsEntity.equals(Object)", "int QueueStatsEntity.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     QueueStatsEntity queueStatsEntity = new QueueStatsEntity();
     queueStatsEntity.setCreatedTime(1L);
@@ -535,7 +549,8 @@ public class QueueStatsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void QueueStatsEntity.<init>()",
     "String QueueStatsEntity.getQueueName()",
@@ -546,7 +561,7 @@ public class QueueStatsEntityDiffblueTest {
     "void QueueStatsEntity.setTenantId(UUID)",
     "String QueueStatsEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     QueueStatsEntity actualQueueStatsEntity = new QueueStatsEntity();
     actualQueueStatsEntity.setQueueName("Queue Name");
@@ -577,9 +592,10 @@ public class QueueStatsEntityDiffblueTest {
    * <p>Method under test: {@link QueueStatsEntity#QueueStatsEntity(QueueStats)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new QueueStatsEntity(QueueStats)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void QueueStatsEntity.<init>(QueueStats)"})
-  public void testNewQueueStatsEntity() {
+  void testNewQueueStatsEntity() {
     // Arrange
     QueueStats queueStats = new QueueStats(null);
     queueStats.setTenantId(ModelConstants.SYSTEM_TENANT);
@@ -606,9 +622,10 @@ public class QueueStatsEntityDiffblueTest {
    * <p>Method under test: {@link QueueStatsEntity#QueueStatsEntity(QueueStats)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new QueueStatsEntity(QueueStats); given one; then return CreatedTime is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void QueueStatsEntity.<init>(QueueStats)"})
-  public void testNewQueueStatsEntity_givenOne_thenReturnCreatedTimeIsOne() {
+  void testNewQueueStatsEntity_givenOne_thenReturnCreatedTimeIsOne() {
     // Arrange
     QueueStats queueStats = new QueueStats();
     queueStats.setCreatedTime(1L);
@@ -633,9 +650,11 @@ public class QueueStatsEntityDiffblueTest {
    * <p>Method under test: {@link QueueStatsEntity#QueueStatsEntity(QueueStats)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new QueueStatsEntity(QueueStats); then return Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void QueueStatsEntity.<init>(QueueStats)"})
-  public void testNewQueueStatsEntity_thenReturnIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testNewQueueStatsEntity_thenReturnIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
@@ -663,9 +682,11 @@ public class QueueStatsEntityDiffblueTest {
    * <p>Method under test: {@link QueueStatsEntity#QueueStatsEntity(QueueStats)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new QueueStatsEntity(QueueStats); when QueueStats(); then return TenantId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void QueueStatsEntity.<init>(QueueStats)"})
-  public void testNewQueueStatsEntity_whenQueueStats_thenReturnTenantIdIsNull() {
+  void testNewQueueStatsEntity_whenQueueStats_thenReturnTenantIdIsNull() {
     // Arrange and Act
     QueueStatsEntity actualQueueStatsEntity = new QueueStatsEntity(new QueueStats());
 
@@ -682,9 +703,10 @@ public class QueueStatsEntityDiffblueTest {
    * <p>Method under test: {@link QueueStatsEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"QueueStats QueueStatsEntity.toData()"})
-  public void testToData() {
+  void testToData() {
     // Arrange and Act
     QueueStats actualToDataResult = new QueueStatsEntity().toData();
 

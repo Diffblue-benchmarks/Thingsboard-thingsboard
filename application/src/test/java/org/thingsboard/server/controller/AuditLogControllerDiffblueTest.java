@@ -19,32 +19,36 @@ import org.thingsboard.server.exception.ThingsboardErrorResponseHandler;
 
 @ExtendWith(MockitoExtension.class)
 class AuditLogControllerDiffblueTest {
-  @InjectMocks
-  private AuditLogController auditLogController;
+  @InjectMocks private AuditLogController auditLogController;
 
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
   /**
-   * Test {@link AuditLogController#getAuditLogsByCustomerId(String, int, int, String, String, String, Long, Long, String)}.
+   * Test {@link AuditLogController#getAuditLogsByCustomerId(String, int, int, String, String,
+   * String, Long, Long, String)}.
+   *
    * <ul>
-   *   <li>When {@code https://example.org/example}.</li>
+   *   <li>When {@code https://example.org/example}.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLogController#getAuditLogsByCustomerId(String, int, int, String, String, String, Long, Long, String)}
+   *
+   * <p>Method under test: {@link AuditLogController#getAuditLogsByCustomerId(String, int, int,
+   * String, String, String, Long, Long, String)}
    */
   @Test
-  @DisplayName("Test getAuditLogsByCustomerId(String, int, int, String, String, String, Long, Long, String); when 'https://example.org/example'")
+  @DisplayName(
+      "Test getAuditLogsByCustomerId(String, int, int, String, String, String, Long, Long, String); when 'https://example.org/example'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData AuditLogController.getAuditLogsByCustomerId(String, int, int, String, String, String, Long, Long, String)"})
+    "org.thingsboard.server.common.data.page.PageData AuditLogController.getAuditLogsByCustomerId(String, int, int, String, String, String, Long, Long, String)"
+  })
   void testGetAuditLogsByCustomerId_whenHttpsExampleOrgExample() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders
-        .get("/api/audit/logs/customer/{customerId}", "42")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/audit/logs/customer/{customerId}", "42")
+            .param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
     // Act and Assert
@@ -56,23 +60,31 @@ class AuditLogControllerDiffblueTest {
   }
 
   /**
-   * Test {@link AuditLogController#getAuditLogsByCustomerId(String, int, int, String, String, String, Long, Long, String)}.
+   * Test {@link AuditLogController#getAuditLogsByCustomerId(String, int, int, String, String,
+   * String, Long, Long, String)}.
+   *
    * <ul>
-   *   <li>When {@link MockHttpServletRequestBuilder#param(String, String[])} {@code page} is valueOf one.</li>
+   *   <li>When {@link MockHttpServletRequestBuilder#param(String, String[])} {@code page} is
+   *       valueOf one.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLogController#getAuditLogsByCustomerId(String, int, int, String, String, String, Long, Long, String)}
+   *
+   * <p>Method under test: {@link AuditLogController#getAuditLogsByCustomerId(String, int, int,
+   * String, String, String, Long, Long, String)}
    */
   @Test
-  @DisplayName("Test getAuditLogsByCustomerId(String, int, int, String, String, String, Long, Long, String); when param(String, String[]) 'page' is valueOf one")
+  @DisplayName(
+      "Test getAuditLogsByCustomerId(String, int, int, String, String, String, Long, Long, String); when param(String, String[]) 'page' is valueOf one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData AuditLogController.getAuditLogsByCustomerId(String, int, int, String, String, String, Long, Long, String)"})
+    "org.thingsboard.server.common.data.page.PageData AuditLogController.getAuditLogsByCustomerId(String, int, int, String, String, String, Long, Long, String)"
+  })
   void testGetAuditLogsByCustomerId_whenParamPageIsValueOfOne() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/api/audit/logs/customer/{customerId}", "42");
+    MockHttpServletRequestBuilder getResult =
+        MockMvcRequestBuilders.get("/api/audit/logs/customer/{customerId}", "42");
     MockHttpServletRequestBuilder paramResult = getResult.param("page", String.valueOf(1));
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
@@ -85,24 +97,31 @@ class AuditLogControllerDiffblueTest {
   }
 
   /**
-   * Test {@link AuditLogController#getAuditLogsByUserId(String, int, int, String, String, String, Long, Long, String)}.
+   * Test {@link AuditLogController#getAuditLogsByUserId(String, int, int, String, String, String,
+   * Long, Long, String)}.
+   *
    * <ul>
-   *   <li>When {@code https://example.org/example}.</li>
+   *   <li>When {@code https://example.org/example}.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLogController#getAuditLogsByUserId(String, int, int, String, String, String, Long, Long, String)}
+   *
+   * <p>Method under test: {@link AuditLogController#getAuditLogsByUserId(String, int, int, String,
+   * String, String, Long, Long, String)}
    */
   @Test
-  @DisplayName("Test getAuditLogsByUserId(String, int, int, String, String, String, Long, Long, String); when 'https://example.org/example'")
+  @DisplayName(
+      "Test getAuditLogsByUserId(String, int, int, String, String, String, Long, Long, String); when 'https://example.org/example'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData AuditLogController.getAuditLogsByUserId(String, int, int, String, String, String, Long, Long, String)"})
+    "org.thingsboard.server.common.data.page.PageData AuditLogController.getAuditLogsByUserId(String, int, int, String, String, String, Long, Long, String)"
+  })
   void testGetAuditLogsByUserId_whenHttpsExampleOrgExample() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.get("/api/audit/logs/user/{userId}", "42")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/audit/logs/user/{userId}", "42")
+            .param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
     // Act and Assert
@@ -114,23 +133,31 @@ class AuditLogControllerDiffblueTest {
   }
 
   /**
-   * Test {@link AuditLogController#getAuditLogsByUserId(String, int, int, String, String, String, Long, Long, String)}.
+   * Test {@link AuditLogController#getAuditLogsByUserId(String, int, int, String, String, String,
+   * Long, Long, String)}.
+   *
    * <ul>
-   *   <li>When {@link MockHttpServletRequestBuilder#param(String, String[])} {@code page} is valueOf one.</li>
+   *   <li>When {@link MockHttpServletRequestBuilder#param(String, String[])} {@code page} is
+   *       valueOf one.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLogController#getAuditLogsByUserId(String, int, int, String, String, String, Long, Long, String)}
+   *
+   * <p>Method under test: {@link AuditLogController#getAuditLogsByUserId(String, int, int, String,
+   * String, String, Long, Long, String)}
    */
   @Test
-  @DisplayName("Test getAuditLogsByUserId(String, int, int, String, String, String, Long, Long, String); when param(String, String[]) 'page' is valueOf one")
+  @DisplayName(
+      "Test getAuditLogsByUserId(String, int, int, String, String, String, Long, Long, String); when param(String, String[]) 'page' is valueOf one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData AuditLogController.getAuditLogsByUserId(String, int, int, String, String, String, Long, Long, String)"})
+    "org.thingsboard.server.common.data.page.PageData AuditLogController.getAuditLogsByUserId(String, int, int, String, String, String, Long, Long, String)"
+  })
   void testGetAuditLogsByUserId_whenParamPageIsValueOfOne() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/api/audit/logs/user/{userId}", "42");
+    MockHttpServletRequestBuilder getResult =
+        MockMvcRequestBuilders.get("/api/audit/logs/user/{userId}", "42");
     MockHttpServletRequestBuilder paramResult = getResult.param("page", String.valueOf(1));
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
@@ -143,25 +170,32 @@ class AuditLogControllerDiffblueTest {
   }
 
   /**
-   * Test {@link AuditLogController#getAuditLogsByEntityId(String, String, int, int, String, String, String, Long, Long, String)}.
+   * Test {@link AuditLogController#getAuditLogsByEntityId(String, String, int, int, String, String,
+   * String, Long, Long, String)}.
+   *
    * <ul>
-   *   <li>When {@code https://example.org/example}.</li>
+   *   <li>When {@code https://example.org/example}.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLogController#getAuditLogsByEntityId(String, String, int, int, String, String, String, Long, Long, String)}
+   *
+   * <p>Method under test: {@link AuditLogController#getAuditLogsByEntityId(String, String, int,
+   * int, String, String, String, Long, Long, String)}
    */
   @Test
-  @DisplayName("Test getAuditLogsByEntityId(String, String, int, int, String, String, String, Long, Long, String); when 'https://example.org/example'")
+  @DisplayName(
+      "Test getAuditLogsByEntityId(String, String, int, int, String, String, String, Long, Long, String); when 'https://example.org/example'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData AuditLogController.getAuditLogsByEntityId(String, String, int, int, String, String, String, Long, Long, String)"})
+    "org.thingsboard.server.common.data.page.PageData AuditLogController.getAuditLogsByEntityId(String, String, int, int, String, String, String, Long, Long, String)"
+  })
   void testGetAuditLogsByEntityId_whenHttpsExampleOrgExample() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders
-        .get("/api/audit/logs/entity/{entityType}/{entityId}", "Entity Type", "42")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get(
+                "/api/audit/logs/entity/{entityType}/{entityId}", "Entity Type", "42")
+            .param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
     // Act and Assert
@@ -173,24 +207,32 @@ class AuditLogControllerDiffblueTest {
   }
 
   /**
-   * Test {@link AuditLogController#getAuditLogsByEntityId(String, String, int, int, String, String, String, Long, Long, String)}.
+   * Test {@link AuditLogController#getAuditLogsByEntityId(String, String, int, int, String, String,
+   * String, Long, Long, String)}.
+   *
    * <ul>
-   *   <li>When {@link MockHttpServletRequestBuilder#param(String, String[])} {@code page} is valueOf one.</li>
+   *   <li>When {@link MockHttpServletRequestBuilder#param(String, String[])} {@code page} is
+   *       valueOf one.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLogController#getAuditLogsByEntityId(String, String, int, int, String, String, String, Long, Long, String)}
+   *
+   * <p>Method under test: {@link AuditLogController#getAuditLogsByEntityId(String, String, int,
+   * int, String, String, String, Long, Long, String)}
    */
   @Test
-  @DisplayName("Test getAuditLogsByEntityId(String, String, int, int, String, String, String, Long, Long, String); when param(String, String[]) 'page' is valueOf one")
+  @DisplayName(
+      "Test getAuditLogsByEntityId(String, String, int, int, String, String, String, Long, Long, String); when param(String, String[]) 'page' is valueOf one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData AuditLogController.getAuditLogsByEntityId(String, String, int, int, String, String, String, Long, Long, String)"})
+    "org.thingsboard.server.common.data.page.PageData AuditLogController.getAuditLogsByEntityId(String, String, int, int, String, String, String, Long, Long, String)"
+  })
   void testGetAuditLogsByEntityId_whenParamPageIsValueOfOne() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders
-        .get("/api/audit/logs/entity/{entityType}/{entityId}", "Entity Type", "42");
+    MockHttpServletRequestBuilder getResult =
+        MockMvcRequestBuilders.get(
+            "/api/audit/logs/entity/{entityType}/{entityId}", "Entity Type", "42");
     MockHttpServletRequestBuilder paramResult = getResult.param("page", String.valueOf(1));
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
@@ -203,24 +245,30 @@ class AuditLogControllerDiffblueTest {
   }
 
   /**
-   * Test {@link AuditLogController#getAuditLogs(int, int, String, String, String, Long, Long, String)}.
+   * Test {@link AuditLogController#getAuditLogs(int, int, String, String, String, Long, Long,
+   * String)}.
+   *
    * <ul>
-   *   <li>When {@code https://example.org/example}.</li>
+   *   <li>When {@code https://example.org/example}.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLogController#getAuditLogs(int, int, String, String, String, Long, Long, String)}
+   *
+   * <p>Method under test: {@link AuditLogController#getAuditLogs(int, int, String, String, String,
+   * Long, Long, String)}
    */
   @Test
-  @DisplayName("Test getAuditLogs(int, int, String, String, String, Long, Long, String); when 'https://example.org/example'")
+  @DisplayName(
+      "Test getAuditLogs(int, int, String, String, String, Long, Long, String); when 'https://example.org/example'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData AuditLogController.getAuditLogs(int, int, String, String, String, Long, Long, String)"})
+    "org.thingsboard.server.common.data.page.PageData AuditLogController.getAuditLogs(int, int, String, String, String, Long, Long, String)"
+  })
   void testGetAuditLogs_whenHttpsExampleOrgExample() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.get("/api/audit/logs")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/audit/logs").param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
     // Act and Assert
@@ -232,21 +280,28 @@ class AuditLogControllerDiffblueTest {
   }
 
   /**
-   * Test {@link AuditLogController#getAuditLogs(int, int, String, String, String, Long, Long, String)}.
+   * Test {@link AuditLogController#getAuditLogs(int, int, String, String, String, Long, Long,
+   * String)}.
+   *
    * <ul>
-   *   <li>When {@link MockHttpServletRequestBuilder#param(String, String[])} {@code page} is valueOf one.</li>
+   *   <li>When {@link MockHttpServletRequestBuilder#param(String, String[])} {@code page} is
+   *       valueOf one.
    * </ul>
-   * <p>
-   * Method under test: {@link AuditLogController#getAuditLogs(int, int, String, String, String, Long, Long, String)}
+   *
+   * <p>Method under test: {@link AuditLogController#getAuditLogs(int, int, String, String, String,
+   * Long, Long, String)}
    */
   @Test
-  @DisplayName("Test getAuditLogs(int, int, String, String, String, Long, Long, String); when param(String, String[]) 'page' is valueOf one")
+  @DisplayName(
+      "Test getAuditLogs(int, int, String, String, String, Long, Long, String); when param(String, String[]) 'page' is valueOf one")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData AuditLogController.getAuditLogs(int, int, String, String, String, Long, Long, String)"})
+    "org.thingsboard.server.common.data.page.PageData AuditLogController.getAuditLogs(int, int, String, String, String, Long, Long, String)"
+  })
   void testGetAuditLogs_whenParamPageIsValueOfOne() throws Exception {
     // Arrange
-    doNothing().when(thingsboardErrorResponseHandler)
+    doNothing()
+        .when(thingsboardErrorResponseHandler)
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
     MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/api/audit/logs");
     MockHttpServletRequestBuilder paramResult = getResult.param("page", String.valueOf(1));

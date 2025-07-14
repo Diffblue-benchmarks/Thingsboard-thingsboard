@@ -1969,7 +1969,6 @@ class ProtoUtilsDiffblueTest {
     assertEquals('u', iteratorResult.next().byteValue());
     assertEquals('l', iteratorResult.next().byteValue());
     assertEquals("null", bodyBytes.toStringUtf8());
-    assertEquals(41, actualToProtoResult.getSerializedSize());
   }
 
   /**

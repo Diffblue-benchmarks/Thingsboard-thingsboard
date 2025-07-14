@@ -1,23 +1,24 @@
 package org.thingsboard.server.dao.audit;
 
-import static org.junit.Assert.assertFalse;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.audit.ActionType;
 
-public class AuditLogLevelFilterDiffblueTest {
+class AuditLogLevelFilterDiffblueTest {
   /**
    * Test {@link AuditLogLevelFilter#logEnabled(EntityType, ActionType)}.
    *
    * <p>Method under test: {@link AuditLogLevelFilter#logEnabled(EntityType, ActionType)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test logEnabled(EntityType, ActionType)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogLevelFilter.logEnabled(EntityType, ActionType)"})
-  public void testLogEnabled() {
+  void testLogEnabled() {
     // Arrange, Act and Assert
     assertFalse(
         new AuditLogLevelFilter(new AuditLogLevelProperties())

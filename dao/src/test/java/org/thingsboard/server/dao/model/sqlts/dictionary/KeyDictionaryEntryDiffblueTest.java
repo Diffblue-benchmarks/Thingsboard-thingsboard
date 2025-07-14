@@ -1,13 +1,13 @@
 package org.thingsboard.server.dao.model.sqlts.dictionary;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class KeyDictionaryEntryDiffblueTest {
+class KeyDictionaryEntryDiffblueTest {
   /**
    * Test {@link KeyDictionaryEntry#equals(Object)}, and {@link KeyDictionaryEntry#hashCode()}.
    *
@@ -24,12 +24,13 @@ public class KeyDictionaryEntryDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean KeyDictionaryEntry.equals(Object)",
     "int KeyDictionaryEntry.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     KeyDictionaryEntry keyDictionaryEntry = new KeyDictionaryEntry();
     keyDictionaryEntry.setKey("Key");
@@ -61,12 +62,13 @@ public class KeyDictionaryEntryDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean KeyDictionaryEntry.equals(Object)",
     "int KeyDictionaryEntry.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     KeyDictionaryEntry keyDictionaryEntry = new KeyDictionaryEntry();
     keyDictionaryEntry.setKey(null);
@@ -98,12 +100,13 @@ public class KeyDictionaryEntryDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean KeyDictionaryEntry.equals(Object)",
     "int KeyDictionaryEntry.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     KeyDictionaryEntry keyDictionaryEntry = new KeyDictionaryEntry();
     keyDictionaryEntry.setKey("Key");
@@ -126,12 +129,13 @@ public class KeyDictionaryEntryDiffblueTest {
    * <p>Method under test: {@link KeyDictionaryEntry#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean KeyDictionaryEntry.equals(Object)",
     "int KeyDictionaryEntry.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     KeyDictionaryEntry keyDictionaryEntry = new KeyDictionaryEntry();
     keyDictionaryEntry.setKey(null);
@@ -156,12 +160,13 @@ public class KeyDictionaryEntryDiffblueTest {
    * <p>Method under test: {@link KeyDictionaryEntry#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean KeyDictionaryEntry.equals(Object)",
     "int KeyDictionaryEntry.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     KeyDictionaryEntry keyDictionaryEntry = new KeyDictionaryEntry();
     keyDictionaryEntry.setKey(
@@ -187,12 +192,13 @@ public class KeyDictionaryEntryDiffblueTest {
    * <p>Method under test: {@link KeyDictionaryEntry#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean KeyDictionaryEntry.equals(Object)",
     "int KeyDictionaryEntry.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     KeyDictionaryEntry keyDictionaryEntry = new KeyDictionaryEntry();
     keyDictionaryEntry.setKey("Key");
@@ -217,12 +223,13 @@ public class KeyDictionaryEntryDiffblueTest {
    * <p>Method under test: {@link KeyDictionaryEntry#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean KeyDictionaryEntry.equals(Object)",
     "int KeyDictionaryEntry.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     KeyDictionaryEntry keyDictionaryEntry = new KeyDictionaryEntry();
     keyDictionaryEntry.setKey("Key");
@@ -243,12 +250,13 @@ public class KeyDictionaryEntryDiffblueTest {
    * <p>Method under test: {@link KeyDictionaryEntry#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean KeyDictionaryEntry.equals(Object)",
     "int KeyDictionaryEntry.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     KeyDictionaryEntry keyDictionaryEntry = new KeyDictionaryEntry();
     keyDictionaryEntry.setKey("Key");
@@ -273,7 +281,8 @@ public class KeyDictionaryEntryDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void KeyDictionaryEntry.<init>()",
     "String KeyDictionaryEntry.getKey()",
@@ -282,7 +291,7 @@ public class KeyDictionaryEntryDiffblueTest {
     "void KeyDictionaryEntry.setKeyId(int)",
     "String KeyDictionaryEntry.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     KeyDictionaryEntry actualKeyDictionaryEntry = new KeyDictionaryEntry();
     actualKeyDictionaryEntry.setKey("Key");

@@ -1,23 +1,23 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.domain.Domain;
 import org.thingsboard.server.common.data.id.DomainId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class DomainEntityDiffblueTest {
+class DomainEntityDiffblueTest {
   /**
    * Test {@link DomainEntity#equals(Object)}, and {@link DomainEntity#hashCode()}.
    *
@@ -34,9 +34,10 @@ public class DomainEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DomainEntity.equals(Object)", "int DomainEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DomainEntity domainEntity = new DomainEntity();
     domainEntity.setCreatedTime(1L);
@@ -78,9 +79,10 @@ public class DomainEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DomainEntity.equals(Object)", "int DomainEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     DomainEntity domainEntity = new DomainEntity();
     domainEntity.setCreatedTime(1L);
@@ -122,9 +124,10 @@ public class DomainEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DomainEntity.equals(Object)", "int DomainEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     DomainEntity domainEntity = new DomainEntity();
     domainEntity.setCreatedTime(1L);
@@ -166,9 +169,10 @@ public class DomainEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DomainEntity.equals(Object)", "int DomainEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     DomainEntity domainEntity = new DomainEntity();
     domainEntity.setCreatedTime(1L);
@@ -210,9 +214,10 @@ public class DomainEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DomainEntity.equals(Object)", "int DomainEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DomainEntity domainEntity = new DomainEntity();
     domainEntity.setCreatedTime(1L);
@@ -240,9 +245,10 @@ public class DomainEntityDiffblueTest {
    * <p>Method under test: {@link DomainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DomainEntity.equals(Object)", "int DomainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DomainEntity domainEntity = new DomainEntity();
     domainEntity.setCreatedTime(3L);
@@ -277,9 +283,10 @@ public class DomainEntityDiffblueTest {
    * <p>Method under test: {@link DomainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DomainEntity.equals(Object)", "int DomainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DomainEntity domainEntity = new DomainEntity();
     domainEntity.setCreatedTime(1L);
@@ -314,9 +321,10 @@ public class DomainEntityDiffblueTest {
    * <p>Method under test: {@link DomainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DomainEntity.equals(Object)", "int DomainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DomainEntity domainEntity = new DomainEntity();
     domainEntity.setCreatedTime(1L);
@@ -351,9 +359,10 @@ public class DomainEntityDiffblueTest {
    * <p>Method under test: {@link DomainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DomainEntity.equals(Object)", "int DomainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     DomainEntity domainEntity = new DomainEntity();
     domainEntity.setCreatedTime(1L);
@@ -388,9 +397,10 @@ public class DomainEntityDiffblueTest {
    * <p>Method under test: {@link DomainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DomainEntity.equals(Object)", "int DomainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     DomainEntity domainEntity = new DomainEntity();
     domainEntity.setCreatedTime(1L);
@@ -425,9 +435,10 @@ public class DomainEntityDiffblueTest {
    * <p>Method under test: {@link DomainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DomainEntity.equals(Object)", "int DomainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     DomainEntity domainEntity = new DomainEntity();
     domainEntity.setCreatedTime(1L);
@@ -462,9 +473,10 @@ public class DomainEntityDiffblueTest {
    * <p>Method under test: {@link DomainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DomainEntity.equals(Object)", "int DomainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     DomainEntity domainEntity = new DomainEntity();
     domainEntity.setCreatedTime(1L);
@@ -499,9 +511,10 @@ public class DomainEntityDiffblueTest {
    * <p>Method under test: {@link DomainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DomainEntity.equals(Object)", "int DomainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     DomainEntity domainEntity = new DomainEntity();
     domainEntity.setCreatedTime(1L);
@@ -536,9 +549,10 @@ public class DomainEntityDiffblueTest {
    * <p>Method under test: {@link DomainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DomainEntity.equals(Object)", "int DomainEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     DomainEntity domainEntity = new DomainEntity();
     domainEntity.setCreatedTime(1L);
@@ -573,9 +587,10 @@ public class DomainEntityDiffblueTest {
    * <p>Method under test: {@link DomainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DomainEntity.equals(Object)", "int DomainEntity.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     DomainEntity domainEntity = new DomainEntity();
     domainEntity.setCreatedTime(1L);
@@ -601,9 +616,10 @@ public class DomainEntityDiffblueTest {
    * <p>Method under test: {@link DomainEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DomainEntity.equals(Object)", "int DomainEntity.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     DomainEntity domainEntity = new DomainEntity();
     domainEntity.setCreatedTime(1L);
@@ -637,7 +653,8 @@ public class DomainEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void DomainEntity.<init>()",
     "String DomainEntity.getName()",
@@ -650,7 +667,7 @@ public class DomainEntityDiffblueTest {
     "void DomainEntity.setTenantId(UUID)",
     "String DomainEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     DomainEntity actualDomainEntity = new DomainEntity();
     actualDomainEntity.setName("Name");
@@ -689,9 +706,11 @@ public class DomainEntityDiffblueTest {
    * <p>Method under test: {@link DomainEntity#DomainEntity(Domain)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new DomainEntity(Domain); then return TenantId toString is '13814000-1dd2-11b2-8080-808080808080'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DomainEntity.<init>(Domain)"})
-  public void testNewDomainEntity_thenReturnTenantIdToStringIs138140001dd211b28080808080808080() {
+  void testNewDomainEntity_thenReturnTenantIdToStringIs138140001dd211b28080808080808080() {
     // Arrange
     Domain domain = new Domain(new Domain());
     domain.setTenantId(ModelConstants.SYSTEM_TENANT);
@@ -721,9 +740,10 @@ public class DomainEntityDiffblueTest {
    * <p>Method under test: {@link DomainEntity#DomainEntity(Domain)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new DomainEntity(Domain); when Domain(); then return TenantId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DomainEntity.<init>(Domain)"})
-  public void testNewDomainEntity_whenDomain_thenReturnTenantIdIsNull() {
+  void testNewDomainEntity_whenDomain_thenReturnTenantIdIsNull() {
     // Arrange and Act
     DomainEntity actualDomainEntity = new DomainEntity(new Domain());
 
@@ -747,9 +767,10 @@ public class DomainEntityDiffblueTest {
    * <p>Method under test: {@link DomainEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return TenantId Id is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Domain DomainEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdIsRandomUUID() {
+  void testToData_thenReturnTenantIdIdIsRandomUUID() {
     // Arrange
     DomainEntity domainEntity = new DomainEntity();
     domainEntity.setCreatedTime(1L);
@@ -779,9 +800,11 @@ public class DomainEntityDiffblueTest {
    * <p>Method under test: {@link DomainEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return TenantId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Domain DomainEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     DomainEntity domainEntity = new DomainEntity();
     domainEntity.setCreatedTime(1L);
@@ -810,9 +833,11 @@ public class DomainEntityDiffblueTest {
    * <p>Method under test: {@link DomainEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return UuidId toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Domain DomainEntity.toData()"})
-  public void testToData_thenReturnUuidIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnUuidIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     DomainEntity domainEntity = new DomainEntity();
     domainEntity.setCreatedTime(1L);

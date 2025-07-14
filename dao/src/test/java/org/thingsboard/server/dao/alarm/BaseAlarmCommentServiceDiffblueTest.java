@@ -1,9 +1,9 @@
 package org.thingsboard.server.dao.alarm;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.ArgumentMatchers.isNull;
@@ -11,24 +11,24 @@ import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.SettableFuture;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.aot.DisabledInAotMode;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.alarm.AlarmComment;
 import org.thingsboard.server.common.data.alarm.AlarmComment.AlarmCommentBuilder;
 import org.thingsboard.server.common.data.alarm.AlarmCommentInfo;
@@ -45,9 +45,9 @@ import org.thingsboard.server.dao.service.DataValidator;
 
 @ContextConfiguration(classes = {BaseAlarmCommentService.class})
 @DisabledInAotMode
-@RunWith(SpringJUnit4ClassRunner.class)
-@RunWith(MockitoJUnitRunner.class)
-public class BaseAlarmCommentServiceDiffblueTest {
+@ExtendWith(SpringExtension.class)
+@ExtendWith(MockitoExtension.class)
+class BaseAlarmCommentServiceDiffblueTest {
   @Mock private AlarmCommentDao alarmCommentDao;
 
   @MockBean private AlarmCommentDao alarmCommentDao2;
@@ -69,11 +69,12 @@ public class BaseAlarmCommentServiceDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAlarmComments(TenantId, AlarmId, PageLink); then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseAlarmCommentService.findAlarmComments(TenantId, AlarmId, PageLink)"
   })
-  public void testFindAlarmComments_thenReturnEmpty_page_data() {
+  void testFindAlarmComments_thenReturnEmpty_page_data() {
     // Arrange
     PageData<AlarmCommentInfo> emptyPageDataResult = PageData.emptyPageData();
     when(alarmCommentDao2.findAlarmComments(
@@ -97,11 +98,12 @@ public class BaseAlarmCommentServiceDiffblueTest {
    * AlarmCommentId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAlarmCommentByIdAsync(TenantId, AlarmCommentId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture BaseAlarmCommentService.findAlarmCommentByIdAsync(TenantId, AlarmCommentId)"
   })
-  public void testFindAlarmCommentByIdAsync() {
+  void testFindAlarmCommentByIdAsync() {
     // Arrange
     SettableFuture<AlarmComment> createResult = SettableFuture.create();
     when(alarmCommentDao2.findAlarmCommentByIdAsync(Mockito.<TenantId>any(), Mockito.<UUID>any()))
@@ -130,11 +132,12 @@ public class BaseAlarmCommentServiceDiffblueTest {
    * AlarmCommentId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAlarmCommentByIdAsync(TenantId, AlarmCommentId); then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture BaseAlarmCommentService.findAlarmCommentByIdAsync(TenantId, AlarmCommentId)"
   })
-  public void testFindAlarmCommentByIdAsync_thenCallsGetId() {
+  void testFindAlarmCommentByIdAsync_thenCallsGetId() {
     // Arrange
     SettableFuture<AlarmComment> createResult = SettableFuture.create();
     when(alarmCommentDao2.findAlarmCommentByIdAsync(Mockito.<TenantId>any(), Mockito.<UUID>any()))
@@ -162,11 +165,12 @@ public class BaseAlarmCommentServiceDiffblueTest {
    * AlarmCommentId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAlarmCommentById(TenantId, AlarmCommentId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AlarmComment BaseAlarmCommentService.findAlarmCommentById(TenantId, AlarmCommentId)"
   })
-  public void testFindAlarmCommentById() {
+  void testFindAlarmCommentById() {
     // Arrange
     AlarmCommentBuilder alarmCommentBuilder = mock(AlarmCommentBuilder.class);
     when(alarmCommentBuilder.type(Mockito.<AlarmCommentType>any()))
@@ -216,11 +220,12 @@ public class BaseAlarmCommentServiceDiffblueTest {
    * AlarmCommentId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAlarmCommentById(TenantId, AlarmCommentId); then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AlarmComment BaseAlarmCommentService.findAlarmCommentById(TenantId, AlarmCommentId)"
   })
-  public void testFindAlarmCommentById_thenCallsGetId() {
+  void testFindAlarmCommentById_thenCallsGetId() {
     // Arrange
     AlarmCommentBuilder alarmCommentBuilder = mock(AlarmCommentBuilder.class);
     when(alarmCommentBuilder.type(Mockito.<AlarmCommentType>any()))

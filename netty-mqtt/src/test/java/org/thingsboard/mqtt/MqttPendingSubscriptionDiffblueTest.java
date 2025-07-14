@@ -249,7 +249,7 @@ class MqttPendingSubscriptionDiffblueTest {
     // Act
     mqttPendingSubscription.startRetransmitTimer(new DefaultEventLoop(), mock(Consumer.class));
 
-    // Assert that nothing has changed
+    // Assert
     verify(operation).isCanceled();
   }
 

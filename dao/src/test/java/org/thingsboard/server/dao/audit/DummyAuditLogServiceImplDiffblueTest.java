@@ -1,14 +1,14 @@
 package org.thingsboard.server.dao.audit;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.mock;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.HasName;
 import org.thingsboard.server.common.data.audit.ActionType;
 import org.thingsboard.server.common.data.audit.AuditLog;
@@ -21,7 +21,7 @@ import org.thingsboard.server.common.data.page.TimePageLink;
 import org.thingsboard.server.dao.entity.BaseEntityService;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class DummyAuditLogServiceImplDiffblueTest {
+class DummyAuditLogServiceImplDiffblueTest {
   /**
    * Test {@link DummyAuditLogServiceImpl#findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId,
    * List, TimePageLink)}.
@@ -36,11 +36,13 @@ public class DummyAuditLogServiceImplDiffblueTest {
    * TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink); given 'ADDED'; when ArrayList() add 'ADDED'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantIdAndCustomerId_givenAdded_whenArrayListAddAdded() {
+  void testFindAuditLogsByTenantIdAndCustomerId_givenAdded_whenArrayListAddAdded() {
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
 
@@ -75,11 +77,13 @@ public class DummyAuditLogServiceImplDiffblueTest {
    * TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink); given 'DELETED'; when ArrayList() add 'DELETED'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantIdAndCustomerId_givenDeleted_whenArrayListAddDeleted() {
+  void testFindAuditLogsByTenantIdAndCustomerId_givenDeleted_whenArrayListAddDeleted() {
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
 
@@ -114,11 +118,13 @@ public class DummyAuditLogServiceImplDiffblueTest {
    * TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink); when ArrayList()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantIdAndCustomerId_whenArrayList() {
+  void testFindAuditLogsByTenantIdAndCustomerId_whenArrayList() {
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
     ArrayList<ActionType> actionTypes = new ArrayList<>();
@@ -151,11 +157,13 @@ public class DummyAuditLogServiceImplDiffblueTest {
    * TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAuditLogsByTenantIdAndUserId(TenantId, UserId, List, TimePageLink); given 'ADDED'; when ArrayList() add 'ADDED'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantIdAndUserId(TenantId, UserId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantIdAndUserId_givenAdded_whenArrayListAddAdded() {
+  void testFindAuditLogsByTenantIdAndUserId_givenAdded_whenArrayListAddAdded() {
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
 
@@ -187,11 +195,13 @@ public class DummyAuditLogServiceImplDiffblueTest {
    * TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAuditLogsByTenantIdAndUserId(TenantId, UserId, List, TimePageLink); given 'DELETED'; when ArrayList() add 'DELETED'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantIdAndUserId(TenantId, UserId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantIdAndUserId_givenDeleted_whenArrayListAddDeleted() {
+  void testFindAuditLogsByTenantIdAndUserId_givenDeleted_whenArrayListAddDeleted() {
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
 
@@ -223,11 +233,13 @@ public class DummyAuditLogServiceImplDiffblueTest {
    * TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAuditLogsByTenantIdAndUserId(TenantId, UserId, List, TimePageLink); when ArrayList()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantIdAndUserId(TenantId, UserId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantIdAndUserId_whenArrayList() {
+  void testFindAuditLogsByTenantIdAndUserId_whenArrayList() {
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
     ArrayList<ActionType> actionTypes = new ArrayList<>();
@@ -257,11 +269,13 @@ public class DummyAuditLogServiceImplDiffblueTest {
    * TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink); given 'ADDED'; when ArrayList() add 'ADDED'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantIdAndEntityId_givenAdded_whenArrayListAddAdded() {
+  void testFindAuditLogsByTenantIdAndEntityId_givenAdded_whenArrayListAddAdded() {
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
 
@@ -296,11 +310,13 @@ public class DummyAuditLogServiceImplDiffblueTest {
    * TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink); given 'DELETED'; when ArrayList() add 'DELETED'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantIdAndEntityId_givenDeleted_whenArrayListAddDeleted() {
+  void testFindAuditLogsByTenantIdAndEntityId_givenDeleted_whenArrayListAddDeleted() {
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
 
@@ -335,11 +351,13 @@ public class DummyAuditLogServiceImplDiffblueTest {
    * TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink); when ArrayList()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantIdAndEntityId_whenArrayList() {
+  void testFindAuditLogsByTenantIdAndEntityId_whenArrayList() {
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
     ArrayList<ActionType> actionTypes = new ArrayList<>();
@@ -370,11 +388,13 @@ public class DummyAuditLogServiceImplDiffblueTest {
    * TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAuditLogsByTenantId(TenantId, List, TimePageLink); given 'ADDED'; when ArrayList() add 'ADDED'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantId(TenantId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantId_givenAdded_whenArrayListAddAdded() {
+  void testFindAuditLogsByTenantId_givenAdded_whenArrayListAddAdded() {
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
 
@@ -403,11 +423,13 @@ public class DummyAuditLogServiceImplDiffblueTest {
    * TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAuditLogsByTenantId(TenantId, List, TimePageLink); given 'DELETED'; when ArrayList() add 'DELETED'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantId(TenantId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantId_givenDeleted_whenArrayListAddDeleted() {
+  void testFindAuditLogsByTenantId_givenDeleted_whenArrayListAddDeleted() {
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
 
@@ -436,11 +458,12 @@ public class DummyAuditLogServiceImplDiffblueTest {
    * TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAuditLogsByTenantId(TenantId, List, TimePageLink); when ArrayList()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DummyAuditLogServiceImpl.findAuditLogsByTenantId(TenantId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantId_whenArrayList() {
+  void testFindAuditLogsByTenantId_whenArrayList() {
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
     ArrayList<ActionType> actionTypes = new ArrayList<>();
@@ -468,11 +491,13 @@ public class DummyAuditLogServiceImplDiffblueTest {
    * UserId, String, EntityId, HasName, ActionType, Exception, Object[])}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[]); when 'null'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "com.google.common.util.concurrent.ListenableFuture DummyAuditLogServiceImpl.logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[])"
   })
-  public void testLogEntityAction_whenNull_thenReturnNull() {
+  void testLogEntityAction_whenNull_thenReturnNull() {
     // Arrange
     DummyAuditLogServiceImpl dummyAuditLogServiceImpl = new DummyAuditLogServiceImpl();
     HasName hasName = mock(HasName.class);

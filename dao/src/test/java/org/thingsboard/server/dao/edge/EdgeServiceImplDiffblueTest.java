@@ -1,11 +1,11 @@
 package org.thingsboard.server.dao.edge;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.ArgumentMatchers.isNull;
@@ -15,7 +15,6 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.SettableFuture;
@@ -27,13 +26,14 @@ import java.util.UUID;
 import java.util.concurrent.Callable;
 import java.util.function.Function;
 import org.hibernate.exception.ConstraintViolationException;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.context.ApplicationEventPublisher;
 import org.thingsboard.server.common.data.EntitySubtype;
 import org.thingsboard.server.common.data.EntityType;
@@ -56,8 +56,8 @@ import org.thingsboard.server.dao.model.ModelConstants;
 import org.thingsboard.server.dao.service.DataValidator;
 import org.thingsboard.server.dao.sql.JpaExecutorService;
 
-@RunWith(MockitoJUnitRunner.class)
-public class EdgeServiceImplDiffblueTest {
+@ExtendWith(MockitoExtension.class)
+class EdgeServiceImplDiffblueTest {
   @Mock private ApplicationEventPublisher applicationEventPublisher;
 
   @Mock private DataValidator<Edge> dataValidator;
@@ -79,9 +79,11 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgeById(TenantId, EdgeId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeById(TenantId, EdgeId); given fromString '784f394c-42b6-435a-983c-b7beff2784f9'; then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Edge EdgeServiceImpl.findEdgeById(TenantId, EdgeId)"})
-  public void testFindEdgeById_givenFromString784f394c42b6435a983cB7beff2784f9_thenCallsGetId() {
+  void testFindEdgeById_givenFromString784f394c42b6435a983cB7beff2784f9_thenCallsGetId() {
     // Arrange
     Edge edge = new Edge();
     when(edgeDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(edge);
@@ -109,9 +111,11 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgeById(TenantId, EdgeId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeById(TenantId, EdgeId); when EdgeId(UUID) with id is fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Edge EdgeServiceImpl.findEdgeById(TenantId, EdgeId)"})
-  public void testFindEdgeById_whenEdgeIdWithIdIsFromString784f394c42b6435a983cB7beff2784f9() {
+  void testFindEdgeById_whenEdgeIdWithIdIsFromString784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     Edge edge = new Edge();
     when(edgeDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(edge);
@@ -133,9 +137,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgeInfoById(TenantId, EdgeId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgeInfoById(TenantId, EdgeId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EdgeInfo EdgeServiceImpl.findEdgeInfoById(TenantId, EdgeId)"})
-  public void testFindEdgeInfoById() {
+  void testFindEdgeInfoById() {
     // Arrange
     EdgeInfo edgeInfo = new EdgeInfo();
     when(edgeDao.findEdgeInfoById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
@@ -162,9 +167,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgeInfoById(TenantId, EdgeId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgeInfoById(TenantId, EdgeId); then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EdgeInfo EdgeServiceImpl.findEdgeInfoById(TenantId, EdgeId)"})
-  public void testFindEdgeInfoById_thenCallsGetId() {
+  void testFindEdgeInfoById_thenCallsGetId() {
     // Arrange
     EdgeInfo edgeInfo = new EdgeInfo();
     when(edgeDao.findEdgeInfoById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
@@ -188,9 +194,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgeByIdAsync(TenantId, EdgeId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgeByIdAsync(TenantId, EdgeId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ListenableFuture EdgeServiceImpl.findEdgeByIdAsync(TenantId, EdgeId)"})
-  public void testFindEdgeByIdAsync() {
+  void testFindEdgeByIdAsync() {
     // Arrange
     SettableFuture<Edge> createResult = SettableFuture.create();
     when(edgeDao.findByIdAsync(Mockito.<TenantId>any(), Mockito.<UUID>any()))
@@ -218,9 +225,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgeByIdAsync(TenantId, EdgeId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgeByIdAsync(TenantId, EdgeId); then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ListenableFuture EdgeServiceImpl.findEdgeByIdAsync(TenantId, EdgeId)"})
-  public void testFindEdgeByIdAsync_thenCallsGetId() {
+  void testFindEdgeByIdAsync_thenCallsGetId() {
     // Arrange
     SettableFuture<Edge> createResult = SettableFuture.create();
     when(edgeDao.findByIdAsync(Mockito.<TenantId>any(), Mockito.<UUID>any()))
@@ -249,11 +257,12 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgeByTenantIdAndNameAsync(TenantId, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgeByTenantIdAndNameAsync(TenantId, String); then return SettableFuture")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture EdgeServiceImpl.findEdgeByTenantIdAndNameAsync(TenantId, String)"
   })
-  public void testFindEdgeByTenantIdAndNameAsync_thenReturnSettableFuture() {
+  void testFindEdgeByTenantIdAndNameAsync_thenReturnSettableFuture() {
     // Arrange
     SettableFuture<Object> createResult = SettableFuture.create();
     when(jpaExecutorService.submit(Mockito.<Callable<Object>>any())).thenReturn(createResult);
@@ -278,9 +287,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgeByRoutingKey(TenantId, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgeByRoutingKey(TenantId, String); then return of Edge()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Optional EdgeServiceImpl.findEdgeByRoutingKey(TenantId, String)"})
-  public void testFindEdgeByRoutingKey_thenReturnOfEdge() {
+  void testFindEdgeByRoutingKey_thenReturnOfEdge() {
     // Arrange
     Optional<Edge> ofResult = Optional.of(new Edge());
     when(edgeDao.findByRoutingKey(Mockito.<UUID>any(), Mockito.<String>any())).thenReturn(ofResult);
@@ -304,9 +314,11 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgeByRoutingKey(TenantId, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeByRoutingKey(TenantId, String); then throw ConstraintViolationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Optional EdgeServiceImpl.findEdgeByRoutingKey(TenantId, String)"})
-  public void testFindEdgeByRoutingKey_thenThrowConstraintViolationException() {
+  void testFindEdgeByRoutingKey_thenThrowConstraintViolationException() {
     // Arrange
     when(edgeDao.findByRoutingKey(Mockito.<UUID>any(), Mockito.<String>any()))
         .thenThrow(
@@ -326,9 +338,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#saveEdge(Edge)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test saveEdge(Edge)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Edge EdgeServiceImpl.saveEdge(Edge)"})
-  public void testSaveEdge() {
+  void testSaveEdge() {
     // Arrange
     when(dataValidator.validate(Mockito.<Edge>any(), Mockito.<Function<Edge, TenantId>>any()))
         .thenThrow(
@@ -350,9 +363,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#saveEdge(Edge)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test saveEdge(Edge); then calls getName()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Edge EdgeServiceImpl.saveEdge(Edge)"})
-  public void testSaveEdge_thenCallsGetName() {
+  void testSaveEdge_thenCallsGetName() {
     // Arrange
     Edge edge = mock(Edge.class);
     when(edge.getName())
@@ -375,9 +389,10 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test assignEdgeToCustomer(TenantId, EdgeId, CustomerId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Edge EdgeServiceImpl.assignEdgeToCustomer(TenantId, EdgeId, CustomerId)"})
-  public void testAssignEdgeToCustomer() {
+  void testAssignEdgeToCustomer() {
     // Arrange
     when(edgeDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(new Edge());
     doThrow(
@@ -412,9 +427,11 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test assignEdgeToCustomer(TenantId, EdgeId, CustomerId); given Edge() CustomerId is CustomerId(UUID) with id is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Edge EdgeServiceImpl.assignEdgeToCustomer(TenantId, EdgeId, CustomerId)"})
-  public void testAssignEdgeToCustomer_givenEdgeCustomerIdIsCustomerIdWithIdIsNull() {
+  void testAssignEdgeToCustomer_givenEdgeCustomerIdIsCustomerIdWithIdIsNull() {
     // Arrange
     Edge edge = new Edge();
     edge.setCustomerId(new CustomerId(null));
@@ -442,9 +459,10 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test assignEdgeToCustomer(TenantId, EdgeId, CustomerId); then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Edge EdgeServiceImpl.assignEdgeToCustomer(TenantId, EdgeId, CustomerId)"})
-  public void testAssignEdgeToCustomer_thenCallsGetId() {
+  void testAssignEdgeToCustomer_thenCallsGetId() {
     // Arrange
     when(edgeDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenThrow(
@@ -476,9 +494,11 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test assignEdgeToCustomer(TenantId, EdgeId, CustomerId); then calls validate(BaseData, Function)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Edge EdgeServiceImpl.assignEdgeToCustomer(TenantId, EdgeId, CustomerId)"})
-  public void testAssignEdgeToCustomer_thenCallsValidate() {
+  void testAssignEdgeToCustomer_thenCallsValidate() {
     // Arrange
     when(edgeDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(new Edge());
     when(dataValidator.validate(Mockito.<Edge>any(), Mockito.<Function<Edge, TenantId>>any()))
@@ -513,9 +533,11 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test assignEdgeToCustomer(TenantId, EdgeId, CustomerId); then return CustomerId is NULL_CUSTOMER_ID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Edge EdgeServiceImpl.assignEdgeToCustomer(TenantId, EdgeId, CustomerId)"})
-  public void testAssignEdgeToCustomer_thenReturnCustomerIdIsNull_customer_id() {
+  void testAssignEdgeToCustomer_thenReturnCustomerIdIsNull_customer_id() {
     // Arrange
     Edge edge = new Edge();
     edge.setCustomerId(BaseEntityService.NULL_CUSTOMER_ID);
@@ -545,9 +567,10 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test assignEdgeToCustomer(TenantId, EdgeId, CustomerId); then return Edge()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Edge EdgeServiceImpl.assignEdgeToCustomer(TenantId, EdgeId, CustomerId)"})
-  public void testAssignEdgeToCustomer_thenReturnEdge() {
+  void testAssignEdgeToCustomer_thenReturnEdge() {
     // Arrange
     Edge edge = new Edge();
     edge.setCustomerId(new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
@@ -572,9 +595,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#unassignEdgeFromCustomer(TenantId, EdgeId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test unassignEdgeFromCustomer(TenantId, EdgeId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Edge EdgeServiceImpl.unassignEdgeFromCustomer(TenantId, EdgeId)"})
-  public void testUnassignEdgeFromCustomer() {
+  void testUnassignEdgeFromCustomer() {
     // Arrange
     Edge edge = mock(Edge.class);
     doThrow(
@@ -611,9 +635,11 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#unassignEdgeFromCustomer(TenantId, EdgeId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test unassignEdgeFromCustomer(TenantId, EdgeId); given EdgeDao findById(TenantId, UUID) return Edge(); then return Edge()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Edge EdgeServiceImpl.unassignEdgeFromCustomer(TenantId, EdgeId)"})
-  public void testUnassignEdgeFromCustomer_givenEdgeDaoFindByIdReturnEdge_thenReturnEdge() {
+  void testUnassignEdgeFromCustomer_givenEdgeDaoFindByIdReturnEdge_thenReturnEdge() {
     // Arrange
     Edge edge = new Edge();
     when(edgeDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(edge);
@@ -639,9 +665,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#unassignEdgeFromCustomer(TenantId, EdgeId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test unassignEdgeFromCustomer(TenantId, EdgeId); then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Edge EdgeServiceImpl.unassignEdgeFromCustomer(TenantId, EdgeId)"})
-  public void testUnassignEdgeFromCustomer_thenCallsGetId() {
+  void testUnassignEdgeFromCustomer_thenCallsGetId() {
     // Arrange
     Edge edge = new Edge();
     when(edgeDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(edge);
@@ -668,9 +695,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#unassignEdgeFromCustomer(TenantId, EdgeId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test unassignEdgeFromCustomer(TenantId, EdgeId); then calls getName()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Edge EdgeServiceImpl.unassignEdgeFromCustomer(TenantId, EdgeId)"})
-  public void testUnassignEdgeFromCustomer_thenCallsGetName() {
+  void testUnassignEdgeFromCustomer_thenCallsGetName() {
     // Arrange
     Edge edge = mock(Edge.class);
     when(edge.getName()).thenReturn("Name");
@@ -710,9 +738,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#deleteEdge(TenantId, EdgeId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEdge(TenantId, EdgeId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeServiceImpl.deleteEdge(TenantId, EdgeId)"})
-  public void testDeleteEdge() {
+  void testDeleteEdge() {
     // Arrange
     when(edgeDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenThrow(
@@ -735,9 +764,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#deleteEdge(TenantId, EdgeId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEdge(TenantId, EdgeId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeServiceImpl.deleteEdge(TenantId, EdgeId)"})
-  public void testDeleteEdge2() {
+  void testDeleteEdge2() {
     // Arrange
     doThrow(
             new ConstraintViolationException(
@@ -768,9 +798,11 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#deleteEdge(TenantId, EdgeId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteEdge(TenantId, EdgeId); given EdgeDao findById(TenantId, UUID) return 'null'; then calls findById(TenantId, UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeServiceImpl.deleteEdge(TenantId, EdgeId)"})
-  public void testDeleteEdge_givenEdgeDaoFindByIdReturnNull_thenCallsFindById() {
+  void testDeleteEdge_givenEdgeDaoFindByIdReturnNull_thenCallsFindById() {
     // Arrange
     when(edgeDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(null);
 
@@ -793,9 +825,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#deleteEdge(TenantId, EdgeId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEdge(TenantId, EdgeId); then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeServiceImpl.deleteEdge(TenantId, EdgeId)"})
-  public void testDeleteEdge_thenCallsGetId() {
+  void testDeleteEdge_thenCallsGetId() {
     // Arrange
     when(edgeDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenThrow(
@@ -822,9 +855,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#deleteEdge(TenantId, EdgeId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEdge(TenantId, EdgeId); then calls getTenantId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeServiceImpl.deleteEdge(TenantId, EdgeId)"})
-  public void testDeleteEdge_thenCallsGetTenantId() {
+  void testDeleteEdge_thenCallsGetTenantId() {
     // Arrange
     Edge edge = mock(Edge.class);
     when(edge.getTenantId())
@@ -852,9 +886,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#deleteEntity(TenantId, EntityId, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEntity(TenantId, EntityId, boolean)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeServiceImpl.deleteEntity(TenantId, EntityId, boolean)"})
-  public void testDeleteEntity() {
+  void testDeleteEntity() {
     // Arrange
     when(edgeDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenThrow(
@@ -878,9 +913,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#deleteEntity(TenantId, EntityId, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEntity(TenantId, EntityId, boolean)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeServiceImpl.deleteEntity(TenantId, EntityId, boolean)"})
-  public void testDeleteEntity2() {
+  void testDeleteEntity2() {
     // Arrange
     doThrow(
             new ConstraintViolationException(
@@ -912,9 +948,11 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#deleteEntity(TenantId, EntityId, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteEntity(TenantId, EntityId, boolean); given EdgeDao findById(TenantId, UUID) return 'null'; then calls findById(TenantId, UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeServiceImpl.deleteEntity(TenantId, EntityId, boolean)"})
-  public void testDeleteEntity_givenEdgeDaoFindByIdReturnNull_thenCallsFindById() {
+  void testDeleteEntity_givenEdgeDaoFindByIdReturnNull_thenCallsFindById() {
     // Arrange
     when(edgeDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(null);
 
@@ -939,9 +977,11 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#deleteEntity(TenantId, EntityId, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteEntity(TenantId, EntityId, boolean); given fromString '784f394c-42b6-435a-983c-b7beff2784f9'; then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeServiceImpl.deleteEntity(TenantId, EntityId, boolean)"})
-  public void testDeleteEntity_givenFromString784f394c42b6435a983cB7beff2784f9_thenCallsGetId() {
+  void testDeleteEntity_givenFromString784f394c42b6435a983cB7beff2784f9_thenCallsGetId() {
     // Arrange
     Edge edge = mock(Edge.class);
     when(edge.getTenantId())
@@ -973,9 +1013,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#deleteEntity(TenantId, EntityId, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEntity(TenantId, EntityId, boolean); then calls getTenantId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeServiceImpl.deleteEntity(TenantId, EntityId, boolean)"})
-  public void testDeleteEntity_thenCallsGetTenantId() {
+  void testDeleteEntity_thenCallsGetTenantId() {
     // Arrange
     Edge edge = mock(Edge.class);
     when(edge.getTenantId())
@@ -1004,9 +1045,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgesByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgesByTenantId(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EdgeServiceImpl.findEdgesByTenantId(TenantId, PageLink)"})
-  public void testFindEdgesByTenantId() {
+  void testFindEdgesByTenantId() {
     // Arrange
     when(edgeDao.findEdgesByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
         .thenThrow(
@@ -1030,9 +1072,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgesByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgesByTenantId(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EdgeServiceImpl.findEdgesByTenantId(TenantId, PageLink)"})
-  public void testFindEdgesByTenantId2() {
+  void testFindEdgesByTenantId2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize())
@@ -1055,9 +1098,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgesByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgesByTenantId(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EdgeServiceImpl.findEdgesByTenantId(TenantId, PageLink)"})
-  public void testFindEdgesByTenantId3() {
+  void testFindEdgesByTenantId3() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPage())
@@ -1086,9 +1130,11 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgesByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantId(TenantId, PageLink); given SortOrder with 'Property' and direction is 'ASC'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EdgeServiceImpl.findEdgesByTenantId(TenantId, PageLink)"})
-  public void testFindEdgesByTenantId_givenSortOrderWithPropertyAndDirectionIsAsc() {
+  void testFindEdgesByTenantId_givenSortOrderWithPropertyAndDirectionIsAsc() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -1120,9 +1166,11 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgesByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantId(TenantId, PageLink); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EdgeServiceImpl.findEdgesByTenantId(TenantId, PageLink)"})
-  public void testFindEdgesByTenantId_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindEdgesByTenantId_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -1154,9 +1202,11 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgesByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantId(TenantId, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EdgeServiceImpl.findEdgesByTenantId(TenantId, PageLink)"})
-  public void testFindEdgesByTenantId_givenSortOrderWithPropertyIsNull() {
+  void testFindEdgesByTenantId_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -1188,9 +1238,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgesByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgesByTenantId(TenantId, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EdgeServiceImpl.findEdgesByTenantId(TenantId, PageLink)"})
-  public void testFindEdgesByTenantId_thenCallsGetProperty() {
+  void testFindEdgesByTenantId_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty())
@@ -1223,9 +1274,11 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgesByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantId(TenantId, PageLink); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EdgeServiceImpl.findEdgesByTenantId(TenantId, PageLink)"})
-  public void testFindEdgesByTenantId_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindEdgesByTenantId_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -1248,11 +1301,12 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgesByTenantIdAndType(TenantId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndType() {
+  void testFindEdgesByTenantIdAndType() {
     // Arrange
     when(edgeDao.findEdgesByTenantIdAndType(
             Mockito.<UUID>any(), Mockito.<String>any(), Mockito.<PageLink>any()))
@@ -1278,11 +1332,12 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgesByTenantIdAndType(TenantId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndType2() {
+  void testFindEdgesByTenantIdAndType2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize())
@@ -1312,11 +1367,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndType(TenantId, String, PageLink); given SortOrder with 'Property' and direction is 'ASC'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndType_givenSortOrderWithPropertyAndDirectionIsAsc() {
+  void testFindEdgesByTenantIdAndType_givenSortOrderWithPropertyAndDirectionIsAsc() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantIdAndType(
@@ -1352,11 +1409,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndType(TenantId, String, PageLink); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndType_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindEdgesByTenantIdAndType_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantIdAndType(
@@ -1392,11 +1451,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndType(TenantId, String, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndType_givenSortOrderWithPropertyIsNull() {
+  void testFindEdgesByTenantIdAndType_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantIdAndType(
@@ -1432,11 +1493,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndType(TenantId, String, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndType_thenCallsGetProperty() {
+  void testFindEdgesByTenantIdAndType_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty())
@@ -1472,11 +1535,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndType(TenantId, String, PageLink); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndType_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindEdgesByTenantIdAndType_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantIdAndType(
@@ -1502,11 +1567,12 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgeInfosByTenantIdAndType(TenantId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeInfosByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindEdgeInfosByTenantIdAndType() {
+  void testFindEdgeInfosByTenantIdAndType() {
     // Arrange
     when(edgeDao.findEdgeInfosByTenantIdAndType(
             Mockito.<UUID>any(), Mockito.<String>any(), Mockito.<PageLink>any()))
@@ -1533,11 +1599,12 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgeInfosByTenantIdAndType(TenantId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeInfosByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindEdgeInfosByTenantIdAndType2() {
+  void testFindEdgeInfosByTenantIdAndType2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize())
@@ -1567,11 +1634,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeInfosByTenantIdAndType(TenantId, String, PageLink); given SortOrder with 'Property' and direction is 'ASC'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeInfosByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindEdgeInfosByTenantIdAndType_givenSortOrderWithPropertyAndDirectionIsAsc() {
+  void testFindEdgeInfosByTenantIdAndType_givenSortOrderWithPropertyAndDirectionIsAsc() {
     // Arrange
     PageData<EdgeInfo> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgeInfosByTenantIdAndType(
@@ -1609,11 +1678,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeInfosByTenantIdAndType(TenantId, String, PageLink); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeInfosByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindEdgeInfosByTenantIdAndType_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindEdgeInfosByTenantIdAndType_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<EdgeInfo> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgeInfosByTenantIdAndType(
@@ -1651,11 +1722,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeInfosByTenantIdAndType(TenantId, String, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeInfosByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindEdgeInfosByTenantIdAndType_givenSortOrderWithPropertyIsNull() {
+  void testFindEdgeInfosByTenantIdAndType_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<EdgeInfo> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgeInfosByTenantIdAndType(
@@ -1693,11 +1766,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeInfosByTenantIdAndType(TenantId, String, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeInfosByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindEdgeInfosByTenantIdAndType_thenCallsGetProperty() {
+  void testFindEdgeInfosByTenantIdAndType_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty())
@@ -1733,11 +1808,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeInfosByTenantIdAndType(TenantId, String, PageLink); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeInfosByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindEdgeInfosByTenantIdAndType_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindEdgeInfosByTenantIdAndType_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<EdgeInfo> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgeInfosByTenantIdAndType(
@@ -1763,9 +1840,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgeInfosByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgeInfosByTenantId(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EdgeServiceImpl.findEdgeInfosByTenantId(TenantId, PageLink)"})
-  public void testFindEdgeInfosByTenantId() {
+  void testFindEdgeInfosByTenantId() {
     // Arrange
     when(edgeDao.findEdgeInfosByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
         .thenThrow(
@@ -1789,9 +1867,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgeInfosByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgeInfosByTenantId(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EdgeServiceImpl.findEdgeInfosByTenantId(TenantId, PageLink)"})
-  public void testFindEdgeInfosByTenantId2() {
+  void testFindEdgeInfosByTenantId2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize())
@@ -1814,9 +1893,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgeInfosByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgeInfosByTenantId(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EdgeServiceImpl.findEdgeInfosByTenantId(TenantId, PageLink)"})
-  public void testFindEdgeInfosByTenantId3() {
+  void testFindEdgeInfosByTenantId3() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPage())
@@ -1845,9 +1925,11 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgeInfosByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeInfosByTenantId(TenantId, PageLink); given SortOrder with 'Property' and direction is 'ASC'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EdgeServiceImpl.findEdgeInfosByTenantId(TenantId, PageLink)"})
-  public void testFindEdgeInfosByTenantId_givenSortOrderWithPropertyAndDirectionIsAsc() {
+  void testFindEdgeInfosByTenantId_givenSortOrderWithPropertyAndDirectionIsAsc() {
     // Arrange
     PageData<EdgeInfo> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgeInfosByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -1880,9 +1962,11 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgeInfosByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeInfosByTenantId(TenantId, PageLink); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EdgeServiceImpl.findEdgeInfosByTenantId(TenantId, PageLink)"})
-  public void testFindEdgeInfosByTenantId_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindEdgeInfosByTenantId_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<EdgeInfo> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgeInfosByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -1915,9 +1999,11 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgeInfosByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeInfosByTenantId(TenantId, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EdgeServiceImpl.findEdgeInfosByTenantId(TenantId, PageLink)"})
-  public void testFindEdgeInfosByTenantId_givenSortOrderWithPropertyIsNull() {
+  void testFindEdgeInfosByTenantId_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<EdgeInfo> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgeInfosByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -1950,9 +2036,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgeInfosByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgeInfosByTenantId(TenantId, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EdgeServiceImpl.findEdgeInfosByTenantId(TenantId, PageLink)"})
-  public void testFindEdgeInfosByTenantId_thenCallsGetProperty() {
+  void testFindEdgeInfosByTenantId_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty())
@@ -1985,9 +2072,11 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgeInfosByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeInfosByTenantId(TenantId, PageLink); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EdgeServiceImpl.findEdgeInfosByTenantId(TenantId, PageLink)"})
-  public void testFindEdgeInfosByTenantId_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindEdgeInfosByTenantId_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<EdgeInfo> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgeInfosByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -2014,11 +2103,12 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgesByTenantIdAndIdsAsync(TenantId, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgesByTenantIdAndIdsAsync(TenantId, List); then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture EdgeServiceImpl.findEdgesByTenantIdAndIdsAsync(TenantId, List)"
   })
-  public void testFindEdgesByTenantIdAndIdsAsync_thenCallsGetId() {
+  void testFindEdgesByTenantIdAndIdsAsync_thenCallsGetId() {
     // Arrange
     SettableFuture<List<Edge>> createResult = SettableFuture.create();
     when(edgeDao.findEdgesByTenantIdAndIdsAsync(Mockito.<UUID>any(), Mockito.<List<UUID>>any()))
@@ -2050,11 +2140,12 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgesByTenantIdAndIdsAsync(TenantId, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgesByTenantIdAndIdsAsync(TenantId, List); then return SettableFuture")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture EdgeServiceImpl.findEdgesByTenantIdAndIdsAsync(TenantId, List)"
   })
-  public void testFindEdgesByTenantIdAndIdsAsync_thenReturnSettableFuture() {
+  void testFindEdgesByTenantIdAndIdsAsync_thenReturnSettableFuture() {
     // Arrange
     SettableFuture<List<Edge>> createResult = SettableFuture.create();
     when(edgeDao.findEdgesByTenantIdAndIdsAsync(Mockito.<UUID>any(), Mockito.<List<UUID>>any()))
@@ -2083,11 +2174,13 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgesByTenantIdAndIdsAsync(TenantId, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndIdsAsync(TenantId, List); then throw ConstraintViolationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture EdgeServiceImpl.findEdgesByTenantIdAndIdsAsync(TenantId, List)"
   })
-  public void testFindEdgesByTenantIdAndIdsAsync_thenThrowConstraintViolationException() {
+  void testFindEdgesByTenantIdAndIdsAsync_thenThrowConstraintViolationException() {
     // Arrange
     when(edgeDao.findEdgesByTenantIdAndIdsAsync(Mockito.<UUID>any(), Mockito.<List<UUID>>any()))
         .thenThrow(
@@ -2110,6 +2203,43 @@ public class EdgeServiceImplDiffblueTest {
   /**
    * Test {@link EdgeServiceImpl#deleteEdgesByTenantId(TenantId)}.
    *
+   * <p>Method under test: {@link EdgeServiceImpl#deleteEdgesByTenantId(TenantId)}
+   */
+  @Test
+  @DisplayName("Test deleteEdgesByTenantId(TenantId)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EdgeServiceImpl.deleteEdgesByTenantId(TenantId)"})
+  void testDeleteEdgesByTenantId() {
+    // Arrange
+    Edge edge = mock(Edge.class);
+    when(edge.getUuidId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    ArrayList<Edge> edgeList = new ArrayList<>();
+    edgeList.add(edge);
+    PageData<Edge> pageData = mock(PageData.class);
+    when(pageData.getData()).thenReturn(edgeList);
+    when(edgeDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
+        .thenThrow(
+            new ConstraintViolationException(
+                "An error occurred",
+                new SQLException(),
+                "Executing deleteEdgesByTenantId, tenantId [{}]"));
+    when(edgeDao.findEdgesByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
+        .thenReturn(pageData);
+
+    // Act and Assert
+    assertThrows(
+        ConstraintViolationException.class,
+        () -> edgeServiceImpl.deleteEdgesByTenantId(ModelConstants.SYSTEM_TENANT));
+    verify(edge).getUuidId();
+    verify(pageData).getData();
+    verify(edgeDao).findById(isA(TenantId.class), isA(UUID.class));
+    verify(edgeDao).findEdgesByTenantId(isA(UUID.class), isA(PageLink.class));
+  }
+
+  /**
+   * Test {@link EdgeServiceImpl#deleteEdgesByTenantId(TenantId)}.
+   *
    * <ul>
    *   <li>Given {@link EdgeDao} {@link EdgeDao#findEdgesByTenantId(UUID, PageLink)} return
    *       emptyPageData.
@@ -2118,9 +2248,11 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#deleteEdgesByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteEdgesByTenantId(TenantId); given EdgeDao findEdgesByTenantId(UUID, PageLink) return emptyPageData")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeServiceImpl.deleteEdgesByTenantId(TenantId)"})
-  public void testDeleteEdgesByTenantId_givenEdgeDaoFindEdgesByTenantIdReturnEmptyPageData() {
+  void testDeleteEdgesByTenantId_givenEdgeDaoFindEdgesByTenantIdReturnEmptyPageData() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -2138,15 +2270,17 @@ public class EdgeServiceImplDiffblueTest {
    *
    * <ul>
    *   <li>Given {@link PageData} {@link PageData#hasNext()} return {@code false}.
-   *   <li>Then calls {@link PageData#getData()}.
+   *   <li>Then calls {@link PageData#hasNext()}.
    * </ul>
    *
    * <p>Method under test: {@link EdgeServiceImpl#deleteEdgesByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteEdgesByTenantId(TenantId); given PageData hasNext() return 'false'; then calls hasNext()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeServiceImpl.deleteEdgesByTenantId(TenantId)"})
-  public void testDeleteEdgesByTenantId_givenPageDataHasNextReturnFalse_thenCallsGetData() {
+  void testDeleteEdgesByTenantId_givenPageDataHasNextReturnFalse_thenCallsHasNext() {
     // Arrange
     PageData<Edge> pageData = mock(PageData.class);
     when(pageData.hasNext()).thenReturn(false);
@@ -2164,6 +2298,90 @@ public class EdgeServiceImplDiffblueTest {
   }
 
   /**
+   * Test {@link EdgeServiceImpl#deleteEdgesByTenantId(TenantId)}.
+   *
+   * <ul>
+   *   <li>Given {@link PageData} {@link PageData#hasNext()} return {@code false}.
+   *   <li>Then calls {@link PageData#hasNext()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link EdgeServiceImpl#deleteEdgesByTenantId(TenantId)}
+   */
+  @Test
+  @DisplayName(
+      "Test deleteEdgesByTenantId(TenantId); given PageData hasNext() return 'false'; then calls hasNext()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EdgeServiceImpl.deleteEdgesByTenantId(TenantId)"})
+  void testDeleteEdgesByTenantId_givenPageDataHasNextReturnFalse_thenCallsHasNext2() {
+    // Arrange
+    Edge edge = mock(Edge.class);
+    when(edge.getUuidId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    ArrayList<Edge> edgeList = new ArrayList<>();
+    edgeList.add(edge);
+    PageData<Edge> pageData = mock(PageData.class);
+    when(pageData.hasNext()).thenReturn(false);
+    when(pageData.getData()).thenReturn(edgeList);
+    when(edgeDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(null);
+    when(edgeDao.findEdgesByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
+        .thenReturn(pageData);
+
+    // Act
+    edgeServiceImpl.deleteEdgesByTenantId(ModelConstants.SYSTEM_TENANT);
+
+    // Assert
+    verify(edge).getUuidId();
+    verify(pageData).getData();
+    verify(pageData).hasNext();
+    verify(edgeDao).findById(isA(TenantId.class), isA(UUID.class));
+    verify(edgeDao).findEdgesByTenantId(isA(UUID.class), isA(PageLink.class));
+  }
+
+  /**
+   * Test {@link EdgeServiceImpl#deleteEdgesByTenantId(TenantId)}.
+   *
+   * <ul>
+   *   <li>Then calls {@link EdgeDao#removeById(TenantId, UUID)}.
+   * </ul>
+   *
+   * <p>Method under test: {@link EdgeServiceImpl#deleteEdgesByTenantId(TenantId)}
+   */
+  @Test
+  @DisplayName("Test deleteEdgesByTenantId(TenantId); then calls removeById(TenantId, UUID)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void EdgeServiceImpl.deleteEdgesByTenantId(TenantId)"})
+  void testDeleteEdgesByTenantId_thenCallsRemoveById() {
+    // Arrange
+    Edge edge = mock(Edge.class);
+    when(edge.getUuidId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+
+    ArrayList<Edge> edgeList = new ArrayList<>();
+    edgeList.add(edge);
+    PageData<Edge> pageData = mock(PageData.class);
+    when(pageData.getData()).thenReturn(edgeList);
+    doThrow(
+            new ConstraintViolationException(
+                "An error occurred",
+                new SQLException(),
+                "Executing deleteEdgesByTenantId, tenantId [{}]"))
+        .when(edgeDao)
+        .removeById(Mockito.<TenantId>any(), Mockito.<UUID>any());
+    when(edgeDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(new Edge());
+    when(edgeDao.findEdgesByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
+        .thenReturn(pageData);
+
+    // Act and Assert
+    assertThrows(
+        ConstraintViolationException.class,
+        () -> edgeServiceImpl.deleteEdgesByTenantId(ModelConstants.SYSTEM_TENANT));
+    verify(edge).getUuidId();
+    verify(pageData).getData();
+    verify(edgeDao).findById(isA(TenantId.class), isA(UUID.class));
+    verify(edgeDao).removeById(isA(TenantId.class), isA(UUID.class));
+    verify(edgeDao).findEdgesByTenantId(isA(UUID.class), isA(PageLink.class));
+  }
+
+  /**
    * Test {@link EdgeServiceImpl#deleteByTenantId(TenantId)}.
    *
    * <ul>
@@ -2173,9 +2391,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#deleteByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteByTenantId(TenantId); then calls findEdgesByTenantId(UUID, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeServiceImpl.deleteByTenantId(TenantId)"})
-  public void testDeleteByTenantId_thenCallsFindEdgesByTenantId() {
+  void testDeleteByTenantId_thenCallsFindEdgesByTenantId() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -2195,11 +2414,12 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndCustomerId() {
+  void testFindEdgesByTenantIdAndCustomerId() {
     // Arrange
     when(edgeDao.findEdgesByTenantIdAndCustomerId(
             Mockito.<UUID>any(), Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -2228,11 +2448,12 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndCustomerId2() {
+  void testFindEdgesByTenantIdAndCustomerId2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize())
@@ -2262,11 +2483,13 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink); given SortOrder with 'Property' and direction is 'ASC'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndCustomerId_givenSortOrderWithPropertyAndDirectionIsAsc() {
+  void testFindEdgesByTenantIdAndCustomerId_givenSortOrderWithPropertyAndDirectionIsAsc() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantIdAndCustomerId(
@@ -2304,11 +2527,13 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndCustomerId_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindEdgesByTenantIdAndCustomerId_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantIdAndCustomerId(
@@ -2346,11 +2571,13 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndCustomerId_givenSortOrderWithPropertyIsNull() {
+  void testFindEdgesByTenantIdAndCustomerId_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantIdAndCustomerId(
@@ -2388,11 +2615,13 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndCustomerId_thenCallsGetProperty() {
+  void testFindEdgesByTenantIdAndCustomerId_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty())
@@ -2428,11 +2657,13 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndCustomerId_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindEdgesByTenantIdAndCustomerId_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantIdAndCustomerId(
@@ -2462,11 +2693,13 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndCustomerIdAndType() {
+  void testFindEdgesByTenantIdAndCustomerIdAndType() {
     // Arrange
     when(edgeDao.findEdgesByTenantIdAndCustomerIdAndType(
             Mockito.<UUID>any(),
@@ -2502,11 +2735,13 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndCustomerIdAndType2() {
+  void testFindEdgesByTenantIdAndCustomerIdAndType2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize())
@@ -2537,11 +2772,13 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndCustomerIdAndType3() {
+  void testFindEdgesByTenantIdAndCustomerIdAndType3() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantIdAndCustomerIdAndType(
@@ -2580,11 +2817,13 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndCustomerIdAndType4() {
+  void testFindEdgesByTenantIdAndCustomerIdAndType4() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPage())
@@ -2617,11 +2856,13 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndCustomerIdAndType5() {
+  void testFindEdgesByTenantIdAndCustomerIdAndType5() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantIdAndCustomerIdAndType(
@@ -2664,11 +2905,13 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndCustomerIdAndType_givenSortOrderWithPropertyIsNull() {
+  void testFindEdgesByTenantIdAndCustomerIdAndType_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantIdAndCustomerIdAndType(
@@ -2711,11 +2954,13 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndCustomerIdAndType_thenCallsGetProperty() {
+  void testFindEdgesByTenantIdAndCustomerIdAndType_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty())
@@ -2754,11 +2999,13 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink); then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndCustomerIdAndType_thenReturnEmpty_page_data() {
+  void testFindEdgesByTenantIdAndCustomerIdAndType_thenReturnEmpty_page_data() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantIdAndCustomerIdAndType(
@@ -2793,11 +3040,12 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgeInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEdgeInfosByTenantIdAndCustomerId() {
+  void testFindEdgeInfosByTenantIdAndCustomerId() {
     // Arrange
     when(edgeDao.findEdgeInfosByTenantIdAndCustomerId(
             Mockito.<UUID>any(), Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -2828,11 +3076,12 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgeInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEdgeInfosByTenantIdAndCustomerId2() {
+  void testFindEdgeInfosByTenantIdAndCustomerId2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize())
@@ -2859,11 +3108,12 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgeInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEdgeInfosByTenantIdAndCustomerId3() {
+  void testFindEdgeInfosByTenantIdAndCustomerId3() {
     // Arrange
     PageData<EdgeInfo> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgeInfosByTenantIdAndCustomerId(
@@ -2903,11 +3153,13 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEdgeInfosByTenantIdAndCustomerId_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindEdgeInfosByTenantIdAndCustomerId_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<EdgeInfo> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgeInfosByTenantIdAndCustomerId(
@@ -2947,11 +3199,13 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEdgeInfosByTenantIdAndCustomerId_givenSortOrderWithPropertyIsNull() {
+  void testFindEdgeInfosByTenantIdAndCustomerId_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<EdgeInfo> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgeInfosByTenantIdAndCustomerId(
@@ -2991,11 +3245,13 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEdgeInfosByTenantIdAndCustomerId_thenCallsGetProperty() {
+  void testFindEdgeInfosByTenantIdAndCustomerId_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty())
@@ -3031,11 +3287,13 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink); when FIRST_PAGE")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEdgeInfosByTenantIdAndCustomerId_whenFirst_page() {
+  void testFindEdgeInfosByTenantIdAndCustomerId_whenFirst_page() {
     // Arrange
     PageData<EdgeInfo> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgeInfosByTenantIdAndCustomerId(
@@ -3067,11 +3325,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEdgeInfosByTenantIdAndCustomerIdAndType() {
+  void testFindEdgeInfosByTenantIdAndCustomerIdAndType() {
     // Arrange
     when(edgeDao.findEdgeInfosByTenantIdAndCustomerIdAndType(
             Mockito.<UUID>any(),
@@ -3108,11 +3368,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEdgeInfosByTenantIdAndCustomerIdAndType2() {
+  void testFindEdgeInfosByTenantIdAndCustomerIdAndType2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize())
@@ -3144,11 +3406,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEdgeInfosByTenantIdAndCustomerIdAndType3() {
+  void testFindEdgeInfosByTenantIdAndCustomerIdAndType3() {
     // Arrange
     PageData<EdgeInfo> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgeInfosByTenantIdAndCustomerIdAndType(
@@ -3188,11 +3452,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEdgeInfosByTenantIdAndCustomerIdAndType4() {
+  void testFindEdgeInfosByTenantIdAndCustomerIdAndType4() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPage())
@@ -3226,11 +3492,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEdgeInfosByTenantIdAndCustomerIdAndType5() {
+  void testFindEdgeInfosByTenantIdAndCustomerIdAndType5() {
     // Arrange
     PageData<EdgeInfo> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgeInfosByTenantIdAndCustomerIdAndType(
@@ -3274,11 +3542,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEdgeInfosByTenantIdAndCustomerIdAndType_givenSortOrderWithPropertyIsNull() {
+  void testFindEdgeInfosByTenantIdAndCustomerIdAndType_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<EdgeInfo> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgeInfosByTenantIdAndCustomerIdAndType(
@@ -3322,11 +3592,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEdgeInfosByTenantIdAndCustomerIdAndType_thenCallsGetProperty() {
+  void testFindEdgeInfosByTenantIdAndCustomerIdAndType_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty())
@@ -3366,11 +3638,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink); then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEdgeInfosByTenantIdAndCustomerIdAndType_thenReturnEmpty_page_data() {
+  void testFindEdgeInfosByTenantIdAndCustomerIdAndType_thenReturnEmpty_page_data() {
     // Arrange
     PageData<EdgeInfo> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgeInfosByTenantIdAndCustomerIdAndType(
@@ -3405,11 +3679,12 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgesByTenantIdCustomerIdAndIdsAsync(TenantId, CustomerId, List)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture EdgeServiceImpl.findEdgesByTenantIdCustomerIdAndIdsAsync(TenantId, CustomerId, List)"
   })
-  public void testFindEdgesByTenantIdCustomerIdAndIdsAsync() {
+  void testFindEdgesByTenantIdCustomerIdAndIdsAsync() {
     // Arrange
     when(edgeDao.findEdgesByTenantIdCustomerIdAndIdsAsync(
             Mockito.<UUID>any(), Mockito.<UUID>any(), Mockito.<List<UUID>>any()))
@@ -3445,11 +3720,13 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdCustomerIdAndIdsAsync(TenantId, CustomerId, List); then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture EdgeServiceImpl.findEdgesByTenantIdCustomerIdAndIdsAsync(TenantId, CustomerId, List)"
   })
-  public void testFindEdgesByTenantIdCustomerIdAndIdsAsync_thenCallsGetId() {
+  void testFindEdgesByTenantIdCustomerIdAndIdsAsync_thenCallsGetId() {
     // Arrange
     SettableFuture<List<Edge>> createResult = SettableFuture.create();
     when(edgeDao.findEdgesByTenantIdCustomerIdAndIdsAsync(
@@ -3487,11 +3764,13 @@ public class EdgeServiceImplDiffblueTest {
    * CustomerId, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdCustomerIdAndIdsAsync(TenantId, CustomerId, List); then return SettableFuture")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture EdgeServiceImpl.findEdgesByTenantIdCustomerIdAndIdsAsync(TenantId, CustomerId, List)"
   })
-  public void testFindEdgesByTenantIdCustomerIdAndIdsAsync_thenReturnSettableFuture() {
+  void testFindEdgesByTenantIdCustomerIdAndIdsAsync_thenReturnSettableFuture() {
     // Arrange
     SettableFuture<List<Edge>> createResult = SettableFuture.create();
     when(edgeDao.findEdgesByTenantIdCustomerIdAndIdsAsync(
@@ -3520,9 +3799,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#unassignCustomerEdges(TenantId, CustomerId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test unassignCustomerEdges(TenantId, CustomerId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeServiceImpl.unassignCustomerEdges(TenantId, CustomerId)"})
-  public void testUnassignCustomerEdges() {
+  void testUnassignCustomerEdges() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantIdAndCustomerId(
@@ -3544,9 +3824,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#unassignCustomerEdges(TenantId, CustomerId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test unassignCustomerEdges(TenantId, CustomerId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeServiceImpl.unassignCustomerEdges(TenantId, CustomerId)"})
-  public void testUnassignCustomerEdges2() {
+  void testUnassignCustomerEdges2() {
     // Arrange
     Edge edge = mock(Edge.class);
     when(edge.getUuidId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -3595,9 +3876,11 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#unassignCustomerEdges(TenantId, CustomerId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test unassignCustomerEdges(TenantId, CustomerId); given PageData hasNext() return 'false'; then calls hasNext()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeServiceImpl.unassignCustomerEdges(TenantId, CustomerId)"})
-  public void testUnassignCustomerEdges_givenPageDataHasNextReturnFalse_thenCallsHasNext() {
+  void testUnassignCustomerEdges_givenPageDataHasNextReturnFalse_thenCallsHasNext() {
     // Arrange
     PageData<Edge> pageData = mock(PageData.class);
     when(pageData.hasNext()).thenReturn(false);
@@ -3628,9 +3911,11 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#unassignCustomerEdges(TenantId, CustomerId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test unassignCustomerEdges(TenantId, CustomerId); given PageData hasNext() return 'false'; then calls hasNext()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeServiceImpl.unassignCustomerEdges(TenantId, CustomerId)"})
-  public void testUnassignCustomerEdges_givenPageDataHasNextReturnFalse_thenCallsHasNext2() {
+  void testUnassignCustomerEdges_givenPageDataHasNextReturnFalse_thenCallsHasNext2() {
     // Arrange
     Edge edge = mock(Edge.class);
     when(edge.getUuidId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -3671,9 +3956,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#unassignCustomerEdges(TenantId, CustomerId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test unassignCustomerEdges(TenantId, CustomerId); then calls getName()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeServiceImpl.unassignCustomerEdges(TenantId, CustomerId)"})
-  public void testUnassignCustomerEdges_thenCallsGetName() {
+  void testUnassignCustomerEdges_thenCallsGetName() {
     // Arrange
     Edge edge = mock(Edge.class);
     when(edge.getUuidId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -3730,9 +4016,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgeTypesByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgeTypesByTenantId(TenantId); then calls findTenantEdgeTypesAsync(UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ListenableFuture EdgeServiceImpl.findEdgeTypesByTenantId(TenantId)"})
-  public void testFindEdgeTypesByTenantId_thenCallsFindTenantEdgeTypesAsync() {
+  void testFindEdgeTypesByTenantId_thenCallsFindTenantEdgeTypesAsync() {
     // Arrange
     SettableFuture<List<EntitySubtype>> createResult = SettableFuture.create();
     when(edgeDao.findTenantEdgeTypesAsync(Mockito.<UUID>any())).thenReturn(createResult);
@@ -3754,9 +4041,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEdgeTypesByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgeTypesByTenantId(TenantId); then throw ConstraintViolationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ListenableFuture EdgeServiceImpl.findEdgeTypesByTenantId(TenantId)"})
-  public void testFindEdgeTypesByTenantId_thenThrowConstraintViolationException() {
+  void testFindEdgeTypesByTenantId_thenThrowConstraintViolationException() {
     // Arrange
     when(edgeDao.findTenantEdgeTypesAsync(Mockito.<UUID>any()))
         .thenThrow(
@@ -3779,11 +4067,12 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgesByTenantIdAndEntityId(TenantId, EntityId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndEntityId() {
+  void testFindEdgesByTenantIdAndEntityId() {
     // Arrange
     when(edgeDao.findEdgesByTenantIdAndEntityId(
             Mockito.<UUID>any(),
@@ -3816,11 +4105,12 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgesByTenantIdAndEntityId(TenantId, EntityId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndEntityId2() {
+  void testFindEdgesByTenantIdAndEntityId2() {
     // Arrange
     AlarmId entityId = mock(AlarmId.class);
     PageLink pageLink = mock(PageLink.class);
@@ -3851,11 +4141,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndEntityId(TenantId, EntityId, PageLink); then calls getEntityType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndEntityId_thenCallsGetEntityType() {
+  void testFindEdgesByTenantIdAndEntityId_thenCallsGetEntityType() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantIdAndEntityId(
@@ -3895,11 +4187,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndEntityId(TenantId, EntityId, PageLink); then calls getPage()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndEntityId_thenCallsGetPage() {
+  void testFindEdgesByTenantIdAndEntityId_thenCallsGetPage() {
     // Arrange
     AlarmId entityId = mock(AlarmId.class);
     SortOrder sortOrder = mock(SortOrder.class);
@@ -3935,11 +4229,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndEntityId(TenantId, EntityId, PageLink); then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndEntityId_thenReturnEmpty_page_data() {
+  void testFindEdgesByTenantIdAndEntityId_thenReturnEmpty_page_data() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantIdAndEntityId(
@@ -3977,11 +4273,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantIdAndEntityId(TenantId, EntityId, PageLink); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantIdAndEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindEdgesByTenantIdAndEntityId_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindEdgesByTenantIdAndEntityId_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantIdAndEntityId(
@@ -4014,11 +4312,12 @@ public class EdgeServiceImplDiffblueTest {
    * EntityId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgeIdsByTenantIdAndEntityId(TenantId, EntityId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeIdsByTenantIdAndEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindEdgeIdsByTenantIdAndEntityId() {
+  void testFindEdgeIdsByTenantIdAndEntityId() {
     // Arrange
     when(edgeDao.findEdgeIdsByTenantIdAndEntityId(
             Mockito.<UUID>any(),
@@ -4051,11 +4350,12 @@ public class EdgeServiceImplDiffblueTest {
    * EntityId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgeIdsByTenantIdAndEntityId(TenantId, EntityId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeIdsByTenantIdAndEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindEdgeIdsByTenantIdAndEntityId2() {
+  void testFindEdgeIdsByTenantIdAndEntityId2() {
     // Arrange
     AlarmId entityId = mock(AlarmId.class);
     PageLink pageLink = mock(PageLink.class);
@@ -4086,11 +4386,13 @@ public class EdgeServiceImplDiffblueTest {
    * EntityId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeIdsByTenantIdAndEntityId(TenantId, EntityId, PageLink); then calls getEntityType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeIdsByTenantIdAndEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindEdgeIdsByTenantIdAndEntityId_thenCallsGetEntityType() {
+  void testFindEdgeIdsByTenantIdAndEntityId_thenCallsGetEntityType() {
     // Arrange
     PageData<EdgeId> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgeIdsByTenantIdAndEntityId(
@@ -4130,11 +4432,13 @@ public class EdgeServiceImplDiffblueTest {
    * EntityId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeIdsByTenantIdAndEntityId(TenantId, EntityId, PageLink); then calls getPage()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeIdsByTenantIdAndEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindEdgeIdsByTenantIdAndEntityId_thenCallsGetPage() {
+  void testFindEdgeIdsByTenantIdAndEntityId_thenCallsGetPage() {
     // Arrange
     AlarmId entityId = mock(AlarmId.class);
     SortOrder sortOrder = mock(SortOrder.class);
@@ -4170,11 +4474,13 @@ public class EdgeServiceImplDiffblueTest {
    * EntityId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeIdsByTenantIdAndEntityId(TenantId, EntityId, PageLink); then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeIdsByTenantIdAndEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindEdgeIdsByTenantIdAndEntityId_thenReturnEmpty_page_data() {
+  void testFindEdgeIdsByTenantIdAndEntityId_thenReturnEmpty_page_data() {
     // Arrange
     PageData<EdgeId> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgeIdsByTenantIdAndEntityId(
@@ -4212,11 +4518,13 @@ public class EdgeServiceImplDiffblueTest {
    * EntityId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgeIdsByTenantIdAndEntityId(TenantId, EntityId, PageLink); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgeIdsByTenantIdAndEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindEdgeIdsByTenantIdAndEntityId_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindEdgeIdsByTenantIdAndEntityId_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<EdgeId> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgeIdsByTenantIdAndEntityId(
@@ -4249,11 +4557,12 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgesByTenantProfileId(TenantProfileId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantProfileId(TenantProfileId, PageLink)"
   })
-  public void testFindEdgesByTenantProfileId() {
+  void testFindEdgesByTenantProfileId() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantProfileId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -4279,11 +4588,12 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgesByTenantProfileId(TenantProfileId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantProfileId(TenantProfileId, PageLink)"
   })
-  public void testFindEdgesByTenantProfileId2() {
+  void testFindEdgesByTenantProfileId2() {
     // Arrange
     when(edgeDao.findEdgesByTenantProfileId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
         .thenThrow(
@@ -4309,11 +4619,12 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgesByTenantProfileId(TenantProfileId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantProfileId(TenantProfileId, PageLink)"
   })
-  public void testFindEdgesByTenantProfileId3() {
+  void testFindEdgesByTenantProfileId3() {
     // Arrange
     TenantProfileId tenantProfileId = mock(TenantProfileId.class);
     when(tenantProfileId.getId())
@@ -4341,11 +4652,12 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEdgesByTenantProfileId(TenantProfileId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantProfileId(TenantProfileId, PageLink)"
   })
-  public void testFindEdgesByTenantProfileId4() {
+  void testFindEdgesByTenantProfileId4() {
     // Arrange
     TenantProfileId tenantProfileId = mock(TenantProfileId.class);
     when(tenantProfileId.getId())
@@ -4379,11 +4691,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantProfileId(TenantProfileId, PageLink); given SortOrder with 'Property' and direction is 'ASC'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantProfileId(TenantProfileId, PageLink)"
   })
-  public void testFindEdgesByTenantProfileId_givenSortOrderWithPropertyAndDirectionIsAsc() {
+  void testFindEdgesByTenantProfileId_givenSortOrderWithPropertyAndDirectionIsAsc() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantProfileId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -4422,11 +4736,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantProfileId(TenantProfileId, PageLink); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantProfileId(TenantProfileId, PageLink)"
   })
-  public void testFindEdgesByTenantProfileId_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindEdgesByTenantProfileId_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantProfileId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -4465,11 +4781,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantProfileId(TenantProfileId, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantProfileId(TenantProfileId, PageLink)"
   })
-  public void testFindEdgesByTenantProfileId_givenSortOrderWithPropertyIsNull() {
+  void testFindEdgesByTenantProfileId_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantProfileId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -4508,11 +4826,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantProfileId(TenantProfileId, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantProfileId(TenantProfileId, PageLink)"
   })
-  public void testFindEdgesByTenantProfileId_thenCallsGetProperty() {
+  void testFindEdgesByTenantProfileId_thenCallsGetProperty() {
     // Arrange
     TenantProfileId tenantProfileId = mock(TenantProfileId.class);
     when(tenantProfileId.getId())
@@ -4550,11 +4870,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEdgesByTenantProfileId(TenantProfileId, PageLink); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findEdgesByTenantProfileId(TenantProfileId, PageLink)"
   })
-  public void testFindEdgesByTenantProfileId_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindEdgesByTenantProfileId_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantProfileId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -4582,9 +4904,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findAllRelatedEdgeIds(TenantId, EntityId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAllRelatedEdgeIds(TenantId, EntityId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List EdgeServiceImpl.findAllRelatedEdgeIds(TenantId, EntityId)"})
-  public void testFindAllRelatedEdgeIds() {
+  void testFindAllRelatedEdgeIds() {
     // Arrange, Act and Assert
     assertNull(
         edgeServiceImpl.findAllRelatedEdgeIds(
@@ -4598,11 +4921,12 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindRelatedEdgeIdsByEntityId() {
+  void testFindRelatedEdgeIdsByEntityId() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantIdAndCustomerId(
@@ -4631,11 +4955,12 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindRelatedEdgeIdsByEntityId2() {
+  void testFindRelatedEdgeIdsByEntityId2() {
     // Arrange
     when(edgeDao.findEdgesByTenantIdAndCustomerId(
             Mockito.<UUID>any(), Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -4664,11 +4989,12 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindRelatedEdgeIdsByEntityId3() {
+  void testFindRelatedEdgeIdsByEntityId3() {
     // Arrange
     when(edgeDao.findEdgesByTenantIdAndCustomerId(
             Mockito.<UUID>any(), Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -4696,11 +5022,12 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindRelatedEdgeIdsByEntityId4() {
+  void testFindRelatedEdgeIdsByEntityId4() {
     // Arrange
     PageData<Edge> pageData = new PageData<>(new ArrayList<>(), 3, 3L, true);
 
@@ -4728,11 +5055,12 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindRelatedEdgeIdsByEntityId5() {
+  void testFindRelatedEdgeIdsByEntityId5() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -4759,11 +5087,12 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindRelatedEdgeIdsByEntityId6() {
+  void testFindRelatedEdgeIdsByEntityId6() {
     // Arrange
     when(edgeDao.findEdgesByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
         .thenThrow(
@@ -4790,11 +5119,12 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindRelatedEdgeIdsByEntityId7() {
+  void testFindRelatedEdgeIdsByEntityId7() {
     // Arrange and Act
     PageData<EdgeId> actualFindRelatedEdgeIdsByEntityIdResult =
         edgeServiceImpl.findRelatedEdgeIdsByEntityId(
@@ -4815,11 +5145,12 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindRelatedEdgeIdsByEntityId8() {
+  void testFindRelatedEdgeIdsByEntityId8() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize())
@@ -4850,11 +5181,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink); given EdgeDao findEdgesByTenantId(UUID, PageLink) return PageData")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindRelatedEdgeIdsByEntityId_givenEdgeDaoFindEdgesByTenantIdReturnPageData() {
+  void testFindRelatedEdgeIdsByEntityId_givenEdgeDaoFindEdgesByTenantIdReturnPageData() {
     // Arrange
     PageData<Edge> pageData = mock(PageData.class);
     when(pageData.getData())
@@ -4890,11 +5223,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink); given EdgeServiceImpl (default constructor); then return Data size is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindRelatedEdgeIdsByEntityId_givenEdgeServiceImpl_thenReturnDataSizeIsOne() {
+  void testFindRelatedEdgeIdsByEntityId_givenEdgeServiceImpl_thenReturnDataSizeIsOne() {
     // Arrange
     EdgeServiceImpl edgeServiceImpl = new EdgeServiceImpl();
     AlarmId entityId = mock(AlarmId.class);
@@ -4934,11 +5269,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink); given 'null'; when PageLink getSortOrder() return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindRelatedEdgeIdsByEntityId_givenNull_whenPageLinkGetSortOrderReturnNull() {
+  void testFindRelatedEdgeIdsByEntityId_givenNull_whenPageLinkGetSortOrderReturnNull() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantIdAndCustomerId(
@@ -4976,11 +5313,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink); given SortOrder with 'Property' and direction is 'ASC'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindRelatedEdgeIdsByEntityId_givenSortOrderWithPropertyAndDirectionIsAsc() {
+  void testFindRelatedEdgeIdsByEntityId_givenSortOrderWithPropertyAndDirectionIsAsc() {
     // Arrange
     PageData<Edge> emptyPageDataResult = PageData.emptyPageData();
     when(edgeDao.findEdgesByTenantIdAndCustomerId(
@@ -5018,11 +5357,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink); then calls getData()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindRelatedEdgeIdsByEntityId_thenCallsGetData() {
+  void testFindRelatedEdgeIdsByEntityId_thenCallsGetData() {
     // Arrange
     PageData<Edge> pageData = mock(PageData.class);
     when(pageData.getData())
@@ -5059,11 +5400,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindRelatedEdgeIdsByEntityId_thenCallsGetProperty() {
+  void testFindRelatedEdgeIdsByEntityId_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty())
@@ -5100,11 +5443,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink); then calls getTotalElements()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindRelatedEdgeIdsByEntityId_thenCallsGetTotalElements() {
+  void testFindRelatedEdgeIdsByEntityId_thenCallsGetTotalElements() {
     // Arrange
     PageData<Edge> pageData = mock(PageData.class);
     when(pageData.hasNext()).thenReturn(true);
@@ -5146,11 +5491,13 @@ public class EdgeServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink); then return TotalPages is three")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EdgeServiceImpl.findRelatedEdgeIdsByEntityId(TenantId, EntityId, PageLink)"
   })
-  public void testFindRelatedEdgeIdsByEntityId_thenReturnTotalPagesIsThree() {
+  void testFindRelatedEdgeIdsByEntityId_thenReturnTotalPagesIsThree() {
     // Arrange
     when(edgeDao.findEdgesByTenantIdAndCustomerId(
             Mockito.<UUID>any(), Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -5178,9 +5525,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#setEdgeRootRuleChain(TenantId, Edge, RuleChainId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setEdgeRootRuleChain(TenantId, Edge, RuleChainId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Edge EdgeServiceImpl.setEdgeRootRuleChain(TenantId, Edge, RuleChainId)"})
-  public void testSetEdgeRootRuleChain() {
+  void testSetEdgeRootRuleChain() {
     // Arrange
     when(dataValidator.validate(Mockito.<Edge>any(), Mockito.<Function<Edge, TenantId>>any()))
         .thenThrow(
@@ -5209,9 +5557,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#setEdgeRootRuleChain(TenantId, Edge, RuleChainId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setEdgeRootRuleChain(TenantId, Edge, RuleChainId); then calls getName()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Edge EdgeServiceImpl.setEdgeRootRuleChain(TenantId, Edge, RuleChainId)"})
-  public void testSetEdgeRootRuleChain_thenCallsGetName() {
+  void testSetEdgeRootRuleChain_thenCallsGetName() {
     // Arrange
     Edge edge = mock(Edge.class);
     when(edge.getName())
@@ -5245,9 +5594,11 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEntity(TenantId, EntityId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntity(TenantId, EntityId); given fromString '784f394c-42b6-435a-983c-b7beff2784f9'; then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Optional EdgeServiceImpl.findEntity(TenantId, EntityId)"})
-  public void testFindEntity_givenFromString784f394c42b6435a983cB7beff2784f9_thenCallsGetId() {
+  void testFindEntity_givenFromString784f394c42b6435a983cB7beff2784f9_thenCallsGetId() {
     // Arrange
     Edge edge = new Edge();
     when(edgeDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(edge);
@@ -5275,9 +5626,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEntity(TenantId, EntityId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntity(TenantId, EntityId); then throw ConstraintViolationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Optional EdgeServiceImpl.findEntity(TenantId, EntityId)"})
-  public void testFindEntity_thenThrowConstraintViolationException() {
+  void testFindEntity_thenThrowConstraintViolationException() {
     // Arrange
     when(edgeDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenThrow(
@@ -5304,9 +5656,10 @@ public class EdgeServiceImplDiffblueTest {
    * <p>Method under test: {@link EdgeServiceImpl#findEntity(TenantId, EntityId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntity(TenantId, EntityId); when NULL_CUSTOMER_ID; then return Present")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Optional EdgeServiceImpl.findEntity(TenantId, EntityId)"})
-  public void testFindEntity_whenNull_customer_id_thenReturnPresent() {
+  void testFindEntity_whenNull_customer_id_thenReturnPresent() {
     // Arrange
     Edge edge = new Edge();
     when(edgeDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(edge);
@@ -5333,12 +5686,13 @@ public class EdgeServiceImplDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "EntityType EdgeServiceImpl.getEntityType()",
     "boolean EdgeServiceImpl.isEdgesEnabled()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     EdgeServiceImpl edgeServiceImpl = new EdgeServiceImpl();
 

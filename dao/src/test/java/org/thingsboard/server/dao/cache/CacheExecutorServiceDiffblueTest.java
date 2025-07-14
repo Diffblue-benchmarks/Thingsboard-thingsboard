@@ -1,21 +1,22 @@
 package org.thingsboard.server.dao.cache;
 
-import static org.junit.Assert.assertEquals;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class CacheExecutorServiceDiffblueTest {
+class CacheExecutorServiceDiffblueTest {
   /**
    * Test {@link CacheExecutorService#getThreadPollSize()}.
    *
    * <p>Method under test: {@link CacheExecutorService#getThreadPollSize()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getThreadPollSize()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"int CacheExecutorService.getThreadPollSize()"})
-  public void testGetThreadPollSize() {
+  void testGetThreadPollSize() {
     // Arrange, Act and Assert
     assertEquals(0, new CacheExecutorService().getThreadPollSize());
   }

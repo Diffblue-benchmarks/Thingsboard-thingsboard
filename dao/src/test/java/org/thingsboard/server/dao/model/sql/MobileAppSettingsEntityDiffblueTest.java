@@ -1,20 +1,20 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.MissingNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.mobile.AndroidConfig;
@@ -22,7 +22,7 @@ import org.thingsboard.server.common.data.mobile.MobileAppSettings;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class MobileAppSettingsEntityDiffblueTest {
+class MobileAppSettingsEntityDiffblueTest {
   /**
    * Test {@link MobileAppSettingsEntity#equals(Object)}, and {@link
    * MobileAppSettingsEntity#hashCode()}.
@@ -40,12 +40,13 @@ public class MobileAppSettingsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppSettingsEntity.equals(Object)",
     "int MobileAppSettingsEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
     mobileAppSettingsEntity.setAndroidConfig(
@@ -94,12 +95,13 @@ public class MobileAppSettingsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppSettingsEntity.equals(Object)",
     "int MobileAppSettingsEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
     mobileAppSettingsEntity.setAndroidConfig(null);
@@ -146,12 +148,13 @@ public class MobileAppSettingsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppSettingsEntity.equals(Object)",
     "int MobileAppSettingsEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
     mobileAppSettingsEntity.setAndroidConfig(
@@ -200,12 +203,13 @@ public class MobileAppSettingsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppSettingsEntity.equals(Object)",
     "int MobileAppSettingsEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
     mobileAppSettingsEntity.setAndroidConfig(
@@ -236,12 +240,13 @@ public class MobileAppSettingsEntityDiffblueTest {
    * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppSettingsEntity.equals(Object)",
     "int MobileAppSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
     mobileAppSettingsEntity.setAndroidConfig(DoubleNode.valueOf(10.0d));
@@ -281,12 +286,13 @@ public class MobileAppSettingsEntityDiffblueTest {
    * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppSettingsEntity.equals(Object)",
     "int MobileAppSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
     mobileAppSettingsEntity.setAndroidConfig(null);
@@ -326,12 +332,13 @@ public class MobileAppSettingsEntityDiffblueTest {
    * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppSettingsEntity.equals(Object)",
     "int MobileAppSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
     mobileAppSettingsEntity.setAndroidConfig(
@@ -372,12 +379,13 @@ public class MobileAppSettingsEntityDiffblueTest {
    * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppSettingsEntity.equals(Object)",
     "int MobileAppSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
     mobileAppSettingsEntity.setAndroidConfig(
@@ -418,12 +426,13 @@ public class MobileAppSettingsEntityDiffblueTest {
    * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppSettingsEntity.equals(Object)",
     "int MobileAppSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
     mobileAppSettingsEntity.setAndroidConfig(
@@ -464,12 +473,13 @@ public class MobileAppSettingsEntityDiffblueTest {
    * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppSettingsEntity.equals(Object)",
     "int MobileAppSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
     mobileAppSettingsEntity.setAndroidConfig(
@@ -509,12 +519,13 @@ public class MobileAppSettingsEntityDiffblueTest {
    * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppSettingsEntity.equals(Object)",
     "int MobileAppSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
     mobileAppSettingsEntity.setAndroidConfig(
@@ -554,12 +565,13 @@ public class MobileAppSettingsEntityDiffblueTest {
    * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppSettingsEntity.equals(Object)",
     "int MobileAppSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
     mobileAppSettingsEntity.setAndroidConfig(
@@ -600,12 +612,13 @@ public class MobileAppSettingsEntityDiffblueTest {
    * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppSettingsEntity.equals(Object)",
     "int MobileAppSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
     mobileAppSettingsEntity.setAndroidConfig(
@@ -646,12 +659,13 @@ public class MobileAppSettingsEntityDiffblueTest {
    * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppSettingsEntity.equals(Object)",
     "int MobileAppSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
     mobileAppSettingsEntity.setAndroidConfig(
@@ -692,12 +706,13 @@ public class MobileAppSettingsEntityDiffblueTest {
    * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppSettingsEntity.equals(Object)",
     "int MobileAppSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
     mobileAppSettingsEntity.setAndroidConfig(
@@ -726,12 +741,13 @@ public class MobileAppSettingsEntityDiffblueTest {
    * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppSettingsEntity.equals(Object)",
     "int MobileAppSettingsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
     mobileAppSettingsEntity.setAndroidConfig(
@@ -770,7 +786,8 @@ public class MobileAppSettingsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void MobileAppSettingsEntity.<init>()",
     "JsonNode MobileAppSettingsEntity.getAndroidConfig()",
@@ -785,7 +802,7 @@ public class MobileAppSettingsEntityDiffblueTest {
     "void MobileAppSettingsEntity.setUseDefaultApp(boolean)",
     "String MobileAppSettingsEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     MobileAppSettingsEntity actualMobileAppSettingsEntity = new MobileAppSettingsEntity();
     actualMobileAppSettingsEntity.setAndroidConfig(
@@ -832,9 +849,11 @@ public class MobileAppSettingsEntityDiffblueTest {
    * MobileAppSettingsEntity#MobileAppSettingsEntity(MobileAppSettings)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new MobileAppSettingsEntity(MobileAppSettings); given one; then return CreatedTime is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void MobileAppSettingsEntity.<init>(MobileAppSettings)"})
-  public void testNewMobileAppSettingsEntity_givenOne_thenReturnCreatedTimeIsOne() {
+  void testNewMobileAppSettingsEntity_givenOne_thenReturnCreatedTimeIsOne() {
     // Arrange
     MobileAppSettings mobileAppSettings = new MobileAppSettings();
     mobileAppSettings.setTenantId(ModelConstants.SYSTEM_TENANT);
@@ -869,9 +888,11 @@ public class MobileAppSettingsEntityDiffblueTest {
    * MobileAppSettingsEntity#MobileAppSettingsEntity(MobileAppSettings)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new MobileAppSettingsEntity(MobileAppSettings); given SYSTEM_TENANT; then return CreatedTime is zero")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void MobileAppSettingsEntity.<init>(MobileAppSettings)"})
-  public void testNewMobileAppSettingsEntity_givenSystem_tenant_thenReturnCreatedTimeIsZero() {
+  void testNewMobileAppSettingsEntity_givenSystem_tenant_thenReturnCreatedTimeIsZero() {
     // Arrange
     MobileAppSettings mobileAppSettings = new MobileAppSettings();
     mobileAppSettings.setTenantId(ModelConstants.SYSTEM_TENANT);
@@ -904,9 +925,11 @@ public class MobileAppSettingsEntityDiffblueTest {
    * MobileAppSettingsEntity#MobileAppSettingsEntity(MobileAppSettings)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new MobileAppSettingsEntity(MobileAppSettings); then AndroidConfig return ObjectNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void MobileAppSettingsEntity.<init>(MobileAppSettings)"})
-  public void testNewMobileAppSettingsEntity_thenAndroidConfigReturnObjectNode() {
+  void testNewMobileAppSettingsEntity_thenAndroidConfigReturnObjectNode() {
     // Arrange
     MobileAppSettings mobileAppSettings = new MobileAppSettings();
     AndroidConfig androidConfig =
@@ -934,9 +957,10 @@ public class MobileAppSettingsEntityDiffblueTest {
    * <p>Method under test: {@link MobileAppSettingsEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given MobileAppSettingsEntity() IosConfig is Instance")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"MobileAppSettings MobileAppSettingsEntity.toData()"})
-  public void testToData_givenMobileAppSettingsEntityIosConfigIsInstance() {
+  void testToData_givenMobileAppSettingsEntityIosConfigIsInstance() {
     // Arrange
     MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
     mobileAppSettingsEntity.setIosConfig(MissingNode.getInstance());
@@ -972,9 +996,10 @@ public class MobileAppSettingsEntityDiffblueTest {
    * <p>Method under test: {@link MobileAppSettingsEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given MobileAppSettingsEntity(); then return TenantId Id is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"MobileAppSettings MobileAppSettingsEntity.toData()"})
-  public void testToData_givenMobileAppSettingsEntity_thenReturnTenantIdIdIsNull() {
+  void testToData_givenMobileAppSettingsEntity_thenReturnTenantIdIdIsNull() {
     // Arrange and Act
     MobileAppSettings actualToDataResult = new MobileAppSettingsEntity().toData();
 
@@ -1005,9 +1030,10 @@ public class MobileAppSettingsEntityDiffblueTest {
    * <p>Method under test: {@link MobileAppSettingsEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return TenantId Id is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"MobileAppSettings MobileAppSettingsEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdIsRandomUUID() {
+  void testToData_thenReturnTenantIdIdIsRandomUUID() {
     // Arrange
     MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
     UUID tenantId = UUID.randomUUID();

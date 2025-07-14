@@ -1,20 +1,35 @@
 package org.thingsboard.server.controller;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.mockito.ArgumentMatchers.isA;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.api.core.ApiFutureToListenableFuture;
+import com.google.api.core.ForwardingApiFuture;
+import com.google.api.core.ListenableFutureToApiFuture;
+import com.google.common.util.concurrent.ListenableFuture;
+import com.google.common.util.concurrent.ListenableFutureTask;
+import com.google.common.util.concurrent.SettableFuture;
 import java.util.UUID;
+import java.util.concurrent.Executor;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.request.async.DeferredResult;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.sync.vc.request.create.ComplexVersionCreateRequest;
 import org.thingsboard.server.common.data.sync.vc.request.create.VersionCreateRequest;
@@ -38,7 +53,7 @@ class EntitiesVersionControlControllerDiffblueTest {
   @DisplayName("Test saveEntitiesVersion(VersionCreateRequest)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-    "org.springframework.web.context.request.async.DeferredResult EntitiesVersionControlController.saveEntitiesVersion(VersionCreateRequest)"
+    "DeferredResult EntitiesVersionControlController.saveEntitiesVersion(VersionCreateRequest)"
   })
   void testSaveEntitiesVersion() throws Exception {
     // Arrange
@@ -100,7 +115,7 @@ class EntitiesVersionControlControllerDiffblueTest {
       "Test listEntityVersions(EntityType, UUID, String, int, int, String, String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-    "org.springframework.web.context.request.async.DeferredResult EntitiesVersionControlController.listEntityVersions(EntityType, UUID, String, int, int, String, String, String)"
+    "DeferredResult EntitiesVersionControlController.listEntityVersions(EntityType, UUID, String, int, int, String, String, String)"
   })
   void testListEntityVersions() throws Exception {
     // Arrange
@@ -136,7 +151,7 @@ class EntitiesVersionControlControllerDiffblueTest {
   @DisplayName("Test listEntityTypeVersions(EntityType, String, int, int, String, String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-    "org.springframework.web.context.request.async.DeferredResult EntitiesVersionControlController.listEntityTypeVersions(EntityType, String, int, int, String, String, String)"
+    "DeferredResult EntitiesVersionControlController.listEntityTypeVersions(EntityType, String, int, int, String, String, String)"
   })
   void testListEntityTypeVersions() throws Exception {
     // Arrange
@@ -167,7 +182,7 @@ class EntitiesVersionControlControllerDiffblueTest {
   @DisplayName("Test listVersions(String, int, int, String, String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-    "org.springframework.web.context.request.async.DeferredResult EntitiesVersionControlController.listVersions(String, int, int, String, String, String)"
+    "DeferredResult EntitiesVersionControlController.listVersions(String, int, int, String, String, String)"
   })
   void testListVersions() throws Exception {
     // Arrange
@@ -195,7 +210,7 @@ class EntitiesVersionControlControllerDiffblueTest {
   @DisplayName("Test listEntitiesAtVersion(EntityType, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-    "org.springframework.web.context.request.async.DeferredResult EntitiesVersionControlController.listEntitiesAtVersion(EntityType, String)"
+    "DeferredResult EntitiesVersionControlController.listEntitiesAtVersion(EntityType, String)"
   })
   void testListEntitiesAtVersion() throws Exception {
     // Arrange
@@ -224,7 +239,7 @@ class EntitiesVersionControlControllerDiffblueTest {
   @DisplayName("Test getEntityDataInfo(String, EntityType, UUID)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-    "org.springframework.web.context.request.async.DeferredResult EntitiesVersionControlController.getEntityDataInfo(String, EntityType, UUID)"
+    "DeferredResult EntitiesVersionControlController.getEntityDataInfo(String, EntityType, UUID)"
   })
   void testGetEntityDataInfo() throws Exception {
     // Arrange
@@ -255,7 +270,7 @@ class EntitiesVersionControlControllerDiffblueTest {
   @DisplayName("Test compareEntityDataToVersion(EntityType, UUID, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-    "org.springframework.web.context.request.async.DeferredResult EntitiesVersionControlController.compareEntityDataToVersion(EntityType, UUID, String)"
+    "DeferredResult EntitiesVersionControlController.compareEntityDataToVersion(EntityType, UUID, String)"
   })
   void testCompareEntityDataToVersion() throws Exception {
     // Arrange
@@ -334,5 +349,72 @@ class EntitiesVersionControlControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().is(400));
+  }
+
+  /**
+   * Test {@link EntitiesVersionControlController#wrapFuture(ListenableFuture)} with {@code future}.
+   *
+   * <ul>
+   *   <li>Then calls {@link ListenableFutureTask#addListener(Runnable, Executor)}.
+   * </ul>
+   *
+   * <p>Method under test: {@link EntitiesVersionControlController#wrapFuture(ListenableFuture)}
+   */
+  @Test
+  @DisplayName(
+      "Test wrapFuture(ListenableFuture) with 'future'; then calls addListener(Runnable, Executor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "DeferredResult EntitiesVersionControlController.wrapFuture(ListenableFuture)"
+  })
+  void testWrapFutureWithFuture_thenCallsAddListener() {
+    // Arrange
+    ListenableFutureTask<Object> delegate = mock(ListenableFutureTask.class);
+    doNothing().when(delegate).addListener(Mockito.<Runnable>any(), Mockito.<Executor>any());
+
+    // Act
+    DeferredResult<Object> actualWrapFutureResult =
+        entitiesVersionControlController.wrapFuture(
+            new ApiFutureToListenableFuture<>(
+                new ForwardingApiFuture<>(new ListenableFutureToApiFuture<>(delegate))));
+
+    // Assert
+    verify(delegate).addListener(isA(Runnable.class), isA(Executor.class));
+    assertNull(actualWrapFutureResult.getResult());
+    assertFalse(actualWrapFutureResult.hasResult());
+    assertFalse(actualWrapFutureResult.isSetOrExpired());
+  }
+
+  /**
+   * Test {@link EntitiesVersionControlController#wrapFuture(ListenableFuture)} with {@code future}.
+   *
+   * <ul>
+   *   <li>When {@link ListenableFutureToApiFuture#ListenableFutureToApiFuture(ListenableFuture)}
+   *       with delegate is create.
+   * </ul>
+   *
+   * <p>Method under test: {@link EntitiesVersionControlController#wrapFuture(ListenableFuture)}
+   */
+  @Test
+  @DisplayName(
+      "Test wrapFuture(ListenableFuture) with 'future'; when ListenableFutureToApiFuture(ListenableFuture) with delegate is create")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "DeferredResult EntitiesVersionControlController.wrapFuture(ListenableFuture)"
+  })
+  void testWrapFutureWithFuture_whenListenableFutureToApiFutureWithDelegateIsCreate() {
+    // Arrange
+    SettableFuture<Object> delegate = SettableFuture.create();
+
+    // Act
+    DeferredResult<Object> actualWrapFutureResult =
+        entitiesVersionControlController.wrapFuture(
+            new ApiFutureToListenableFuture<>(
+                new ForwardingApiFuture<>(new ListenableFutureToApiFuture<>(delegate))));
+
+    // Assert
+    assertNull(actualWrapFutureResult.getResult());
+    assertFalse(actualWrapFutureResult.hasResult());
+    assertFalse(actualWrapFutureResult.isSetOrExpired());
   }
 }

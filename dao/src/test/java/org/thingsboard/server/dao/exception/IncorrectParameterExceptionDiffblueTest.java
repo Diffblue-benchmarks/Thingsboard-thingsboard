@@ -1,14 +1,14 @@
 package org.thingsboard.server.dao.exception;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class IncorrectParameterExceptionDiffblueTest {
+class IncorrectParameterExceptionDiffblueTest {
   /**
    * Test {@link IncorrectParameterException#IncorrectParameterException(String)}.
    *
@@ -20,12 +20,14 @@ public class IncorrectParameterExceptionDiffblueTest {
    * <p>Method under test: {@link IncorrectParameterException#IncorrectParameterException(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new IncorrectParameterException(String); when 'An error occurred'; then return Cause is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void IncorrectParameterException.<init>(String)",
     "void IncorrectParameterException.<init>(String, Throwable)"
   })
-  public void testNewIncorrectParameterException_whenAnErrorOccurred_thenReturnCauseIsNull() {
+  void testNewIncorrectParameterException_whenAnErrorOccurred_thenReturnCauseIsNull() {
     // Arrange and Act
     IncorrectParameterException actualIncorrectParameterException =
         new IncorrectParameterException("An error occurred");
@@ -48,12 +50,14 @@ public class IncorrectParameterExceptionDiffblueTest {
    * Throwable)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new IncorrectParameterException(String, Throwable); when Throwable(); then return Cause is Throwable()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void IncorrectParameterException.<init>(String)",
     "void IncorrectParameterException.<init>(String, Throwable)"
   })
-  public void testNewIncorrectParameterException_whenThrowable_thenReturnCauseIsThrowable() {
+  void testNewIncorrectParameterException_whenThrowable_thenReturnCauseIsThrowable() {
     // Arrange
     Throwable cause = new Throwable();
 

@@ -1,12 +1,11 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -19,8 +18,9 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.node.TreeTraversingParser;
 import java.math.BigInteger;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.edge.EdgeInfo;
 import org.thingsboard.server.common.data.id.CustomerId;
@@ -28,7 +28,7 @@ import org.thingsboard.server.common.data.id.RuleChainId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 
-public class EdgeInfoEntityDiffblueTest {
+class EdgeInfoEntityDiffblueTest {
   /**
    * Test {@link EdgeInfoEntity#equals(Object)}, and {@link EdgeInfoEntity#hashCode()}.
    *
@@ -45,9 +45,10 @@ public class EdgeInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeInfoEntity.equals(Object)", "int EdgeInfoEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EdgeInfoEntity edgeInfoEntity = new EdgeInfoEntity();
     EdgeInfoEntity edgeInfoEntity2 = new EdgeInfoEntity();
@@ -74,9 +75,10 @@ public class EdgeInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeInfoEntity.equals(Object)", "int EdgeInfoEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     EdgeInfoEntity edgeInfoEntity = new EdgeInfoEntity();
     edgeInfoEntity.setCustomerTitle("Dr");
@@ -106,9 +108,10 @@ public class EdgeInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeInfoEntity.equals(Object)", "int EdgeInfoEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EdgeInfoEntity edgeInfoEntity = new EdgeInfoEntity();
 
@@ -129,9 +132,10 @@ public class EdgeInfoEntityDiffblueTest {
    * <p>Method under test: {@link EdgeInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeInfoEntity.equals(Object)", "int EdgeInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     EdgeInfoEntity edgeInfoEntity = new EdgeInfoEntity();
 
@@ -165,9 +169,10 @@ public class EdgeInfoEntityDiffblueTest {
    * <p>Method under test: {@link EdgeInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeInfoEntity.equals(Object)", "int EdgeInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EdgeInfoEntity edgeInfoEntity = new EdgeInfoEntity();
     edgeInfoEntity.setCustomerTitle("Dr");
@@ -187,9 +192,10 @@ public class EdgeInfoEntityDiffblueTest {
    * <p>Method under test: {@link EdgeInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeInfoEntity.equals(Object)", "int EdgeInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     EdgeInfoEntity edgeInfoEntity = new EdgeInfoEntity();
     edgeInfoEntity.setCustomerIsPublic(true);
@@ -209,9 +215,10 @@ public class EdgeInfoEntityDiffblueTest {
    * <p>Method under test: {@link EdgeInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeInfoEntity.equals(Object)", "int EdgeInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     EdgeInfoEntity edgeInfoEntity = new EdgeInfoEntity();
     edgeInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -231,9 +238,10 @@ public class EdgeInfoEntityDiffblueTest {
    * <p>Method under test: {@link EdgeInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeInfoEntity.equals(Object)", "int EdgeInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     EdgeInfoEntity edgeInfoEntity = new EdgeInfoEntity();
 
@@ -255,9 +263,10 @@ public class EdgeInfoEntityDiffblueTest {
    * <p>Method under test: {@link EdgeInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeInfoEntity.equals(Object)", "int EdgeInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EdgeInfoEntity(), null);
   }
@@ -273,9 +282,10 @@ public class EdgeInfoEntityDiffblueTest {
    * <p>Method under test: {@link EdgeInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeInfoEntity.equals(Object)", "int EdgeInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EdgeInfoEntity(), "Different type to EdgeInfoEntity");
   }
@@ -295,7 +305,8 @@ public class EdgeInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void EdgeInfoEntity.<init>()",
     "String EdgeInfoEntity.getCustomerTitle()",
@@ -304,7 +315,7 @@ public class EdgeInfoEntityDiffblueTest {
     "void EdgeInfoEntity.setCustomerTitle(String)",
     "String EdgeInfoEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     EdgeInfoEntity actualEdgeInfoEntity = new EdgeInfoEntity();
     actualEdgeInfoEntity.setCustomerIsPublic(true);
@@ -343,9 +354,11 @@ public class EdgeInfoEntityDiffblueTest {
    * <p>Method under test: {@link EdgeInfoEntity#EdgeInfoEntity(EdgeEntity, String, Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new EdgeInfoEntity(EdgeEntity, String, Object); when ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeInfoEntity.<init>(EdgeEntity, String, Object)"})
-  public void testNewEdgeInfoEntity_whenArrayNodeWithNfIsWithExactBigDecimalsTrue() {
+  void testNewEdgeInfoEntity_whenArrayNodeWithNfIsWithExactBigDecimalsTrue() {
     // Arrange
     EdgeEntity edgeEntity = new EdgeEntity();
     edgeEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -384,9 +397,11 @@ public class EdgeInfoEntityDiffblueTest {
    * <p>Method under test: {@link EdgeInfoEntity#EdgeInfoEntity(EdgeEntity, String, Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new EdgeInfoEntity(EdgeEntity, String, Object); when BigIntegerNode(BigInteger) with v is valueOf one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeInfoEntity.<init>(EdgeEntity, String, Object)"})
-  public void testNewEdgeInfoEntity_whenBigIntegerNodeWithVIsValueOfOne() {
+  void testNewEdgeInfoEntity_whenBigIntegerNodeWithVIsValueOfOne() {
     // Arrange
     EdgeEntity edgeEntity = new EdgeEntity();
     edgeEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -424,9 +439,10 @@ public class EdgeInfoEntityDiffblueTest {
    * <p>Method under test: {@link EdgeInfoEntity#EdgeInfoEntity(EdgeEntity, String, Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new EdgeInfoEntity(EdgeEntity, String, Object); when 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeInfoEntity.<init>(EdgeEntity, String, Object)"})
-  public void testNewEdgeInfoEntity_whenNull() {
+  void testNewEdgeInfoEntity_whenNull() {
     // Arrange
     EdgeEntity edgeEntity = new EdgeEntity();
     edgeEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -464,9 +480,10 @@ public class EdgeInfoEntityDiffblueTest {
    * <p>Method under test: {@link EdgeInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given EdgeInfoEntity(); then AdditionalInfo return NullNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EdgeInfo EdgeInfoEntity.toData()"})
-  public void testToData_givenEdgeInfoEntity_thenAdditionalInfoReturnNullNode() {
+  void testToData_givenEdgeInfoEntity_thenAdditionalInfoReturnNullNode() {
     // Arrange and Act
     EdgeInfo actualToDataResult = new EdgeInfoEntity().toData();
 
@@ -493,9 +510,10 @@ public class EdgeInfoEntityDiffblueTest {
    * <p>Method under test: {@link EdgeInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return AdditionalInfo is Instance")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EdgeInfo EdgeInfoEntity.toData()"})
-  public void testToData_thenReturnAdditionalInfoIsInstance() {
+  void testToData_thenReturnAdditionalInfoIsInstance() {
     // Arrange
     EdgeInfoEntity edgeInfoEntity = new EdgeInfoEntity();
     MissingNode additionalInfo = MissingNode.getInstance();
@@ -515,9 +533,11 @@ public class EdgeInfoEntityDiffblueTest {
    * <p>Method under test: {@link EdgeInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return CustomerId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EdgeInfo EdgeInfoEntity.toData()"})
-  public void testToData_thenReturnCustomerIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnCustomerIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     EdgeInfoEntity edgeInfoEntity = new EdgeInfoEntity();
     UUID customerId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -542,9 +562,11 @@ public class EdgeInfoEntityDiffblueTest {
    * <p>Method under test: {@link EdgeInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return RootRuleChainId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EdgeInfo EdgeInfoEntity.toData()"})
-  public void testToData_thenReturnRootRuleChainIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnRootRuleChainIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     EdgeInfoEntity edgeInfoEntity = new EdgeInfoEntity();
     UUID rootRuleChainId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -569,9 +591,10 @@ public class EdgeInfoEntityDiffblueTest {
    * <p>Method under test: {@link EdgeInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return TenantId Id is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EdgeInfo EdgeInfoEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdIsRandomUUID() {
+  void testToData_thenReturnTenantIdIdIsRandomUUID() {
     // Arrange
     EdgeInfoEntity edgeInfoEntity = new EdgeInfoEntity();
     UUID tenantId = UUID.randomUUID();
@@ -595,9 +618,11 @@ public class EdgeInfoEntityDiffblueTest {
    * <p>Method under test: {@link EdgeInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return TenantId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EdgeInfo EdgeInfoEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     EdgeInfoEntity edgeInfoEntity = new EdgeInfoEntity();
     edgeInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));

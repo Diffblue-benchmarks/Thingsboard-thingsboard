@@ -53,42 +53,6 @@ class TenantEntitiesDeletionHousekeeperTaskDiffblueTest {
    * TenantEntitiesDeletionHousekeeperTask#hashCode()}.
    *
    * <ul>
-   *   <li>When other is equal.
-   *   <li>Then return equal.
-   * </ul>
-   *
-   * <p>Methods under test:
-   *
-   * <ul>
-   *   <li>{@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}
-   *   <li>{@link TenantEntitiesDeletionHousekeeperTask#hashCode()}
-   * </ul>
-   */
-  @Test
-  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-    "boolean TenantEntitiesDeletionHousekeeperTask.equals(Object)",
-    "int TenantEntitiesDeletionHousekeeperTask.hashCode()"
-  })
-  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
-    // Arrange
-    TenantEntitiesDeletionHousekeeperTask tenantEntitiesDeletionHousekeeperTask =
-        new TenantEntitiesDeletionHousekeeperTask(TenantId.SYS_TENANT_ID, EntityType.TENANT);
-    TenantEntitiesDeletionHousekeeperTask tenantEntitiesDeletionHousekeeperTask2 =
-        new TenantEntitiesDeletionHousekeeperTask(TenantId.SYS_TENANT_ID, EntityType.TENANT);
-
-    // Act and Assert
-    assertEquals(tenantEntitiesDeletionHousekeeperTask, tenantEntitiesDeletionHousekeeperTask2);
-    int expectedHashCodeResult = tenantEntitiesDeletionHousekeeperTask.hashCode();
-    assertEquals(expectedHashCodeResult, tenantEntitiesDeletionHousekeeperTask2.hashCode());
-  }
-
-  /**
-   * Test {@link TenantEntitiesDeletionHousekeeperTask#equals(Object)}, and {@link
-   * TenantEntitiesDeletionHousekeeperTask#hashCode()}.
-   *
-   * <ul>
    *   <li>When other is same.
    *   <li>Then return equal.
    * </ul>

@@ -1,13 +1,13 @@
 package org.thingsboard.server.dao.aspect;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class MethodCallStatsSnapshotDiffblueTest {
+class MethodCallStatsSnapshotDiffblueTest {
   /**
    * Test {@link MethodCallStatsSnapshot#equals(Object)}, and {@link
    * MethodCallStatsSnapshot#hashCode()}.
@@ -25,12 +25,13 @@ public class MethodCallStatsSnapshotDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MethodCallStatsSnapshot.equals(Object)",
     "int MethodCallStatsSnapshot.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     MethodCallStatsSnapshot methodCallStatsSnapshot = new MethodCallStatsSnapshot(1, 1, 1L);
     MethodCallStatsSnapshot methodCallStatsSnapshot2 = new MethodCallStatsSnapshot(1, 1, 1L);
@@ -58,12 +59,13 @@ public class MethodCallStatsSnapshotDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MethodCallStatsSnapshot.equals(Object)",
     "int MethodCallStatsSnapshot.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     MethodCallStatsSnapshot methodCallStatsSnapshot = new MethodCallStatsSnapshot(1, 1, 1L);
 
@@ -84,12 +86,13 @@ public class MethodCallStatsSnapshotDiffblueTest {
    * <p>Method under test: {@link MethodCallStatsSnapshot#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MethodCallStatsSnapshot.equals(Object)",
     "int MethodCallStatsSnapshot.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     MethodCallStatsSnapshot methodCallStatsSnapshot = new MethodCallStatsSnapshot(3, 1, 1L);
 
@@ -108,12 +111,13 @@ public class MethodCallStatsSnapshotDiffblueTest {
    * <p>Method under test: {@link MethodCallStatsSnapshot#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MethodCallStatsSnapshot.equals(Object)",
     "int MethodCallStatsSnapshot.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     MethodCallStatsSnapshot methodCallStatsSnapshot = new MethodCallStatsSnapshot(1, 3, 1L);
 
@@ -132,12 +136,13 @@ public class MethodCallStatsSnapshotDiffblueTest {
    * <p>Method under test: {@link MethodCallStatsSnapshot#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MethodCallStatsSnapshot.equals(Object)",
     "int MethodCallStatsSnapshot.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     MethodCallStatsSnapshot methodCallStatsSnapshot = new MethodCallStatsSnapshot(1, 1, 3L);
 
@@ -156,12 +161,13 @@ public class MethodCallStatsSnapshotDiffblueTest {
    * <p>Method under test: {@link MethodCallStatsSnapshot#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MethodCallStatsSnapshot.equals(Object)",
     "int MethodCallStatsSnapshot.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MethodCallStatsSnapshot(1, 1, 1L), null);
   }
@@ -177,12 +183,13 @@ public class MethodCallStatsSnapshotDiffblueTest {
    * <p>Method under test: {@link MethodCallStatsSnapshot#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MethodCallStatsSnapshot.equals(Object)",
     "int MethodCallStatsSnapshot.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(
         new MethodCallStatsSnapshot(1, 1, 1L), "Different type to MethodCallStatsSnapshot");
@@ -202,7 +209,8 @@ public class MethodCallStatsSnapshotDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void MethodCallStatsSnapshot.<init>(int, int, long)",
     "int MethodCallStatsSnapshot.getExecutions()",
@@ -210,7 +218,7 @@ public class MethodCallStatsSnapshotDiffblueTest {
     "long MethodCallStatsSnapshot.getTiming()",
     "String MethodCallStatsSnapshot.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     MethodCallStatsSnapshot actualMethodCallStatsSnapshot = new MethodCallStatsSnapshot(1, 1, 1L);
     String actualToStringResult = actualMethodCallStatsSnapshot.toString();

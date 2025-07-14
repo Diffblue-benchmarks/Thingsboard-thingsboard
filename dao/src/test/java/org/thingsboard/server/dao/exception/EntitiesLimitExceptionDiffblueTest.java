@@ -1,17 +1,17 @@
 package org.thingsboard.server.dao.exception;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class EntitiesLimitExceptionDiffblueTest {
+class EntitiesLimitExceptionDiffblueTest {
   /**
    * Test {@link EntitiesLimitException#EntitiesLimitException(TenantId, EntityType)}.
    *
@@ -19,9 +19,10 @@ public class EntitiesLimitExceptionDiffblueTest {
    * EntityType)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new EntitiesLimitException(TenantId, EntityType)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EntitiesLimitException.<init>(TenantId, EntityType)"})
-  public void testNewEntitiesLimitException() {
+  void testNewEntitiesLimitException() {
     // Arrange
     TenantId tenantId = ModelConstants.SYSTEM_TENANT;
 
@@ -50,12 +51,13 @@ public class EntitiesLimitExceptionDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "EntityType EntitiesLimitException.getEntityType()",
     "TenantId EntitiesLimitException.getTenantId()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     EntitiesLimitException entitiesLimitException =
         new EntitiesLimitException(ModelConstants.SYSTEM_TENANT, EntityType.TENANT);

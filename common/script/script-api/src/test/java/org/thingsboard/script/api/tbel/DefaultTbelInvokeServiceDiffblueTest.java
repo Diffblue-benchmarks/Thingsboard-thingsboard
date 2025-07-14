@@ -3,10 +3,12 @@ package org.thingsboard.script.api.tbel;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
+import static org.mockito.Mockito.anyLong;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Optional;
 import java.util.UUID;
@@ -20,7 +22,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.aot.DisabledInAotMode;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.thingsboard.server.common.data.ApiUsageState;
+import org.thingsboard.server.common.data.ApiUsageRecordKey;
+import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.stats.TbApiUsageReportClient;
 import org.thingsboard.server.common.stats.TbApiUsageStateClient;
@@ -31,7 +34,7 @@ import org.thingsboard.server.common.stats.TbApiUsageStateClient;
 class DefaultTbelInvokeServiceDiffblueTest {
   @Autowired private DefaultTbelInvokeService defaultTbelInvokeService;
 
-  @MockBean private TbApiUsageStateClient tbApiUsageStateClient;
+  @MockBean private TbApiUsageReportClient tbApiUsageReportClient;
 
   /**
    * Test {@link DefaultTbelInvokeService#isScriptPresent(UUID)}.
@@ -77,36 +80,42 @@ class DefaultTbelInvokeServiceDiffblueTest {
   }
 
   /**
-   * Test {@link DefaultTbelInvokeService#isExecEnabled(TenantId)}.
+   * Test {@link DefaultTbelInvokeService#reportExecution(TenantId, CustomerId)}.
    *
    * <ul>
-   *   <li>Given {@link ApiUsageState} {@link ApiUsageState#isTbelExecEnabled()} return {@code
-   *       false}.
-   *   <li>Then return {@code false}.
+   *   <li>Given {@link TbApiUsageReportClient} {@link TbApiUsageReportClient#report(TenantId,
+   *       CustomerId, ApiUsageRecordKey, long)} does nothing.
    * </ul>
    *
-   * <p>Method under test: {@link DefaultTbelInvokeService#isExecEnabled(TenantId)}
+   * <p>Method under test: {@link DefaultTbelInvokeService#reportExecution(TenantId, CustomerId)}
    */
   @Test
   @DisplayName(
-      "Test isExecEnabled(TenantId); given ApiUsageState isTbelExecEnabled() return 'false'; then return 'false'")
+      "Test reportExecution(TenantId, CustomerId); given TbApiUsageReportClient report(TenantId, CustomerId, ApiUsageRecordKey, long) does nothing")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean DefaultTbelInvokeService.isExecEnabled(TenantId)"})
-  void testIsExecEnabled_givenApiUsageStateIsTbelExecEnabledReturnFalse_thenReturnFalse() {
+  @MethodsUnderTest({"void DefaultTbelInvokeService.reportExecution(TenantId, CustomerId)"})
+  void testReportExecution_givenTbApiUsageReportClientReportDoesNothing() {
     // Arrange
-    ApiUsageState apiUsageState = mock(ApiUsageState.class);
-    when(apiUsageState.isTbelExecEnabled()).thenReturn(false);
-    when(tbApiUsageStateClient.getApiUsageState(Mockito.<TenantId>any())).thenReturn(apiUsageState);
+    doNothing()
+        .when(tbApiUsageReportClient)
+        .report(
+            Mockito.<TenantId>any(),
+            Mockito.<CustomerId>any(),
+            Mockito.<ApiUsageRecordKey>any(),
+            anyLong());
+    TenantId tenantId = new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
 
     // Act
-    boolean actualIsExecEnabledResult =
-        defaultTbelInvokeService.isExecEnabled(
-            new TenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+    defaultTbelInvokeService.reportExecution(
+        tenantId, new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
 
     // Assert
-    verify(apiUsageState).isTbelExecEnabled();
-    verify(tbApiUsageStateClient).getApiUsageState(isA(TenantId.class));
-    assertFalse(actualIsExecEnabledResult);
+    verify(tbApiUsageReportClient)
+        .report(
+            isA(TenantId.class),
+            isA(CustomerId.class),
+            eq(ApiUsageRecordKey.TBEL_EXEC_COUNT),
+            eq(1L));
   }
 
   /**

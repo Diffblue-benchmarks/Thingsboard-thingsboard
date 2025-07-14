@@ -1,17 +1,17 @@
 package org.thingsboard.server.dao.model.sqlts.ts;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class TsKvEntityDiffblueTest {
+class TsKvEntityDiffblueTest {
   /**
    * Test {@link TsKvEntity#equals(Object)}, and {@link TsKvEntity#hashCode()}.
    *
@@ -28,9 +28,10 @@ public class TsKvEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TsKvEntity.equals(Object)", "int TsKvEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TsKvEntity tsKvEntity = new TsKvEntity();
     tsKvEntity.setAggValuesCount(3L);
@@ -80,9 +81,10 @@ public class TsKvEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TsKvEntity.equals(Object)", "int TsKvEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TsKvEntity tsKvEntity = new TsKvEntity();
     tsKvEntity.setAggValuesCount(3L);
@@ -114,9 +116,10 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TsKvEntity.equals(Object)", "int TsKvEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TsKvEntity tsKvEntity = new TsKvEntity();
     tsKvEntity.setAggValuesCount(42L);
@@ -159,9 +162,10 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TsKvEntity.equals(Object)", "int TsKvEntity.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     TsKvEntity tsKvEntity = new TsKvEntity();
     tsKvEntity.setAggValuesCount(3L);
@@ -191,9 +195,10 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TsKvEntity.equals(Object)", "int TsKvEntity.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     TsKvEntity tsKvEntity = new TsKvEntity();
     tsKvEntity.setAggValuesCount(3L);
@@ -227,13 +232,14 @@ public class TsKvEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters; then return AggValuesLastTs is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void TsKvEntity.<init>()",
     "void TsKvEntity.<init>(String, Long)",
     "String TsKvEntity.toString()"
   })
-  public void testGettersAndSetters_thenReturnAggValuesLastTsIsNull() {
+  void testGettersAndSetters_thenReturnAggValuesLastTsIsNull() {
     // Arrange and Act
     TsKvEntity actualTsKvEntity = new TsKvEntity();
 
@@ -268,13 +274,14 @@ public class TsKvEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters; when '42'; then return StrValue is '42'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void TsKvEntity.<init>()",
     "void TsKvEntity.<init>(String, Long)",
     "String TsKvEntity.toString()"
   })
-  public void testGettersAndSetters_when42_thenReturnStrValueIs42() {
+  void testGettersAndSetters_when42_thenReturnStrValueIs42() {
     // Arrange and Act
     TsKvEntity actualTsKvEntity = new TsKvEntity("42", 42L);
     String actualToStringResult = actualTsKvEntity.toString();
@@ -305,9 +312,11 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TsKvEntity(Long, Double, Long, Long, String, Long); when 'Agg Type'; then return DoubleValue is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TsKvEntity.<init>(Long, Double, Long, Long, String, Long)"})
-  public void testNewTsKvEntity_whenAggType_thenReturnDoubleValueIsNull() {
+  void testNewTsKvEntity_whenAggType_thenReturnDoubleValueIsNull() {
     // Arrange and Act
     TsKvEntity actualTsKvEntity = new TsKvEntity(42L, 10.0d, 3L, 3L, "Agg Type", 42L);
 
@@ -338,9 +347,11 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TsKvEntity(Long, Double, Long, Long, String, Long); when 'AVG'; then return AggValuesCount longValue is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TsKvEntity.<init>(Long, Double, Long, Long, String, Long)"})
-  public void testNewTsKvEntity_whenAvg_thenReturnAggValuesCountLongValueIsOne() {
+  void testNewTsKvEntity_whenAvg_thenReturnAggValuesCountLongValueIsOne() {
     // Arrange and Act
     TsKvEntity actualTsKvEntity = new TsKvEntity(null, null, 0L, 1L, "AVG", 42L);
 
@@ -354,7 +365,7 @@ public class TsKvEntityDiffblueTest {
     assertNull(actualTsKvEntity.getStrValue());
     assertNull(actualTsKvEntity.getEntityId());
     assertEquals(0, actualTsKvEntity.getKey());
-    assertEquals(0.0d, actualTsKvEntity.getDoubleValue().doubleValue(), 0.0);
+    assertEquals(0.0d, actualTsKvEntity.getDoubleValue().doubleValue());
     assertEquals(1L, actualTsKvEntity.getAggValuesCount().longValue());
     assertEquals(42L, actualTsKvEntity.getAggValuesLastTs().longValue());
     assertTrue(actualTsKvEntity.isNotEmpty());
@@ -371,9 +382,11 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TsKvEntity(Long, Double, Long, Long, String, Long); when 'AVG'; then return AggValuesCount longValue is zero")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TsKvEntity.<init>(Long, Double, Long, Long, String, Long)"})
-  public void testNewTsKvEntity_whenAvg_thenReturnAggValuesCountLongValueIsZero() {
+  void testNewTsKvEntity_whenAvg_thenReturnAggValuesCountLongValueIsZero() {
     // Arrange and Act
     TsKvEntity actualTsKvEntity = new TsKvEntity(null, null, 0L, 0L, "AVG", 42L);
 
@@ -387,7 +400,7 @@ public class TsKvEntityDiffblueTest {
     assertNull(actualTsKvEntity.getStrValue());
     assertNull(actualTsKvEntity.getEntityId());
     assertEquals(0, actualTsKvEntity.getKey());
-    assertEquals(0.0d, actualTsKvEntity.getDoubleValue().doubleValue(), 0.0);
+    assertEquals(0.0d, actualTsKvEntity.getDoubleValue().doubleValue());
     assertEquals(0L, actualTsKvEntity.getAggValuesCount().longValue());
     assertEquals(42L, actualTsKvEntity.getAggValuesLastTs().longValue());
     assertTrue(actualTsKvEntity.isNotEmpty());
@@ -404,9 +417,11 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TsKvEntity(Long, Double, Long, Long, String, Long); when 'AVG'; then return AggValuesCount longValue is zero")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TsKvEntity.<init>(Long, Double, Long, Long, String, Long)"})
-  public void testNewTsKvEntity_whenAvg_thenReturnAggValuesCountLongValueIsZero2() {
+  void testNewTsKvEntity_whenAvg_thenReturnAggValuesCountLongValueIsZero2() {
     // Arrange and Act
     TsKvEntity actualTsKvEntity = new TsKvEntity(null, 10.0d, 0L, 0L, "AVG", 42L);
 
@@ -420,7 +435,7 @@ public class TsKvEntityDiffblueTest {
     assertNull(actualTsKvEntity.getStrValue());
     assertNull(actualTsKvEntity.getEntityId());
     assertEquals(0, actualTsKvEntity.getKey());
-    assertEquals(0.0d, actualTsKvEntity.getDoubleValue().doubleValue(), 0.0);
+    assertEquals(0.0d, actualTsKvEntity.getDoubleValue().doubleValue());
     assertEquals(0L, actualTsKvEntity.getAggValuesCount().longValue());
     assertEquals(42L, actualTsKvEntity.getAggValuesLastTs().longValue());
     assertTrue(actualTsKvEntity.isNotEmpty());
@@ -437,9 +452,11 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TsKvEntity(Long, Double, Long, Long, String, Long); when 'AVG'; then return AggValuesCount longValue is zero")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TsKvEntity.<init>(Long, Double, Long, Long, String, Long)"})
-  public void testNewTsKvEntity_whenAvg_thenReturnAggValuesCountLongValueIsZero3() {
+  void testNewTsKvEntity_whenAvg_thenReturnAggValuesCountLongValueIsZero3() {
     // Arrange and Act
     TsKvEntity actualTsKvEntity = new TsKvEntity(42L, null, 0L, 0L, "AVG", 42L);
 
@@ -453,7 +470,7 @@ public class TsKvEntityDiffblueTest {
     assertNull(actualTsKvEntity.getStrValue());
     assertNull(actualTsKvEntity.getEntityId());
     assertEquals(0, actualTsKvEntity.getKey());
-    assertEquals(0.0d, actualTsKvEntity.getDoubleValue().doubleValue(), 0.0);
+    assertEquals(0.0d, actualTsKvEntity.getDoubleValue().doubleValue());
     assertEquals(0L, actualTsKvEntity.getAggValuesCount().longValue());
     assertEquals(42L, actualTsKvEntity.getAggValuesLastTs().longValue());
     assertTrue(actualTsKvEntity.isNotEmpty());
@@ -470,9 +487,11 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Long, Long, Long, Long, Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TsKvEntity(Long, Long, Long, Long, Long, Long); when forty-two; then return LongValue longValue is three")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TsKvEntity.<init>(Long, Long, Long, Long, Long, Long)"})
-  public void testNewTsKvEntity_whenFortyTwo_thenReturnLongValueLongValueIsThree() {
+  void testNewTsKvEntity_whenFortyTwo_thenReturnLongValueLongValueIsThree() {
     // Arrange and Act
     TsKvEntity actualTsKvEntity = new TsKvEntity(3L, 3L, 3L, 3L, 3L, 42L);
 
@@ -503,9 +522,11 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TsKvEntity(Long, Double, Long, Long, String, Long); when 'MAX'; then return DoubleValue doubleValue is forty-two")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TsKvEntity.<init>(Long, Double, Long, Long, String, Long)"})
-  public void testNewTsKvEntity_whenMax_thenReturnDoubleValueDoubleValueIsFortyTwo() {
+  void testNewTsKvEntity_whenMax_thenReturnDoubleValueDoubleValueIsFortyTwo() {
     // Arrange and Act
     TsKvEntity actualTsKvEntity = new TsKvEntity(42L, 10.0d, 3L, 3L, "MAX", 42L);
 
@@ -520,7 +541,7 @@ public class TsKvEntityDiffblueTest {
     assertNull(actualTsKvEntity.getStrValue());
     assertNull(actualTsKvEntity.getEntityId());
     assertEquals(0, actualTsKvEntity.getKey());
-    assertEquals(42.0d, actualTsKvEntity.getDoubleValue().doubleValue(), 0.0);
+    assertEquals(42.0d, actualTsKvEntity.getDoubleValue().doubleValue());
     assertEquals(42L, actualTsKvEntity.getAggValuesLastTs().longValue());
     assertTrue(actualTsKvEntity.isNotEmpty());
   }
@@ -536,9 +557,11 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TsKvEntity(Long, Double, Long, Long, String, Long); when 'MAX'; then return DoubleValue is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TsKvEntity.<init>(Long, Double, Long, Long, String, Long)"})
-  public void testNewTsKvEntity_whenMax_thenReturnDoubleValueIsNull() {
+  void testNewTsKvEntity_whenMax_thenReturnDoubleValueIsNull() {
     // Arrange and Act
     TsKvEntity actualTsKvEntity = new TsKvEntity(null, null, 0L, 0L, "MAX", 42L);
 
@@ -569,9 +592,11 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TsKvEntity(Long, Double, Long, Long, String, Long); when 'MIN'; then return DoubleValue is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TsKvEntity.<init>(Long, Double, Long, Long, String, Long)"})
-  public void testNewTsKvEntity_whenMin_thenReturnDoubleValueIsNull() {
+  void testNewTsKvEntity_whenMin_thenReturnDoubleValueIsNull() {
     // Arrange and Act
     TsKvEntity actualTsKvEntity = new TsKvEntity(null, null, 0L, 0L, "MIN", 42L);
 
@@ -602,9 +627,11 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TsKvEntity(Long, Double, Long, Long, String, Long); when 'MIN'; then return DoubleValue is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TsKvEntity.<init>(Long, Double, Long, Long, String, Long)"})
-  public void testNewTsKvEntity_whenMin_thenReturnDoubleValueIsNull2() {
+  void testNewTsKvEntity_whenMin_thenReturnDoubleValueIsNull2() {
     // Arrange and Act
     TsKvEntity actualTsKvEntity = new TsKvEntity(null, null, 0L, 1L, "MIN", 42L);
 
@@ -635,9 +662,11 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TsKvEntity(Long, Double, Long, Long, String, Long); when 'MIN'; then return DoubleValue is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TsKvEntity.<init>(Long, Double, Long, Long, String, Long)"})
-  public void testNewTsKvEntity_whenMin_thenReturnDoubleValueIsNull3() {
+  void testNewTsKvEntity_whenMin_thenReturnDoubleValueIsNull3() {
     // Arrange and Act
     TsKvEntity actualTsKvEntity = new TsKvEntity(null, null, 1L, 0L, "MIN", 42L);
 
@@ -668,9 +697,11 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TsKvEntity(Long, Double, Long, Long, String, Long); when 'SUM'; then return DoubleValue doubleValue is ten")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TsKvEntity.<init>(Long, Double, Long, Long, String, Long)"})
-  public void testNewTsKvEntity_whenSum_thenReturnDoubleValueDoubleValueIsTen() {
+  void testNewTsKvEntity_whenSum_thenReturnDoubleValueDoubleValueIsTen() {
     // Arrange and Act
     TsKvEntity actualTsKvEntity = new TsKvEntity(null, 10.0d, 0L, 1L, "SUM", 42L);
 
@@ -685,7 +716,7 @@ public class TsKvEntityDiffblueTest {
     assertNull(actualTsKvEntity.getStrValue());
     assertNull(actualTsKvEntity.getEntityId());
     assertEquals(0, actualTsKvEntity.getKey());
-    assertEquals(10.0d, actualTsKvEntity.getDoubleValue().doubleValue(), 0.0);
+    assertEquals(10.0d, actualTsKvEntity.getDoubleValue().doubleValue());
     assertEquals(42L, actualTsKvEntity.getAggValuesLastTs().longValue());
     assertTrue(actualTsKvEntity.isNotEmpty());
   }
@@ -701,9 +732,11 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TsKvEntity(Long, Double, Long, Long, String, Long); when 'SUM'; then return DoubleValue is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TsKvEntity.<init>(Long, Double, Long, Long, String, Long)"})
-  public void testNewTsKvEntity_whenSum_thenReturnDoubleValueIsNull() {
+  void testNewTsKvEntity_whenSum_thenReturnDoubleValueIsNull() {
     // Arrange and Act
     TsKvEntity actualTsKvEntity = new TsKvEntity(null, null, 0L, 0L, "SUM", 42L);
 
@@ -734,9 +767,11 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TsKvEntity(Long, Double, Long, Long, String, Long); when three; then return DoubleValue doubleValue is fifty-two")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TsKvEntity.<init>(Long, Double, Long, Long, String, Long)"})
-  public void testNewTsKvEntity_whenThree_thenReturnDoubleValueDoubleValueIsFiftyTwo() {
+  void testNewTsKvEntity_whenThree_thenReturnDoubleValueDoubleValueIsFiftyTwo() {
     // Arrange and Act
     TsKvEntity actualTsKvEntity = new TsKvEntity(42L, 10.0d, 3L, 3L, "SUM", 42L);
 
@@ -752,7 +787,7 @@ public class TsKvEntityDiffblueTest {
     assertNull(actualTsKvEntity.getEntityId());
     assertEquals(0, actualTsKvEntity.getKey());
     assertEquals(42L, actualTsKvEntity.getAggValuesLastTs().longValue());
-    assertEquals(52.0d, actualTsKvEntity.getDoubleValue().doubleValue(), 0.0);
+    assertEquals(52.0d, actualTsKvEntity.getDoubleValue().doubleValue());
     assertTrue(actualTsKvEntity.isNotEmpty());
   }
 
@@ -767,9 +802,11 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Double, Long, Long, String, Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TsKvEntity(Long, Double, Long, Long, String, Long); when three; then return DoubleValue doubleValue is ten")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TsKvEntity.<init>(Long, Double, Long, Long, String, Long)"})
-  public void testNewTsKvEntity_whenThree_thenReturnDoubleValueDoubleValueIsTen() {
+  void testNewTsKvEntity_whenThree_thenReturnDoubleValueDoubleValueIsTen() {
     // Arrange and Act
     TsKvEntity actualTsKvEntity = new TsKvEntity(42L, 10.0d, 3L, 3L, "MIN", 42L);
 
@@ -784,7 +821,7 @@ public class TsKvEntityDiffblueTest {
     assertNull(actualTsKvEntity.getStrValue());
     assertNull(actualTsKvEntity.getEntityId());
     assertEquals(0, actualTsKvEntity.getKey());
-    assertEquals(10.0d, actualTsKvEntity.getDoubleValue().doubleValue(), 0.0);
+    assertEquals(10.0d, actualTsKvEntity.getDoubleValue().doubleValue());
     assertEquals(42L, actualTsKvEntity.getAggValuesLastTs().longValue());
     assertTrue(actualTsKvEntity.isNotEmpty());
   }
@@ -800,9 +837,11 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Long, Long, Long, Long, Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TsKvEntity(Long, Long, Long, Long, Long, Long); when zero; then return LongValue longValue is six")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TsKvEntity.<init>(Long, Long, Long, Long, Long, Long)"})
-  public void testNewTsKvEntity_whenZero_thenReturnLongValueLongValueIsSix() {
+  void testNewTsKvEntity_whenZero_thenReturnLongValueLongValueIsSix() {
     // Arrange and Act
     TsKvEntity actualTsKvEntity = new TsKvEntity(0L, 0L, 3L, 3L, 0L, 42L);
 
@@ -833,9 +872,11 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Long, Long, Long, Long, Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TsKvEntity(Long, Long, Long, Long, Long, Long); when zero; then return LongValue longValue is three")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TsKvEntity.<init>(Long, Long, Long, Long, Long, Long)"})
-  public void testNewTsKvEntity_whenZero_thenReturnLongValueLongValueIsThree() {
+  void testNewTsKvEntity_whenZero_thenReturnLongValueLongValueIsThree() {
     // Arrange and Act
     TsKvEntity actualTsKvEntity = new TsKvEntity(0L, 3L, 3L, 3L, 3L, 42L);
 
@@ -866,9 +907,11 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#TsKvEntity(Long, Long, Long, Long, Long, Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TsKvEntity(Long, Long, Long, Long, Long, Long); when zero; then return LongValue longValue is three")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TsKvEntity.<init>(Long, Long, Long, Long, Long, Long)"})
-  public void testNewTsKvEntity_whenZero_thenReturnLongValueLongValueIsThree2() {
+  void testNewTsKvEntity_whenZero_thenReturnLongValueLongValueIsThree2() {
     // Arrange and Act
     TsKvEntity actualTsKvEntity = new TsKvEntity(0L, 0L, 3L, 3L, 3L, 42L);
 
@@ -899,9 +942,10 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#isNotEmpty()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test isNotEmpty(); given TsKvEntity() BooleanValue is 'true'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TsKvEntity.isNotEmpty()"})
-  public void testIsNotEmpty_givenTsKvEntityBooleanValueIsTrue_thenReturnTrue() {
+  void testIsNotEmpty_givenTsKvEntityBooleanValueIsTrue_thenReturnTrue() {
     // Arrange
     TsKvEntity tsKvEntity = new TsKvEntity();
     tsKvEntity.setAggValuesCount(3L);
@@ -931,9 +975,10 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#isNotEmpty()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test isNotEmpty(); given TsKvEntity() DoubleValue is ten; then return 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TsKvEntity.isNotEmpty()"})
-  public void testIsNotEmpty_givenTsKvEntityDoubleValueIsTen_thenReturnTrue() {
+  void testIsNotEmpty_givenTsKvEntityDoubleValueIsTen_thenReturnTrue() {
     // Arrange
     TsKvEntity tsKvEntity = new TsKvEntity();
     tsKvEntity.setAggValuesCount(3L);
@@ -963,9 +1008,10 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#isNotEmpty()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test isNotEmpty(); given TsKvEntity() LongValue is one; then return 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TsKvEntity.isNotEmpty()"})
-  public void testIsNotEmpty_givenTsKvEntityLongValueIsOne_thenReturnTrue() {
+  void testIsNotEmpty_givenTsKvEntityLongValueIsOne_thenReturnTrue() {
     // Arrange
     TsKvEntity tsKvEntity = new TsKvEntity();
     tsKvEntity.setAggValuesCount(3L);
@@ -995,9 +1041,10 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#isNotEmpty()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test isNotEmpty(); given TsKvEntity() StrValue is 'foo'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TsKvEntity.isNotEmpty()"})
-  public void testIsNotEmpty_givenTsKvEntityStrValueIsFoo_thenReturnTrue() {
+  void testIsNotEmpty_givenTsKvEntityStrValueIsFoo_thenReturnTrue() {
     // Arrange
     TsKvEntity tsKvEntity = new TsKvEntity();
     tsKvEntity.setAggValuesCount(3L);
@@ -1027,9 +1074,10 @@ public class TsKvEntityDiffblueTest {
    * <p>Method under test: {@link TsKvEntity#isNotEmpty()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test isNotEmpty(); given TsKvEntity(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TsKvEntity.isNotEmpty()"})
-  public void testIsNotEmpty_givenTsKvEntity_thenReturnFalse() {
+  void testIsNotEmpty_givenTsKvEntity_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(new TsKvEntity().isNotEmpty());
   }

@@ -1,27 +1,27 @@
 package org.thingsboard.server.dao.aspect;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.sql.SQLException;
 import java.util.UUID;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.hibernate.exception.JDBCConnectionException;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class SqlDaoCallsAspectDiffblueTest {
+class SqlDaoCallsAspectDiffblueTest {
   /**
    * Test {@link SqlDaoCallsAspect#getTenantId(MethodSignature, String, Object[])}.
    *
@@ -32,9 +32,11 @@ public class SqlDaoCallsAspectDiffblueTest {
    * <p>Method under test: {@link SqlDaoCallsAspect#getTenantId(MethodSignature, String, Object[])}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getTenantId(MethodSignature, String, Object[]); given array of String with 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantId SqlDaoCallsAspect.getTenantId(MethodSignature, String, Object[])"})
-  public void testGetTenantId_givenArrayOfStringWithNull() {
+  void testGetTenantId_givenArrayOfStringWithNull() {
     // Arrange
     SqlDaoCallsAspect sqlDaoCallsAspect = new SqlDaoCallsAspect();
     MethodSignature signature = mock(MethodSignature.class);
@@ -66,9 +68,11 @@ public class SqlDaoCallsAspectDiffblueTest {
    * <p>Method under test: {@link SqlDaoCallsAspect#getTenantId(MethodSignature, String, Object[])}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getTenantId(MethodSignature, String, Object[]); given array of String with 'Parameter Names'; then first element is 'Args'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantId SqlDaoCallsAspect.getTenantId(MethodSignature, String, Object[])"})
-  public void testGetTenantId_givenArrayOfStringWithParameterNames_thenFirstElementIsArgs() {
+  void testGetTenantId_givenArrayOfStringWithParameterNames_thenFirstElementIsArgs() {
     // Arrange
     SqlDaoCallsAspect sqlDaoCallsAspect = new SqlDaoCallsAspect();
     MethodSignature signature = mock(MethodSignature.class);
@@ -98,9 +102,11 @@ public class SqlDaoCallsAspectDiffblueTest {
    * <p>Method under test: {@link SqlDaoCallsAspect#getTenantId(MethodSignature, String, Object[])}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getTenantId(MethodSignature, String, Object[]); given array of String with 'tenantId'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantId SqlDaoCallsAspect.getTenantId(MethodSignature, String, Object[])"})
-  public void testGetTenantId_givenArrayOfStringWithTenantId() {
+  void testGetTenantId_givenArrayOfStringWithTenantId() {
     // Arrange
     SqlDaoCallsAspect sqlDaoCallsAspect = new SqlDaoCallsAspect();
     MethodSignature signature = mock(MethodSignature.class);
@@ -132,9 +138,11 @@ public class SqlDaoCallsAspectDiffblueTest {
    * <p>Method under test: {@link SqlDaoCallsAspect#getTenantId(MethodSignature, String, Object[])}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getTenantId(MethodSignature, String, Object[]); given 'null'; when MethodSignature getParameterNames() return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantId SqlDaoCallsAspect.getTenantId(MethodSignature, String, Object[])"})
-  public void testGetTenantId_givenNull_whenMethodSignatureGetParameterNamesReturnNull() {
+  void testGetTenantId_givenNull_whenMethodSignatureGetParameterNamesReturnNull() {
     // Arrange
     SqlDaoCallsAspect sqlDaoCallsAspect = new SqlDaoCallsAspect();
     MethodSignature signature = mock(MethodSignature.class);
@@ -167,9 +175,11 @@ public class SqlDaoCallsAspectDiffblueTest {
    * <p>Method under test: {@link SqlDaoCallsAspect#getTenantId(MethodSignature, String, Object[])}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getTenantId(MethodSignature, String, Object[]); given 'null'; when MethodSignature getParameterTypes() return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantId SqlDaoCallsAspect.getTenantId(MethodSignature, String, Object[])"})
-  public void testGetTenantId_givenNull_whenMethodSignatureGetParameterTypesReturnNull() {
+  void testGetTenantId_givenNull_whenMethodSignatureGetParameterTypesReturnNull() {
     // Arrange
     SqlDaoCallsAspect sqlDaoCallsAspect = new SqlDaoCallsAspect();
     MethodSignature signature = mock(MethodSignature.class);
@@ -198,9 +208,11 @@ public class SqlDaoCallsAspectDiffblueTest {
    * <p>Method under test: {@link SqlDaoCallsAspect#getTenantId(MethodSignature, String, Object[])}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getTenantId(MethodSignature, String, Object[]); given 'org.thingsboard.server.common.data.id.TenantId'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantId SqlDaoCallsAspect.getTenantId(MethodSignature, String, Object[])"})
-  public void testGetTenantId_givenOrgThingsboardServerCommonDataIdTenantId() {
+  void testGetTenantId_givenOrgThingsboardServerCommonDataIdTenantId() {
     // Arrange
     SqlDaoCallsAspect sqlDaoCallsAspect = new SqlDaoCallsAspect();
     MethodSignature signature = mock(MethodSignature.class);
@@ -228,9 +240,11 @@ public class SqlDaoCallsAspectDiffblueTest {
    * <p>Method under test: {@link SqlDaoCallsAspect#getTenantId(MethodSignature, String, Object[])}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getTenantId(MethodSignature, String, Object[]); then first element is fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantId SqlDaoCallsAspect.getTenantId(MethodSignature, String, Object[])"})
-  public void testGetTenantId_thenFirstElementIsFromString784f394c42b6435a983cB7beff2784f9() {
+  void testGetTenantId_thenFirstElementIsFromString784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     SqlDaoCallsAspect sqlDaoCallsAspect = new SqlDaoCallsAspect();
     MethodSignature signature = mock(MethodSignature.class);
@@ -261,9 +275,11 @@ public class SqlDaoCallsAspectDiffblueTest {
    * <p>Method under test: {@link SqlDaoCallsAspect#getTenantId(MethodSignature, String, Object[])}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getTenantId(MethodSignature, String, Object[]); then return Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantId SqlDaoCallsAspect.getTenantId(MethodSignature, String, Object[])"})
-  public void testGetTenantId_thenReturnIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testGetTenantId_thenReturnIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     SqlDaoCallsAspect sqlDaoCallsAspect = new SqlDaoCallsAspect();
     MethodSignature signature = mock(MethodSignature.class);
@@ -294,9 +310,11 @@ public class SqlDaoCallsAspectDiffblueTest {
    * <p>Method under test: {@link SqlDaoCallsAspect#getTenantId(MethodSignature, String, Object[])}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getTenantId(MethodSignature, String, Object[]); then throw JDBCConnectionException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantId SqlDaoCallsAspect.getTenantId(MethodSignature, String, Object[])"})
-  public void testGetTenantId_thenThrowJDBCConnectionException() {
+  void testGetTenantId_thenThrowJDBCConnectionException() {
     // Arrange
     SqlDaoCallsAspect sqlDaoCallsAspect = new SqlDaoCallsAspect();
     MethodSignature signature = mock(MethodSignature.class);
@@ -320,9 +338,11 @@ public class SqlDaoCallsAspectDiffblueTest {
    * <p>Method under test: {@link SqlDaoCallsAspect#getTenantId(MethodSignature, String, Object[])}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getTenantId(MethodSignature, String, Object[]); then throw JDBCConnectionException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantId SqlDaoCallsAspect.getTenantId(MethodSignature, String, Object[])"})
-  public void testGetTenantId_thenThrowJDBCConnectionException2() {
+  void testGetTenantId_thenThrowJDBCConnectionException2() {
     // Arrange
     SqlDaoCallsAspect sqlDaoCallsAspect = new SqlDaoCallsAspect();
     MethodSignature signature = mock(MethodSignature.class);
@@ -351,9 +371,11 @@ public class SqlDaoCallsAspectDiffblueTest {
    * <p>Method under test: {@link SqlDaoCallsAspect#getTenantId(MethodSignature, String, Object[])}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getTenantId(MethodSignature, String, Object[]); when array of Object with randomUUID; then return Id is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantId SqlDaoCallsAspect.getTenantId(MethodSignature, String, Object[])"})
-  public void testGetTenantId_whenArrayOfObjectWithRandomUUID_thenReturnIdIsRandomUUID() {
+  void testGetTenantId_whenArrayOfObjectWithRandomUUID_thenReturnIdIsRandomUUID() {
     // Arrange
     SqlDaoCallsAspect sqlDaoCallsAspect = new SqlDaoCallsAspect();
     MethodSignature signature = mock(MethodSignature.class);
@@ -383,9 +405,11 @@ public class SqlDaoCallsAspectDiffblueTest {
    * <p>Method under test: {@link SqlDaoCallsAspect#getTenantId(MethodSignature, String, Object[])}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getTenantId(MethodSignature, String, Object[]); when array of Object with SYSTEM_TENANT; then return SYS_TENANT_ID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantId SqlDaoCallsAspect.getTenantId(MethodSignature, String, Object[])"})
-  public void testGetTenantId_whenArrayOfObjectWithSystem_tenant_thenReturnSys_tenant_id() {
+  void testGetTenantId_whenArrayOfObjectWithSystem_tenant_thenReturnSys_tenant_id() {
     // Arrange
     Object[] args = new Object[] {ModelConstants.SYSTEM_TENANT};
 
@@ -411,9 +435,11 @@ public class SqlDaoCallsAspectDiffblueTest {
    * <p>Method under test: {@link SqlDaoCallsAspect#getTenantId(MethodSignature, String, Object[])}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getTenantId(MethodSignature, String, Object[]); when empty array of Object; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantId SqlDaoCallsAspect.getTenantId(MethodSignature, String, Object[])"})
-  public void testGetTenantId_whenEmptyArrayOfObject_thenReturnNull() {
+  void testGetTenantId_whenEmptyArrayOfObject_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(
         new SqlDaoCallsAspect()
@@ -431,9 +457,11 @@ public class SqlDaoCallsAspectDiffblueTest {
    * <p>Method under test: {@link SqlDaoCallsAspect#getTenantId(MethodSignature, String, Object[])}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getTenantId(MethodSignature, String, Object[]); when MethodSignature; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantId SqlDaoCallsAspect.getTenantId(MethodSignature, String, Object[])"})
-  public void testGetTenantId_whenMethodSignature_thenReturnNull() {
+  void testGetTenantId_whenMethodSignature_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(
         new SqlDaoCallsAspect().getTenantId(mock(MethodSignature.class), "Method Name", null));

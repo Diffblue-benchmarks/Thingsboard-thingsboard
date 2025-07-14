@@ -28,26 +28,27 @@ import org.thingsboard.server.service.entitiy.asset.DefaultTbAssetService;
 
 @ExtendWith(MockitoExtension.class)
 class AssetControllerDiffblueTest {
-  @InjectMocks
-  private AssetController assetController;
+  @InjectMocks private AssetController assetController;
 
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
 
   /**
    * Test {@link AssetController#getTenantAssets(int, int, String, String, String, String)}.
-   * <p>
-   * Method under test: {@link AssetController#getTenantAssets(int, int, String, String, String, String)}
+   *
+   * <p>Method under test: {@link AssetController#getTenantAssets(int, int, String, String, String,
+   * String)}
    */
   @Test
   @DisplayName("Test getTenantAssets(int, int, String, String, String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData AssetController.getTenantAssets(int, int, String, String, String, String)"})
+    "org.thingsboard.server.common.data.page.PageData AssetController.getTenantAssets(int, int, String, String, String, String)"
+  })
   void testGetTenantAssets() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.get("/api/tenant/assets")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/tenant/assets")
+            .param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
     // Act and Assert
@@ -59,19 +60,80 @@ class AssetControllerDiffblueTest {
   }
 
   /**
-   * Test {@link AssetController#getTenantAssetInfos(int, int, String, String, String, String, String)}.
-   * <p>
-   * Method under test: {@link AssetController#getTenantAssetInfos(int, int, String, String, String, String, String)}
+   * Test {@link AssetController#getTenantAssetInfos(int, int, String, String, String, String,
+   * String)}.
+   *
+   * <p>Method under test: {@link AssetController#getTenantAssetInfos(int, int, String, String,
+   * String, String, String)}
    */
   @Test
   @DisplayName("Test getTenantAssetInfos(int, int, String, String, String, String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData AssetController.getTenantAssetInfos(int, int, String, String, String, String, String)"})
+    "org.thingsboard.server.common.data.page.PageData AssetController.getTenantAssetInfos(int, int, String, String, String, String, String)"
+  })
   void testGetTenantAssetInfos() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.get("/api/tenant/assetInfos")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/tenant/assetInfos")
+            .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(assetController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().is(400));
+  }
+
+  /**
+   * Test {@link AssetController#getCustomerAssets(String, int, int, String, String, String,
+   * String)}.
+   *
+   * <p>Method under test: {@link AssetController#getCustomerAssets(String, int, int, String,
+   * String, String, String)}
+   */
+  @Test
+  @DisplayName("Test getCustomerAssets(String, int, int, String, String, String, String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.page.PageData AssetController.getCustomerAssets(String, int, int, String, String, String, String)"
+  })
+  void testGetCustomerAssets() throws Exception {
+    // Arrange
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/customer/{customerId}/assets", "42")
+            .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(assetController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().is(400));
+  }
+
+  /**
+   * Test {@link AssetController#getCustomerAssetInfos(String, int, int, String, String, String,
+   * String, String)}.
+   *
+   * <p>Method under test: {@link AssetController#getCustomerAssetInfos(String, int, int, String,
+   * String, String, String, String)}
+   */
+  @Test
+  @DisplayName(
+      "Test getCustomerAssetInfos(String, int, int, String, String, String, String, String)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.page.PageData AssetController.getCustomerAssetInfos(String, int, int, String, String, String, String, String)"
+  })
+  void testGetCustomerAssetInfos() throws Exception {
+    // Arrange
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/customer/{customerId}/assetInfos", "42")
+            .param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
     // Act and Assert
@@ -84,11 +146,12 @@ class AssetControllerDiffblueTest {
 
   /**
    * Test {@link AssetController#findByQuery(AssetSearchQuery)}.
+   *
    * <ul>
-   *   <li>Then throw {@link IncorrectParameterException}.</li>
+   *   <li>Then throw {@link IncorrectParameterException}.
    * </ul>
-   * <p>
-   * Method under test: {@link AssetController#findByQuery(AssetSearchQuery)}
+   *
+   * <p>Method under test: {@link AssetController#findByQuery(AssetSearchQuery)}
    */
   @Test
   @DisplayName("Test findByQuery(AssetSearchQuery); then throw IncorrectParameterException")
@@ -103,16 +166,45 @@ class AssetControllerDiffblueTest {
     // Arrange
     BaseAssetService assetService = new BaseAssetService();
     DefaultTbAssetService tbAssetService = new DefaultTbAssetService(new BaseAssetService());
-    AssetBulkImportService assetBulkImportService = new AssetBulkImportService(assetService, tbAssetService,
-        new AssetProfileServiceImpl());
+    AssetBulkImportService assetBulkImportService =
+        new AssetBulkImportService(assetService, tbAssetService, new AssetProfileServiceImpl());
 
-    AssetController assetController = new AssetController(assetBulkImportService,
-        new DefaultTbAssetService(new BaseAssetService()));
+    AssetController assetController =
+        new AssetController(
+            assetBulkImportService, new DefaultTbAssetService(new BaseAssetService()));
     AssetSearchQuery query = mock(AssetSearchQuery.class);
     when(query.getParameters()).thenThrow(new IncorrectParameterException("An error occurred"));
 
     // Act and Assert
     assertThrows(IncorrectParameterException.class, () -> assetController.findByQuery(query));
     verify(query).getParameters();
+  }
+
+  /**
+   * Test {@link AssetController#getEdgeAssets(String, int, int, String, String, String, String,
+   * Long, Long)}.
+   *
+   * <p>Method under test: {@link AssetController#getEdgeAssets(String, int, int, String, String,
+   * String, String, Long, Long)}
+   */
+  @Test
+  @DisplayName("Test getEdgeAssets(String, int, int, String, String, String, String, Long, Long)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.page.PageData AssetController.getEdgeAssets(String, int, int, String, String, String, String, Long, Long)"
+  })
+  void testGetEdgeAssets() throws Exception {
+    // Arrange
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/edge/{edgeId}/assets", "42")
+            .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(assetController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().is(400));
   }
 }

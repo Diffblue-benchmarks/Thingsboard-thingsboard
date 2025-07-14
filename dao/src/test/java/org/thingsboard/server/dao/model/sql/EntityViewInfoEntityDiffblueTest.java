@@ -1,12 +1,11 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -19,8 +18,9 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.node.TreeTraversingParser;
 import java.math.BigInteger;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.EntityViewInfo;
 import org.thingsboard.server.common.data.id.AlarmId;
@@ -40,7 +40,7 @@ import org.thingsboard.server.common.data.id.WidgetTypeId;
 import org.thingsboard.server.common.data.id.WidgetsBundleId;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 
-public class EntityViewInfoEntityDiffblueTest {
+class EntityViewInfoEntityDiffblueTest {
   /**
    * Test {@link EntityViewInfoEntity#equals(Object)}, and {@link EntityViewInfoEntity#hashCode()}.
    *
@@ -57,12 +57,13 @@ public class EntityViewInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean EntityViewInfoEntity.equals(Object)",
     "int EntityViewInfoEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     EntityViewInfoEntity entityViewInfoEntity2 = new EntityViewInfoEntity();
@@ -89,12 +90,13 @@ public class EntityViewInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean EntityViewInfoEntity.equals(Object)",
     "int EntityViewInfoEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     entityViewInfoEntity.setCustomerTitle("Dr");
@@ -124,12 +126,13 @@ public class EntityViewInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean EntityViewInfoEntity.equals(Object)",
     "int EntityViewInfoEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
 
@@ -150,12 +153,13 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean EntityViewInfoEntity.equals(Object)",
     "int EntityViewInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
 
@@ -191,12 +195,13 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean EntityViewInfoEntity.equals(Object)",
     "int EntityViewInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     entityViewInfoEntity.setCustomerTitle("Dr");
@@ -216,12 +221,13 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean EntityViewInfoEntity.equals(Object)",
     "int EntityViewInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     entityViewInfoEntity.setCustomerIsPublic(true);
@@ -241,12 +247,13 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean EntityViewInfoEntity.equals(Object)",
     "int EntityViewInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     entityViewInfoEntity.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -266,12 +273,13 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean EntityViewInfoEntity.equals(Object)",
     "int EntityViewInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
 
@@ -293,12 +301,13 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean EntityViewInfoEntity.equals(Object)",
     "int EntityViewInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityViewInfoEntity(), null);
   }
@@ -314,12 +323,13 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean EntityViewInfoEntity.equals(Object)",
     "int EntityViewInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new EntityViewInfoEntity(), "Different type to EntityViewInfoEntity");
   }
@@ -339,7 +349,8 @@ public class EntityViewInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void EntityViewInfoEntity.<init>()",
     "String EntityViewInfoEntity.getCustomerTitle()",
@@ -348,7 +359,7 @@ public class EntityViewInfoEntityDiffblueTest {
     "void EntityViewInfoEntity.setCustomerTitle(String)",
     "String EntityViewInfoEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     EntityViewInfoEntity actualEntityViewInfoEntity = new EntityViewInfoEntity();
     actualEntityViewInfoEntity.setCustomerIsPublic(true);
@@ -391,9 +402,11 @@ public class EntityViewInfoEntityDiffblueTest {
    * String, Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new EntityViewInfoEntity(EntityViewEntity, String, Object); when ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EntityViewInfoEntity.<init>(EntityViewEntity, String, Object)"})
-  public void testNewEntityViewInfoEntity_whenArrayNodeWithNfIsWithExactBigDecimalsTrue() {
+  void testNewEntityViewInfoEntity_whenArrayNodeWithNfIsWithExactBigDecimalsTrue() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -435,9 +448,11 @@ public class EntityViewInfoEntityDiffblueTest {
    * String, Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new EntityViewInfoEntity(EntityViewEntity, String, Object); when BigIntegerNode(BigInteger) with v is valueOf one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EntityViewInfoEntity.<init>(EntityViewEntity, String, Object)"})
-  public void testNewEntityViewInfoEntity_whenBigIntegerNodeWithVIsValueOfOne() {
+  void testNewEntityViewInfoEntity_whenBigIntegerNodeWithVIsValueOfOne() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -479,9 +494,10 @@ public class EntityViewInfoEntityDiffblueTest {
    * String, Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new EntityViewInfoEntity(EntityViewEntity, String, Object); when 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EntityViewInfoEntity.<init>(EntityViewEntity, String, Object)"})
-  public void testNewEntityViewInfoEntity_whenNull() {
+  void testNewEntityViewInfoEntity_whenNull() {
     // Arrange
     EntityViewEntity entityViewEntity = new EntityViewEntity();
     entityViewEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -522,9 +538,11 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given EntityViewInfoEntity() EntityType is 'ALARM'; then EntityId return AlarmId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_givenEntityViewInfoEntityEntityTypeIsAlarm_thenEntityIdReturnAlarmId() {
+  void testToData_givenEntityViewInfoEntityEntityTypeIsAlarm_thenEntityIdReturnAlarmId() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     entityViewInfoEntity.setEntityType(EntityType.ALARM);
@@ -552,9 +570,11 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given EntityViewInfoEntity() EntityType is 'ASSET'; then EntityId return AssetId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_givenEntityViewInfoEntityEntityTypeIsAsset_thenEntityIdReturnAssetId() {
+  void testToData_givenEntityViewInfoEntityEntityTypeIsAsset_thenEntityIdReturnAssetId() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     entityViewInfoEntity.setEntityType(EntityType.ASSET);
@@ -582,9 +602,11 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given EntityViewInfoEntity() EntityType is 'USER'; then EntityId return UserId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_givenEntityViewInfoEntityEntityTypeIsUser_thenEntityIdReturnUserId() {
+  void testToData_givenEntityViewInfoEntityEntityTypeIsUser_thenEntityIdReturnUserId() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     entityViewInfoEntity.setEntityType(EntityType.USER);
@@ -612,9 +634,11 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given EntityViewInfoEntity() Keys is '42'; then AdditionalInfo return NullNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_givenEntityViewInfoEntityKeysIs42_thenAdditionalInfoReturnNullNode() {
+  void testToData_givenEntityViewInfoEntityKeysIs42_thenAdditionalInfoReturnNullNode() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     entityViewInfoEntity.setKeys("42");
@@ -646,9 +670,10 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given EntityViewInfoEntity() Keys is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_givenEntityViewInfoEntityKeysIsEmptyString() {
+  void testToData_givenEntityViewInfoEntityKeysIsEmptyString() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     entityViewInfoEntity.setKeys("");
@@ -681,9 +706,11 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given EntityViewInfoEntity() Keys is 'Keys'; then AdditionalInfo return NullNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_givenEntityViewInfoEntityKeysIsKeys_thenAdditionalInfoReturnNullNode() {
+  void testToData_givenEntityViewInfoEntityKeysIsKeys_thenAdditionalInfoReturnNullNode() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     entityViewInfoEntity.setKeys("Keys");
@@ -716,9 +743,10 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given EntityViewInfoEntity(); then AdditionalInfo return NullNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_givenEntityViewInfoEntity_thenAdditionalInfoReturnNullNode() {
+  void testToData_givenEntityViewInfoEntity_thenAdditionalInfoReturnNullNode() {
     // Arrange and Act
     EntityViewInfo actualToDataResult = new EntityViewInfoEntity().toData();
 
@@ -746,9 +774,10 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then EntityId return CustomerId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_thenEntityIdReturnCustomerId() {
+  void testToData_thenEntityIdReturnCustomerId() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     entityViewInfoEntity.setEntityType(EntityType.CUSTOMER);
@@ -775,9 +804,10 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then EntityId return DashboardId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_thenEntityIdReturnDashboardId() {
+  void testToData_thenEntityIdReturnDashboardId() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     entityViewInfoEntity.setEntityType(EntityType.DASHBOARD);
@@ -804,9 +834,10 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then EntityId return DeviceId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_thenEntityIdReturnDeviceId() {
+  void testToData_thenEntityIdReturnDeviceId() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     entityViewInfoEntity.setEntityType(EntityType.DEVICE);
@@ -833,9 +864,10 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then EntityId return DeviceProfileId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_thenEntityIdReturnDeviceProfileId() {
+  void testToData_thenEntityIdReturnDeviceProfileId() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     entityViewInfoEntity.setEntityType(EntityType.DEVICE_PROFILE);
@@ -862,9 +894,10 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then EntityId return EntityViewId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_thenEntityIdReturnEntityViewId() {
+  void testToData_thenEntityIdReturnEntityViewId() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     entityViewInfoEntity.setEntityType(EntityType.ENTITY_VIEW);
@@ -891,9 +924,10 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then EntityId return RuleChainId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_thenEntityIdReturnRuleChainId() {
+  void testToData_thenEntityIdReturnRuleChainId() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     entityViewInfoEntity.setEntityType(EntityType.RULE_CHAIN);
@@ -920,9 +954,10 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then EntityId return RuleNodeId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_thenEntityIdReturnRuleNodeId() {
+  void testToData_thenEntityIdReturnRuleNodeId() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     entityViewInfoEntity.setEntityType(EntityType.RULE_NODE);
@@ -949,9 +984,10 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then EntityId return TenantId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_thenEntityIdReturnTenantId() {
+  void testToData_thenEntityIdReturnTenantId() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     entityViewInfoEntity.setEntityType(EntityType.TENANT);
@@ -976,9 +1012,10 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then EntityId return TenantProfileId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_thenEntityIdReturnTenantProfileId() {
+  void testToData_thenEntityIdReturnTenantProfileId() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     entityViewInfoEntity.setEntityType(EntityType.TENANT_PROFILE);
@@ -1005,9 +1042,10 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then EntityId return WidgetTypeId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_thenEntityIdReturnWidgetTypeId() {
+  void testToData_thenEntityIdReturnWidgetTypeId() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     entityViewInfoEntity.setEntityType(EntityType.WIDGET_TYPE);
@@ -1034,9 +1072,10 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then EntityId return WidgetsBundleId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_thenEntityIdReturnWidgetsBundleId() {
+  void testToData_thenEntityIdReturnWidgetsBundleId() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     entityViewInfoEntity.setEntityType(EntityType.WIDGETS_BUNDLE);
@@ -1063,9 +1102,10 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return AdditionalInfo is Instance")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_thenReturnAdditionalInfoIsInstance() {
+  void testToData_thenReturnAdditionalInfoIsInstance() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     MissingNode additionalInfo = MissingNode.getInstance();
@@ -1085,9 +1125,11 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return CustomerId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_thenReturnCustomerIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnCustomerIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     UUID customerId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -1112,9 +1154,11 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return ExternalId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_thenReturnExternalIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnExternalIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     UUID externalId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -1139,9 +1183,10 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return TenantId Id is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdIsRandomUUID() {
+  void testToData_thenReturnTenantIdIdIsRandomUUID() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     UUID tenantId = UUID.randomUUID();
@@ -1165,9 +1210,11 @@ public class EntityViewInfoEntityDiffblueTest {
    * <p>Method under test: {@link EntityViewInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return TenantId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityViewInfo EntityViewInfoEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     EntityViewInfoEntity entityViewInfoEntity = new EntityViewInfoEntity();
     entityViewInfoEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));

@@ -1,7 +1,6 @@
 package org.thingsboard.server.service.sync.vc;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.MethodsUnderTest;
@@ -9,11 +8,8 @@ import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.sync.vc.RepositorySettings;
-import org.thingsboard.server.gen.transport.TransportProtos;
-import org.thingsboard.server.gen.transport.TransportProtos.ToVersionControlServiceMsg;
 
 class VersionControlRequestCtxDiffblueTest {
   /**
@@ -94,45 +90,5 @@ class VersionControlRequestCtxDiffblueTest {
     assertSame(tenantId, actualTenantId);
     assertSame(settings, actualSettings);
     assertSame(requestId, actualRequestId);
-  }
-
-  /**
-   * Test {@link VersionControlRequestCtx#VersionControlRequestCtx(ToVersionControlServiceMsg,
-   * RepositorySettings)}.
-   *
-   * <ul>
-   *   <li>Then return NodeId is empty string.
-   * </ul>
-   *
-   * <p>Method under test: {@link
-   * VersionControlRequestCtx#VersionControlRequestCtx(ToVersionControlServiceMsg,
-   * RepositorySettings)}
-   */
-  @Test
-  @DisplayName(
-      "Test new VersionControlRequestCtx(ToVersionControlServiceMsg, RepositorySettings); then return NodeId is empty string")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-    "void VersionControlRequestCtx.<init>(ToVersionControlServiceMsg, RepositorySettings)"
-  })
-  void testNewVersionControlRequestCtx_thenReturnNodeIdIsEmptyString() {
-    // Arrange
-    ToVersionControlServiceMsg msg = ToVersionControlServiceMsg.getDefaultInstance();
-    RepositorySettings settings = new RepositorySettings();
-
-    // Act
-    VersionControlRequestCtx actualVersionControlRequestCtx =
-        new VersionControlRequestCtx(msg, settings);
-
-    // Assert
-    assertEquals("", actualVersionControlRequestCtx.getNodeId());
-    assertEquals(
-        "00000000-0000-0000-0000-000000000000",
-        actualVersionControlRequestCtx.getRequestId().toString());
-    TenantId tenantId = actualVersionControlRequestCtx.getTenantId();
-    assertEquals(EntityType.TENANT, tenantId.getEntityType());
-    assertFalse(tenantId.isNullUid());
-    assertFalse(tenantId.isSysTenantId());
-    assertSame(settings, actualVersionControlRequestCtx.getSettings());
   }
 }

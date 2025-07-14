@@ -3209,57 +3209,6 @@ class BaseControllerDiffblueTest {
    * Test {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}.
    *
    * <ul>
-   *   <li>Given {@link AuditLogController}.
-   * </ul>
-   *
-   * <p>Method under test: {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}
-   */
-  @Test
-  @DisplayName("Test checkAlarmCommentId(AlarmCommentId, AlarmId); given AuditLogController")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-    "org.thingsboard.server.common.data.alarm.AlarmComment BaseController.checkAlarmCommentId(AlarmCommentId, AlarmId)"
-  })
-  void testCheckAlarmCommentId_givenAuditLogController() throws ThingsboardException {
-    // Arrange
-    AlarmCommentId alarmCommentId = mock(AlarmCommentId.class);
-    when(alarmCommentId.getId()).thenThrow(new EmptyResultDataAccessException(3));
-
-    // Act and Assert
-    assertThrows(
-        ThingsboardException.class,
-        () -> auditLogController.checkAlarmCommentId(alarmCommentId, null));
-    verify(alarmCommentId).getId();
-  }
-
-  /**
-   * Test {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}.
-   *
-   * <ul>
-   *   <li>Given {@link AuditLogController} (default constructor).
-   *   <li>Then throw {@link ThingsboardException}.
-   * </ul>
-   *
-   * <p>Method under test: {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}
-   */
-  @Test
-  @DisplayName(
-      "Test checkAlarmCommentId(AlarmCommentId, AlarmId); given AuditLogController (default constructor); then throw ThingsboardException")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-    "org.thingsboard.server.common.data.alarm.AlarmComment BaseController.checkAlarmCommentId(AlarmCommentId, AlarmId)"
-  })
-  void testCheckAlarmCommentId_givenAuditLogController_thenThrowThingsboardException()
-      throws ThingsboardException {
-    // Arrange, Act and Assert
-    assertThrows(
-        ThingsboardException.class, () -> new AuditLogController().checkAlarmCommentId(null, null));
-  }
-
-  /**
-   * Test {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}.
-   *
-   * <ul>
    *   <li>Given {@link DataValidationException#DataValidationException(String)} with message is
    *       {@code An error occurred}.
    * </ul>
@@ -3345,6 +3294,30 @@ class BaseControllerDiffblueTest {
         ThingsboardException.class,
         () -> auditLogController.checkAlarmCommentId(alarmCommentId, null));
     verify(alarmCommentId).getId();
+  }
+
+  /**
+   * Test {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}.
+   *
+   * <ul>
+   *   <li>When {@code null}.
+   *   <li>Then throw {@link ThingsboardException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseController#checkAlarmCommentId(AlarmCommentId, AlarmId)}
+   */
+  @Test
+  @DisplayName(
+      "Test checkAlarmCommentId(AlarmCommentId, AlarmId); when 'null'; then throw ThingsboardException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.alarm.AlarmComment BaseController.checkAlarmCommentId(AlarmCommentId, AlarmId)"
+  })
+  void testCheckAlarmCommentId_whenNull_thenThrowThingsboardException()
+      throws ThingsboardException {
+    // Arrange, Act and Assert
+    assertThrows(
+        ThingsboardException.class, () -> new AuditLogController().checkAlarmCommentId(null, null));
   }
 
   /**

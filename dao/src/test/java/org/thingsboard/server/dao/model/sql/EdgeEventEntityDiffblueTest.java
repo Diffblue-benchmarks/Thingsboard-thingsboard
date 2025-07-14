@@ -1,18 +1,18 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.edge.EdgeEvent;
 import org.thingsboard.server.common.data.edge.EdgeEventActionType;
 import org.thingsboard.server.common.data.edge.EdgeEventType;
@@ -21,7 +21,7 @@ import org.thingsboard.server.common.data.id.EdgeId;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class EdgeEventEntityDiffblueTest {
+class EdgeEventEntityDiffblueTest {
   /**
    * Test {@link EdgeEventEntity#equals(Object)}, and {@link EdgeEventEntity#hashCode()}.
    *
@@ -38,9 +38,10 @@ public class EdgeEventEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEventEntity.equals(Object)", "int EdgeEventEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);
@@ -92,9 +93,10 @@ public class EdgeEventEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEventEntity.equals(Object)", "int EdgeEventEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);
@@ -146,9 +148,10 @@ public class EdgeEventEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEventEntity.equals(Object)", "int EdgeEventEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);
@@ -181,9 +184,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEventEntity.equals(Object)", "int EdgeEventEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(3L);
@@ -228,9 +232,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEventEntity.equals(Object)", "int EdgeEventEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);
@@ -275,9 +280,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEventEntity.equals(Object)", "int EdgeEventEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);
@@ -322,9 +328,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEventEntity.equals(Object)", "int EdgeEventEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);
@@ -369,9 +376,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEventEntity.equals(Object)", "int EdgeEventEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);
@@ -416,9 +424,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEventEntity.equals(Object)", "int EdgeEventEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);
@@ -463,9 +472,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEventEntity.equals(Object)", "int EdgeEventEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);
@@ -510,9 +520,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEventEntity.equals(Object)", "int EdgeEventEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);
@@ -557,9 +568,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEventEntity.equals(Object)", "int EdgeEventEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);
@@ -604,9 +616,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEventEntity.equals(Object)", "int EdgeEventEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);
@@ -651,9 +664,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEventEntity.equals(Object)", "int EdgeEventEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);
@@ -698,9 +712,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEventEntity.equals(Object)", "int EdgeEventEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);
@@ -745,9 +760,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEventEntity.equals(Object)", "int EdgeEventEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);
@@ -792,9 +808,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEventEntity.equals(Object)", "int EdgeEventEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);
@@ -839,9 +856,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEventEntity.equals(Object)", "int EdgeEventEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);
@@ -886,9 +904,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEventEntity.equals(Object)", "int EdgeEventEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);
@@ -933,9 +952,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEventEntity.equals(Object)", "int EdgeEventEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);
@@ -980,9 +1000,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEventEntity.equals(Object)", "int EdgeEventEntity.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);
@@ -1013,9 +1034,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEventEntity.equals(Object)", "int EdgeEventEntity.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);
@@ -1064,7 +1086,8 @@ public class EdgeEventEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void EdgeEventEntity.<init>()",
     "EdgeEventActionType EdgeEventEntity.getEdgeEventAction()",
@@ -1087,7 +1110,7 @@ public class EdgeEventEntityDiffblueTest {
     "void EdgeEventEntity.setTs(long)",
     "String EdgeEventEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     EdgeEventEntity actualEdgeEventEntity = new EdgeEventEntity();
     actualEdgeEventEntity.setEdgeEventAction(EdgeEventActionType.ADDED);
@@ -1143,9 +1166,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#EdgeEventEntity(EdgeEvent)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new EdgeEventEntity(EdgeEvent)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeEventEntity.<init>(EdgeEvent)"})
-  public void testNewEdgeEventEntity() {
+  void testNewEdgeEventEntity() {
     // Arrange
     EdgeEvent edgeEvent = new EdgeEvent(null);
     edgeEvent.setTenantId(ModelConstants.SYSTEM_TENANT);
@@ -1171,9 +1195,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#EdgeEventEntity(EdgeEvent)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new EdgeEventEntity(EdgeEvent)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeEventEntity.<init>(EdgeEvent)"})
-  public void testNewEdgeEventEntity2() {
+  void testNewEdgeEventEntity2() {
     // Arrange
     EdgeEvent edgeEvent = new EdgeEvent(null);
     edgeEvent.setTenantId(null);
@@ -1205,9 +1230,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#EdgeEventEntity(EdgeEvent)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new EdgeEventEntity(EdgeEvent); given one; then return CreatedTime is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeEventEntity.<init>(EdgeEvent)"})
-  public void testNewEdgeEventEntity_givenOne_thenReturnCreatedTimeIsOne() {
+  void testNewEdgeEventEntity_givenOne_thenReturnCreatedTimeIsOne() {
     // Arrange
     EdgeEvent edgeEvent = new EdgeEvent();
     edgeEvent.setCreatedTime(1L);
@@ -1234,9 +1260,11 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#EdgeEventEntity(EdgeEvent)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new EdgeEventEntity(EdgeEvent); then return Id toString is '13814000-1dd2-11b2-8080-808080808080'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeEventEntity.<init>(EdgeEvent)"})
-  public void testNewEdgeEventEntity_thenReturnIdToStringIs138140001dd211b28080808080808080() {
+  void testNewEdgeEventEntity_thenReturnIdToStringIs138140001dd211b28080808080808080() {
     // Arrange
     EdgeEvent edgeEvent = new EdgeEvent(new EdgeEventId(ModelConstants.NULL_UUID));
     edgeEvent.setTenantId(null);
@@ -1267,9 +1295,11 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#EdgeEventEntity(EdgeEvent)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new EdgeEventEntity(EdgeEvent); when EdgeEvent(EdgeEventId) with id is 'null' TenantId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeEventEntity.<init>(EdgeEvent)"})
-  public void testNewEdgeEventEntity_whenEdgeEventWithIdIsNullTenantIdIsNull() {
+  void testNewEdgeEventEntity_whenEdgeEventWithIdIsNullTenantIdIsNull() {
     // Arrange
     EdgeEvent edgeEvent = new EdgeEvent(null);
     edgeEvent.setTenantId(null);
@@ -1299,9 +1329,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#EdgeEventEntity(EdgeEvent)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new EdgeEventEntity(EdgeEvent); when EdgeEvent(); then return Id is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeEventEntity.<init>(EdgeEvent)"})
-  public void testNewEdgeEventEntity_whenEdgeEvent_thenReturnIdIsNull() {
+  void testNewEdgeEventEntity_whenEdgeEvent_thenReturnIdIsNull() {
     // Arrange and Act
     EdgeEventEntity actualEdgeEventEntity = new EdgeEventEntity(new EdgeEvent());
 
@@ -1325,9 +1356,11 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given EdgeEventEntity() EntityId is 'null'; then return EntityId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EdgeEvent EdgeEventEntity.toData()"})
-  public void testToData_givenEdgeEventEntityEntityIdIsNull_thenReturnEntityIdIsNull() {
+  void testToData_givenEdgeEventEntityEntityIdIsNull_thenReturnEntityIdIsNull() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);
@@ -1369,9 +1402,10 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given EdgeEventEntity(); then return Body is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EdgeEvent EdgeEventEntity.toData()"})
-  public void testToData_givenEdgeEventEntity_thenReturnBodyIsNull() {
+  void testToData_givenEdgeEventEntity_thenReturnBodyIsNull() {
     // Arrange and Act
     EdgeEvent actualToDataResult = new EdgeEventEntity().toData();
 
@@ -1398,9 +1432,11 @@ public class EdgeEventEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEventEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return EntityId is fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EdgeEvent EdgeEventEntity.toData()"})
-  public void testToData_thenReturnEntityIdIsFromString784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnEntityIdIsFromString784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     EdgeEventEntity edgeEventEntity = new EdgeEventEntity();
     edgeEventEntity.setCreatedTime(1L);

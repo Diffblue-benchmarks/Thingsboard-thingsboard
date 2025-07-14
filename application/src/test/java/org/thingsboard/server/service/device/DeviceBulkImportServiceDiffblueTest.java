@@ -148,7 +148,8 @@ class DeviceBulkImportServiceDiffblueTest {
     when(device.getAdditionalInfo()).thenReturn(jsonNode);
 
     HashMap<BulkImportColumnType, String> fields = new HashMap<>();
-    fields.put(BulkImportColumnType.LABEL, "foo");
+    fields.put(BulkImportColumnType.LABEL, "");
+    fields.put(BulkImportColumnType.TYPE, "foo");
 
     // Act and Assert
     assertThrows(
@@ -156,7 +157,7 @@ class DeviceBulkImportServiceDiffblueTest {
         () -> deviceBulkImportService.setEntityFields(device, fields));
     verify(jsonNode).isNull();
     verify(device, atLeast(1)).getAdditionalInfo();
-    verify(device).setLabel(eq("foo"));
+    verify(device).setLabel(eq(""));
   }
 
   /**

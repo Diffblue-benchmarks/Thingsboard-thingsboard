@@ -1,12 +1,11 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.BooleanNode;
@@ -19,8 +18,9 @@ import com.fasterxml.jackson.databind.node.TextNode;
 import com.fasterxml.jackson.databind.node.TreeTraversingParser;
 import java.util.Iterator;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.QueueId;
 import org.thingsboard.server.common.data.queue.ProcessingStrategy;
 import org.thingsboard.server.common.data.queue.ProcessingStrategyType;
@@ -31,7 +31,7 @@ import org.thingsboard.server.common.data.tenant.profile.TenantProfileQueueConfi
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class QueueEntityDiffblueTest {
+class QueueEntityDiffblueTest {
   /**
    * Test {@link QueueEntity#equals(Object)}, and {@link QueueEntity#hashCode()}.
    *
@@ -48,9 +48,10 @@ public class QueueEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueEntity.equals(Object)", "int QueueEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     QueueEntity queueEntity = new QueueEntity();
     queueEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -104,9 +105,10 @@ public class QueueEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueEntity.equals(Object)", "int QueueEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     QueueEntity queueEntity = new QueueEntity();
     queueEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -140,9 +142,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueEntity.equals(Object)", "int QueueEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     QueueEntity queueEntity = new QueueEntity();
     queueEntity.setAdditionalInfo(DoubleNode.valueOf(10.0d));
@@ -189,9 +192,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueEntity.equals(Object)", "int QueueEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     QueueEntity queueEntity = new QueueEntity();
     queueEntity.setAdditionalInfo(null);
@@ -238,9 +242,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueEntity.equals(Object)", "int QueueEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     QueueEntity queueEntity = new QueueEntity();
     queueEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -287,9 +292,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueEntity.equals(Object)", "int QueueEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     QueueEntity queueEntity = new QueueEntity();
     queueEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -336,9 +342,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueEntity.equals(Object)", "int QueueEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     QueueEntity queueEntity = new QueueEntity();
     queueEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -385,9 +392,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueEntity.equals(Object)", "int QueueEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     QueueEntity queueEntity = new QueueEntity();
     queueEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -434,9 +442,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueEntity.equals(Object)", "int QueueEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     QueueEntity queueEntity = new QueueEntity();
     queueEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -483,9 +492,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueEntity.equals(Object)", "int QueueEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     QueueEntity queueEntity = new QueueEntity();
     queueEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -532,9 +542,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueEntity.equals(Object)", "int QueueEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     QueueEntity queueEntity = new QueueEntity();
     queueEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -581,9 +592,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueEntity.equals(Object)", "int QueueEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     QueueEntity queueEntity = new QueueEntity();
     queueEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -630,9 +642,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueEntity.equals(Object)", "int QueueEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     QueueEntity queueEntity = new QueueEntity();
     queueEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -679,9 +692,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueEntity.equals(Object)", "int QueueEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     QueueEntity queueEntity = new QueueEntity();
     queueEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -728,9 +742,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueEntity.equals(Object)", "int QueueEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     QueueEntity queueEntity = new QueueEntity();
     queueEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -777,9 +792,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueEntity.equals(Object)", "int QueueEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     QueueEntity queueEntity = new QueueEntity();
     queueEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -826,9 +842,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueEntity.equals(Object)", "int QueueEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     QueueEntity queueEntity = new QueueEntity();
     queueEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -875,9 +892,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueEntity.equals(Object)", "int QueueEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     QueueEntity queueEntity = new QueueEntity();
     queueEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -924,9 +942,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueEntity.equals(Object)", "int QueueEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     QueueEntity queueEntity = new QueueEntity();
     queueEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -973,9 +992,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueEntity.equals(Object)", "int QueueEntity.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     QueueEntity queueEntity = new QueueEntity();
     queueEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1007,9 +1027,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean QueueEntity.equals(Object)", "int QueueEntity.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     QueueEntity queueEntity = new QueueEntity();
     queueEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1061,7 +1082,8 @@ public class QueueEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void QueueEntity.<init>()",
     "JsonNode QueueEntity.getAdditionalInfo()",
@@ -1086,7 +1108,7 @@ public class QueueEntityDiffblueTest {
     "void QueueEntity.setTopic(String)",
     "String QueueEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     QueueEntity actualQueueEntity = new QueueEntity();
     actualQueueEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1146,9 +1168,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#QueueEntity(Queue)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new QueueEntity(Queue); then AdditionalInfo return NullNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void QueueEntity.<init>(Queue)"})
-  public void testNewQueueEntity_thenAdditionalInfoReturnNullNode() {
+  void testNewQueueEntity_thenAdditionalInfoReturnNullNode() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
     processingStrategy.setFailurePercentage(10.0d);
@@ -1196,9 +1219,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#QueueEntity(Queue)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new QueueEntity(Queue); then ProcessingStrategy return ObjectNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void QueueEntity.<init>(Queue)"})
-  public void testNewQueueEntity_thenProcessingStrategyReturnObjectNode() {
+  void testNewQueueEntity_thenProcessingStrategyReturnObjectNode() {
     // Arrange
     Queue queue = new Queue(null);
     queue.setTenantId(null);
@@ -1250,9 +1274,11 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#QueueEntity(Queue)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new QueueEntity(Queue); then ProcessingStrategy traverse return TreeTraversingParser")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void QueueEntity.<init>(Queue)"})
-  public void testNewQueueEntity_thenProcessingStrategyTraverseReturnTreeTraversingParser() {
+  void testNewQueueEntity_thenProcessingStrategyTraverseReturnTreeTraversingParser() {
     // Arrange and Act
     QueueEntity actualQueueEntity = new QueueEntity(new Queue());
 
@@ -1282,9 +1308,11 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#QueueEntity(Queue)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new QueueEntity(Queue); then return Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void QueueEntity.<init>(Queue)"})
-  public void testNewQueueEntity_thenReturnIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testNewQueueEntity_thenReturnIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
     processingStrategy.setFailurePercentage(10.0d);
@@ -1319,9 +1347,11 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#QueueEntity(Queue)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new QueueEntity(Queue); then return TenantId toString is '13814000-1dd2-11b2-8080-808080808080'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void QueueEntity.<init>(Queue)"})
-  public void testNewQueueEntity_thenReturnTenantIdToStringIs138140001dd211b28080808080808080() {
+  void testNewQueueEntity_thenReturnTenantIdToStringIs138140001dd211b28080808080808080() {
     // Arrange
     Queue queue = new Queue(null);
     queue.setTenantId(ModelConstants.SYSTEM_TENANT);
@@ -1358,9 +1388,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#QueueEntity(Queue)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new QueueEntity(Queue); then SubmitStrategy return NullNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void QueueEntity.<init>(Queue)"})
-  public void testNewQueueEntity_thenSubmitStrategyReturnNullNode() {
+  void testNewQueueEntity_thenSubmitStrategyReturnNullNode() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
     processingStrategy.setFailurePercentage(10.0d);
@@ -1394,9 +1425,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Queue QueueEntity.toData()"})
-  public void testToData() {
+  void testToData() {
     // Arrange
     ProcessingStrategy processingStrategy = new ProcessingStrategy();
     processingStrategy.setFailurePercentage(10.0d);
@@ -1436,9 +1468,11 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given QueueEntity(Queue) with queue is Queue(); then AdditionalInfo return NullNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Queue QueueEntity.toData()"})
-  public void testToData_givenQueueEntityWithQueueIsQueue_thenAdditionalInfoReturnNullNode() {
+  void testToData_givenQueueEntityWithQueueIsQueue_thenAdditionalInfoReturnNullNode() {
     // Arrange and Act
     Queue actualToDataResult = new QueueEntity(new Queue()).toData();
 
@@ -1463,9 +1497,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given QueueEntity(); then AdditionalInfo return NullNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Queue QueueEntity.toData()"})
-  public void testToData_givenQueueEntity_thenAdditionalInfoReturnNullNode() {
+  void testToData_givenQueueEntity_thenAdditionalInfoReturnNullNode() {
     // Arrange and Act
     Queue actualToDataResult = new QueueEntity().toData();
 
@@ -1489,9 +1524,10 @@ public class QueueEntityDiffblueTest {
    * <p>Method under test: {@link QueueEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then AdditionalInfo iterator next return BooleanNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Queue QueueEntity.toData()"})
-  public void testToData_thenAdditionalInfoIteratorNextReturnBooleanNode() {
+  void testToData_thenAdditionalInfoIteratorNextReturnBooleanNode() {
     // Arrange
     QueueEntity queueEntity = new QueueEntity();
     queueEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);

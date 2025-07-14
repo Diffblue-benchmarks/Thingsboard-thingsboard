@@ -1,17 +1,17 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.List;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.alarm.AlarmAssignee;
 import org.thingsboard.server.common.data.alarm.AlarmInfo;
@@ -50,7 +50,7 @@ import org.thingsboard.server.common.data.id.WidgetTypeId;
 import org.thingsboard.server.common.data.id.WidgetsBundleId;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 
-public class AlarmInfoEntityDiffblueTest {
+class AlarmInfoEntityDiffblueTest {
   /**
    * Test {@link AlarmInfoEntity#equals(Object)}, and {@link AlarmInfoEntity#hashCode()}.
    *
@@ -67,9 +67,10 @@ public class AlarmInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AlarmInfoEntity.equals(Object)", "int AlarmInfoEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -153,9 +154,10 @@ public class AlarmInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AlarmInfoEntity.equals(Object)", "int AlarmInfoEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -204,9 +206,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AlarmInfoEntity.equals(Object)", "int AlarmInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(3L);
@@ -283,9 +286,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AlarmInfoEntity.equals(Object)", "int AlarmInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -362,9 +366,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AlarmInfoEntity.equals(Object)", "int AlarmInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -441,9 +446,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AlarmInfoEntity.equals(Object)", "int AlarmInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -520,9 +526,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AlarmInfoEntity.equals(Object)", "int AlarmInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -599,9 +606,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AlarmInfoEntity.equals(Object)", "int AlarmInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -678,9 +686,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AlarmInfoEntity.equals(Object)", "int AlarmInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -757,9 +766,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AlarmInfoEntity.equals(Object)", "int AlarmInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -836,9 +846,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AlarmInfoEntity.equals(Object)", "int AlarmInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -915,9 +926,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AlarmInfoEntity.equals(Object)", "int AlarmInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -994,9 +1006,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AlarmInfoEntity.equals(Object)", "int AlarmInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -1073,9 +1086,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AlarmInfoEntity.equals(Object)", "int AlarmInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -1152,9 +1166,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AlarmInfoEntity.equals(Object)", "int AlarmInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -1231,9 +1246,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AlarmInfoEntity.equals(Object)", "int AlarmInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -1280,9 +1296,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AlarmInfoEntity.equals(Object)", "int AlarmInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -1341,7 +1358,8 @@ public class AlarmInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void AlarmInfoEntity.<init>()",
     "String AlarmInfoEntity.getAssigneeEmail()",
@@ -1358,7 +1376,7 @@ public class AlarmInfoEntityDiffblueTest {
     "void AlarmInfoEntity.setStatus(String)",
     "String AlarmInfoEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     AlarmInfoEntity actualAlarmInfoEntity = new AlarmInfoEntity();
     actualAlarmInfoEntity.setAssigneeEmail("jane.doe@example.org");
@@ -1420,9 +1438,11 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given AlarmInfoEntity (default constructor) OriginatorType is 'ALARM'; then Originator return AlarmId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_givenAlarmInfoEntityOriginatorTypeIsAlarm_thenOriginatorReturnAlarmId() {
+  void testToData_givenAlarmInfoEntityOriginatorTypeIsAlarm_thenOriginatorReturnAlarmId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -1469,9 +1489,11 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given AlarmInfoEntity (default constructor) OriginatorType is 'ASSET'; then Originator return AssetId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_givenAlarmInfoEntityOriginatorTypeIsAsset_thenOriginatorReturnAssetId() {
+  void testToData_givenAlarmInfoEntityOriginatorTypeIsAsset_thenOriginatorReturnAssetId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -1527,9 +1549,11 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given AlarmInfoEntity (default constructor) OriginatorType is 'EDGE'; then Originator return EdgeId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_givenAlarmInfoEntityOriginatorTypeIsEdge_thenOriginatorReturnEdgeId() {
+  void testToData_givenAlarmInfoEntityOriginatorTypeIsEdge_thenOriginatorReturnEdgeId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -1585,9 +1609,11 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given AlarmInfoEntity (default constructor) OriginatorType is 'QUEUE'; then Originator return QueueId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_givenAlarmInfoEntityOriginatorTypeIsQueue_thenOriginatorReturnQueueId() {
+  void testToData_givenAlarmInfoEntityOriginatorTypeIsQueue_thenOriginatorReturnQueueId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -1643,9 +1669,11 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given AlarmInfoEntity (default constructor) OriginatorType is 'RPC'; then Originator return RpcId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_givenAlarmInfoEntityOriginatorTypeIsRpc_thenOriginatorReturnRpcId() {
+  void testToData_givenAlarmInfoEntityOriginatorTypeIsRpc_thenOriginatorReturnRpcId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -1701,9 +1729,11 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given AlarmInfoEntity (default constructor) OriginatorType is 'USER'; then Originator return UserId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_givenAlarmInfoEntityOriginatorTypeIsUser_thenOriginatorReturnUserId() {
+  void testToData_givenAlarmInfoEntityOriginatorTypeIsUser_thenOriginatorReturnUserId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -1759,9 +1789,11 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given AlarmInfoEntity (default constructor) PropagateRelationTypes is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_givenAlarmInfoEntityPropagateRelationTypesIsNull() {
+  void testToData_givenAlarmInfoEntityPropagateRelationTypesIsNull() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -1813,9 +1845,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return ApiUsageStateId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnApiUsageStateId() {
+  void testToData_thenOriginatorReturnApiUsageStateId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -1870,9 +1903,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return AssetProfileId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnAssetProfileId() {
+  void testToData_thenOriginatorReturnAssetProfileId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -1927,9 +1961,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return CustomerId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnCustomerId() {
+  void testToData_thenOriginatorReturnCustomerId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -1984,9 +2019,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return DashboardId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnDashboardId() {
+  void testToData_thenOriginatorReturnDashboardId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -2041,9 +2077,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return DeviceId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnDeviceId() {
+  void testToData_thenOriginatorReturnDeviceId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -2098,9 +2135,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return DeviceProfileId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnDeviceProfileId() {
+  void testToData_thenOriginatorReturnDeviceProfileId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -2155,9 +2193,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return DomainId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnDomainId() {
+  void testToData_thenOriginatorReturnDomainId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -2212,9 +2251,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return EntityViewId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnEntityViewId() {
+  void testToData_thenOriginatorReturnEntityViewId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -2269,9 +2309,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return MobileAppId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnMobileAppId() {
+  void testToData_thenOriginatorReturnMobileAppId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -2326,9 +2367,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return NotificationId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnNotificationId() {
+  void testToData_thenOriginatorReturnNotificationId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -2383,9 +2425,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return NotificationRequestId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnNotificationRequestId() {
+  void testToData_thenOriginatorReturnNotificationRequestId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -2440,9 +2483,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return NotificationRuleId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnNotificationRuleId() {
+  void testToData_thenOriginatorReturnNotificationRuleId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -2497,9 +2541,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return NotificationTargetId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnNotificationTargetId() {
+  void testToData_thenOriginatorReturnNotificationTargetId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -2554,9 +2599,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return NotificationTemplateId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnNotificationTemplateId() {
+  void testToData_thenOriginatorReturnNotificationTemplateId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -2611,9 +2657,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return OAuth2ClientId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnOAuth2ClientId() {
+  void testToData_thenOriginatorReturnOAuth2ClientId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -2668,9 +2715,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return OtaPackageId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnOtaPackageId() {
+  void testToData_thenOriginatorReturnOtaPackageId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -2725,9 +2773,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return QueueStatsId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnQueueStatsId() {
+  void testToData_thenOriginatorReturnQueueStatsId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -2782,9 +2831,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return RuleChainId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnRuleChainId() {
+  void testToData_thenOriginatorReturnRuleChainId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -2839,9 +2889,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return RuleNodeId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnRuleNodeId() {
+  void testToData_thenOriginatorReturnRuleNodeId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -2896,9 +2947,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return TbResourceId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnTbResourceId() {
+  void testToData_thenOriginatorReturnTbResourceId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -2953,9 +3005,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return TenantId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnTenantId() {
+  void testToData_thenOriginatorReturnTenantId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -3009,9 +3062,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return TenantProfileId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnTenantProfileId() {
+  void testToData_thenOriginatorReturnTenantProfileId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -3066,9 +3120,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return WidgetTypeId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnWidgetTypeId() {
+  void testToData_thenOriginatorReturnWidgetTypeId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -3123,9 +3178,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Originator return WidgetsBundleId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenOriginatorReturnWidgetsBundleId() {
+  void testToData_thenOriginatorReturnWidgetsBundleId() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -3180,9 +3236,11 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return AssigneeId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenReturnAssigneeIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnAssigneeIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -3243,9 +3301,11 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return CustomerId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenReturnCustomerIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnCustomerIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);
@@ -3303,9 +3363,10 @@ public class AlarmInfoEntityDiffblueTest {
    * <p>Method under test: {@link AlarmInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return Status is 'CLEARED_UNACK'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmInfo AlarmInfoEntity.toData()"})
-  public void testToData_thenReturnStatusIsClearedUnack() {
+  void testToData_thenReturnStatusIsClearedUnack() {
     // Arrange
     AlarmInfoEntity alarmInfoEntity = new AlarmInfoEntity();
     alarmInfoEntity.setAckTs(1L);

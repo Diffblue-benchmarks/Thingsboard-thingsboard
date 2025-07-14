@@ -1,10 +1,10 @@
 package org.thingsboard.server.dao.entityview;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.ArgumentMatchers.isNull;
@@ -14,7 +14,6 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.SettableFuture;
@@ -23,13 +22,14 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.Callable;
 import java.util.function.Function;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.thingsboard.server.common.data.EntitySubtype;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.EntityView;
@@ -50,8 +50,8 @@ import org.thingsboard.server.dao.model.ModelConstants;
 import org.thingsboard.server.dao.service.validator.EntityViewDataValidator;
 import org.thingsboard.server.dao.sql.JpaExecutorService;
 
-@RunWith(MockitoJUnitRunner.class)
-public class EntityViewServiceImplDiffblueTest {
+@ExtendWith(MockitoExtension.class)
+class EntityViewServiceImplDiffblueTest {
   @Mock private EntityViewDao entityViewDao;
 
   @Mock private EntityViewDataValidator entityViewDataValidator;
@@ -71,10 +71,13 @@ public class EntityViewServiceImplDiffblueTest {
    * <p>Method under test: {@link EntityViewServiceImpl#handleEvictEvent(EntityViewEvictEvent)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test handleEvictEvent(EntityViewEvictEvent) with 'EntityViewEvictEvent'; then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EntityViewServiceImpl.handleEvictEvent(EntityViewEvictEvent)"})
-  public void testHandleEvictEventWithEntityViewEvictEvent_thenThrowDataValidationException() {
+  void testHandleEvictEventWithEntityViewEvictEvent_thenThrowDataValidationException() {
     // Arrange
+    EntityViewServiceImpl entityViewServiceImpl = new EntityViewServiceImpl();
     EntityView savedEntityView = mock(EntityView.class);
     when(savedEntityView.getId()).thenThrow(new DataValidationException("An error occurred"));
 
@@ -100,9 +103,10 @@ public class EntityViewServiceImplDiffblueTest {
    * <p>Method under test: {@link EntityViewServiceImpl#saveEntityView(EntityView)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test saveEntityView(EntityView) with 'entityView'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView EntityViewServiceImpl.saveEntityView(EntityView)"})
-  public void testSaveEntityViewWithEntityView() {
+  void testSaveEntityViewWithEntityView() {
     // Arrange
     when(entityViewDao.save(Mockito.<TenantId>any(), Mockito.<EntityView>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -125,9 +129,10 @@ public class EntityViewServiceImplDiffblueTest {
    * <p>Method under test: {@link EntityViewServiceImpl#saveEntityView(EntityView, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test saveEntityView(EntityView, boolean) with 'entityView', 'doValidate'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView EntityViewServiceImpl.saveEntityView(EntityView, boolean)"})
-  public void testSaveEntityViewWithEntityViewDoValidate() {
+  void testSaveEntityViewWithEntityViewDoValidate() {
     // Arrange
     when(entityViewDao.save(Mockito.<TenantId>any(), Mockito.<EntityView>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -154,9 +159,11 @@ public class EntityViewServiceImplDiffblueTest {
    * <p>Method under test: {@link EntityViewServiceImpl#saveEntityView(EntityView, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test saveEntityView(EntityView, boolean) with 'entityView', 'doValidate'; then calls getEntityId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView EntityViewServiceImpl.saveEntityView(EntityView, boolean)"})
-  public void testSaveEntityViewWithEntityViewDoValidate_thenCallsGetEntityId() {
+  void testSaveEntityViewWithEntityViewDoValidate_thenCallsGetEntityId() {
     // Arrange
     when(entityViewDao.save(Mockito.<TenantId>any(), Mockito.<EntityView>any()))
         .thenReturn(new EntityView());
@@ -185,9 +192,10 @@ public class EntityViewServiceImplDiffblueTest {
    * <p>Method under test: {@link EntityViewServiceImpl#saveEntityView(EntityView)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test saveEntityView(EntityView) with 'entityView'; then calls getEntityId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityView EntityViewServiceImpl.saveEntityView(EntityView)"})
-  public void testSaveEntityViewWithEntityView_thenCallsGetEntityId() {
+  void testSaveEntityViewWithEntityView_thenCallsGetEntityId() {
     // Arrange
     when(entityViewDao.save(Mockito.<TenantId>any(), Mockito.<EntityView>any()))
         .thenReturn(new EntityView());
@@ -218,11 +226,13 @@ public class EntityViewServiceImplDiffblueTest {
    * CustomerId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test unassignCustomerEntityViews(TenantId, CustomerId); then calls findEntityViewsByTenantIdAndCustomerId(UUID, UUID, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void EntityViewServiceImpl.unassignCustomerEntityViews(TenantId, CustomerId)"
   })
-  public void testUnassignCustomerEntityViews_thenCallsFindEntityViewsByTenantIdAndCustomerId() {
+  void testUnassignCustomerEntityViews_thenCallsFindEntityViewsByTenantIdAndCustomerId() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantIdAndCustomerId(
@@ -250,11 +260,12 @@ public class EntityViewServiceImplDiffblueTest {
    * EntityViewId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewInfoById(TenantId, EntityViewId); then return EntityViewInfo()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "EntityViewInfo EntityViewServiceImpl.findEntityViewInfoById(TenantId, EntityViewId)"
   })
-  public void testFindEntityViewInfoById_thenReturnEntityViewInfo() {
+  void testFindEntityViewInfoById_thenReturnEntityViewInfo() {
     // Arrange
     EntityViewInfo entityViewInfo = new EntityViewInfo();
     when(entityViewDao.findEntityViewInfoById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
@@ -282,11 +293,13 @@ public class EntityViewServiceImplDiffblueTest {
    * EntityViewServiceImpl#findEntityViewByTenantIdAndNameAsync(TenantId, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewByTenantIdAndNameAsync(TenantId, String); then return SettableFuture")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture EntityViewServiceImpl.findEntityViewByTenantIdAndNameAsync(TenantId, String)"
   })
-  public void testFindEntityViewByTenantIdAndNameAsync_thenReturnSettableFuture() {
+  void testFindEntityViewByTenantIdAndNameAsync_thenReturnSettableFuture() {
     // Arrange
     SettableFuture<Object> createResult = SettableFuture.create();
     when(jpaExecutorService.submit(Mockito.<Callable<Object>>any())).thenReturn(createResult);
@@ -309,9 +322,10 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewByTenantId(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EntityViewServiceImpl.findEntityViewByTenantId(TenantId, PageLink)"})
-  public void testFindEntityViewByTenantId() {
+  void testFindEntityViewByTenantId() {
     // Arrange
     when(entityViewDao.findEntityViewsByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -332,9 +346,10 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewByTenantId(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EntityViewServiceImpl.findEntityViewByTenantId(TenantId, PageLink)"})
-  public void testFindEntityViewByTenantId2() {
+  void testFindEntityViewByTenantId2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize()).thenThrow(new DataValidationException("An error occurred"));
@@ -354,9 +369,10 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewByTenantId(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EntityViewServiceImpl.findEntityViewByTenantId(TenantId, PageLink)"})
-  public void testFindEntityViewByTenantId3() {
+  void testFindEntityViewByTenantId3() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPage()).thenThrow(new DataValidationException("An error occurred"));
@@ -382,9 +398,11 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewByTenantId(TenantId, PageLink); given SortOrder with 'Property' and direction is 'ASC'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EntityViewServiceImpl.findEntityViewByTenantId(TenantId, PageLink)"})
-  public void testFindEntityViewByTenantId_givenSortOrderWithPropertyAndDirectionIsAsc() {
+  void testFindEntityViewByTenantId_givenSortOrderWithPropertyAndDirectionIsAsc() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -418,9 +436,11 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewByTenantId(TenantId, PageLink); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EntityViewServiceImpl.findEntityViewByTenantId(TenantId, PageLink)"})
-  public void testFindEntityViewByTenantId_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindEntityViewByTenantId_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -454,9 +474,11 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewByTenantId(TenantId, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EntityViewServiceImpl.findEntityViewByTenantId(TenantId, PageLink)"})
-  public void testFindEntityViewByTenantId_givenSortOrderWithPropertyIsNull() {
+  void testFindEntityViewByTenantId_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -490,9 +512,10 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewByTenantId(TenantId, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EntityViewServiceImpl.findEntityViewByTenantId(TenantId, PageLink)"})
-  public void testFindEntityViewByTenantId_thenCallsGetProperty() {
+  void testFindEntityViewByTenantId_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty()).thenThrow(new DataValidationException("An error occurred"));
@@ -524,9 +547,11 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewByTenantId(TenantId, PageLink); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData EntityViewServiceImpl.findEntityViewByTenantId(TenantId, PageLink)"})
-  public void testFindEntityViewByTenantId_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindEntityViewByTenantId_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -550,11 +575,12 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewInfosByTenantId(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantId(TenantId, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantId() {
+  void testFindEntityViewInfosByTenantId() {
     // Arrange
     when(entityViewDao.findEntityViewInfosByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -575,11 +601,12 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewInfosByTenantId(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantId(TenantId, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantId2() {
+  void testFindEntityViewInfosByTenantId2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize()).thenThrow(new DataValidationException("An error occurred"));
@@ -600,11 +627,12 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewInfosByTenantId(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantId(TenantId, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantId3() {
+  void testFindEntityViewInfosByTenantId3() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPage()).thenThrow(new DataValidationException("An error occurred"));
@@ -631,11 +659,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewInfosByTenantId(TenantId, PageLink); given SortOrder with 'Property' and direction is 'ASC'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantId(TenantId, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantId_givenSortOrderWithPropertyAndDirectionIsAsc() {
+  void testFindEntityViewInfosByTenantId_givenSortOrderWithPropertyAndDirectionIsAsc() {
     // Arrange
     PageData<EntityViewInfo> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewInfosByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -670,11 +700,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewInfosByTenantId(TenantId, PageLink); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantId(TenantId, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantId_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindEntityViewInfosByTenantId_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<EntityViewInfo> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewInfosByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -709,11 +741,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewInfosByTenantId(TenantId, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantId(TenantId, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantId_givenSortOrderWithPropertyIsNull() {
+  void testFindEntityViewInfosByTenantId_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<EntityViewInfo> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewInfosByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -748,11 +782,12 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewInfosByTenantId(TenantId, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantId(TenantId, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantId_thenCallsGetProperty() {
+  void testFindEntityViewInfosByTenantId_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty()).thenThrow(new DataValidationException("An error occurred"));
@@ -785,11 +820,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewInfosByTenantId(TenantId, PageLink); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantId(TenantId, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantId_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindEntityViewInfosByTenantId_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<EntityViewInfo> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewInfosByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -814,11 +851,12 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewByTenantIdAndType(TenantId, PageLink, String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewByTenantIdAndType(TenantId, PageLink, String)"
   })
-  public void testFindEntityViewByTenantIdAndType() {
+  void testFindEntityViewByTenantIdAndType() {
     // Arrange
     when(entityViewDao.findEntityViewsByTenantIdAndType(
             Mockito.<UUID>any(), Mockito.<String>any(), Mockito.<PageLink>any()))
@@ -841,11 +879,12 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewByTenantIdAndType(TenantId, PageLink, String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewByTenantIdAndType(TenantId, PageLink, String)"
   })
-  public void testFindEntityViewByTenantIdAndType2() {
+  void testFindEntityViewByTenantIdAndType2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize()).thenThrow(new DataValidationException("An error occurred"));
@@ -870,11 +909,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewByTenantIdAndType(TenantId, PageLink, String); given SortOrder with 'Property' and direction is 'ASC'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewByTenantIdAndType(TenantId, PageLink, String)"
   })
-  public void testFindEntityViewByTenantIdAndType_givenSortOrderWithPropertyAndDirectionIsAsc() {
+  void testFindEntityViewByTenantIdAndType_givenSortOrderWithPropertyAndDirectionIsAsc() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantIdAndType(
@@ -912,11 +953,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewByTenantIdAndType(TenantId, PageLink, String); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewByTenantIdAndType(TenantId, PageLink, String)"
   })
-  public void testFindEntityViewByTenantIdAndType_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindEntityViewByTenantIdAndType_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantIdAndType(
@@ -954,11 +997,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewByTenantIdAndType(TenantId, PageLink, String); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewByTenantIdAndType(TenantId, PageLink, String)"
   })
-  public void testFindEntityViewByTenantIdAndType_givenSortOrderWithPropertyIsNull() {
+  void testFindEntityViewByTenantIdAndType_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantIdAndType(
@@ -996,11 +1041,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewByTenantIdAndType(TenantId, PageLink, String); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewByTenantIdAndType(TenantId, PageLink, String)"
   })
-  public void testFindEntityViewByTenantIdAndType_thenCallsGetProperty() {
+  void testFindEntityViewByTenantIdAndType_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty()).thenThrow(new DataValidationException("An error occurred"));
@@ -1033,11 +1080,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewByTenantIdAndType(TenantId, PageLink, String); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewByTenantIdAndType(TenantId, PageLink, String)"
   })
-  public void testFindEntityViewByTenantIdAndType_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindEntityViewByTenantIdAndType_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantIdAndType(
@@ -1065,11 +1114,12 @@ public class EntityViewServiceImplDiffblueTest {
    * EntityViewServiceImpl#findEntityViewInfosByTenantIdAndType(TenantId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewInfosByTenantIdAndType(TenantId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantIdAndType() {
+  void testFindEntityViewInfosByTenantIdAndType() {
     // Arrange
     when(entityViewDao.findEntityViewInfosByTenantIdAndType(
             Mockito.<UUID>any(), Mockito.<String>any(), Mockito.<PageLink>any()))
@@ -1093,11 +1143,12 @@ public class EntityViewServiceImplDiffblueTest {
    * EntityViewServiceImpl#findEntityViewInfosByTenantIdAndType(TenantId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewInfosByTenantIdAndType(TenantId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantIdAndType2() {
+  void testFindEntityViewInfosByTenantIdAndType2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize()).thenThrow(new DataValidationException("An error occurred"));
@@ -1119,11 +1170,12 @@ public class EntityViewServiceImplDiffblueTest {
    * EntityViewServiceImpl#findEntityViewInfosByTenantIdAndType(TenantId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewInfosByTenantIdAndType(TenantId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantIdAndType3() {
+  void testFindEntityViewInfosByTenantIdAndType3() {
     // Arrange
     PageData<EntityViewInfo> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewInfosByTenantIdAndType(
@@ -1162,11 +1214,13 @@ public class EntityViewServiceImplDiffblueTest {
    * EntityViewServiceImpl#findEntityViewInfosByTenantIdAndType(TenantId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewInfosByTenantIdAndType(TenantId, String, PageLink); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantIdAndType_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindEntityViewInfosByTenantIdAndType_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<EntityViewInfo> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewInfosByTenantIdAndType(
@@ -1205,11 +1259,13 @@ public class EntityViewServiceImplDiffblueTest {
    * EntityViewServiceImpl#findEntityViewInfosByTenantIdAndType(TenantId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewInfosByTenantIdAndType(TenantId, String, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantIdAndType_givenSortOrderWithPropertyIsNull() {
+  void testFindEntityViewInfosByTenantIdAndType_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<EntityViewInfo> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewInfosByTenantIdAndType(
@@ -1248,11 +1304,13 @@ public class EntityViewServiceImplDiffblueTest {
    * EntityViewServiceImpl#findEntityViewInfosByTenantIdAndType(TenantId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewInfosByTenantIdAndType(TenantId, String, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantIdAndType_thenCallsGetProperty() {
+  void testFindEntityViewInfosByTenantIdAndType_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty()).thenThrow(new DataValidationException("An error occurred"));
@@ -1285,11 +1343,13 @@ public class EntityViewServiceImplDiffblueTest {
    * EntityViewServiceImpl#findEntityViewInfosByTenantIdAndType(TenantId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewInfosByTenantIdAndType(TenantId, String, PageLink); then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantIdAndType_thenReturnEmpty_page_data() {
+  void testFindEntityViewInfosByTenantIdAndType_thenReturnEmpty_page_data() {
     // Arrange
     PageData<EntityViewInfo> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewInfosByTenantIdAndType(
@@ -1317,11 +1377,12 @@ public class EntityViewServiceImplDiffblueTest {
    * EntityViewServiceImpl#findEntityViewsByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewsByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEntityViewsByTenantIdAndCustomerId() {
+  void testFindEntityViewsByTenantIdAndCustomerId() {
     // Arrange
     when(entityViewDao.findEntityViewsByTenantIdAndCustomerId(
             Mockito.<UUID>any(), Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -1348,11 +1409,12 @@ public class EntityViewServiceImplDiffblueTest {
    * EntityViewServiceImpl#findEntityViewsByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewsByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEntityViewsByTenantIdAndCustomerId2() {
+  void testFindEntityViewsByTenantIdAndCustomerId2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize()).thenThrow(new DataValidationException("An error occurred"));
@@ -1374,11 +1436,12 @@ public class EntityViewServiceImplDiffblueTest {
    * EntityViewServiceImpl#findEntityViewsByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewsByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEntityViewsByTenantIdAndCustomerId3() {
+  void testFindEntityViewsByTenantIdAndCustomerId3() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantIdAndCustomerId(
@@ -1414,11 +1477,12 @@ public class EntityViewServiceImplDiffblueTest {
    * EntityViewServiceImpl#findEntityViewsByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewsByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEntityViewsByTenantIdAndCustomerId4() {
+  void testFindEntityViewsByTenantIdAndCustomerId4() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantIdAndCustomerId(
@@ -1458,11 +1522,13 @@ public class EntityViewServiceImplDiffblueTest {
    * EntityViewServiceImpl#findEntityViewsByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewsByTenantIdAndCustomerId(TenantId, CustomerId, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEntityViewsByTenantIdAndCustomerId_givenSortOrderWithPropertyIsNull() {
+  void testFindEntityViewsByTenantIdAndCustomerId_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantIdAndCustomerId(
@@ -1502,11 +1568,13 @@ public class EntityViewServiceImplDiffblueTest {
    * EntityViewServiceImpl#findEntityViewsByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewsByTenantIdAndCustomerId(TenantId, CustomerId, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEntityViewsByTenantIdAndCustomerId_thenCallsGetProperty() {
+  void testFindEntityViewsByTenantIdAndCustomerId_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty()).thenThrow(new DataValidationException("An error occurred"));
@@ -1539,11 +1607,13 @@ public class EntityViewServiceImplDiffblueTest {
    * EntityViewServiceImpl#findEntityViewsByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewsByTenantIdAndCustomerId(TenantId, CustomerId, PageLink); when FIRST_PAGE")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEntityViewsByTenantIdAndCustomerId_whenFirst_page() {
+  void testFindEntityViewsByTenantIdAndCustomerId_whenFirst_page() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantIdAndCustomerId(
@@ -1575,11 +1645,12 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantIdAndCustomerId() {
+  void testFindEntityViewInfosByTenantIdAndCustomerId() {
     // Arrange
     when(entityViewDao.findEntityViewInfosByTenantIdAndCustomerId(
             Mockito.<UUID>any(), Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -1607,11 +1678,12 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantIdAndCustomerId2() {
+  void testFindEntityViewInfosByTenantIdAndCustomerId2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize()).thenThrow(new DataValidationException("An error occurred"));
@@ -1634,11 +1706,12 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantIdAndCustomerId3() {
+  void testFindEntityViewInfosByTenantIdAndCustomerId3() {
     // Arrange
     PageData<EntityViewInfo> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewInfosByTenantIdAndCustomerId(
@@ -1675,11 +1748,12 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantIdAndCustomerId4() {
+  void testFindEntityViewInfosByTenantIdAndCustomerId4() {
     // Arrange
     PageData<EntityViewInfo> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewInfosByTenantIdAndCustomerId(
@@ -1720,11 +1794,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantIdAndCustomerId_givenSortOrderWithPropertyIsNull() {
+  void testFindEntityViewInfosByTenantIdAndCustomerId_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<EntityViewInfo> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewInfosByTenantIdAndCustomerId(
@@ -1765,11 +1841,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantIdAndCustomerId_thenCallsGetProperty() {
+  void testFindEntityViewInfosByTenantIdAndCustomerId_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty()).thenThrow(new DataValidationException("An error occurred"));
@@ -1803,11 +1881,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink); when FIRST_PAGE")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantIdAndCustomerId_whenFirst_page() {
+  void testFindEntityViewInfosByTenantIdAndCustomerId_whenFirst_page() {
     // Arrange
     PageData<EntityViewInfo> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewInfosByTenantIdAndCustomerId(
@@ -1839,11 +1919,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewsByTenantIdAndCustomerIdAndType(TenantId, CustomerId, PageLink, String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndCustomerIdAndType(TenantId, CustomerId, PageLink, String)"
   })
-  public void testFindEntityViewsByTenantIdAndCustomerIdAndType() {
+  void testFindEntityViewsByTenantIdAndCustomerIdAndType() {
     // Arrange
     when(entityViewDao.findEntityViewsByTenantIdAndCustomerIdAndType(
             Mockito.<UUID>any(),
@@ -1875,11 +1957,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewsByTenantIdAndCustomerIdAndType(TenantId, CustomerId, PageLink, String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndCustomerIdAndType(TenantId, CustomerId, PageLink, String)"
   })
-  public void testFindEntityViewsByTenantIdAndCustomerIdAndType2() {
+  void testFindEntityViewsByTenantIdAndCustomerIdAndType2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize()).thenThrow(new DataValidationException("An error occurred"));
@@ -1905,11 +1989,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewsByTenantIdAndCustomerIdAndType(TenantId, CustomerId, PageLink, String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndCustomerIdAndType(TenantId, CustomerId, PageLink, String)"
   })
-  public void testFindEntityViewsByTenantIdAndCustomerIdAndType3() {
+  void testFindEntityViewsByTenantIdAndCustomerIdAndType3() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantIdAndCustomerIdAndType(
@@ -1949,11 +2035,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewsByTenantIdAndCustomerIdAndType(TenantId, CustomerId, PageLink, String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndCustomerIdAndType(TenantId, CustomerId, PageLink, String)"
   })
-  public void testFindEntityViewsByTenantIdAndCustomerIdAndType4() {
+  void testFindEntityViewsByTenantIdAndCustomerIdAndType4() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantIdAndCustomerIdAndType(
@@ -1993,11 +2081,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewsByTenantIdAndCustomerIdAndType(TenantId, CustomerId, PageLink, String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndCustomerIdAndType(TenantId, CustomerId, PageLink, String)"
   })
-  public void testFindEntityViewsByTenantIdAndCustomerIdAndType5() {
+  void testFindEntityViewsByTenantIdAndCustomerIdAndType5() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPage()).thenThrow(new DataValidationException("An error occurred"));
@@ -2025,11 +2115,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewsByTenantIdAndCustomerIdAndType(TenantId, CustomerId, PageLink, String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndCustomerIdAndType(TenantId, CustomerId, PageLink, String)"
   })
-  public void testFindEntityViewsByTenantIdAndCustomerIdAndType6() {
+  void testFindEntityViewsByTenantIdAndCustomerIdAndType6() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantIdAndCustomerIdAndType(
@@ -2073,11 +2165,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewsByTenantIdAndCustomerIdAndType(TenantId, CustomerId, PageLink, String); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndCustomerIdAndType(TenantId, CustomerId, PageLink, String)"
   })
-  public void testFindEntityViewsByTenantIdAndCustomerIdAndType_thenCallsGetProperty() {
+  void testFindEntityViewsByTenantIdAndCustomerIdAndType_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty()).thenThrow(new DataValidationException("An error occurred"));
@@ -2114,11 +2208,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewsByTenantIdAndCustomerIdAndType(TenantId, CustomerId, PageLink, String); when FIRST_PAGE")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndCustomerIdAndType(TenantId, CustomerId, PageLink, String)"
   })
-  public void testFindEntityViewsByTenantIdAndCustomerIdAndType_whenFirst_page() {
+  void testFindEntityViewsByTenantIdAndCustomerIdAndType_whenFirst_page() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantIdAndCustomerIdAndType(
@@ -2154,11 +2250,13 @@ public class EntityViewServiceImplDiffblueTest {
    * String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantIdAndCustomerIdAndType() {
+  void testFindEntityViewInfosByTenantIdAndCustomerIdAndType() {
     // Arrange
     when(entityViewDao.findEntityViewInfosByTenantIdAndCustomerIdAndType(
             Mockito.<UUID>any(),
@@ -2190,11 +2288,13 @@ public class EntityViewServiceImplDiffblueTest {
    * String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantIdAndCustomerIdAndType2() {
+  void testFindEntityViewInfosByTenantIdAndCustomerIdAndType2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize()).thenThrow(new DataValidationException("An error occurred"));
@@ -2220,11 +2320,13 @@ public class EntityViewServiceImplDiffblueTest {
    * String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantIdAndCustomerIdAndType3() {
+  void testFindEntityViewInfosByTenantIdAndCustomerIdAndType3() {
     // Arrange
     PageData<EntityViewInfo> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewInfosByTenantIdAndCustomerIdAndType(
@@ -2264,11 +2366,13 @@ public class EntityViewServiceImplDiffblueTest {
    * String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantIdAndCustomerIdAndType4() {
+  void testFindEntityViewInfosByTenantIdAndCustomerIdAndType4() {
     // Arrange
     PageData<EntityViewInfo> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewInfosByTenantIdAndCustomerIdAndType(
@@ -2308,11 +2412,13 @@ public class EntityViewServiceImplDiffblueTest {
    * String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantIdAndCustomerIdAndType5() {
+  void testFindEntityViewInfosByTenantIdAndCustomerIdAndType5() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPage()).thenThrow(new DataValidationException("An error occurred"));
@@ -2340,11 +2446,13 @@ public class EntityViewServiceImplDiffblueTest {
    * String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantIdAndCustomerIdAndType6() {
+  void testFindEntityViewInfosByTenantIdAndCustomerIdAndType6() {
     // Arrange
     PageData<EntityViewInfo> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewInfosByTenantIdAndCustomerIdAndType(
@@ -2388,11 +2496,13 @@ public class EntityViewServiceImplDiffblueTest {
    * String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantIdAndCustomerIdAndType_thenCallsGetProperty() {
+  void testFindEntityViewInfosByTenantIdAndCustomerIdAndType_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty()).thenThrow(new DataValidationException("An error occurred"));
@@ -2429,11 +2539,13 @@ public class EntityViewServiceImplDiffblueTest {
    * String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink); then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewInfosByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindEntityViewInfosByTenantIdAndCustomerIdAndType_thenReturnEmpty_page_data() {
+  void testFindEntityViewInfosByTenantIdAndCustomerIdAndType_thenReturnEmpty_page_data() {
     // Arrange
     PageData<EntityViewInfo> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewInfosByTenantIdAndCustomerIdAndType(
@@ -2471,11 +2583,12 @@ public class EntityViewServiceImplDiffblueTest {
    * EntityViewId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewByIdAsync(TenantId, EntityViewId); then return SettableFuture")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture EntityViewServiceImpl.findEntityViewByIdAsync(TenantId, EntityViewId)"
   })
-  public void testFindEntityViewByIdAsync_thenReturnSettableFuture() {
+  void testFindEntityViewByIdAsync_thenReturnSettableFuture() {
     // Arrange
     SettableFuture<EntityView> createResult = SettableFuture.create();
     when(entityViewDao.findByIdAsync(Mockito.<TenantId>any(), Mockito.<UUID>any()))
@@ -2505,11 +2618,13 @@ public class EntityViewServiceImplDiffblueTest {
    * EntityViewServiceImpl#findEntityViewsByTenantIdAndEntityIdAsync(TenantId, EntityId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewsByTenantIdAndEntityIdAsync(TenantId, EntityId); then return SettableFuture")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture EntityViewServiceImpl.findEntityViewsByTenantIdAndEntityIdAsync(TenantId, EntityId)"
   })
-  public void testFindEntityViewsByTenantIdAndEntityIdAsync_thenReturnSettableFuture() {
+  void testFindEntityViewsByTenantIdAndEntityIdAsync_thenReturnSettableFuture() {
     // Arrange
     SettableFuture<Object> createResult = SettableFuture.create();
     when(jpaExecutorService.submit(Mockito.<Callable<Object>>any())).thenReturn(createResult);
@@ -2536,11 +2651,12 @@ public class EntityViewServiceImplDiffblueTest {
    * EntityId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test existsByTenantIdAndEntityId(TenantId, EntityId); then return 'false'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean EntityViewServiceImpl.existsByTenantIdAndEntityId(TenantId, EntityId)"
   })
-  public void testExistsByTenantIdAndEntityId_thenReturnFalse() {
+  void testExistsByTenantIdAndEntityId_thenReturnFalse() {
     // Arrange
     when(entityViewDao.existsByTenantIdAndEntityId(Mockito.<UUID>any(), Mockito.<UUID>any()))
         .thenReturn(false);
@@ -2566,11 +2682,12 @@ public class EntityViewServiceImplDiffblueTest {
    * EntityId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test existsByTenantIdAndEntityId(TenantId, EntityId); then return 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean EntityViewServiceImpl.existsByTenantIdAndEntityId(TenantId, EntityId)"
   })
-  public void testExistsByTenantIdAndEntityId_thenReturnTrue() {
+  void testExistsByTenantIdAndEntityId_thenReturnTrue() {
     // Arrange
     when(entityViewDao.existsByTenantIdAndEntityId(Mockito.<UUID>any(), Mockito.<UUID>any()))
         .thenReturn(true);
@@ -2596,11 +2713,13 @@ public class EntityViewServiceImplDiffblueTest {
    * EntityId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test existsByTenantIdAndEntityId(TenantId, EntityId); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean EntityViewServiceImpl.existsByTenantIdAndEntityId(TenantId, EntityId)"
   })
-  public void testExistsByTenantIdAndEntityId_thenThrowDataValidationException() {
+  void testExistsByTenantIdAndEntityId_thenThrowDataValidationException() {
     // Arrange
     when(entityViewDao.existsByTenantIdAndEntityId(Mockito.<UUID>any(), Mockito.<UUID>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -2620,9 +2739,10 @@ public class EntityViewServiceImplDiffblueTest {
    * <p>Method under test: {@link EntityViewServiceImpl#deleteEntityView(TenantId, EntityViewId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEntityView(TenantId, EntityViewId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EntityViewServiceImpl.deleteEntityView(TenantId, EntityViewId)"})
-  public void testDeleteEntityView() {
+  void testDeleteEntityView() {
     // Arrange
     when(entityViewDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -2643,9 +2763,10 @@ public class EntityViewServiceImplDiffblueTest {
    * <p>Method under test: {@link EntityViewServiceImpl#deleteEntityView(TenantId, EntityViewId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEntityView(TenantId, EntityViewId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EntityViewServiceImpl.deleteEntityView(TenantId, EntityViewId)"})
-  public void testDeleteEntityView2() {
+  void testDeleteEntityView2() {
     // Arrange
     doThrow(new DataValidationException("An error occurred"))
         .when(entityViewDao)
@@ -2676,9 +2797,11 @@ public class EntityViewServiceImplDiffblueTest {
    * <p>Method under test: {@link EntityViewServiceImpl#deleteEntityView(TenantId, EntityViewId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteEntityView(TenantId, EntityViewId); given EntityViewDao findById(TenantId, UUID) return 'null'; then calls findById(TenantId, UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EntityViewServiceImpl.deleteEntityView(TenantId, EntityViewId)"})
-  public void testDeleteEntityView_givenEntityViewDaoFindByIdReturnNull_thenCallsFindById() {
+  void testDeleteEntityView_givenEntityViewDaoFindByIdReturnNull_thenCallsFindById() {
     // Arrange
     when(entityViewDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(null);
 
@@ -2701,9 +2824,10 @@ public class EntityViewServiceImplDiffblueTest {
    * <p>Method under test: {@link EntityViewServiceImpl#deleteEntityView(TenantId, EntityViewId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEntityView(TenantId, EntityViewId); then calls getTenantId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EntityViewServiceImpl.deleteEntityView(TenantId, EntityViewId)"})
-  public void testDeleteEntityView_thenCallsGetTenantId() {
+  void testDeleteEntityView_thenCallsGetTenantId() {
     // Arrange
     EntityView entityView = mock(EntityView.class);
     when(entityView.getTenantId()).thenThrow(new DataValidationException("An error occurred"));
@@ -2729,9 +2853,10 @@ public class EntityViewServiceImplDiffblueTest {
    * <p>Method under test: {@link EntityViewServiceImpl#deleteEntityViewsByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEntityViewsByTenantId(TenantId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EntityViewServiceImpl.deleteEntityViewsByTenantId(TenantId)"})
-  public void testDeleteEntityViewsByTenantId() {
+  void testDeleteEntityViewsByTenantId() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -2750,9 +2875,10 @@ public class EntityViewServiceImplDiffblueTest {
    * <p>Method under test: {@link EntityViewServiceImpl#deleteEntityViewsByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEntityViewsByTenantId(TenantId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EntityViewServiceImpl.deleteEntityViewsByTenantId(TenantId)"})
-  public void testDeleteEntityViewsByTenantId2() {
+  void testDeleteEntityViewsByTenantId2() {
     // Arrange
     EntityView entityView = mock(EntityView.class);
     when(entityView.getUuidId())
@@ -2788,9 +2914,11 @@ public class EntityViewServiceImplDiffblueTest {
    * <p>Method under test: {@link EntityViewServiceImpl#deleteEntityViewsByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteEntityViewsByTenantId(TenantId); given PageData hasNext() return 'false'; then calls hasNext()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EntityViewServiceImpl.deleteEntityViewsByTenantId(TenantId)"})
-  public void testDeleteEntityViewsByTenantId_givenPageDataHasNextReturnFalse_thenCallsHasNext() {
+  void testDeleteEntityViewsByTenantId_givenPageDataHasNextReturnFalse_thenCallsHasNext() {
     // Arrange
     EntityView entityView = mock(EntityView.class);
     when(entityView.getUuidId())
@@ -2826,9 +2954,10 @@ public class EntityViewServiceImplDiffblueTest {
    * <p>Method under test: {@link EntityViewServiceImpl#deleteEntityViewsByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEntityViewsByTenantId(TenantId); then calls removeById(TenantId, UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EntityViewServiceImpl.deleteEntityViewsByTenantId(TenantId)"})
-  public void testDeleteEntityViewsByTenantId_thenCallsRemoveById() {
+  void testDeleteEntityViewsByTenantId_thenCallsRemoveById() {
     // Arrange
     EntityView entityView = mock(EntityView.class);
     when(entityView.getUuidId())
@@ -2863,9 +2992,10 @@ public class EntityViewServiceImplDiffblueTest {
    * <p>Method under test: {@link EntityViewServiceImpl#deleteByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteByTenantId(TenantId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EntityViewServiceImpl.deleteByTenantId(TenantId)"})
-  public void testDeleteByTenantId() {
+  void testDeleteByTenantId() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -2884,9 +3014,10 @@ public class EntityViewServiceImplDiffblueTest {
    * <p>Method under test: {@link EntityViewServiceImpl#deleteByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteByTenantId(TenantId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EntityViewServiceImpl.deleteByTenantId(TenantId)"})
-  public void testDeleteByTenantId2() {
+  void testDeleteByTenantId2() {
     // Arrange
     EntityView entityView = mock(EntityView.class);
     when(entityView.getUuidId())
@@ -2922,9 +3053,11 @@ public class EntityViewServiceImplDiffblueTest {
    * <p>Method under test: {@link EntityViewServiceImpl#deleteByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteByTenantId(TenantId); given PageData hasNext() return 'false'; then calls hasNext()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EntityViewServiceImpl.deleteByTenantId(TenantId)"})
-  public void testDeleteByTenantId_givenPageDataHasNextReturnFalse_thenCallsHasNext() {
+  void testDeleteByTenantId_givenPageDataHasNextReturnFalse_thenCallsHasNext() {
     // Arrange
     EntityView entityView = mock(EntityView.class);
     when(entityView.getUuidId())
@@ -2960,9 +3093,10 @@ public class EntityViewServiceImplDiffblueTest {
    * <p>Method under test: {@link EntityViewServiceImpl#deleteByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteByTenantId(TenantId); then calls removeById(TenantId, UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EntityViewServiceImpl.deleteByTenantId(TenantId)"})
-  public void testDeleteByTenantId_thenCallsRemoveById() {
+  void testDeleteByTenantId_thenCallsRemoveById() {
     // Arrange
     EntityView entityView = mock(EntityView.class);
     when(entityView.getUuidId())
@@ -3001,11 +3135,13 @@ public class EntityViewServiceImplDiffblueTest {
    * <p>Method under test: {@link EntityViewServiceImpl#findEntityViewTypesByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewTypesByTenantId(TenantId); then calls findTenantEntityViewTypesAsync(UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture EntityViewServiceImpl.findEntityViewTypesByTenantId(TenantId)"
   })
-  public void testFindEntityViewTypesByTenantId_thenCallsFindTenantEntityViewTypesAsync() {
+  void testFindEntityViewTypesByTenantId_thenCallsFindTenantEntityViewTypesAsync() {
     // Arrange
     SettableFuture<List<EntitySubtype>> createResult = SettableFuture.create();
     when(entityViewDao.findTenantEntityViewTypesAsync(Mockito.<UUID>any()))
@@ -3028,11 +3164,12 @@ public class EntityViewServiceImplDiffblueTest {
    * <p>Method under test: {@link EntityViewServiceImpl#findEntityViewTypesByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewTypesByTenantId(TenantId); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture EntityViewServiceImpl.findEntityViewTypesByTenantId(TenantId)"
   })
-  public void testFindEntityViewTypesByTenantId_thenThrowDataValidationException() {
+  void testFindEntityViewTypesByTenantId_thenThrowDataValidationException() {
     // Arrange
     when(entityViewDao.findTenantEntityViewTypesAsync(Mockito.<UUID>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -3052,11 +3189,12 @@ public class EntityViewServiceImplDiffblueTest {
    * EdgeId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewsByTenantIdAndEdgeId(TenantId, EdgeId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndEdgeId(TenantId, EdgeId, PageLink)"
   })
-  public void testFindEntityViewsByTenantIdAndEdgeId() {
+  void testFindEntityViewsByTenantIdAndEdgeId() {
     // Arrange
     when(entityViewDao.findEntityViewsByTenantIdAndEdgeId(
             Mockito.<UUID>any(), Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -3082,11 +3220,12 @@ public class EntityViewServiceImplDiffblueTest {
    * EdgeId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewsByTenantIdAndEdgeId(TenantId, EdgeId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndEdgeId(TenantId, EdgeId, PageLink)"
   })
-  public void testFindEntityViewsByTenantIdAndEdgeId2() {
+  void testFindEntityViewsByTenantIdAndEdgeId2() {
     // Arrange
     EdgeId edgeId = new EdgeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     PageLink pageLink = mock(PageLink.class);
@@ -3109,11 +3248,12 @@ public class EntityViewServiceImplDiffblueTest {
    * EdgeId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewsByTenantIdAndEdgeId(TenantId, EdgeId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndEdgeId(TenantId, EdgeId, PageLink)"
   })
-  public void testFindEntityViewsByTenantIdAndEdgeId3() {
+  void testFindEntityViewsByTenantIdAndEdgeId3() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantIdAndEdgeId(
@@ -3153,11 +3293,13 @@ public class EntityViewServiceImplDiffblueTest {
    * EdgeId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewsByTenantIdAndEdgeId(TenantId, EdgeId, PageLink); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndEdgeId(TenantId, EdgeId, PageLink)"
   })
-  public void testFindEntityViewsByTenantIdAndEdgeId_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindEntityViewsByTenantIdAndEdgeId_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantIdAndEdgeId(
@@ -3197,11 +3339,13 @@ public class EntityViewServiceImplDiffblueTest {
    * EdgeId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewsByTenantIdAndEdgeId(TenantId, EdgeId, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndEdgeId(TenantId, EdgeId, PageLink)"
   })
-  public void testFindEntityViewsByTenantIdAndEdgeId_givenSortOrderWithPropertyIsNull() {
+  void testFindEntityViewsByTenantIdAndEdgeId_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantIdAndEdgeId(
@@ -3241,11 +3385,13 @@ public class EntityViewServiceImplDiffblueTest {
    * EdgeId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewsByTenantIdAndEdgeId(TenantId, EdgeId, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndEdgeId(TenantId, EdgeId, PageLink)"
   })
-  public void testFindEntityViewsByTenantIdAndEdgeId_thenCallsGetProperty() {
+  void testFindEntityViewsByTenantIdAndEdgeId_thenCallsGetProperty() {
     // Arrange
     EdgeId edgeId = new EdgeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     SortOrder sortOrder = mock(SortOrder.class);
@@ -3280,11 +3426,13 @@ public class EntityViewServiceImplDiffblueTest {
    * EdgeId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewsByTenantIdAndEdgeId(TenantId, EdgeId, PageLink); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndEdgeId(TenantId, EdgeId, PageLink)"
   })
-  public void testFindEntityViewsByTenantIdAndEdgeId_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindEntityViewsByTenantIdAndEdgeId_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantIdAndEdgeId(
@@ -3315,11 +3463,12 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewsByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)"
   })
-  public void testFindEntityViewsByTenantIdAndEdgeIdAndType() {
+  void testFindEntityViewsByTenantIdAndEdgeIdAndType() {
     // Arrange
     when(entityViewDao.findEntityViewsByTenantIdAndEdgeIdAndType(
             Mockito.<UUID>any(),
@@ -3351,11 +3500,12 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewsByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)"
   })
-  public void testFindEntityViewsByTenantIdAndEdgeIdAndType2() {
+  void testFindEntityViewsByTenantIdAndEdgeIdAndType2() {
     // Arrange
     EdgeId edgeId = new EdgeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     PageLink pageLink = mock(PageLink.class);
@@ -3383,11 +3533,12 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewsByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)"
   })
-  public void testFindEntityViewsByTenantIdAndEdgeIdAndType3() {
+  void testFindEntityViewsByTenantIdAndEdgeIdAndType3() {
     // Arrange
     EdgeId edgeId = new EdgeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     PageLink pageLink = mock(PageLink.class);
@@ -3417,11 +3568,12 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewsByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)"
   })
-  public void testFindEntityViewsByTenantIdAndEdgeIdAndType4() {
+  void testFindEntityViewsByTenantIdAndEdgeIdAndType4() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantIdAndEdgeIdAndType(
@@ -3470,11 +3622,12 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityViewsByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)"
   })
-  public void testFindEntityViewsByTenantIdAndEdgeIdAndType5() {
+  void testFindEntityViewsByTenantIdAndEdgeIdAndType5() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantIdAndEdgeIdAndType(
@@ -3527,11 +3680,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewsByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)"
   })
-  public void testFindEntityViewsByTenantIdAndEdgeIdAndType_givenSortOrderWithPropertyIsNull() {
+  void testFindEntityViewsByTenantIdAndEdgeIdAndType_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantIdAndEdgeIdAndType(
@@ -3584,11 +3739,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewsByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)"
   })
-  public void testFindEntityViewsByTenantIdAndEdgeIdAndType_thenCallsGetProperty() {
+  void testFindEntityViewsByTenantIdAndEdgeIdAndType_thenCallsGetProperty() {
     // Arrange
     EdgeId edgeId = new EdgeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
     SortOrder sortOrder = mock(SortOrder.class);
@@ -3628,11 +3785,13 @@ public class EntityViewServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityViewsByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink); when 'Type'; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData EntityViewServiceImpl.findEntityViewsByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)"
   })
-  public void testFindEntityViewsByTenantIdAndEdgeIdAndType_whenType_thenReturnEmpty_page_data() {
+  void testFindEntityViewsByTenantIdAndEdgeIdAndType_whenType_thenReturnEmpty_page_data() {
     // Arrange
     PageData<EntityView> emptyPageDataResult = PageData.emptyPageData();
     when(entityViewDao.findEntityViewsByTenantIdAndEdgeIdAndType(
@@ -3665,9 +3824,10 @@ public class EntityViewServiceImplDiffblueTest {
    * <p>Method under test: {@link EntityViewServiceImpl#getEntityType()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getEntityType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityType EntityViewServiceImpl.getEntityType()"})
-  public void testGetEntityType() {
+  void testGetEntityType() {
     // Arrange, Act and Assert
     assertEquals(EntityType.ENTITY_VIEW, new EntityViewServiceImpl().getEntityType());
   }

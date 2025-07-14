@@ -1,19 +1,19 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.alarm.AlarmComment;
@@ -22,7 +22,7 @@ import org.thingsboard.server.common.data.id.AlarmId;
 import org.thingsboard.server.common.data.id.UserId;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 
-public class AbstractAlarmCommentEntityDiffblueTest {
+class AbstractAlarmCommentEntityDiffblueTest {
   /**
    * Test {@link AbstractAlarmCommentEntity#toAlarmComment()}.
    *
@@ -34,9 +34,10 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#toAlarmComment()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toAlarmComment(); given AlarmCommentEntity(); then return Comment is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmComment AbstractAlarmCommentEntity.toAlarmComment()"})
-  public void testToAlarmComment_givenAlarmCommentEntity_thenReturnCommentIsNull() {
+  void testToAlarmComment_givenAlarmCommentEntity_thenReturnCommentIsNull() {
     // Arrange and Act
     AlarmComment actualToAlarmCommentResult = new AlarmCommentEntity().toAlarmComment();
 
@@ -63,9 +64,11 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#toAlarmComment()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toAlarmComment(); then return UserId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmComment AbstractAlarmCommentEntity.toAlarmComment()"})
-  public void testToAlarmComment_thenReturnUserIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToAlarmComment_thenReturnUserIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     UUID userId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -91,9 +94,10 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#canEqual(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test canEqual(Object); when AlarmCommentEntity(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AbstractAlarmCommentEntity.canEqual(Object)"})
-  public void testCanEqual_whenAlarmCommentEntity_thenReturnTrue() {
+  void testCanEqual_whenAlarmCommentEntity_thenReturnTrue() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
 
@@ -112,9 +116,10 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#canEqual(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test canEqual(Object); when 'Other'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AbstractAlarmCommentEntity.canEqual(Object)"})
-  public void testCanEqual_whenOther_thenReturnFalse() {
+  void testCanEqual_whenOther_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(new AlarmCommentEntity().canEqual("Other"));
   }
@@ -131,12 +136,13 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmCommentEntity.equals(Object)",
     "int AbstractAlarmCommentEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     AlarmCommentEntity alarmCommentEntity2 = new AlarmCommentEntity();
@@ -159,12 +165,13 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmCommentEntity.equals(Object)",
     "int AbstractAlarmCommentEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     AlarmCommentEntity alarmCommentEntity2 = mock(AlarmCommentEntity.class);
@@ -194,12 +201,13 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmCommentEntity.equals(Object)",
     "int AbstractAlarmCommentEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     alarmCommentEntity.setAlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -231,12 +239,13 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmCommentEntity.equals(Object)",
     "int AbstractAlarmCommentEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     alarmCommentEntity.setUserId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -268,12 +277,13 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmCommentEntity.equals(Object)",
     "int AbstractAlarmCommentEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     alarmCommentEntity.setType(AlarmCommentType.SYSTEM);
@@ -304,12 +314,13 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmCommentEntity.equals(Object)",
     "int AbstractAlarmCommentEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual6() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual6() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     alarmCommentEntity.setComment(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -341,12 +352,13 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmCommentEntity.equals(Object)",
     "int AbstractAlarmCommentEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
 
@@ -367,12 +379,13 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmCommentEntity.equals(Object)",
     "int AbstractAlarmCommentEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
 
@@ -399,12 +412,13 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmCommentEntity.equals(Object)",
     "int AbstractAlarmCommentEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     AlarmCommentEntity alarmCommentEntity2 = mock(AlarmCommentEntity.class);
@@ -431,12 +445,13 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmCommentEntity.equals(Object)",
     "int AbstractAlarmCommentEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     AlarmCommentEntity alarmCommentEntity2 = mock(AlarmCommentEntity.class);
@@ -464,12 +479,13 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmCommentEntity.equals(Object)",
     "int AbstractAlarmCommentEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     AlarmCommentEntity alarmCommentEntity2 = mock(AlarmCommentEntity.class);
@@ -497,12 +513,13 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmCommentEntity.equals(Object)",
     "int AbstractAlarmCommentEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     AlarmCommentEntity alarmCommentEntity2 = mock(AlarmCommentEntity.class);
@@ -530,12 +547,13 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmCommentEntity.equals(Object)",
     "int AbstractAlarmCommentEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     AlarmCommentEntity alarmCommentEntity2 = mock(AlarmCommentEntity.class);
@@ -562,12 +580,13 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmCommentEntity.equals(Object)",
     "int AbstractAlarmCommentEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     alarmCommentEntity.setAlarmId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -595,12 +614,13 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmCommentEntity.equals(Object)",
     "int AbstractAlarmCommentEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     alarmCommentEntity.setUserId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -628,12 +648,13 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmCommentEntity.equals(Object)",
     "int AbstractAlarmCommentEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     alarmCommentEntity.setType(AlarmCommentType.SYSTEM);
@@ -661,12 +682,13 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmCommentEntity.equals(Object)",
     "int AbstractAlarmCommentEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     alarmCommentEntity.setComment(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -694,12 +716,13 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmCommentEntity.equals(Object)",
     "int AbstractAlarmCommentEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmCommentEntity(), null);
   }
@@ -715,12 +738,13 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmCommentEntity.equals(Object)",
     "int AbstractAlarmCommentEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmCommentEntity(), "Different type to AbstractAlarmCommentEntity");
   }
@@ -731,9 +755,10 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#getAlarmId()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getAlarmId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID AbstractAlarmCommentEntity.getAlarmId()"})
-  public void testGetAlarmId() {
+  void testGetAlarmId() {
     // Arrange, Act and Assert
     assertNull(new AlarmCommentEntity().getAlarmId());
   }
@@ -744,9 +769,10 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#getComment()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getComment()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonNode AbstractAlarmCommentEntity.getComment()"})
-  public void testGetComment() {
+  void testGetComment() {
     // Arrange, Act and Assert
     assertNull(new AlarmCommentEntity().getComment());
   }
@@ -757,9 +783,10 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#getType()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmCommentType AbstractAlarmCommentEntity.getType()"})
-  public void testGetType() {
+  void testGetType() {
     // Arrange, Act and Assert
     assertNull(new AlarmCommentEntity().getType());
   }
@@ -770,9 +797,10 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#getUserId()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getUserId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID AbstractAlarmCommentEntity.getUserId()"})
-  public void testGetUserId() {
+  void testGetUserId() {
     // Arrange, Act and Assert
     assertNull(new AlarmCommentEntity().getUserId());
   }
@@ -783,9 +811,10 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#setAlarmId(UUID)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setAlarmId(UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmCommentEntity.setAlarmId(UUID)"})
-  public void testSetAlarmId() {
+  void testSetAlarmId() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     UUID alarmId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -804,9 +833,10 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#setComment(JsonNode)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setComment(JsonNode)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmCommentEntity.setComment(JsonNode)"})
-  public void testSetComment() {
+  void testSetComment() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     JsonNode comment = CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON;
@@ -827,9 +857,10 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#setType(AlarmCommentType)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setType(AlarmCommentType)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmCommentEntity.setType(AlarmCommentType)"})
-  public void testSetType() {
+  void testSetType() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
 
@@ -847,9 +878,10 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#setUserId(UUID)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setUserId(UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmCommentEntity.setUserId(UUID)"})
-  public void testSetUserId() {
+  void testSetUserId() {
     // Arrange
     AlarmCommentEntity alarmCommentEntity = new AlarmCommentEntity();
     UUID userId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -871,9 +903,10 @@ public class AbstractAlarmCommentEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmCommentEntity#toString()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toString()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"java.lang.String AbstractAlarmCommentEntity.toString()"})
-  public void testToString() {
+  void testToString() {
     // Arrange, Act and Assert
     assertEquals("AlarmCommentEntity()", new AlarmCommentEntity().toString());
   }

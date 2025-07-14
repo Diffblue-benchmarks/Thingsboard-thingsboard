@@ -1,22 +1,22 @@
 package org.thingsboard.server.dao.dashboard;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.thingsboard.server.common.data.Dashboard;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.edge.Edge;
@@ -27,8 +27,8 @@ import org.thingsboard.server.dao.edge.EdgeDao;
 import org.thingsboard.server.dao.exception.DataValidationException;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-@RunWith(MockitoJUnitRunner.class)
-public class DashboardServiceImplDiffblueTest {
+@ExtendWith(MockitoExtension.class)
+class DashboardServiceImplDiffblueTest {
   @Mock private DashboardDao dashboardDao;
 
   @InjectMocks private DashboardServiceImpl dashboardServiceImpl;
@@ -42,11 +42,12 @@ public class DashboardServiceImplDiffblueTest {
    * EdgeId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test assignDashboardToEdge(TenantId, DashboardId, EdgeId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "Dashboard DashboardServiceImpl.assignDashboardToEdge(TenantId, DashboardId, EdgeId)"
   })
-  public void testAssignDashboardToEdge() {
+  void testAssignDashboardToEdge() {
     // Arrange
     when(dashboardDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenReturn(new Dashboard());
@@ -75,11 +76,12 @@ public class DashboardServiceImplDiffblueTest {
    * EdgeId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test assignDashboardToEdge(TenantId, DashboardId, EdgeId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "Dashboard DashboardServiceImpl.assignDashboardToEdge(TenantId, DashboardId, EdgeId)"
   })
-  public void testAssignDashboardToEdge2() {
+  void testAssignDashboardToEdge2() {
     // Arrange
     when(dashboardDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenReturn(new Dashboard());
@@ -114,11 +116,13 @@ public class DashboardServiceImplDiffblueTest {
    * EdgeId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test assignDashboardToEdge(TenantId, DashboardId, EdgeId); given EdgeDao findById(TenantId, UUID) return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "Dashboard DashboardServiceImpl.assignDashboardToEdge(TenantId, DashboardId, EdgeId)"
   })
-  public void testAssignDashboardToEdge_givenEdgeDaoFindByIdReturnNull() {
+  void testAssignDashboardToEdge_givenEdgeDaoFindByIdReturnNull() {
     // Arrange
     when(dashboardDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenReturn(new Dashboard());
@@ -150,11 +154,13 @@ public class DashboardServiceImplDiffblueTest {
    * EdgeId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test assignDashboardToEdge(TenantId, DashboardId, EdgeId); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "Dashboard DashboardServiceImpl.assignDashboardToEdge(TenantId, DashboardId, EdgeId)"
   })
-  public void testAssignDashboardToEdge_thenThrowDataValidationException() {
+  void testAssignDashboardToEdge_thenThrowDataValidationException() {
     // Arrange
     when(dashboardDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenReturn(new Dashboard());
@@ -185,11 +191,12 @@ public class DashboardServiceImplDiffblueTest {
    * DashboardId, EdgeId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test unassignDashboardFromEdge(TenantId, DashboardId, EdgeId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "Dashboard DashboardServiceImpl.unassignDashboardFromEdge(TenantId, DashboardId, EdgeId)"
   })
-  public void testUnassignDashboardFromEdge() {
+  void testUnassignDashboardFromEdge() {
     // Arrange
     when(dashboardDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenReturn(new Dashboard());
@@ -217,9 +224,10 @@ public class DashboardServiceImplDiffblueTest {
    * <p>Method under test: {@link DashboardServiceImpl#getEntityType()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getEntityType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityType DashboardServiceImpl.getEntityType()"})
-  public void testGetEntityType() {
+  void testGetEntityType() {
     // Arrange, Act and Assert
     assertEquals(EntityType.DASHBOARD, new DashboardServiceImpl().getEntityType());
   }

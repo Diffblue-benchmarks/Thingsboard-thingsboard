@@ -1,10 +1,10 @@
 package org.thingsboard.server.dao.device;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.ArgumentMatchers.isNull;
@@ -15,18 +15,18 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.thingsboard.server.common.data.DeviceProfile;
 import org.thingsboard.server.common.data.DeviceProfileInfo;
 import org.thingsboard.server.common.data.EntityInfo;
@@ -43,8 +43,8 @@ import org.thingsboard.server.dao.entity.BaseEntityService;
 import org.thingsboard.server.dao.exception.DataValidationException;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-@RunWith(MockitoJUnitRunner.class)
-public class DeviceProfileServiceImplDiffblueTest {
+@ExtendWith(MockitoExtension.class)
+class DeviceProfileServiceImplDiffblueTest {
   @Mock private DeviceProfileDao deviceProfileDao;
 
   @InjectMocks private DeviceProfileServiceImpl deviceProfileServiceImpl;
@@ -61,11 +61,12 @@ public class DeviceProfileServiceImplDiffblueTest {
    * DeviceProfileServiceImpl#handleEvictEvent(DeviceProfileEvictEvent)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test handleEvictEvent(DeviceProfileEvictEvent) with 'DeviceProfileEvictEvent'; then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfileServiceImpl.handleEvictEvent(DeviceProfileEvictEvent)"})
-  public void testHandleEvictEventWithDeviceProfileEvictEvent_thenThrowDataValidationException() {
+  void testHandleEvictEventWithDeviceProfileEvictEvent_thenThrowDataValidationException() {
     // Arrange
-    DeviceProfileServiceImpl deviceProfileServiceImpl = new DeviceProfileServiceImpl();
     DeviceProfile savedDeviceProfile = mock(DeviceProfile.class);
     when(savedDeviceProfile.getId()).thenThrow(new DataValidationException("An error occurred"));
 
@@ -92,11 +93,12 @@ public class DeviceProfileServiceImplDiffblueTest {
    * DeviceProfileId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteDeviceProfile(TenantId, DeviceProfileId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void DeviceProfileServiceImpl.deleteDeviceProfile(TenantId, DeviceProfileId)"
   })
-  public void testDeleteDeviceProfile() {
+  void testDeleteDeviceProfile() {
     // Arrange
     when(deviceProfileDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -118,11 +120,12 @@ public class DeviceProfileServiceImplDiffblueTest {
    * DeviceProfileId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteDeviceProfile(TenantId, DeviceProfileId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void DeviceProfileServiceImpl.deleteDeviceProfile(TenantId, DeviceProfileId)"
   })
-  public void testDeleteDeviceProfile2() {
+  void testDeleteDeviceProfile2() {
     // Arrange
     DeviceProfile deviceProfile = mock(DeviceProfile.class);
     when(deviceProfile.isDefault()).thenThrow(new DataValidationException("An error occurred"));
@@ -152,11 +155,13 @@ public class DeviceProfileServiceImplDiffblueTest {
    * DeviceProfileId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteDeviceProfile(TenantId, DeviceProfileId); given DeviceProfileDao findById(TenantId, UUID) return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void DeviceProfileServiceImpl.deleteDeviceProfile(TenantId, DeviceProfileId)"
   })
-  public void testDeleteDeviceProfile_givenDeviceProfileDaoFindByIdReturnNull() {
+  void testDeleteDeviceProfile_givenDeviceProfileDaoFindByIdReturnNull() {
     // Arrange
     when(deviceProfileDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(null);
 
@@ -181,11 +186,13 @@ public class DeviceProfileServiceImplDiffblueTest {
    * DeviceProfileId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteDeviceProfile(TenantId, DeviceProfileId); given DeviceProfile isDefault() return 'true'; then calls isDefault()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void DeviceProfileServiceImpl.deleteDeviceProfile(TenantId, DeviceProfileId)"
   })
-  public void testDeleteDeviceProfile_givenDeviceProfileIsDefaultReturnTrue_thenCallsIsDefault() {
+  void testDeleteDeviceProfile_givenDeviceProfileIsDefaultReturnTrue_thenCallsIsDefault() {
     // Arrange
     DeviceProfile deviceProfile = mock(DeviceProfile.class);
     when(deviceProfile.isDefault()).thenReturn(true);
@@ -210,9 +217,10 @@ public class DeviceProfileServiceImplDiffblueTest {
    * boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEntity(TenantId, EntityId, boolean)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfileServiceImpl.deleteEntity(TenantId, EntityId, boolean)"})
-  public void testDeleteEntity() {
+  void testDeleteEntity() {
     // Arrange
     when(deviceProfileDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -233,9 +241,10 @@ public class DeviceProfileServiceImplDiffblueTest {
    * boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEntity(TenantId, EntityId, boolean)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfileServiceImpl.deleteEntity(TenantId, EntityId, boolean)"})
-  public void testDeleteEntity2() {
+  void testDeleteEntity2() {
     // Arrange
     DeviceProfile deviceProfile = mock(DeviceProfile.class);
     when(deviceProfile.getId()).thenThrow(new DataValidationException("An error occurred"));
@@ -259,9 +268,10 @@ public class DeviceProfileServiceImplDiffblueTest {
    * boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEntity(TenantId, EntityId, boolean)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfileServiceImpl.deleteEntity(TenantId, EntityId, boolean)"})
-  public void testDeleteEntity3() {
+  void testDeleteEntity3() {
     // Arrange
     DeviceProfile deviceProfile = mock(DeviceProfile.class);
     when(deviceProfile.getId())
@@ -296,9 +306,11 @@ public class DeviceProfileServiceImplDiffblueTest {
    * boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteEntity(TenantId, EntityId, boolean); given DeviceProfileDao findById(TenantId, UUID) return 'null'; then calls findById(TenantId, UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfileServiceImpl.deleteEntity(TenantId, EntityId, boolean)"})
-  public void testDeleteEntity_givenDeviceProfileDaoFindByIdReturnNull_thenCallsFindById() {
+  void testDeleteEntity_givenDeviceProfileDaoFindByIdReturnNull_thenCallsFindById() {
     // Arrange
     when(deviceProfileDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(null);
 
@@ -321,9 +333,10 @@ public class DeviceProfileServiceImplDiffblueTest {
    * boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEntity(TenantId, EntityId, boolean); then calls getTenantId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfileServiceImpl.deleteEntity(TenantId, EntityId, boolean)"})
-  public void testDeleteEntity_thenCallsGetTenantId() {
+  void testDeleteEntity_thenCallsGetTenantId() {
     // Arrange
     DeviceProfile deviceProfile = mock(DeviceProfile.class);
     when(deviceProfile.getTenantId()).thenThrow(new DataValidationException("An error occurred"));
@@ -356,9 +369,10 @@ public class DeviceProfileServiceImplDiffblueTest {
    * boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEntity(TenantId, EntityId, boolean); then calls isDefault()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfileServiceImpl.deleteEntity(TenantId, EntityId, boolean)"})
-  public void testDeleteEntity_thenCallsIsDefault() {
+  void testDeleteEntity_thenCallsIsDefault() {
     // Arrange
     DeviceProfile deviceProfile = mock(DeviceProfile.class);
     when(deviceProfile.isDefault()).thenThrow(new DataValidationException("An error occurred"));
@@ -387,9 +401,11 @@ public class DeviceProfileServiceImplDiffblueTest {
    * boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteEntity(TenantId, EntityId, boolean); when 'false'; then calls isDefault()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfileServiceImpl.deleteEntity(TenantId, EntityId, boolean)"})
-  public void testDeleteEntity_whenFalse_thenCallsIsDefault() {
+  void testDeleteEntity_whenFalse_thenCallsIsDefault() {
     // Arrange
     DeviceProfile deviceProfile = mock(DeviceProfile.class);
     when(deviceProfile.isDefault()).thenReturn(true);
@@ -412,9 +428,10 @@ public class DeviceProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceProfileServiceImpl#findDeviceProfiles(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceProfiles(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceProfileServiceImpl.findDeviceProfiles(TenantId, PageLink)"})
-  public void testFindDeviceProfiles() {
+  void testFindDeviceProfiles() {
     // Arrange
     when(deviceProfileDao.findDeviceProfiles(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -434,9 +451,10 @@ public class DeviceProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceProfileServiceImpl#findDeviceProfiles(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceProfiles(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceProfileServiceImpl.findDeviceProfiles(TenantId, PageLink)"})
-  public void testFindDeviceProfiles2() {
+  void testFindDeviceProfiles2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize()).thenThrow(new DataValidationException("An error occurred"));
@@ -454,9 +472,10 @@ public class DeviceProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceProfileServiceImpl#findDeviceProfiles(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceProfiles(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceProfileServiceImpl.findDeviceProfiles(TenantId, PageLink)"})
-  public void testFindDeviceProfiles3() {
+  void testFindDeviceProfiles3() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPage()).thenThrow(new DataValidationException("An error occurred"));
@@ -480,9 +499,11 @@ public class DeviceProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceProfileServiceImpl#findDeviceProfiles(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDeviceProfiles(TenantId, PageLink); given SortOrder with 'Property' and direction is 'ASC'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceProfileServiceImpl.findDeviceProfiles(TenantId, PageLink)"})
-  public void testFindDeviceProfiles_givenSortOrderWithPropertyAndDirectionIsAsc() {
+  void testFindDeviceProfiles_givenSortOrderWithPropertyAndDirectionIsAsc() {
     // Arrange
     PageData<DeviceProfile> emptyPageDataResult = PageData.emptyPageData();
     when(deviceProfileDao.findDeviceProfiles(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
@@ -514,9 +535,11 @@ public class DeviceProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceProfileServiceImpl#findDeviceProfiles(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDeviceProfiles(TenantId, PageLink); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceProfileServiceImpl.findDeviceProfiles(TenantId, PageLink)"})
-  public void testFindDeviceProfiles_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindDeviceProfiles_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<DeviceProfile> emptyPageDataResult = PageData.emptyPageData();
     when(deviceProfileDao.findDeviceProfiles(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
@@ -548,9 +571,11 @@ public class DeviceProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceProfileServiceImpl#findDeviceProfiles(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDeviceProfiles(TenantId, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceProfileServiceImpl.findDeviceProfiles(TenantId, PageLink)"})
-  public void testFindDeviceProfiles_givenSortOrderWithPropertyIsNull() {
+  void testFindDeviceProfiles_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<DeviceProfile> emptyPageDataResult = PageData.emptyPageData();
     when(deviceProfileDao.findDeviceProfiles(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
@@ -582,9 +607,10 @@ public class DeviceProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceProfileServiceImpl#findDeviceProfiles(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceProfiles(TenantId, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceProfileServiceImpl.findDeviceProfiles(TenantId, PageLink)"})
-  public void testFindDeviceProfiles_thenCallsGetProperty() {
+  void testFindDeviceProfiles_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty()).thenThrow(new DataValidationException("An error occurred"));
@@ -614,9 +640,11 @@ public class DeviceProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceProfileServiceImpl#findDeviceProfiles(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDeviceProfiles(TenantId, PageLink); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceProfileServiceImpl.findDeviceProfiles(TenantId, PageLink)"})
-  public void testFindDeviceProfiles_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindDeviceProfiles_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<DeviceProfile> emptyPageDataResult = PageData.emptyPageData();
     when(deviceProfileDao.findDeviceProfiles(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
@@ -639,11 +667,12 @@ public class DeviceProfileServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceProfileInfos(TenantId, PageLink, String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceProfileServiceImpl.findDeviceProfileInfos(TenantId, PageLink, String)"
   })
-  public void testFindDeviceProfileInfos() {
+  void testFindDeviceProfileInfos() {
     // Arrange
     when(deviceProfileDao.findDeviceProfileInfos(
             Mockito.<TenantId>any(), Mockito.<PageLink>any(), Mockito.<String>any()))
@@ -668,11 +697,12 @@ public class DeviceProfileServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceProfileInfos(TenantId, PageLink, String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceProfileServiceImpl.findDeviceProfileInfos(TenantId, PageLink, String)"
   })
-  public void testFindDeviceProfileInfos2() {
+  void testFindDeviceProfileInfos2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize()).thenThrow(new DataValidationException("An error occurred"));
@@ -693,11 +723,12 @@ public class DeviceProfileServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceProfileInfos(TenantId, PageLink, String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceProfileServiceImpl.findDeviceProfileInfos(TenantId, PageLink, String)"
   })
-  public void testFindDeviceProfileInfos3() {
+  void testFindDeviceProfileInfos3() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPage()).thenThrow(new DataValidationException("An error occurred"));
@@ -724,11 +755,13 @@ public class DeviceProfileServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDeviceProfileInfos(TenantId, PageLink, String); given SortOrder with 'Property' and direction is 'ASC'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceProfileServiceImpl.findDeviceProfileInfos(TenantId, PageLink, String)"
   })
-  public void testFindDeviceProfileInfos_givenSortOrderWithPropertyAndDirectionIsAsc() {
+  void testFindDeviceProfileInfos_givenSortOrderWithPropertyAndDirectionIsAsc() {
     // Arrange
     PageData<DeviceProfileInfo> emptyPageDataResult = PageData.emptyPageData();
     when(deviceProfileDao.findDeviceProfileInfos(
@@ -765,11 +798,13 @@ public class DeviceProfileServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDeviceProfileInfos(TenantId, PageLink, String); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceProfileServiceImpl.findDeviceProfileInfos(TenantId, PageLink, String)"
   })
-  public void testFindDeviceProfileInfos_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindDeviceProfileInfos_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<DeviceProfileInfo> emptyPageDataResult = PageData.emptyPageData();
     when(deviceProfileDao.findDeviceProfileInfos(
@@ -806,11 +841,13 @@ public class DeviceProfileServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDeviceProfileInfos(TenantId, PageLink, String); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceProfileServiceImpl.findDeviceProfileInfos(TenantId, PageLink, String)"
   })
-  public void testFindDeviceProfileInfos_givenSortOrderWithPropertyIsNull() {
+  void testFindDeviceProfileInfos_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<DeviceProfileInfo> emptyPageDataResult = PageData.emptyPageData();
     when(deviceProfileDao.findDeviceProfileInfos(
@@ -847,11 +884,12 @@ public class DeviceProfileServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceProfileInfos(TenantId, PageLink, String); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceProfileServiceImpl.findDeviceProfileInfos(TenantId, PageLink, String)"
   })
-  public void testFindDeviceProfileInfos_thenCallsGetProperty() {
+  void testFindDeviceProfileInfos_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty()).thenThrow(new DataValidationException("An error occurred"));
@@ -884,11 +922,13 @@ public class DeviceProfileServiceImplDiffblueTest {
    * PageLink, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDeviceProfileInfos(TenantId, PageLink, String); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceProfileServiceImpl.findDeviceProfileInfos(TenantId, PageLink, String)"
   })
-  public void testFindDeviceProfileInfos_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindDeviceProfileInfos_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<DeviceProfileInfo> emptyPageDataResult = PageData.emptyPageData();
     when(deviceProfileDao.findDeviceProfileInfos(
@@ -919,11 +959,13 @@ public class DeviceProfileServiceImplDiffblueTest {
    * DeviceProfileId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test setDefaultDeviceProfile(TenantId, DeviceProfileId); given DeviceProfile() Default is 'true'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceProfileServiceImpl.setDefaultDeviceProfile(TenantId, DeviceProfileId)"
   })
-  public void testSetDefaultDeviceProfile_givenDeviceProfileDefaultIsTrue_thenReturnFalse() {
+  void testSetDefaultDeviceProfile_givenDeviceProfileDefaultIsTrue_thenReturnFalse() {
     // Arrange
     DeviceProfile deviceProfile = new DeviceProfile();
     deviceProfile.setDefault(true);
@@ -952,11 +994,12 @@ public class DeviceProfileServiceImplDiffblueTest {
    * DeviceProfileId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setDefaultDeviceProfile(TenantId, DeviceProfileId); then calls isDefault()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceProfileServiceImpl.setDefaultDeviceProfile(TenantId, DeviceProfileId)"
   })
-  public void testSetDefaultDeviceProfile_thenCallsIsDefault() {
+  void testSetDefaultDeviceProfile_thenCallsIsDefault() {
     // Arrange
     DeviceProfile deviceProfile = mock(DeviceProfile.class);
     when(deviceProfile.isDefault()).thenReturn(true);
@@ -980,9 +1023,10 @@ public class DeviceProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceProfileServiceImpl#deleteDeviceProfilesByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteDeviceProfilesByTenantId(TenantId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfileServiceImpl.deleteDeviceProfilesByTenantId(TenantId)"})
-  public void testDeleteDeviceProfilesByTenantId() {
+  void testDeleteDeviceProfilesByTenantId() {
     // Arrange
     PageData<DeviceProfile> emptyPageDataResult = PageData.emptyPageData();
     when(deviceProfileDao.findDeviceProfiles(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
@@ -1001,9 +1045,10 @@ public class DeviceProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceProfileServiceImpl#deleteDeviceProfilesByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteDeviceProfilesByTenantId(TenantId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfileServiceImpl.deleteDeviceProfilesByTenantId(TenantId)"})
-  public void testDeleteDeviceProfilesByTenantId2() {
+  void testDeleteDeviceProfilesByTenantId2() {
     // Arrange
     DeviceProfile deviceProfile = mock(DeviceProfile.class);
     when(deviceProfile.getId())
@@ -1039,9 +1084,10 @@ public class DeviceProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceProfileServiceImpl#deleteDeviceProfilesByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteDeviceProfilesByTenantId(TenantId); then calls getTenantId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfileServiceImpl.deleteDeviceProfilesByTenantId(TenantId)"})
-  public void testDeleteDeviceProfilesByTenantId_thenCallsGetTenantId() {
+  void testDeleteDeviceProfilesByTenantId_thenCallsGetTenantId() {
     // Arrange
     DeviceProfile deviceProfile = mock(DeviceProfile.class);
     when(deviceProfile.getTenantId()).thenThrow(new DataValidationException("An error occurred"));
@@ -1070,16 +1116,53 @@ public class DeviceProfileServiceImplDiffblueTest {
   /**
    * Test {@link DeviceProfileServiceImpl#deleteByTenantId(TenantId)}.
    *
+   * <p>Method under test: {@link DeviceProfileServiceImpl#deleteByTenantId(TenantId)}
+   */
+  @Test
+  @DisplayName("Test deleteByTenantId(TenantId)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DeviceProfileServiceImpl.deleteByTenantId(TenantId)"})
+  void testDeleteByTenantId() {
+    // Arrange
+    DeviceProfile deviceProfile = mock(DeviceProfile.class);
+    when(deviceProfile.getId())
+        .thenReturn(new DeviceProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    ArrayList<DeviceProfile> data = new ArrayList<>();
+    data.add(deviceProfile);
+    PageData<DeviceProfile> pageData = new PageData<>(data, 100, 100L, true);
+
+    doThrow(new DataValidationException("An error occurred"))
+        .when(deviceProfileDao)
+        .removeById(Mockito.<TenantId>any(), Mockito.<UUID>any());
+    when(deviceProfileDao.findDeviceProfiles(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
+        .thenReturn(pageData);
+
+    // Act and Assert
+    assertThrows(
+        DataValidationException.class,
+        () -> deviceProfileServiceImpl.deleteByTenantId(ModelConstants.SYSTEM_TENANT));
+    verify(deviceProfile).getId();
+    verify(deviceProfileDao).removeById(isA(TenantId.class), isA(UUID.class));
+    verify(deviceProfileDao).findDeviceProfiles(isA(TenantId.class), isA(PageLink.class));
+  }
+
+  /**
+   * Test {@link DeviceProfileServiceImpl#deleteByTenantId(TenantId)}.
+   *
    * <ul>
-   *   <li>Then calls {@link DeviceProfileDao#findDeviceProfiles(TenantId, PageLink)}.
+   *   <li>Given {@link DeviceProfileDao} {@link DeviceProfileDao#findDeviceProfiles(TenantId,
+   *       PageLink)} return emptyPageData.
    * </ul>
    *
    * <p>Method under test: {@link DeviceProfileServiceImpl#deleteByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteByTenantId(TenantId); given DeviceProfileDao findDeviceProfiles(TenantId, PageLink) return emptyPageData")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceProfileServiceImpl.deleteByTenantId(TenantId)"})
-  public void testDeleteByTenantId_thenCallsFindDeviceProfiles() {
+  void testDeleteByTenantId_givenDeviceProfileDaoFindDeviceProfilesReturnEmptyPageData() {
     // Arrange
     PageData<DeviceProfile> emptyPageDataResult = PageData.emptyPageData();
     when(deviceProfileDao.findDeviceProfiles(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
@@ -1093,14 +1176,53 @@ public class DeviceProfileServiceImplDiffblueTest {
   }
 
   /**
+   * Test {@link DeviceProfileServiceImpl#deleteByTenantId(TenantId)}.
+   *
+   * <ul>
+   *   <li>Then calls {@link DeviceProfile#getTenantId()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DeviceProfileServiceImpl#deleteByTenantId(TenantId)}
+   */
+  @Test
+  @DisplayName("Test deleteByTenantId(TenantId); then calls getTenantId()")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DeviceProfileServiceImpl.deleteByTenantId(TenantId)"})
+  void testDeleteByTenantId_thenCallsGetTenantId() {
+    // Arrange
+    DeviceProfile deviceProfile = mock(DeviceProfile.class);
+    when(deviceProfile.getTenantId()).thenThrow(new DataValidationException("An error occurred"));
+    when(deviceProfile.getId())
+        .thenReturn(new DeviceProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    ArrayList<DeviceProfile> data = new ArrayList<>();
+    data.add(deviceProfile);
+    PageData<DeviceProfile> pageData = new PageData<>(data, 100, 100L, true);
+
+    doNothing().when(deviceProfileDao).removeById(Mockito.<TenantId>any(), Mockito.<UUID>any());
+    when(deviceProfileDao.findDeviceProfiles(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
+        .thenReturn(pageData);
+
+    // Act and Assert
+    assertThrows(
+        DataValidationException.class,
+        () -> deviceProfileServiceImpl.deleteByTenantId(ModelConstants.SYSTEM_TENANT));
+    verify(deviceProfile).getId();
+    verify(deviceProfile).getTenantId();
+    verify(deviceProfileDao).removeById(isA(TenantId.class), isA(UUID.class));
+    verify(deviceProfileDao).findDeviceProfiles(isA(TenantId.class), isA(PageLink.class));
+  }
+
+  /**
    * Test {@link DeviceProfileServiceImpl#getEntityType()}.
    *
    * <p>Method under test: {@link DeviceProfileServiceImpl#getEntityType()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getEntityType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityType DeviceProfileServiceImpl.getEntityType()"})
-  public void testGetEntityType() {
+  void testGetEntityType() {
     // Arrange, Act and Assert
     assertEquals(EntityType.DEVICE_PROFILE, new DeviceProfileServiceImpl().getEntityType());
   }
@@ -1109,6 +1231,7 @@ public class DeviceProfileServiceImplDiffblueTest {
    * Test {@link DeviceProfileServiceImpl#findDeviceProfileNamesByTenantId(TenantId, boolean)}.
    *
    * <ul>
+   *   <li>When {@link ModelConstants#SYSTEM_TENANT}.
    *   <li>Then return Empty.
    * </ul>
    *
@@ -1116,11 +1239,13 @@ public class DeviceProfileServiceImplDiffblueTest {
    * DeviceProfileServiceImpl#findDeviceProfileNamesByTenantId(TenantId, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDeviceProfileNamesByTenantId(TenantId, boolean); when SYSTEM_TENANT; then return Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "List DeviceProfileServiceImpl.findDeviceProfileNamesByTenantId(TenantId, boolean)"
   })
-  public void testFindDeviceProfileNamesByTenantId_thenReturnEmpty() {
+  void testFindDeviceProfileNamesByTenantId_whenSystem_tenant_thenReturnEmpty() {
     // Arrange
     when(deviceProfileDao.findTenantDeviceProfileNames(Mockito.<UUID>any(), anyBoolean()))
         .thenReturn(new ArrayList<>());

@@ -1,25 +1,25 @@
 package org.thingsboard.server.dao.entity;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.aot.DisabledInAotMode;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.page.PageData;
@@ -40,8 +40,8 @@ import org.thingsboard.server.dao.model.ModelConstants;
 
 @ContextConfiguration(classes = {BaseEntityService.class})
 @DisabledInAotMode
-@RunWith(SpringJUnit4ClassRunner.class)
-public class BaseEntityServiceDiffblueTest {
+@ExtendWith(SpringExtension.class)
+class BaseEntityServiceDiffblueTest {
   @Autowired private BaseEntityService baseEntityService;
 
   @MockBean private EntityQueryDao entityQueryDao;
@@ -53,11 +53,12 @@ public class BaseEntityServiceDiffblueTest {
    * EntityCountQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test countEntitiesByQuery(TenantId, CustomerId, EntityCountQuery)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "long BaseEntityService.countEntitiesByQuery(TenantId, CustomerId, EntityCountQuery)"
   })
-  public void testCountEntitiesByQuery() {
+  void testCountEntitiesByQuery() {
     // Arrange
     EntityFilter entityFilter = mock(EntityFilter.class);
     when(entityFilter.getType()).thenThrow(new IncorrectParameterException("An error occurred"));
@@ -80,11 +81,12 @@ public class BaseEntityServiceDiffblueTest {
    * EntityCountQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test countEntitiesByQuery(TenantId, CustomerId, EntityCountQuery)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "long BaseEntityService.countEntitiesByQuery(TenantId, CustomerId, EntityCountQuery)"
   })
-  public void testCountEntitiesByQuery2() {
+  void testCountEntitiesByQuery2() {
     // Arrange
     when(entityQueryDao.countEntitiesByQuery(
             Mockito.<TenantId>any(), Mockito.<CustomerId>any(), Mockito.<EntityCountQuery>any()))
@@ -118,11 +120,13 @@ public class BaseEntityServiceDiffblueTest {
    * EntityCountQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test countEntitiesByQuery(TenantId, CustomerId, EntityCountQuery); given 'FROM'; when RelationsQueryFilter (default constructor) RootEntity is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "long BaseEntityService.countEntitiesByQuery(TenantId, CustomerId, EntityCountQuery)"
   })
-  public void testCountEntitiesByQuery_givenFrom_whenRelationsQueryFilterRootEntityIsNull() {
+  void testCountEntitiesByQuery_givenFrom_whenRelationsQueryFilterRootEntityIsNull() {
     // Arrange
     RelationsQueryFilter entityFilter = new RelationsQueryFilter();
     entityFilter.setDirection(EntitySearchDirection.FROM);
@@ -156,11 +160,13 @@ public class BaseEntityServiceDiffblueTest {
    * EntityCountQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test countEntitiesByQuery(TenantId, CustomerId, EntityCountQuery); given NULL_CUSTOMER_ID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "long BaseEntityService.countEntitiesByQuery(TenantId, CustomerId, EntityCountQuery)"
   })
-  public void testCountEntitiesByQuery_givenNull_customer_id() {
+  void testCountEntitiesByQuery_givenNull_customer_id() {
     // Arrange
     when(entityQueryDao.countEntitiesByQuery(
             Mockito.<TenantId>any(), Mockito.<CustomerId>any(), Mockito.<EntityCountQuery>any()))
@@ -203,11 +209,13 @@ public class BaseEntityServiceDiffblueTest {
    * EntityCountQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test countEntitiesByQuery(TenantId, CustomerId, EntityCountQuery); given 'null'; when EntityFilter getType() return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "long BaseEntityService.countEntitiesByQuery(TenantId, CustomerId, EntityCountQuery)"
   })
-  public void testCountEntitiesByQuery_givenNull_whenEntityFilterGetTypeReturnNull() {
+  void testCountEntitiesByQuery_givenNull_whenEntityFilterGetTypeReturnNull() {
     // Arrange
     EntityFilter entityFilter = mock(EntityFilter.class);
     when(entityFilter.getType()).thenReturn(null);
@@ -235,11 +243,13 @@ public class BaseEntityServiceDiffblueTest {
    * EntityCountQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test countEntitiesByQuery(TenantId, CustomerId, EntityCountQuery); given 'SINGLE_ENTITY'; then return three")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "long BaseEntityService.countEntitiesByQuery(TenantId, CustomerId, EntityCountQuery)"
   })
-  public void testCountEntitiesByQuery_givenSingleEntity_thenReturnThree() {
+  void testCountEntitiesByQuery_givenSingleEntity_thenReturnThree() {
     // Arrange
     when(entityQueryDao.countEntitiesByQuery(
             Mockito.<TenantId>any(), Mockito.<CustomerId>any(), Mockito.<EntityCountQuery>any()))
@@ -273,11 +283,13 @@ public class BaseEntityServiceDiffblueTest {
    * EntityCountQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test countEntitiesByQuery(TenantId, CustomerId, EntityCountQuery); then calls getEntityFilter()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "long BaseEntityService.countEntitiesByQuery(TenantId, CustomerId, EntityCountQuery)"
   })
-  public void testCountEntitiesByQuery_thenCallsGetEntityFilter() {
+  void testCountEntitiesByQuery_thenCallsGetEntityFilter() {
     // Arrange
     EntityCountQuery query = mock(EntityCountQuery.class);
     when(query.getEntityFilter()).thenThrow(new IncorrectParameterException("An error occurred"));
@@ -302,11 +314,13 @@ public class BaseEntityServiceDiffblueTest {
    * EntityCountQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test countEntitiesByQuery(TenantId, CustomerId, EntityCountQuery); when EntityCountQuery()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "long BaseEntityService.countEntitiesByQuery(TenantId, CustomerId, EntityCountQuery)"
   })
-  public void testCountEntitiesByQuery_whenEntityCountQuery() {
+  void testCountEntitiesByQuery_whenEntityCountQuery() {
     // Arrange, Act and Assert
     assertThrows(
         IncorrectParameterException.class,
@@ -329,11 +343,13 @@ public class BaseEntityServiceDiffblueTest {
    * EntityCountQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test countEntitiesByQuery(TenantId, CustomerId, EntityCountQuery); when 'null'; then throw IncorrectParameterException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "long BaseEntityService.countEntitiesByQuery(TenantId, CustomerId, EntityCountQuery)"
   })
-  public void testCountEntitiesByQuery_whenNull_thenThrowIncorrectParameterException() {
+  void testCountEntitiesByQuery_whenNull_thenThrowIncorrectParameterException() {
     // Arrange, Act and Assert
     assertThrows(
         IncorrectParameterException.class,
@@ -349,11 +365,12 @@ public class BaseEntityServiceDiffblueTest {
    * EntityDataQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEntityService.findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery)"
   })
-  public void testFindEntityDataByQuery() {
+  void testFindEntityDataByQuery() {
     // Arrange
     EntityFilter entityFilter = mock(EntityFilter.class);
     when(entityFilter.getType()).thenThrow(new IncorrectParameterException("An error occurred"));
@@ -376,11 +393,12 @@ public class BaseEntityServiceDiffblueTest {
    * EntityDataQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEntityService.findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery)"
   })
-  public void testFindEntityDataByQuery2() {
+  void testFindEntityDataByQuery2() {
     // Arrange
     PageData<EntityData> emptyPageDataResult = PageData.emptyPageData();
     when(entityQueryDao.findEntityDataByQuery(
@@ -422,11 +440,12 @@ public class BaseEntityServiceDiffblueTest {
    * EntityDataQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEntityService.findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery)"
   })
-  public void testFindEntityDataByQuery3() {
+  void testFindEntityDataByQuery3() {
     // Arrange
     when(entityQueryDao.findEntityDataByQuery(
             Mockito.<TenantId>any(), Mockito.<CustomerId>any(), Mockito.<EntityDataQuery>any()))
@@ -465,11 +484,12 @@ public class BaseEntityServiceDiffblueTest {
    * EntityDataQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEntityService.findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery)"
   })
-  public void testFindEntityDataByQuery4() {
+  void testFindEntityDataByQuery4() {
     // Arrange
     PageData<EntityData> emptyPageDataResult = PageData.emptyPageData();
     when(entityQueryDao.findEntityDataByQuery(
@@ -506,11 +526,12 @@ public class BaseEntityServiceDiffblueTest {
    * EntityDataQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEntityService.findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery)"
   })
-  public void testFindEntityDataByQuery5() {
+  void testFindEntityDataByQuery5() {
     // Arrange
     PageData<EntityData> emptyPageDataResult = PageData.emptyPageData();
     when(entityQueryDao.findEntityDataByQuery(
@@ -547,11 +568,12 @@ public class BaseEntityServiceDiffblueTest {
    * EntityDataQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEntityService.findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery)"
   })
-  public void testFindEntityDataByQuery6() {
+  void testFindEntityDataByQuery6() {
     // Arrange
     PageData<EntityData> emptyPageDataResult = PageData.emptyPageData();
     when(entityQueryDao.findEntityDataByQuery(
@@ -593,11 +615,12 @@ public class BaseEntityServiceDiffblueTest {
    * EntityDataQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEntityService.findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery)"
   })
-  public void testFindEntityDataByQuery7() {
+  void testFindEntityDataByQuery7() {
     // Arrange
     PageData<EntityData> emptyPageDataResult = PageData.emptyPageData();
     when(entityQueryDao.findEntityDataByQuery(
@@ -647,11 +670,13 @@ public class BaseEntityServiceDiffblueTest {
    * EntityDataQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery); given 'null'; when EntityFilter getType() return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEntityService.findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery)"
   })
-  public void testFindEntityDataByQuery_givenNull_whenEntityFilterGetTypeReturnNull() {
+  void testFindEntityDataByQuery_givenNull_whenEntityFilterGetTypeReturnNull() {
     // Arrange
     EntityFilter entityFilter = mock(EntityFilter.class);
     when(entityFilter.getType()).thenReturn(null);
@@ -678,11 +703,13 @@ public class BaseEntityServiceDiffblueTest {
    * EntityDataQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery); then calls getKey()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEntityService.findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery)"
   })
-  public void testFindEntityDataByQuery_thenCallsGetKey() {
+  void testFindEntityDataByQuery_thenCallsGetKey() {
     // Arrange
     EntityFilter entityFilter = mock(EntityFilter.class);
     when(entityFilter.getType()).thenReturn(EntityFilterType.SINGLE_ENTITY);
@@ -722,11 +749,13 @@ public class BaseEntityServiceDiffblueTest {
    * EntityDataQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery); then calls getPageSize()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEntityService.findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery)"
   })
-  public void testFindEntityDataByQuery_thenCallsGetPageSize() {
+  void testFindEntityDataByQuery_thenCallsGetPageSize() {
     // Arrange
     EntityFilter entityFilter = mock(EntityFilter.class);
     when(entityFilter.getType()).thenReturn(EntityFilterType.SINGLE_ENTITY);
@@ -759,11 +788,13 @@ public class BaseEntityServiceDiffblueTest {
    * EntityDataQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery); when EntityDataQuery()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEntityService.findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery)"
   })
-  public void testFindEntityDataByQuery_whenEntityDataQuery() {
+  void testFindEntityDataByQuery_whenEntityDataQuery() {
     // Arrange, Act and Assert
     assertThrows(
         IncorrectParameterException.class,
@@ -786,11 +817,13 @@ public class BaseEntityServiceDiffblueTest {
    * EntityDataQuery)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery); when 'null'; then throw IncorrectParameterException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseEntityService.findEntityDataByQuery(TenantId, CustomerId, EntityDataQuery)"
   })
-  public void testFindEntityDataByQuery_whenNull_thenThrowIncorrectParameterException() {
+  void testFindEntityDataByQuery_whenNull_thenThrowIncorrectParameterException() {
     // Arrange, Act and Assert
     assertThrows(
         IncorrectParameterException.class,

@@ -1,21 +1,21 @@
 package org.thingsboard.server.dao.entity;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import org.hibernate.exception.ConstraintViolationException;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.dao.exception.DataValidationException;
 
-public class AbstractEntityServiceDiffblueTest {
+class AbstractEntityServiceDiffblueTest {
   /**
    * Test {@link AbstractEntityService#extractConstraintViolationException(Exception)}.
    *
@@ -27,11 +27,12 @@ public class AbstractEntityServiceDiffblueTest {
    * AbstractEntityService#extractConstraintViolationException(Exception)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test extractConstraintViolationException(Exception); then return not Present")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "Optional AbstractEntityService.extractConstraintViolationException(Exception)"
   })
-  public void testExtractConstraintViolationException_thenReturnNotPresent() {
+  void testExtractConstraintViolationException_thenReturnNotPresent() {
     // Arrange and Act
     Optional<ConstraintViolationException> actualExtractConstraintViolationExceptionResult =
         AbstractEntityService.extractConstraintViolationException(new Exception("foo"));
@@ -51,11 +52,12 @@ public class AbstractEntityServiceDiffblueTest {
    * AbstractEntityService#extractConstraintViolationException(Exception)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test extractConstraintViolationException(Exception); then return Present")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "Optional AbstractEntityService.extractConstraintViolationException(Exception)"
   })
-  public void testExtractConstraintViolationException_thenReturnPresent() {
+  void testExtractConstraintViolationException_thenReturnPresent() {
     // Arrange
     Exception t = new Exception("foo");
     ConstraintViolationException constraintViolationException =
@@ -82,11 +84,13 @@ public class AbstractEntityServiceDiffblueTest {
    * String, String, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test checkConstraintViolation(Exception, String, String, String, String) with 't', 'constraintName1', 'constraintMessage1', 'constraintName2', 'constraintMessage2'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void AbstractEntityService.checkConstraintViolation(Exception, String, String, String, String)"
   })
-  public void
+  void
       testCheckConstraintViolationWithTConstraintName1ConstraintMessage1ConstraintName2ConstraintMessage2() {
     // Arrange
     Exception t = new Exception("foo");
@@ -114,11 +118,13 @@ public class AbstractEntityServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test checkConstraintViolation(Exception, String, String) with 't', 'constraintName', 'constraintMessage'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void AbstractEntityService.checkConstraintViolation(Exception, String, String)"
   })
-  public void testCheckConstraintViolationWithTConstraintNameConstraintMessage() {
+  void testCheckConstraintViolationWithTConstraintNameConstraintMessage() {
     // Arrange
     Exception t = new Exception("foo");
     t.initCause(
@@ -144,9 +150,11 @@ public class AbstractEntityServiceDiffblueTest {
    * <p>Method under test: {@link AbstractEntityService#checkConstraintViolation(Exception, Map)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test checkConstraintViolation(Exception, Map) with 't', 'constraints'; then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractEntityService.checkConstraintViolation(Exception, Map)"})
-  public void testCheckConstraintViolationWithTConstraints_thenThrowDataValidationException() {
+  void testCheckConstraintViolationWithTConstraints_thenThrowDataValidationException() {
     // Arrange
     Exception t = new Exception("foo");
     t.initCause(new ConstraintViolationException("An error occurred", new SQLException(), "42"));

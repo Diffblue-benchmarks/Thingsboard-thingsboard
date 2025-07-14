@@ -1,12 +1,11 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -21,8 +20,9 @@ import com.fasterxml.jackson.databind.node.TextNode;
 import com.fasterxml.jackson.databind.node.TreeTraversingParser;
 import java.util.Iterator;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.OtaPackageInfo;
 import org.thingsboard.server.common.data.id.DeviceProfileId;
 import org.thingsboard.server.common.data.ota.ChecksumAlgorithm;
@@ -30,7 +30,7 @@ import org.thingsboard.server.common.data.ota.OtaPackageType;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class OtaPackageInfoEntityDiffblueTest {
+class OtaPackageInfoEntityDiffblueTest {
   /**
    * Test {@link OtaPackageInfoEntity#equals(Object)}, and {@link OtaPackageInfoEntity#hashCode()}.
    *
@@ -47,12 +47,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -118,12 +119,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -163,12 +165,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(DoubleNode.valueOf(10.0d));
@@ -226,12 +229,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(null);
@@ -289,12 +293,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -353,12 +358,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -417,12 +423,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -481,12 +488,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -545,12 +553,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -609,12 +618,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -673,12 +683,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -737,12 +748,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -801,12 +813,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -865,12 +878,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -928,12 +942,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -991,12 +1006,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -1055,12 +1071,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -1119,12 +1136,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -1183,12 +1201,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -1247,12 +1266,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -1311,12 +1331,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -1375,12 +1396,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -1439,12 +1461,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -1503,12 +1526,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -1567,12 +1591,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -1631,12 +1656,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -1695,12 +1721,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -1759,12 +1786,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -1823,12 +1851,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual27() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual27() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -1887,12 +1916,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual28() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual28() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -1951,12 +1981,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -1994,12 +2025,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OtaPackageInfoEntity.equals(Object)",
     "int OtaPackageInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -2065,7 +2097,8 @@ public class OtaPackageInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void OtaPackageInfoEntity.<init>()",
     "JsonNode OtaPackageInfoEntity.getAdditionalInfo()",
@@ -2098,7 +2131,7 @@ public class OtaPackageInfoEntityDiffblueTest {
     "void OtaPackageInfoEntity.setVersion(String)",
     "String OtaPackageInfoEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     OtaPackageInfoEntity actualOtaPackageInfoEntity = new OtaPackageInfoEntity();
     JsonNode additionalInfo = CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON;
@@ -2172,11 +2205,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * Long, Object, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new OtaPackageInfoEntity(UUID, long, UUID, UUID, OtaPackageType, String, String, String, String, String, String, ChecksumAlgorithm, String, Long, Object, boolean)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void OtaPackageInfoEntity.<init>(UUID, long, UUID, UUID, OtaPackageType, String, String, String, String, String, String, ChecksumAlgorithm, String, Long, Object, boolean)"
   })
-  public void testNewOtaPackageInfoEntity() {
+  void testNewOtaPackageInfoEntity() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -2215,9 +2250,10 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#OtaPackageInfoEntity(OtaPackageInfo)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new OtaPackageInfoEntity(OtaPackageInfo)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void OtaPackageInfoEntity.<init>(OtaPackageInfo)"})
-  public void testNewOtaPackageInfoEntity2() {
+  void testNewOtaPackageInfoEntity2() {
     // Arrange
     OtaPackageInfo otaPackageInfo = new OtaPackageInfo(new OtaPackageInfo());
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -2246,11 +2282,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * Long, Object, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new OtaPackageInfoEntity(UUID, long, UUID, UUID, OtaPackageType, String, String, String, String, String, String, ChecksumAlgorithm, String, Long, Object, boolean); then AdditionalInfo return IntNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void OtaPackageInfoEntity.<init>(UUID, long, UUID, UUID, OtaPackageType, String, String, String, String, String, String, ChecksumAlgorithm, String, Long, Object, boolean)"
   })
-  public void testNewOtaPackageInfoEntity_thenAdditionalInfoReturnIntNode() {
+  void testNewOtaPackageInfoEntity_thenAdditionalInfoReturnIntNode() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -2295,9 +2333,11 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#OtaPackageInfoEntity(OtaPackageInfo)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new OtaPackageInfoEntity(OtaPackageInfo); then return AdditionalInfo is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void OtaPackageInfoEntity.<init>(OtaPackageInfo)"})
-  public void testNewOtaPackageInfoEntity_thenReturnAdditionalInfoIsNull() {
+  void testNewOtaPackageInfoEntity_thenReturnAdditionalInfoIsNull() {
     // Arrange
     OtaPackageInfo otaPackageInfo = new OtaPackageInfo();
     otaPackageInfo.setTenantId(ModelConstants.SYSTEM_TENANT);
@@ -2333,9 +2373,11 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#OtaPackageInfoEntity(OtaPackageInfo)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new OtaPackageInfoEntity(OtaPackageInfo); then return DeviceProfileId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void OtaPackageInfoEntity.<init>(OtaPackageInfo)"})
-  public void testNewOtaPackageInfoEntity_thenReturnDeviceProfileIdIsNull() {
+  void testNewOtaPackageInfoEntity_thenReturnDeviceProfileIdIsNull() {
     // Arrange
     OtaPackageInfo otaPackageInfo = new OtaPackageInfo(new OtaPackageInfo());
     otaPackageInfo.setTenantId(ModelConstants.SYSTEM_TENANT);
@@ -2363,11 +2405,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * Long, Object, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new OtaPackageInfoEntity(UUID, long, UUID, UUID, OtaPackageType, String, String, String, String, String, String, ChecksumAlgorithm, String, Long, Object, boolean); when 'Additional Info'; then AdditionalInfo return TextNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void OtaPackageInfoEntity.<init>(UUID, long, UUID, UUID, OtaPackageType, String, String, String, String, String, String, ChecksumAlgorithm, String, Long, Object, boolean)"
   })
-  public void testNewOtaPackageInfoEntity_whenAdditionalInfo_thenAdditionalInfoReturnTextNode() {
+  void testNewOtaPackageInfoEntity_whenAdditionalInfo_thenAdditionalInfoReturnTextNode() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -2414,11 +2458,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * Long, Object, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new OtaPackageInfoEntity(UUID, long, UUID, UUID, OtaPackageType, String, String, String, String, String, String, ChecksumAlgorithm, String, Long, Object, boolean); when False; then return AdditionalInfo is False FALSE")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void OtaPackageInfoEntity.<init>(UUID, long, UUID, UUID, OtaPackageType, String, String, String, String, String, String, ChecksumAlgorithm, String, Long, Object, boolean)"
   })
-  public void testNewOtaPackageInfoEntity_whenFalse_thenReturnAdditionalInfoIsFalseFalse() {
+  void testNewOtaPackageInfoEntity_whenFalse_thenReturnAdditionalInfoIsFalseFalse() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -2464,11 +2510,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * Long, Object, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new OtaPackageInfoEntity(UUID, long, UUID, UUID, OtaPackageType, String, String, String, String, String, String, ChecksumAlgorithm, String, Long, Object, boolean); when 'null'; then return Version is '1.0.2'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void OtaPackageInfoEntity.<init>(UUID, long, UUID, UUID, OtaPackageType, String, String, String, String, String, String, ChecksumAlgorithm, String, Long, Object, boolean)"
   })
-  public void testNewOtaPackageInfoEntity_whenNull_thenReturnVersionIs102() {
+  void testNewOtaPackageInfoEntity_whenNull_thenReturnVersionIs102() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -2529,11 +2577,13 @@ public class OtaPackageInfoEntityDiffblueTest {
    * Long, Object, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new OtaPackageInfoEntity(UUID, long, UUID, UUID, OtaPackageType, String, String, String, String, String, String, ChecksumAlgorithm, String, Long, Object, boolean); when valueOf one; then return AdditionalInfo is valueOf one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void OtaPackageInfoEntity.<init>(UUID, long, UUID, UUID, OtaPackageType, String, String, String, String, String, String, ChecksumAlgorithm, String, Long, Object, boolean)"
   })
-  public void testNewOtaPackageInfoEntity_whenValueOfOne_thenReturnAdditionalInfoIsValueOfOne() {
+  void testNewOtaPackageInfoEntity_whenValueOfOne_thenReturnAdditionalInfoIsValueOfOne() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -2569,9 +2619,10 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"OtaPackageInfo OtaPackageInfoEntity.toData()"})
-  public void testToData() {
+  void testToData() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -2615,9 +2666,10 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"OtaPackageInfo OtaPackageInfoEntity.toData()"})
-  public void testToData2() {
+  void testToData2() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -2661,9 +2713,10 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given OtaPackageInfoEntity(); then AdditionalInfo return NullNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"OtaPackageInfo OtaPackageInfoEntity.toData()"})
-  public void testToData_givenOtaPackageInfoEntity_thenAdditionalInfoReturnNullNode() {
+  void testToData_givenOtaPackageInfoEntity_thenAdditionalInfoReturnNullNode() {
     // Arrange and Act
     OtaPackageInfo actualToDataResult = new OtaPackageInfoEntity().toData();
 
@@ -2696,9 +2749,10 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return DeviceProfileId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"OtaPackageInfo OtaPackageInfoEntity.toData()"})
-  public void testToData_thenReturnDeviceProfileIdIsNull() {
+  void testToData_thenReturnDeviceProfileIdIsNull() {
     // Arrange
     OtaPackageInfoEntity otaPackageInfoEntity = new OtaPackageInfoEntity();
     otaPackageInfoEntity.setAdditionalInfo(
@@ -2749,9 +2803,10 @@ public class OtaPackageInfoEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return TenantId Id is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"OtaPackageInfo OtaPackageInfoEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdIsRandomUUID() {
+  void testToData_thenReturnTenantIdIdIsRandomUUID() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     UUID tenantId = UUID.randomUUID();

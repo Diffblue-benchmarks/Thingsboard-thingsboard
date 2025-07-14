@@ -1,9 +1,9 @@
 package org.thingsboard.server.dao.device;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.ArgumentMatchers.isNull;
@@ -11,7 +11,6 @@ import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.SettableFuture;
@@ -20,13 +19,14 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.Callable;
 import java.util.function.Function;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.thingsboard.server.common.data.Device;
 import org.thingsboard.server.common.data.DeviceIdInfo;
 import org.thingsboard.server.common.data.DeviceInfo;
@@ -60,8 +60,8 @@ import org.thingsboard.server.dao.sql.device.JpaDeviceCredentialsDao;
 import org.thingsboard.server.dao.sql.device.JpaDeviceDao;
 import org.thingsboard.server.dao.tenant.TenantServiceImpl;
 
-@RunWith(MockitoJUnitRunner.class)
-public class DeviceServiceImplDiffblueTest {
+@ExtendWith(MockitoExtension.class)
+class DeviceServiceImplDiffblueTest {
   @Mock private DeviceDao deviceDao;
 
   @Mock private DeviceDataValidator deviceDataValidator;
@@ -76,9 +76,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDeviceInfoById(TenantId, DeviceId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceInfoById(TenantId, DeviceId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DeviceInfo DeviceServiceImpl.findDeviceInfoById(TenantId, DeviceId)"})
-  public void testFindDeviceInfoById() {
+  void testFindDeviceInfoById() {
     // Arrange
     DeviceInfo deviceInfo = new DeviceInfo();
     when(deviceDao.findDeviceInfoById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
@@ -105,9 +106,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDeviceInfoById(TenantId, DeviceId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceInfoById(TenantId, DeviceId); then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DeviceInfo DeviceServiceImpl.findDeviceInfoById(TenantId, DeviceId)"})
-  public void testFindDeviceInfoById_thenCallsGetId() {
+  void testFindDeviceInfoById_thenCallsGetId() {
     // Arrange
     DeviceInfo deviceInfo = new DeviceInfo();
     when(deviceDao.findDeviceInfoById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
@@ -131,9 +133,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDeviceByIdAsync(TenantId, DeviceId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceByIdAsync(TenantId, DeviceId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ListenableFuture DeviceServiceImpl.findDeviceByIdAsync(TenantId, DeviceId)"})
-  public void testFindDeviceByIdAsync() {
+  void testFindDeviceByIdAsync() {
     // Arrange
     SettableFuture<Device> createResult = SettableFuture.create();
     when(deviceDao.findByIdAsync(Mockito.<TenantId>any(), Mockito.<UUID>any()))
@@ -157,9 +160,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDeviceByIdAsync(TenantId, DeviceId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceByIdAsync(TenantId, DeviceId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ListenableFuture DeviceServiceImpl.findDeviceByIdAsync(TenantId, DeviceId)"})
-  public void testFindDeviceByIdAsync2() {
+  void testFindDeviceByIdAsync2() {
     // Arrange
     when(deviceDao.findByIdAsync(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -180,9 +184,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDeviceByIdAsync(TenantId, DeviceId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceByIdAsync(TenantId, DeviceId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ListenableFuture DeviceServiceImpl.findDeviceByIdAsync(TenantId, DeviceId)"})
-  public void testFindDeviceByIdAsync3() {
+  void testFindDeviceByIdAsync3() {
     // Arrange
     when(deviceDao.findDeviceByTenantIdAndIdAsync(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -208,9 +213,11 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDeviceByIdAsync(TenantId, DeviceId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDeviceByIdAsync(TenantId, DeviceId); given DeviceDao findByIdAsync(TenantId, UUID) return create")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ListenableFuture DeviceServiceImpl.findDeviceByIdAsync(TenantId, DeviceId)"})
-  public void testFindDeviceByIdAsync_givenDeviceDaoFindByIdAsyncReturnCreate() {
+  void testFindDeviceByIdAsync_givenDeviceDaoFindByIdAsyncReturnCreate() {
     // Arrange
     SettableFuture<Device> createResult = SettableFuture.create();
     when(deviceDao.findByIdAsync(Mockito.<TenantId>any(), Mockito.<UUID>any()))
@@ -240,9 +247,11 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDeviceByIdAsync(TenantId, DeviceId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDeviceByIdAsync(TenantId, DeviceId); given DeviceDao findDeviceByTenantIdAndIdAsync(TenantId, UUID) return create")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ListenableFuture DeviceServiceImpl.findDeviceByIdAsync(TenantId, DeviceId)"})
-  public void testFindDeviceByIdAsync_givenDeviceDaoFindDeviceByTenantIdAndIdAsyncReturnCreate() {
+  void testFindDeviceByIdAsync_givenDeviceDaoFindDeviceByTenantIdAndIdAsyncReturnCreate() {
     // Arrange
     SettableFuture<Device> createResult = SettableFuture.create();
     when(deviceDao.findDeviceByTenantIdAndIdAsync(Mockito.<TenantId>any(), Mockito.<UUID>any()))
@@ -273,9 +282,11 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDeviceByIdAsync(TenantId, DeviceId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDeviceByIdAsync(TenantId, DeviceId); given DeviceDao findDeviceByTenantIdAndIdAsync(TenantId, UUID) return create")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ListenableFuture DeviceServiceImpl.findDeviceByIdAsync(TenantId, DeviceId)"})
-  public void testFindDeviceByIdAsync_givenDeviceDaoFindDeviceByTenantIdAndIdAsyncReturnCreate2() {
+  void testFindDeviceByIdAsync_givenDeviceDaoFindDeviceByTenantIdAndIdAsyncReturnCreate2() {
     // Arrange
     SettableFuture<Device> createResult = SettableFuture.create();
     when(deviceDao.findDeviceByTenantIdAndIdAsync(Mockito.<TenantId>any(), Mockito.<UUID>any()))
@@ -304,9 +315,11 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDeviceByIdAsync(TenantId, DeviceId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDeviceByIdAsync(TenantId, DeviceId); when TenantId(UUID) with id is NULL_UUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ListenableFuture DeviceServiceImpl.findDeviceByIdAsync(TenantId, DeviceId)"})
-  public void testFindDeviceByIdAsync_whenTenantIdWithIdIsNull_uuid() {
+  void testFindDeviceByIdAsync_whenTenantIdWithIdIsNull_uuid() {
     // Arrange
     SettableFuture<Device> createResult = SettableFuture.create();
     when(deviceDao.findByIdAsync(Mockito.<TenantId>any(), Mockito.<UUID>any()))
@@ -337,11 +350,13 @@ public class DeviceServiceImplDiffblueTest {
    * String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDeviceByTenantIdAndNameAsync(TenantId, String); then return SettableFuture")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture DeviceServiceImpl.findDeviceByTenantIdAndNameAsync(TenantId, String)"
   })
-  public void testFindDeviceByTenantIdAndNameAsync_thenReturnSettableFuture() {
+  void testFindDeviceByTenantIdAndNameAsync_thenReturnSettableFuture() {
     // Arrange
     SettableFuture<Object> createResult = SettableFuture.create();
     when(jpaExecutorService.submit(Mockito.<Callable<Object>>any())).thenReturn(createResult);
@@ -366,9 +381,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#saveDeviceWithAccessToken(Device, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test saveDeviceWithAccessToken(Device, String); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Device DeviceServiceImpl.saveDeviceWithAccessToken(Device, String)"})
-  public void testSaveDeviceWithAccessToken_thenThrowDataValidationException() {
+  void testSaveDeviceWithAccessToken_thenThrowDataValidationException() {
     // Arrange
     Device device = mock(Device.class);
     when(device.getName()).thenThrow(new DataValidationException("An error occurred"));
@@ -395,9 +411,11 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#saveDevice(Device, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test saveDevice(Device, boolean) with 'device', 'doValidate'; then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Device DeviceServiceImpl.saveDevice(Device, boolean)"})
-  public void testSaveDeviceWithDeviceDoValidate_thenThrowDataValidationException() {
+  void testSaveDeviceWithDeviceDoValidate_thenThrowDataValidationException() {
     // Arrange
     Device device = mock(Device.class);
     when(device.getName()).thenThrow(new DataValidationException("An error occurred"));
@@ -422,9 +440,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#saveDevice(Device)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test saveDevice(Device) with 'device'; then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Device DeviceServiceImpl.saveDevice(Device)"})
-  public void testSaveDeviceWithDevice_thenThrowDataValidationException() {
+  void testSaveDeviceWithDevice_thenThrowDataValidationException() {
     // Arrange
     Device device = mock(Device.class);
     when(device.getName()).thenThrow(new DataValidationException("An error occurred"));
@@ -449,11 +468,13 @@ public class DeviceServiceImplDiffblueTest {
    * DeviceCredentials)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test saveDeviceWithCredentials(Device, DeviceCredentials); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "Device DeviceServiceImpl.saveDeviceWithCredentials(Device, DeviceCredentials)"
   })
-  public void testSaveDeviceWithCredentials_thenThrowDataValidationException() {
+  void testSaveDeviceWithCredentials_thenThrowDataValidationException() {
     // Arrange
     Device device = mock(Device.class);
     when(device.getName()).thenThrow(new DataValidationException("An error occurred"));
@@ -476,9 +497,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#deleteEntity(TenantId, EntityId, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEntity(TenantId, EntityId, boolean)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceServiceImpl.deleteEntity(TenantId, EntityId, boolean)"})
-  public void testDeleteEntity() {
+  void testDeleteEntity() {
     // Arrange
     when(deviceDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -498,9 +520,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDevicesByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByTenantId(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceServiceImpl.findDevicesByTenantId(TenantId, PageLink)"})
-  public void testFindDevicesByTenantId() {
+  void testFindDevicesByTenantId() {
     // Arrange
     when(deviceDao.findDevicesByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -520,9 +543,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDevicesByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByTenantId(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceServiceImpl.findDevicesByTenantId(TenantId, PageLink)"})
-  public void testFindDevicesByTenantId2() {
+  void testFindDevicesByTenantId2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize()).thenThrow(new DataValidationException("An error occurred"));
@@ -540,9 +564,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDevicesByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByTenantId(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceServiceImpl.findDevicesByTenantId(TenantId, PageLink)"})
-  public void testFindDevicesByTenantId3() {
+  void testFindDevicesByTenantId3() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPage()).thenThrow(new DataValidationException("An error occurred"));
@@ -566,9 +591,11 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDevicesByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantId(TenantId, PageLink); given SortOrder with 'Property' and direction is 'ASC'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceServiceImpl.findDevicesByTenantId(TenantId, PageLink)"})
-  public void testFindDevicesByTenantId_givenSortOrderWithPropertyAndDirectionIsAsc() {
+  void testFindDevicesByTenantId_givenSortOrderWithPropertyAndDirectionIsAsc() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -601,9 +628,11 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDevicesByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantId(TenantId, PageLink); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceServiceImpl.findDevicesByTenantId(TenantId, PageLink)"})
-  public void testFindDevicesByTenantId_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindDevicesByTenantId_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -636,9 +665,11 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDevicesByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantId(TenantId, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceServiceImpl.findDevicesByTenantId(TenantId, PageLink)"})
-  public void testFindDevicesByTenantId_givenSortOrderWithPropertyIsNull() {
+  void testFindDevicesByTenantId_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -671,9 +702,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDevicesByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByTenantId(TenantId, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceServiceImpl.findDevicesByTenantId(TenantId, PageLink)"})
-  public void testFindDevicesByTenantId_thenCallsGetProperty() {
+  void testFindDevicesByTenantId_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty()).thenThrow(new DataValidationException("An error occurred"));
@@ -703,9 +735,11 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDevicesByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantId(TenantId, PageLink); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceServiceImpl.findDevicesByTenantId(TenantId, PageLink)"})
-  public void testFindDevicesByTenantId_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindDevicesByTenantId_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -729,11 +763,12 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceInfosByFilter(DeviceInfoFilter, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDeviceInfosByFilter(DeviceInfoFilter, PageLink)"
   })
-  public void testFindDeviceInfosByFilter() {
+  void testFindDeviceInfosByFilter() {
     // Arrange
     DeviceInfoFilter filter = mock(DeviceInfoFilter.class);
     when(filter.getTenantId()).thenThrow(new DataValidationException("An error occurred"));
@@ -752,11 +787,12 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceInfosByFilter(DeviceInfoFilter, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDeviceInfosByFilter(DeviceInfoFilter, PageLink)"
   })
-  public void testFindDeviceInfosByFilter2() {
+  void testFindDeviceInfosByFilter2() {
     // Arrange
     when(deviceDao.findDeviceInfosByFilter(
             Mockito.<DeviceInfoFilter>any(), Mockito.<PageLink>any()))
@@ -780,11 +816,12 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceInfosByFilter(DeviceInfoFilter, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDeviceInfosByFilter(DeviceInfoFilter, PageLink)"
   })
-  public void testFindDeviceInfosByFilter3() {
+  void testFindDeviceInfosByFilter3() {
     // Arrange
     DeviceInfoFilter filter = mock(DeviceInfoFilter.class);
     when(filter.getTenantId()).thenReturn(ModelConstants.SYSTEM_TENANT);
@@ -806,11 +843,12 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceInfosByFilter(DeviceInfoFilter, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDeviceInfosByFilter(DeviceInfoFilter, PageLink)"
   })
-  public void testFindDeviceInfosByFilter4() {
+  void testFindDeviceInfosByFilter4() {
     // Arrange
     DeviceInfoFilter filter = mock(DeviceInfoFilter.class);
     when(filter.getTenantId()).thenReturn(ModelConstants.SYSTEM_TENANT);
@@ -838,11 +876,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDeviceInfosByFilter(DeviceInfoFilter, PageLink); given SortOrder with 'Property' and direction is 'ASC'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDeviceInfosByFilter(DeviceInfoFilter, PageLink)"
   })
-  public void testFindDeviceInfosByFilter_givenSortOrderWithPropertyAndDirectionIsAsc() {
+  void testFindDeviceInfosByFilter_givenSortOrderWithPropertyAndDirectionIsAsc() {
     // Arrange
     PageData<DeviceInfo> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDeviceInfosByFilter(
@@ -880,11 +920,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDeviceInfosByFilter(DeviceInfoFilter, PageLink); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDeviceInfosByFilter(DeviceInfoFilter, PageLink)"
   })
-  public void testFindDeviceInfosByFilter_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindDeviceInfosByFilter_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<DeviceInfo> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDeviceInfosByFilter(
@@ -922,11 +964,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDeviceInfosByFilter(DeviceInfoFilter, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDeviceInfosByFilter(DeviceInfoFilter, PageLink)"
   })
-  public void testFindDeviceInfosByFilter_givenSortOrderWithPropertyIsNull() {
+  void testFindDeviceInfosByFilter_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<DeviceInfo> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDeviceInfosByFilter(
@@ -964,11 +1008,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDeviceInfosByFilter(DeviceInfoFilter, PageLink); then calls getCustomerId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDeviceInfosByFilter(DeviceInfoFilter, PageLink)"
   })
-  public void testFindDeviceInfosByFilter_thenCallsGetCustomerId() {
+  void testFindDeviceInfosByFilter_thenCallsGetCustomerId() {
     // Arrange
     JpaDeviceDao deviceDao = new JpaDeviceDao();
     JpaDeviceCredentialsDao deviceCredentialsDao = new JpaDeviceCredentialsDao();
@@ -1015,11 +1061,12 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceInfosByFilter(DeviceInfoFilter, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDeviceInfosByFilter(DeviceInfoFilter, PageLink)"
   })
-  public void testFindDeviceInfosByFilter_thenCallsGetProperty() {
+  void testFindDeviceInfosByFilter_thenCallsGetProperty() {
     // Arrange
     DeviceInfoFilter filter = mock(DeviceInfoFilter.class);
     when(filter.getTenantId()).thenReturn(ModelConstants.SYSTEM_TENANT);
@@ -1053,11 +1100,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDeviceInfosByFilter(DeviceInfoFilter, PageLink); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDeviceInfosByFilter(DeviceInfoFilter, PageLink)"
   })
-  public void testFindDeviceInfosByFilter_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindDeviceInfosByFilter_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<DeviceInfo> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDeviceInfosByFilter(
@@ -1089,11 +1138,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDeviceInfosByFilter(DeviceInfoFilter, PageLink); when 'null'; then throw IncorrectParameterException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDeviceInfosByFilter(DeviceInfoFilter, PageLink)"
   })
-  public void testFindDeviceInfosByFilter_whenNull_thenThrowIncorrectParameterException() {
+  void testFindDeviceInfosByFilter_whenNull_thenThrowIncorrectParameterException() {
     // Arrange, Act and Assert
     assertThrows(
         IncorrectParameterException.class,
@@ -1106,9 +1157,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDeviceIdInfos(PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceIdInfos(PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceServiceImpl.findDeviceIdInfos(PageLink)"})
-  public void testFindDeviceIdInfos() {
+  void testFindDeviceIdInfos() {
     // Arrange
     when(deviceDao.findDeviceIdInfos(Mockito.<PageLink>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -1126,9 +1178,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDeviceIdInfos(PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceIdInfos(PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceServiceImpl.findDeviceIdInfos(PageLink)"})
-  public void testFindDeviceIdInfos2() {
+  void testFindDeviceIdInfos2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize()).thenThrow(new DataValidationException("An error occurred"));
@@ -1145,9 +1198,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDeviceIdInfos(PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceIdInfos(PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceServiceImpl.findDeviceIdInfos(PageLink)"})
-  public void testFindDeviceIdInfos3() {
+  void testFindDeviceIdInfos3() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPage()).thenThrow(new DataValidationException("An error occurred"));
@@ -1170,9 +1224,11 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDeviceIdInfos(PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDeviceIdInfos(PageLink); given SortOrder with 'Property' and direction is 'ASC'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceServiceImpl.findDeviceIdInfos(PageLink)"})
-  public void testFindDeviceIdInfos_givenSortOrderWithPropertyAndDirectionIsAsc() {
+  void testFindDeviceIdInfos_givenSortOrderWithPropertyAndDirectionIsAsc() {
     // Arrange
     PageData<DeviceIdInfo> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDeviceIdInfos(Mockito.<PageLink>any())).thenReturn(emptyPageDataResult);
@@ -1203,9 +1259,11 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDeviceIdInfos(PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDeviceIdInfos(PageLink); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceServiceImpl.findDeviceIdInfos(PageLink)"})
-  public void testFindDeviceIdInfos_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindDeviceIdInfos_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<DeviceIdInfo> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDeviceIdInfos(Mockito.<PageLink>any())).thenReturn(emptyPageDataResult);
@@ -1236,9 +1294,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDeviceIdInfos(PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceIdInfos(PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceServiceImpl.findDeviceIdInfos(PageLink)"})
-  public void testFindDeviceIdInfos_givenSortOrderWithPropertyIsNull() {
+  void testFindDeviceIdInfos_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<DeviceIdInfo> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDeviceIdInfos(Mockito.<PageLink>any())).thenReturn(emptyPageDataResult);
@@ -1269,9 +1328,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDeviceIdInfos(PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceIdInfos(PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceServiceImpl.findDeviceIdInfos(PageLink)"})
-  public void testFindDeviceIdInfos_thenCallsGetProperty() {
+  void testFindDeviceIdInfos_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty()).thenThrow(new DataValidationException("An error occurred"));
@@ -1300,9 +1360,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDeviceIdInfos(PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceIdInfos(PageLink); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DeviceServiceImpl.findDeviceIdInfos(PageLink)"})
-  public void testFindDeviceIdInfos_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindDeviceIdInfos_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<DeviceIdInfo> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDeviceIdInfos(Mockito.<PageLink>any())).thenReturn(emptyPageDataResult);
@@ -1323,11 +1384,12 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByTenantIdAndType(TenantId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndType() {
+  void testFindDevicesByTenantIdAndType() {
     // Arrange
     when(deviceDao.findDevicesByTenantIdAndType(
             Mockito.<UUID>any(), Mockito.<String>any(), Mockito.<PageLink>any()))
@@ -1350,11 +1412,12 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByTenantIdAndType(TenantId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndType2() {
+  void testFindDevicesByTenantIdAndType2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize()).thenThrow(new DataValidationException("An error occurred"));
@@ -1379,11 +1442,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndType(TenantId, String, PageLink); given SortOrder with 'Property' and direction is 'ASC'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndType_givenSortOrderWithPropertyAndDirectionIsAsc() {
+  void testFindDevicesByTenantIdAndType_givenSortOrderWithPropertyAndDirectionIsAsc() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndType(
@@ -1421,11 +1486,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndType(TenantId, String, PageLink); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndType_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindDevicesByTenantIdAndType_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndType(
@@ -1463,11 +1530,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndType(TenantId, String, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndType_givenSortOrderWithPropertyIsNull() {
+  void testFindDevicesByTenantIdAndType_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndType(
@@ -1505,11 +1574,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndType(TenantId, String, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndType_thenCallsGetProperty() {
+  void testFindDevicesByTenantIdAndType_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty()).thenThrow(new DataValidationException("An error occurred"));
@@ -1542,11 +1613,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndType(TenantId, String, PageLink); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndType(TenantId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndType_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindDevicesByTenantIdAndType_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndType(
@@ -1575,11 +1648,13 @@ public class DeviceServiceImplDiffblueTest {
    * OtaPackageType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndTypeAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndTypeAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndTypeAndEmptyOtaPackage() {
+  void testFindDevicesByTenantIdAndTypeAndEmptyOtaPackage() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndTypeAndEmptyOtaPackage(
@@ -1615,11 +1690,13 @@ public class DeviceServiceImplDiffblueTest {
    * OtaPackageType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndTypeAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndTypeAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndTypeAndEmptyOtaPackage2() {
+  void testFindDevicesByTenantIdAndTypeAndEmptyOtaPackage2() {
     // Arrange
     when(deviceDao.findDevicesByTenantIdAndTypeAndEmptyOtaPackage(
             Mockito.<UUID>any(),
@@ -1651,11 +1728,13 @@ public class DeviceServiceImplDiffblueTest {
    * OtaPackageType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndTypeAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndTypeAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndTypeAndEmptyOtaPackage3() {
+  void testFindDevicesByTenantIdAndTypeAndEmptyOtaPackage3() {
     // Arrange
     DeviceProfileId deviceProfileId = mock(DeviceProfileId.class);
     when(deviceProfileId.getId())
@@ -1682,11 +1761,13 @@ public class DeviceServiceImplDiffblueTest {
    * OtaPackageType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndTypeAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndTypeAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndTypeAndEmptyOtaPackage4() {
+  void testFindDevicesByTenantIdAndTypeAndEmptyOtaPackage4() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndTypeAndEmptyOtaPackage(
@@ -1730,11 +1811,13 @@ public class DeviceServiceImplDiffblueTest {
    * OtaPackageType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndTypeAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndTypeAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndTypeAndEmptyOtaPackage5() {
+  void testFindDevicesByTenantIdAndTypeAndEmptyOtaPackage5() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndTypeAndEmptyOtaPackage(
@@ -1778,11 +1861,13 @@ public class DeviceServiceImplDiffblueTest {
    * OtaPackageType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndTypeAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndTypeAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndTypeAndEmptyOtaPackage6() {
+  void testFindDevicesByTenantIdAndTypeAndEmptyOtaPackage6() {
     // Arrange
     DeviceProfileId deviceProfileId = mock(DeviceProfileId.class);
     when(deviceProfileId.getId())
@@ -1811,11 +1896,13 @@ public class DeviceServiceImplDiffblueTest {
    * OtaPackageType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndTypeAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndTypeAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndTypeAndEmptyOtaPackage7() {
+  void testFindDevicesByTenantIdAndTypeAndEmptyOtaPackage7() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndTypeAndEmptyOtaPackage(
@@ -1863,11 +1950,13 @@ public class DeviceServiceImplDiffblueTest {
    * OtaPackageType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndTypeAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndTypeAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndTypeAndEmptyOtaPackage_thenCallsGetProperty() {
+  void testFindDevicesByTenantIdAndTypeAndEmptyOtaPackage_thenCallsGetProperty() {
     // Arrange
     DeviceProfileId deviceProfileId = mock(DeviceProfileId.class);
     when(deviceProfileId.getId())
@@ -1905,11 +1994,13 @@ public class DeviceServiceImplDiffblueTest {
    * OtaPackageType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndTypeAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType, PageLink); then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndTypeAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndTypeAndEmptyOtaPackage_thenReturnEmpty_page_data() {
+  void testFindDevicesByTenantIdAndTypeAndEmptyOtaPackage_thenReturnEmpty_page_data() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndTypeAndEmptyOtaPackage(
@@ -1950,11 +2041,13 @@ public class DeviceServiceImplDiffblueTest {
    * DeviceProfileId, OtaPackageType)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test countDevicesByTenantIdAndDeviceProfileIdAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "long DeviceServiceImpl.countDevicesByTenantIdAndDeviceProfileIdAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType)"
   })
-  public void testCountDevicesByTenantIdAndDeviceProfileIdAndEmptyOtaPackage() {
+  void testCountDevicesByTenantIdAndDeviceProfileIdAndEmptyOtaPackage() {
     // Arrange
     when(deviceDao.countDevicesByTenantIdAndDeviceProfileIdAndEmptyOtaPackage(
             Mockito.<UUID>any(), Mockito.<UUID>any(), Mockito.<OtaPackageType>any()))
@@ -1987,11 +2080,13 @@ public class DeviceServiceImplDiffblueTest {
    * DeviceProfileId, OtaPackageType)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test countDevicesByTenantIdAndDeviceProfileIdAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType); then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "long DeviceServiceImpl.countDevicesByTenantIdAndDeviceProfileIdAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType)"
   })
-  public void testCountDevicesByTenantIdAndDeviceProfileIdAndEmptyOtaPackage_thenCallsGetId() {
+  void testCountDevicesByTenantIdAndDeviceProfileIdAndEmptyOtaPackage_thenCallsGetId() {
     // Arrange
     when(deviceDao.countDevicesByTenantIdAndDeviceProfileIdAndEmptyOtaPackage(
             Mockito.<UUID>any(), Mockito.<UUID>any(), Mockito.<OtaPackageType>any()))
@@ -2027,11 +2122,13 @@ public class DeviceServiceImplDiffblueTest {
    * DeviceProfileId, OtaPackageType)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test countDevicesByTenantIdAndDeviceProfileIdAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType); then return one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "long DeviceServiceImpl.countDevicesByTenantIdAndDeviceProfileIdAndEmptyOtaPackage(TenantId, DeviceProfileId, OtaPackageType)"
   })
-  public void testCountDevicesByTenantIdAndDeviceProfileIdAndEmptyOtaPackage_thenReturnOne() {
+  void testCountDevicesByTenantIdAndDeviceProfileIdAndEmptyOtaPackage_thenReturnOne() {
     // Arrange
     when(deviceDao.countDevicesByTenantIdAndDeviceProfileIdAndEmptyOtaPackage(
             Mockito.<UUID>any(), Mockito.<UUID>any(), Mockito.<OtaPackageType>any()))
@@ -2062,11 +2159,12 @@ public class DeviceServiceImplDiffblueTest {
    * List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByTenantIdAndIdsAsync(TenantId, List); then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture DeviceServiceImpl.findDevicesByTenantIdAndIdsAsync(TenantId, List)"
   })
-  public void testFindDevicesByTenantIdAndIdsAsync_thenCallsGetId() {
+  void testFindDevicesByTenantIdAndIdsAsync_thenCallsGetId() {
     // Arrange
     SettableFuture<List<Device>> createResult = SettableFuture.create();
     when(deviceDao.findDevicesByTenantIdAndIdsAsync(Mockito.<UUID>any(), Mockito.<List<UUID>>any()))
@@ -2099,11 +2197,12 @@ public class DeviceServiceImplDiffblueTest {
    * List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByTenantIdAndIdsAsync(TenantId, List); then return SettableFuture")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture DeviceServiceImpl.findDevicesByTenantIdAndIdsAsync(TenantId, List)"
   })
-  public void testFindDevicesByTenantIdAndIdsAsync_thenReturnSettableFuture() {
+  void testFindDevicesByTenantIdAndIdsAsync_thenReturnSettableFuture() {
     // Arrange
     SettableFuture<List<Device>> createResult = SettableFuture.create();
     when(deviceDao.findDevicesByTenantIdAndIdsAsync(Mockito.<UUID>any(), Mockito.<List<UUID>>any()))
@@ -2133,11 +2232,13 @@ public class DeviceServiceImplDiffblueTest {
    * List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndIdsAsync(TenantId, List); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture DeviceServiceImpl.findDevicesByTenantIdAndIdsAsync(TenantId, List)"
   })
-  public void testFindDevicesByTenantIdAndIdsAsync_thenThrowDataValidationException() {
+  void testFindDevicesByTenantIdAndIdsAsync_thenThrowDataValidationException() {
     // Arrange
     when(deviceDao.findDevicesByTenantIdAndIdsAsync(Mockito.<UUID>any(), Mockito.<List<UUID>>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -2164,9 +2265,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDevicesByIds(List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByIds(List); then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List DeviceServiceImpl.findDevicesByIds(List)"})
-  public void testFindDevicesByIds_thenCallsGetId() {
+  void testFindDevicesByIds_thenCallsGetId() {
     // Arrange
     when(deviceDao.findDevicesByIds(Mockito.<List<UUID>>any())).thenReturn(new ArrayList<>());
     DeviceId deviceId = mock(DeviceId.class);
@@ -2194,9 +2296,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDevicesByIds(List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByIds(List); then return Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List DeviceServiceImpl.findDevicesByIds(List)"})
-  public void testFindDevicesByIds_thenReturnEmpty() {
+  void testFindDevicesByIds_thenReturnEmpty() {
     // Arrange
     when(deviceDao.findDevicesByIds(Mockito.<List<UUID>>any())).thenReturn(new ArrayList<>());
 
@@ -2221,9 +2324,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDevicesByIds(List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByIds(List); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List DeviceServiceImpl.findDevicesByIds(List)"})
-  public void testFindDevicesByIds_thenThrowDataValidationException() {
+  void testFindDevicesByIds_thenThrowDataValidationException() {
     // Arrange
     when(deviceDao.findDevicesByIds(Mockito.<List<UUID>>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -2247,9 +2351,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDevicesByIdsAsync(List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByIdsAsync(List); then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ListenableFuture DeviceServiceImpl.findDevicesByIdsAsync(List)"})
-  public void testFindDevicesByIdsAsync_thenCallsGetId() {
+  void testFindDevicesByIdsAsync_thenCallsGetId() {
     // Arrange
     SettableFuture<List<Device>> createResult = SettableFuture.create();
     when(deviceDao.findDevicesByIdsAsync(Mockito.<List<UUID>>any())).thenReturn(createResult);
@@ -2280,9 +2385,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDevicesByIdsAsync(List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByIdsAsync(List); then return SettableFuture")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ListenableFuture DeviceServiceImpl.findDevicesByIdsAsync(List)"})
-  public void testFindDevicesByIdsAsync_thenReturnSettableFuture() {
+  void testFindDevicesByIdsAsync_thenReturnSettableFuture() {
     // Arrange
     SettableFuture<List<Device>> createResult = SettableFuture.create();
     when(deviceDao.findDevicesByIdsAsync(Mockito.<List<UUID>>any())).thenReturn(createResult);
@@ -2310,9 +2416,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDevicesByIdsAsync(List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByIdsAsync(List); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ListenableFuture DeviceServiceImpl.findDevicesByIdsAsync(List)"})
-  public void testFindDevicesByIdsAsync_thenThrowDataValidationException() {
+  void testFindDevicesByIdsAsync_thenThrowDataValidationException() {
     // Arrange
     when(deviceDao.findDevicesByIdsAsync(Mockito.<List<UUID>>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -2332,9 +2439,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#deleteDevicesByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteDevicesByTenantId(TenantId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceServiceImpl.deleteDevicesByTenantId(TenantId)"})
-  public void testDeleteDevicesByTenantId() {
+  void testDeleteDevicesByTenantId() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -2358,9 +2466,11 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#deleteDevicesByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteDevicesByTenantId(TenantId); given PageData hasNext() return 'false'; then calls hasNext()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceServiceImpl.deleteDevicesByTenantId(TenantId)"})
-  public void testDeleteDevicesByTenantId_givenPageDataHasNextReturnFalse_thenCallsHasNext() {
+  void testDeleteDevicesByTenantId_givenPageDataHasNextReturnFalse_thenCallsHasNext() {
     // Arrange
     PageData<Device> pageData = mock(PageData.class);
     when(pageData.hasNext()).thenReturn(false);
@@ -2388,9 +2498,11 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#deleteByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteByTenantId(TenantId); given DeviceDao findDevicesByTenantId(UUID, PageLink) return emptyPageData")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceServiceImpl.deleteByTenantId(TenantId)"})
-  public void testDeleteByTenantId_givenDeviceDaoFindDevicesByTenantIdReturnEmptyPageData() {
+  void testDeleteByTenantId_givenDeviceDaoFindDevicesByTenantIdReturnEmptyPageData() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantId(Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -2414,9 +2526,11 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#deleteByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteByTenantId(TenantId); given PageData hasNext() return 'false'; then calls hasNext()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceServiceImpl.deleteByTenantId(TenantId)"})
-  public void testDeleteByTenantId_givenPageDataHasNextReturnFalse_thenCallsHasNext() {
+  void testDeleteByTenantId_givenPageDataHasNextReturnFalse_thenCallsHasNext() {
     // Arrange
     PageData<Device> pageData = mock(PageData.class);
     when(pageData.hasNext()).thenReturn(false);
@@ -2441,11 +2555,12 @@ public class DeviceServiceImplDiffblueTest {
    * CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndCustomerId() {
+  void testFindDevicesByTenantIdAndCustomerId() {
     // Arrange
     when(deviceDao.findDevicesByTenantIdAndCustomerId(
             Mockito.<UUID>any(), Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -2471,11 +2586,12 @@ public class DeviceServiceImplDiffblueTest {
    * CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndCustomerId2() {
+  void testFindDevicesByTenantIdAndCustomerId2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize()).thenThrow(new DataValidationException("An error occurred"));
@@ -2497,11 +2613,12 @@ public class DeviceServiceImplDiffblueTest {
    * CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndCustomerId3() {
+  void testFindDevicesByTenantIdAndCustomerId3() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndCustomerId(
@@ -2540,11 +2657,13 @@ public class DeviceServiceImplDiffblueTest {
    * CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndCustomerId_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindDevicesByTenantIdAndCustomerId_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndCustomerId(
@@ -2583,11 +2702,13 @@ public class DeviceServiceImplDiffblueTest {
    * CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndCustomerId_givenSortOrderWithPropertyIsNull() {
+  void testFindDevicesByTenantIdAndCustomerId_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndCustomerId(
@@ -2626,11 +2747,13 @@ public class DeviceServiceImplDiffblueTest {
    * CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndCustomerId_thenCallsGetProperty() {
+  void testFindDevicesByTenantIdAndCustomerId_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty()).thenThrow(new DataValidationException("An error occurred"));
@@ -2664,11 +2787,13 @@ public class DeviceServiceImplDiffblueTest {
    * CustomerId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndCustomerId(TenantId, CustomerId, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndCustomerId_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindDevicesByTenantIdAndCustomerId_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndCustomerId(
@@ -2699,11 +2824,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndCustomerIdAndType() {
+  void testFindDevicesByTenantIdAndCustomerIdAndType() {
     // Arrange
     when(deviceDao.findDevicesByTenantIdAndCustomerIdAndType(
             Mockito.<UUID>any(),
@@ -2735,11 +2862,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndCustomerIdAndType2() {
+  void testFindDevicesByTenantIdAndCustomerIdAndType2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize()).thenThrow(new DataValidationException("An error occurred"));
@@ -2765,11 +2894,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndCustomerIdAndType3() {
+  void testFindDevicesByTenantIdAndCustomerIdAndType3() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndCustomerIdAndType(
@@ -2809,11 +2940,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndCustomerIdAndType4() {
+  void testFindDevicesByTenantIdAndCustomerIdAndType4() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPage()).thenThrow(new DataValidationException("An error occurred"));
@@ -2841,11 +2974,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndCustomerIdAndType5() {
+  void testFindDevicesByTenantIdAndCustomerIdAndType5() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndCustomerIdAndType(
@@ -2889,11 +3024,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndCustomerIdAndType_givenSortOrderWithPropertyIsNull() {
+  void testFindDevicesByTenantIdAndCustomerIdAndType_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndCustomerIdAndType(
@@ -2937,11 +3074,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndCustomerIdAndType_thenCallsGetProperty() {
+  void testFindDevicesByTenantIdAndCustomerIdAndType_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty()).thenThrow(new DataValidationException("An error occurred"));
@@ -2978,11 +3117,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink); then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndCustomerIdAndType(TenantId, CustomerId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndCustomerIdAndType_thenReturnEmpty_page_data() {
+  void testFindDevicesByTenantIdAndCustomerIdAndType_thenReturnEmpty_page_data() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndCustomerIdAndType(
@@ -3021,11 +3162,13 @@ public class DeviceServiceImplDiffblueTest {
    * DeviceServiceImpl#findDevicesByTenantIdCustomerIdAndIdsAsync(TenantId, CustomerId, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdCustomerIdAndIdsAsync(TenantId, CustomerId, List); then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture DeviceServiceImpl.findDevicesByTenantIdCustomerIdAndIdsAsync(TenantId, CustomerId, List)"
   })
-  public void testFindDevicesByTenantIdCustomerIdAndIdsAsync_thenCallsGetId() {
+  void testFindDevicesByTenantIdCustomerIdAndIdsAsync_thenCallsGetId() {
     // Arrange
     SettableFuture<List<Device>> createResult = SettableFuture.create();
     when(deviceDao.findDevicesByTenantIdCustomerIdAndIdsAsync(
@@ -3063,11 +3206,13 @@ public class DeviceServiceImplDiffblueTest {
    * DeviceServiceImpl#findDevicesByTenantIdCustomerIdAndIdsAsync(TenantId, CustomerId, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdCustomerIdAndIdsAsync(TenantId, CustomerId, List); then return SettableFuture")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture DeviceServiceImpl.findDevicesByTenantIdCustomerIdAndIdsAsync(TenantId, CustomerId, List)"
   })
-  public void testFindDevicesByTenantIdCustomerIdAndIdsAsync_thenReturnSettableFuture() {
+  void testFindDevicesByTenantIdCustomerIdAndIdsAsync_thenReturnSettableFuture() {
     // Arrange
     SettableFuture<List<Device>> createResult = SettableFuture.create();
     when(deviceDao.findDevicesByTenantIdCustomerIdAndIdsAsync(
@@ -3102,11 +3247,13 @@ public class DeviceServiceImplDiffblueTest {
    * DeviceServiceImpl#findDevicesByTenantIdCustomerIdAndIdsAsync(TenantId, CustomerId, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdCustomerIdAndIdsAsync(TenantId, CustomerId, List); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture DeviceServiceImpl.findDevicesByTenantIdCustomerIdAndIdsAsync(TenantId, CustomerId, List)"
   })
-  public void testFindDevicesByTenantIdCustomerIdAndIdsAsync_thenThrowDataValidationException() {
+  void testFindDevicesByTenantIdCustomerIdAndIdsAsync_thenThrowDataValidationException() {
     // Arrange
     when(deviceDao.findDevicesByTenantIdCustomerIdAndIdsAsync(
             Mockito.<UUID>any(), Mockito.<UUID>any(), Mockito.<List<UUID>>any()))
@@ -3132,9 +3279,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#unassignCustomerDevices(TenantId, CustomerId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test unassignCustomerDevices(TenantId, CustomerId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceServiceImpl.unassignCustomerDevices(TenantId, CustomerId)"})
-  public void testUnassignCustomerDevices() {
+  void testUnassignCustomerDevices() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndCustomerId(
@@ -3161,9 +3309,11 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#unassignCustomerDevices(TenantId, CustomerId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test unassignCustomerDevices(TenantId, CustomerId); given PageData hasNext() return 'false'; then calls getData()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceServiceImpl.unassignCustomerDevices(TenantId, CustomerId)"})
-  public void testUnassignCustomerDevices_givenPageDataHasNextReturnFalse_thenCallsGetData() {
+  void testUnassignCustomerDevices_givenPageDataHasNextReturnFalse_thenCallsGetData() {
     // Arrange
     PageData<Device> pageData = mock(PageData.class);
     when(pageData.hasNext()).thenReturn(false);
@@ -3193,9 +3343,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDeviceTypesByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceTypesByTenantId(TenantId); then return SettableFuture")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ListenableFuture DeviceServiceImpl.findDeviceTypesByTenantId(TenantId)"})
-  public void testFindDeviceTypesByTenantId_thenReturnSettableFuture() {
+  void testFindDeviceTypesByTenantId_thenReturnSettableFuture() {
     // Arrange
     SettableFuture<List<EntitySubtype>> createResult = SettableFuture.create();
     when(deviceDao.findTenantDeviceTypesAsync(Mockito.<UUID>any())).thenReturn(createResult);
@@ -3220,9 +3371,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#findDeviceTypesByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDeviceTypesByTenantId(TenantId); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ListenableFuture DeviceServiceImpl.findDeviceTypesByTenantId(TenantId)"})
-  public void testFindDeviceTypesByTenantId_thenThrowDataValidationException() {
+  void testFindDeviceTypesByTenantId_thenThrowDataValidationException() {
     // Arrange
     when(deviceDao.findTenantDeviceTypesAsync(Mockito.<UUID>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -3246,11 +3398,13 @@ public class DeviceServiceImplDiffblueTest {
    * DeviceServiceImpl#findDevicesIdsByDeviceProfileTransportType(DeviceTransportType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesIdsByDeviceProfileTransportType(DeviceTransportType, PageLink); then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesIdsByDeviceProfileTransportType(DeviceTransportType, PageLink)"
   })
-  public void testFindDevicesIdsByDeviceProfileTransportType_thenReturnEmpty_page_data() {
+  void testFindDevicesIdsByDeviceProfileTransportType_thenReturnEmpty_page_data() {
     // Arrange
     PageData<UUID> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesIdsByDeviceProfileTransportType(
@@ -3283,11 +3437,13 @@ public class DeviceServiceImplDiffblueTest {
    * DeviceServiceImpl#findDevicesIdsByDeviceProfileTransportType(DeviceTransportType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesIdsByDeviceProfileTransportType(DeviceTransportType, PageLink); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesIdsByDeviceProfileTransportType(DeviceTransportType, PageLink)"
   })
-  public void testFindDevicesIdsByDeviceProfileTransportType_thenThrowDataValidationException() {
+  void testFindDevicesIdsByDeviceProfileTransportType_thenThrowDataValidationException() {
     // Arrange
     when(deviceDao.findDevicesIdsByDeviceProfileTransportType(
             Mockito.<DeviceTransportType>any(), Mockito.<PageLink>any()))
@@ -3311,11 +3467,12 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByTenantIdAndEdgeId(TenantId, EdgeId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndEdgeId(TenantId, EdgeId, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndEdgeId() {
+  void testFindDevicesByTenantIdAndEdgeId() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndEdgeId(
@@ -3344,11 +3501,12 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByTenantIdAndEdgeId(TenantId, EdgeId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndEdgeId(TenantId, EdgeId, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndEdgeId2() {
+  void testFindDevicesByTenantIdAndEdgeId2() {
     // Arrange
     when(deviceDao.findDevicesByTenantIdAndEdgeId(
             Mockito.<UUID>any(), Mockito.<UUID>any(), Mockito.<PageLink>any()))
@@ -3373,11 +3531,12 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByTenantIdAndEdgeId(TenantId, EdgeId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndEdgeId(TenantId, EdgeId, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndEdgeId3() {
+  void testFindDevicesByTenantIdAndEdgeId3() {
     // Arrange
     EdgeId edgeId = mock(EdgeId.class);
     when(edgeId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -3405,11 +3564,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndEdgeId(TenantId, EdgeId, PageLink); given SortOrder with 'Property' and direction is 'ASC'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndEdgeId(TenantId, EdgeId, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndEdgeId_givenSortOrderWithPropertyAndDirectionIsAsc() {
+  void testFindDevicesByTenantIdAndEdgeId_givenSortOrderWithPropertyAndDirectionIsAsc() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndEdgeId(
@@ -3450,11 +3611,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndEdgeId(TenantId, EdgeId, PageLink); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndEdgeId(TenantId, EdgeId, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndEdgeId_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindDevicesByTenantIdAndEdgeId_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndEdgeId(
@@ -3495,11 +3658,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndEdgeId(TenantId, EdgeId, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndEdgeId(TenantId, EdgeId, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndEdgeId_givenSortOrderWithPropertyIsNull() {
+  void testFindDevicesByTenantIdAndEdgeId_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndEdgeId(
@@ -3540,11 +3705,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndEdgeId(TenantId, EdgeId, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndEdgeId(TenantId, EdgeId, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndEdgeId_thenCallsGetProperty() {
+  void testFindDevicesByTenantIdAndEdgeId_thenCallsGetProperty() {
     // Arrange
     EdgeId edgeId = mock(EdgeId.class);
     when(edgeId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -3580,11 +3747,13 @@ public class DeviceServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndEdgeId(TenantId, EdgeId, PageLink); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndEdgeId(TenantId, EdgeId, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndEdgeId_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindDevicesByTenantIdAndEdgeId_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndEdgeId(
@@ -3615,11 +3784,12 @@ public class DeviceServiceImplDiffblueTest {
    * EdgeId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndEdgeIdAndType() {
+  void testFindDevicesByTenantIdAndEdgeIdAndType() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndEdgeIdAndType(
@@ -3654,11 +3824,12 @@ public class DeviceServiceImplDiffblueTest {
    * EdgeId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndEdgeIdAndType2() {
+  void testFindDevicesByTenantIdAndEdgeIdAndType2() {
     // Arrange
     when(deviceDao.findDevicesByTenantIdAndEdgeIdAndType(
             Mockito.<UUID>any(),
@@ -3689,11 +3860,12 @@ public class DeviceServiceImplDiffblueTest {
    * EdgeId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndEdgeIdAndType3() {
+  void testFindDevicesByTenantIdAndEdgeIdAndType3() {
     // Arrange
     EdgeId edgeId = mock(EdgeId.class);
     when(edgeId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -3718,11 +3890,12 @@ public class DeviceServiceImplDiffblueTest {
    * EdgeId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndEdgeIdAndType4() {
+  void testFindDevicesByTenantIdAndEdgeIdAndType4() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndEdgeIdAndType(
@@ -3764,11 +3937,12 @@ public class DeviceServiceImplDiffblueTest {
    * EdgeId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndEdgeIdAndType5() {
+  void testFindDevicesByTenantIdAndEdgeIdAndType5() {
     // Arrange
     EdgeId edgeId = mock(EdgeId.class);
     when(edgeId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -3795,11 +3969,12 @@ public class DeviceServiceImplDiffblueTest {
    * EdgeId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDevicesByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndEdgeIdAndType6() {
+  void testFindDevicesByTenantIdAndEdgeIdAndType6() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndEdgeIdAndType(
@@ -3845,11 +4020,13 @@ public class DeviceServiceImplDiffblueTest {
    * EdgeId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndEdgeIdAndType_givenSortOrderWithPropertyIsNull() {
+  void testFindDevicesByTenantIdAndEdgeIdAndType_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndEdgeIdAndType(
@@ -3895,11 +4072,13 @@ public class DeviceServiceImplDiffblueTest {
    * EdgeId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndEdgeIdAndType_thenCallsGetProperty() {
+  void testFindDevicesByTenantIdAndEdgeIdAndType_thenCallsGetProperty() {
     // Arrange
     EdgeId edgeId = mock(EdgeId.class);
     when(edgeId.getId()).thenReturn(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -3935,11 +4114,13 @@ public class DeviceServiceImplDiffblueTest {
    * EdgeId, String, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDevicesByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink); then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData DeviceServiceImpl.findDevicesByTenantIdAndEdgeIdAndType(TenantId, EdgeId, String, PageLink)"
   })
-  public void testFindDevicesByTenantIdAndEdgeIdAndType_thenReturnEmpty_page_data() {
+  void testFindDevicesByTenantIdAndEdgeIdAndType_thenReturnEmpty_page_data() {
     // Arrange
     PageData<Device> emptyPageDataResult = PageData.emptyPageData();
     when(deviceDao.findDevicesByTenantIdAndEdgeIdAndType(
@@ -3977,9 +4158,11 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#countByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test countByTenantId(TenantId); given DeviceDao countByTenantId(TenantId) return one; then return one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"long DeviceServiceImpl.countByTenantId(TenantId)"})
-  public void testCountByTenantId_givenDeviceDaoCountByTenantIdReturnOne_thenReturnOne() {
+  void testCountByTenantId_givenDeviceDaoCountByTenantIdReturnOne_thenReturnOne() {
     // Arrange
     when(deviceDao.countByTenantId(Mockito.<TenantId>any())).thenReturn(1L);
 
@@ -4002,9 +4185,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#countByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test countByTenantId(TenantId); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"long DeviceServiceImpl.countByTenantId(TenantId)"})
-  public void testCountByTenantId_thenThrowDataValidationException() {
+  void testCountByTenantId_thenThrowDataValidationException() {
     // Arrange
     when(deviceDao.countByTenantId(Mockito.<TenantId>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -4022,9 +4206,10 @@ public class DeviceServiceImplDiffblueTest {
    * <p>Method under test: {@link DeviceServiceImpl#getEntityType()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getEntityType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityType DeviceServiceImpl.getEntityType()"})
-  public void testGetEntityType() {
+  void testGetEntityType() {
     // Arrange
     JpaDeviceDao deviceDao = new JpaDeviceDao();
     JpaDeviceCredentialsDao deviceCredentialsDao = new JpaDeviceCredentialsDao();

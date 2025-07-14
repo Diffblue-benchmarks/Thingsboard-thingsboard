@@ -1,22 +1,22 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.widget.WidgetTypeInfo;
 
-public class WidgetTypeInfoEntityDiffblueTest {
+class WidgetTypeInfoEntityDiffblueTest {
   /**
    * Test {@link WidgetTypeInfoEntity#equals(Object)}, and {@link WidgetTypeInfoEntity#hashCode()}.
    *
@@ -33,12 +33,13 @@ public class WidgetTypeInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean WidgetTypeInfoEntity.equals(Object)",
     "int WidgetTypeInfoEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
     widgetTypeInfoEntity.setCreatedTime(1L);
@@ -92,12 +93,13 @@ public class WidgetTypeInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean WidgetTypeInfoEntity.equals(Object)",
     "int WidgetTypeInfoEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
     widgetTypeInfoEntity.setCreatedTime(1L);
@@ -131,12 +133,13 @@ public class WidgetTypeInfoEntityDiffblueTest {
    * <p>Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean WidgetTypeInfoEntity.equals(Object)",
     "int WidgetTypeInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
     widgetTypeInfoEntity.setCreatedTime(3L);
@@ -183,12 +186,13 @@ public class WidgetTypeInfoEntityDiffblueTest {
    * <p>Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean WidgetTypeInfoEntity.equals(Object)",
     "int WidgetTypeInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
     widgetTypeInfoEntity.setCreatedTime(1L);
@@ -235,12 +239,13 @@ public class WidgetTypeInfoEntityDiffblueTest {
    * <p>Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean WidgetTypeInfoEntity.equals(Object)",
     "int WidgetTypeInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
     widgetTypeInfoEntity.setCreatedTime(1L);
@@ -287,12 +292,13 @@ public class WidgetTypeInfoEntityDiffblueTest {
    * <p>Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean WidgetTypeInfoEntity.equals(Object)",
     "int WidgetTypeInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
     widgetTypeInfoEntity.setCreatedTime(1L);
@@ -339,12 +345,13 @@ public class WidgetTypeInfoEntityDiffblueTest {
    * <p>Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean WidgetTypeInfoEntity.equals(Object)",
     "int WidgetTypeInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
     widgetTypeInfoEntity.setCreatedTime(1L);
@@ -391,12 +398,13 @@ public class WidgetTypeInfoEntityDiffblueTest {
    * <p>Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean WidgetTypeInfoEntity.equals(Object)",
     "int WidgetTypeInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
     widgetTypeInfoEntity.setCreatedTime(1L);
@@ -443,12 +451,13 @@ public class WidgetTypeInfoEntityDiffblueTest {
    * <p>Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean WidgetTypeInfoEntity.equals(Object)",
     "int WidgetTypeInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
     widgetTypeInfoEntity.setCreatedTime(1L);
@@ -495,12 +504,13 @@ public class WidgetTypeInfoEntityDiffblueTest {
    * <p>Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean WidgetTypeInfoEntity.equals(Object)",
     "int WidgetTypeInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
     widgetTypeInfoEntity.setCreatedTime(1L);
@@ -547,12 +557,13 @@ public class WidgetTypeInfoEntityDiffblueTest {
    * <p>Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean WidgetTypeInfoEntity.equals(Object)",
     "int WidgetTypeInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
     widgetTypeInfoEntity.setCreatedTime(1L);
@@ -584,12 +595,13 @@ public class WidgetTypeInfoEntityDiffblueTest {
    * <p>Method under test: {@link WidgetTypeInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean WidgetTypeInfoEntity.equals(Object)",
     "int WidgetTypeInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
     widgetTypeInfoEntity.setCreatedTime(1L);
@@ -629,7 +641,8 @@ public class WidgetTypeInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void WidgetTypeInfoEntity.<init>()",
     "String WidgetTypeInfoEntity.getDescription()",
@@ -642,7 +655,7 @@ public class WidgetTypeInfoEntityDiffblueTest {
     "void WidgetTypeInfoEntity.setWidgetType(String)",
     "String WidgetTypeInfoEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     WidgetTypeInfoEntity actualWidgetTypeInfoEntity = new WidgetTypeInfoEntity();
     actualWidgetTypeInfoEntity.setDescription("The characteristics of someone or something");
@@ -687,9 +700,11 @@ public class WidgetTypeInfoEntityDiffblueTest {
    * <p>Method under test: {@link WidgetTypeInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given WidgetTypeInfoEntity (default constructor) TenantId is 'null'; then return 'Fqn'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"WidgetTypeInfo WidgetTypeInfoEntity.toData()"})
-  public void testToData_givenWidgetTypeInfoEntityTenantIdIsNull_thenReturnFqn() {
+  void testToData_givenWidgetTypeInfoEntityTenantIdIsNull_thenReturnFqn() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
     widgetTypeInfoEntity.setCreatedTime(1L);
@@ -737,9 +752,11 @@ public class WidgetTypeInfoEntityDiffblueTest {
    * <p>Method under test: {@link WidgetTypeInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given WidgetTypeInfoEntity (default constructor); then return Version is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"WidgetTypeInfo WidgetTypeInfoEntity.toData()"})
-  public void testToData_givenWidgetTypeInfoEntity_thenReturnVersionIsNull() {
+  void testToData_givenWidgetTypeInfoEntity_thenReturnVersionIsNull() {
     // Arrange and Act
     WidgetTypeInfo actualToDataResult = new WidgetTypeInfoEntity().toData();
 
@@ -768,9 +785,10 @@ public class WidgetTypeInfoEntityDiffblueTest {
    * <p>Method under test: {@link WidgetTypeInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return TenantId Id is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"WidgetTypeInfo WidgetTypeInfoEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdIsRandomUUID() {
+  void testToData_thenReturnTenantIdIdIsRandomUUID() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
     widgetTypeInfoEntity.setCreatedTime(1L);
@@ -806,9 +824,11 @@ public class WidgetTypeInfoEntityDiffblueTest {
    * <p>Method under test: {@link WidgetTypeInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return TenantId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"WidgetTypeInfo WidgetTypeInfoEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     WidgetTypeInfoEntity widgetTypeInfoEntity = new WidgetTypeInfoEntity();
     widgetTypeInfoEntity.setCreatedTime(1L);

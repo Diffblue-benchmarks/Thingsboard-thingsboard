@@ -1,22 +1,22 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.DeviceId;
 import org.thingsboard.server.common.data.security.DeviceCredentials;
 import org.thingsboard.server.common.data.security.DeviceCredentialsType;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class DeviceCredentialsEntityDiffblueTest {
+class DeviceCredentialsEntityDiffblueTest {
   /**
    * Test {@link DeviceCredentialsEntity#equals(Object)}, and {@link
    * DeviceCredentialsEntity#hashCode()}.
@@ -34,12 +34,13 @@ public class DeviceCredentialsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceCredentialsEntity.equals(Object)",
     "int DeviceCredentialsEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DeviceCredentialsEntity deviceCredentialsEntity = new DeviceCredentialsEntity();
     deviceCredentialsEntity.setCreatedTime(1L);
@@ -84,12 +85,13 @@ public class DeviceCredentialsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceCredentialsEntity.equals(Object)",
     "int DeviceCredentialsEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     DeviceCredentialsEntity deviceCredentialsEntity = new DeviceCredentialsEntity();
     deviceCredentialsEntity.setCreatedTime(1L);
@@ -134,12 +136,13 @@ public class DeviceCredentialsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceCredentialsEntity.equals(Object)",
     "int DeviceCredentialsEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     DeviceCredentialsEntity deviceCredentialsEntity = new DeviceCredentialsEntity();
     deviceCredentialsEntity.setCreatedTime(1L);
@@ -184,12 +187,13 @@ public class DeviceCredentialsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceCredentialsEntity.equals(Object)",
     "int DeviceCredentialsEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DeviceCredentialsEntity deviceCredentialsEntity = new DeviceCredentialsEntity();
     deviceCredentialsEntity.setCreatedTime(1L);
@@ -218,12 +222,13 @@ public class DeviceCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link DeviceCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceCredentialsEntity.equals(Object)",
     "int DeviceCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DeviceCredentialsEntity deviceCredentialsEntity = new DeviceCredentialsEntity();
     deviceCredentialsEntity.setCreatedTime(3L);
@@ -260,12 +265,13 @@ public class DeviceCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link DeviceCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceCredentialsEntity.equals(Object)",
     "int DeviceCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DeviceCredentialsEntity deviceCredentialsEntity = new DeviceCredentialsEntity();
     deviceCredentialsEntity.setCreatedTime(1L);
@@ -302,12 +308,13 @@ public class DeviceCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link DeviceCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceCredentialsEntity.equals(Object)",
     "int DeviceCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DeviceCredentialsEntity deviceCredentialsEntity = new DeviceCredentialsEntity();
     deviceCredentialsEntity.setCreatedTime(1L);
@@ -344,12 +351,13 @@ public class DeviceCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link DeviceCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceCredentialsEntity.equals(Object)",
     "int DeviceCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     DeviceCredentialsEntity deviceCredentialsEntity = new DeviceCredentialsEntity();
     deviceCredentialsEntity.setCreatedTime(1L);
@@ -386,12 +394,13 @@ public class DeviceCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link DeviceCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceCredentialsEntity.equals(Object)",
     "int DeviceCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     DeviceCredentialsEntity deviceCredentialsEntity = new DeviceCredentialsEntity();
     deviceCredentialsEntity.setCreatedTime(1L);
@@ -428,12 +437,13 @@ public class DeviceCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link DeviceCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceCredentialsEntity.equals(Object)",
     "int DeviceCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     DeviceCredentialsEntity deviceCredentialsEntity = new DeviceCredentialsEntity();
     deviceCredentialsEntity.setCreatedTime(1L);
@@ -470,12 +480,13 @@ public class DeviceCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link DeviceCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceCredentialsEntity.equals(Object)",
     "int DeviceCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     DeviceCredentialsEntity deviceCredentialsEntity = new DeviceCredentialsEntity();
     deviceCredentialsEntity.setCreatedTime(1L);
@@ -512,12 +523,13 @@ public class DeviceCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link DeviceCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceCredentialsEntity.equals(Object)",
     "int DeviceCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     DeviceCredentialsEntity deviceCredentialsEntity = new DeviceCredentialsEntity();
     deviceCredentialsEntity.setCreatedTime(1L);
@@ -554,12 +566,13 @@ public class DeviceCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link DeviceCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceCredentialsEntity.equals(Object)",
     "int DeviceCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     DeviceCredentialsEntity deviceCredentialsEntity = new DeviceCredentialsEntity();
     deviceCredentialsEntity.setCreatedTime(1L);
@@ -596,12 +609,13 @@ public class DeviceCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link DeviceCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceCredentialsEntity.equals(Object)",
     "int DeviceCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     DeviceCredentialsEntity deviceCredentialsEntity = new DeviceCredentialsEntity();
     deviceCredentialsEntity.setCreatedTime(1L);
@@ -628,12 +642,13 @@ public class DeviceCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link DeviceCredentialsEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceCredentialsEntity.equals(Object)",
     "int DeviceCredentialsEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     DeviceCredentialsEntity deviceCredentialsEntity = new DeviceCredentialsEntity();
     deviceCredentialsEntity.setCreatedTime(1L);
@@ -668,7 +683,8 @@ public class DeviceCredentialsEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void DeviceCredentialsEntity.<init>()",
     "String DeviceCredentialsEntity.getCredentialsId()",
@@ -681,7 +697,7 @@ public class DeviceCredentialsEntityDiffblueTest {
     "void DeviceCredentialsEntity.setDeviceId(UUID)",
     "String DeviceCredentialsEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     DeviceCredentialsEntity actualDeviceCredentialsEntity = new DeviceCredentialsEntity();
     actualDeviceCredentialsEntity.setCredentialsId("42");
@@ -719,9 +735,10 @@ public class DeviceCredentialsEntityDiffblueTest {
    * DeviceCredentialsEntity#DeviceCredentialsEntity(DeviceCredentials)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new DeviceCredentialsEntity(DeviceCredentials)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceCredentialsEntity.<init>(DeviceCredentials)"})
-  public void testNewDeviceCredentialsEntity() {
+  void testNewDeviceCredentialsEntity() {
     // Arrange
     DeviceCredentials deviceCredentials = new DeviceCredentials();
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -756,9 +773,11 @@ public class DeviceCredentialsEntityDiffblueTest {
    * DeviceCredentialsEntity#DeviceCredentialsEntity(DeviceCredentials)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new DeviceCredentialsEntity(DeviceCredentials); when DeviceCredentials(); then return DeviceId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DeviceCredentialsEntity.<init>(DeviceCredentials)"})
-  public void testNewDeviceCredentialsEntity_whenDeviceCredentials_thenReturnDeviceIdIsNull() {
+  void testNewDeviceCredentialsEntity_whenDeviceCredentials_thenReturnDeviceIdIsNull() {
     // Arrange and Act
     DeviceCredentialsEntity actualDeviceCredentialsEntity =
         new DeviceCredentialsEntity(new DeviceCredentials());
@@ -785,9 +804,10 @@ public class DeviceCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link DeviceCredentialsEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given DeviceCredentialsEntity(); then return Version is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DeviceCredentials DeviceCredentialsEntity.toData()"})
-  public void testToData_givenDeviceCredentialsEntity_thenReturnVersionIsNull() {
+  void testToData_givenDeviceCredentialsEntity_thenReturnVersionIsNull() {
     // Arrange and Act
     DeviceCredentials actualToDataResult = new DeviceCredentialsEntity().toData();
 
@@ -812,9 +832,10 @@ public class DeviceCredentialsEntityDiffblueTest {
    * <p>Method under test: {@link DeviceCredentialsEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return CredentialsId is '42'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DeviceCredentials DeviceCredentialsEntity.toData()"})
-  public void testToData_thenReturnCredentialsIdIs42() {
+  void testToData_thenReturnCredentialsIdIs42() {
     // Arrange
     DeviceCredentialsEntity deviceCredentialsEntity = new DeviceCredentialsEntity();
     deviceCredentialsEntity.setCreatedTime(1L);

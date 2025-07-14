@@ -1,17 +1,16 @@
 package org.thingsboard.server.dao;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -23,8 +22,9 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.function.Consumer;
 import java.util.function.Function;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -48,7 +48,7 @@ import org.thingsboard.server.dao.edge.BaseRelatedEdgesService;
 import org.thingsboard.server.dao.entity.BaseEntityService;
 import org.thingsboard.server.dao.model.ToData;
 
-public class DaoUtilDiffblueTest {
+class DaoUtilDiffblueTest {
   /**
    * Test {@link DaoUtil#toPageData(Page)}.
    *
@@ -60,9 +60,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toPageData(Page)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toPageData(Page); given ToData toData() return 'Data'; then return Data size is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DaoUtil.toPageData(Page)"})
-  public void testToPageData_givenToDataToDataReturnData_thenReturnDataSizeIsOne() {
+  void testToPageData_givenToDataToDataReturnData_thenReturnDataSizeIsOne() {
     // Arrange
     ToData<Object> toData = mock(ToData.class);
     when(toData.toData()).thenReturn("Data");
@@ -92,9 +94,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toPageData(Page)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toPageData(Page); when PageImpl(List) with content is ArrayList(); then return TotalElements is zero")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DaoUtil.toPageData(Page)"})
-  public void testToPageData_whenPageImplWithContentIsArrayList_thenReturnTotalElementsIsZero() {
+  void testToPageData_whenPageImplWithContentIsArrayList_thenReturnTotalElementsIsZero() {
     // Arrange and Act
     PageData<Object> actualToPageDataResult = DaoUtil.toPageData(new PageImpl<>(new ArrayList<>()));
 
@@ -117,9 +121,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#pageToPageData(Slice)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test pageToPageData(Slice); given '42'; when ArrayList() add '42'; then return Data size is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DaoUtil.pageToPageData(Slice)"})
-  public void testPageToPageData_given42_whenArrayListAdd42_thenReturnDataSizeIsOne() {
+  void testPageToPageData_given42_whenArrayListAdd42_thenReturnDataSizeIsOne() {
     // Arrange
     ArrayList<Object> content = new ArrayList<>();
     content.add("42");
@@ -144,9 +150,10 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#pageToPageData(Slice)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test pageToPageData(Slice); then return TotalPages is zero")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DaoUtil.pageToPageData(Slice)"})
-  public void testPageToPageData_thenReturnTotalPagesIsZero() {
+  void testPageToPageData_thenReturnTotalPagesIsZero() {
     // Arrange and Act
     PageData<Object> actualPageToPageDataResult =
         DaoUtil.pageToPageData(new SliceImpl<>(new ArrayList<>()));
@@ -169,9 +176,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#pageToPageData(Slice)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test pageToPageData(Slice); when PageImpl(List) with content is ArrayList(); then return TotalPages is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DaoUtil.pageToPageData(Slice)"})
-  public void testPageToPageData_whenPageImplWithContentIsArrayList_thenReturnTotalPagesIsOne() {
+  void testPageToPageData_whenPageImplWithContentIsArrayList_thenReturnTotalPagesIsOne() {
     // Arrange and Act
     PageData<Object> actualPageToPageDataResult =
         DaoUtil.pageToPageData(new PageImpl<>(new ArrayList<>()));
@@ -195,9 +204,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toPageable(PageLink, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toPageable(PageLink, boolean) with 'pageLink', 'addDefaultSorting'; when FIRST_PAGE; then return PageRequest")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Pageable DaoUtil.toPageable(PageLink, boolean)"})
-  public void testToPageableWithPageLinkAddDefaultSorting_whenFirst_page_thenReturnPageRequest() {
+  void testToPageableWithPageLinkAddDefaultSorting_whenFirst_page_thenReturnPageRequest() {
     // Arrange and Act
     Pageable actualToPageableResult = DaoUtil.toPageable(BaseRelatedEdgesService.FIRST_PAGE, true);
 
@@ -224,9 +235,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toPageable(PageLink, Map, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toPageable(PageLink, Map, boolean) with 'pageLink', 'columnMap', 'addDefaultSorting'; then return PageRequest")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Pageable DaoUtil.toPageable(PageLink, Map, boolean)"})
-  public void testToPageableWithPageLinkColumnMapAddDefaultSorting_thenReturnPageRequest() {
+  void testToPageableWithPageLinkColumnMapAddDefaultSorting_thenReturnPageRequest() {
     // Arrange and Act
     Pageable actualToPageableResult =
         DaoUtil.toPageable(BaseRelatedEdgesService.FIRST_PAGE, new HashMap<>(), true);
@@ -250,9 +263,10 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toPageable(PageLink, Map, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toPageable(PageLink, Map, List) with 'pageLink', 'columnMap', 'sortOrders'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Pageable DaoUtil.toPageable(PageLink, Map, List)"})
-  public void testToPageableWithPageLinkColumnMapSortOrders() {
+  void testToPageableWithPageLinkColumnMapSortOrders() {
     // Arrange
     HashMap<String, String> columnMap = new HashMap<>();
 
@@ -291,9 +305,10 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toPageable(PageLink, Map, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toPageable(PageLink, Map, List) with 'pageLink', 'columnMap', 'sortOrders'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Pageable DaoUtil.toPageable(PageLink, Map, List)"})
-  public void testToPageableWithPageLinkColumnMapSortOrders2() {
+  void testToPageableWithPageLinkColumnMapSortOrders2() {
     // Arrange
     HashMap<String, String> columnMap = new HashMap<>();
 
@@ -335,9 +350,10 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toPageable(PageLink, Map, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toPageable(PageLink, Map, List) with 'pageLink', 'columnMap', 'sortOrders'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Pageable DaoUtil.toPageable(PageLink, Map, List)"})
-  public void testToPageableWithPageLinkColumnMapSortOrders3() {
+  void testToPageableWithPageLinkColumnMapSortOrders3() {
     // Arrange
     HashMap<String, String> columnMap = new HashMap<>();
 
@@ -363,9 +379,10 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toPageable(PageLink, Map, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toPageable(PageLink, Map, List) with 'pageLink', 'columnMap', 'sortOrders'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Pageable DaoUtil.toPageable(PageLink, Map, List)"})
-  public void testToPageableWithPageLinkColumnMapSortOrders4() {
+  void testToPageableWithPageLinkColumnMapSortOrders4() {
     // Arrange
     HashMap<String, String> columnMap = new HashMap<>();
 
@@ -400,9 +417,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toPageable(PageLink, Map, List, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toPageable(PageLink, Map, List, boolean) with 'pageLink', 'columnMap', 'sortOrders', 'addDefaultSorting'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Pageable DaoUtil.toPageable(PageLink, Map, List, boolean)"})
-  public void testToPageableWithPageLinkColumnMapSortOrdersAddDefaultSorting() {
+  void testToPageableWithPageLinkColumnMapSortOrdersAddDefaultSorting() {
     // Arrange
     HashMap<String, String> columnMap = new HashMap<>();
 
@@ -426,9 +445,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toPageable(PageLink, Map, List, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toPageable(PageLink, Map, List, boolean) with 'pageLink', 'columnMap', 'sortOrders', 'addDefaultSorting'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Pageable DaoUtil.toPageable(PageLink, Map, List, boolean)"})
-  public void testToPageableWithPageLinkColumnMapSortOrdersAddDefaultSorting2() {
+  void testToPageableWithPageLinkColumnMapSortOrdersAddDefaultSorting2() {
     // Arrange
     HashMap<String, String> columnMap = new HashMap<>();
 
@@ -455,9 +476,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toPageable(PageLink, Map, List, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toPageable(PageLink, Map, List, boolean) with 'pageLink', 'columnMap', 'sortOrders', 'addDefaultSorting'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Pageable DaoUtil.toPageable(PageLink, Map, List, boolean)"})
-  public void testToPageableWithPageLinkColumnMapSortOrdersAddDefaultSorting3() {
+  void testToPageableWithPageLinkColumnMapSortOrdersAddDefaultSorting3() {
     // Arrange
     HashMap<String, String> columnMap = new HashMap<>();
 
@@ -483,9 +506,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toPageable(PageLink, Map, List, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toPageable(PageLink, Map, List, boolean) with 'pageLink', 'columnMap', 'sortOrders', 'addDefaultSorting'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Pageable DaoUtil.toPageable(PageLink, Map, List, boolean)"})
-  public void testToPageableWithPageLinkColumnMapSortOrdersAddDefaultSorting4() {
+  void testToPageableWithPageLinkColumnMapSortOrdersAddDefaultSorting4() {
     // Arrange
     HashMap<String, String> columnMap = new HashMap<>();
 
@@ -520,9 +545,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toPageable(PageLink, Map, List, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toPageable(PageLink, Map, List, boolean) with 'pageLink', 'columnMap', 'sortOrders', 'addDefaultSorting'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Pageable DaoUtil.toPageable(PageLink, Map, List, boolean)"})
-  public void testToPageableWithPageLinkColumnMapSortOrdersAddDefaultSorting5() {
+  void testToPageableWithPageLinkColumnMapSortOrdersAddDefaultSorting5() {
     // Arrange
     HashMap<String, String> columnMap = new HashMap<>();
 
@@ -553,9 +580,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toPageable(PageLink, Map, List, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toPageable(PageLink, Map, List, boolean) with 'pageLink', 'columnMap', 'sortOrders', 'addDefaultSorting'; when HashMap() 'id' is 'id'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Pageable DaoUtil.toPageable(PageLink, Map, List, boolean)"})
-  public void testToPageableWithPageLinkColumnMapSortOrdersAddDefaultSorting_whenHashMapIdIsId() {
+  void testToPageableWithPageLinkColumnMapSortOrdersAddDefaultSorting_whenHashMapIdIsId() {
     // Arrange
     HashMap<String, String> columnMap = new HashMap<>();
     columnMap.put("id", "id");
@@ -585,9 +614,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toPageable(PageLink, Map, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toPageable(PageLink, Map, List) with 'pageLink', 'columnMap', 'sortOrders'; given 'id'; when HashMap() 'id' is 'id'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Pageable DaoUtil.toPageable(PageLink, Map, List)"})
-  public void testToPageableWithPageLinkColumnMapSortOrders_givenId_whenHashMapIdIsId() {
+  void testToPageableWithPageLinkColumnMapSortOrders_givenId_whenHashMapIdIsId() {
     // Arrange
     HashMap<String, String> columnMap = new HashMap<>();
     columnMap.put("id", "id");
@@ -631,9 +662,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toPageable(PageLink, Map)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toPageable(PageLink, Map) with 'pageLink', 'columnMap'; when FIRST_PAGE; then return PageRequest")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Pageable DaoUtil.toPageable(PageLink, Map)"})
-  public void testToPageableWithPageLinkColumnMap_whenFirst_page_thenReturnPageRequest() {
+  void testToPageableWithPageLinkColumnMap_whenFirst_page_thenReturnPageRequest() {
     // Arrange and Act
     Pageable actualToPageableResult =
         DaoUtil.toPageable(BaseRelatedEdgesService.FIRST_PAGE, new HashMap<>());
@@ -656,9 +689,10 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toPageable(PageLink, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toPageable(PageLink, List) with 'pageLink', 'sortOrders'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Pageable DaoUtil.toPageable(PageLink, List)"})
-  public void testToPageableWithPageLinkSortOrders() {
+  void testToPageableWithPageLinkSortOrders() {
     // Arrange and Act
     Pageable actualToPageableResult =
         DaoUtil.toPageable(BaseRelatedEdgesService.FIRST_PAGE, new ArrayList<>());
@@ -693,9 +727,10 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toPageable(PageLink, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toPageable(PageLink, List) with 'pageLink', 'sortOrders'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Pageable DaoUtil.toPageable(PageLink, List)"})
-  public void testToPageableWithPageLinkSortOrders2() {
+  void testToPageableWithPageLinkSortOrders2() {
     // Arrange
     ArrayList<SortOrder> sortOrders = new ArrayList<>();
     sortOrders.add(SortOrder.of("id", Direction.ASC));
@@ -738,9 +773,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toPageable(PageLink, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toPageable(PageLink, List) with 'pageLink', 'sortOrders'; then return Sort toList first Property is 'Property'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Pageable DaoUtil.toPageable(PageLink, List)"})
-  public void testToPageableWithPageLinkSortOrders_thenReturnSortToListFirstPropertyIsProperty() {
+  void testToPageableWithPageLinkSortOrders_thenReturnSortToListFirstPropertyIsProperty() {
     // Arrange
     ArrayList<SortOrder> sortOrders = new ArrayList<>();
     sortOrders.add(SortOrder.of("Property", Direction.ASC));
@@ -776,9 +813,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toPageable(PageLink, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toPageable(PageLink, List) with 'pageLink', 'sortOrders'; then return Sort toList second is Sort toList first")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Pageable DaoUtil.toPageable(PageLink, List)"})
-  public void testToPageableWithPageLinkSortOrders_thenReturnSortToListSecondIsSortToListFirst() {
+  void testToPageableWithPageLinkSortOrders_thenReturnSortToListSecondIsSortToListFirst() {
     // Arrange
     ArrayList<SortOrder> sortOrders = new ArrayList<>();
     sortOrders.add(SortOrder.of("id", Direction.ASC));
@@ -806,9 +845,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toPageable(PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toPageable(PageLink) with 'pageLink'; when FIRST_PAGE; then return PageRequest")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Pageable DaoUtil.toPageable(PageLink)"})
-  public void testToPageableWithPageLink_whenFirst_page_thenReturnPageRequest() {
+  void testToPageableWithPageLink_whenFirst_page_thenReturnPageRequest() {
     // Arrange and Act
     Pageable actualToPageableResult = DaoUtil.toPageable(BaseRelatedEdgesService.FIRST_PAGE);
 
@@ -836,9 +877,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#convertDataList(Collection)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test convertDataList(Collection); given 'null'; when LinkedHashSet() add 'null'; then return Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List DaoUtil.convertDataList(Collection)"})
-  public void testConvertDataList_givenNull_whenLinkedHashSetAddNull_thenReturnEmpty() {
+  void testConvertDataList_givenNull_whenLinkedHashSetAddNull_thenReturnEmpty() {
     // Arrange
     LinkedHashSet<? extends ToData<Object>> toDataList = new LinkedHashSet<>();
     toDataList.add(null);
@@ -861,9 +904,10 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#convertDataList(Collection)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test convertDataList(Collection); when ArrayList(); then return Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List DaoUtil.convertDataList(Collection)"})
-  public void testConvertDataList_whenArrayList_thenReturnEmpty() {
+  void testConvertDataList_whenArrayList_thenReturnEmpty() {
     // Arrange and Act
     List<Object> actualConvertDataListResult = DaoUtil.convertDataList(new ArrayList<>());
 
@@ -882,9 +926,10 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#convertDataList(Collection)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test convertDataList(Collection); when 'null'; then return Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List DaoUtil.convertDataList(Collection)"})
-  public void testConvertDataList_whenNull_thenReturnEmpty() {
+  void testConvertDataList_whenNull_thenReturnEmpty() {
     // Arrange and Act
     List<Object> actualConvertDataListResult = DaoUtil.convertDataList(null);
 
@@ -904,9 +949,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#getData(Optional)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getData(Optional) with 'Optional'; given 'Data'; when ToData toData() return 'Data'; then return 'Data'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object DaoUtil.getData(Optional)"})
-  public void testGetDataWithOptional_givenData_whenToDataToDataReturnData_thenReturnData() {
+  void testGetDataWithOptional_givenData_whenToDataToDataReturnData_thenReturnData() {
     // Arrange
     ToData<Object> toData = mock(ToData.class);
     when(toData.toData()).thenReturn("Data");
@@ -931,9 +978,10 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#getData(Optional)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getData(Optional) with 'Optional'; when empty; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object DaoUtil.getData(Optional)"})
-  public void testGetDataWithOptional_whenEmpty_thenReturnNull() {
+  void testGetDataWithOptional_whenEmpty_thenReturnNull() {
     // Arrange
     Optional<? extends ToData<Object>> data = Optional.empty();
 
@@ -953,9 +1001,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#getData(ToData)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getData(ToData) with 'ToData'; given 'Data'; when ToData toData() return 'Data'; then return 'Data'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object DaoUtil.getData(ToData)"})
-  public void testGetDataWithToData_givenData_whenToDataToDataReturnData_thenReturnData() {
+  void testGetDataWithToData_givenData_whenToDataToDataReturnData_thenReturnData() {
     // Arrange
     ToData<Object> data = mock(ToData.class);
     when(data.toData()).thenReturn("Data");
@@ -979,9 +1029,10 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#getData(ToData)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getData(ToData) with 'ToData'; when 'null'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object DaoUtil.getData(ToData)"})
-  public void testGetDataWithToData_whenNull_thenReturnNull() {
+  void testGetDataWithToData_whenNull_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(DaoUtil.getData((ToData<Object>) null));
   }
@@ -996,9 +1047,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#getId(UUIDBased)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getId(UUIDBased); then return toString is '13814000-1dd2-11b2-8080-808080808080'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID DaoUtil.getId(UUIDBased)"})
-  public void testGetId_thenReturnToStringIs138140001dd211b28080808080808080() {
+  void testGetId_thenReturnToStringIs138140001dd211b28080808080808080() {
     // Arrange, Act and Assert
     assertEquals(
         "13814000-1dd2-11b2-8080-808080808080",
@@ -1016,9 +1069,10 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#getId(UUIDBased)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getId(UUIDBased); when 'null'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID DaoUtil.getId(UUIDBased)"})
-  public void testGetId_whenNull_thenReturnNull() {
+  void testGetId_whenNull_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(DaoUtil.getId(null));
   }
@@ -1034,9 +1088,10 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toUUIDs(List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toUUIDs(List); given NULL_CUSTOMER_ID; then return size is two")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List DaoUtil.toUUIDs(List)"})
-  public void testToUUIDs_givenNull_customer_id_thenReturnSizeIsTwo() {
+  void testToUUIDs_givenNull_customer_id_thenReturnSizeIsTwo() {
     // Arrange
     ArrayList<UUIDBased> idBasedIds = new ArrayList<>();
     idBasedIds.add(BaseEntityService.NULL_CUSTOMER_ID);
@@ -1064,9 +1119,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toUUIDs(List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toUUIDs(List); given 'null'; when ArrayList() add 'null'; then return ArrayList()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List DaoUtil.toUUIDs(List)"})
-  public void testToUUIDs_givenNull_whenArrayListAddNull_thenReturnArrayList() {
+  void testToUUIDs_givenNull_whenArrayListAddNull_thenReturnArrayList() {
     // Arrange
     ArrayList<? extends UUIDBased> idBasedIds = new ArrayList<>();
     idBasedIds.add(null);
@@ -1089,9 +1146,10 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toUUIDs(List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toUUIDs(List); when ArrayList(); then return Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List DaoUtil.toUUIDs(List)"})
-  public void testToUUIDs_whenArrayList_thenReturnEmpty() {
+  void testToUUIDs_whenArrayList_thenReturnEmpty() {
     // Arrange and Act
     List<UUID> actualToUUIDsResult = DaoUtil.toUUIDs(new ArrayList<>());
 
@@ -1109,9 +1167,10 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#fromUUIDs(List, Function)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test fromUUIDs(List, Function); then return size is two")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List DaoUtil.fromUUIDs(List, Function)"})
-  public void testFromUUIDs_thenReturnSizeIsTwo() {
+  void testFromUUIDs_thenReturnSizeIsTwo() {
     // Arrange
     ArrayList<UUID> uuids = new ArrayList<>();
     uuids.add(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -1140,9 +1199,10 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#fromUUIDs(List, Function)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test fromUUIDs(List, Function); when ArrayList(); then return Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List DaoUtil.fromUUIDs(List, Function)"})
-  public void testFromUUIDs_whenArrayList_thenReturnEmpty() {
+  void testFromUUIDs_whenArrayList_thenReturnEmpty() {
     // Arrange and Act
     List<Object> actualFromUUIDsResult =
         DaoUtil.<Object>fromUUIDs(new ArrayList<>(), mock(Function.class));
@@ -1162,9 +1222,10 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toEntityId(UUID, Function)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toEntityId(UUID, Function); given 'Apply'; then return 'Apply'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object DaoUtil.toEntityId(UUID, Function)"})
-  public void testToEntityId_givenApply_thenReturnApply() {
+  void testToEntityId_givenApply_thenReturnApply() {
     // Arrange
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     Function<UUID, Object> creator = mock(Function.class);
@@ -1189,9 +1250,10 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#toEntityId(UUID, Function)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toEntityId(UUID, Function); when 'null'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object DaoUtil.toEntityId(UUID, Function)"})
-  public void testToEntityId_whenNull_thenReturnNull() {
+  void testToEntityId_whenNull_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(DaoUtil.<Object>toEntityId(null, mock(Function.class)));
   }
@@ -1207,9 +1269,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#processInBatches(Function, int, Consumer)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test processInBatches(Function, int, Consumer); given emptyPageData; then calls apply(Object)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DaoUtil.processInBatches(Function, int, Consumer)"})
-  public void testProcessInBatches_givenEmptyPageData_thenCallsApply() {
+  void testProcessInBatches_givenEmptyPageData_thenCallsApply() {
     // Arrange
     Function<PageLink, PageData<Object>> finder = mock(Function.class);
     PageData<Object> emptyPageDataResult = PageData.emptyPageData();
@@ -1233,9 +1297,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#processBatches(Function, int, Consumer)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test processBatches(Function, int, Consumer); given emptyPageData; then calls accept(Object)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DaoUtil.processBatches(Function, int, Consumer)"})
-  public void testProcessBatches_givenEmptyPageData_thenCallsAccept() {
+  void testProcessBatches_givenEmptyPageData_thenCallsAccept() {
     // Arrange
     Function<PageLink, PageData<Object>> finder = mock(Function.class);
     PageData<Object> emptyPageDataResult = PageData.emptyPageData();
@@ -1262,9 +1328,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#getStringId(UUIDBased)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getStringId(UUIDBased); when NULL_CUSTOMER_ID; then return '13814000-1dd2-11b2-8080-808080808080'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String DaoUtil.getStringId(UUIDBased)"})
-  public void testGetStringId_whenNull_customer_id_thenReturn138140001dd211b28080808080808080() {
+  void testGetStringId_whenNull_customer_id_thenReturn138140001dd211b28080808080808080() {
     // Arrange, Act and Assert
     assertEquals(
         "13814000-1dd2-11b2-8080-808080808080",
@@ -1282,9 +1350,10 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#getStringId(UUIDBased)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getStringId(UUIDBased); when 'null'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String DaoUtil.getStringId(UUIDBased)"})
-  public void testGetStringId_whenNull_thenReturnNull() {
+  void testGetStringId_whenNull_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(DaoUtil.getStringId(null));
   }
@@ -1295,9 +1364,10 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#convertTenantEntityTypesToDto(UUID, EntityType, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test convertTenantEntityTypesToDto(UUID, EntityType, List)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List DaoUtil.convertTenantEntityTypesToDto(UUID, EntityType, List)"})
-  public void testConvertTenantEntityTypesToDto() {
+  void testConvertTenantEntityTypesToDto() {
     // Arrange
     UUID tenantUUID = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
@@ -1332,9 +1402,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#convertTenantEntityTypesToDto(UUID, EntityType, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test convertTenantEntityTypesToDto(UUID, EntityType, List); given '42'; when ArrayList() add '42'; then return size is two")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List DaoUtil.convertTenantEntityTypesToDto(UUID, EntityType, List)"})
-  public void testConvertTenantEntityTypesToDto_given42_whenArrayListAdd42_thenReturnSizeIsTwo() {
+  void testConvertTenantEntityTypesToDto_given42_whenArrayListAdd42_thenReturnSizeIsTwo() {
     // Arrange
     UUID tenantUUID = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
@@ -1364,9 +1436,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#convertTenantEntityTypesToDto(UUID, EntityType, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test convertTenantEntityTypesToDto(UUID, EntityType, List); then return first TenantId Id is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List DaoUtil.convertTenantEntityTypesToDto(UUID, EntityType, List)"})
-  public void testConvertTenantEntityTypesToDto_thenReturnFirstTenantIdIdIsRandomUUID() {
+  void testConvertTenantEntityTypesToDto_thenReturnFirstTenantIdIdIsRandomUUID() {
     // Arrange
     UUID tenantUUID = UUID.randomUUID();
 
@@ -1400,9 +1474,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#convertTenantEntityTypesToDto(UUID, EntityType, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test convertTenantEntityTypesToDto(UUID, EntityType, List); when ArrayList(); then return Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List DaoUtil.convertTenantEntityTypesToDto(UUID, EntityType, List)"})
-  public void testConvertTenantEntityTypesToDto_whenArrayList_thenReturnEmpty() {
+  void testConvertTenantEntityTypesToDto_whenArrayList_thenReturnEmpty() {
     // Arrange
     UUID tenantUUID = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
@@ -1424,9 +1500,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#convertTenantEntityInfosToDto(UUID, EntityType, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test convertTenantEntityInfosToDto(UUID, EntityType, List); then return size is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List DaoUtil.convertTenantEntityInfosToDto(UUID, EntityType, List)"})
-  public void testConvertTenantEntityInfosToDto_thenReturnSizeIsOne() {
+  void testConvertTenantEntityInfosToDto_thenReturnSizeIsOne() {
     // Arrange
     UUID tenantUUID = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
@@ -1459,9 +1537,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#convertTenantEntityInfosToDto(UUID, EntityType, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test convertTenantEntityInfosToDto(UUID, EntityType, List); then return size is two")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List DaoUtil.convertTenantEntityInfosToDto(UUID, EntityType, List)"})
-  public void testConvertTenantEntityInfosToDto_thenReturnSizeIsTwo() {
+  void testConvertTenantEntityInfosToDto_thenReturnSizeIsTwo() {
     // Arrange
     UUID tenantUUID = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
@@ -1491,9 +1571,11 @@ public class DaoUtilDiffblueTest {
    * <p>Method under test: {@link DaoUtil#convertTenantEntityInfosToDto(UUID, EntityType, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test convertTenantEntityInfosToDto(UUID, EntityType, List); when ArrayList(); then return Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List DaoUtil.convertTenantEntityInfosToDto(UUID, EntityType, List)"})
-  public void testConvertTenantEntityInfosToDto_whenArrayList_thenReturnEmpty() {
+  void testConvertTenantEntityInfosToDto_whenArrayList_thenReturnEmpty() {
     // Arrange
     UUID tenantUUID = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 

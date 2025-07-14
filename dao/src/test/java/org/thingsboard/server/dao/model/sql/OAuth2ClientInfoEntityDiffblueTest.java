@@ -1,17 +1,17 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.oauth2.OAuth2ClientInfo;
 
-public class OAuth2ClientInfoEntityDiffblueTest {
+class OAuth2ClientInfoEntityDiffblueTest {
   /**
    * Test {@link OAuth2ClientInfoEntity#equals(Object)}, and {@link
    * OAuth2ClientInfoEntity#hashCode()}.
@@ -29,12 +29,13 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientInfoEntity.equals(Object)",
     "int OAuth2ClientInfoEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(1L);
@@ -73,12 +74,13 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientInfoEntity.equals(Object)",
     "int OAuth2ClientInfoEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(1L);
@@ -117,12 +119,13 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientInfoEntity.equals(Object)",
     "int OAuth2ClientInfoEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(1L);
@@ -161,12 +164,13 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientInfoEntity.equals(Object)",
     "int OAuth2ClientInfoEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(1L);
@@ -192,12 +196,13 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientInfoEntity.equals(Object)",
     "int OAuth2ClientInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(3L);
@@ -228,12 +233,13 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientInfoEntity.equals(Object)",
     "int OAuth2ClientInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(1L);
@@ -264,12 +270,13 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientInfoEntity.equals(Object)",
     "int OAuth2ClientInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(1L);
@@ -300,12 +307,13 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientInfoEntity.equals(Object)",
     "int OAuth2ClientInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(1L);
@@ -336,12 +344,13 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientInfoEntity.equals(Object)",
     "int OAuth2ClientInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(1L);
@@ -372,12 +381,13 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientInfoEntity.equals(Object)",
     "int OAuth2ClientInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(1L);
@@ -401,12 +411,13 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientInfoEntity.equals(Object)",
     "int OAuth2ClientInfoEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(1L);
@@ -434,7 +445,8 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void OAuth2ClientInfoEntity.<init>()",
     "String OAuth2ClientInfoEntity.getPlatforms()",
@@ -443,7 +455,7 @@ public class OAuth2ClientInfoEntityDiffblueTest {
     "void OAuth2ClientInfoEntity.setTitle(String)",
     "String OAuth2ClientInfoEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     OAuth2ClientInfoEntity actualOAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     actualOAuth2ClientInfoEntity.setPlatforms("Platforms");
@@ -467,9 +479,10 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new OAuth2ClientInfoEntity(UUID, long, String, String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void OAuth2ClientInfoEntity.<init>(UUID, long, String, String)"})
-  public void testNewOAuth2ClientInfoEntity() {
+  void testNewOAuth2ClientInfoEntity() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
@@ -495,9 +508,10 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given OAuth2ClientInfoEntity() Platforms is ','")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"OAuth2ClientInfo OAuth2ClientInfoEntity.toData()"})
-  public void testToData_givenOAuth2ClientInfoEntityPlatformsIsComma() {
+  void testToData_givenOAuth2ClientInfoEntityPlatformsIsComma() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(1L);
@@ -530,9 +544,10 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given OAuth2ClientInfoEntity() Platforms is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"OAuth2ClientInfo OAuth2ClientInfoEntity.toData()"})
-  public void testToData_givenOAuth2ClientInfoEntityPlatformsIsEmptyString() {
+  void testToData_givenOAuth2ClientInfoEntityPlatformsIsEmptyString() {
     // Arrange
     OAuth2ClientInfoEntity oAuth2ClientInfoEntity = new OAuth2ClientInfoEntity();
     oAuth2ClientInfoEntity.setCreatedTime(1L);
@@ -566,9 +581,10 @@ public class OAuth2ClientInfoEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given OAuth2ClientInfoEntity(); then return Name is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"OAuth2ClientInfo OAuth2ClientInfoEntity.toData()"})
-  public void testToData_givenOAuth2ClientInfoEntity_thenReturnNameIsNull() {
+  void testToData_givenOAuth2ClientInfoEntity_thenReturnNameIsNull() {
     // Arrange and Act
     OAuth2ClientInfo actualToDataResult = new OAuth2ClientInfoEntity().toData();
 

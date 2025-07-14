@@ -1,22 +1,22 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.MobileAppId;
 import org.thingsboard.server.common.data.id.OAuth2ClientId;
 import org.thingsboard.server.common.data.mobile.MobileAppOauth2Client;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class MobileAppOauth2ClientEntityDiffblueTest {
+class MobileAppOauth2ClientEntityDiffblueTest {
   /**
    * Test {@link MobileAppOauth2ClientEntity#equals(Object)}, and {@link
    * MobileAppOauth2ClientEntity#hashCode()}.
@@ -34,12 +34,13 @@ public class MobileAppOauth2ClientEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppOauth2ClientEntity.equals(Object)",
     "int MobileAppOauth2ClientEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     MobileAppOauth2ClientEntity mobileAppOauth2ClientEntity = new MobileAppOauth2ClientEntity();
     mobileAppOauth2ClientEntity.setMobileAppId(
@@ -76,12 +77,13 @@ public class MobileAppOauth2ClientEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppOauth2ClientEntity.equals(Object)",
     "int MobileAppOauth2ClientEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     MobileAppOauth2ClientEntity mobileAppOauth2ClientEntity = new MobileAppOauth2ClientEntity();
     mobileAppOauth2ClientEntity.setMobileAppId(null);
@@ -116,12 +118,13 @@ public class MobileAppOauth2ClientEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppOauth2ClientEntity.equals(Object)",
     "int MobileAppOauth2ClientEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     MobileAppOauth2ClientEntity mobileAppOauth2ClientEntity = new MobileAppOauth2ClientEntity();
     mobileAppOauth2ClientEntity.setMobileAppId(
@@ -156,12 +159,13 @@ public class MobileAppOauth2ClientEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppOauth2ClientEntity.equals(Object)",
     "int MobileAppOauth2ClientEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     MobileAppOauth2ClientEntity mobileAppOauth2ClientEntity = new MobileAppOauth2ClientEntity();
     mobileAppOauth2ClientEntity.setMobileAppId(
@@ -186,12 +190,13 @@ public class MobileAppOauth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link MobileAppOauth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppOauth2ClientEntity.equals(Object)",
     "int MobileAppOauth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     MobileAppOauth2ClientEntity mobileAppOauth2ClientEntity = new MobileAppOauth2ClientEntity();
     mobileAppOauth2ClientEntity.setMobileAppId(ModelConstants.NULL_UUID);
@@ -219,12 +224,13 @@ public class MobileAppOauth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link MobileAppOauth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppOauth2ClientEntity.equals(Object)",
     "int MobileAppOauth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     MobileAppOauth2ClientEntity mobileAppOauth2ClientEntity = new MobileAppOauth2ClientEntity();
     mobileAppOauth2ClientEntity.setMobileAppId(null);
@@ -252,12 +258,13 @@ public class MobileAppOauth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link MobileAppOauth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppOauth2ClientEntity.equals(Object)",
     "int MobileAppOauth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     MobileAppOauth2ClientEntity mobileAppOauth2ClientEntity = new MobileAppOauth2ClientEntity();
     mobileAppOauth2ClientEntity.setMobileAppId(
@@ -285,12 +292,13 @@ public class MobileAppOauth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link MobileAppOauth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppOauth2ClientEntity.equals(Object)",
     "int MobileAppOauth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     MobileAppOauth2ClientEntity mobileAppOauth2ClientEntity = new MobileAppOauth2ClientEntity();
     mobileAppOauth2ClientEntity.setMobileAppId(
@@ -318,12 +326,13 @@ public class MobileAppOauth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link MobileAppOauth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppOauth2ClientEntity.equals(Object)",
     "int MobileAppOauth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     MobileAppOauth2ClientEntity mobileAppOauth2ClientEntity = new MobileAppOauth2ClientEntity();
     mobileAppOauth2ClientEntity.setMobileAppId(
@@ -346,12 +355,13 @@ public class MobileAppOauth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link MobileAppOauth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppOauth2ClientEntity.equals(Object)",
     "int MobileAppOauth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     MobileAppOauth2ClientEntity mobileAppOauth2ClientEntity = new MobileAppOauth2ClientEntity();
     mobileAppOauth2ClientEntity.setMobileAppId(
@@ -378,7 +388,8 @@ public class MobileAppOauth2ClientEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void MobileAppOauth2ClientEntity.<init>()",
     "UUID MobileAppOauth2ClientEntity.getMobileAppId()",
@@ -387,7 +398,7 @@ public class MobileAppOauth2ClientEntityDiffblueTest {
     "void MobileAppOauth2ClientEntity.setOauth2ClientId(UUID)",
     "String MobileAppOauth2ClientEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     MobileAppOauth2ClientEntity actualMobileAppOauth2ClientEntity =
         new MobileAppOauth2ClientEntity();
@@ -417,9 +428,10 @@ public class MobileAppOauth2ClientEntityDiffblueTest {
    * MobileAppOauth2ClientEntity#MobileAppOauth2ClientEntity(MobileAppOauth2Client)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new MobileAppOauth2ClientEntity(MobileAppOauth2Client)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void MobileAppOauth2ClientEntity.<init>(MobileAppOauth2Client)"})
-  public void testNewMobileAppOauth2ClientEntity() {
+  void testNewMobileAppOauth2ClientEntity() {
     // Arrange
     MobileAppOauth2Client domainOauth2Provider = new MobileAppOauth2Client();
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -446,9 +458,10 @@ public class MobileAppOauth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link MobileAppOauth2ClientEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"MobileAppOauth2Client MobileAppOauth2ClientEntity.toData()"})
-  public void testToData() {
+  void testToData() {
     // Arrange and Act
     MobileAppOauth2Client actualToDataResult = new MobileAppOauth2ClientEntity().toData();
 

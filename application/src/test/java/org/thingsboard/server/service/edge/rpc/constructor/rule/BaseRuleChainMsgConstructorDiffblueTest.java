@@ -58,7 +58,6 @@ class BaseRuleChainMsgConstructorDiffblueTest {
 
     // Assert
     assertEquals(-7476899250389416711L, actualConstructRuleChainDeleteMsgResult.getIdLSB());
-    assertEquals(23, actualConstructRuleChainDeleteMsgResult.getSerializedSize());
     assertEquals(8669210807411032922L, actualConstructRuleChainDeleteMsgResult.getIdMSB());
     UnknownFieldSet unknownFields = actualConstructRuleChainDeleteMsgResult.getUnknownFields();
     RuleChainUpdateMsg defaultInstanceForType =

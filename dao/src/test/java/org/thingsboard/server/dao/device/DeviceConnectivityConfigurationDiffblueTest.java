@@ -1,19 +1,19 @@
 package org.thingsboard.server.dao.device;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Map;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class DeviceConnectivityConfigurationDiffblueTest {
+class DeviceConnectivityConfigurationDiffblueTest {
   /**
    * Test {@link DeviceConnectivityConfiguration#equals(Object)}, and {@link
    * DeviceConnectivityConfiguration#hashCode()}.
@@ -31,12 +31,13 @@ public class DeviceConnectivityConfigurationDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceConnectivityConfiguration.equals(Object)",
     "int DeviceConnectivityConfiguration.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DeviceConnectivityConfiguration deviceConnectivityConfiguration =
         new DeviceConnectivityConfiguration();
@@ -66,12 +67,13 @@ public class DeviceConnectivityConfigurationDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceConnectivityConfiguration.equals(Object)",
     "int DeviceConnectivityConfiguration.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DeviceConnectivityConfiguration deviceConnectivityConfiguration =
         new DeviceConnectivityConfiguration();
@@ -93,12 +95,13 @@ public class DeviceConnectivityConfigurationDiffblueTest {
    * <p>Method under test: {@link DeviceConnectivityConfiguration#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceConnectivityConfiguration.equals(Object)",
     "int DeviceConnectivityConfiguration.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DeviceConnectivityConfiguration(), 1);
   }
@@ -114,12 +117,13 @@ public class DeviceConnectivityConfigurationDiffblueTest {
    * <p>Method under test: {@link DeviceConnectivityConfiguration#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceConnectivityConfiguration.equals(Object)",
     "int DeviceConnectivityConfiguration.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DeviceConnectivityInfo deviceConnectivityInfo = new DeviceConnectivityInfo();
     deviceConnectivityInfo.setEnabled(true);
@@ -148,12 +152,13 @@ public class DeviceConnectivityConfigurationDiffblueTest {
    * <p>Method under test: {@link DeviceConnectivityConfiguration#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceConnectivityConfiguration.equals(Object)",
     "int DeviceConnectivityConfiguration.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new DeviceConnectivityConfiguration(), null);
   }
@@ -169,12 +174,13 @@ public class DeviceConnectivityConfigurationDiffblueTest {
    * <p>Method under test: {@link DeviceConnectivityConfiguration#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DeviceConnectivityConfiguration.equals(Object)",
     "int DeviceConnectivityConfiguration.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(
         new DeviceConnectivityConfiguration(), "Different type to DeviceConnectivityConfiguration");
@@ -186,11 +192,12 @@ public class DeviceConnectivityConfigurationDiffblueTest {
    * <p>Method under test: {@link DeviceConnectivityConfiguration#getConnectivity(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getConnectivity(String) with 'String'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "DeviceConnectivityInfo DeviceConnectivityConfiguration.getConnectivity(String)"
   })
-  public void testGetConnectivityWithString() {
+  void testGetConnectivityWithString() {
     // Arrange, Act and Assert
     assertNull(new DeviceConnectivityConfiguration().getConnectivity("Protocol"));
   }
@@ -207,13 +214,14 @@ public class DeviceConnectivityConfigurationDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "Map DeviceConnectivityConfiguration.getConnectivity()",
     "void DeviceConnectivityConfiguration.setConnectivity(Map)",
     "String DeviceConnectivityConfiguration.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     DeviceConnectivityConfiguration deviceConnectivityConfiguration =
         new DeviceConnectivityConfiguration();
@@ -237,9 +245,10 @@ public class DeviceConnectivityConfigurationDiffblueTest {
    * <p>Method under test: {@link DeviceConnectivityConfiguration#isEnabled(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test isEnabled(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DeviceConnectivityConfiguration.isEnabled(String)"})
-  public void testIsEnabled() {
+  void testIsEnabled() {
     // Arrange, Act and Assert
     assertFalse(new DeviceConnectivityConfiguration().isEnabled("Protocol"));
   }

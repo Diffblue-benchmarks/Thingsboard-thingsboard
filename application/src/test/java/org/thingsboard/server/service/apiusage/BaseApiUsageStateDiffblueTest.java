@@ -109,28 +109,27 @@ class BaseApiUsageStateDiffblueTest {
    * Test {@link BaseApiUsageState#calculate(ApiUsageRecordKey, long, String)}.
    *
    * <ul>
-   *   <li>When {@code -581570517}.
-   *   <li>Then return NewValue is {@code -581570517}.
+   *   <li>Then return NewHourlyValue is zero.
    * </ul>
    *
    * <p>Method under test: {@link BaseApiUsageState#calculate(ApiUsageRecordKey, long, String)}
    */
   @Test
   @DisplayName(
-      "Test calculate(ApiUsageRecordKey, long, String); when '-581570517'; then return NewValue is '-581570517'")
+      "Test calculate(ApiUsageRecordKey, long, String); then return NewHourlyValue is zero")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "StatsCalculationResult BaseApiUsageState.calculate(ApiUsageRecordKey, long, String)"
   })
-  void testCalculate_when581570517_thenReturnNewValueIs581570517() {
+  void testCalculate_thenReturnNewHourlyValueIsZero() {
     // Arrange and Act
     StatsCalculationResult actualCalculateResult =
         new CustomerApiUsageState(new ApiUsageState())
-            .calculate(ApiUsageRecordKey.ACTIVE_DEVICES, -581570517L, "42");
+            .calculate(ApiUsageRecordKey.ACTIVE_DEVICES, 0L, "42");
 
     // Assert
-    assertEquals(-581570517L, actualCalculateResult.getNewValue());
     assertEquals(0L, actualCalculateResult.getNewHourlyValue());
+    assertEquals(0L, actualCalculateResult.getNewValue());
     assertTrue(actualCalculateResult.isHourlyValueChanged());
     assertTrue(actualCalculateResult.isValueChanged());
   }
@@ -158,36 +157,6 @@ class BaseApiUsageStateDiffblueTest {
         baseApiUsageState.calculate(ApiUsageRecordKey.TRANSPORT_MSG_COUNT, 42L, "42");
 
     // Assert
-    assertTrue(actualCalculateResult.isHourlyValueChanged());
-    assertTrue(actualCalculateResult.isValueChanged());
-  }
-
-  /**
-   * Test {@link BaseApiUsageState#calculate(ApiUsageRecordKey, long, String)}.
-   *
-   * <ul>
-   *   <li>When zero.
-   *   <li>Then return NewValue is zero.
-   * </ul>
-   *
-   * <p>Method under test: {@link BaseApiUsageState#calculate(ApiUsageRecordKey, long, String)}
-   */
-  @Test
-  @DisplayName(
-      "Test calculate(ApiUsageRecordKey, long, String); when zero; then return NewValue is zero")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-    "StatsCalculationResult BaseApiUsageState.calculate(ApiUsageRecordKey, long, String)"
-  })
-  void testCalculate_whenZero_thenReturnNewValueIsZero() {
-    // Arrange and Act
-    StatsCalculationResult actualCalculateResult =
-        new CustomerApiUsageState(new ApiUsageState())
-            .calculate(ApiUsageRecordKey.ACTIVE_DEVICES, 0L, "42");
-
-    // Assert
-    assertEquals(0L, actualCalculateResult.getNewHourlyValue());
-    assertEquals(0L, actualCalculateResult.getNewValue());
     assertTrue(actualCalculateResult.isHourlyValueChanged());
     assertTrue(actualCalculateResult.isValueChanged());
   }

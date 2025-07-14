@@ -1,12 +1,11 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
@@ -16,13 +15,14 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.node.TreeTraversingParser;
 import java.util.Iterator;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.TenantProfile;
 import org.thingsboard.server.common.data.id.TenantProfileId;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 
-public class TenantProfileEntityDiffblueTest {
+class TenantProfileEntityDiffblueTest {
   /**
    * Test {@link TenantProfileEntity#equals(Object)}, and {@link TenantProfileEntity#hashCode()}.
    *
@@ -39,12 +39,13 @@ public class TenantProfileEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TenantProfileEntity.equals(Object)",
     "int TenantProfileEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TenantProfileEntity tenantProfileEntity = new TenantProfileEntity();
     tenantProfileEntity.setCreatedTime(1L);
@@ -88,12 +89,13 @@ public class TenantProfileEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TenantProfileEntity.equals(Object)",
     "int TenantProfileEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TenantProfileEntity tenantProfileEntity = new TenantProfileEntity();
     tenantProfileEntity.setCreatedTime(1L);
@@ -122,12 +124,13 @@ public class TenantProfileEntityDiffblueTest {
    * <p>Method under test: {@link TenantProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TenantProfileEntity.equals(Object)",
     "int TenantProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TenantProfileEntity tenantProfileEntity = new TenantProfileEntity();
     tenantProfileEntity.setCreatedTime(3L);
@@ -164,12 +167,13 @@ public class TenantProfileEntityDiffblueTest {
    * <p>Method under test: {@link TenantProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TenantProfileEntity.equals(Object)",
     "int TenantProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TenantProfileEntity tenantProfileEntity = new TenantProfileEntity();
     tenantProfileEntity.setCreatedTime(1L);
@@ -206,12 +210,13 @@ public class TenantProfileEntityDiffblueTest {
    * <p>Method under test: {@link TenantProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TenantProfileEntity.equals(Object)",
     "int TenantProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TenantProfileEntity tenantProfileEntity = new TenantProfileEntity();
     tenantProfileEntity.setCreatedTime(1L);
@@ -248,12 +253,13 @@ public class TenantProfileEntityDiffblueTest {
    * <p>Method under test: {@link TenantProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TenantProfileEntity.equals(Object)",
     "int TenantProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TenantProfileEntity tenantProfileEntity = new TenantProfileEntity();
     tenantProfileEntity.setCreatedTime(1L);
@@ -290,12 +296,13 @@ public class TenantProfileEntityDiffblueTest {
    * <p>Method under test: {@link TenantProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TenantProfileEntity.equals(Object)",
     "int TenantProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     TenantProfileEntity tenantProfileEntity = new TenantProfileEntity();
     tenantProfileEntity.setCreatedTime(1L);
@@ -332,12 +339,13 @@ public class TenantProfileEntityDiffblueTest {
    * <p>Method under test: {@link TenantProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TenantProfileEntity.equals(Object)",
     "int TenantProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     TenantProfileEntity tenantProfileEntity = new TenantProfileEntity();
     tenantProfileEntity.setCreatedTime(1L);
@@ -374,12 +382,13 @@ public class TenantProfileEntityDiffblueTest {
    * <p>Method under test: {@link TenantProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TenantProfileEntity.equals(Object)",
     "int TenantProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     TenantProfileEntity tenantProfileEntity = new TenantProfileEntity();
     tenantProfileEntity.setCreatedTime(1L);
@@ -416,12 +425,13 @@ public class TenantProfileEntityDiffblueTest {
    * <p>Method under test: {@link TenantProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TenantProfileEntity.equals(Object)",
     "int TenantProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     TenantProfileEntity tenantProfileEntity = new TenantProfileEntity();
     tenantProfileEntity.setCreatedTime(1L);
@@ -458,12 +468,13 @@ public class TenantProfileEntityDiffblueTest {
    * <p>Method under test: {@link TenantProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TenantProfileEntity.equals(Object)",
     "int TenantProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     TenantProfileEntity tenantProfileEntity = new TenantProfileEntity();
     tenantProfileEntity.setCreatedTime(1L);
@@ -500,12 +511,13 @@ public class TenantProfileEntityDiffblueTest {
    * <p>Method under test: {@link TenantProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TenantProfileEntity.equals(Object)",
     "int TenantProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     TenantProfileEntity tenantProfileEntity = new TenantProfileEntity();
     tenantProfileEntity.setCreatedTime(1L);
@@ -532,12 +544,13 @@ public class TenantProfileEntityDiffblueTest {
    * <p>Method under test: {@link TenantProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean TenantProfileEntity.equals(Object)",
     "int TenantProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     TenantProfileEntity tenantProfileEntity = new TenantProfileEntity();
     tenantProfileEntity.setCreatedTime(1L);
@@ -574,7 +587,8 @@ public class TenantProfileEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void TenantProfileEntity.<init>()",
     "String TenantProfileEntity.getDescription()",
@@ -589,7 +603,7 @@ public class TenantProfileEntityDiffblueTest {
     "void TenantProfileEntity.setProfileData(JsonNode)",
     "String TenantProfileEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     TenantProfileEntity actualTenantProfileEntity = new TenantProfileEntity();
     actualTenantProfileEntity.setDefault(true);
@@ -626,9 +640,10 @@ public class TenantProfileEntityDiffblueTest {
    * <p>Method under test: {@link TenantProfileEntity#TenantProfileEntity(TenantProfile)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new TenantProfileEntity(TenantProfile)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TenantProfileEntity.<init>(TenantProfile)"})
-  public void testNewTenantProfileEntity() {
+  void testNewTenantProfileEntity() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
@@ -656,9 +671,10 @@ public class TenantProfileEntityDiffblueTest {
    * <p>Method under test: {@link TenantProfileEntity#TenantProfileEntity(TenantProfile)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new TenantProfileEntity(TenantProfile); given 'A'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TenantProfileEntity.<init>(TenantProfile)"})
-  public void testNewTenantProfileEntity_givenA() {
+  void testNewTenantProfileEntity_givenA() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
     tenantProfile.setProfileDataBytes(new byte[] {'A', 3, 'A', 3, 'A', 3, 'A', 3});
@@ -688,9 +704,10 @@ public class TenantProfileEntityDiffblueTest {
    * <p>Method under test: {@link TenantProfileEntity#TenantProfileEntity(TenantProfile)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new TenantProfileEntity(TenantProfile); given empty array of byte")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TenantProfileEntity.<init>(TenantProfile)"})
-  public void testNewTenantProfileEntity_givenEmptyArrayOfByte() {
+  void testNewTenantProfileEntity_givenEmptyArrayOfByte() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
     tenantProfile.setProfileDataBytes(new byte[] {});
@@ -721,9 +738,11 @@ public class TenantProfileEntityDiffblueTest {
    * <p>Method under test: {@link TenantProfileEntity#TenantProfileEntity(TenantProfile)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TenantProfileEntity(TenantProfile); given three; then return CreatedTime is three")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TenantProfileEntity.<init>(TenantProfile)"})
-  public void testNewTenantProfileEntity_givenThree_thenReturnCreatedTimeIsThree() {
+  void testNewTenantProfileEntity_givenThree_thenReturnCreatedTimeIsThree() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
     tenantProfile.setCreatedTime(3L);
@@ -758,9 +777,10 @@ public class TenantProfileEntityDiffblueTest {
    * <p>Method under test: {@link TenantProfileEntity#TenantProfileEntity(TenantProfile)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new TenantProfileEntity(TenantProfile); given 'true'; then return Default")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TenantProfileEntity.<init>(TenantProfile)"})
-  public void testNewTenantProfileEntity_givenTrue_thenReturnDefault() {
+  void testNewTenantProfileEntity_givenTrue_thenReturnDefault() {
     // Arrange
     TenantProfile tenantProfile = new TenantProfile();
     tenantProfile.setDefault(true);
@@ -794,9 +814,10 @@ public class TenantProfileEntityDiffblueTest {
    * <p>Method under test: {@link TenantProfileEntity#TenantProfileEntity(TenantProfile)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new TenantProfileEntity(TenantProfile); when TenantProfile()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TenantProfileEntity.<init>(TenantProfile)"})
-  public void testNewTenantProfileEntity_whenTenantProfile() {
+  void testNewTenantProfileEntity_whenTenantProfile() {
     // Arrange, Act and Assert
     JsonNode profileData = new TenantProfileEntity(new TenantProfile()).getProfileData();
     assertTrue(profileData instanceof ObjectNode);
@@ -823,9 +844,11 @@ public class TenantProfileEntityDiffblueTest {
    * <p>Method under test: {@link TenantProfileEntity#TenantProfileEntity(TenantProfile)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TenantProfileEntity(TenantProfile); when TenantProfile(TenantProfile) with tenantProfile is TenantProfile()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TenantProfileEntity.<init>(TenantProfile)"})
-  public void testNewTenantProfileEntity_whenTenantProfileWithTenantProfileIsTenantProfile() {
+  void testNewTenantProfileEntity_whenTenantProfileWithTenantProfileIsTenantProfile() {
     // Arrange, Act and Assert
     JsonNode profileData =
         new TenantProfileEntity(new TenantProfile(new TenantProfile())).getProfileData();
@@ -853,9 +876,11 @@ public class TenantProfileEntityDiffblueTest {
    * <p>Method under test: {@link TenantProfileEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given TenantProfileEntity(TenantProfile) with tenantProfile is TenantProfile()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantProfile TenantProfileEntity.toData()"})
-  public void testToData_givenTenantProfileEntityWithTenantProfileIsTenantProfile() {
+  void testToData_givenTenantProfileEntityWithTenantProfileIsTenantProfile() {
     // Arrange, Act and Assert
     assertEquals(
         1905, new TenantProfileEntity(new TenantProfile()).toData().getProfileDataBytes().length);
@@ -872,9 +897,10 @@ public class TenantProfileEntityDiffblueTest {
    * <p>Method under test: {@link TenantProfileEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given TenantProfileEntity(); then return ProfileDataBytes is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantProfile TenantProfileEntity.toData()"})
-  public void testToData_givenTenantProfileEntity_thenReturnProfileDataBytesIsNull() {
+  void testToData_givenTenantProfileEntity_thenReturnProfileDataBytesIsNull() {
     // Arrange and Act
     TenantProfile actualToDataResult = new TenantProfileEntity().toData();
 
@@ -900,9 +926,11 @@ public class TenantProfileEntityDiffblueTest {
    * <p>Method under test: {@link TenantProfileEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given TenantProfile(TenantProfile) with tenantProfile is TenantProfile()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantProfile TenantProfileEntity.toData()"})
-  public void testToData_givenTenantProfileWithTenantProfileIsTenantProfile() {
+  void testToData_givenTenantProfileWithTenantProfileIsTenantProfile() {
     // Arrange, Act and Assert
     assertEquals(
         1905,
@@ -922,9 +950,11 @@ public class TenantProfileEntityDiffblueTest {
    * <p>Method under test: {@link TenantProfileEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return UuidId toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantProfile TenantProfileEntity.toData()"})
-  public void testToData_thenReturnUuidIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnUuidIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     TenantProfileEntity tenantProfileEntity = new TenantProfileEntity();
     tenantProfileEntity.setCreatedTime(1L);

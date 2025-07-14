@@ -1,7 +1,7 @@
 package org.thingsboard.server.dao.component;
 
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.ArgumentMatchers.isNull;
@@ -11,20 +11,20 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.function.Function;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.aot.DisabledInAotMode;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.id.ComponentDescriptorId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.page.PageData;
@@ -41,8 +41,8 @@ import org.thingsboard.server.dao.service.DataValidator;
 
 @ContextConfiguration(classes = {BaseComponentDescriptorService.class})
 @DisabledInAotMode
-@RunWith(SpringJUnit4ClassRunner.class)
-public class BaseComponentDescriptorServiceDiffblueTest {
+@ExtendWith(SpringExtension.class)
+class BaseComponentDescriptorServiceDiffblueTest {
   @Autowired private BaseComponentDescriptorService baseComponentDescriptorService;
 
   @MockBean private ComponentDescriptorDao componentDescriptorDao;
@@ -56,11 +56,12 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * ComponentDescriptor)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test saveComponent(TenantId, ComponentDescriptor)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ComponentDescriptor BaseComponentDescriptorService.saveComponent(TenantId, ComponentDescriptor)"
   })
-  public void testSaveComponent() {
+  void testSaveComponent() {
     // Arrange
     when(componentDescriptorDao.saveIfNotExist(
             Mockito.<TenantId>any(), Mockito.<ComponentDescriptor>any()))
@@ -88,11 +89,12 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * ComponentDescriptor)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test saveComponent(TenantId, ComponentDescriptor)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ComponentDescriptor BaseComponentDescriptorService.saveComponent(TenantId, ComponentDescriptor)"
   })
-  public void testSaveComponent2() {
+  void testSaveComponent2() {
     // Arrange
     ComponentDescriptor componentDescriptor = new ComponentDescriptor();
     Optional<ComponentDescriptor> ofResult = Optional.of(componentDescriptor);
@@ -128,11 +130,13 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * ComponentDescriptor)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test saveComponent(TenantId, ComponentDescriptor); given ComponentDescriptorDao; then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ComponentDescriptor BaseComponentDescriptorService.saveComponent(TenantId, ComponentDescriptor)"
   })
-  public void testSaveComponent_givenComponentDescriptorDao_thenThrowDataValidationException() {
+  void testSaveComponent_givenComponentDescriptorDao_thenThrowDataValidationException() {
     // Arrange
     when(dataValidator.validate(
             Mockito.<ComponentDescriptor>any(),
@@ -159,11 +163,13 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * ComponentDescriptor)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test saveComponent(TenantId, ComponentDescriptor); then calls findByClazz(TenantId, String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ComponentDescriptor BaseComponentDescriptorService.saveComponent(TenantId, ComponentDescriptor)"
   })
-  public void testSaveComponent_thenCallsFindByClazz() {
+  void testSaveComponent_thenCallsFindByClazz() {
     // Arrange
     Optional<ComponentDescriptor> emptyResult = Optional.empty();
     when(componentDescriptorDao.saveIfNotExist(
@@ -201,11 +207,12 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * ComponentDescriptorId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findById(TenantId, ComponentDescriptorId); then return ComponentDescriptor()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ComponentDescriptor BaseComponentDescriptorService.findById(TenantId, ComponentDescriptorId)"
   })
-  public void testFindById_thenReturnComponentDescriptor() {
+  void testFindById_thenReturnComponentDescriptor() {
     // Arrange
     ComponentDescriptor componentDescriptor = new ComponentDescriptor();
     when(componentDescriptorDao.findById(
@@ -234,11 +241,12 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * ComponentDescriptorId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findById(TenantId, ComponentDescriptorId); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ComponentDescriptor BaseComponentDescriptorService.findById(TenantId, ComponentDescriptorId)"
   })
-  public void testFindById_thenThrowDataValidationException() {
+  void testFindById_thenThrowDataValidationException() {
     // Arrange
     when(componentDescriptorDao.findById(
             Mockito.<TenantId>any(), Mockito.<ComponentDescriptorId>any()))
@@ -265,11 +273,12 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * <p>Method under test: {@link BaseComponentDescriptorService#findByClazz(TenantId, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findByClazz(TenantId, String); then return ComponentDescriptor()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ComponentDescriptor BaseComponentDescriptorService.findByClazz(TenantId, String)"
   })
-  public void testFindByClazz_thenReturnComponentDescriptor() {
+  void testFindByClazz_thenReturnComponentDescriptor() {
     // Arrange
     ComponentDescriptor componentDescriptor = new ComponentDescriptor();
     when(componentDescriptorDao.findByClazz(Mockito.<TenantId>any(), Mockito.<String>any()))
@@ -294,11 +303,12 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * <p>Method under test: {@link BaseComponentDescriptorService#findByClazz(TenantId, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findByClazz(TenantId, String); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ComponentDescriptor BaseComponentDescriptorService.findByClazz(TenantId, String)"
   })
-  public void testFindByClazz_thenThrowDataValidationException() {
+  void testFindByClazz_thenThrowDataValidationException() {
     // Arrange
     when(componentDescriptorDao.findByClazz(Mockito.<TenantId>any(), Mockito.<String>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -318,11 +328,12 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * ComponentType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findByTypeAndPageLink(TenantId, ComponentType, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseComponentDescriptorService.findByTypeAndPageLink(TenantId, ComponentType, PageLink)"
   })
-  public void testFindByTypeAndPageLink() {
+  void testFindByTypeAndPageLink() {
     // Arrange
     when(componentDescriptorDao.findByTypeAndPageLink(
             Mockito.<TenantId>any(), Mockito.<ComponentType>any(), Mockito.<PageLink>any()))
@@ -349,11 +360,12 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * ComponentType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findByTypeAndPageLink(TenantId, ComponentType, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseComponentDescriptorService.findByTypeAndPageLink(TenantId, ComponentType, PageLink)"
   })
-  public void testFindByTypeAndPageLink2() {
+  void testFindByTypeAndPageLink2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize()).thenThrow(new DataValidationException("An error occurred"));
@@ -375,11 +387,12 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * ComponentType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findByTypeAndPageLink(TenantId, ComponentType, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseComponentDescriptorService.findByTypeAndPageLink(TenantId, ComponentType, PageLink)"
   })
-  public void testFindByTypeAndPageLink3() {
+  void testFindByTypeAndPageLink3() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPage()).thenThrow(new DataValidationException("An error occurred"));
@@ -407,11 +420,13 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * ComponentType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findByTypeAndPageLink(TenantId, ComponentType, PageLink); given SortOrder with 'Property' and direction is 'ASC'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseComponentDescriptorService.findByTypeAndPageLink(TenantId, ComponentType, PageLink)"
   })
-  public void testFindByTypeAndPageLink_givenSortOrderWithPropertyAndDirectionIsAsc() {
+  void testFindByTypeAndPageLink_givenSortOrderWithPropertyAndDirectionIsAsc() {
     // Arrange
     PageData<ComponentDescriptor> emptyPageDataResult = PageData.emptyPageData();
     when(componentDescriptorDao.findByTypeAndPageLink(
@@ -450,11 +465,13 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * ComponentType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findByTypeAndPageLink(TenantId, ComponentType, PageLink); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseComponentDescriptorService.findByTypeAndPageLink(TenantId, ComponentType, PageLink)"
   })
-  public void testFindByTypeAndPageLink_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindByTypeAndPageLink_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<ComponentDescriptor> emptyPageDataResult = PageData.emptyPageData();
     when(componentDescriptorDao.findByTypeAndPageLink(
@@ -493,11 +510,13 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * ComponentType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findByTypeAndPageLink(TenantId, ComponentType, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseComponentDescriptorService.findByTypeAndPageLink(TenantId, ComponentType, PageLink)"
   })
-  public void testFindByTypeAndPageLink_givenSortOrderWithPropertyIsNull() {
+  void testFindByTypeAndPageLink_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<ComponentDescriptor> emptyPageDataResult = PageData.emptyPageData();
     when(componentDescriptorDao.findByTypeAndPageLink(
@@ -536,11 +555,13 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * ComponentType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findByTypeAndPageLink(TenantId, ComponentType, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseComponentDescriptorService.findByTypeAndPageLink(TenantId, ComponentType, PageLink)"
   })
-  public void testFindByTypeAndPageLink_thenCallsGetProperty() {
+  void testFindByTypeAndPageLink_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty()).thenThrow(new DataValidationException("An error occurred"));
@@ -574,11 +595,13 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * ComponentType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findByTypeAndPageLink(TenantId, ComponentType, PageLink); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseComponentDescriptorService.findByTypeAndPageLink(TenantId, ComponentType, PageLink)"
   })
-  public void testFindByTypeAndPageLink_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindByTypeAndPageLink_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<ComponentDescriptor> emptyPageDataResult = PageData.emptyPageData();
     when(componentDescriptorDao.findByTypeAndPageLink(
@@ -609,11 +632,13 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * ComponentType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findByScopeAndTypeAndPageLink(TenantId, ComponentScope, ComponentType, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseComponentDescriptorService.findByScopeAndTypeAndPageLink(TenantId, ComponentScope, ComponentType, PageLink)"
   })
-  public void testFindByScopeAndTypeAndPageLink() {
+  void testFindByScopeAndTypeAndPageLink() {
     // Arrange
     when(componentDescriptorDao.findByScopeAndTypeAndPageLink(
             Mockito.<TenantId>any(),
@@ -648,11 +673,13 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * ComponentType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findByScopeAndTypeAndPageLink(TenantId, ComponentScope, ComponentType, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseComponentDescriptorService.findByScopeAndTypeAndPageLink(TenantId, ComponentScope, ComponentType, PageLink)"
   })
-  public void testFindByScopeAndTypeAndPageLink2() {
+  void testFindByScopeAndTypeAndPageLink2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPage()).thenThrow(new DataValidationException("An error occurred"));
@@ -684,11 +711,13 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * ComponentType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findByScopeAndTypeAndPageLink(TenantId, ComponentScope, ComponentType, PageLink); given SortOrder with 'Property' and direction is 'ASC'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseComponentDescriptorService.findByScopeAndTypeAndPageLink(TenantId, ComponentScope, ComponentType, PageLink)"
   })
-  public void testFindByScopeAndTypeAndPageLink_givenSortOrderWithPropertyAndDirectionIsAsc() {
+  void testFindByScopeAndTypeAndPageLink_givenSortOrderWithPropertyAndDirectionIsAsc() {
     // Arrange
     PageData<ComponentDescriptor> emptyPageDataResult = PageData.emptyPageData();
     when(componentDescriptorDao.findByScopeAndTypeAndPageLink(
@@ -738,11 +767,13 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * ComponentType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findByScopeAndTypeAndPageLink(TenantId, ComponentScope, ComponentType, PageLink); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseComponentDescriptorService.findByScopeAndTypeAndPageLink(TenantId, ComponentScope, ComponentType, PageLink)"
   })
-  public void testFindByScopeAndTypeAndPageLink_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindByScopeAndTypeAndPageLink_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<ComponentDescriptor> emptyPageDataResult = PageData.emptyPageData();
     when(componentDescriptorDao.findByScopeAndTypeAndPageLink(
@@ -792,11 +823,13 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * ComponentType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findByScopeAndTypeAndPageLink(TenantId, ComponentScope, ComponentType, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseComponentDescriptorService.findByScopeAndTypeAndPageLink(TenantId, ComponentScope, ComponentType, PageLink)"
   })
-  public void testFindByScopeAndTypeAndPageLink_givenSortOrderWithPropertyIsNull() {
+  void testFindByScopeAndTypeAndPageLink_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<ComponentDescriptor> emptyPageDataResult = PageData.emptyPageData();
     when(componentDescriptorDao.findByScopeAndTypeAndPageLink(
@@ -846,11 +879,13 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * ComponentType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findByScopeAndTypeAndPageLink(TenantId, ComponentScope, ComponentType, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseComponentDescriptorService.findByScopeAndTypeAndPageLink(TenantId, ComponentScope, ComponentType, PageLink)"
   })
-  public void testFindByScopeAndTypeAndPageLink_thenCallsGetProperty() {
+  void testFindByScopeAndTypeAndPageLink_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty()).thenThrow(new DataValidationException("An error occurred"));
@@ -888,11 +923,13 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * ComponentType, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findByScopeAndTypeAndPageLink(TenantId, ComponentScope, ComponentType, PageLink); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData BaseComponentDescriptorService.findByScopeAndTypeAndPageLink(TenantId, ComponentScope, ComponentType, PageLink)"
   })
-  public void testFindByScopeAndTypeAndPageLink_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindByScopeAndTypeAndPageLink_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<ComponentDescriptor> emptyPageDataResult = PageData.emptyPageData();
     when(componentDescriptorDao.findByScopeAndTypeAndPageLink(
@@ -933,9 +970,11 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * <p>Method under test: {@link BaseComponentDescriptorService#deleteByClazz(TenantId, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteByClazz(TenantId, String); given ComponentDescriptorDao deleteByClazz(TenantId, String) does nothing")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void BaseComponentDescriptorService.deleteByClazz(TenantId, String)"})
-  public void testDeleteByClazz_givenComponentDescriptorDaoDeleteByClazzDoesNothing() {
+  void testDeleteByClazz_givenComponentDescriptorDaoDeleteByClazzDoesNothing() {
     // Arrange
     doNothing()
         .when(componentDescriptorDao)
@@ -958,9 +997,10 @@ public class BaseComponentDescriptorServiceDiffblueTest {
    * <p>Method under test: {@link BaseComponentDescriptorService#deleteByClazz(TenantId, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteByClazz(TenantId, String); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void BaseComponentDescriptorService.deleteByClazz(TenantId, String)"})
-  public void testDeleteByClazz_thenThrowDataValidationException() {
+  void testDeleteByClazz_thenThrowDataValidationException() {
     // Arrange
     doThrow(new DataValidationException("An error occurred"))
         .when(componentDescriptorDao)

@@ -1,19 +1,19 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.alarm.Alarm;
 import org.thingsboard.server.common.data.alarm.Alarm.AlarmBuilder;
@@ -28,7 +28,7 @@ import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.entity.BaseEntityService;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class AlarmEntityDiffblueTest {
+class AlarmEntityDiffblueTest {
   /**
    * Test {@link AlarmEntity#equals(Object)}, and {@link AlarmEntity#hashCode()}.
    *
@@ -45,9 +45,10 @@ public class AlarmEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AlarmEntity.equals(Object)", "int AlarmEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setAckTs(1L);
@@ -119,9 +120,10 @@ public class AlarmEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AlarmEntity.equals(Object)", "int AlarmEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setAckTs(1L);
@@ -164,9 +166,10 @@ public class AlarmEntityDiffblueTest {
    * <p>Method under test: {@link AlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AlarmEntity.equals(Object)", "int AlarmEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setAckTs(3L);
@@ -231,9 +234,10 @@ public class AlarmEntityDiffblueTest {
    * <p>Method under test: {@link AlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AlarmEntity.equals(Object)", "int AlarmEntity.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setAckTs(1L);
@@ -274,9 +278,10 @@ public class AlarmEntityDiffblueTest {
    * <p>Method under test: {@link AlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AlarmEntity.equals(Object)", "int AlarmEntity.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setAckTs(1L);
@@ -317,9 +322,10 @@ public class AlarmEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmEntity.<init>()", "String AlarmEntity.toString()"})
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     AlarmEntity actualAlarmEntity = new AlarmEntity();
 
@@ -355,9 +361,10 @@ public class AlarmEntityDiffblueTest {
    * <p>Method under test: {@link AlarmEntity#AlarmEntity(Alarm)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new AlarmEntity(Alarm)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmEntity.<init>(Alarm)"})
-  public void testNewAlarmEntity() {
+  void testNewAlarmEntity() {
     // Arrange
     Alarm alarm = new Alarm();
     alarm.setCustomerId(BaseEntityService.NULL_CUSTOMER_ID);
@@ -386,9 +393,10 @@ public class AlarmEntityDiffblueTest {
    * <p>Method under test: {@link AlarmEntity#AlarmEntity(AlarmInfo)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new AlarmEntity(AlarmInfo)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmEntity.<init>(AlarmInfo)"})
-  public void testNewAlarmEntity2() {
+  void testNewAlarmEntity2() {
     // Arrange
     AlarmInfo alarmInfo = new AlarmInfo();
     alarmInfo.setCustomerId(BaseEntityService.NULL_CUSTOMER_ID);
@@ -422,9 +430,11 @@ public class AlarmEntityDiffblueTest {
    * <p>Method under test: {@link AlarmEntity#AlarmEntity(Alarm)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new AlarmEntity(Alarm); given 'foo'; then return toData PropagateRelationTypes size is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmEntity.<init>(Alarm)"})
-  public void testNewAlarmEntity_givenFoo_thenReturnToDataPropagateRelationTypesSizeIsOne() {
+  void testNewAlarmEntity_givenFoo_thenReturnToDataPropagateRelationTypesSizeIsOne() {
     // Arrange
     ArrayList<String> propagateRelationTypes = new ArrayList<>();
     propagateRelationTypes.add("foo");
@@ -470,9 +480,10 @@ public class AlarmEntityDiffblueTest {
    * <p>Method under test: {@link AlarmEntity#AlarmEntity(Alarm)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new AlarmEntity(Alarm); given three; then return toData CreatedTime is three")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmEntity.<init>(Alarm)"})
-  public void testNewAlarmEntity_givenThree_thenReturnToDataCreatedTimeIsThree() {
+  void testNewAlarmEntity_givenThree_thenReturnToDataCreatedTimeIsThree() {
     // Arrange
     Alarm alarm = new Alarm();
     alarm.setCreatedTime(3L);
@@ -503,9 +514,11 @@ public class AlarmEntityDiffblueTest {
    * <p>Method under test: {@link AlarmEntity#AlarmEntity(AlarmInfo)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new AlarmEntity(AlarmInfo); given three; then return toData CreatedTime is three")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmEntity.<init>(AlarmInfo)"})
-  public void testNewAlarmEntity_givenThree_thenReturnToDataCreatedTimeIsThree2() {
+  void testNewAlarmEntity_givenThree_thenReturnToDataCreatedTimeIsThree2() {
     // Arrange
     AlarmInfo alarmInfo = new AlarmInfo();
     alarmInfo.setCreatedTime(3L);
@@ -535,9 +548,10 @@ public class AlarmEntityDiffblueTest {
    * <p>Method under test: {@link AlarmEntity#AlarmEntity(Alarm)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new AlarmEntity(Alarm); then Details return ObjectNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmEntity.<init>(Alarm)"})
-  public void testNewAlarmEntity_thenDetailsReturnObjectNode() {
+  void testNewAlarmEntity_thenDetailsReturnObjectNode() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     UserId assigneeId = new UserId(id);
@@ -592,9 +606,10 @@ public class AlarmEntityDiffblueTest {
    * <p>Method under test: {@link AlarmEntity#AlarmEntity(AlarmInfo)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new AlarmEntity(AlarmInfo); then Details return ObjectNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmEntity.<init>(AlarmInfo)"})
-  public void testNewAlarmEntity_thenDetailsReturnObjectNode2() {
+  void testNewAlarmEntity_thenDetailsReturnObjectNode2() {
     // Arrange
     AlarmBuilder assignTsResult = Alarm.builder().ackTs(1L).acknowledged(true).assignTs(1L);
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -649,9 +664,11 @@ public class AlarmEntityDiffblueTest {
    * <p>Method under test: {@link AlarmEntity#AlarmEntity(Alarm)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new AlarmEntity(Alarm); then return Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmEntity.<init>(Alarm)"})
-  public void testNewAlarmEntity_thenReturnIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testNewAlarmEntity_thenReturnIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     AlarmId id2 = new AlarmId(id);
@@ -683,9 +700,11 @@ public class AlarmEntityDiffblueTest {
    * <p>Method under test: {@link AlarmEntity#AlarmEntity(AlarmInfo)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new AlarmEntity(AlarmInfo); then return Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmEntity.<init>(AlarmInfo)"})
-  public void testNewAlarmEntity_thenReturnIdToStringIs784f394c42b6435a983cB7beff2784f92() {
+  void testNewAlarmEntity_thenReturnIdToStringIs784f394c42b6435a983cB7beff2784f92() {
     // Arrange
     Alarm alarm = new Alarm();
     alarm.setOriginator(BaseEntityService.NULL_CUSTOMER_ID);
@@ -723,9 +742,11 @@ public class AlarmEntityDiffblueTest {
    * <p>Method under test: {@link AlarmEntity#AlarmEntity(Alarm)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new AlarmEntity(Alarm); then return toData Originator EntityType is 'CUSTOMER'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmEntity.<init>(Alarm)"})
-  public void testNewAlarmEntity_thenReturnToDataOriginatorEntityTypeIsCustomer() {
+  void testNewAlarmEntity_thenReturnToDataOriginatorEntityTypeIsCustomer() {
     // Arrange
     Alarm alarm = new Alarm();
     alarm.setOriginator(BaseEntityService.NULL_CUSTOMER_ID);
@@ -750,9 +771,11 @@ public class AlarmEntityDiffblueTest {
    * <p>Method under test: {@link AlarmEntity#AlarmEntity(AlarmInfo)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new AlarmEntity(AlarmInfo); then return toData Originator EntityType is 'CUSTOMER'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmEntity.<init>(AlarmInfo)"})
-  public void testNewAlarmEntity_thenReturnToDataOriginatorEntityTypeIsCustomer2() {
+  void testNewAlarmEntity_thenReturnToDataOriginatorEntityTypeIsCustomer2() {
     // Arrange
     AlarmInfo alarmInfo = new AlarmInfo();
     alarmInfo.setOriginator(BaseEntityService.NULL_CUSTOMER_ID);
@@ -777,9 +800,10 @@ public class AlarmEntityDiffblueTest {
    * <p>Method under test: {@link AlarmEntity#AlarmEntity(Alarm)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new AlarmEntity(Alarm); then return toData Originator EntityType is 'TENANT'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmEntity.<init>(Alarm)"})
-  public void testNewAlarmEntity_thenReturnToDataOriginatorEntityTypeIsTenant() {
+  void testNewAlarmEntity_thenReturnToDataOriginatorEntityTypeIsTenant() {
     // Arrange
     Alarm alarm = new Alarm();
     alarm.setOriginator(ModelConstants.SYSTEM_TENANT);
@@ -805,9 +829,11 @@ public class AlarmEntityDiffblueTest {
    * <p>Method under test: {@link AlarmEntity#AlarmEntity(AlarmInfo)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new AlarmEntity(AlarmInfo); then return toData Originator EntityType is 'TENANT'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmEntity.<init>(AlarmInfo)"})
-  public void testNewAlarmEntity_thenReturnToDataOriginatorEntityTypeIsTenant2() {
+  void testNewAlarmEntity_thenReturnToDataOriginatorEntityTypeIsTenant2() {
     // Arrange
     AlarmInfo alarmInfo = new AlarmInfo();
     alarmInfo.setOriginator(ModelConstants.SYSTEM_TENANT);
@@ -833,9 +859,10 @@ public class AlarmEntityDiffblueTest {
    * <p>Method under test: {@link AlarmEntity#AlarmEntity(Alarm)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new AlarmEntity(Alarm); then return toData TenantId is toData Originator")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmEntity.<init>(Alarm)"})
-  public void testNewAlarmEntity_thenReturnToDataTenantIdIsToDataOriginator() {
+  void testNewAlarmEntity_thenReturnToDataTenantIdIsToDataOriginator() {
     // Arrange
     Alarm alarm = new Alarm();
     alarm.setTenantId(ModelConstants.SYSTEM_TENANT);
@@ -864,9 +891,10 @@ public class AlarmEntityDiffblueTest {
    * <p>Method under test: {@link AlarmEntity#AlarmEntity(AlarmInfo)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new AlarmEntity(AlarmInfo); then return toData TenantId is toData Originator")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AlarmEntity.<init>(AlarmInfo)"})
-  public void testNewAlarmEntity_thenReturnToDataTenantIdIsToDataOriginator2() {
+  void testNewAlarmEntity_thenReturnToDataTenantIdIsToDataOriginator2() {
     // Arrange
     AlarmInfo alarmInfo = new AlarmInfo();
     alarmInfo.setTenantId(ModelConstants.SYSTEM_TENANT);

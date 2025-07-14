@@ -1,16 +1,15 @@
 package org.thingsboard.server.dao.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -27,8 +26,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.function.Function;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.TenantId;
@@ -36,16 +36,17 @@ import org.thingsboard.server.common.data.id.UUIDBased;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.model.sql.AdminSettingsEntity;
 
-public class BaseSqlEntityDiffblueTest {
+class BaseSqlEntityDiffblueTest {
   /**
    * Test {@link BaseSqlEntity#getId()}.
    *
    * <p>Method under test: {@link BaseSqlEntity#getId()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID BaseSqlEntity.getId()"})
-  public void testGetId() {
+  void testGetId() {
     // Arrange, Act and Assert
     assertNull(new AdminSettingsEntity().getId());
   }
@@ -56,9 +57,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#getUuid()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getUuid()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID BaseSqlEntity.getUuid()"})
-  public void testGetUuid() {
+  void testGetUuid() {
     // Arrange, Act and Assert
     assertNull(new AdminSettingsEntity().getUuid());
   }
@@ -73,9 +75,11 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#getUuid(UUIDBased)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getUuid(UUIDBased) with 'UUIDBased'; then return toString is '13814000-1dd2-11b2-8080-808080808080'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID BaseSqlEntity.getUuid(UUIDBased)"})
-  public void testGetUuidWithUUIDBased_thenReturnToStringIs138140001dd211b28080808080808080() {
+  void testGetUuidWithUUIDBased_thenReturnToStringIs138140001dd211b28080808080808080() {
     // Arrange, Act and Assert
     assertEquals(
         "13814000-1dd2-11b2-8080-808080808080",
@@ -93,9 +97,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#getUuid(UUIDBased)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getUuid(UUIDBased) with 'UUIDBased'; when 'null'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID BaseSqlEntity.getUuid(UUIDBased)"})
-  public void testGetUuidWithUUIDBased_whenNull_thenReturnNull() {
+  void testGetUuidWithUUIDBased_whenNull_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(BaseSqlEntity.getUuid(null));
   }
@@ -106,9 +111,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#setUuid(UUID)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setUuid(UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void BaseSqlEntity.setUuid(UUID)"})
-  public void testSetUuid() {
+  void testSetUuid() {
     // Arrange
     AdminSettingsEntity adminSettingsEntity = new AdminSettingsEntity();
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -127,9 +133,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#getCreatedTime()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getCreatedTime()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"long BaseSqlEntity.getCreatedTime()"})
-  public void testGetCreatedTime() {
+  void testGetCreatedTime() {
     // Arrange, Act and Assert
     assertEquals(0L, new AdminSettingsEntity().getCreatedTime());
   }
@@ -145,9 +152,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#setCreatedTime(long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setCreatedTime(long); when one; then AdminSettingsEntity() CreatedTime is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void BaseSqlEntity.setCreatedTime(long)"})
-  public void testSetCreatedTime_whenOne_thenAdminSettingsEntityCreatedTimeIsOne() {
+  void testSetCreatedTime_whenOne_thenAdminSettingsEntityCreatedTimeIsOne() {
     // Arrange
     AdminSettingsEntity adminSettingsEntity = new AdminSettingsEntity();
 
@@ -169,9 +177,11 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#setCreatedTime(long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test setCreatedTime(long); when zero; then AdminSettingsEntity() CreatedTime is zero")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void BaseSqlEntity.setCreatedTime(long)"})
-  public void testSetCreatedTime_whenZero_thenAdminSettingsEntityCreatedTimeIsZero() {
+  void testSetCreatedTime_whenZero_thenAdminSettingsEntityCreatedTimeIsZero() {
     // Arrange
     AdminSettingsEntity adminSettingsEntity = new AdminSettingsEntity();
 
@@ -192,9 +202,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#getTenantUuid(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getTenantUuid(TenantId); when 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID BaseSqlEntity.getTenantUuid(TenantId)"})
-  public void testGetTenantUuid_whenNull() {
+  void testGetTenantUuid_whenNull() {
     // Arrange, Act and Assert
     assertEquals(
         "13814000-1dd2-11b2-8080-808080808080", BaseSqlEntity.getTenantUuid(null).toString());
@@ -210,9 +221,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#getTenantUuid(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getTenantUuid(TenantId); when SYSTEM_TENANT")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID BaseSqlEntity.getTenantUuid(TenantId)"})
-  public void testGetTenantUuid_whenSystem_tenant() {
+  void testGetTenantUuid_whenSystem_tenant() {
     // Arrange, Act and Assert
     assertEquals(
         "13814000-1dd2-11b2-8080-808080808080",
@@ -230,9 +242,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#getEntityId(UUID, Function)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getEntityId(UUID, Function); given 'Apply'; then return 'Apply'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object BaseSqlEntity.getEntityId(UUID, Function)"})
-  public void testGetEntityId_givenApply_thenReturnApply() {
+  void testGetEntityId_givenApply_thenReturnApply() {
     // Arrange
     UUID uuid = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     Function<UUID, Object> creator = mock(Function.class);
@@ -257,9 +270,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#getEntityId(UUID, Function)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getEntityId(UUID, Function); when 'null'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object BaseSqlEntity.getEntityId(UUID, Function)"})
-  public void testGetEntityId_whenNull_thenReturnNull() {
+  void testGetEntityId_whenNull_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(BaseSqlEntity.<Object>getEntityId(null, mock(Function.class)));
   }
@@ -274,9 +288,11 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#getTenantId(UUID)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getTenantId(UUID); then return Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantId BaseSqlEntity.getTenantId(UUID)"})
-  public void testGetTenantId_thenReturnIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testGetTenantId_thenReturnIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange and Act
     TenantId actualTenantId =
         BaseSqlEntity.getTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -299,9 +315,11 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#getTenantId(UUID)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getTenantId(UUID); when 'null'; then return Id toString is '13814000-1dd2-11b2-8080-808080808080'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantId BaseSqlEntity.getTenantId(UUID)"})
-  public void testGetTenantId_whenNull_thenReturnIdToStringIs138140001dd211b28080808080808080() {
+  void testGetTenantId_whenNull_thenReturnIdToStringIs138140001dd211b28080808080808080() {
     // Arrange and Act
     TenantId actualTenantId = BaseSqlEntity.getTenantId(null);
 
@@ -322,9 +340,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#getTenantId(UUID)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getTenantId(UUID); when NULL_UUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantId BaseSqlEntity.getTenantId(UUID)"})
-  public void testGetTenantId_whenNull_uuid() {
+  void testGetTenantId_whenNull_uuid() {
     // Arrange and Act
     TenantId actualTenantId = BaseSqlEntity.getTenantId(ModelConstants.NULL_UUID);
 
@@ -346,9 +365,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#toJson(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toJson(Object); when 'null'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonNode BaseSqlEntity.toJson(Object)"})
-  public void testToJson_whenNull_thenReturnNull() {
+  void testToJson_whenNull_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(new AdminSettingsEntity().toJson(null));
   }
@@ -364,9 +384,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#toJson(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toJson(Object); when one; then return IntNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonNode BaseSqlEntity.toJson(Object)"})
-  public void testToJson_whenOne_thenReturnIntNode() {
+  void testToJson_whenOne_thenReturnIntNode() {
     // Arrange and Act
     JsonNode actualToJsonResult = new AdminSettingsEntity().toJson(1);
 
@@ -393,9 +414,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#toJson(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toJson(Object); when 'Value'; then return TextNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonNode BaseSqlEntity.toJson(Object)"})
-  public void testToJson_whenValue_thenReturnTextNode() {
+  void testToJson_whenValue_thenReturnTextNode() {
     // Arrange and Act
     JsonNode actualToJsonResult = new AdminSettingsEntity().toJson("Value");
 
@@ -416,9 +438,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#fromJson(JsonNode, Class)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test fromJson(JsonNode, Class)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object BaseSqlEntity.fromJson(JsonNode, Class)"})
-  public void testFromJson() {
+  void testFromJson() {
     // Arrange
     AdminSettingsEntity adminSettingsEntity = new AdminSettingsEntity();
     adminSettingsEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -447,9 +470,11 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#fromJson(JsonNode, Class)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test fromJson(JsonNode, Class); given AdminSettingsEntity(); when False; then return 'false'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object BaseSqlEntity.fromJson(JsonNode, Class)"})
-  public void testFromJson_givenAdminSettingsEntity_whenFalse_thenReturnFalse() {
+  void testFromJson_givenAdminSettingsEntity_whenFalse_thenReturnFalse() {
     // Arrange
     AdminSettingsEntity adminSettingsEntity = new AdminSettingsEntity();
     BooleanNode json = BooleanNode.getFalse();
@@ -471,9 +496,11 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#fromJson(JsonNode, Class)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test fromJson(JsonNode, Class); given AdminSettingsEntity(); when Instance; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object BaseSqlEntity.fromJson(JsonNode, Class)"})
-  public void testFromJson_givenAdminSettingsEntity_whenInstance_thenReturnNull() {
+  void testFromJson_givenAdminSettingsEntity_whenInstance_thenReturnNull() {
     // Arrange
     AdminSettingsEntity adminSettingsEntity = new AdminSettingsEntity();
     MissingNode json = MissingNode.getInstance();
@@ -495,9 +522,11 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#fromJson(JsonNode, Class)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test fromJson(JsonNode, Class); given AdminSettingsEntity(); when 'null'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object BaseSqlEntity.fromJson(JsonNode, Class)"})
-  public void testFromJson_givenAdminSettingsEntity_whenNull_thenReturnNull() {
+  void testFromJson_givenAdminSettingsEntity_whenNull_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(new AdminSettingsEntity().fromJson(null, null));
   }
@@ -514,9 +543,11 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#fromJson(JsonNode, Class)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test fromJson(JsonNode, Class); given AdminSettingsEntity(); when True; then return 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object BaseSqlEntity.fromJson(JsonNode, Class)"})
-  public void testFromJson_givenAdminSettingsEntity_whenTrue_thenReturnTrue() {
+  void testFromJson_givenAdminSettingsEntity_whenTrue_thenReturnTrue() {
     // Arrange
     AdminSettingsEntity adminSettingsEntity = new AdminSettingsEntity();
     BooleanNode json = BooleanNode.getTrue();
@@ -537,9 +568,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#fromJson(JsonNode, Class)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test fromJson(JsonNode, Class); given 'Pojo'; then return first is 'Pojo'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object BaseSqlEntity.fromJson(JsonNode, Class)"})
-  public void testFromJson_givenPojo_thenReturnFirstIsPojo() {
+  void testFromJson_givenPojo_thenReturnFirstIsPojo() {
     // Arrange
     AdminSettingsEntity adminSettingsEntity = new AdminSettingsEntity();
 
@@ -572,9 +604,11 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#fromJson(JsonNode, Class)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test fromJson(JsonNode, Class); given RawValue(String) with v is 'foo'; then first return RawValue")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object BaseSqlEntity.fromJson(JsonNode, Class)"})
-  public void testFromJson_givenRawValueWithVIsFoo_thenFirstReturnRawValue() {
+  void testFromJson_givenRawValueWithVIsFoo_thenFirstReturnRawValue() {
     // Arrange
     AdminSettingsEntity adminSettingsEntity = new AdminSettingsEntity();
 
@@ -610,9 +644,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#fromJson(JsonNode, Class)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test fromJson(JsonNode, Class); given two; then return first intValue is two")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object BaseSqlEntity.fromJson(JsonNode, Class)"})
-  public void testFromJson_givenTwo_thenReturnFirstIntValueIsTwo() {
+  void testFromJson_givenTwo_thenReturnFirstIntValueIsTwo() {
     // Arrange
     AdminSettingsEntity adminSettingsEntity = new AdminSettingsEntity();
 
@@ -644,9 +679,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#fromJson(JsonNode, Class)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test fromJson(JsonNode, Class); then first return List")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object BaseSqlEntity.fromJson(JsonNode, Class)"})
-  public void testFromJson_thenFirstReturnList() {
+  void testFromJson_thenFirstReturnList() {
     // Arrange
     AdminSettingsEntity adminSettingsEntity = new AdminSettingsEntity();
 
@@ -681,9 +717,11 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#fromJson(JsonNode, Class)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test fromJson(JsonNode, Class); when ArrayNode(JsonNodeFactory, int) with nf is withExactBigDecimals 'true' and capacity is three")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object BaseSqlEntity.fromJson(JsonNode, Class)"})
-  public void testFromJson_whenArrayNodeWithNfIsWithExactBigDecimalsTrueAndCapacityIsThree() {
+  void testFromJson_whenArrayNodeWithNfIsWithExactBigDecimalsTrueAndCapacityIsThree() {
     // Arrange
     AdminSettingsEntity adminSettingsEntity = new AdminSettingsEntity();
     ArrayNode json = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true), 3);
@@ -710,9 +748,11 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#fromJson(JsonNode, Class)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test fromJson(JsonNode, Class); when ArrayNode(JsonNodeFactory) with nf is withExactBigDecimals 'true'; then return Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object BaseSqlEntity.fromJson(JsonNode, Class)"})
-  public void testFromJson_whenArrayNodeWithNfIsWithExactBigDecimalsTrue_thenReturnEmpty() {
+  void testFromJson_whenArrayNodeWithNfIsWithExactBigDecimalsTrue_thenReturnEmpty() {
     // Arrange
     AdminSettingsEntity adminSettingsEntity = new AdminSettingsEntity();
     ArrayNode json = new ArrayNode(JsonNodeFactory.withExactBigDecimals(true));
@@ -737,9 +777,11 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#fromJson(JsonNode, Class)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test fromJson(JsonNode, Class); when PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON; then return Map")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object BaseSqlEntity.fromJson(JsonNode, Class)"})
-  public void testFromJson_whenPublic_customer_additional_info_json_thenReturnMap() {
+  void testFromJson_whenPublic_customer_additional_info_json_thenReturnMap() {
     // Arrange
     AdminSettingsEntity adminSettingsEntity = new AdminSettingsEntity();
     Class<Object> type = Object.class;
@@ -767,9 +809,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#listToString(List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test listToString(List); given '42'; when ArrayList() add '42'; then return '42'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String BaseSqlEntity.listToString(List)"})
-  public void testListToString_given42_whenArrayListAdd42_thenReturn42() {
+  void testListToString_given42_whenArrayListAdd42_thenReturn42() {
     // Arrange
     AdminSettingsEntity adminSettingsEntity = new AdminSettingsEntity();
 
@@ -792,9 +835,11 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#listToString(List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test listToString(List); given '42'; when ArrayList() add '42'; then return '42,42'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String BaseSqlEntity.listToString(List)"})
-  public void testListToString_given42_whenArrayListAdd42_thenReturn4242() {
+  void testListToString_given42_whenArrayListAdd42_thenReturn4242() {
     // Arrange
     AdminSettingsEntity adminSettingsEntity = new AdminSettingsEntity();
 
@@ -817,9 +862,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#listToString(List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test listToString(List); when ArrayList(); then return empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String BaseSqlEntity.listToString(List)"})
-  public void testListToString_whenArrayList_thenReturnEmptyString() {
+  void testListToString_whenArrayList_thenReturnEmptyString() {
     // Arrange
     AdminSettingsEntity adminSettingsEntity = new AdminSettingsEntity();
 
@@ -838,9 +884,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#listToString(List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test listToString(List); when 'null'; then return empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String BaseSqlEntity.listToString(List)"})
-  public void testListToString_whenNull_thenReturnEmptyString() {
+  void testListToString_whenNull_thenReturnEmptyString() {
     // Arrange, Act and Assert
     assertEquals("", new AdminSettingsEntity().listToString(null));
   }
@@ -857,9 +904,11 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#listFromString(String, Function)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test listFromString(String, Function); given 'Apply'; when 'String'; then return size is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List BaseSqlEntity.listFromString(String, Function)"})
-  public void testListFromString_givenApply_whenString_thenReturnSizeIsOne() {
+  void testListFromString_givenApply_whenString_thenReturnSizeIsOne() {
     // Arrange
     AdminSettingsEntity adminSettingsEntity = new AdminSettingsEntity();
     Function<String, Object> mappingFunction = mock(Function.class);
@@ -886,9 +935,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#listFromString(String, Function)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test listFromString(String, Function); when empty string; then return Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List BaseSqlEntity.listFromString(String, Function)"})
-  public void testListFromString_whenEmptyString_thenReturnEmpty() {
+  void testListFromString_whenEmptyString_thenReturnEmpty() {
     // Arrange, Act and Assert
     assertTrue(
         new AdminSettingsEntity().<Object>listFromString("", mock(Function.class)).isEmpty());
@@ -905,9 +955,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#listFromString(String, Function)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test listFromString(String, Function); when 'null'; then return Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List BaseSqlEntity.listFromString(String, Function)"})
-  public void testListFromString_whenNull_thenReturnEmpty() {
+  void testListFromString_whenNull_thenReturnEmpty() {
     // Arrange, Act and Assert
     assertTrue(
         new AdminSettingsEntity().<Object>listFromString(null, mock(Function.class)).isEmpty());
@@ -919,9 +970,10 @@ public class BaseSqlEntityDiffblueTest {
    * <p>Method under test: {@link BaseSqlEntity#setId(UUID)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setId(UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void BaseSqlEntity.setId(UUID)"})
-  public void testSetId() {
+  void testSetId() {
     // Arrange
     AdminSettingsEntity adminSettingsEntity = new AdminSettingsEntity();
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");

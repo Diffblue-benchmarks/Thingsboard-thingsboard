@@ -1,21 +1,21 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.node.NullNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.TenantInfo;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 
-public class TenantInfoEntityDiffblueTest {
+class TenantInfoEntityDiffblueTest {
   /**
    * Test {@link TenantInfoEntity#equals(Object)}, and {@link TenantInfoEntity#hashCode()}.
    *
@@ -32,9 +32,10 @@ public class TenantInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TenantInfoEntity.equals(Object)", "int TenantInfoEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TenantInfoEntity tenantInfoEntity = new TenantInfoEntity();
     TenantInfoEntity tenantInfoEntity2 = new TenantInfoEntity();
@@ -61,9 +62,10 @@ public class TenantInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TenantInfoEntity.equals(Object)", "int TenantInfoEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     tenantEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -125,9 +127,10 @@ public class TenantInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TenantInfoEntity.equals(Object)", "int TenantInfoEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TenantInfoEntity tenantInfoEntity = new TenantInfoEntity();
 
@@ -148,9 +151,10 @@ public class TenantInfoEntityDiffblueTest {
    * <p>Method under test: {@link TenantInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TenantInfoEntity.equals(Object)", "int TenantInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     tenantEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -186,9 +190,10 @@ public class TenantInfoEntityDiffblueTest {
    * <p>Method under test: {@link TenantInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TenantInfoEntity.equals(Object)", "int TenantInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TenantInfoEntity tenantInfoEntity = new TenantInfoEntity();
     tenantInfoEntity.setTenantProfileName("foo.txt");
@@ -208,9 +213,10 @@ public class TenantInfoEntityDiffblueTest {
    * <p>Method under test: {@link TenantInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TenantInfoEntity.equals(Object)", "int TenantInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TenantInfoEntity tenantInfoEntity = new TenantInfoEntity();
 
@@ -232,9 +238,10 @@ public class TenantInfoEntityDiffblueTest {
    * <p>Method under test: {@link TenantInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TenantInfoEntity.equals(Object)", "int TenantInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TenantInfoEntity(), null);
   }
@@ -250,9 +257,10 @@ public class TenantInfoEntityDiffblueTest {
    * <p>Method under test: {@link TenantInfoEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TenantInfoEntity.equals(Object)", "int TenantInfoEntity.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TenantInfoEntity(), "Different type to TenantInfoEntity");
   }
@@ -270,14 +278,15 @@ public class TenantInfoEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void TenantInfoEntity.<init>()",
     "String TenantInfoEntity.getTenantProfileName()",
     "void TenantInfoEntity.setTenantProfileName(String)",
     "String TenantInfoEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     TenantInfoEntity actualTenantInfoEntity = new TenantInfoEntity();
     actualTenantInfoEntity.setTenantProfileName("foo.txt");
@@ -310,9 +319,10 @@ public class TenantInfoEntityDiffblueTest {
    * <p>Method under test: {@link TenantInfoEntity#TenantInfoEntity(TenantEntity, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new TenantInfoEntity(TenantEntity, String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TenantInfoEntity.<init>(TenantEntity, String)"})
-  public void testNewTenantInfoEntity() {
+  void testNewTenantInfoEntity() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     tenantEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -368,9 +378,11 @@ public class TenantInfoEntityDiffblueTest {
    * <p>Method under test: {@link TenantInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given TenantEntity() Uuid is fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantInfo TenantInfoEntity.toData()"})
-  public void testToData_givenTenantEntityUuidIsFromString784f394c42b6435a983cB7beff2784f9() {
+  void testToData_givenTenantEntityUuidIsFromString784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     tenantEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -425,9 +437,11 @@ public class TenantInfoEntityDiffblueTest {
    * <p>Method under test: {@link TenantInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given TenantEntity() Uuid is randomUUID; then return UuidId is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantInfo TenantInfoEntity.toData()"})
-  public void testToData_givenTenantEntityUuidIsRandomUUID_thenReturnUuidIdIsRandomUUID() {
+  void testToData_givenTenantEntityUuidIsRandomUUID_thenReturnUuidIdIsRandomUUID() {
     // Arrange
     TenantEntity tenantEntity = new TenantEntity();
     tenantEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -484,9 +498,10 @@ public class TenantInfoEntityDiffblueTest {
    * <p>Method under test: {@link TenantInfoEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given TenantInfoEntity(); then AdditionalInfo return NullNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TenantInfo TenantInfoEntity.toData()"})
-  public void testToData_givenTenantInfoEntity_thenAdditionalInfoReturnNullNode() {
+  void testToData_givenTenantInfoEntity_thenAdditionalInfoReturnNullNode() {
     // Arrange and Act
     TenantInfo actualToDataResult = new TenantInfoEntity().toData();
 

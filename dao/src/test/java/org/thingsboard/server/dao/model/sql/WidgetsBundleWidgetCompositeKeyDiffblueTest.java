@@ -1,15 +1,15 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class WidgetsBundleWidgetCompositeKeyDiffblueTest {
+class WidgetsBundleWidgetCompositeKeyDiffblueTest {
   /**
    * Test {@link WidgetsBundleWidgetCompositeKey#equals(Object)}, and {@link
    * WidgetsBundleWidgetCompositeKey#hashCode()}.
@@ -27,12 +27,13 @@ public class WidgetsBundleWidgetCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean WidgetsBundleWidgetCompositeKey.equals(Object)",
     "int WidgetsBundleWidgetCompositeKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     WidgetsBundleWidgetCompositeKey widgetsBundleWidgetCompositeKey =
         new WidgetsBundleWidgetCompositeKey();
@@ -62,12 +63,13 @@ public class WidgetsBundleWidgetCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean WidgetsBundleWidgetCompositeKey.equals(Object)",
     "int WidgetsBundleWidgetCompositeKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     UUID widgetsBundleId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     WidgetsBundleWidgetCompositeKey widgetsBundleWidgetCompositeKey =
@@ -101,12 +103,13 @@ public class WidgetsBundleWidgetCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean WidgetsBundleWidgetCompositeKey.equals(Object)",
     "int WidgetsBundleWidgetCompositeKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     WidgetsBundleWidgetCompositeKey widgetsBundleWidgetCompositeKey =
         new WidgetsBundleWidgetCompositeKey();
@@ -128,12 +131,13 @@ public class WidgetsBundleWidgetCompositeKeyDiffblueTest {
    * <p>Method under test: {@link WidgetsBundleWidgetCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean WidgetsBundleWidgetCompositeKey.equals(Object)",
     "int WidgetsBundleWidgetCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     UUID widgetsBundleId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     WidgetsBundleWidgetCompositeKey widgetsBundleWidgetCompositeKey =
@@ -155,12 +159,13 @@ public class WidgetsBundleWidgetCompositeKeyDiffblueTest {
    * <p>Method under test: {@link WidgetsBundleWidgetCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean WidgetsBundleWidgetCompositeKey.equals(Object)",
     "int WidgetsBundleWidgetCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     WidgetsBundleWidgetCompositeKey widgetsBundleWidgetCompositeKey =
         new WidgetsBundleWidgetCompositeKey();
@@ -184,12 +189,13 @@ public class WidgetsBundleWidgetCompositeKeyDiffblueTest {
    * <p>Method under test: {@link WidgetsBundleWidgetCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean WidgetsBundleWidgetCompositeKey.equals(Object)",
     "int WidgetsBundleWidgetCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     WidgetsBundleWidgetCompositeKey widgetsBundleWidgetCompositeKey =
         new WidgetsBundleWidgetCompositeKey();
@@ -211,12 +217,13 @@ public class WidgetsBundleWidgetCompositeKeyDiffblueTest {
    * <p>Method under test: {@link WidgetsBundleWidgetCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean WidgetsBundleWidgetCompositeKey.equals(Object)",
     "int WidgetsBundleWidgetCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     WidgetsBundleWidgetCompositeKey widgetsBundleWidgetCompositeKey =
         new WidgetsBundleWidgetCompositeKey();
@@ -241,12 +248,13 @@ public class WidgetsBundleWidgetCompositeKeyDiffblueTest {
    * <p>Method under test: {@link WidgetsBundleWidgetCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean WidgetsBundleWidgetCompositeKey.equals(Object)",
     "int WidgetsBundleWidgetCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new WidgetsBundleWidgetCompositeKey(), null);
   }
@@ -262,12 +270,13 @@ public class WidgetsBundleWidgetCompositeKeyDiffblueTest {
    * <p>Method under test: {@link WidgetsBundleWidgetCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean WidgetsBundleWidgetCompositeKey.equals(Object)",
     "int WidgetsBundleWidgetCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(
         new WidgetsBundleWidgetCompositeKey(), "Different type to WidgetsBundleWidgetCompositeKey");
@@ -288,7 +297,8 @@ public class WidgetsBundleWidgetCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void WidgetsBundleWidgetCompositeKey.<init>()",
     "void WidgetsBundleWidgetCompositeKey.<init>(UUID, UUID)",
@@ -298,7 +308,7 @@ public class WidgetsBundleWidgetCompositeKeyDiffblueTest {
     "void WidgetsBundleWidgetCompositeKey.setWidgetsBundleId(UUID)",
     "String WidgetsBundleWidgetCompositeKey.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     WidgetsBundleWidgetCompositeKey actualWidgetsBundleWidgetCompositeKey =
         new WidgetsBundleWidgetCompositeKey();
@@ -340,7 +350,8 @@ public class WidgetsBundleWidgetCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters; when fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void WidgetsBundleWidgetCompositeKey.<init>()",
     "void WidgetsBundleWidgetCompositeKey.<init>(UUID, UUID)",
@@ -350,7 +361,7 @@ public class WidgetsBundleWidgetCompositeKeyDiffblueTest {
     "void WidgetsBundleWidgetCompositeKey.setWidgetsBundleId(UUID)",
     "String WidgetsBundleWidgetCompositeKey.toString()"
   })
-  public void testGettersAndSetters_whenFromString784f394c42b6435a983cB7beff2784f9() {
+  void testGettersAndSetters_whenFromString784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     UUID widgetsBundleId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 

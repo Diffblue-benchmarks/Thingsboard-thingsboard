@@ -1,16 +1,16 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.asset.AssetProfile;
 import org.thingsboard.server.common.data.id.AssetProfileId;
@@ -19,7 +19,7 @@ import org.thingsboard.server.common.data.id.RuleChainId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class AssetProfileEntityDiffblueTest {
+class AssetProfileEntityDiffblueTest {
   /**
    * Test {@link AssetProfileEntity#equals(Object)}, and {@link AssetProfileEntity#hashCode()}.
    *
@@ -36,12 +36,13 @@ public class AssetProfileEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -103,12 +104,13 @@ public class AssetProfileEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -146,12 +148,13 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(3L);
@@ -206,12 +209,13 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -266,12 +270,13 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -325,12 +330,13 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -384,12 +390,13 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -443,12 +450,13 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -502,12 +510,13 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -562,12 +571,13 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -622,12 +632,13 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -681,12 +692,13 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -740,12 +752,13 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -800,12 +813,13 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -860,12 +874,13 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -920,12 +935,13 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -980,12 +996,13 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -1040,12 +1057,13 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -1100,12 +1118,13 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -1160,12 +1179,13 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -1220,12 +1240,13 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -1280,12 +1301,13 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -1340,12 +1362,13 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -1381,12 +1404,13 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileEntity.equals(Object)",
     "int AssetProfileEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -1442,7 +1466,8 @@ public class AssetProfileEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void AssetProfileEntity.<init>()",
     "UUID AssetProfileEntity.getDefaultDashboardId()",
@@ -1467,7 +1492,7 @@ public class AssetProfileEntityDiffblueTest {
     "void AssetProfileEntity.setTenantId(UUID)",
     "String AssetProfileEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     AssetProfileEntity actualAssetProfileEntity = new AssetProfileEntity();
     actualAssetProfileEntity.setDefault(true);
@@ -1532,9 +1557,10 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new AssetProfileEntity(AssetProfile)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileEntity.<init>(AssetProfile)"})
-  public void testNewAssetProfileEntity() {
+  void testNewAssetProfileEntity() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile(new AssetProfile());
     assetProfile.setTenantId(null);
@@ -1561,9 +1587,10 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new AssetProfileEntity(AssetProfile)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileEntity.<init>(AssetProfile)"})
-  public void testNewAssetProfileEntity2() {
+  void testNewAssetProfileEntity2() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile(new AssetProfile());
     assetProfile.setTenantId(null);
@@ -1590,9 +1617,10 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new AssetProfileEntity(AssetProfile)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileEntity.<init>(AssetProfile)"})
-  public void testNewAssetProfileEntity3() {
+  void testNewAssetProfileEntity3() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile(new AssetProfile());
     assetProfile.setTenantId(ModelConstants.SYSTEM_TENANT);
@@ -1619,9 +1647,10 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new AssetProfileEntity(AssetProfile)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileEntity.<init>(AssetProfile)"})
-  public void testNewAssetProfileEntity4() {
+  void testNewAssetProfileEntity4() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile(new AssetProfile());
     assetProfile.setTenantId(null);
@@ -1650,9 +1679,10 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new AssetProfileEntity(AssetProfile)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileEntity.<init>(AssetProfile)"})
-  public void testNewAssetProfileEntity5() {
+  void testNewAssetProfileEntity5() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile(new AssetProfile());
     assetProfile.setTenantId(null);
@@ -1686,9 +1716,11 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#AssetProfileEntity(AssetProfile)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new AssetProfileEntity(AssetProfile); when AssetProfile(); then return DefaultDashboardId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileEntity.<init>(AssetProfile)"})
-  public void testNewAssetProfileEntity_whenAssetProfile_thenReturnDefaultDashboardIdIsNull() {
+  void testNewAssetProfileEntity_whenAssetProfile_thenReturnDefaultDashboardIdIsNull() {
     // Arrange and Act
     AssetProfileEntity actualAssetProfileEntity = new AssetProfileEntity(new AssetProfile());
 
@@ -1706,9 +1738,10 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AssetProfile AssetProfileEntity.toData()"})
-  public void testToData() {
+  void testToData() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -1742,9 +1775,10 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AssetProfile AssetProfileEntity.toData()"})
-  public void testToData2() {
+  void testToData2() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -1778,9 +1812,10 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AssetProfile AssetProfileEntity.toData()"})
-  public void testToData3() {
+  void testToData3() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -1819,9 +1854,10 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given AssetProfileEntity(); then return Version is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AssetProfile AssetProfileEntity.toData()"})
-  public void testToData_givenAssetProfileEntity_thenReturnVersionIsNull() {
+  void testToData_givenAssetProfileEntity_thenReturnVersionIsNull() {
     // Arrange and Act
     AssetProfile actualToDataResult = new AssetProfileEntity().toData();
 
@@ -1847,9 +1883,11 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return ExternalId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AssetProfile AssetProfileEntity.toData()"})
-  public void testToData_thenReturnExternalIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnExternalIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -1891,9 +1929,10 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return TenantId Id is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AssetProfile AssetProfileEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdIsRandomUUID() {
+  void testToData_thenReturnTenantIdIdIsRandomUUID() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);
@@ -1941,9 +1980,11 @@ public class AssetProfileEntityDiffblueTest {
    * <p>Method under test: {@link AssetProfileEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return TenantId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AssetProfile AssetProfileEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     AssetProfileEntity assetProfileEntity = new AssetProfileEntity();
     assetProfileEntity.setCreatedTime(1L);

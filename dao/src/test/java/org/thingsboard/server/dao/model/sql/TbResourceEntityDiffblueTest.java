@@ -1,19 +1,19 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
 import java.io.UnsupportedEncodingException;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.ResourceSubType;
 import org.thingsboard.server.common.data.ResourceType;
 import org.thingsboard.server.common.data.TbResource;
@@ -21,7 +21,7 @@ import org.thingsboard.server.common.data.id.TbResourceId;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class TbResourceEntityDiffblueTest {
+class TbResourceEntityDiffblueTest {
   /**
    * Test {@link TbResourceEntity#equals(Object)}, and {@link TbResourceEntity#hashCode()}.
    *
@@ -38,9 +38,10 @@ public class TbResourceEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()
       throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
@@ -103,10 +104,10 @@ public class TbResourceEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()
-      throws UnsupportedEncodingException {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -144,10 +145,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(3L);
@@ -202,10 +203,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -260,10 +261,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -318,10 +319,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -376,10 +377,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -434,10 +435,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -492,10 +493,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -550,10 +551,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -608,10 +609,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -666,10 +667,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -724,10 +725,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -782,10 +783,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -840,10 +841,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -898,10 +899,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -956,10 +957,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -1014,10 +1015,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -1072,10 +1073,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -1130,10 +1131,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual18()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -1188,10 +1189,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual19()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -1246,10 +1247,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual20()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -1304,10 +1305,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual21()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -1362,10 +1363,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual22()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -1420,10 +1421,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual23()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -1478,10 +1479,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual24()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -1536,10 +1537,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual25()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -1594,10 +1595,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual26()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -1652,10 +1653,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual27()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual27() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -1710,9 +1711,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -1748,10 +1750,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TbResourceEntity.equals(Object)", "int TbResourceEntity.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() throws UnsupportedEncodingException {
     // Arrange
     TbResourceEntity tbResourceEntity = new TbResourceEntity();
     tbResourceEntity.setCreatedTime(1L);
@@ -1815,7 +1817,8 @@ public class TbResourceEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void TbResourceEntity.<init>()",
     "byte[] TbResourceEntity.getData()",
@@ -1848,7 +1851,7 @@ public class TbResourceEntityDiffblueTest {
     "void TbResourceEntity.setTitle(String)",
     "String TbResourceEntity.toString()"
   })
-  public void testGettersAndSetters() throws UnsupportedEncodingException {
+  void testGettersAndSetters() throws UnsupportedEncodingException {
     // Arrange and Act
     TbResourceEntity actualTbResourceEntity = new TbResourceEntity();
     byte[] data = "AXAXAXAX".getBytes("UTF-8");
@@ -1923,9 +1926,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#TbResourceEntity(TbResource)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new TbResourceEntity(TbResource)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceEntity.<init>(TbResource)"})
-  public void testNewTbResourceEntity() {
+  void testNewTbResourceEntity() {
     // Arrange
     TbResource resource = new TbResource();
     resource.setResourceType(ResourceType.LWM2M_MODEL);
@@ -1953,9 +1957,10 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#TbResourceEntity(TbResource)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new TbResourceEntity(TbResource)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceEntity.<init>(TbResource)"})
-  public void testNewTbResourceEntity2() {
+  void testNewTbResourceEntity2() {
     // Arrange
     TbResource resource = new TbResource();
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -1992,9 +1997,11 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#TbResourceEntity(TbResource)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TbResourceEntity(TbResource); given 'IMAGE'; then return ResourceSubType is 'IMAGE'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceEntity.<init>(TbResource)"})
-  public void testNewTbResourceEntity_givenImage_thenReturnResourceSubTypeIsImage() {
+  void testNewTbResourceEntity_givenImage_thenReturnResourceSubTypeIsImage() {
     // Arrange
     TbResource resource = new TbResource();
     resource.setResourceType(ResourceType.LWM2M_MODEL);
@@ -2027,9 +2034,11 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#TbResourceEntity(TbResource)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TbResourceEntity(TbResource); given 'LWM2M_MODEL'; then return TenantId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceEntity.<init>(TbResource)"})
-  public void testNewTbResourceEntity_givenLwm2mModel_thenReturnTenantIdIsNull() {
+  void testNewTbResourceEntity_givenLwm2mModel_thenReturnTenantIdIsNull() {
     // Arrange
     TbResource resource = new TbResource();
     resource.setResourceType(ResourceType.LWM2M_MODEL);
@@ -2055,9 +2064,11 @@ public class TbResourceEntityDiffblueTest {
    * <p>Method under test: {@link TbResourceEntity#TbResourceEntity(TbResource)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new TbResourceEntity(TbResource); then return Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TbResourceEntity.<init>(TbResource)"})
-  public void testNewTbResourceEntity_thenReturnIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testNewTbResourceEntity_thenReturnIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     TbResource resource = new TbResource();
     resource.setResourceType(ResourceType.LWM2M_MODEL);

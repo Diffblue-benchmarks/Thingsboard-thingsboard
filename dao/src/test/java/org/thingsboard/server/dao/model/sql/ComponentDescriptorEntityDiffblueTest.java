@@ -1,18 +1,18 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.ComponentDescriptorId;
 import org.thingsboard.server.common.data.plugin.ComponentClusteringMode;
 import org.thingsboard.server.common.data.plugin.ComponentDescriptor;
@@ -20,7 +20,7 @@ import org.thingsboard.server.common.data.plugin.ComponentScope;
 import org.thingsboard.server.common.data.plugin.ComponentType;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 
-public class ComponentDescriptorEntityDiffblueTest {
+class ComponentDescriptorEntityDiffblueTest {
   /**
    * Test {@link ComponentDescriptorEntity#equals(Object)}, and {@link
    * ComponentDescriptorEntity#hashCode()}.
@@ -38,12 +38,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions("Actions");
@@ -98,12 +99,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions(null);
@@ -158,12 +160,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions("Actions");
@@ -218,12 +221,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions("Actions");
@@ -257,12 +261,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * <p>Method under test: {@link ComponentDescriptorEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions("Name");
@@ -309,12 +314,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * <p>Method under test: {@link ComponentDescriptorEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions(null);
@@ -361,12 +367,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * <p>Method under test: {@link ComponentDescriptorEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions("Actions");
@@ -413,12 +420,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * <p>Method under test: {@link ComponentDescriptorEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions("Actions");
@@ -465,12 +473,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * <p>Method under test: {@link ComponentDescriptorEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions("Actions");
@@ -517,12 +526,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * <p>Method under test: {@link ComponentDescriptorEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions("Actions");
@@ -569,12 +579,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * <p>Method under test: {@link ComponentDescriptorEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions("Actions");
@@ -620,12 +631,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * <p>Method under test: {@link ComponentDescriptorEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions("Actions");
@@ -671,12 +683,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * <p>Method under test: {@link ComponentDescriptorEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions("Actions");
@@ -723,12 +736,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * <p>Method under test: {@link ComponentDescriptorEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions("Actions");
@@ -775,12 +789,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * <p>Method under test: {@link ComponentDescriptorEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions("Actions");
@@ -827,12 +842,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * <p>Method under test: {@link ComponentDescriptorEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions("Actions");
@@ -879,12 +895,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * <p>Method under test: {@link ComponentDescriptorEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions("Actions");
@@ -931,12 +948,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * <p>Method under test: {@link ComponentDescriptorEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions("Actions");
@@ -983,12 +1001,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * <p>Method under test: {@link ComponentDescriptorEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions("Actions");
@@ -1035,12 +1054,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * <p>Method under test: {@link ComponentDescriptorEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions("Actions");
@@ -1087,12 +1107,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * <p>Method under test: {@link ComponentDescriptorEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions("Actions");
@@ -1139,12 +1160,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * <p>Method under test: {@link ComponentDescriptorEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions("Actions");
@@ -1176,12 +1198,13 @@ public class ComponentDescriptorEntityDiffblueTest {
    * <p>Method under test: {@link ComponentDescriptorEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean ComponentDescriptorEntity.equals(Object)",
     "int ComponentDescriptorEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     ComponentDescriptorEntity componentDescriptorEntity = new ComponentDescriptorEntity();
     componentDescriptorEntity.setActions("Actions");
@@ -1231,7 +1254,8 @@ public class ComponentDescriptorEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void ComponentDescriptorEntity.<init>()",
     "String ComponentDescriptorEntity.getActions()",
@@ -1254,7 +1278,7 @@ public class ComponentDescriptorEntityDiffblueTest {
     "void ComponentDescriptorEntity.setType(ComponentType)",
     "String ComponentDescriptorEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     ComponentDescriptorEntity actualComponentDescriptorEntity = new ComponentDescriptorEntity();
     actualComponentDescriptorEntity.setActions("Actions");
@@ -1307,9 +1331,10 @@ public class ComponentDescriptorEntityDiffblueTest {
    * ComponentDescriptorEntity#ComponentDescriptorEntity(ComponentDescriptor)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new ComponentDescriptorEntity(ComponentDescriptor)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ComponentDescriptorEntity.<init>(ComponentDescriptor)"})
-  public void testNewComponentDescriptorEntity() {
+  void testNewComponentDescriptorEntity() {
     // Arrange
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
@@ -1336,9 +1361,11 @@ public class ComponentDescriptorEntityDiffblueTest {
    * ComponentDescriptorEntity#ComponentDescriptorEntity(ComponentDescriptor)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new ComponentDescriptorEntity(ComponentDescriptor); given three; then return CreatedTime is three")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ComponentDescriptorEntity.<init>(ComponentDescriptor)"})
-  public void testNewComponentDescriptorEntity_givenThree_thenReturnCreatedTimeIsThree() {
+  void testNewComponentDescriptorEntity_givenThree_thenReturnCreatedTimeIsThree() {
     // Arrange
     ComponentDescriptor component = new ComponentDescriptor();
     component.setCreatedTime(3L);
@@ -1373,9 +1400,11 @@ public class ComponentDescriptorEntityDiffblueTest {
    * ComponentDescriptorEntity#ComponentDescriptorEntity(ComponentDescriptor)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new ComponentDescriptorEntity(ComponentDescriptor); then return CreatedTime is zero")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ComponentDescriptorEntity.<init>(ComponentDescriptor)"})
-  public void testNewComponentDescriptorEntity_thenReturnCreatedTimeIsZero() {
+  void testNewComponentDescriptorEntity_thenReturnCreatedTimeIsZero() {
     // Arrange and Act
     ComponentDescriptorEntity actualComponentDescriptorEntity =
         new ComponentDescriptorEntity(new ComponentDescriptor());
@@ -1401,9 +1430,10 @@ public class ComponentDescriptorEntityDiffblueTest {
    * <p>Method under test: {@link ComponentDescriptorEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ComponentDescriptor ComponentDescriptorEntity.toData()"})
-  public void testToData() {
+  void testToData() {
     // Arrange and Act
     ComponentDescriptor actualToDataResult = new ComponentDescriptorEntity().toData();
 

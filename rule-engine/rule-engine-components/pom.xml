@@ -44,12 +44,6 @@
             <version>5.14.1</version>
             <scope>test</scope>
         </dependency>
-        <!--<dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.11.2</version>
-            <scope>test</scope>
-        </dependency>-->
         <dependency>
             <groupId>org.thingsboard.common</groupId>
             <artifactId>util</artifactId>
@@ -172,6 +166,7 @@
         <dependency>
             <groupId>com.jayway.jsonpath</groupId>
             <artifactId>json-path</artifactId>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
@@ -185,61 +180,6 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
             </plugin>
-            <!--<plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.12</version>
-                <configuration>
-                    <formats>HTML,XML</formats>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>jacoco-initialize</id>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>jacoco-site</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>-->
-            <!--<plugin>
-                <groupId>org.pitest</groupId>
-                <artifactId>pitest-maven</artifactId>
-                <version>1.17.1</version>
-                <configuration>
-                    <failWhenNoMutations>false</failWhenNoMutations>
-					<exportLineCoverage>true</exportLineCoverage>
-					<targetTests>
-                        <param>**DiffblueTest*</param>
-                    </targetTests>
-					<outputFormats>
-                        <value>XML</value>
-                        <value>HTML</value>
-                    </outputFormats>
-                </configuration>
-				<executions>
-					<execution>
-                        <id>run-mutation-tests</id>
-						<phase>test</phase>
-                        <goals>
-                            <goal>mutationCoverage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-				<dependencies>
-                    <dependency>
-                        <groupId>org.pitest</groupId>
-                        <artifactId>pitest-junit5-plugin</artifactId>
-                        <version>1.2.1</version>
-                    </dependency>
-                </dependencies>
-            </plugin>-->
         </plugins>
     </build>
 

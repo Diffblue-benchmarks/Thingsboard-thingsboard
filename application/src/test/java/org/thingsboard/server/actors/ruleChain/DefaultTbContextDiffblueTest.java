@@ -796,7 +796,7 @@ class DefaultTbContextDiffblueTest {
    * {@code profile}.
    *
    * <ul>
-   *   <li>When {@code -597393278}.
+   *   <li>When {@code 3100377}.
    * </ul>
    *
    * <p>Method under test: {@link DefaultTbContext#entityActionMsg(Object, EntityId, RuleNodeId,
@@ -804,12 +804,12 @@ class DefaultTbContextDiffblueTest {
    */
   @Test
   @DisplayName(
-      "Test entityActionMsg(Object, EntityId, RuleNodeId, String, HasRuleEngineProfile) with 'entity', 'id', 'ruleNodeId', 'action', 'profile'; when '-597393278'")
+      "Test entityActionMsg(Object, EntityId, RuleNodeId, String, HasRuleEngineProfile) with 'entity', 'id', 'ruleNodeId', 'action', 'profile'; when '3100377'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "org.thingsboard.server.common.msg.TbMsg DefaultTbContext.entityActionMsg(Object, EntityId, RuleNodeId, String, HasRuleEngineProfile)"
   })
-  void testEntityActionMsgWithEntityIdRuleNodeIdActionProfile_when597393278() {
+  void testEntityActionMsgWithEntityIdRuleNodeIdActionProfile_when3100377() {
     // Arrange
     AlarmId alarmId = mock(AlarmId.class);
     when(alarmId.getEntityType()).thenThrow(new IllegalArgumentException("foo"));
@@ -820,7 +820,7 @@ class DefaultTbContextDiffblueTest {
         IllegalArgumentException.class,
         () ->
             defaultTbContext.<Object, EntityId, HasRuleEngineProfile>entityActionMsg(
-                -597393278, alarmId, ruleNodeId, "Action", new DeviceProfile()));
+                3100377, alarmId, ruleNodeId, "Action", new DeviceProfile()));
     verify(alarmId, atLeast(1)).getEntityType();
   }
 

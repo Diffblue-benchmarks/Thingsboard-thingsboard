@@ -1,23 +1,24 @@
 package org.thingsboard.server.dao.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.dao.model.sql.AssetEntity;
 
-public class BaseVersionedEntityDiffblueTest {
+class BaseVersionedEntityDiffblueTest {
   /**
    * Test {@link BaseVersionedEntity#getVersion()}.
    *
    * <p>Method under test: {@link BaseVersionedEntity#getVersion()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getVersion()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Long BaseVersionedEntity.getVersion()"})
-  public void testGetVersion() {
+  void testGetVersion() {
     // Arrange, Act and Assert
     assertNull(new AssetEntity().getVersion());
   }
@@ -28,9 +29,10 @@ public class BaseVersionedEntityDiffblueTest {
    * <p>Method under test: {@link BaseVersionedEntity#setVersion(Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setVersion(Long)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void BaseVersionedEntity.setVersion(Long)"})
-  public void testSetVersion() {
+  void testSetVersion() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
 

@@ -1,22 +1,22 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.alarm.AlarmSeverity;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 
-public class AbstractAlarmEntityDiffblueTest {
+class AbstractAlarmEntityDiffblueTest {
   /**
    * Test {@link AbstractAlarmEntity#canEqual(Object)}.
    *
@@ -28,9 +28,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#canEqual(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test canEqual(Object); when AlarmEntity(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AbstractAlarmEntity.canEqual(Object)"})
-  public void testCanEqual_whenAlarmEntity_thenReturnTrue() {
+  void testCanEqual_whenAlarmEntity_thenReturnTrue() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -49,9 +50,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#canEqual(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test canEqual(Object); when 'Other'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AbstractAlarmEntity.canEqual(Object)"})
-  public void testCanEqual_whenOther_thenReturnFalse() {
+  void testCanEqual_whenOther_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(new AlarmEntity().canEqual("Other"));
   }
@@ -67,12 +69,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     AlarmEntity alarmEntity2 = new AlarmEntity();
@@ -94,12 +97,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -120,12 +124,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -152,12 +157,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -177,12 +183,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setCustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -202,12 +209,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setOriginatorId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -227,12 +235,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setOriginatorType(EntityType.TENANT);
@@ -252,12 +261,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setType("Type");
@@ -277,12 +287,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setSeverity(AlarmSeverity.CRITICAL);
@@ -302,12 +313,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setAssigneeId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -327,12 +339,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setStartTs(1L);
@@ -352,12 +365,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setEndTs(1L);
@@ -377,12 +391,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setAcknowledged(true);
@@ -402,12 +417,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setAckTs(1L);
@@ -427,12 +443,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setCleared(true);
@@ -452,12 +469,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setClearTs(1L);
@@ -477,12 +495,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setAssignTs(1L);
@@ -502,12 +521,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setDetails(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -527,12 +547,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setPropagate(true);
@@ -552,12 +573,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setPropagateToOwner(true);
@@ -577,12 +599,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setPropagateToTenant(true);
@@ -602,12 +625,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setPropagateRelationTypes("Propagate Relation Types");
@@ -627,12 +651,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setUuid(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -652,12 +677,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -679,12 +705,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -706,12 +733,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -733,12 +761,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -760,12 +789,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -787,12 +817,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual27() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual27() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -814,12 +845,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual28() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual28() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -841,12 +873,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual29() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual29() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -868,12 +901,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual30() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual30() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -895,12 +929,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual31() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual31() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -922,12 +957,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual32() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual32() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -949,12 +985,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual33() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual33() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -976,12 +1013,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual34() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual34() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -1003,12 +1041,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual35() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual35() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -1030,12 +1069,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual36() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual36() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -1057,12 +1097,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual37() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual37() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -1084,12 +1125,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual38() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual38() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -1111,12 +1153,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmEntity(), null);
   }
@@ -1132,12 +1175,13 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAlarmEntity.equals(Object)",
     "int AbstractAlarmEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmEntity(), "Different type to AbstractAlarmEntity");
   }
@@ -1148,9 +1192,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getAckTs()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getAckTs()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Long AbstractAlarmEntity.getAckTs()"})
-  public void testGetAckTs() {
+  void testGetAckTs() {
     // Arrange, Act and Assert
     assertNull(new AlarmEntity().getAckTs());
   }
@@ -1161,9 +1206,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getAssignTs()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getAssignTs()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Long AbstractAlarmEntity.getAssignTs()"})
-  public void testGetAssignTs() {
+  void testGetAssignTs() {
     // Arrange, Act and Assert
     assertNull(new AlarmEntity().getAssignTs());
   }
@@ -1174,9 +1220,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getAssigneeId()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getAssigneeId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID AbstractAlarmEntity.getAssigneeId()"})
-  public void testGetAssigneeId() {
+  void testGetAssigneeId() {
     // Arrange, Act and Assert
     assertNull(new AlarmEntity().getAssigneeId());
   }
@@ -1187,9 +1234,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getClearTs()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getClearTs()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Long AbstractAlarmEntity.getClearTs()"})
-  public void testGetClearTs() {
+  void testGetClearTs() {
     // Arrange, Act and Assert
     assertNull(new AlarmEntity().getClearTs());
   }
@@ -1200,9 +1248,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getCustomerId()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getCustomerId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID AbstractAlarmEntity.getCustomerId()"})
-  public void testGetCustomerId() {
+  void testGetCustomerId() {
     // Arrange, Act and Assert
     assertNull(new AlarmEntity().getCustomerId());
   }
@@ -1213,9 +1262,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getDetails()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getDetails()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonNode AbstractAlarmEntity.getDetails()"})
-  public void testGetDetails() {
+  void testGetDetails() {
     // Arrange, Act and Assert
     assertNull(new AlarmEntity().getDetails());
   }
@@ -1226,9 +1276,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getEndTs()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getEndTs()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Long AbstractAlarmEntity.getEndTs()"})
-  public void testGetEndTs() {
+  void testGetEndTs() {
     // Arrange, Act and Assert
     assertNull(new AlarmEntity().getEndTs());
   }
@@ -1239,9 +1290,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getOriginatorId()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getOriginatorId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID AbstractAlarmEntity.getOriginatorId()"})
-  public void testGetOriginatorId() {
+  void testGetOriginatorId() {
     // Arrange, Act and Assert
     assertNull(new AlarmEntity().getOriginatorId());
   }
@@ -1252,9 +1304,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getOriginatorType()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getOriginatorType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityType AbstractAlarmEntity.getOriginatorType()"})
-  public void testGetOriginatorType() {
+  void testGetOriginatorType() {
     // Arrange, Act and Assert
     assertNull(new AlarmEntity().getOriginatorType());
   }
@@ -1265,9 +1318,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getPropagateRelationTypes()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getPropagateRelationTypes()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractAlarmEntity.getPropagateRelationTypes()"})
-  public void testGetPropagateRelationTypes() {
+  void testGetPropagateRelationTypes() {
     // Arrange, Act and Assert
     assertNull(new AlarmEntity().getPropagateRelationTypes());
   }
@@ -1283,9 +1337,11 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getPropagateToOwner()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getPropagateToOwner(); given AlarmEntity() PropagateToOwner is 'false'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Boolean AbstractAlarmEntity.getPropagateToOwner()"})
-  public void testGetPropagateToOwner_givenAlarmEntityPropagateToOwnerIsFalse_thenReturnFalse() {
+  void testGetPropagateToOwner_givenAlarmEntityPropagateToOwnerIsFalse_thenReturnFalse() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setPropagateToOwner(false);
@@ -1305,9 +1361,11 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getPropagateToOwner()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getPropagateToOwner(); given AlarmEntity() PropagateToOwner is 'true'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Boolean AbstractAlarmEntity.getPropagateToOwner()"})
-  public void testGetPropagateToOwner_givenAlarmEntityPropagateToOwnerIsTrue_thenReturnTrue() {
+  void testGetPropagateToOwner_givenAlarmEntityPropagateToOwnerIsTrue_thenReturnTrue() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setPropagateToOwner(true);
@@ -1327,9 +1385,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getPropagateToOwner()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getPropagateToOwner(); given AlarmEntity(); then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Boolean AbstractAlarmEntity.getPropagateToOwner()"})
-  public void testGetPropagateToOwner_givenAlarmEntity_thenReturnNull() {
+  void testGetPropagateToOwner_givenAlarmEntity_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(new AlarmEntity().getPropagateToOwner());
   }
@@ -1345,9 +1404,11 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getPropagateToTenant()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test getPropagateToTenant(); given AlarmEntity() PropagateToTenant is 'true'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Boolean AbstractAlarmEntity.getPropagateToTenant()"})
-  public void testGetPropagateToTenant_givenAlarmEntityPropagateToTenantIsTrue_thenReturnTrue() {
+  void testGetPropagateToTenant_givenAlarmEntityPropagateToTenantIsTrue_thenReturnTrue() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setPropagateToTenant(true);
@@ -1367,9 +1428,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getPropagateToTenant()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getPropagateToTenant(); given AlarmEntity(); then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Boolean AbstractAlarmEntity.getPropagateToTenant()"})
-  public void testGetPropagateToTenant_givenAlarmEntity_thenReturnNull() {
+  void testGetPropagateToTenant_givenAlarmEntity_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(new AlarmEntity().getPropagateToTenant());
   }
@@ -1384,9 +1446,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getPropagateToTenant()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getPropagateToTenant(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Boolean AbstractAlarmEntity.getPropagateToTenant()"})
-  public void testGetPropagateToTenant_thenReturnFalse() {
+  void testGetPropagateToTenant_thenReturnFalse() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setPropagateToTenant(false);
@@ -1406,9 +1469,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getPropagate()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getPropagate(); given AlarmEntity() Propagate is 'false'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Boolean AbstractAlarmEntity.getPropagate()"})
-  public void testGetPropagate_givenAlarmEntityPropagateIsFalse_thenReturnFalse() {
+  void testGetPropagate_givenAlarmEntityPropagateIsFalse_thenReturnFalse() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setPropagate(false);
@@ -1428,9 +1492,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getPropagate()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getPropagate(); given AlarmEntity() Propagate is 'true'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Boolean AbstractAlarmEntity.getPropagate()"})
-  public void testGetPropagate_givenAlarmEntityPropagateIsTrue_thenReturnTrue() {
+  void testGetPropagate_givenAlarmEntityPropagateIsTrue_thenReturnTrue() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setPropagate(true);
@@ -1450,9 +1515,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getPropagate()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getPropagate(); given AlarmEntity(); then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Boolean AbstractAlarmEntity.getPropagate()"})
-  public void testGetPropagate_givenAlarmEntity_thenReturnNull() {
+  void testGetPropagate_givenAlarmEntity_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(new AlarmEntity().getPropagate());
   }
@@ -1463,9 +1529,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getSeverity()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getSeverity()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AlarmSeverity AbstractAlarmEntity.getSeverity()"})
-  public void testGetSeverity() {
+  void testGetSeverity() {
     // Arrange, Act and Assert
     assertNull(new AlarmEntity().getSeverity());
   }
@@ -1476,9 +1543,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getStartTs()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getStartTs()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Long AbstractAlarmEntity.getStartTs()"})
-  public void testGetStartTs() {
+  void testGetStartTs() {
     // Arrange, Act and Assert
     assertNull(new AlarmEntity().getStartTs());
   }
@@ -1489,9 +1557,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getTenantId()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getTenantId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID AbstractAlarmEntity.getTenantId()"})
-  public void testGetTenantId() {
+  void testGetTenantId() {
     // Arrange, Act and Assert
     assertNull(new AlarmEntity().getTenantId());
   }
@@ -1502,9 +1571,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#getType()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractAlarmEntity.getType()"})
-  public void testGetType() {
+  void testGetType() {
     // Arrange, Act and Assert
     assertNull(new AlarmEntity().getType());
   }
@@ -1520,9 +1590,11 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#isAcknowledged()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test isAcknowledged(); given AlarmEntity() Acknowledged is 'true'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AbstractAlarmEntity.isAcknowledged()"})
-  public void testIsAcknowledged_givenAlarmEntityAcknowledgedIsTrue_thenReturnTrue() {
+  void testIsAcknowledged_givenAlarmEntityAcknowledgedIsTrue_thenReturnTrue() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setAcknowledged(true);
@@ -1542,9 +1614,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#isAcknowledged()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test isAcknowledged(); given AlarmEntity(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AbstractAlarmEntity.isAcknowledged()"})
-  public void testIsAcknowledged_givenAlarmEntity_thenReturnFalse() {
+  void testIsAcknowledged_givenAlarmEntity_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(new AlarmEntity().isAcknowledged());
   }
@@ -1560,9 +1633,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#isCleared()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test isCleared(); given AlarmEntity() Cleared is 'true'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AbstractAlarmEntity.isCleared()"})
-  public void testIsCleared_givenAlarmEntityClearedIsTrue_thenReturnTrue() {
+  void testIsCleared_givenAlarmEntityClearedIsTrue_thenReturnTrue() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     alarmEntity.setCleared(true);
@@ -1582,9 +1656,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#isCleared()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test isCleared(); given AlarmEntity(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AbstractAlarmEntity.isCleared()"})
-  public void testIsCleared_givenAlarmEntity_thenReturnFalse() {
+  void testIsCleared_givenAlarmEntity_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(new AlarmEntity().isCleared());
   }
@@ -1595,9 +1670,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#setAckTs(Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setAckTs(Long)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmEntity.setAckTs(Long)"})
-  public void testSetAckTs() {
+  void testSetAckTs() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -1614,9 +1690,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#setAcknowledged(boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setAcknowledged(boolean)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmEntity.setAcknowledged(boolean)"})
-  public void testSetAcknowledged() {
+  void testSetAcknowledged() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -1633,9 +1710,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#setAssignTs(Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setAssignTs(Long)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmEntity.setAssignTs(Long)"})
-  public void testSetAssignTs() {
+  void testSetAssignTs() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -1652,9 +1730,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#setAssigneeId(UUID)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setAssigneeId(UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmEntity.setAssigneeId(UUID)"})
-  public void testSetAssigneeId() {
+  void testSetAssigneeId() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     UUID assigneeId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -1672,9 +1751,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#setClearTs(Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setClearTs(Long)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmEntity.setClearTs(Long)"})
-  public void testSetClearTs() {
+  void testSetClearTs() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -1691,9 +1771,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#setCleared(boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setCleared(boolean)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmEntity.setCleared(boolean)"})
-  public void testSetCleared() {
+  void testSetCleared() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -1710,9 +1791,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#setCustomerId(UUID)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setCustomerId(UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmEntity.setCustomerId(UUID)"})
-  public void testSetCustomerId() {
+  void testSetCustomerId() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     UUID customerId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -1730,9 +1812,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#setDetails(JsonNode)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setDetails(JsonNode)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmEntity.setDetails(JsonNode)"})
-  public void testSetDetails() {
+  void testSetDetails() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     JsonNode details = CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON;
@@ -1750,9 +1833,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#setEndTs(Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setEndTs(Long)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmEntity.setEndTs(Long)"})
-  public void testSetEndTs() {
+  void testSetEndTs() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -1769,9 +1853,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#setOriginatorId(UUID)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setOriginatorId(UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmEntity.setOriginatorId(UUID)"})
-  public void testSetOriginatorId() {
+  void testSetOriginatorId() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     UUID originatorId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -1789,9 +1874,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#setOriginatorType(EntityType)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setOriginatorType(EntityType)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmEntity.setOriginatorType(EntityType)"})
-  public void testSetOriginatorType() {
+  void testSetOriginatorType() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -1808,9 +1894,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#setPropagate(Boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setPropagate(Boolean)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmEntity.setPropagate(Boolean)"})
-  public void testSetPropagate() {
+  void testSetPropagate() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -1827,9 +1914,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#setPropagateRelationTypes(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setPropagateRelationTypes(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmEntity.setPropagateRelationTypes(String)"})
-  public void testSetPropagateRelationTypes() {
+  void testSetPropagateRelationTypes() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -1846,9 +1934,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#setPropagateToOwner(Boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setPropagateToOwner(Boolean)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmEntity.setPropagateToOwner(Boolean)"})
-  public void testSetPropagateToOwner() {
+  void testSetPropagateToOwner() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -1865,9 +1954,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#setPropagateToTenant(Boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setPropagateToTenant(Boolean)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmEntity.setPropagateToTenant(Boolean)"})
-  public void testSetPropagateToTenant() {
+  void testSetPropagateToTenant() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -1884,9 +1974,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#setSeverity(AlarmSeverity)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setSeverity(AlarmSeverity)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmEntity.setSeverity(AlarmSeverity)"})
-  public void testSetSeverity() {
+  void testSetSeverity() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -1903,9 +1994,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#setStartTs(Long)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setStartTs(Long)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmEntity.setStartTs(Long)"})
-  public void testSetStartTs() {
+  void testSetStartTs() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -1922,9 +2014,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#setTenantId(UUID)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setTenantId(UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmEntity.setTenantId(UUID)"})
-  public void testSetTenantId() {
+  void testSetTenantId() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -1942,9 +2035,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#setType(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setType(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAlarmEntity.setType(String)"})
-  public void testSetType() {
+  void testSetType() {
     // Arrange
     AlarmEntity alarmEntity = new AlarmEntity();
 
@@ -1961,9 +2055,10 @@ public class AbstractAlarmEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAlarmEntity#toString()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toString()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractAlarmEntity.toString()"})
-  public void testToString() {
+  void testToString() {
     // Arrange, Act and Assert
     assertEquals("AlarmEntity()", new AlarmEntity().toString());
   }

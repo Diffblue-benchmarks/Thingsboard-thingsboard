@@ -1,19 +1,19 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
 import java.util.ArrayList;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.oauth2.MapperType;
 import org.thingsboard.server.common.data.oauth2.OAuth2BasicMapperConfig;
 import org.thingsboard.server.common.data.oauth2.OAuth2Client;
@@ -24,7 +24,7 @@ import org.thingsboard.server.common.data.oauth2.TenantNameStrategyType;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class OAuth2ClientEntityDiffblueTest {
+class OAuth2ClientEntityDiffblueTest {
   /**
    * Test {@link OAuth2ClientEntity#equals(Object)}, and {@link OAuth2ClientEntity#hashCode()}.
    *
@@ -41,12 +41,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -140,12 +141,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -199,12 +201,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(false);
@@ -291,12 +294,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(null);
@@ -383,12 +387,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -475,12 +480,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -567,12 +573,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -659,12 +666,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -751,12 +759,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -843,12 +852,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -935,12 +945,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -1027,12 +1038,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -1119,12 +1131,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -1211,12 +1224,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -1303,12 +1317,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -1395,12 +1410,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -1487,12 +1503,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -1579,12 +1596,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -1671,12 +1689,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -1763,12 +1782,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -1855,12 +1875,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -1947,12 +1968,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -2039,12 +2061,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -2131,12 +2154,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -2223,12 +2247,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -2315,12 +2340,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -2407,12 +2433,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -2499,12 +2526,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -2591,12 +2619,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual27() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual27() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -2683,12 +2712,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual28() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual28() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -2775,12 +2805,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual29() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual29() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -2867,12 +2898,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual30() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual30() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -2959,12 +2991,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual31() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual31() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -3051,12 +3084,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual32() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual32() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -3143,12 +3177,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual33() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual33() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -3235,12 +3270,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual34() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual34() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -3327,12 +3363,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual35() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual35() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -3419,12 +3456,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual36() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual36() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -3511,12 +3549,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual37() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual37() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -3603,12 +3642,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual38() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual38() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -3695,12 +3735,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual39() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual39() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -3787,12 +3828,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual40() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual40() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -3879,12 +3921,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual41() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual41() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -3971,12 +4014,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual42() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual42() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -4063,12 +4107,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual43() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual43() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -4155,12 +4200,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual44() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual44() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -4247,12 +4293,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual45() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual45() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -4339,12 +4386,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual46() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual46() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -4431,12 +4479,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual47() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual47() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -4523,12 +4572,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual48() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual48() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -4615,12 +4665,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual49() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual49() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -4707,12 +4758,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual50() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual50() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -4799,12 +4851,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual51() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual51() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -4891,12 +4944,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual52() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual52() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -4983,12 +5037,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual53() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual53() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -5075,12 +5130,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual54() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual54() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -5167,12 +5223,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual55() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual55() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -5259,12 +5316,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual56() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual56() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -5351,12 +5409,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual57() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual57() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -5443,12 +5502,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual58() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual58() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -5535,12 +5595,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual59() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual59() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -5627,12 +5688,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual60() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual60() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -5719,12 +5781,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual61() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual61() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -5811,12 +5874,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -5868,12 +5932,13 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean OAuth2ClientEntity.equals(Object)",
     "int OAuth2ClientEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -5985,7 +6050,8 @@ public class OAuth2ClientEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void OAuth2ClientEntity.<init>()",
     "Boolean OAuth2ClientEntity.getActivateUser()",
@@ -6050,7 +6116,7 @@ public class OAuth2ClientEntityDiffblueTest {
     "void OAuth2ClientEntity.setUsername(String)",
     "String OAuth2ClientEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     OAuth2ClientEntity actualOAuth2ClientEntity = new OAuth2ClientEntity();
     actualOAuth2ClientEntity.setActivateUser(true);
@@ -6178,9 +6244,11 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#OAuth2ClientEntity(OAuth2Client)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new OAuth2ClientEntity(OAuth2Client); given ArrayList(); then return ActivateUser is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void OAuth2ClientEntity.<init>(OAuth2Client)"})
-  public void testNewOAuth2ClientEntity_givenArrayList_thenReturnActivateUserIsNull() {
+  void testNewOAuth2ClientEntity_givenArrayList_thenReturnActivateUserIsNull() {
     // Arrange
     OAuth2Client oAuth2Client = new OAuth2Client();
     oAuth2Client.setScope(new ArrayList<>());
@@ -6217,9 +6285,11 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#OAuth2ClientEntity(OAuth2Client)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new OAuth2ClientEntity(OAuth2Client); given SYSTEM_TENANT; then return ActivateUser is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void OAuth2ClientEntity.<init>(OAuth2Client)"})
-  public void testNewOAuth2ClientEntity_givenSystem_tenant_thenReturnActivateUserIsNull() {
+  void testNewOAuth2ClientEntity_givenSystem_tenant_thenReturnActivateUserIsNull() {
     // Arrange
     OAuth2Client oAuth2Client = new OAuth2Client();
     oAuth2Client.setScope(new ArrayList<>());
@@ -6256,9 +6326,10 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#OAuth2ClientEntity(OAuth2Client)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new OAuth2ClientEntity(OAuth2Client); then return ActivateUser")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void OAuth2ClientEntity.<init>(OAuth2Client)"})
-  public void testNewOAuth2ClientEntity_thenReturnActivateUser() {
+  void testNewOAuth2ClientEntity_thenReturnActivateUser() {
     // Arrange
     OAuth2Client oAuth2Client = new OAuth2Client();
     OAuth2MapperConfigBuilder allowUserCreationResult =
@@ -6317,9 +6388,10 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#OAuth2ClientEntity(OAuth2Client)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new OAuth2ClientEntity(OAuth2Client); then return not ActivateUser")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void OAuth2ClientEntity.<init>(OAuth2Client)"})
-  public void testNewOAuth2ClientEntity_thenReturnNotActivateUser() {
+  void testNewOAuth2ClientEntity_thenReturnNotActivateUser() {
     // Arrange
     OAuth2Client oAuth2Client = new OAuth2Client();
     OAuth2MapperConfigBuilder allowUserCreationResult =
@@ -6378,9 +6450,11 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#OAuth2ClientEntity(OAuth2Client)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new OAuth2ClientEntity(OAuth2Client); when OAuth2Client() Platforms is ArrayList()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void OAuth2ClientEntity.<init>(OAuth2Client)"})
-  public void testNewOAuth2ClientEntity_whenOAuth2ClientPlatformsIsArrayList() {
+  void testNewOAuth2ClientEntity_whenOAuth2ClientPlatformsIsArrayList() {
     // Arrange
     OAuth2Client oAuth2Client = new OAuth2Client();
     oAuth2Client.setPlatforms(new ArrayList<>());
@@ -6440,9 +6514,10 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given OAuth2ClientEntity() Platforms is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"OAuth2Client OAuth2ClientEntity.toData()"})
-  public void testToData_givenOAuth2ClientEntityPlatformsIsEmptyString() {
+  void testToData_givenOAuth2ClientEntityPlatformsIsEmptyString() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -6505,9 +6580,11 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given OAuth2ClientEntity() Type is APPLE; then return MapperConfig Type is 'APPLE'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"OAuth2Client OAuth2ClientEntity.toData()"})
-  public void testToData_givenOAuth2ClientEntityTypeIsApple_thenReturnMapperConfigTypeIsApple() {
+  void testToData_givenOAuth2ClientEntityTypeIsApple_thenReturnMapperConfigTypeIsApple() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -6570,9 +6647,11 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given OAuth2ClientEntity() Type is BASIC; then return MapperConfig Type is 'BASIC'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"OAuth2Client OAuth2ClientEntity.toData()"})
-  public void testToData_givenOAuth2ClientEntityTypeIsBasic_thenReturnMapperConfigTypeIsBasic() {
+  void testToData_givenOAuth2ClientEntityTypeIsBasic_thenReturnMapperConfigTypeIsBasic() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -6634,9 +6713,11 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return MapperConfig Custom Url is 'https://example.org/example'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"OAuth2Client OAuth2ClientEntity.toData()"})
-  public void testToData_thenReturnMapperConfigCustomUrlIsHttpsExampleOrgExample() {
+  void testToData_thenReturnMapperConfigCustomUrlIsHttpsExampleOrgExample() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);
@@ -6694,9 +6775,10 @@ public class OAuth2ClientEntityDiffblueTest {
    * <p>Method under test: {@link OAuth2ClientEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return MapperConfig Type is 'GITHUB'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"OAuth2Client OAuth2ClientEntity.toData()"})
-  public void testToData_thenReturnMapperConfigTypeIsGithub() {
+  void testToData_thenReturnMapperConfigTypeIsGithub() {
     // Arrange
     OAuth2ClientEntity oAuth2ClientEntity = new OAuth2ClientEntity();
     oAuth2ClientEntity.setActivateUser(true);

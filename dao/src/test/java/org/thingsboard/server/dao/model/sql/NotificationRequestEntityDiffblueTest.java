@@ -1,16 +1,15 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.anyLong;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
@@ -22,8 +21,9 @@ import com.fasterxml.jackson.databind.node.TreeTraversingParser;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.thingsboard.server.common.data.ApiFeature;
 import org.thingsboard.server.common.data.ApiUsageRecordKey;
@@ -58,7 +58,7 @@ import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.entity.BaseEntityService;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class NotificationRequestEntityDiffblueTest {
+class NotificationRequestEntityDiffblueTest {
   /**
    * Test {@link NotificationRequestEntity#equals(Object)}, and {@link
    * NotificationRequestEntity#hashCode()}.
@@ -76,12 +76,13 @@ public class NotificationRequestEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -145,12 +146,13 @@ public class NotificationRequestEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -258,12 +260,13 @@ public class NotificationRequestEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -301,12 +304,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(DoubleNode.valueOf(10.0d));
@@ -361,12 +365,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(null);
@@ -421,12 +426,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -482,12 +488,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -543,12 +550,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -604,12 +612,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -664,12 +673,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -724,12 +734,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -785,12 +796,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -846,12 +858,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -907,12 +920,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -968,12 +982,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -1029,12 +1044,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -1090,12 +1106,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -1151,12 +1168,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -1212,12 +1230,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -1273,12 +1292,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -1335,12 +1355,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -1396,12 +1417,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -1457,12 +1479,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -1517,12 +1540,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -1577,12 +1601,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -1638,12 +1663,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -1699,12 +1725,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -1784,12 +1811,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -1871,12 +1899,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -1960,12 +1989,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual27() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual27() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -2050,12 +2080,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual28() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual28() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -2142,12 +2173,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual29() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual29() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -2236,12 +2268,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual30() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual30() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -2332,12 +2365,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual31() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual31() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -2430,12 +2464,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual32() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual32() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -2530,12 +2565,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual33() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual33() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -2631,12 +2667,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual34() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual34() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -2734,12 +2771,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual35() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual35() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -2839,12 +2877,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual36() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual36() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -2944,12 +2983,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -2985,12 +3025,13 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean NotificationRequestEntity.equals(Object)",
     "int NotificationRequestEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setAdditionalConfig(
@@ -3048,7 +3089,8 @@ public class NotificationRequestEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void NotificationRequestEntity.<init>()",
     "JsonNode NotificationRequestEntity.getAdditionalConfig()",
@@ -3075,7 +3117,7 @@ public class NotificationRequestEntityDiffblueTest {
     "void NotificationRequestEntity.setTenantId(UUID)",
     "String NotificationRequestEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     NotificationRequestEntity actualNotificationRequestEntity = new NotificationRequestEntity();
     actualNotificationRequestEntity.setAdditionalConfig(
@@ -3146,9 +3188,10 @@ public class NotificationRequestEntityDiffblueTest {
    * NotificationRequestEntity#NotificationRequestEntity(NotificationRequest)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new NotificationRequestEntity(NotificationRequest)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void NotificationRequestEntity.<init>(NotificationRequest)"})
-  public void testNewNotificationRequestEntity() {
+  void testNewNotificationRequestEntity() {
     // Arrange
     NotificationRequest notificationRequest = new NotificationRequest(new NotificationRequest());
     notificationRequest.setOriginatorEntityId(BaseEntityService.NULL_CUSTOMER_ID);
@@ -3172,9 +3215,10 @@ public class NotificationRequestEntityDiffblueTest {
    * NotificationRequestEntity#NotificationRequestEntity(NotificationRequest)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new NotificationRequestEntity(NotificationRequest)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void NotificationRequestEntity.<init>(NotificationRequest)"})
-  public void testNewNotificationRequestEntity2() {
+  void testNewNotificationRequestEntity2() {
     // Arrange
     NotificationRequest notificationRequest = new NotificationRequest();
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -3202,9 +3246,10 @@ public class NotificationRequestEntityDiffblueTest {
    * NotificationRequestEntity#NotificationRequestEntity(NotificationRequest)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new NotificationRequestEntity(NotificationRequest)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void NotificationRequestEntity.<init>(NotificationRequest)"})
-  public void testNewNotificationRequestEntity3() {
+  void testNewNotificationRequestEntity3() {
     // Arrange
     ArrayList<UUID> targets = new ArrayList<>();
     targets.add(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -3234,9 +3279,10 @@ public class NotificationRequestEntityDiffblueTest {
    * NotificationRequestEntity#NotificationRequestEntity(NotificationRequest)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new NotificationRequestEntity(NotificationRequest)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void NotificationRequestEntity.<init>(NotificationRequest)"})
-  public void testNewNotificationRequestEntity4() {
+  void testNewNotificationRequestEntity4() {
     // Arrange
     ArrayList<UUID> targets = new ArrayList<>();
     targets.add(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -3268,9 +3314,10 @@ public class NotificationRequestEntityDiffblueTest {
    * NotificationRequestEntity#NotificationRequestEntity(NotificationRequest)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new NotificationRequestEntity(NotificationRequest)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void NotificationRequestEntity.<init>(NotificationRequest)"})
-  public void testNewNotificationRequestEntity5() {
+  void testNewNotificationRequestEntity5() {
     // Arrange
     NotificationRequestBuilder builderResult = NotificationRequest.builder();
     ApiUsageLimitNotificationInfo info =
@@ -3323,9 +3370,10 @@ public class NotificationRequestEntityDiffblueTest {
    * NotificationRequestEntity#NotificationRequestEntity(NotificationRequestEntity)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new NotificationRequestEntity(NotificationRequestEntity)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void NotificationRequestEntity.<init>(NotificationRequestEntity)"})
-  public void testNewNotificationRequestEntity6() {
+  void testNewNotificationRequestEntity6() {
     // Arrange
     NotificationRequestEntity other = new NotificationRequestEntity();
     other.setAdditionalConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -3358,9 +3406,10 @@ public class NotificationRequestEntityDiffblueTest {
    * NotificationRequestEntity#NotificationRequestEntity(NotificationRequest)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new NotificationRequestEntity(NotificationRequest); given ArrayList()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void NotificationRequestEntity.<init>(NotificationRequest)"})
-  public void testNewNotificationRequestEntity_givenArrayList() {
+  void testNewNotificationRequestEntity_givenArrayList() {
     // Arrange
     NotificationRequest notificationRequest = new NotificationRequest();
     notificationRequest.setTargets(new ArrayList<>());
@@ -3390,9 +3439,11 @@ public class NotificationRequestEntityDiffblueTest {
    * NotificationRequestEntity#NotificationRequestEntity(NotificationRequest)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new NotificationRequestEntity(NotificationRequest); given one; then return CreatedTime is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void NotificationRequestEntity.<init>(NotificationRequest)"})
-  public void testNewNotificationRequestEntity_givenOne_thenReturnCreatedTimeIsOne() {
+  void testNewNotificationRequestEntity_givenOne_thenReturnCreatedTimeIsOne() {
     // Arrange
     NotificationRequest notificationRequest = new NotificationRequest();
     notificationRequest.setCreatedTime(1L);
@@ -3422,9 +3473,10 @@ public class NotificationRequestEntityDiffblueTest {
    * NotificationRequestEntity#NotificationRequestEntity(NotificationRequest)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new NotificationRequestEntity(NotificationRequest); given SYSTEM_TENANT")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void NotificationRequestEntity.<init>(NotificationRequest)"})
-  public void testNewNotificationRequestEntity_givenSystem_tenant() {
+  void testNewNotificationRequestEntity_givenSystem_tenant() {
     // Arrange
     NotificationRequest notificationRequest = new NotificationRequest();
     notificationRequest.setTenantId(ModelConstants.SYSTEM_TENANT);
@@ -3453,9 +3505,11 @@ public class NotificationRequestEntityDiffblueTest {
    * NotificationRequestEntity#NotificationRequestEntity(NotificationRequest)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new NotificationRequestEntity(NotificationRequest); then return OriginatorEntityType is 'TENANT'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void NotificationRequestEntity.<init>(NotificationRequest)"})
-  public void testNewNotificationRequestEntity_thenReturnOriginatorEntityTypeIsTenant() {
+  void testNewNotificationRequestEntity_thenReturnOriginatorEntityTypeIsTenant() {
     // Arrange
     NotificationRequestBuilder builderResult = NotificationRequest.builder();
     ApiUsageLimitNotificationInfo info =
@@ -3513,9 +3567,11 @@ public class NotificationRequestEntityDiffblueTest {
    * NotificationRequestEntity#NotificationRequestEntity(NotificationRequest)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new NotificationRequestEntity(NotificationRequest); then Template iterator next return NullNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void NotificationRequestEntity.<init>(NotificationRequest)"})
-  public void testNewNotificationRequestEntity_thenTemplateIteratorNextReturnNullNode() {
+  void testNewNotificationRequestEntity_thenTemplateIteratorNextReturnNullNode() {
     // Arrange
     NotificationRequest notificationRequest = new NotificationRequest();
     notificationRequest.setTemplate(new NotificationTemplate());
@@ -3543,9 +3599,11 @@ public class NotificationRequestEntityDiffblueTest {
    * NotificationRequestEntity#NotificationRequestEntity(NotificationRequest)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new NotificationRequestEntity(NotificationRequest); when NotificationRequest()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void NotificationRequestEntity.<init>(NotificationRequest)"})
-  public void testNewNotificationRequestEntity_whenNotificationRequest() {
+  void testNewNotificationRequestEntity_whenNotificationRequest() {
     // Arrange and Act
     NotificationRequestEntity actualNotificationRequestEntity =
         new NotificationRequestEntity(new NotificationRequest());
@@ -3569,9 +3627,10 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given NotificationRequestEntity()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"NotificationRequest NotificationRequestEntity.toData()"})
-  public void testToData_givenNotificationRequestEntity() {
+  void testToData_givenNotificationRequestEntity() {
     // Arrange and Act
     NotificationRequest actualToDataResult = new NotificationRequestEntity().toData();
 
@@ -3593,9 +3652,10 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given NotificationRequestEntity() Template is Instance")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"NotificationRequest NotificationRequestEntity.toData()"})
-  public void testToData_givenNotificationRequestEntityTemplateIsInstance() {
+  void testToData_givenNotificationRequestEntityTemplateIsInstance() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setTemplate(MissingNode.getInstance());
@@ -3622,9 +3682,10 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given NotificationRequestEntity() TenantId is NULL_UUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"NotificationRequest NotificationRequestEntity.toData()"})
-  public void testToData_givenNotificationRequestEntityTenantIdIsNull_uuid() {
+  void testToData_givenNotificationRequestEntityTenantIdIsNull_uuid() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setTenantId(ModelConstants.NULL_UUID);
@@ -3650,9 +3711,10 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then Info return AlarmAssignmentNotificationInfo")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"NotificationRequest NotificationRequestEntity.toData()"})
-  public void testToData_thenInfoReturnAlarmAssignmentNotificationInfo() {
+  void testToData_thenInfoReturnAlarmAssignmentNotificationInfo() {
     // Arrange
     NotificationRequestBuilder builderResult = NotificationRequest.builder();
     AlarmAssignmentNotificationInfo info = new AlarmAssignmentNotificationInfo();
@@ -3697,9 +3759,10 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then OriginatorEntityId return AlarmId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"NotificationRequest NotificationRequestEntity.toData()"})
-  public void testToData_thenOriginatorEntityIdReturnAlarmId() {
+  void testToData_thenOriginatorEntityIdReturnAlarmId() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setOriginatorEntityType(EntityType.ALARM);
@@ -3726,9 +3789,10 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then OriginatorEntityId return AssetId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"NotificationRequest NotificationRequestEntity.toData()"})
-  public void testToData_thenOriginatorEntityIdReturnAssetId() {
+  void testToData_thenOriginatorEntityIdReturnAssetId() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setOriginatorEntityType(EntityType.ASSET);
@@ -3755,9 +3819,10 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then OriginatorEntityId return CustomerId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"NotificationRequest NotificationRequestEntity.toData()"})
-  public void testToData_thenOriginatorEntityIdReturnCustomerId() {
+  void testToData_thenOriginatorEntityIdReturnCustomerId() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setOriginatorEntityType(EntityType.CUSTOMER);
@@ -3784,9 +3849,10 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then OriginatorEntityId return DashboardId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"NotificationRequest NotificationRequestEntity.toData()"})
-  public void testToData_thenOriginatorEntityIdReturnDashboardId() {
+  void testToData_thenOriginatorEntityIdReturnDashboardId() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setOriginatorEntityType(EntityType.DASHBOARD);
@@ -3813,9 +3879,10 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then OriginatorEntityId return DeviceId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"NotificationRequest NotificationRequestEntity.toData()"})
-  public void testToData_thenOriginatorEntityIdReturnDeviceId() {
+  void testToData_thenOriginatorEntityIdReturnDeviceId() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setOriginatorEntityType(EntityType.DEVICE);
@@ -3842,9 +3909,10 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then OriginatorEntityId return DeviceProfileId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"NotificationRequest NotificationRequestEntity.toData()"})
-  public void testToData_thenOriginatorEntityIdReturnDeviceProfileId() {
+  void testToData_thenOriginatorEntityIdReturnDeviceProfileId() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setOriginatorEntityType(EntityType.DEVICE_PROFILE);
@@ -3871,9 +3939,10 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then OriginatorEntityId return EntityViewId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"NotificationRequest NotificationRequestEntity.toData()"})
-  public void testToData_thenOriginatorEntityIdReturnEntityViewId() {
+  void testToData_thenOriginatorEntityIdReturnEntityViewId() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setOriginatorEntityType(EntityType.ENTITY_VIEW);
@@ -3900,9 +3969,10 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then OriginatorEntityId return RuleChainId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"NotificationRequest NotificationRequestEntity.toData()"})
-  public void testToData_thenOriginatorEntityIdReturnRuleChainId() {
+  void testToData_thenOriginatorEntityIdReturnRuleChainId() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setOriginatorEntityType(EntityType.RULE_CHAIN);
@@ -3929,9 +3999,10 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then OriginatorEntityId return RuleNodeId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"NotificationRequest NotificationRequestEntity.toData()"})
-  public void testToData_thenOriginatorEntityIdReturnRuleNodeId() {
+  void testToData_thenOriginatorEntityIdReturnRuleNodeId() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setOriginatorEntityType(EntityType.RULE_NODE);
@@ -3958,9 +4029,10 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then OriginatorEntityId return TenantId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"NotificationRequest NotificationRequestEntity.toData()"})
-  public void testToData_thenOriginatorEntityIdReturnTenantId() {
+  void testToData_thenOriginatorEntityIdReturnTenantId() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setOriginatorEntityType(EntityType.TENANT);
@@ -3986,9 +4058,10 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then OriginatorEntityId return TenantProfileId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"NotificationRequest NotificationRequestEntity.toData()"})
-  public void testToData_thenOriginatorEntityIdReturnTenantProfileId() {
+  void testToData_thenOriginatorEntityIdReturnTenantProfileId() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setOriginatorEntityType(EntityType.TENANT_PROFILE);
@@ -4015,9 +4088,10 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then OriginatorEntityId return UserId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"NotificationRequest NotificationRequestEntity.toData()"})
-  public void testToData_thenOriginatorEntityIdReturnUserId() {
+  void testToData_thenOriginatorEntityIdReturnUserId() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setOriginatorEntityType(EntityType.USER);
@@ -4045,9 +4119,10 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then OriginatorEntityId return WidgetTypeId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"NotificationRequest NotificationRequestEntity.toData()"})
-  public void testToData_thenOriginatorEntityIdReturnWidgetTypeId() {
+  void testToData_thenOriginatorEntityIdReturnWidgetTypeId() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setOriginatorEntityType(EntityType.WIDGET_TYPE);
@@ -4074,9 +4149,10 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then OriginatorEntityId return WidgetsBundleId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"NotificationRequest NotificationRequestEntity.toData()"})
-  public void testToData_thenOriginatorEntityIdReturnWidgetsBundleId() {
+  void testToData_thenOriginatorEntityIdReturnWidgetsBundleId() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setOriginatorEntityType(EntityType.WIDGETS_BUNDLE);
@@ -4103,9 +4179,11 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return TemplateId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"NotificationRequest NotificationRequestEntity.toData()"})
-  public void testToData_thenReturnTemplateIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnTemplateIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     UUID templateId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -4130,9 +4208,10 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return TenantId Id is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"NotificationRequest NotificationRequestEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdIsRandomUUID() {
+  void testToData_thenReturnTenantIdIdIsRandomUUID() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     UUID tenantId = UUID.randomUUID();
@@ -4159,9 +4238,11 @@ public class NotificationRequestEntityDiffblueTest {
    * <p>Method under test: {@link NotificationRequestEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return TenantId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"NotificationRequest NotificationRequestEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     NotificationRequestEntity notificationRequestEntity = new NotificationRequestEntity();
     notificationRequestEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));

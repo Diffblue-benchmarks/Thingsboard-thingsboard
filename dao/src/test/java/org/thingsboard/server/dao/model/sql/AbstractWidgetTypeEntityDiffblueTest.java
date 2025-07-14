@@ -1,30 +1,31 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.common.data.id.WidgetTypeId;
 import org.thingsboard.server.common.data.widget.BaseWidgetType;
 
-public class AbstractWidgetTypeEntityDiffblueTest {
+class AbstractWidgetTypeEntityDiffblueTest {
   /**
    * Test {@link AbstractWidgetTypeEntity#toBaseWidgetType()}.
    *
    * <p>Method under test: {@link AbstractWidgetTypeEntity#toBaseWidgetType()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toBaseWidgetType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"BaseWidgetType AbstractWidgetTypeEntity.toBaseWidgetType()"})
-  public void testToBaseWidgetType() {
+  void testToBaseWidgetType() {
     // Arrange
     WidgetTypeDetailsEntity widgetTypeDetailsEntity = new WidgetTypeDetailsEntity();
     widgetTypeDetailsEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -48,9 +49,11 @@ public class AbstractWidgetTypeEntityDiffblueTest {
    * <p>Method under test: {@link AbstractWidgetTypeEntity#toBaseWidgetType()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toBaseWidgetType(); given WidgetTypeDetailsEntity(); then return Version is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"BaseWidgetType AbstractWidgetTypeEntity.toBaseWidgetType()"})
-  public void testToBaseWidgetType_givenWidgetTypeDetailsEntity_thenReturnVersionIsNull() {
+  void testToBaseWidgetType_givenWidgetTypeDetailsEntity_thenReturnVersionIsNull() {
     // Arrange and Act
     BaseWidgetType actualToBaseWidgetTypeResult = new WidgetTypeDetailsEntity().toBaseWidgetType();
 
@@ -79,9 +82,10 @@ public class AbstractWidgetTypeEntityDiffblueTest {
    * <p>Method under test: {@link AbstractWidgetTypeEntity#toBaseWidgetType()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toBaseWidgetType(); then return TenantId Id is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"BaseWidgetType AbstractWidgetTypeEntity.toBaseWidgetType()"})
-  public void testToBaseWidgetType_thenReturnTenantIdIdIsRandomUUID() {
+  void testToBaseWidgetType_thenReturnTenantIdIdIsRandomUUID() {
     // Arrange
     WidgetTypeDetailsEntity widgetTypeDetailsEntity = new WidgetTypeDetailsEntity();
     UUID tenantId = UUID.randomUUID();
@@ -101,9 +105,10 @@ public class AbstractWidgetTypeEntityDiffblueTest {
    * <p>Method under test: {@link AbstractWidgetTypeEntity#getFqn()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getFqn()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractWidgetTypeEntity.getFqn()"})
-  public void testGetFqn() {
+  void testGetFqn() {
     // Arrange, Act and Assert
     assertNull(new WidgetTypeDetailsEntity().getFqn());
   }
@@ -114,9 +119,10 @@ public class AbstractWidgetTypeEntityDiffblueTest {
    * <p>Method under test: {@link AbstractWidgetTypeEntity#getName()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getName()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractWidgetTypeEntity.getName()"})
-  public void testGetName() {
+  void testGetName() {
     // Arrange, Act and Assert
     assertNull(new WidgetTypeDetailsEntity().getName());
   }
@@ -127,9 +133,10 @@ public class AbstractWidgetTypeEntityDiffblueTest {
    * <p>Method under test: {@link AbstractWidgetTypeEntity#getTenantId()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getTenantId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID AbstractWidgetTypeEntity.getTenantId()"})
-  public void testGetTenantId() {
+  void testGetTenantId() {
     // Arrange, Act and Assert
     assertNull(new WidgetTypeDetailsEntity().getTenantId());
   }
@@ -146,9 +153,11 @@ public class AbstractWidgetTypeEntityDiffblueTest {
    * <p>Method under test: {@link AbstractWidgetTypeEntity#isDeprecated()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test isDeprecated(); given WidgetTypeDetailsEntity() Deprecated is 'true'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AbstractWidgetTypeEntity.isDeprecated()"})
-  public void testIsDeprecated_givenWidgetTypeDetailsEntityDeprecatedIsTrue_thenReturnTrue() {
+  void testIsDeprecated_givenWidgetTypeDetailsEntityDeprecatedIsTrue_thenReturnTrue() {
     // Arrange
     WidgetTypeDetailsEntity widgetTypeDetailsEntity = new WidgetTypeDetailsEntity();
     widgetTypeDetailsEntity.setDeprecated(true);
@@ -168,9 +177,10 @@ public class AbstractWidgetTypeEntityDiffblueTest {
    * <p>Method under test: {@link AbstractWidgetTypeEntity#isDeprecated()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test isDeprecated(); given WidgetTypeDetailsEntity(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AbstractWidgetTypeEntity.isDeprecated()"})
-  public void testIsDeprecated_givenWidgetTypeDetailsEntity_thenReturnFalse() {
+  void testIsDeprecated_givenWidgetTypeDetailsEntity_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(new WidgetTypeDetailsEntity().isDeprecated());
   }
@@ -186,9 +196,11 @@ public class AbstractWidgetTypeEntityDiffblueTest {
    * <p>Method under test: {@link AbstractWidgetTypeEntity#isScada()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test isScada(); given WidgetTypeDetailsEntity() Scada is 'true'; then return 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AbstractWidgetTypeEntity.isScada()"})
-  public void testIsScada_givenWidgetTypeDetailsEntityScadaIsTrue_thenReturnTrue() {
+  void testIsScada_givenWidgetTypeDetailsEntityScadaIsTrue_thenReturnTrue() {
     // Arrange
     WidgetTypeDetailsEntity widgetTypeDetailsEntity = new WidgetTypeDetailsEntity();
     widgetTypeDetailsEntity.setScada(true);
@@ -208,9 +220,10 @@ public class AbstractWidgetTypeEntityDiffblueTest {
    * <p>Method under test: {@link AbstractWidgetTypeEntity#isScada()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test isScada(); given WidgetTypeDetailsEntity(); then return 'false'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AbstractWidgetTypeEntity.isScada()"})
-  public void testIsScada_givenWidgetTypeDetailsEntity_thenReturnFalse() {
+  void testIsScada_givenWidgetTypeDetailsEntity_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(new WidgetTypeDetailsEntity().isScada());
   }
@@ -221,9 +234,10 @@ public class AbstractWidgetTypeEntityDiffblueTest {
    * <p>Method under test: {@link AbstractWidgetTypeEntity#setDeprecated(boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setDeprecated(boolean)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractWidgetTypeEntity.setDeprecated(boolean)"})
-  public void testSetDeprecated() {
+  void testSetDeprecated() {
     // Arrange
     WidgetTypeDetailsEntity widgetTypeDetailsEntity = new WidgetTypeDetailsEntity();
 
@@ -240,9 +254,10 @@ public class AbstractWidgetTypeEntityDiffblueTest {
    * <p>Method under test: {@link AbstractWidgetTypeEntity#setFqn(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setFqn(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractWidgetTypeEntity.setFqn(String)"})
-  public void testSetFqn() {
+  void testSetFqn() {
     // Arrange
     WidgetTypeDetailsEntity widgetTypeDetailsEntity = new WidgetTypeDetailsEntity();
 
@@ -259,9 +274,10 @@ public class AbstractWidgetTypeEntityDiffblueTest {
    * <p>Method under test: {@link AbstractWidgetTypeEntity#setName(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setName(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractWidgetTypeEntity.setName(String)"})
-  public void testSetName() {
+  void testSetName() {
     // Arrange
     WidgetTypeDetailsEntity widgetTypeDetailsEntity = new WidgetTypeDetailsEntity();
 
@@ -278,9 +294,10 @@ public class AbstractWidgetTypeEntityDiffblueTest {
    * <p>Method under test: {@link AbstractWidgetTypeEntity#setScada(boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setScada(boolean)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractWidgetTypeEntity.setScada(boolean)"})
-  public void testSetScada() {
+  void testSetScada() {
     // Arrange
     WidgetTypeDetailsEntity widgetTypeDetailsEntity = new WidgetTypeDetailsEntity();
 
@@ -297,9 +314,10 @@ public class AbstractWidgetTypeEntityDiffblueTest {
    * <p>Method under test: {@link AbstractWidgetTypeEntity#setTenantId(UUID)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setTenantId(UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractWidgetTypeEntity.setTenantId(UUID)"})
-  public void testSetTenantId() {
+  void testSetTenantId() {
     // Arrange
     WidgetTypeDetailsEntity widgetTypeDetailsEntity = new WidgetTypeDetailsEntity();
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");

@@ -1,18 +1,18 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.audit.ActionStatus;
 import org.thingsboard.server.common.data.audit.ActionType;
@@ -28,7 +28,7 @@ import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.entity.BaseEntityService;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class AuditLogEntityDiffblueTest {
+class AuditLogEntityDiffblueTest {
   /**
    * Test {@link AuditLogEntity#equals(Object)}, and {@link AuditLogEntity#hashCode()}.
    *
@@ -45,9 +45,10 @@ public class AuditLogEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -103,9 +104,10 @@ public class AuditLogEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -140,9 +142,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(DoubleNode.valueOf(10.0d));
@@ -191,9 +194,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(null);
@@ -242,9 +246,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -293,9 +298,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -344,9 +350,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -395,9 +402,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -446,9 +454,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -497,9 +506,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -548,9 +558,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -599,9 +610,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -650,9 +662,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -701,9 +714,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -752,9 +766,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -803,9 +818,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -854,9 +870,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -905,9 +922,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -956,9 +974,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1007,9 +1026,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1058,9 +1078,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1109,9 +1130,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1160,9 +1182,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1211,9 +1234,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1262,9 +1286,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1313,9 +1338,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1348,9 +1374,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogEntity.equals(Object)", "int AuditLogEntity.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1405,7 +1432,8 @@ public class AuditLogEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void AuditLogEntity.<init>()",
     "JsonNode AuditLogEntity.getActionData()",
@@ -1432,7 +1460,7 @@ public class AuditLogEntityDiffblueTest {
     "void AuditLogEntity.setUserName(String)",
     "String AuditLogEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     AuditLogEntity actualAuditLogEntity = new AuditLogEntity();
     JsonNode actionData = CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON;
@@ -1497,9 +1525,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#AuditLogEntity(AuditLog)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new AuditLogEntity(AuditLog)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AuditLogEntity.<init>(AuditLog)"})
-  public void testNewAuditLogEntity() {
+  void testNewAuditLogEntity() {
     // Arrange
     AuditLog auditLog = new AuditLog(new AuditLog());
     auditLog.setId(null);
@@ -1526,9 +1555,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#AuditLogEntity(AuditLog)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new AuditLogEntity(AuditLog)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AuditLogEntity.<init>(AuditLog)"})
-  public void testNewAuditLogEntity2() {
+  void testNewAuditLogEntity2() {
     // Arrange
     AuditLog auditLog = new AuditLog(new AuditLog());
     auditLog.setId(null);
@@ -1560,9 +1590,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#AuditLogEntity(AuditLog)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new AuditLogEntity(AuditLog); given one; then return CreatedTime is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AuditLogEntity.<init>(AuditLog)"})
-  public void testNewAuditLogEntity_givenOne_thenReturnCreatedTimeIsOne() {
+  void testNewAuditLogEntity_givenOne_thenReturnCreatedTimeIsOne() {
     // Arrange
     AuditLog auditLog = new AuditLog();
     auditLog.setCreatedTime(1L);
@@ -1588,9 +1619,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#AuditLogEntity(AuditLog)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new AuditLogEntity(AuditLog); then return EntityType is 'CUSTOMER'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AuditLogEntity.<init>(AuditLog)"})
-  public void testNewAuditLogEntity_thenReturnEntityTypeIsCustomer() {
+  void testNewAuditLogEntity_thenReturnEntityTypeIsCustomer() {
     // Arrange
     AuditLog auditLog = new AuditLog(new AuditLog());
     auditLog.setId(null);
@@ -1621,9 +1653,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#AuditLogEntity(AuditLog)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new AuditLogEntity(AuditLog); then return EntityType is 'TENANT'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AuditLogEntity.<init>(AuditLog)"})
-  public void testNewAuditLogEntity_thenReturnEntityTypeIsTenant() {
+  void testNewAuditLogEntity_thenReturnEntityTypeIsTenant() {
     // Arrange
     AuditLog auditLog = new AuditLog(new AuditLog());
     auditLog.setId(null);
@@ -1654,9 +1687,11 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#AuditLogEntity(AuditLog)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new AuditLogEntity(AuditLog); then return Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AuditLogEntity.<init>(AuditLog)"})
-  public void testNewAuditLogEntity_thenReturnIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testNewAuditLogEntity_thenReturnIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     AuditLog auditLog = new AuditLog(new AuditLog());
     UUID id = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -1686,9 +1721,11 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#AuditLogEntity(AuditLog)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new AuditLogEntity(AuditLog); then return UserId toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AuditLogEntity.<init>(AuditLog)"})
-  public void testNewAuditLogEntity_thenReturnUserIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testNewAuditLogEntity_thenReturnUserIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     AuditLog auditLog = new AuditLog(new AuditLog());
     auditLog.setId(null);
@@ -1721,9 +1758,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#AuditLogEntity(AuditLog)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new AuditLogEntity(AuditLog); when AuditLog(); then return EntityId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AuditLogEntity.<init>(AuditLog)"})
-  public void testNewAuditLogEntity_whenAuditLog_thenReturnEntityIdIsNull() {
+  void testNewAuditLogEntity_whenAuditLog_thenReturnEntityIdIsNull() {
     // Arrange and Act
     AuditLogEntity actualAuditLogEntity = new AuditLogEntity(new AuditLog());
 
@@ -1746,9 +1784,11 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given AuditLogEntity() EntityType is 'ASSET'; then EntityId return AssetId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AuditLog AuditLogEntity.toData()"})
-  public void testToData_givenAuditLogEntityEntityTypeIsAsset_thenEntityIdReturnAssetId() {
+  void testToData_givenAuditLogEntityEntityTypeIsAsset_thenEntityIdReturnAssetId() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1788,9 +1828,11 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given AuditLogEntity() EntityType is 'CUSTOMER'; then EntityId return CustomerId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AuditLog AuditLogEntity.toData()"})
-  public void testToData_givenAuditLogEntityEntityTypeIsCustomer_thenEntityIdReturnCustomerId() {
+  void testToData_givenAuditLogEntityEntityTypeIsCustomer_thenEntityIdReturnCustomerId() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1830,9 +1872,11 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given AuditLogEntity() EntityType is 'TENANT'; then EntityId return TenantId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AuditLog AuditLogEntity.toData()"})
-  public void testToData_givenAuditLogEntityEntityTypeIsTenant_thenEntityIdReturnTenantId() {
+  void testToData_givenAuditLogEntityEntityTypeIsTenant_thenEntityIdReturnTenantId() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1870,9 +1914,11 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); given AuditLogEntity() EntityType is 'USER'; then EntityId return UserId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AuditLog AuditLogEntity.toData()"})
-  public void testToData_givenAuditLogEntityEntityTypeIsUser_thenEntityIdReturnUserId() {
+  void testToData_givenAuditLogEntityEntityTypeIsUser_thenEntityIdReturnUserId() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1912,9 +1958,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given AuditLogEntity(); then return ActionData is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AuditLog AuditLogEntity.toData()"})
-  public void testToData_givenAuditLogEntity_thenReturnActionDataIsNull() {
+  void testToData_givenAuditLogEntity_thenReturnActionDataIsNull() {
     // Arrange and Act
     AuditLog actualToDataResult = new AuditLogEntity().toData();
 
@@ -1940,9 +1987,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then EntityId return DashboardId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AuditLog AuditLogEntity.toData()"})
-  public void testToData_thenEntityIdReturnDashboardId() {
+  void testToData_thenEntityIdReturnDashboardId() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1981,9 +2029,11 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return CustomerId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AuditLog AuditLogEntity.toData()"})
-  public void testToData_thenReturnCustomerIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnCustomerIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -2021,9 +2071,10 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return TenantId Id is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AuditLog AuditLogEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdIsRandomUUID() {
+  void testToData_thenReturnTenantIdIdIsRandomUUID() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -2070,9 +2121,11 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return TenantId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AuditLog AuditLogEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -2108,9 +2161,11 @@ public class AuditLogEntityDiffblueTest {
    * <p>Method under test: {@link AuditLogEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return UserId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AuditLog AuditLogEntity.toData()"})
-  public void testToData_thenReturnUserIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnUserIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     AuditLogEntity auditLogEntity = new AuditLogEntity();
     auditLogEntity.setActionData(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);

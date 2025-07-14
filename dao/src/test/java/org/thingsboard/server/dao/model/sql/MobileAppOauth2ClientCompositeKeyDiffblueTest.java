@@ -1,15 +1,15 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class MobileAppOauth2ClientCompositeKeyDiffblueTest {
+class MobileAppOauth2ClientCompositeKeyDiffblueTest {
   /**
    * Test {@link MobileAppOauth2ClientCompositeKey#equals(Object)}, and {@link
    * MobileAppOauth2ClientCompositeKey#hashCode()}.
@@ -27,12 +27,13 @@ public class MobileAppOauth2ClientCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppOauth2ClientCompositeKey.equals(Object)",
     "int MobileAppOauth2ClientCompositeKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     MobileAppOauth2ClientCompositeKey mobileAppOauth2ClientCompositeKey =
         new MobileAppOauth2ClientCompositeKey();
@@ -62,12 +63,13 @@ public class MobileAppOauth2ClientCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppOauth2ClientCompositeKey.equals(Object)",
     "int MobileAppOauth2ClientCompositeKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     UUID mobileAppId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     MobileAppOauth2ClientCompositeKey mobileAppOauth2ClientCompositeKey =
@@ -101,12 +103,13 @@ public class MobileAppOauth2ClientCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppOauth2ClientCompositeKey.equals(Object)",
     "int MobileAppOauth2ClientCompositeKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     MobileAppOauth2ClientCompositeKey mobileAppOauth2ClientCompositeKey =
         new MobileAppOauth2ClientCompositeKey();
@@ -128,12 +131,13 @@ public class MobileAppOauth2ClientCompositeKeyDiffblueTest {
    * <p>Method under test: {@link MobileAppOauth2ClientCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppOauth2ClientCompositeKey.equals(Object)",
     "int MobileAppOauth2ClientCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     UUID mobileAppId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     MobileAppOauth2ClientCompositeKey mobileAppOauth2ClientCompositeKey =
@@ -155,12 +159,13 @@ public class MobileAppOauth2ClientCompositeKeyDiffblueTest {
    * <p>Method under test: {@link MobileAppOauth2ClientCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppOauth2ClientCompositeKey.equals(Object)",
     "int MobileAppOauth2ClientCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     MobileAppOauth2ClientCompositeKey mobileAppOauth2ClientCompositeKey =
         new MobileAppOauth2ClientCompositeKey();
@@ -184,12 +189,13 @@ public class MobileAppOauth2ClientCompositeKeyDiffblueTest {
    * <p>Method under test: {@link MobileAppOauth2ClientCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppOauth2ClientCompositeKey.equals(Object)",
     "int MobileAppOauth2ClientCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     MobileAppOauth2ClientCompositeKey mobileAppOauth2ClientCompositeKey =
         new MobileAppOauth2ClientCompositeKey();
@@ -211,12 +217,13 @@ public class MobileAppOauth2ClientCompositeKeyDiffblueTest {
    * <p>Method under test: {@link MobileAppOauth2ClientCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppOauth2ClientCompositeKey.equals(Object)",
     "int MobileAppOauth2ClientCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     MobileAppOauth2ClientCompositeKey mobileAppOauth2ClientCompositeKey =
         new MobileAppOauth2ClientCompositeKey();
@@ -241,12 +248,13 @@ public class MobileAppOauth2ClientCompositeKeyDiffblueTest {
    * <p>Method under test: {@link MobileAppOauth2ClientCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppOauth2ClientCompositeKey.equals(Object)",
     "int MobileAppOauth2ClientCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new MobileAppOauth2ClientCompositeKey(), null);
   }
@@ -262,12 +270,13 @@ public class MobileAppOauth2ClientCompositeKeyDiffblueTest {
    * <p>Method under test: {@link MobileAppOauth2ClientCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean MobileAppOauth2ClientCompositeKey.equals(Object)",
     "int MobileAppOauth2ClientCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(
         new MobileAppOauth2ClientCompositeKey(),
@@ -289,7 +298,8 @@ public class MobileAppOauth2ClientCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void MobileAppOauth2ClientCompositeKey.<init>()",
     "void MobileAppOauth2ClientCompositeKey.<init>(UUID, UUID)",
@@ -299,7 +309,7 @@ public class MobileAppOauth2ClientCompositeKeyDiffblueTest {
     "void MobileAppOauth2ClientCompositeKey.setOauth2ClientId(UUID)",
     "String MobileAppOauth2ClientCompositeKey.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     MobileAppOauth2ClientCompositeKey actualMobileAppOauth2ClientCompositeKey =
         new MobileAppOauth2ClientCompositeKey();
@@ -341,7 +351,8 @@ public class MobileAppOauth2ClientCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters; when fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void MobileAppOauth2ClientCompositeKey.<init>()",
     "void MobileAppOauth2ClientCompositeKey.<init>(UUID, UUID)",
@@ -351,7 +362,7 @@ public class MobileAppOauth2ClientCompositeKeyDiffblueTest {
     "void MobileAppOauth2ClientCompositeKey.setOauth2ClientId(UUID)",
     "String MobileAppOauth2ClientCompositeKey.toString()"
   })
-  public void testGettersAndSetters_whenFromString784f394c42b6435a983cB7beff2784f9() {
+  void testGettersAndSetters_whenFromString784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     UUID mobileAppId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 

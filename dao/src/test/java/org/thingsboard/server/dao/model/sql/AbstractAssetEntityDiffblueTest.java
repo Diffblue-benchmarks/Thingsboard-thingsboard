@@ -1,17 +1,17 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.asset.Asset;
 import org.thingsboard.server.common.data.id.AssetId;
@@ -20,7 +20,7 @@ import org.thingsboard.server.common.data.id.CustomerId;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 
-public class AbstractAssetEntityDiffblueTest {
+class AbstractAssetEntityDiffblueTest {
   /**
    * Test {@link AbstractAssetEntity#toAsset()}.
    *
@@ -32,9 +32,10 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#toAsset()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toAsset(); given AssetEntity(); then return ExternalId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Asset AbstractAssetEntity.toAsset()"})
-  public void testToAsset_givenAssetEntity_thenReturnExternalIdIsNull() {
+  void testToAsset_givenAssetEntity_thenReturnExternalIdIsNull() {
     // Arrange and Act
     Asset actualToAssetResult = new AssetEntity().toAsset();
 
@@ -55,9 +56,11 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#toAsset()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toAsset(); then return AssetProfileId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Asset AbstractAssetEntity.toAsset()"})
-  public void testToAsset_thenReturnAssetProfileIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToAsset_thenReturnAssetProfileIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     assetEntity.setTenantId(null);
@@ -85,9 +88,11 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#toAsset()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toAsset(); then return CustomerId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Asset AbstractAssetEntity.toAsset()"})
-  public void testToAsset_thenReturnCustomerIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToAsset_thenReturnCustomerIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     assetEntity.setTenantId(null);
@@ -115,9 +120,11 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#toAsset()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toAsset(); then return ExternalId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Asset AbstractAssetEntity.toAsset()"})
-  public void testToAsset_thenReturnExternalIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToAsset_thenReturnExternalIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     assetEntity.setTenantId(null);
@@ -145,9 +152,10 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#toAsset()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toAsset(); then return TenantId Id is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Asset AbstractAssetEntity.toAsset()"})
-  public void testToAsset_thenReturnTenantIdIdIsRandomUUID() {
+  void testToAsset_thenReturnTenantIdIdIsRandomUUID() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     UUID tenantId = UUID.randomUUID();
@@ -184,9 +192,11 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#toAsset()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toAsset(); then return TenantId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Asset AbstractAssetEntity.toAsset()"})
-  public void testToAsset_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToAsset_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     assetEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -213,9 +223,10 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#canEqual(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test canEqual(Object); when AssetEntity(); then return 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AbstractAssetEntity.canEqual(Object)"})
-  public void testCanEqual_whenAssetEntity_thenReturnTrue() {
+  void testCanEqual_whenAssetEntity_thenReturnTrue() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
 
@@ -234,9 +245,10 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#canEqual(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test canEqual(Object); when 'Other'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AbstractAssetEntity.canEqual(Object)"})
-  public void testCanEqual_whenOther_thenReturnFalse() {
+  void testCanEqual_whenOther_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(new AssetEntity().canEqual("Other"));
   }
@@ -252,12 +264,13 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAssetEntity.equals(Object)",
     "int AbstractAssetEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     AssetEntity assetEntity2 = new AssetEntity();
@@ -279,12 +292,13 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAssetEntity.equals(Object)",
     "int AbstractAssetEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
 
@@ -305,12 +319,13 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAssetEntity.equals(Object)",
     "int AbstractAssetEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
 
@@ -337,12 +352,13 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAssetEntity.equals(Object)",
     "int AbstractAssetEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     assetEntity.setTenantId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -362,12 +378,13 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAssetEntity.equals(Object)",
     "int AbstractAssetEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     assetEntity.setCustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -387,12 +404,13 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAssetEntity.equals(Object)",
     "int AbstractAssetEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     assetEntity.setName("Name");
@@ -412,12 +430,13 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAssetEntity.equals(Object)",
     "int AbstractAssetEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     assetEntity.setType("Type");
@@ -437,12 +456,13 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAssetEntity.equals(Object)",
     "int AbstractAssetEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     assetEntity.setLabel("Label");
@@ -462,12 +482,13 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAssetEntity.equals(Object)",
     "int AbstractAssetEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     assetEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -487,12 +508,13 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAssetEntity.equals(Object)",
     "int AbstractAssetEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     assetEntity.setAssetProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -512,12 +534,13 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAssetEntity.equals(Object)",
     "int AbstractAssetEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     assetEntity.setExternalId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -537,12 +560,13 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAssetEntity.equals(Object)",
     "int AbstractAssetEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     assetEntity.setVersion(1L);
@@ -562,12 +586,13 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAssetEntity.equals(Object)",
     "int AbstractAssetEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
 
@@ -589,12 +614,13 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAssetEntity.equals(Object)",
     "int AbstractAssetEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
 
@@ -616,12 +642,13 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAssetEntity.equals(Object)",
     "int AbstractAssetEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
 
@@ -643,12 +670,13 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAssetEntity.equals(Object)",
     "int AbstractAssetEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
 
@@ -670,12 +698,13 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAssetEntity.equals(Object)",
     "int AbstractAssetEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
 
@@ -697,12 +726,13 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAssetEntity.equals(Object)",
     "int AbstractAssetEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
 
@@ -724,12 +754,13 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAssetEntity.equals(Object)",
     "int AbstractAssetEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
 
@@ -751,12 +782,13 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAssetEntity.equals(Object)",
     "int AbstractAssetEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
 
@@ -778,12 +810,13 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAssetEntity.equals(Object)",
     "int AbstractAssetEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AssetEntity(), null);
   }
@@ -799,12 +832,13 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AbstractAssetEntity.equals(Object)",
     "int AbstractAssetEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AssetEntity(), "Different type to AbstractAssetEntity");
   }
@@ -815,9 +849,10 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#getAdditionalInfo()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getAdditionalInfo()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"JsonNode AbstractAssetEntity.getAdditionalInfo()"})
-  public void testGetAdditionalInfo() {
+  void testGetAdditionalInfo() {
     // Arrange, Act and Assert
     assertNull(new AssetEntity().getAdditionalInfo());
   }
@@ -828,9 +863,10 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#getAssetProfileId()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getAssetProfileId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID AbstractAssetEntity.getAssetProfileId()"})
-  public void testGetAssetProfileId() {
+  void testGetAssetProfileId() {
     // Arrange, Act and Assert
     assertNull(new AssetEntity().getAssetProfileId());
   }
@@ -841,9 +877,10 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#getCustomerId()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getCustomerId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID AbstractAssetEntity.getCustomerId()"})
-  public void testGetCustomerId() {
+  void testGetCustomerId() {
     // Arrange, Act and Assert
     assertNull(new AssetEntity().getCustomerId());
   }
@@ -854,9 +891,10 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#getExternalId()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getExternalId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID AbstractAssetEntity.getExternalId()"})
-  public void testGetExternalId() {
+  void testGetExternalId() {
     // Arrange, Act and Assert
     assertNull(new AssetEntity().getExternalId());
   }
@@ -867,9 +905,10 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#getLabel()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getLabel()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractAssetEntity.getLabel()"})
-  public void testGetLabel() {
+  void testGetLabel() {
     // Arrange, Act and Assert
     assertNull(new AssetEntity().getLabel());
   }
@@ -880,9 +919,10 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#getName()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getName()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractAssetEntity.getName()"})
-  public void testGetName() {
+  void testGetName() {
     // Arrange, Act and Assert
     assertNull(new AssetEntity().getName());
   }
@@ -893,9 +933,10 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#getTenantId()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getTenantId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"UUID AbstractAssetEntity.getTenantId()"})
-  public void testGetTenantId() {
+  void testGetTenantId() {
     // Arrange, Act and Assert
     assertNull(new AssetEntity().getTenantId());
   }
@@ -906,9 +947,10 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#getType()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractAssetEntity.getType()"})
-  public void testGetType() {
+  void testGetType() {
     // Arrange, Act and Assert
     assertNull(new AssetEntity().getType());
   }
@@ -919,9 +961,10 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#setAdditionalInfo(JsonNode)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setAdditionalInfo(JsonNode)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAssetEntity.setAdditionalInfo(JsonNode)"})
-  public void testSetAdditionalInfo() {
+  void testSetAdditionalInfo() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     JsonNode additionalInfo = CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON;
@@ -940,9 +983,10 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#setAssetProfileId(UUID)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setAssetProfileId(UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAssetEntity.setAssetProfileId(UUID)"})
-  public void testSetAssetProfileId() {
+  void testSetAssetProfileId() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     UUID assetProfileId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -964,9 +1008,10 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#setCustomerId(UUID)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setCustomerId(UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAssetEntity.setCustomerId(UUID)"})
-  public void testSetCustomerId() {
+  void testSetCustomerId() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     UUID customerId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -988,9 +1033,10 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#setExternalId(UUID)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setExternalId(UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAssetEntity.setExternalId(UUID)"})
-  public void testSetExternalId() {
+  void testSetExternalId() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     UUID externalId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -1012,9 +1058,10 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#setLabel(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setLabel(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAssetEntity.setLabel(String)"})
-  public void testSetLabel() {
+  void testSetLabel() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
 
@@ -1032,9 +1079,10 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#setName(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setName(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAssetEntity.setName(String)"})
-  public void testSetName() {
+  void testSetName() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
 
@@ -1052,9 +1100,10 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#setTenantId(UUID)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setTenantId(UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAssetEntity.setTenantId(UUID)"})
-  public void testSetTenantId() {
+  void testSetTenantId() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
     UUID tenantId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -1077,9 +1126,10 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#setType(String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test setType(String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AbstractAssetEntity.setType(String)"})
-  public void testSetType() {
+  void testSetType() {
     // Arrange
     AssetEntity assetEntity = new AssetEntity();
 
@@ -1097,9 +1147,10 @@ public class AbstractAssetEntityDiffblueTest {
    * <p>Method under test: {@link AbstractAssetEntity#toString()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toString()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String AbstractAssetEntity.toString()"})
-  public void testToString() {
+  void testToString() {
     // Arrange, Act and Assert
     assertEquals("AssetEntity()", new AssetEntity().toString());
   }

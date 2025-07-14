@@ -1,15 +1,14 @@
 package org.thingsboard.server.dao.attributes;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.SettableFuture;
@@ -18,13 +17,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ExecutionException;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.thingsboard.server.common.data.AttributeScope;
 import org.thingsboard.server.common.data.id.DeviceProfileId;
 import org.thingsboard.server.common.data.id.EntityId;
@@ -35,8 +35,8 @@ import org.thingsboard.server.common.data.kv.JsonDataEntry;
 import org.thingsboard.server.dao.entity.BaseEntityService;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-@RunWith(MockitoJUnitRunner.class)
-public class BaseAttributesServiceDiffblueTest {
+@ExtendWith(MockitoExtension.class)
+class BaseAttributesServiceDiffblueTest {
   @Mock private AttributesDao attributesDao;
 
   @InjectMocks private BaseAttributesService baseAttributesService;
@@ -53,11 +53,13 @@ public class BaseAttributesServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test find(TenantId, EntityId, AttributeScope, String) with 'tenantId', 'entityId', 'scope', 'attributeKey'; then return Done")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture BaseAttributesService.find(TenantId, EntityId, AttributeScope, String)"
   })
-  public void testFindWithTenantIdEntityIdScopeAttributeKey_thenReturnDone()
+  void testFindWithTenantIdEntityIdScopeAttributeKey_thenReturnDone()
       throws InterruptedException, ExecutionException {
     // Arrange
     Optional<AttributeKvEntry> ofResult =
@@ -101,11 +103,13 @@ public class BaseAttributesServiceDiffblueTest {
    * Collection)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test find(TenantId, EntityId, AttributeScope, Collection) with 'tenantId', 'entityId', 'scope', 'attributeKeys'; given '42'; when ArrayList() add '42'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture BaseAttributesService.find(TenantId, EntityId, AttributeScope, Collection)"
   })
-  public void testFindWithTenantIdEntityIdScopeAttributeKeys_given42_whenArrayListAdd42()
+  void testFindWithTenantIdEntityIdScopeAttributeKeys_given42_whenArrayListAdd42()
       throws InterruptedException, ExecutionException {
     // Arrange
     when(attributesDao.find(
@@ -151,11 +155,13 @@ public class BaseAttributesServiceDiffblueTest {
    * Collection)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test find(TenantId, EntityId, AttributeScope, Collection) with 'tenantId', 'entityId', 'scope', 'attributeKeys'; given 'foo'; then return get() Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture BaseAttributesService.find(TenantId, EntityId, AttributeScope, Collection)"
   })
-  public void testFindWithTenantIdEntityIdScopeAttributeKeys_givenFoo_thenReturnGetEmpty()
+  void testFindWithTenantIdEntityIdScopeAttributeKeys_givenFoo_thenReturnGetEmpty()
       throws InterruptedException, ExecutionException {
     // Arrange
     when(attributesDao.find(
@@ -199,11 +205,13 @@ public class BaseAttributesServiceDiffblueTest {
    * Collection)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test find(TenantId, EntityId, AttributeScope, Collection) with 'tenantId', 'entityId', 'scope', 'attributeKeys'; then return get() Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture BaseAttributesService.find(TenantId, EntityId, AttributeScope, Collection)"
   })
-  public void testFindWithTenantIdEntityIdScopeAttributeKeys_thenReturnGetEmpty()
+  void testFindWithTenantIdEntityIdScopeAttributeKeys_thenReturnGetEmpty()
       throws InterruptedException, ExecutionException {
     // Arrange
     when(attributesDao.find(
@@ -243,11 +251,13 @@ public class BaseAttributesServiceDiffblueTest {
    * <p>Method under test: {@link BaseAttributesService#findAll(TenantId, EntityId, AttributeScope)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAll(TenantId, EntityId, AttributeScope); when NULL_CUSTOMER_ID; then return get() Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture BaseAttributesService.findAll(TenantId, EntityId, AttributeScope)"
   })
-  public void testFindAll_whenNull_customer_id_thenReturnGetEmpty()
+  void testFindAll_whenNull_customer_id_thenReturnGetEmpty()
       throws InterruptedException, ExecutionException {
     // Arrange
     when(attributesDao.findAll(
@@ -279,11 +289,12 @@ public class BaseAttributesServiceDiffblueTest {
    * DeviceProfileId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAllKeysByDeviceProfileId(TenantId, DeviceProfileId); then return Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "List BaseAttributesService.findAllKeysByDeviceProfileId(TenantId, DeviceProfileId)"
   })
-  public void testFindAllKeysByDeviceProfileId_thenReturnEmpty() {
+  void testFindAllKeysByDeviceProfileId_thenReturnEmpty() {
     // Arrange
     when(attributesDao.findAllKeysByDeviceProfileId(
             Mockito.<TenantId>any(), Mockito.<DeviceProfileId>any()))
@@ -306,9 +317,11 @@ public class BaseAttributesServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAllKeysByEntityIds(TenantId, List, String) with 'tenantId', 'entityIds', 'scope'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List BaseAttributesService.findAllKeysByEntityIds(TenantId, List, String)"})
-  public void testFindAllKeysByEntityIdsWithTenantIdEntityIdsScope() {
+  void testFindAllKeysByEntityIdsWithTenantIdEntityIdsScope() {
     // Arrange
     when(attributesDao.findAllKeysByEntityIdsAndAttributeType(
             Mockito.<TenantId>any(), Mockito.<List<EntityId>>any(), Mockito.<String>any()))
@@ -337,9 +350,11 @@ public class BaseAttributesServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAllKeysByEntityIds(TenantId, List, String) with 'tenantId', 'entityIds', 'scope'; given NULL_CUSTOMER_ID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List BaseAttributesService.findAllKeysByEntityIds(TenantId, List, String)"})
-  public void testFindAllKeysByEntityIdsWithTenantIdEntityIdsScope_givenNull_customer_id() {
+  void testFindAllKeysByEntityIdsWithTenantIdEntityIdsScope_givenNull_customer_id() {
     // Arrange
     when(attributesDao.findAllKeysByEntityIdsAndAttributeType(
             Mockito.<TenantId>any(), Mockito.<List<EntityId>>any(), Mockito.<String>any()))
@@ -371,9 +386,11 @@ public class BaseAttributesServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAllKeysByEntityIds(TenantId, List, String) with 'tenantId', 'entityIds', 'scope'; given NULL_CUSTOMER_ID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List BaseAttributesService.findAllKeysByEntityIds(TenantId, List, String)"})
-  public void testFindAllKeysByEntityIdsWithTenantIdEntityIdsScope_givenNull_customer_id2() {
+  void testFindAllKeysByEntityIdsWithTenantIdEntityIdsScope_givenNull_customer_id2() {
     // Arrange
     when(attributesDao.findAllKeysByEntityIdsAndAttributeType(
             Mockito.<TenantId>any(), Mockito.<List<EntityId>>any(), Mockito.<String>any()))
@@ -406,9 +423,11 @@ public class BaseAttributesServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAllKeysByEntityIds(TenantId, List, String) with 'tenantId', 'entityIds', 'scope'; when empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List BaseAttributesService.findAllKeysByEntityIds(TenantId, List, String)"})
-  public void testFindAllKeysByEntityIdsWithTenantIdEntityIdsScope_whenEmptyString() {
+  void testFindAllKeysByEntityIdsWithTenantIdEntityIdsScope_whenEmptyString() {
     // Arrange
     when(attributesDao.findAllKeysByEntityIds(
             Mockito.<TenantId>any(), Mockito.<List<EntityId>>any()))
@@ -436,9 +455,11 @@ public class BaseAttributesServiceDiffblueTest {
    * String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAllKeysByEntityIds(TenantId, List, String) with 'tenantId', 'entityIds', 'scope'; when 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List BaseAttributesService.findAllKeysByEntityIds(TenantId, List, String)"})
-  public void testFindAllKeysByEntityIdsWithTenantIdEntityIdsScope_whenNull() {
+  void testFindAllKeysByEntityIdsWithTenantIdEntityIdsScope_whenNull() {
     // Arrange
     when(attributesDao.findAllKeysByEntityIds(
             Mockito.<TenantId>any(), Mockito.<List<EntityId>>any()))
@@ -465,9 +486,11 @@ public class BaseAttributesServiceDiffblueTest {
    * <p>Method under test: {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAllKeysByEntityIds(TenantId, List) with 'tenantId', 'entityIds'; given NULL_CUSTOMER_ID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List BaseAttributesService.findAllKeysByEntityIds(TenantId, List)"})
-  public void testFindAllKeysByEntityIdsWithTenantIdEntityIds_givenNull_customer_id() {
+  void testFindAllKeysByEntityIdsWithTenantIdEntityIds_givenNull_customer_id() {
     // Arrange
     when(attributesDao.findAllKeysByEntityIds(
             Mockito.<TenantId>any(), Mockito.<List<EntityId>>any()))
@@ -496,9 +519,11 @@ public class BaseAttributesServiceDiffblueTest {
    * <p>Method under test: {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAllKeysByEntityIds(TenantId, List) with 'tenantId', 'entityIds'; given NULL_CUSTOMER_ID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List BaseAttributesService.findAllKeysByEntityIds(TenantId, List)"})
-  public void testFindAllKeysByEntityIdsWithTenantIdEntityIds_givenNull_customer_id2() {
+  void testFindAllKeysByEntityIdsWithTenantIdEntityIds_givenNull_customer_id2() {
     // Arrange
     when(attributesDao.findAllKeysByEntityIds(
             Mockito.<TenantId>any(), Mockito.<List<EntityId>>any()))
@@ -528,9 +553,11 @@ public class BaseAttributesServiceDiffblueTest {
    * <p>Method under test: {@link BaseAttributesService#findAllKeysByEntityIds(TenantId, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAllKeysByEntityIds(TenantId, List) with 'tenantId', 'entityIds'; when ArrayList()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"List BaseAttributesService.findAllKeysByEntityIds(TenantId, List)"})
-  public void testFindAllKeysByEntityIdsWithTenantIdEntityIds_whenArrayList() {
+  void testFindAllKeysByEntityIdsWithTenantIdEntityIds_whenArrayList() {
     // Arrange
     when(attributesDao.findAllKeysByEntityIds(
             Mockito.<TenantId>any(), Mockito.<List<EntityId>>any()))
@@ -554,11 +581,13 @@ public class BaseAttributesServiceDiffblueTest {
    * AttributeKvEntry)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test save(TenantId, EntityId, AttributeScope, AttributeKvEntry) with 'TenantId', 'EntityId', 'AttributeScope', 'AttributeKvEntry'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture BaseAttributesService.save(TenantId, EntityId, AttributeScope, AttributeKvEntry)"
   })
-  public void testSaveWithTenantIdEntityIdAttributeScopeAttributeKvEntry() {
+  void testSaveWithTenantIdEntityIdAttributeScopeAttributeKvEntry() {
     // Arrange
     SettableFuture<Long> createResult = SettableFuture.create();
     when(attributesDao.save(
@@ -595,11 +624,13 @@ public class BaseAttributesServiceDiffblueTest {
    * List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test save(TenantId, EntityId, AttributeScope, List) with 'TenantId', 'EntityId', 'AttributeScope', 'List'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture BaseAttributesService.save(TenantId, EntityId, AttributeScope, List)"
   })
-  public void testSaveWithTenantIdEntityIdAttributeScopeList() {
+  void testSaveWithTenantIdEntityIdAttributeScopeList() {
     // Arrange
     SettableFuture<Long> createResult = SettableFuture.create();
     when(attributesDao.save(
@@ -642,11 +673,13 @@ public class BaseAttributesServiceDiffblueTest {
    * List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test save(TenantId, EntityId, AttributeScope, List) with 'TenantId', 'EntityId', 'AttributeScope', 'List'; then calls save(TenantId, EntityId, AttributeScope, AttributeKvEntry)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture BaseAttributesService.save(TenantId, EntityId, AttributeScope, List)"
   })
-  public void testSaveWithTenantIdEntityIdAttributeScopeList_thenCallsSave() {
+  void testSaveWithTenantIdEntityIdAttributeScopeList_thenCallsSave() {
     // Arrange
     SettableFuture<Long> createResult = SettableFuture.create();
     when(attributesDao.save(
@@ -688,11 +721,13 @@ public class BaseAttributesServiceDiffblueTest {
    * List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test save(TenantId, EntityId, AttributeScope, List) with 'TenantId', 'EntityId', 'AttributeScope', 'List'; when ArrayList(); then return get() Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture BaseAttributesService.save(TenantId, EntityId, AttributeScope, List)"
   })
-  public void testSaveWithTenantIdEntityIdAttributeScopeList_whenArrayList_thenReturnGetEmpty()
+  void testSaveWithTenantIdEntityIdAttributeScopeList_whenArrayList_thenReturnGetEmpty()
       throws InterruptedException, ExecutionException {
     // Arrange and Act
     ListenableFuture<List<Long>> actualSaveResult =
@@ -719,11 +754,13 @@ public class BaseAttributesServiceDiffblueTest {
    * <p>Method under test: {@link BaseAttributesService#save(TenantId, EntityId, String, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test save(TenantId, EntityId, String, List) with 'TenantId', 'EntityId', 'String', 'List'; when ArrayList(); then return get() Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture BaseAttributesService.save(TenantId, EntityId, String, List)"
   })
-  public void testSaveWithTenantIdEntityIdStringList_whenArrayList_thenReturnGetEmpty()
+  void testSaveWithTenantIdEntityIdStringList_whenArrayList_thenReturnGetEmpty()
       throws InterruptedException, ExecutionException {
     // Arrange and Act
     ListenableFuture<List<Long>> actualSaveResult =
@@ -751,11 +788,13 @@ public class BaseAttributesServiceDiffblueTest {
    * AttributeScope, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test removeAll(TenantId, EntityId, AttributeScope, List) with 'TenantId', 'EntityId', 'AttributeScope', 'List'; given '42'; when ArrayList() add '42'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture BaseAttributesService.removeAll(TenantId, EntityId, AttributeScope, List)"
   })
-  public void testRemoveAllWithTenantIdEntityIdAttributeScopeList_given42_whenArrayListAdd42()
+  void testRemoveAllWithTenantIdEntityIdAttributeScopeList_given42_whenArrayListAdd42()
       throws InterruptedException, ExecutionException {
     // Arrange
     when(attributesDao.removeAll(
@@ -800,11 +839,13 @@ public class BaseAttributesServiceDiffblueTest {
    * AttributeScope, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test removeAll(TenantId, EntityId, AttributeScope, List) with 'TenantId', 'EntityId', 'AttributeScope', 'List'; given ArrayList() add create")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture BaseAttributesService.removeAll(TenantId, EntityId, AttributeScope, List)"
   })
-  public void testRemoveAllWithTenantIdEntityIdAttributeScopeList_givenArrayListAddCreate() {
+  void testRemoveAllWithTenantIdEntityIdAttributeScopeList_givenArrayListAddCreate() {
     // Arrange
     ArrayList<ListenableFuture<String>> listenableFutureList = new ArrayList<>();
     SettableFuture<String> createResult = SettableFuture.create();
@@ -844,11 +885,13 @@ public class BaseAttributesServiceDiffblueTest {
    * AttributeScope, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test removeAll(TenantId, EntityId, AttributeScope, List) with 'TenantId', 'EntityId', 'AttributeScope', 'List'; given ArrayList() add create")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture BaseAttributesService.removeAll(TenantId, EntityId, AttributeScope, List)"
   })
-  public void testRemoveAllWithTenantIdEntityIdAttributeScopeList_givenArrayListAddCreate2() {
+  void testRemoveAllWithTenantIdEntityIdAttributeScopeList_givenArrayListAddCreate2() {
     // Arrange
     ArrayList<ListenableFuture<String>> listenableFutureList = new ArrayList<>();
     SettableFuture<String> createResult = SettableFuture.create();
@@ -891,11 +934,13 @@ public class BaseAttributesServiceDiffblueTest {
    * AttributeScope, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test removeAll(TenantId, EntityId, AttributeScope, List) with 'TenantId', 'EntityId', 'AttributeScope', 'List'; given 'foo'; when ArrayList() add 'foo'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture BaseAttributesService.removeAll(TenantId, EntityId, AttributeScope, List)"
   })
-  public void testRemoveAllWithTenantIdEntityIdAttributeScopeList_givenFoo_whenArrayListAddFoo()
+  void testRemoveAllWithTenantIdEntityIdAttributeScopeList_givenFoo_whenArrayListAddFoo()
       throws InterruptedException, ExecutionException {
     // Arrange
     when(attributesDao.removeAll(
@@ -939,11 +984,13 @@ public class BaseAttributesServiceDiffblueTest {
    * AttributeScope, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test removeAll(TenantId, EntityId, AttributeScope, List) with 'TenantId', 'EntityId', 'AttributeScope', 'List'; then return get() Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture BaseAttributesService.removeAll(TenantId, EntityId, AttributeScope, List)"
   })
-  public void testRemoveAllWithTenantIdEntityIdAttributeScopeList_thenReturnGetEmpty()
+  void testRemoveAllWithTenantIdEntityIdAttributeScopeList_thenReturnGetEmpty()
       throws InterruptedException, ExecutionException {
     // Arrange
     when(attributesDao.removeAll(
@@ -978,9 +1025,10 @@ public class BaseAttributesServiceDiffblueTest {
    * <p>Method under test: {@link BaseAttributesService#removeAllByEntityId(TenantId, EntityId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test removeAllByEntityId(TenantId, EntityId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"int BaseAttributesService.removeAllByEntityId(TenantId, EntityId)"})
-  public void testRemoveAllByEntityId() {
+  void testRemoveAllByEntityId() {
     // Arrange
     when(attributesDao.removeAllByEntityId(Mockito.<TenantId>any(), Mockito.<EntityId>any()))
         .thenReturn(new ArrayList<>());

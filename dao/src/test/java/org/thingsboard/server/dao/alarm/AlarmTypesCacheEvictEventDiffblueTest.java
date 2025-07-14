@@ -1,17 +1,17 @@
 package org.thingsboard.server.dao.alarm;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class AlarmTypesCacheEvictEventDiffblueTest {
+class AlarmTypesCacheEvictEventDiffblueTest {
   /**
    * Test {@link AlarmTypesCacheEvictEvent#equals(Object)}, and {@link
    * AlarmTypesCacheEvictEvent#hashCode()}.
@@ -29,12 +29,13 @@ public class AlarmTypesCacheEvictEventDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AlarmTypesCacheEvictEvent.equals(Object)",
     "int AlarmTypesCacheEvictEvent.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AlarmTypesCacheEvictEvent alarmTypesCacheEvictEvent =
         new AlarmTypesCacheEvictEvent(ModelConstants.SYSTEM_TENANT);
@@ -64,12 +65,13 @@ public class AlarmTypesCacheEvictEventDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AlarmTypesCacheEvictEvent.equals(Object)",
     "int AlarmTypesCacheEvictEvent.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AlarmTypesCacheEvictEvent alarmTypesCacheEvictEvent = new AlarmTypesCacheEvictEvent(null);
     AlarmTypesCacheEvictEvent alarmTypesCacheEvictEvent2 = new AlarmTypesCacheEvictEvent(null);
@@ -97,12 +99,13 @@ public class AlarmTypesCacheEvictEventDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AlarmTypesCacheEvictEvent.equals(Object)",
     "int AlarmTypesCacheEvictEvent.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AlarmTypesCacheEvictEvent alarmTypesCacheEvictEvent =
         new AlarmTypesCacheEvictEvent(ModelConstants.SYSTEM_TENANT);
@@ -124,12 +127,13 @@ public class AlarmTypesCacheEvictEventDiffblueTest {
    * <p>Method under test: {@link AlarmTypesCacheEvictEvent#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AlarmTypesCacheEvictEvent.equals(Object)",
     "int AlarmTypesCacheEvictEvent.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     AlarmTypesCacheEvictEvent alarmTypesCacheEvictEvent =
         new AlarmTypesCacheEvictEvent(
@@ -151,12 +155,13 @@ public class AlarmTypesCacheEvictEventDiffblueTest {
    * <p>Method under test: {@link AlarmTypesCacheEvictEvent#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AlarmTypesCacheEvictEvent.equals(Object)",
     "int AlarmTypesCacheEvictEvent.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AlarmTypesCacheEvictEvent alarmTypesCacheEvictEvent = new AlarmTypesCacheEvictEvent(null);
 
@@ -176,12 +181,13 @@ public class AlarmTypesCacheEvictEventDiffblueTest {
    * <p>Method under test: {@link AlarmTypesCacheEvictEvent#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AlarmTypesCacheEvictEvent.equals(Object)",
     "int AlarmTypesCacheEvictEvent.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new AlarmTypesCacheEvictEvent(ModelConstants.SYSTEM_TENANT), null);
   }
@@ -197,12 +203,13 @@ public class AlarmTypesCacheEvictEventDiffblueTest {
    * <p>Method under test: {@link AlarmTypesCacheEvictEvent#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AlarmTypesCacheEvictEvent.equals(Object)",
     "int AlarmTypesCacheEvictEvent.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(
         new AlarmTypesCacheEvictEvent(ModelConstants.SYSTEM_TENANT),
@@ -221,13 +228,14 @@ public class AlarmTypesCacheEvictEventDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void AlarmTypesCacheEvictEvent.<init>(TenantId)",
     "TenantId AlarmTypesCacheEvictEvent.getTenantId()",
     "String AlarmTypesCacheEvictEvent.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     AlarmTypesCacheEvictEvent actualAlarmTypesCacheEvictEvent =
         new AlarmTypesCacheEvictEvent(ModelConstants.SYSTEM_TENANT);

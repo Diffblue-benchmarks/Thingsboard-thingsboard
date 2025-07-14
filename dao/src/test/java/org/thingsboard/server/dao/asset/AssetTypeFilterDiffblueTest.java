@@ -1,17 +1,17 @@
 package org.thingsboard.server.dao.asset;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class AssetTypeFilterDiffblueTest {
+class AssetTypeFilterDiffblueTest {
   /**
    * Test {@link AssetTypeFilter#equals(Object)}, and {@link AssetTypeFilter#hashCode()}.
    *
@@ -28,9 +28,10 @@ public class AssetTypeFilterDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetTypeFilter.equals(Object)", "int AssetTypeFilter.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     AssetTypeFilter assetTypeFilter = new AssetTypeFilter();
     assetTypeFilter.setAssetTypes(new ArrayList<>());
@@ -62,9 +63,10 @@ public class AssetTypeFilterDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetTypeFilter.equals(Object)", "int AssetTypeFilter.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     AssetTypeFilter assetTypeFilter = new AssetTypeFilter();
     assetTypeFilter.setAssetTypes(new ArrayList<>());
@@ -96,9 +98,10 @@ public class AssetTypeFilterDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetTypeFilter.equals(Object)", "int AssetTypeFilter.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     AssetTypeFilter assetTypeFilter = new AssetTypeFilter();
     assetTypeFilter.setAssetTypes(new ArrayList<>());
@@ -121,9 +124,10 @@ public class AssetTypeFilterDiffblueTest {
    * <p>Method under test: {@link AssetTypeFilter#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetTypeFilter.equals(Object)", "int AssetTypeFilter.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ArrayList<String> assetTypes = new ArrayList<>();
     assetTypes.add("Relation Type");
@@ -151,9 +155,10 @@ public class AssetTypeFilterDiffblueTest {
    * <p>Method under test: {@link AssetTypeFilter#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetTypeFilter.equals(Object)", "int AssetTypeFilter.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     AssetTypeFilter assetTypeFilter = new AssetTypeFilter();
     assetTypeFilter.setAssetTypes(new ArrayList<>());
@@ -178,9 +183,10 @@ public class AssetTypeFilterDiffblueTest {
    * <p>Method under test: {@link AssetTypeFilter#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetTypeFilter.equals(Object)", "int AssetTypeFilter.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     AssetTypeFilter assetTypeFilter = new AssetTypeFilter();
     assetTypeFilter.setAssetTypes(new ArrayList<>());
@@ -205,9 +211,10 @@ public class AssetTypeFilterDiffblueTest {
    * <p>Method under test: {@link AssetTypeFilter#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetTypeFilter.equals(Object)", "int AssetTypeFilter.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     AssetTypeFilter assetTypeFilter = new AssetTypeFilter();
     assetTypeFilter.setAssetTypes(new ArrayList<>());
@@ -228,9 +235,10 @@ public class AssetTypeFilterDiffblueTest {
    * <p>Method under test: {@link AssetTypeFilter#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AssetTypeFilter.equals(Object)", "int AssetTypeFilter.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     AssetTypeFilter assetTypeFilter = new AssetTypeFilter();
     assetTypeFilter.setAssetTypes(new ArrayList<>());
@@ -255,7 +263,8 @@ public class AssetTypeFilterDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void AssetTypeFilter.<init>()",
     "List AssetTypeFilter.getAssetTypes()",
@@ -264,7 +273,7 @@ public class AssetTypeFilterDiffblueTest {
     "void AssetTypeFilter.setRelationType(String)",
     "String AssetTypeFilter.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     AssetTypeFilter actualAssetTypeFilter = new AssetTypeFilter();
     ArrayList<String> assetTypes = new ArrayList<>();

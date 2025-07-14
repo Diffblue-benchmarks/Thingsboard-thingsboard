@@ -1,13 +1,12 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
@@ -15,8 +14,9 @@ import com.fasterxml.jackson.databind.node.NullNode;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.OtaPackage;
 import org.thingsboard.server.common.data.id.DeviceProfileId;
@@ -26,7 +26,7 @@ import org.thingsboard.server.common.data.ota.OtaPackageType;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class OtaPackageEntityDiffblueTest {
+class OtaPackageEntityDiffblueTest {
   /**
    * Test {@link OtaPackageEntity#equals(Object)}, and {@link OtaPackageEntity#hashCode()}.
    *
@@ -43,9 +43,10 @@ public class OtaPackageEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual()
       throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
@@ -108,10 +109,10 @@ public class OtaPackageEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual()
-      throws UnsupportedEncodingException {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -149,10 +150,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(DoubleNode.valueOf(10.0d));
@@ -207,10 +208,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(null);
@@ -265,10 +266,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -323,10 +324,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -381,10 +382,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -439,10 +440,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -497,10 +498,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -555,10 +556,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -613,10 +614,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -671,10 +672,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -729,10 +730,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -787,10 +788,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -845,10 +846,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -903,10 +904,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -961,10 +962,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1019,10 +1020,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1077,10 +1078,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1135,10 +1136,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual18()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1193,10 +1194,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual19()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1251,10 +1252,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual20()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1309,10 +1310,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual21()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1367,10 +1368,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual22()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual22() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1425,10 +1426,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual23()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual23() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1483,10 +1484,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual24()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual24() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1541,10 +1542,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual25()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual25() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1599,10 +1600,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual26()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual26() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1657,10 +1658,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual27()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual27() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1715,10 +1716,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual28()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual28() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1773,9 +1774,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1811,10 +1813,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean OtaPackageEntity.equals(Object)", "int OtaPackageEntity.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual()
-      throws UnsupportedEncodingException {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -1878,7 +1880,8 @@ public class OtaPackageEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void OtaPackageEntity.<init>()",
     "JsonNode OtaPackageEntity.getAdditionalInfo()",
@@ -1911,7 +1914,7 @@ public class OtaPackageEntityDiffblueTest {
     "void OtaPackageEntity.setVersion(String)",
     "String OtaPackageEntity.toString()"
   })
-  public void testGettersAndSetters() throws UnsupportedEncodingException {
+  void testGettersAndSetters() throws UnsupportedEncodingException {
     // Arrange and Act
     OtaPackageEntity actualOtaPackageEntity = new OtaPackageEntity();
     JsonNode additionalInfo = CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON;
@@ -1986,9 +1989,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#OtaPackageEntity(OtaPackage)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new OtaPackageEntity(OtaPackage); then return AdditionalInfo is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void OtaPackageEntity.<init>(OtaPackage)"})
-  public void testNewOtaPackageEntity_thenReturnAdditionalInfoIsNull()
+  void testNewOtaPackageEntity_thenReturnAdditionalInfoIsNull()
       throws UnsupportedEncodingException {
     // Arrange
     OtaPackage otaPackage = new OtaPackage();
@@ -2031,9 +2035,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given OtaPackageEntity(); then AdditionalInfo return NullNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"OtaPackage OtaPackageEntity.toData()"})
-  public void testToData_givenOtaPackageEntity_thenAdditionalInfoReturnNullNode() {
+  void testToData_givenOtaPackageEntity_thenAdditionalInfoReturnNullNode() {
     // Arrange and Act
     OtaPackage actualToDataResult = new OtaPackageEntity().toData();
 
@@ -2065,9 +2070,11 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return DeviceProfileId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"OtaPackage OtaPackageEntity.toData()"})
-  public void testToData_thenReturnDeviceProfileIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnDeviceProfileIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -2108,9 +2115,10 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return TenantId Id is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"OtaPackage OtaPackageEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdIsRandomUUID() throws UnsupportedEncodingException {
+  void testToData_thenReturnTenantIdIdIsRandomUUID() throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();
     otaPackageEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -2158,9 +2166,11 @@ public class OtaPackageEntityDiffblueTest {
    * <p>Method under test: {@link OtaPackageEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return TenantId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"OtaPackage OtaPackageEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9()
+  void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9()
       throws UnsupportedEncodingException {
     // Arrange
     OtaPackageEntity otaPackageEntity = new OtaPackageEntity();

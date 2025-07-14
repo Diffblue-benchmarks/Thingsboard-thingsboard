@@ -1,10 +1,10 @@
 package org.thingsboard.server.dao.domain;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.ArgumentMatchers.isNull;
@@ -14,22 +14,22 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.function.Function;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.aot.DisabledInAotMode;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.domain.Domain;
 import org.thingsboard.server.common.data.domain.DomainInfo;
@@ -49,8 +49,8 @@ import org.thingsboard.server.dao.oauth2.OAuth2ClientDao;
 
 @ContextConfiguration(classes = {DomainServiceImpl.class})
 @DisabledInAotMode
-@RunWith(SpringJUnit4ClassRunner.class)
-public class DomainServiceImplDiffblueTest {
+@ExtendWith(SpringExtension.class)
+class DomainServiceImplDiffblueTest {
   @MockBean private CleanUpService cleanUpService;
 
   @MockBean private DomainDao domainDao;
@@ -71,9 +71,11 @@ public class DomainServiceImplDiffblueTest {
    * <p>Method under test: {@link DomainServiceImpl#saveDomain(TenantId, Domain)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test saveDomain(TenantId, Domain); given DomainDao save(TenantId, Object) return Domain(); then return Domain()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Domain DomainServiceImpl.saveDomain(TenantId, Domain)"})
-  public void testSaveDomain_givenDomainDaoSaveReturnDomain_thenReturnDomain() {
+  void testSaveDomain_givenDomainDaoSaveReturnDomain_thenReturnDomain() {
     // Arrange
     Domain domain = new Domain();
     when(domainDao.save(Mockito.<TenantId>any(), Mockito.<Domain>any())).thenReturn(domain);
@@ -93,9 +95,10 @@ public class DomainServiceImplDiffblueTest {
    * <p>Method under test: {@link DomainServiceImpl#updateOauth2Clients(TenantId, DomainId, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test updateOauth2Clients(TenantId, DomainId, List)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DomainServiceImpl.updateOauth2Clients(TenantId, DomainId, List)"})
-  public void testUpdateOauth2Clients() {
+  void testUpdateOauth2Clients() {
     // Arrange
     when(domainDao.findOauth2ClientsByDomainId(Mockito.<TenantId>any(), Mockito.<DomainId>any()))
         .thenReturn(new ArrayList<>());
@@ -117,9 +120,11 @@ public class DomainServiceImplDiffblueTest {
    * <p>Method under test: {@link DomainServiceImpl#updateOauth2Clients(TenantId, DomainId, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test updateOauth2Clients(TenantId, DomainId, List); then calls removeOauth2Client(DomainOauth2Client)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DomainServiceImpl.updateOauth2Clients(TenantId, DomainId, List)"})
-  public void testUpdateOauth2Clients_thenCallsRemoveOauth2Client() {
+  void testUpdateOauth2Clients_thenCallsRemoveOauth2Client() {
     // Arrange
     ArrayList<DomainOauth2Client> domainOauth2ClientList = new ArrayList<>();
     domainOauth2ClientList.add(new DomainOauth2Client());
@@ -145,9 +150,11 @@ public class DomainServiceImplDiffblueTest {
    * <p>Method under test: {@link DomainServiceImpl#updateOauth2Clients(TenantId, DomainId, List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test updateOauth2Clients(TenantId, DomainId, List); then calls removeOauth2Client(DomainOauth2Client)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DomainServiceImpl.updateOauth2Clients(TenantId, DomainId, List)"})
-  public void testUpdateOauth2Clients_thenCallsRemoveOauth2Client2() {
+  void testUpdateOauth2Clients_thenCallsRemoveOauth2Client2() {
     // Arrange
     ArrayList<DomainOauth2Client> domainOauth2ClientList = new ArrayList<>();
     domainOauth2ClientList.add(new DomainOauth2Client());
@@ -175,9 +182,11 @@ public class DomainServiceImplDiffblueTest {
    * <p>Method under test: {@link DomainServiceImpl#deleteDomainById(TenantId, DomainId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteDomainById(TenantId, DomainId); given DomainDao removeById(TenantId, UUID) does nothing; then calls removeById(TenantId, UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DomainServiceImpl.deleteDomainById(TenantId, DomainId)"})
-  public void testDeleteDomainById_givenDomainDaoRemoveByIdDoesNothing_thenCallsRemoveById() {
+  void testDeleteDomainById_givenDomainDaoRemoveByIdDoesNothing_thenCallsRemoveById() {
     // Arrange
     doNothing().when(domainDao).removeById(Mockito.<TenantId>any(), Mockito.<UUID>any());
     doNothing().when(cleanUpService).handleEntityDeletionEvent(Mockito.<DeleteEntityEvent<?>>any());
@@ -204,9 +213,11 @@ public class DomainServiceImplDiffblueTest {
    * <p>Method under test: {@link DomainServiceImpl#findDomainById(TenantId, DomainId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDomainById(TenantId, DomainId); given DomainDao findById(TenantId, UUID) return Domain(); then return Domain()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Domain DomainServiceImpl.findDomainById(TenantId, DomainId)"})
-  public void testFindDomainById_givenDomainDaoFindByIdReturnDomain_thenReturnDomain() {
+  void testFindDomainById_givenDomainDaoFindByIdReturnDomain_thenReturnDomain() {
     // Arrange
     Domain domain = new Domain();
     when(domainDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(domain);
@@ -228,9 +239,10 @@ public class DomainServiceImplDiffblueTest {
    * <p>Method under test: {@link DomainServiceImpl#findDomainInfosByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDomainInfosByTenantId(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DomainServiceImpl.findDomainInfosByTenantId(TenantId, PageLink)"})
-  public void testFindDomainInfosByTenantId() {
+  void testFindDomainInfosByTenantId() {
     // Arrange
     PageData<Domain> pageData = new PageData<>(new ArrayList<>(), 3, 3L, true);
 
@@ -258,9 +270,11 @@ public class DomainServiceImplDiffblueTest {
    * <p>Method under test: {@link DomainServiceImpl#findDomainInfosByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDomainInfosByTenantId(TenantId, PageLink); given DomainDao findByTenantId(TenantId, PageLink) return emptyPageData")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DomainServiceImpl.findDomainInfosByTenantId(TenantId, PageLink)"})
-  public void testFindDomainInfosByTenantId_givenDomainDaoFindByTenantIdReturnEmptyPageData() {
+  void testFindDomainInfosByTenantId_givenDomainDaoFindByTenantIdReturnEmptyPageData() {
     // Arrange
     PageData<Domain> emptyPageDataResult = PageData.emptyPageData();
     when(domainDao.findByTenantId(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
@@ -288,9 +302,10 @@ public class DomainServiceImplDiffblueTest {
    * <p>Method under test: {@link DomainServiceImpl#findDomainInfosByTenantId(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDomainInfosByTenantId(TenantId, PageLink); then calls mapData(Function)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData DomainServiceImpl.findDomainInfosByTenantId(TenantId, PageLink)"})
-  public void testFindDomainInfosByTenantId_thenCallsMapData() {
+  void testFindDomainInfosByTenantId_thenCallsMapData() {
     // Arrange
     PageData<Domain> pageData = mock(PageData.class);
     PageData<Object> emptyPageDataResult = PageData.emptyPageData();
@@ -323,9 +338,11 @@ public class DomainServiceImplDiffblueTest {
    * <p>Method under test: {@link DomainServiceImpl#findDomainInfoById(TenantId, DomainId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDomainInfoById(TenantId, DomainId); given DomainDao findById(TenantId, UUID) return Domain(); then return Name is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DomainInfo DomainServiceImpl.findDomainInfoById(TenantId, DomainId)"})
-  public void testFindDomainInfoById_givenDomainDaoFindByIdReturnDomain_thenReturnNameIsNull() {
+  void testFindDomainInfoById_givenDomainDaoFindByIdReturnDomain_thenReturnNameIsNull() {
     // Arrange
     when(domainDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(new Domain());
     when(oAuth2ClientDao.findByDomainId(Mockito.<UUID>any())).thenReturn(new ArrayList<>());
@@ -360,9 +377,11 @@ public class DomainServiceImplDiffblueTest {
    * <p>Method under test: {@link DomainServiceImpl#findDomainInfoById(TenantId, DomainId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findDomainInfoById(TenantId, DomainId); given DomainDao findById(TenantId, UUID) return 'null'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"DomainInfo DomainServiceImpl.findDomainInfoById(TenantId, DomainId)"})
-  public void testFindDomainInfoById_givenDomainDaoFindByIdReturnNull_thenReturnNull() {
+  void testFindDomainInfoById_givenDomainDaoFindByIdReturnNull_thenReturnNull() {
     // Arrange
     when(domainDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(null);
 
@@ -387,9 +406,10 @@ public class DomainServiceImplDiffblueTest {
    * <p>Method under test: {@link DomainServiceImpl#isOauth2Enabled(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test isOauth2Enabled(TenantId); then return 'false'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DomainServiceImpl.isOauth2Enabled(TenantId)"})
-  public void testIsOauth2Enabled_thenReturnFalse() {
+  void testIsOauth2Enabled_thenReturnFalse() {
     // Arrange
     when(domainDao.countDomainByTenantIdAndOauth2Enabled(Mockito.<TenantId>any(), anyBoolean()))
         .thenReturn(0);
@@ -413,9 +433,10 @@ public class DomainServiceImplDiffblueTest {
    * <p>Method under test: {@link DomainServiceImpl#isOauth2Enabled(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test isOauth2Enabled(TenantId); then return 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DomainServiceImpl.isOauth2Enabled(TenantId)"})
-  public void testIsOauth2Enabled_thenReturnTrue() {
+  void testIsOauth2Enabled_thenReturnTrue() {
     // Arrange
     when(domainDao.countDomainByTenantIdAndOauth2Enabled(Mockito.<TenantId>any(), anyBoolean()))
         .thenReturn(1);
@@ -435,9 +456,10 @@ public class DomainServiceImplDiffblueTest {
    * <p>Method under test: {@link DomainServiceImpl#deleteDomainsByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteDomainsByTenantId(TenantId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DomainServiceImpl.deleteDomainsByTenantId(TenantId)"})
-  public void testDeleteDomainsByTenantId() {
+  void testDeleteDomainsByTenantId() {
     // Arrange
     doNothing().when(domainDao).deleteByTenantId(Mockito.<TenantId>any());
 
@@ -454,9 +476,10 @@ public class DomainServiceImplDiffblueTest {
    * <p>Method under test: {@link DomainServiceImpl#deleteByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteByTenantId(TenantId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DomainServiceImpl.deleteByTenantId(TenantId)"})
-  public void testDeleteByTenantId() {
+  void testDeleteByTenantId() {
     // Arrange
     doNothing().when(domainDao).deleteByTenantId(Mockito.<TenantId>any());
 
@@ -478,9 +501,10 @@ public class DomainServiceImplDiffblueTest {
    * <p>Method under test: {@link DomainServiceImpl#findEntity(TenantId, EntityId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntity(TenantId, EntityId); when NULL_CUSTOMER_ID; then return Present")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Optional DomainServiceImpl.findEntity(TenantId, EntityId)"})
-  public void testFindEntity_whenNull_customer_id_thenReturnPresent() {
+  void testFindEntity_whenNull_customer_id_thenReturnPresent() {
     // Arrange
     Domain domain = new Domain();
     when(domainDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(domain);
@@ -507,9 +531,11 @@ public class DomainServiceImplDiffblueTest {
    * <p>Method under test: {@link DomainServiceImpl#deleteEntity(TenantId, EntityId, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteEntity(TenantId, EntityId, boolean); given DomainDao removeById(TenantId, UUID) does nothing; then calls removeById(TenantId, UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DomainServiceImpl.deleteEntity(TenantId, EntityId, boolean)"})
-  public void testDeleteEntity_givenDomainDaoRemoveByIdDoesNothing_thenCallsRemoveById() {
+  void testDeleteEntity_givenDomainDaoRemoveByIdDoesNothing_thenCallsRemoveById() {
     // Arrange
     doNothing().when(domainDao).removeById(Mockito.<TenantId>any(), Mockito.<UUID>any());
     doNothing().when(cleanUpService).handleEntityDeletionEvent(Mockito.<DeleteEntityEvent<?>>any());
@@ -531,9 +557,10 @@ public class DomainServiceImplDiffblueTest {
    * <p>Method under test: {@link DomainServiceImpl#getEntityType()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getEntityType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityType DomainServiceImpl.getEntityType()"})
-  public void testGetEntityType() {
+  void testGetEntityType() {
     // Arrange, Act and Assert
     assertEquals(EntityType.DOMAIN, new DomainServiceImpl().getEntityType());
   }

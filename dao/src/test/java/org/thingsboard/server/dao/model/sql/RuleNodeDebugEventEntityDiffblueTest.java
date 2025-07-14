@@ -1,20 +1,20 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.event.RuleNodeDebugEvent;
 import org.thingsboard.server.common.data.event.RuleNodeDebugEvent.RuleNodeDebugEventBuilder;
@@ -26,7 +26,7 @@ import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.entity.BaseEntityService;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class RuleNodeDebugEventEntityDiffblueTest {
+class RuleNodeDebugEventEntityDiffblueTest {
   /**
    * Test {@link RuleNodeDebugEventEntity#equals(Object)}, and {@link
    * RuleNodeDebugEventEntity#hashCode()}.
@@ -44,12 +44,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -114,12 +115,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -158,12 +160,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -220,12 +223,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -282,12 +286,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -344,12 +349,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -406,12 +412,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -468,12 +475,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -530,12 +538,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -592,12 +601,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -653,12 +663,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -714,12 +725,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -776,12 +788,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -838,12 +851,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -900,12 +914,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual13() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -962,12 +977,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual14() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -1024,12 +1040,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual15() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -1086,12 +1103,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual16() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -1148,12 +1166,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual17() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -1210,12 +1229,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual18() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -1272,12 +1292,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual19() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -1334,12 +1355,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual20() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -1396,12 +1418,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual21() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -1458,12 +1481,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -1500,12 +1524,13 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RuleNodeDebugEventEntity.equals(Object)",
     "int RuleNodeDebugEventEntity.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -1562,7 +1587,8 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void RuleNodeDebugEventEntity.<init>()",
     "String RuleNodeDebugEventEntity.getData()",
@@ -1587,7 +1613,7 @@ public class RuleNodeDebugEventEntityDiffblueTest {
     "void RuleNodeDebugEventEntity.setRelationType(String)",
     "String RuleNodeDebugEventEntity.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     RuleNodeDebugEventEntity actualRuleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     actualRuleNodeDebugEventEntity.setData("Data");
@@ -1649,9 +1675,10 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * RuleNodeDebugEventEntity#RuleNodeDebugEventEntity(RuleNodeDebugEvent)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new RuleNodeDebugEventEntity(RuleNodeDebugEvent)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleNodeDebugEventEntity.<init>(RuleNodeDebugEvent)"})
-  public void testNewRuleNodeDebugEventEntity() {
+  void testNewRuleNodeDebugEventEntity() {
     // Arrange
     RuleNodeDebugEventBuilder dataTypeResult =
         RuleNodeDebugEvent.builder().data("Data").dataType("Data Type");
@@ -1692,9 +1719,10 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * RuleNodeDebugEventEntity#RuleNodeDebugEventEntity(RuleNodeDebugEvent)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new RuleNodeDebugEventEntity(RuleNodeDebugEvent)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleNodeDebugEventEntity.<init>(RuleNodeDebugEvent)"})
-  public void testNewRuleNodeDebugEventEntity2() {
+  void testNewRuleNodeDebugEventEntity2() {
     // Arrange
     RuleNodeDebugEvent event = mock(RuleNodeDebugEvent.class);
     when(event.getEventEntity()).thenReturn(null);
@@ -1749,9 +1777,10 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * RuleNodeDebugEventEntity#RuleNodeDebugEventEntity(RuleNodeDebugEvent)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new RuleNodeDebugEventEntity(RuleNodeDebugEvent); given NULL_CUSTOMER_ID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleNodeDebugEventEntity.<init>(RuleNodeDebugEvent)"})
-  public void testNewRuleNodeDebugEventEntity_givenNull_customer_id() {
+  void testNewRuleNodeDebugEventEntity_givenNull_customer_id() {
     // Arrange
     RuleNodeDebugEvent event = mock(RuleNodeDebugEvent.class);
     when(event.getServiceId()).thenReturn("42");
@@ -1805,9 +1834,11 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * RuleNodeDebugEventEntity#RuleNodeDebugEventEntity(RuleNodeDebugEvent)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new RuleNodeDebugEventEntity(RuleNodeDebugEvent); then return EventEntityType is 'TENANT'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RuleNodeDebugEventEntity.<init>(RuleNodeDebugEvent)"})
-  public void testNewRuleNodeDebugEventEntity_thenReturnEventEntityTypeIsTenant() {
+  void testNewRuleNodeDebugEventEntity_thenReturnEventEntityTypeIsTenant() {
     // Arrange
     RuleNodeDebugEvent event = mock(RuleNodeDebugEvent.class);
     when(event.getEventEntity()).thenReturn(ModelConstants.SYSTEM_TENANT);
@@ -1861,9 +1892,10 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given RuleNodeDebugEventEntity(); then return ServiceId is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"RuleNodeDebugEvent RuleNodeDebugEventEntity.toData()"})
-  public void testToData_givenRuleNodeDebugEventEntity_thenReturnServiceIdIsNull() {
+  void testToData_givenRuleNodeDebugEventEntity_thenReturnServiceIdIsNull() {
     // Arrange and Act
     RuleNodeDebugEvent actualToDataResult = new RuleNodeDebugEventEntity().toData();
 
@@ -1893,9 +1925,10 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then EventEntity return AlarmId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"RuleNodeDebugEvent RuleNodeDebugEventEntity.toData()"})
-  public void testToData_thenEventEntityReturnAlarmId() {
+  void testToData_thenEventEntityReturnAlarmId() {
     // Arrange
     RuleNodeDebugEventBuilder dataTypeResult =
         RuleNodeDebugEvent.builder().data("Data").dataType("Data Type");
@@ -1936,9 +1969,10 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then EventEntity return CustomerId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"RuleNodeDebugEvent RuleNodeDebugEventEntity.toData()"})
-  public void testToData_thenEventEntityReturnCustomerId() {
+  void testToData_thenEventEntityReturnCustomerId() {
     // Arrange
     RuleNodeDebugEventBuilder dataTypeResult =
         RuleNodeDebugEvent.builder().data("Data").dataType("Data Type");
@@ -1978,9 +2012,10 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then EventEntity return TenantId")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"RuleNodeDebugEvent RuleNodeDebugEventEntity.toData()"})
-  public void testToData_thenEventEntityReturnTenantId() {
+  void testToData_thenEventEntityReturnTenantId() {
     // Arrange
     RuleNodeDebugEventBuilder dataTypeResult =
         RuleNodeDebugEvent.builder().data("Data").dataType("Data Type");
@@ -2026,9 +2061,10 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); then return TenantId Id is randomUUID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"RuleNodeDebugEvent RuleNodeDebugEventEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdIsRandomUUID() {
+  void testToData_thenReturnTenantIdIdIsRandomUUID() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);
@@ -2071,9 +2107,11 @@ public class RuleNodeDebugEventEntityDiffblueTest {
    * <p>Method under test: {@link RuleNodeDebugEventEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return TenantId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"RuleNodeDebugEvent RuleNodeDebugEventEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     RuleNodeDebugEventEntity ruleNodeDebugEventEntity = new RuleNodeDebugEventEntity();
     ruleNodeDebugEventEntity.setCreatedTime(1L);

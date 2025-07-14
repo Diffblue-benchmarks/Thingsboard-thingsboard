@@ -1,15 +1,15 @@
 package org.thingsboard.server.dao.model.sqlts.ts;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class TsKvCompositeKeyDiffblueTest {
+class TsKvCompositeKeyDiffblueTest {
   /**
    * Test {@link TsKvCompositeKey#equals(Object)}, and {@link TsKvCompositeKey#hashCode()}.
    *
@@ -26,9 +26,10 @@ public class TsKvCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TsKvCompositeKey.equals(Object)", "int TsKvCompositeKey.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     TsKvCompositeKey tsKvCompositeKey = new TsKvCompositeKey();
     TsKvCompositeKey tsKvCompositeKey2 = new TsKvCompositeKey();
@@ -55,9 +56,10 @@ public class TsKvCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TsKvCompositeKey.equals(Object)", "int TsKvCompositeKey.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     TsKvCompositeKey tsKvCompositeKey =
         new TsKvCompositeKey(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1, 1L);
@@ -86,9 +88,10 @@ public class TsKvCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TsKvCompositeKey.equals(Object)", "int TsKvCompositeKey.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     TsKvCompositeKey tsKvCompositeKey = new TsKvCompositeKey();
 
@@ -109,9 +112,10 @@ public class TsKvCompositeKeyDiffblueTest {
    * <p>Method under test: {@link TsKvCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TsKvCompositeKey.equals(Object)", "int TsKvCompositeKey.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     TsKvCompositeKey tsKvCompositeKey =
         new TsKvCompositeKey(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1, 1L);
@@ -131,9 +135,10 @@ public class TsKvCompositeKeyDiffblueTest {
    * <p>Method under test: {@link TsKvCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TsKvCompositeKey.equals(Object)", "int TsKvCompositeKey.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     TsKvCompositeKey tsKvCompositeKey = new TsKvCompositeKey();
     tsKvCompositeKey.setEntityId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -153,9 +158,10 @@ public class TsKvCompositeKeyDiffblueTest {
    * <p>Method under test: {@link TsKvCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TsKvCompositeKey.equals(Object)", "int TsKvCompositeKey.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     TsKvCompositeKey tsKvCompositeKey = new TsKvCompositeKey();
     tsKvCompositeKey.setTs(1L);
@@ -175,9 +181,10 @@ public class TsKvCompositeKeyDiffblueTest {
    * <p>Method under test: {@link TsKvCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TsKvCompositeKey.equals(Object)", "int TsKvCompositeKey.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     TsKvCompositeKey tsKvCompositeKey = new TsKvCompositeKey();
 
@@ -199,9 +206,10 @@ public class TsKvCompositeKeyDiffblueTest {
    * <p>Method under test: {@link TsKvCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TsKvCompositeKey.equals(Object)", "int TsKvCompositeKey.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TsKvCompositeKey(), null);
   }
@@ -217,9 +225,10 @@ public class TsKvCompositeKeyDiffblueTest {
    * <p>Method under test: {@link TsKvCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean TsKvCompositeKey.equals(Object)", "int TsKvCompositeKey.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new TsKvCompositeKey(), "Different type to TsKvCompositeKey");
   }
@@ -241,7 +250,8 @@ public class TsKvCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void TsKvCompositeKey.<init>()",
     "void TsKvCompositeKey.<init>(UUID, int, long)",
@@ -253,7 +263,7 @@ public class TsKvCompositeKeyDiffblueTest {
     "void TsKvCompositeKey.setTs(long)",
     "String TsKvCompositeKey.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     TsKvCompositeKey actualTsKvCompositeKey = new TsKvCompositeKey();
     UUID entityId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -296,7 +306,8 @@ public class TsKvCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters; when fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void TsKvCompositeKey.<init>()",
     "void TsKvCompositeKey.<init>(UUID, int, long)",
@@ -308,7 +319,7 @@ public class TsKvCompositeKeyDiffblueTest {
     "void TsKvCompositeKey.setTs(long)",
     "String TsKvCompositeKey.toString()"
   })
-  public void testGettersAndSetters_whenFromString784f394c42b6435a983cB7beff2784f9() {
+  void testGettersAndSetters_whenFromString784f394c42b6435a983cB7beff2784f9() {
     // Arrange and Act
     TsKvCompositeKey actualTsKvCompositeKey =
         new TsKvCompositeKey(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"), 1, 1L);

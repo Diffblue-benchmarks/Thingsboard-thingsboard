@@ -1,14 +1,13 @@
 package org.thingsboard.server.dao.audit;
 
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.SettableFuture;
@@ -17,13 +16,14 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.Callable;
 import java.util.function.Function;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.HasName;
 import org.thingsboard.server.common.data.audit.ActionType;
@@ -40,8 +40,8 @@ import org.thingsboard.server.dao.model.ModelConstants;
 import org.thingsboard.server.dao.service.DataValidator;
 import org.thingsboard.server.dao.sql.JpaExecutorService;
 
-@RunWith(MockitoJUnitRunner.class)
-public class AuditLogServiceImplDiffblueTest {
+@ExtendWith(MockitoExtension.class)
+class AuditLogServiceImplDiffblueTest {
   @Mock private AuditLogDao auditLogDao;
 
   @Mock private AuditLogLevelFilter auditLogLevelFilter;
@@ -65,11 +65,13 @@ public class AuditLogServiceImplDiffblueTest {
    * CustomerId, List, TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink); given 'ADDED'; when ArrayList() add 'ADDED'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData AuditLogServiceImpl.findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantIdAndCustomerId_givenAdded_whenArrayListAddAdded() {
+  void testFindAuditLogsByTenantIdAndCustomerId_givenAdded_whenArrayListAddAdded() {
     // Arrange
     PageData<AuditLog> emptyPageDataResult = PageData.emptyPageData();
     when(auditLogDao.findAuditLogsByTenantIdAndCustomerId(
@@ -112,11 +114,13 @@ public class AuditLogServiceImplDiffblueTest {
    * CustomerId, List, TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink); given 'DELETED'; when ArrayList() add 'DELETED'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData AuditLogServiceImpl.findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantIdAndCustomerId_givenDeleted_whenArrayListAddDeleted() {
+  void testFindAuditLogsByTenantIdAndCustomerId_givenDeleted_whenArrayListAddDeleted() {
     // Arrange
     PageData<AuditLog> emptyPageDataResult = PageData.emptyPageData();
     when(auditLogDao.findAuditLogsByTenantIdAndCustomerId(
@@ -159,11 +163,13 @@ public class AuditLogServiceImplDiffblueTest {
    * CustomerId, List, TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink); then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData AuditLogServiceImpl.findAuditLogsByTenantIdAndCustomerId(TenantId, CustomerId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantIdAndCustomerId_thenReturnEmpty_page_data() {
+  void testFindAuditLogsByTenantIdAndCustomerId_thenReturnEmpty_page_data() {
     // Arrange
     PageData<AuditLog> emptyPageDataResult = PageData.emptyPageData();
     when(auditLogDao.findAuditLogsByTenantIdAndCustomerId(
@@ -199,11 +205,12 @@ public class AuditLogServiceImplDiffblueTest {
    * UserId, List, TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAuditLogsByTenantIdAndUserId(TenantId, UserId, List, TimePageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData AuditLogServiceImpl.findAuditLogsByTenantIdAndUserId(TenantId, UserId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantIdAndUserId() {
+  void testFindAuditLogsByTenantIdAndUserId() {
     // Arrange
     PageData<AuditLog> emptyPageDataResult = PageData.emptyPageData();
     when(auditLogDao.findAuditLogsByTenantIdAndUserId(
@@ -241,11 +248,13 @@ public class AuditLogServiceImplDiffblueTest {
    * UserId, List, TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAuditLogsByTenantIdAndUserId(TenantId, UserId, List, TimePageLink); then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData AuditLogServiceImpl.findAuditLogsByTenantIdAndUserId(TenantId, UserId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantIdAndUserId_thenCallsGetId() {
+  void testFindAuditLogsByTenantIdAndUserId_thenCallsGetId() {
     // Arrange
     PageData<AuditLog> emptyPageDataResult = PageData.emptyPageData();
     when(auditLogDao.findAuditLogsByTenantIdAndUserId(
@@ -286,11 +295,13 @@ public class AuditLogServiceImplDiffblueTest {
    * EntityId, List, TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink); given 'ADDED'; when ArrayList() add 'ADDED'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData AuditLogServiceImpl.findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantIdAndEntityId_givenAdded_whenArrayListAddAdded() {
+  void testFindAuditLogsByTenantIdAndEntityId_givenAdded_whenArrayListAddAdded() {
     // Arrange
     PageData<AuditLog> emptyPageDataResult = PageData.emptyPageData();
     when(auditLogDao.findAuditLogsByTenantIdAndEntityId(
@@ -333,11 +344,13 @@ public class AuditLogServiceImplDiffblueTest {
    * EntityId, List, TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink); given 'DELETED'; when ArrayList() add 'DELETED'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData AuditLogServiceImpl.findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantIdAndEntityId_givenDeleted_whenArrayListAddDeleted() {
+  void testFindAuditLogsByTenantIdAndEntityId_givenDeleted_whenArrayListAddDeleted() {
     // Arrange
     PageData<AuditLog> emptyPageDataResult = PageData.emptyPageData();
     when(auditLogDao.findAuditLogsByTenantIdAndEntityId(
@@ -380,11 +393,13 @@ public class AuditLogServiceImplDiffblueTest {
    * EntityId, List, TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink); then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData AuditLogServiceImpl.findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantIdAndEntityId_thenCallsGetId() {
+  void testFindAuditLogsByTenantIdAndEntityId_thenCallsGetId() {
     // Arrange
     PageData<AuditLog> emptyPageDataResult = PageData.emptyPageData();
     when(auditLogDao.findAuditLogsByTenantIdAndEntityId(
@@ -424,11 +439,13 @@ public class AuditLogServiceImplDiffblueTest {
    * EntityId, List, TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink); when NULL_CUSTOMER_ID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData AuditLogServiceImpl.findAuditLogsByTenantIdAndEntityId(TenantId, EntityId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantIdAndEntityId_whenNull_customer_id() {
+  void testFindAuditLogsByTenantIdAndEntityId_whenNull_customer_id() {
     // Arrange
     PageData<AuditLog> emptyPageDataResult = PageData.emptyPageData();
     when(auditLogDao.findAuditLogsByTenantIdAndEntityId(
@@ -468,11 +485,13 @@ public class AuditLogServiceImplDiffblueTest {
    * TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAuditLogsByTenantId(TenantId, List, TimePageLink); given 'ADDED'; when ArrayList() add 'ADDED'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData AuditLogServiceImpl.findAuditLogsByTenantId(TenantId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantId_givenAdded_whenArrayListAddAdded() {
+  void testFindAuditLogsByTenantId_givenAdded_whenArrayListAddAdded() {
     // Arrange
     PageData<AuditLog> emptyPageDataResult = PageData.emptyPageData();
     when(auditLogDao.findAuditLogsByTenantId(
@@ -506,11 +525,13 @@ public class AuditLogServiceImplDiffblueTest {
    * TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAuditLogsByTenantId(TenantId, List, TimePageLink); given 'DELETED'; when ArrayList() add 'DELETED'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData AuditLogServiceImpl.findAuditLogsByTenantId(TenantId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantId_givenDeleted_whenArrayListAddDeleted() {
+  void testFindAuditLogsByTenantId_givenDeleted_whenArrayListAddDeleted() {
     // Arrange
     PageData<AuditLog> emptyPageDataResult = PageData.emptyPageData();
     when(auditLogDao.findAuditLogsByTenantId(
@@ -545,11 +566,13 @@ public class AuditLogServiceImplDiffblueTest {
    * TimePageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAuditLogsByTenantId(TenantId, List, TimePageLink); when SYSTEM_TENANT; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData AuditLogServiceImpl.findAuditLogsByTenantId(TenantId, List, TimePageLink)"
   })
-  public void testFindAuditLogsByTenantId_whenSystem_tenant_thenReturnEmpty_page_data() {
+  void testFindAuditLogsByTenantId_whenSystem_tenant_thenReturnEmpty_page_data() {
     // Arrange
     PageData<AuditLog> emptyPageDataResult = PageData.emptyPageData();
     when(auditLogDao.findAuditLogsByTenantId(
@@ -583,11 +606,13 @@ public class AuditLogServiceImplDiffblueTest {
    * String, EntityId, HasName, ActionType, Exception, Object[])}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[]); given AuditLogLevelFilter logEnabled(EntityType, ActionType) return 'false'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture AuditLogServiceImpl.logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[])"
   })
-  public void testLogEntityAction_givenAuditLogLevelFilterLogEnabledReturnFalse_thenReturnNull() {
+  void testLogEntityAction_givenAuditLogLevelFilterLogEnabledReturnFalse_thenReturnNull() {
     // Arrange
     when(auditLogLevelFilter.logEnabled(Mockito.<EntityType>any(), Mockito.<ActionType>any()))
         .thenReturn(false);
@@ -616,340 +641,6 @@ public class AuditLogServiceImplDiffblueTest {
    * HasName, ActionType, Exception, Object[])}.
    *
    * <ul>
-   *   <li>Given {@link EntityType#DASHBOARD}.
-   *   <li>When {@code CREDENTIALS_UPDATED}.
-   *   <li>Then calls {@link EntityId#getEntityType()}.
-   * </ul>
-   *
-   * <p>Method under test: {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId,
-   * String, EntityId, HasName, ActionType, Exception, Object[])}
-   */
-  @Test
-  @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({
-    "ListenableFuture AuditLogServiceImpl.logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[])"
-  })
-  public void testLogEntityAction_givenDashboard_whenCredentialsUpdated_thenCallsGetEntityType() {
-    // Arrange
-    when(auditLogLevelFilter.logEnabled(Mockito.<EntityType>any(), Mockito.<ActionType>any()))
-        .thenReturn(true);
-    when(dataValidator.validate(
-            Mockito.<AuditLog>any(), Mockito.<Function<AuditLog, TenantId>>any()))
-        .thenReturn(new AuditLog());
-    SettableFuture<Object> createResult = SettableFuture.create();
-    when(jpaExecutorService.submit(Mockito.<Callable<Object>>any())).thenReturn(createResult);
-    EntityId entityId = mock(EntityId.class);
-    when(entityId.getEntityType()).thenReturn(EntityType.DASHBOARD);
-    HasName hasName = mock(HasName.class);
-    when(hasName.getName()).thenReturn("Name");
-
-    // Act
-    ListenableFuture<Void> actualLogEntityActionResult =
-        auditLogServiceImpl.logEntityAction(
-            ModelConstants.SYSTEM_TENANT,
-            BaseEntityService.NULL_CUSTOMER_ID,
-            null,
-            "janedoe",
-            entityId,
-            hasName,
-            ActionType.CREDENTIALS_UPDATED,
-            new Exception("foo"),
-            "Additional Info");
-
-    // Assert
-    verify(jpaExecutorService).submit(isA(Callable.class));
-    verify(hasName).getName();
-    verify(entityId).getEntityType();
-    verify(auditLogLevelFilter)
-        .logEnabled(eq(EntityType.DASHBOARD), eq(ActionType.CREDENTIALS_UPDATED));
-    verify(dataValidator).validate(isA(AuditLog.class), isA(Function.class));
-    assertTrue(actualLogEntityActionResult instanceof SettableFuture);
-    assertSame(createResult, actualLogEntityActionResult);
-  }
-
-  /**
-   * Test {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId, String, EntityId,
-   * HasName, ActionType, Exception, Object[])}.
-   *
-   * <ul>
-   *   <li>Given {@link EntityType#DASHBOARD}.
-   *   <li>When empty string.
-   *   <li>Then calls {@link EntityId#getEntityType()}.
-   * </ul>
-   *
-   * <p>Method under test: {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId,
-   * String, EntityId, HasName, ActionType, Exception, Object[])}
-   */
-  @Test
-  @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({
-    "ListenableFuture AuditLogServiceImpl.logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[])"
-  })
-  public void testLogEntityAction_givenDashboard_whenEmptyString_thenCallsGetEntityType() {
-    // Arrange
-    when(auditLogLevelFilter.logEnabled(Mockito.<EntityType>any(), Mockito.<ActionType>any()))
-        .thenReturn(true);
-    when(dataValidator.validate(
-            Mockito.<AuditLog>any(), Mockito.<Function<AuditLog, TenantId>>any()))
-        .thenReturn(new AuditLog());
-    SettableFuture<Object> createResult = SettableFuture.create();
-    when(jpaExecutorService.submit(Mockito.<Callable<Object>>any())).thenReturn(createResult);
-    EntityId entityId = mock(EntityId.class);
-    when(entityId.getEntityType()).thenReturn(EntityType.DASHBOARD);
-    HasName hasName = mock(HasName.class);
-    when(hasName.getName()).thenReturn("Name");
-
-    // Act
-    ListenableFuture<Void> actualLogEntityActionResult =
-        auditLogServiceImpl.logEntityAction(
-            ModelConstants.SYSTEM_TENANT,
-            BaseEntityService.NULL_CUSTOMER_ID,
-            null,
-            "janedoe",
-            entityId,
-            hasName,
-            ActionType.RPC_CALL,
-            new Exception("foo"),
-            "");
-
-    // Assert
-    verify(jpaExecutorService).submit(isA(Callable.class));
-    verify(hasName).getName();
-    verify(entityId).getEntityType();
-    verify(auditLogLevelFilter).logEnabled(eq(EntityType.DASHBOARD), eq(ActionType.RPC_CALL));
-    verify(dataValidator).validate(isA(AuditLog.class), isA(Function.class));
-    assertTrue(actualLogEntityActionResult instanceof SettableFuture);
-    assertSame(createResult, actualLogEntityActionResult);
-  }
-
-  /**
-   * Test {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId, String, EntityId,
-   * HasName, ActionType, Exception, Object[])}.
-   *
-   * <ul>
-   *   <li>Given {@link EntityType#DASHBOARD}.
-   *   <li>When {@link ActionType#RPC_CALL}.
-   *   <li>Then calls {@link EntityId#getEntityType()}.
-   * </ul>
-   *
-   * <p>Method under test: {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId,
-   * String, EntityId, HasName, ActionType, Exception, Object[])}
-   */
-  @Test
-  @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({
-    "ListenableFuture AuditLogServiceImpl.logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[])"
-  })
-  public void testLogEntityAction_givenDashboard_whenRpc_call_thenCallsGetEntityType() {
-    // Arrange
-    when(auditLogLevelFilter.logEnabled(Mockito.<EntityType>any(), Mockito.<ActionType>any()))
-        .thenReturn(true);
-    when(dataValidator.validate(
-            Mockito.<AuditLog>any(), Mockito.<Function<AuditLog, TenantId>>any()))
-        .thenReturn(new AuditLog());
-    SettableFuture<Object> createResult = SettableFuture.create();
-    when(jpaExecutorService.submit(Mockito.<Callable<Object>>any())).thenReturn(createResult);
-    EntityId entityId = mock(EntityId.class);
-    when(entityId.getEntityType()).thenReturn(EntityType.DASHBOARD);
-    HasName hasName = mock(HasName.class);
-    when(hasName.getName()).thenReturn("Name");
-
-    // Act
-    ListenableFuture<Void> actualLogEntityActionResult =
-        auditLogServiceImpl.logEntityAction(
-            ModelConstants.SYSTEM_TENANT,
-            BaseEntityService.NULL_CUSTOMER_ID,
-            null,
-            "janedoe",
-            entityId,
-            hasName,
-            ActionType.RPC_CALL,
-            new Exception("foo"),
-            "Additional Info");
-
-    // Assert
-    verify(jpaExecutorService).submit(isA(Callable.class));
-    verify(hasName).getName();
-    verify(entityId).getEntityType();
-    verify(auditLogLevelFilter).logEnabled(eq(EntityType.DASHBOARD), eq(ActionType.RPC_CALL));
-    verify(dataValidator).validate(isA(AuditLog.class), isA(Function.class));
-    assertTrue(actualLogEntityActionResult instanceof SettableFuture);
-    assertSame(createResult, actualLogEntityActionResult);
-  }
-
-  /**
-   * Test {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId, String, EntityId,
-   * HasName, ActionType, Exception, Object[])}.
-   *
-   * <ul>
-   *   <li>Given {@link EntityType#DASHBOARD}.
-   *   <li>When {@code TIMESERIES_DELETED}.
-   *   <li>Then calls {@link EntityId#getEntityType()}.
-   * </ul>
-   *
-   * <p>Method under test: {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId,
-   * String, EntityId, HasName, ActionType, Exception, Object[])}
-   */
-  @Test
-  @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({
-    "ListenableFuture AuditLogServiceImpl.logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[])"
-  })
-  public void testLogEntityAction_givenDashboard_whenTimeseriesDeleted_thenCallsGetEntityType() {
-    // Arrange
-    when(auditLogLevelFilter.logEnabled(Mockito.<EntityType>any(), Mockito.<ActionType>any()))
-        .thenReturn(true);
-    when(dataValidator.validate(
-            Mockito.<AuditLog>any(), Mockito.<Function<AuditLog, TenantId>>any()))
-        .thenReturn(new AuditLog());
-    SettableFuture<Object> createResult = SettableFuture.create();
-    when(jpaExecutorService.submit(Mockito.<Callable<Object>>any())).thenReturn(createResult);
-    EntityId entityId = mock(EntityId.class);
-    when(entityId.getEntityType()).thenReturn(EntityType.DASHBOARD);
-    HasName hasName = mock(HasName.class);
-    when(hasName.getName()).thenReturn("Name");
-
-    // Act
-    ListenableFuture<Void> actualLogEntityActionResult =
-        auditLogServiceImpl.logEntityAction(
-            ModelConstants.SYSTEM_TENANT,
-            BaseEntityService.NULL_CUSTOMER_ID,
-            null,
-            "janedoe",
-            entityId,
-            hasName,
-            ActionType.TIMESERIES_DELETED,
-            new Exception("foo"),
-            "Additional Info");
-
-    // Assert
-    verify(jpaExecutorService).submit(isA(Callable.class));
-    verify(hasName).getName();
-    verify(entityId).getEntityType();
-    verify(auditLogLevelFilter)
-        .logEnabled(eq(EntityType.DASHBOARD), eq(ActionType.TIMESERIES_DELETED));
-    verify(dataValidator).validate(isA(AuditLog.class), isA(Function.class));
-    assertTrue(actualLogEntityActionResult instanceof SettableFuture);
-    assertSame(createResult, actualLogEntityActionResult);
-  }
-
-  /**
-   * Test {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId, String, EntityId,
-   * HasName, ActionType, Exception, Object[])}.
-   *
-   * <ul>
-   *   <li>Given {@link EntityType#DASHBOARD}.
-   *   <li>When {@code TIMESERIES_UPDATED}.
-   *   <li>Then calls {@link EntityId#getEntityType()}.
-   * </ul>
-   *
-   * <p>Method under test: {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId,
-   * String, EntityId, HasName, ActionType, Exception, Object[])}
-   */
-  @Test
-  @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({
-    "ListenableFuture AuditLogServiceImpl.logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[])"
-  })
-  public void testLogEntityAction_givenDashboard_whenTimeseriesUpdated_thenCallsGetEntityType() {
-    // Arrange
-    when(auditLogLevelFilter.logEnabled(Mockito.<EntityType>any(), Mockito.<ActionType>any()))
-        .thenReturn(true);
-    when(dataValidator.validate(
-            Mockito.<AuditLog>any(), Mockito.<Function<AuditLog, TenantId>>any()))
-        .thenReturn(new AuditLog());
-    SettableFuture<Object> createResult = SettableFuture.create();
-    when(jpaExecutorService.submit(Mockito.<Callable<Object>>any())).thenReturn(createResult);
-    EntityId entityId = mock(EntityId.class);
-    when(entityId.getEntityType()).thenReturn(EntityType.DASHBOARD);
-    HasName hasName = mock(HasName.class);
-    when(hasName.getName()).thenReturn("Name");
-
-    // Act
-    ListenableFuture<Void> actualLogEntityActionResult =
-        auditLogServiceImpl.logEntityAction(
-            ModelConstants.SYSTEM_TENANT,
-            BaseEntityService.NULL_CUSTOMER_ID,
-            null,
-            "janedoe",
-            entityId,
-            hasName,
-            ActionType.TIMESERIES_UPDATED,
-            new Exception("foo"),
-            "Additional Info");
-
-    // Assert
-    verify(jpaExecutorService).submit(isA(Callable.class));
-    verify(hasName).getName();
-    verify(entityId).getEntityType();
-    verify(auditLogLevelFilter)
-        .logEnabled(eq(EntityType.DASHBOARD), eq(ActionType.TIMESERIES_UPDATED));
-    verify(dataValidator).validate(isA(AuditLog.class), isA(Function.class));
-    assertTrue(actualLogEntityActionResult instanceof SettableFuture);
-    assertSame(createResult, actualLogEntityActionResult);
-  }
-
-  /**
-   * Test {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId, String, EntityId,
-   * HasName, ActionType, Exception, Object[])}.
-   *
-   * <ul>
-   *   <li>Given {@link EntityType#DASHBOARD}.
-   *   <li>When {@code true}.
-   *   <li>Then calls {@link EntityId#getEntityType()}.
-   * </ul>
-   *
-   * <p>Method under test: {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId,
-   * String, EntityId, HasName, ActionType, Exception, Object[])}
-   */
-  @Test
-  @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({
-    "ListenableFuture AuditLogServiceImpl.logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[])"
-  })
-  public void testLogEntityAction_givenDashboard_whenTrue_thenCallsGetEntityType() {
-    // Arrange
-    when(auditLogLevelFilter.logEnabled(Mockito.<EntityType>any(), Mockito.<ActionType>any()))
-        .thenReturn(true);
-    when(dataValidator.validate(
-            Mockito.<AuditLog>any(), Mockito.<Function<AuditLog, TenantId>>any()))
-        .thenReturn(new AuditLog());
-    SettableFuture<Object> createResult = SettableFuture.create();
-    when(jpaExecutorService.submit(Mockito.<Callable<Object>>any())).thenReturn(createResult);
-    EntityId entityId = mock(EntityId.class);
-    when(entityId.getEntityType()).thenReturn(EntityType.DASHBOARD);
-    HasName hasName = mock(HasName.class);
-    when(hasName.getName()).thenReturn("Name");
-
-    // Act
-    ListenableFuture<Void> actualLogEntityActionResult =
-        auditLogServiceImpl.logEntityAction(
-            ModelConstants.SYSTEM_TENANT,
-            BaseEntityService.NULL_CUSTOMER_ID,
-            null,
-            "janedoe",
-            entityId,
-            hasName,
-            ActionType.RPC_CALL,
-            new Exception("foo"),
-            true);
-
-    // Assert
-    verify(jpaExecutorService).submit(isA(Callable.class));
-    verify(hasName).getName();
-    verify(entityId).getEntityType();
-    verify(auditLogLevelFilter).logEnabled(eq(EntityType.DASHBOARD), eq(ActionType.RPC_CALL));
-    verify(dataValidator).validate(isA(AuditLog.class), isA(Function.class));
-    assertTrue(actualLogEntityActionResult instanceof SettableFuture);
-    assertSame(createResult, actualLogEntityActionResult);
-  }
-
-  /**
-   * Test {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId, String, EntityId,
-   * HasName, ActionType, Exception, Object[])}.
-   *
-   * <ul>
-   *   <li>When {@code ASSIGNED_TO_CUSTOMER}.
    *   <li>Then return {@link SettableFuture}.
    * </ul>
    *
@@ -957,115 +648,13 @@ public class AuditLogServiceImplDiffblueTest {
    * String, EntityId, HasName, ActionType, Exception, Object[])}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[]); then return SettableFuture")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "ListenableFuture AuditLogServiceImpl.logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[])"
   })
-  public void testLogEntityAction_whenAssignedToCustomer_thenReturnSettableFuture() {
-    // Arrange
-    when(auditLogLevelFilter.logEnabled(Mockito.<EntityType>any(), Mockito.<ActionType>any()))
-        .thenReturn(true);
-    when(dataValidator.validate(
-            Mockito.<AuditLog>any(), Mockito.<Function<AuditLog, TenantId>>any()))
-        .thenReturn(new AuditLog());
-    SettableFuture<Object> createResult = SettableFuture.create();
-    when(jpaExecutorService.submit(Mockito.<Callable<Object>>any())).thenReturn(createResult);
-    HasName hasName = mock(HasName.class);
-    when(hasName.getName()).thenReturn("Name");
-
-    // Act
-    ListenableFuture<Void> actualLogEntityActionResult =
-        auditLogServiceImpl.logEntityAction(
-            ModelConstants.SYSTEM_TENANT,
-            BaseEntityService.NULL_CUSTOMER_ID,
-            null,
-            "janedoe",
-            BaseEntityService.NULL_CUSTOMER_ID,
-            hasName,
-            ActionType.ASSIGNED_TO_CUSTOMER,
-            new Exception("foo"),
-            "Additional Info");
-
-    // Assert
-    verify(jpaExecutorService).submit(isA(Callable.class));
-    verify(hasName).getName();
-    verify(auditLogLevelFilter)
-        .logEnabled(eq(EntityType.CUSTOMER), eq(ActionType.ASSIGNED_TO_CUSTOMER));
-    verify(dataValidator).validate(isA(AuditLog.class), isA(Function.class));
-    assertTrue(actualLogEntityActionResult instanceof SettableFuture);
-    assertSame(createResult, actualLogEntityActionResult);
-  }
-
-  /**
-   * Test {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId, String, EntityId,
-   * HasName, ActionType, Exception, Object[])}.
-   *
-   * <ul>
-   *   <li>When {@code CREDENTIALS_UPDATED}.
-   *   <li>Then return {@link SettableFuture}.
-   * </ul>
-   *
-   * <p>Method under test: {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId,
-   * String, EntityId, HasName, ActionType, Exception, Object[])}
-   */
-  @Test
-  @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({
-    "ListenableFuture AuditLogServiceImpl.logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[])"
-  })
-  public void testLogEntityAction_whenCredentialsUpdated_thenReturnSettableFuture() {
-    // Arrange
-    when(auditLogLevelFilter.logEnabled(Mockito.<EntityType>any(), Mockito.<ActionType>any()))
-        .thenReturn(true);
-    when(dataValidator.validate(
-            Mockito.<AuditLog>any(), Mockito.<Function<AuditLog, TenantId>>any()))
-        .thenReturn(new AuditLog());
-    SettableFuture<Object> createResult = SettableFuture.create();
-    when(jpaExecutorService.submit(Mockito.<Callable<Object>>any())).thenReturn(createResult);
-    HasName hasName = mock(HasName.class);
-    when(hasName.getName()).thenReturn("Name");
-
-    // Act
-    ListenableFuture<Void> actualLogEntityActionResult =
-        auditLogServiceImpl.logEntityAction(
-            ModelConstants.SYSTEM_TENANT,
-            BaseEntityService.NULL_CUSTOMER_ID,
-            null,
-            "janedoe",
-            BaseEntityService.NULL_CUSTOMER_ID,
-            hasName,
-            ActionType.CREDENTIALS_UPDATED,
-            new Exception("foo"),
-            "Additional Info");
-
-    // Assert
-    verify(jpaExecutorService).submit(isA(Callable.class));
-    verify(hasName).getName();
-    verify(auditLogLevelFilter)
-        .logEnabled(eq(EntityType.CUSTOMER), eq(ActionType.CREDENTIALS_UPDATED));
-    verify(dataValidator).validate(isA(AuditLog.class), isA(Function.class));
-    assertTrue(actualLogEntityActionResult instanceof SettableFuture);
-    assertSame(createResult, actualLogEntityActionResult);
-  }
-
-  /**
-   * Test {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId, String, EntityId,
-   * HasName, ActionType, Exception, Object[])}.
-   *
-   * <ul>
-   *   <li>When {@code DELETED}.
-   *   <li>Then return {@link SettableFuture}.
-   * </ul>
-   *
-   * <p>Method under test: {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId,
-   * String, EntityId, HasName, ActionType, Exception, Object[])}
-   */
-  @Test
-  @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({
-    "ListenableFuture AuditLogServiceImpl.logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[])"
-  })
-  public void testLogEntityAction_whenDeleted_thenReturnSettableFuture() {
+  void testLogEntityAction_thenReturnSettableFuture() {
     // Arrange
     when(auditLogLevelFilter.logEnabled(Mockito.<EntityType>any(), Mockito.<ActionType>any()))
         .thenReturn(true);
@@ -1094,417 +683,6 @@ public class AuditLogServiceImplDiffblueTest {
     verify(jpaExecutorService).submit(isA(Callable.class));
     verify(hasName).getName();
     verify(auditLogLevelFilter).logEnabled(eq(EntityType.CUSTOMER), eq(ActionType.DELETED));
-    verify(dataValidator).validate(isA(AuditLog.class), isA(Function.class));
-    assertTrue(actualLogEntityActionResult instanceof SettableFuture);
-    assertSame(createResult, actualLogEntityActionResult);
-  }
-
-  /**
-   * Test {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId, String, EntityId,
-   * HasName, ActionType, Exception, Object[])}.
-   *
-   * <ul>
-   *   <li>When {@code DELETED}.
-   *   <li>Then return {@link SettableFuture}.
-   * </ul>
-   *
-   * <p>Method under test: {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId,
-   * String, EntityId, HasName, ActionType, Exception, Object[])}
-   */
-  @Test
-  @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({
-    "ListenableFuture AuditLogServiceImpl.logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[])"
-  })
-  public void testLogEntityAction_whenDeleted_thenReturnSettableFuture2() {
-    // Arrange
-    when(auditLogLevelFilter.logEnabled(Mockito.<EntityType>any(), Mockito.<ActionType>any()))
-        .thenReturn(true);
-    when(dataValidator.validate(
-            Mockito.<AuditLog>any(), Mockito.<Function<AuditLog, TenantId>>any()))
-        .thenReturn(new AuditLog());
-    SettableFuture<Object> createResult = SettableFuture.create();
-    when(jpaExecutorService.submit(Mockito.<Callable<Object>>any())).thenReturn(createResult);
-    HasName hasName = mock(HasName.class);
-    when(hasName.getName()).thenReturn("Name");
-
-    // Act
-    ListenableFuture<Void> actualLogEntityActionResult =
-        auditLogServiceImpl.logEntityAction(
-            ModelConstants.SYSTEM_TENANT,
-            BaseEntityService.NULL_CUSTOMER_ID,
-            null,
-            "janedoe",
-            BaseEntityService.NULL_CUSTOMER_ID,
-            hasName,
-            ActionType.DELETED,
-            null,
-            "Additional Info");
-
-    // Assert
-    verify(jpaExecutorService).submit(isA(Callable.class));
-    verify(hasName).getName();
-    verify(auditLogLevelFilter).logEnabled(eq(EntityType.CUSTOMER), eq(ActionType.DELETED));
-    verify(dataValidator).validate(isA(AuditLog.class), isA(Function.class));
-    assertTrue(actualLogEntityActionResult instanceof SettableFuture);
-    assertSame(createResult, actualLogEntityActionResult);
-  }
-
-  /**
-   * Test {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId, String, EntityId,
-   * HasName, ActionType, Exception, Object[])}.
-   *
-   * <ul>
-   *   <li>When {@code DELETED}.
-   *   <li>Then return {@link SettableFuture}.
-   * </ul>
-   *
-   * <p>Method under test: {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId,
-   * String, EntityId, HasName, ActionType, Exception, Object[])}
-   */
-  @Test
-  @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({
-    "ListenableFuture AuditLogServiceImpl.logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[])"
-  })
-  public void testLogEntityAction_whenDeleted_thenReturnSettableFuture3() {
-    // Arrange
-    when(auditLogLevelFilter.logEnabled(Mockito.<EntityType>any(), Mockito.<ActionType>any()))
-        .thenReturn(true);
-    when(dataValidator.validate(
-            Mockito.<AuditLog>any(), Mockito.<Function<AuditLog, TenantId>>any()))
-        .thenReturn(new AuditLog());
-    SettableFuture<Object> createResult = SettableFuture.create();
-    when(jpaExecutorService.submit(Mockito.<Callable<Object>>any())).thenReturn(createResult);
-    HasName hasName = mock(HasName.class);
-    when(hasName.getName()).thenReturn("Name");
-
-    // Act
-    ListenableFuture<Void> actualLogEntityActionResult =
-        auditLogServiceImpl.logEntityAction(
-            ModelConstants.SYSTEM_TENANT,
-            BaseEntityService.NULL_CUSTOMER_ID,
-            null,
-            "janedoe",
-            BaseEntityService.NULL_CUSTOMER_ID,
-            hasName,
-            ActionType.DELETED,
-            new Exception("foo"),
-            null);
-
-    // Assert
-    verify(jpaExecutorService).submit(isA(Callable.class));
-    verify(hasName).getName();
-    verify(auditLogLevelFilter).logEnabled(eq(EntityType.CUSTOMER), eq(ActionType.DELETED));
-    verify(dataValidator).validate(isA(AuditLog.class), isA(Function.class));
-    assertTrue(actualLogEntityActionResult instanceof SettableFuture);
-    assertSame(createResult, actualLogEntityActionResult);
-  }
-
-  /**
-   * Test {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId, String, EntityId,
-   * HasName, ActionType, Exception, Object[])}.
-   *
-   * <ul>
-   *   <li>When empty string.
-   *   <li>Then return {@link SettableFuture}.
-   * </ul>
-   *
-   * <p>Method under test: {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId,
-   * String, EntityId, HasName, ActionType, Exception, Object[])}
-   */
-  @Test
-  @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({
-    "ListenableFuture AuditLogServiceImpl.logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[])"
-  })
-  public void testLogEntityAction_whenEmptyString_thenReturnSettableFuture() {
-    // Arrange
-    when(auditLogLevelFilter.logEnabled(Mockito.<EntityType>any(), Mockito.<ActionType>any()))
-        .thenReturn(true);
-    when(dataValidator.validate(
-            Mockito.<AuditLog>any(), Mockito.<Function<AuditLog, TenantId>>any()))
-        .thenReturn(new AuditLog());
-    SettableFuture<Object> createResult = SettableFuture.create();
-    when(jpaExecutorService.submit(Mockito.<Callable<Object>>any())).thenReturn(createResult);
-    HasName hasName = mock(HasName.class);
-    when(hasName.getName()).thenReturn("Name");
-
-    // Act
-    ListenableFuture<Void> actualLogEntityActionResult =
-        auditLogServiceImpl.logEntityAction(
-            ModelConstants.SYSTEM_TENANT,
-            BaseEntityService.NULL_CUSTOMER_ID,
-            null,
-            "janedoe",
-            BaseEntityService.NULL_CUSTOMER_ID,
-            hasName,
-            ActionType.DELETED,
-            new Exception("foo"),
-            "");
-
-    // Assert
-    verify(jpaExecutorService).submit(isA(Callable.class));
-    verify(hasName).getName();
-    verify(auditLogLevelFilter).logEnabled(eq(EntityType.CUSTOMER), eq(ActionType.DELETED));
-    verify(dataValidator).validate(isA(AuditLog.class), isA(Function.class));
-    assertTrue(actualLogEntityActionResult instanceof SettableFuture);
-    assertSame(createResult, actualLogEntityActionResult);
-  }
-
-  /**
-   * Test {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId, String, EntityId,
-   * HasName, ActionType, Exception, Object[])}.
-   *
-   * <ul>
-   *   <li>When {@link ActionType#RPC_CALL}.
-   *   <li>Then return {@link SettableFuture}.
-   * </ul>
-   *
-   * <p>Method under test: {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId,
-   * String, EntityId, HasName, ActionType, Exception, Object[])}
-   */
-  @Test
-  @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({
-    "ListenableFuture AuditLogServiceImpl.logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[])"
-  })
-  public void testLogEntityAction_whenRpc_call_thenReturnSettableFuture() {
-    // Arrange
-    when(auditLogLevelFilter.logEnabled(Mockito.<EntityType>any(), Mockito.<ActionType>any()))
-        .thenReturn(true);
-    when(dataValidator.validate(
-            Mockito.<AuditLog>any(), Mockito.<Function<AuditLog, TenantId>>any()))
-        .thenReturn(new AuditLog());
-    SettableFuture<Object> createResult = SettableFuture.create();
-    when(jpaExecutorService.submit(Mockito.<Callable<Object>>any())).thenReturn(createResult);
-    HasName hasName = mock(HasName.class);
-    when(hasName.getName()).thenReturn("Name");
-
-    // Act
-    ListenableFuture<Void> actualLogEntityActionResult =
-        auditLogServiceImpl.logEntityAction(
-            ModelConstants.SYSTEM_TENANT,
-            BaseEntityService.NULL_CUSTOMER_ID,
-            null,
-            "janedoe",
-            BaseEntityService.NULL_CUSTOMER_ID,
-            hasName,
-            ActionType.RPC_CALL,
-            new Exception("foo"),
-            "Additional Info");
-
-    // Assert
-    verify(jpaExecutorService).submit(isA(Callable.class));
-    verify(hasName).getName();
-    verify(auditLogLevelFilter).logEnabled(eq(EntityType.CUSTOMER), eq(ActionType.RPC_CALL));
-    verify(dataValidator).validate(isA(AuditLog.class), isA(Function.class));
-    assertTrue(actualLogEntityActionResult instanceof SettableFuture);
-    assertSame(createResult, actualLogEntityActionResult);
-  }
-
-  /**
-   * Test {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId, String, EntityId,
-   * HasName, ActionType, Exception, Object[])}.
-   *
-   * <ul>
-   *   <li>When six.
-   *   <li>Then return {@link SettableFuture}.
-   * </ul>
-   *
-   * <p>Method under test: {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId,
-   * String, EntityId, HasName, ActionType, Exception, Object[])}
-   */
-  @Test
-  @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({
-    "ListenableFuture AuditLogServiceImpl.logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[])"
-  })
-  public void testLogEntityAction_whenSix_thenReturnSettableFuture() {
-    // Arrange
-    when(auditLogLevelFilter.logEnabled(Mockito.<EntityType>any(), Mockito.<ActionType>any()))
-        .thenReturn(true);
-    when(dataValidator.validate(
-            Mockito.<AuditLog>any(), Mockito.<Function<AuditLog, TenantId>>any()))
-        .thenReturn(new AuditLog());
-    SettableFuture<Object> createResult = SettableFuture.create();
-    when(jpaExecutorService.submit(Mockito.<Callable<Object>>any())).thenReturn(createResult);
-    HasName hasName = mock(HasName.class);
-    when(hasName.getName()).thenReturn("Name");
-
-    // Act
-    ListenableFuture<Void> actualLogEntityActionResult =
-        auditLogServiceImpl.logEntityAction(
-            ModelConstants.SYSTEM_TENANT,
-            BaseEntityService.NULL_CUSTOMER_ID,
-            null,
-            "janedoe",
-            BaseEntityService.NULL_CUSTOMER_ID,
-            hasName,
-            ActionType.DELETED,
-            new Exception("foo"),
-            6);
-
-    // Assert
-    verify(jpaExecutorService).submit(isA(Callable.class));
-    verify(hasName).getName();
-    verify(auditLogLevelFilter).logEnabled(eq(EntityType.CUSTOMER), eq(ActionType.DELETED));
-    verify(dataValidator).validate(isA(AuditLog.class), isA(Function.class));
-    assertTrue(actualLogEntityActionResult instanceof SettableFuture);
-    assertSame(createResult, actualLogEntityActionResult);
-  }
-
-  /**
-   * Test {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId, String, EntityId,
-   * HasName, ActionType, Exception, Object[])}.
-   *
-   * <ul>
-   *   <li>When {@code TIMESERIES_DELETED}.
-   *   <li>Then return {@link SettableFuture}.
-   * </ul>
-   *
-   * <p>Method under test: {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId,
-   * String, EntityId, HasName, ActionType, Exception, Object[])}
-   */
-  @Test
-  @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({
-    "ListenableFuture AuditLogServiceImpl.logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[])"
-  })
-  public void testLogEntityAction_whenTimeseriesDeleted_thenReturnSettableFuture() {
-    // Arrange
-    when(auditLogLevelFilter.logEnabled(Mockito.<EntityType>any(), Mockito.<ActionType>any()))
-        .thenReturn(true);
-    when(dataValidator.validate(
-            Mockito.<AuditLog>any(), Mockito.<Function<AuditLog, TenantId>>any()))
-        .thenReturn(new AuditLog());
-    SettableFuture<Object> createResult = SettableFuture.create();
-    when(jpaExecutorService.submit(Mockito.<Callable<Object>>any())).thenReturn(createResult);
-    HasName hasName = mock(HasName.class);
-    when(hasName.getName()).thenReturn("Name");
-
-    // Act
-    ListenableFuture<Void> actualLogEntityActionResult =
-        auditLogServiceImpl.logEntityAction(
-            ModelConstants.SYSTEM_TENANT,
-            BaseEntityService.NULL_CUSTOMER_ID,
-            null,
-            "janedoe",
-            BaseEntityService.NULL_CUSTOMER_ID,
-            hasName,
-            ActionType.TIMESERIES_DELETED,
-            new Exception("foo"),
-            "Additional Info");
-
-    // Assert
-    verify(jpaExecutorService).submit(isA(Callable.class));
-    verify(hasName).getName();
-    verify(auditLogLevelFilter)
-        .logEnabled(eq(EntityType.CUSTOMER), eq(ActionType.TIMESERIES_DELETED));
-    verify(dataValidator).validate(isA(AuditLog.class), isA(Function.class));
-    assertTrue(actualLogEntityActionResult instanceof SettableFuture);
-    assertSame(createResult, actualLogEntityActionResult);
-  }
-
-  /**
-   * Test {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId, String, EntityId,
-   * HasName, ActionType, Exception, Object[])}.
-   *
-   * <ul>
-   *   <li>When {@code TIMESERIES_UPDATED}.
-   *   <li>Then return {@link SettableFuture}.
-   * </ul>
-   *
-   * <p>Method under test: {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId,
-   * String, EntityId, HasName, ActionType, Exception, Object[])}
-   */
-  @Test
-  @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({
-    "ListenableFuture AuditLogServiceImpl.logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[])"
-  })
-  public void testLogEntityAction_whenTimeseriesUpdated_thenReturnSettableFuture() {
-    // Arrange
-    when(auditLogLevelFilter.logEnabled(Mockito.<EntityType>any(), Mockito.<ActionType>any()))
-        .thenReturn(true);
-    when(dataValidator.validate(
-            Mockito.<AuditLog>any(), Mockito.<Function<AuditLog, TenantId>>any()))
-        .thenReturn(new AuditLog());
-    SettableFuture<Object> createResult = SettableFuture.create();
-    when(jpaExecutorService.submit(Mockito.<Callable<Object>>any())).thenReturn(createResult);
-    HasName hasName = mock(HasName.class);
-    when(hasName.getName()).thenReturn("Name");
-
-    // Act
-    ListenableFuture<Void> actualLogEntityActionResult =
-        auditLogServiceImpl.logEntityAction(
-            ModelConstants.SYSTEM_TENANT,
-            BaseEntityService.NULL_CUSTOMER_ID,
-            null,
-            "janedoe",
-            BaseEntityService.NULL_CUSTOMER_ID,
-            hasName,
-            ActionType.TIMESERIES_UPDATED,
-            new Exception("foo"),
-            "Additional Info");
-
-    // Assert
-    verify(jpaExecutorService).submit(isA(Callable.class));
-    verify(hasName).getName();
-    verify(auditLogLevelFilter)
-        .logEnabled(eq(EntityType.CUSTOMER), eq(ActionType.TIMESERIES_UPDATED));
-    verify(dataValidator).validate(isA(AuditLog.class), isA(Function.class));
-    assertTrue(actualLogEntityActionResult instanceof SettableFuture);
-    assertSame(createResult, actualLogEntityActionResult);
-  }
-
-  /**
-   * Test {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId, String, EntityId,
-   * HasName, ActionType, Exception, Object[])}.
-   *
-   * <ul>
-   *   <li>When {@code UNASSIGNED_FROM_CUSTOMER}.
-   *   <li>Then return {@link SettableFuture}.
-   * </ul>
-   *
-   * <p>Method under test: {@link AuditLogServiceImpl#logEntityAction(TenantId, CustomerId, UserId,
-   * String, EntityId, HasName, ActionType, Exception, Object[])}
-   */
-  @Test
-  @Category(MaintainedByDiffblue.class)
-  @MethodsUnderTest({
-    "ListenableFuture AuditLogServiceImpl.logEntityAction(TenantId, CustomerId, UserId, String, EntityId, HasName, ActionType, Exception, Object[])"
-  })
-  public void testLogEntityAction_whenUnassignedFromCustomer_thenReturnSettableFuture() {
-    // Arrange
-    when(auditLogLevelFilter.logEnabled(Mockito.<EntityType>any(), Mockito.<ActionType>any()))
-        .thenReturn(true);
-    when(dataValidator.validate(
-            Mockito.<AuditLog>any(), Mockito.<Function<AuditLog, TenantId>>any()))
-        .thenReturn(new AuditLog());
-    SettableFuture<Object> createResult = SettableFuture.create();
-    when(jpaExecutorService.submit(Mockito.<Callable<Object>>any())).thenReturn(createResult);
-    HasName hasName = mock(HasName.class);
-    when(hasName.getName()).thenReturn("Name");
-
-    // Act
-    ListenableFuture<Void> actualLogEntityActionResult =
-        auditLogServiceImpl.logEntityAction(
-            ModelConstants.SYSTEM_TENANT,
-            BaseEntityService.NULL_CUSTOMER_ID,
-            null,
-            "janedoe",
-            BaseEntityService.NULL_CUSTOMER_ID,
-            hasName,
-            ActionType.UNASSIGNED_FROM_CUSTOMER,
-            new Exception("foo"),
-            "Additional Info");
-
-    // Assert
-    verify(jpaExecutorService).submit(isA(Callable.class));
-    verify(hasName).getName();
-    verify(auditLogLevelFilter)
-        .logEnabled(eq(EntityType.CUSTOMER), eq(ActionType.UNASSIGNED_FROM_CUSTOMER));
     verify(dataValidator).validate(isA(AuditLog.class), isA(Function.class));
     assertTrue(actualLogEntityActionResult instanceof SettableFuture);
     assertSame(createResult, actualLogEntityActionResult);

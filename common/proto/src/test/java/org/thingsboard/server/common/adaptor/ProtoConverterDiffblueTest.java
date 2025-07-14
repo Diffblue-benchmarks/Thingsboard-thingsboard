@@ -8,12 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.google.protobuf.Any;
-import com.google.protobuf.Any.Builder;
-import com.google.protobuf.DescriptorProtos;
-import com.google.protobuf.DescriptorProtos.DescriptorProto;
-import com.google.protobuf.DescriptorProtos.EnumDescriptorProto;
-import com.google.protobuf.DescriptorProtos.FileDescriptorProto;
-import com.google.protobuf.DescriptorProtos.MessageOptions;
 import com.google.protobuf.Descriptors;
 import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.InvalidProtocolBufferException;
@@ -328,7 +322,9 @@ class ProtoConverterDiffblueTest {
   @Test
   @DisplayName("Test convertToServerRpcRequest(byte[], int)")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ToServerRpcRequestMsg ProtoConverter.convertToServerRpcRequest(byte[], int)"})
+  @MethodsUnderTest({
+    "TransportProtos.ToServerRpcRequestMsg ProtoConverter.convertToServerRpcRequest(byte[], int)"
+  })
   void testConvertToServerRpcRequest() throws InvalidProtocolBufferException {
     // Arrange and Act
     ToServerRpcRequestMsg actualConvertToServerRpcRequestResult =
@@ -358,7 +354,9 @@ class ProtoConverterDiffblueTest {
   @Test
   @DisplayName("Test convertToServerRpcRequest(byte[], int); when empty array of byte")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"ToServerRpcRequestMsg ProtoConverter.convertToServerRpcRequest(byte[], int)"})
+  @MethodsUnderTest({
+    "TransportProtos.ToServerRpcRequestMsg ProtoConverter.convertToServerRpcRequest(byte[], int)"
+  })
   void testConvertToServerRpcRequest_whenEmptyArrayOfByte() throws InvalidProtocolBufferException {
     // Arrange and Act
     ToServerRpcRequestMsg actualConvertToServerRpcRequestResult =
@@ -418,14 +416,12 @@ class ProtoConverterDiffblueTest {
    *   <li>Then return Name is {@code Any}.
    * </ul>
    *
-   * <p>Method under test: {@link ProtoConverter#validateDescriptor(Descriptors.Descriptor)}
+   * <p>Method under test: {@link ProtoConverter#validateDescriptor(Descriptor)}
    */
   @Test
   @DisplayName("Test validateDescriptor(Descriptor); when Descriptor; then return Name is 'Any'")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-    "Descriptors.Descriptor ProtoConverter.validateDescriptor(Descriptors.Descriptor)"
-  })
+  @MethodsUnderTest({"Descriptor ProtoConverter.validateDescriptor(Descriptor)"})
   void testValidateDescriptor_whenDescriptor_thenReturnNameIsAny() throws AdaptorException {
     // Arrange and Act
     Descriptor actualValidateDescriptorResult =
@@ -453,227 +449,14 @@ class ProtoConverterDiffblueTest {
    *   <li>Then throw {@link AdaptorException}.
    * </ul>
    *
-   * <p>Method under test: {@link ProtoConverter#validateDescriptor(Descriptors.Descriptor)}
+   * <p>Method under test: {@link ProtoConverter#validateDescriptor(Descriptor)}
    */
   @Test
   @DisplayName("Test validateDescriptor(Descriptor); when 'null'; then throw AdaptorException")
   @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-    "Descriptors.Descriptor ProtoConverter.validateDescriptor(Descriptors.Descriptor)"
-  })
+  @MethodsUnderTest({"Descriptor ProtoConverter.validateDescriptor(Descriptor)"})
   void testValidateDescriptor_whenNull_thenThrowAdaptorException() throws AdaptorException {
     // Arrange, Act and Assert
     assertThrows(AdaptorException.class, () -> ProtoConverter.validateDescriptor(null));
-  }
-
-  /**
-   * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
-   *
-   * <ul>
-   *   <li>Then return {@code {}}.
-   * </ul>
-   *
-   * <p>Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
-   */
-  @Test
-  @DisplayName("Test dynamicMsgToJson(byte[], Descriptor); then return '{}'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-    "java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"
-  })
-  void testDynamicMsgToJson_thenReturnLeftCurlyBracketRightCurlyBracket()
-      throws InvalidProtocolBufferException {
-    // Arrange, Act and Assert
-    assertEquals("{}", ProtoConverter.dynamicMsgToJson(new byte[] {}, Any.getDescriptor()));
-  }
-
-  /**
-   * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
-   *
-   * <ul>
-   *   <li>Then return {@code {}}.
-   * </ul>
-   *
-   * <p>Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
-   */
-  @Test
-  @DisplayName("Test dynamicMsgToJson(byte[], Descriptor); then return '{}'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-    "java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"
-  })
-  void testDynamicMsgToJson_thenReturnLeftCurlyBracketRightCurlyBracket2()
-      throws InvalidProtocolBufferException {
-    // Arrange, Act and Assert
-    assertEquals("{}", ProtoConverter.dynamicMsgToJson(new byte[] {}, Builder.getDescriptor()));
-  }
-
-  /**
-   * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
-   *
-   * <ul>
-   *   <li>Then return {@code { "name": "", "value": [], "reservedRange": [], "reservedName": [] }}.
-   * </ul>
-   *
-   * <p>Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
-   */
-  @Test
-  @DisplayName(
-      "Test dynamicMsgToJson(byte[], Descriptor); then return '{ \"name\": \"\", \"value\": [], \"reservedRange\": [], \"reservedName\": [] }'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-    "java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"
-  })
-  void testDynamicMsgToJson_thenReturnNameValueReservedRangeReservedName()
-      throws InvalidProtocolBufferException {
-    // Arrange, Act and Assert
-    assertEquals(
-        "{\n  \"name\": \"\",\n  \"value\": [],\n  \"reservedRange\": [],\n  \"reservedName\": []\n}",
-        ProtoConverter.dynamicMsgToJson(new byte[] {}, EnumDescriptorProto.getDescriptor()));
-  }
-
-  /**
-   * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
-   *
-   * <ul>
-   *   <li>When array of {@code byte} with {@link Byte#MIN_VALUE} and {@code X}.
-   *   <li>Then return a string.
-   * </ul>
-   *
-   * <p>Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
-   */
-  @Test
-  @DisplayName(
-      "Test dynamicMsgToJson(byte[], Descriptor); when array of byte with MIN_VALUE and 'X'; then return a string")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-    "java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"
-  })
-  void testDynamicMsgToJson_whenArrayOfByteWithMin_valueAndX_thenReturnAString()
-      throws InvalidProtocolBufferException {
-    // Arrange, Act and Assert
-    assertEquals(
-        "{\n"
-            + "  \"name\": \"\",\n"
-            + "  \"field\": [],\n"
-            + "  \"nestedType\": [],\n"
-            + "  \"enumType\": [],\n"
-            + "  \"extensionRange\": [],\n"
-            + "  \"extension\": [],\n"
-            + "  \"oneofDecl\": [],\n"
-            + "  \"reservedRange\": [],\n"
-            + "  \"reservedName\": []\n"
-            + "}",
-        ProtoConverter.dynamicMsgToJson(
-            new byte[] {Byte.MIN_VALUE, 'X', 'A', 'X', 'A', Byte.MIN_VALUE, 'A', 'X'},
-            DescriptorProto.getDescriptor()));
-  }
-
-  /**
-   * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
-   *
-   * <ul>
-   *   <li>When array of {@code byte} with {@link Byte#MIN_VALUE} and {@code X}.
-   *   <li>Then return a string.
-   * </ul>
-   *
-   * <p>Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
-   */
-  @Test
-  @DisplayName(
-      "Test dynamicMsgToJson(byte[], Descriptor); when array of byte with MIN_VALUE and 'X'; then return a string")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-    "java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"
-  })
-  void testDynamicMsgToJson_whenArrayOfByteWithMin_valueAndX_thenReturnAString2()
-      throws InvalidProtocolBufferException {
-    // Arrange, Act and Assert
-    assertEquals(
-        "{\n"
-            + "  \"name\": \"\",\n"
-            + "  \"package\": \"\",\n"
-            + "  \"dependency\": [],\n"
-            + "  \"messageType\": [],\n"
-            + "  \"enumType\": [],\n"
-            + "  \"service\": [],\n"
-            + "  \"extension\": [],\n"
-            + "  \"publicDependency\": [],\n"
-            + "  \"weakDependency\": [65],\n"
-            + "  \"syntax\": \"\",\n"
-            + "  \"edition\": \"EDITION_UNKNOWN\"\n"
-            + "}",
-        ProtoConverter.dynamicMsgToJson(
-            new byte[] {Byte.MIN_VALUE, 'X', 'A', 'X', 'A', Byte.MIN_VALUE, 'A', 'X'},
-            FileDescriptorProto.getDescriptor()));
-  }
-
-  /**
-   * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
-   *
-   * <ul>
-   *   <li>When array of {@code byte} with {@link Byte#MIN_VALUE} and {@code X}.
-   *   <li>Then return a string.
-   * </ul>
-   *
-   * <p>Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
-   */
-  @Test
-  @DisplayName(
-      "Test dynamicMsgToJson(byte[], Descriptor); when array of byte with MIN_VALUE and 'X'; then return a string")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-    "java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"
-  })
-  void testDynamicMsgToJson_whenArrayOfByteWithMin_valueAndX_thenReturnAString3()
-      throws InvalidProtocolBufferException {
-    // Arrange, Act and Assert
-    assertEquals(
-        "{\n"
-            + "  \"messageSetWireFormat\": false,\n"
-            + "  \"noStandardDescriptorAccessor\": false,\n"
-            + "  \"deprecated\": false,\n"
-            + "  \"mapEntry\": false,\n"
-            + "  \"deprecatedLegacyJsonFieldConflicts\": true,\n"
-            + "  \"uninterpretedOption\": []\n"
-            + "}",
-        ProtoConverter.dynamicMsgToJson(
-            new byte[] {Byte.MIN_VALUE, 'X', 'A', 'X', 'A', Byte.MIN_VALUE, 'A', 'X'},
-            MessageOptions.getDescriptor()));
-  }
-
-  /**
-   * Test {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptor)}.
-   *
-   * <ul>
-   *   <li>When empty array of {@code byte}.
-   *   <li>Then return a string.
-   * </ul>
-   *
-   * <p>Method under test: {@link ProtoConverter#dynamicMsgToJson(byte[], Descriptors.Descriptor)}
-   */
-  @Test
-  @DisplayName(
-      "Test dynamicMsgToJson(byte[], Descriptor); when empty array of byte; then return a string")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-    "java.lang.String ProtoConverter.dynamicMsgToJson(byte[], Descriptors.Descriptor)"
-  })
-  void testDynamicMsgToJson_whenEmptyArrayOfByte_thenReturnAString()
-      throws InvalidProtocolBufferException {
-    // Arrange, Act and Assert
-    assertEquals(
-        "{\n"
-            + "  \"name\": \"\",\n"
-            + "  \"field\": [],\n"
-            + "  \"nestedType\": [],\n"
-            + "  \"enumType\": [],\n"
-            + "  \"extensionRange\": [],\n"
-            + "  \"extension\": [],\n"
-            + "  \"oneofDecl\": [],\n"
-            + "  \"reservedRange\": [],\n"
-            + "  \"reservedName\": []\n"
-            + "}",
-        ProtoConverter.dynamicMsgToJson(new byte[] {}, DescriptorProto.getDescriptor()));
   }
 }

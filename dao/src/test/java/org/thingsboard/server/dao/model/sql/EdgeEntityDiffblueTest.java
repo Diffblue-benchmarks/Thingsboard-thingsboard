@@ -1,18 +1,18 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.node.DoubleNode;
 import com.fasterxml.jackson.databind.node.NullNode;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.edge.Edge;
 import org.thingsboard.server.common.data.id.CustomerId;
@@ -22,7 +22,7 @@ import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 import org.thingsboard.server.dao.entity.BaseEntityService;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class EdgeEntityDiffblueTest {
+class EdgeEntityDiffblueTest {
   /**
    * Test {@link EdgeEntity#equals(Object)}, and {@link EdgeEntity#hashCode()}.
    *
@@ -39,9 +39,10 @@ public class EdgeEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEntity.equals(Object)", "int EdgeEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EdgeEntity edgeEntity = new EdgeEntity();
     edgeEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -95,9 +96,10 @@ public class EdgeEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEntity.equals(Object)", "int EdgeEntity.hashCode()"})
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EdgeEntity edgeEntity = new EdgeEntity();
     edgeEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -131,9 +133,10 @@ public class EdgeEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEntity.equals(Object)", "int EdgeEntity.hashCode()"})
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     EdgeEntity edgeEntity = new EdgeEntity();
     edgeEntity.setAdditionalInfo(DoubleNode.valueOf(10.0d));
@@ -180,9 +183,10 @@ public class EdgeEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEntity.equals(Object)", "int EdgeEntity.hashCode()"})
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     EdgeEntity edgeEntity = new EdgeEntity();
     edgeEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -214,9 +218,10 @@ public class EdgeEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEntity#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean EdgeEntity.equals(Object)", "int EdgeEntity.hashCode()"})
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     EdgeEntity edgeEntity = new EdgeEntity();
     edgeEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -248,9 +253,10 @@ public class EdgeEntityDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeEntity.<init>()", "java.lang.String EdgeEntity.toString()"})
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     EdgeEntity actualEdgeEntity = new EdgeEntity();
 
@@ -277,9 +283,10 @@ public class EdgeEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEntity#EdgeEntity(Edge)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new EdgeEntity(Edge)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeEntity.<init>(Edge)"})
-  public void testNewEdgeEntity() {
+  void testNewEdgeEntity() {
     // Arrange
     Edge edge = new Edge(new Edge());
     edge.setTenantId(null);
@@ -308,9 +315,11 @@ public class EdgeEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEntity#EdgeEntity(Edge)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new EdgeEntity(Edge); then return CustomerId toString is '13814000-1dd2-11b2-8080-808080808080'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeEntity.<init>(Edge)"})
-  public void testNewEdgeEntity_thenReturnCustomerIdToStringIs138140001dd211b28080808080808080() {
+  void testNewEdgeEntity_thenReturnCustomerIdToStringIs138140001dd211b28080808080808080() {
     // Arrange
     Edge edge = new Edge(new Edge());
     edge.setTenantId(null);
@@ -339,9 +348,11 @@ public class EdgeEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEntity#EdgeEntity(Edge)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test new EdgeEntity(Edge); then return TenantId toString is '13814000-1dd2-11b2-8080-808080808080'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeEntity.<init>(Edge)"})
-  public void testNewEdgeEntity_thenReturnTenantIdToStringIs138140001dd211b28080808080808080() {
+  void testNewEdgeEntity_thenReturnTenantIdToStringIs138140001dd211b28080808080808080() {
     // Arrange
     Edge edge = new Edge(new Edge());
     edge.setTenantId(ModelConstants.SYSTEM_TENANT);
@@ -372,9 +383,10 @@ public class EdgeEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEntity#EdgeEntity(Edge)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new EdgeEntity(Edge); when Edge(); then toData AdditionalInfo return NullNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void EdgeEntity.<init>(Edge)"})
-  public void testNewEdgeEntity_whenEdge_thenToDataAdditionalInfoReturnNullNode() {
+  void testNewEdgeEntity_whenEdge_thenToDataAdditionalInfoReturnNullNode() {
     // Arrange and Act
     EdgeEntity actualEdgeEntity = new EdgeEntity(new Edge());
 
@@ -394,9 +406,10 @@ public class EdgeEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test toData(); given EdgeEntity(); then AdditionalInfo return NullNode")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Edge EdgeEntity.toData()"})
-  public void testToData_givenEdgeEntity_thenAdditionalInfoReturnNullNode() {
+  void testToData_givenEdgeEntity_thenAdditionalInfoReturnNullNode() {
     // Arrange and Act
     Edge actualToDataResult = new EdgeEntity().toData();
 
@@ -422,9 +435,11 @@ public class EdgeEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return CustomerId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Edge EdgeEntity.toData()"})
-  public void testToData_thenReturnCustomerIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnCustomerIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     EdgeEntity edgeEntity = new EdgeEntity();
     edgeEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -461,9 +476,11 @@ public class EdgeEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return RootRuleChainId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Edge EdgeEntity.toData()"})
-  public void testToData_thenReturnRootRuleChainIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnRootRuleChainIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     EdgeEntity edgeEntity = new EdgeEntity();
     edgeEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -500,9 +517,11 @@ public class EdgeEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return RootRuleChainId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Edge EdgeEntity.toData()"})
-  public void testToData_thenReturnRootRuleChainIdIdToStringIs784f394c42b6435a983cB7beff2784f92() {
+  void testToData_thenReturnRootRuleChainIdIdToStringIs784f394c42b6435a983cB7beff2784f92() {
     // Arrange
     EdgeEntity edgeEntity = new EdgeEntity();
     edgeEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
@@ -547,9 +566,11 @@ public class EdgeEntityDiffblueTest {
    * <p>Method under test: {@link EdgeEntity#toData()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test toData(); then return TenantId Id toString is '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Edge EdgeEntity.toData()"})
-  public void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
+  void testToData_thenReturnTenantIdIdToStringIs784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     EdgeEntity edgeEntity = new EdgeEntity();
     edgeEntity.setAdditionalInfo(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);

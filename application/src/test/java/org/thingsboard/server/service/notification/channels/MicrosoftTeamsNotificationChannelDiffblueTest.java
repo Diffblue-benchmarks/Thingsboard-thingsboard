@@ -26,27 +26,171 @@ import org.thingsboard.server.service.notification.NotificationProcessingContext
 
 @ExtendWith(MockitoExtension.class)
 class MicrosoftTeamsNotificationChannelDiffblueTest {
-  @InjectMocks
-  private MicrosoftTeamsNotificationChannel microsoftTeamsNotificationChannel;
+  @InjectMocks private MicrosoftTeamsNotificationChannel microsoftTeamsNotificationChannel;
 
   /**
-   * Test {@link MicrosoftTeamsNotificationChannel#sendNotification(MicrosoftTeamsNotificationTargetConfig, MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)} with {@code MicrosoftTeamsNotificationTargetConfig}, {@code MicrosoftTeamsDeliveryMethodNotificationTemplate}, {@code NotificationProcessingContext}.
-   * <p>
-   * Method under test: {@link MicrosoftTeamsNotificationChannel#sendNotification(MicrosoftTeamsNotificationTargetConfig, MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)}
+   * Test {@link
+   * MicrosoftTeamsNotificationChannel#sendNotification(MicrosoftTeamsNotificationTargetConfig,
+   * MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)} with {@code
+   * MicrosoftTeamsNotificationTargetConfig}, {@code
+   * MicrosoftTeamsDeliveryMethodNotificationTemplate}, {@code NotificationProcessingContext}.
+   *
+   * <p>Method under test: {@link
+   * MicrosoftTeamsNotificationChannel#sendNotification(MicrosoftTeamsNotificationTargetConfig,
+   * MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)}
    */
   @Test
-  @DisplayName("Test sendNotification(MicrosoftTeamsNotificationTargetConfig, MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext) with 'MicrosoftTeamsNotificationTargetConfig', 'MicrosoftTeamsDeliveryMethodNotificationTemplate', 'NotificationProcessingContext'")
+  @DisplayName(
+      "Test sendNotification(MicrosoftTeamsNotificationTargetConfig, MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext) with 'MicrosoftTeamsNotificationTargetConfig', 'MicrosoftTeamsDeliveryMethodNotificationTemplate', 'NotificationProcessingContext'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void MicrosoftTeamsNotificationChannel.sendNotification(MicrosoftTeamsNotificationTargetConfig, MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)"})
-  void testSendNotificationWithMicrosoftTeamsNotificationTargetConfigMicrosoftTeamsDeliveryMethodNotificationTemplateNotificationProcessingContext()
-      throws Exception {
+    "void MicrosoftTeamsNotificationChannel.sendNotification(MicrosoftTeamsNotificationTargetConfig, MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)"
+  })
+  void
+      testSendNotificationWithMicrosoftTeamsNotificationTargetConfigMicrosoftTeamsDeliveryMethodNotificationTemplateNotificationProcessingContext()
+          throws Exception {
     try (MockedStatic<InetAddress> mockInetAddress = mockStatic(InetAddress.class)) {
 
       // Arrange
-      mockInetAddress.when(() -> InetAddress.getAllByName(Mockito.<String>any()))
-          .thenReturn(new InetAddress[]{mock(InetAddress.class)});
-      MicrosoftTeamsNotificationTargetConfig targetConfig = mock(MicrosoftTeamsNotificationTargetConfig.class);
+      mockInetAddress
+          .when(() -> InetAddress.getAllByName(Mockito.<String>any()))
+          .thenReturn(new InetAddress[] {mock(InetAddress.class)});
+      MicrosoftTeamsNotificationTargetConfig targetConfig =
+          mock(MicrosoftTeamsNotificationTargetConfig.class);
+      when(targetConfig.getUseOldApi()).thenReturn(false);
+      doNothing().when(targetConfig).setChannelName(Mockito.<String>any());
+      doNothing().when(targetConfig).setUseOldApi(Mockito.<Boolean>any());
+      doNothing().when(targetConfig).setWebhookUrl(Mockito.<String>any());
+      doNothing().when(targetConfig).setDescription(Mockito.<String>any());
+      targetConfig.setChannelName("Channel Name");
+      targetConfig.setDescription("The characteristics of someone or something");
+      targetConfig.setUseOldApi(true);
+      targetConfig.setWebhookUrl("https://example.org/example");
+      Button button = mock(Button.class);
+      when(button.isEnabled()).thenThrow(new IllegalStateException("foo"));
+      MicrosoftTeamsDeliveryMethodNotificationTemplate processedTemplate =
+          mock(MicrosoftTeamsDeliveryMethodNotificationTemplate.class);
+      when(processedTemplate.getBody()).thenReturn("Not all who wander are lost");
+      when(processedTemplate.getSubject()).thenReturn("Hello from the Dreaming Spires");
+      when(processedTemplate.getThemeColor()).thenReturn("Theme Color");
+      when(processedTemplate.getButton()).thenReturn(button);
+
+      // Act and Assert
+      assertThrows(
+          IllegalStateException.class,
+          () ->
+              microsoftTeamsNotificationChannel.sendNotification(
+                  targetConfig, processedTemplate, null));
+      verify(targetConfig, atLeast(1)).getUseOldApi();
+      verify(targetConfig).setChannelName(eq("Channel Name"));
+      verify(targetConfig).setUseOldApi(eq(true));
+      verify(targetConfig).setWebhookUrl(eq("https://example.org/example"));
+      verify(targetConfig).setDescription(eq("The characteristics of someone or something"));
+      verify(processedTemplate).getBody();
+      verify(processedTemplate).getButton();
+      verify(processedTemplate, atLeast(1)).getSubject();
+      verify(processedTemplate, atLeast(1)).getThemeColor();
+      verify(button).isEnabled();
+    }
+  }
+
+  /**
+   * Test {@link
+   * MicrosoftTeamsNotificationChannel#sendNotification(MicrosoftTeamsNotificationTargetConfig,
+   * MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)} with {@code
+   * MicrosoftTeamsNotificationTargetConfig}, {@code
+   * MicrosoftTeamsDeliveryMethodNotificationTemplate}, {@code NotificationProcessingContext}.
+   *
+   * <p>Method under test: {@link
+   * MicrosoftTeamsNotificationChannel#sendNotification(MicrosoftTeamsNotificationTargetConfig,
+   * MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)}
+   */
+  @Test
+  @DisplayName(
+      "Test sendNotification(MicrosoftTeamsNotificationTargetConfig, MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext) with 'MicrosoftTeamsNotificationTargetConfig', 'MicrosoftTeamsDeliveryMethodNotificationTemplate', 'NotificationProcessingContext'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "void MicrosoftTeamsNotificationChannel.sendNotification(MicrosoftTeamsNotificationTargetConfig, MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)"
+  })
+  void
+      testSendNotificationWithMicrosoftTeamsNotificationTargetConfigMicrosoftTeamsDeliveryMethodNotificationTemplateNotificationProcessingContext2()
+          throws Exception {
+    try (MockedStatic<InetAddress> mockInetAddress = mockStatic(InetAddress.class)) {
+
+      // Arrange
+      mockInetAddress
+          .when(() -> InetAddress.getAllByName(Mockito.<String>any()))
+          .thenReturn(new InetAddress[] {mock(InetAddress.class)});
+      MicrosoftTeamsNotificationTargetConfig targetConfig =
+          mock(MicrosoftTeamsNotificationTargetConfig.class);
+      when(targetConfig.getUseOldApi()).thenReturn(false);
+      doNothing().when(targetConfig).setChannelName(Mockito.<String>any());
+      doNothing().when(targetConfig).setUseOldApi(Mockito.<Boolean>any());
+      doNothing().when(targetConfig).setWebhookUrl(Mockito.<String>any());
+      doNothing().when(targetConfig).setDescription(Mockito.<String>any());
+      targetConfig.setChannelName("Channel Name");
+      targetConfig.setDescription("The characteristics of someone or something");
+      targetConfig.setUseOldApi(true);
+      targetConfig.setWebhookUrl("https://example.org/example");
+      Button button = mock(Button.class);
+      when(button.getLinkType()).thenThrow(new IllegalStateException("message"));
+      when(button.isEnabled()).thenReturn(true);
+      MicrosoftTeamsDeliveryMethodNotificationTemplate processedTemplate =
+          mock(MicrosoftTeamsDeliveryMethodNotificationTemplate.class);
+      when(processedTemplate.getBody()).thenReturn("Not all who wander are lost");
+      when(processedTemplate.getSubject()).thenReturn("Hello from the Dreaming Spires");
+      when(processedTemplate.getThemeColor()).thenReturn("Theme Color");
+      when(processedTemplate.getButton()).thenReturn(button);
+
+      // Act and Assert
+      assertThrows(
+          IllegalStateException.class,
+          () ->
+              microsoftTeamsNotificationChannel.sendNotification(
+                  targetConfig, processedTemplate, null));
+      verify(targetConfig, atLeast(1)).getUseOldApi();
+      verify(targetConfig).setChannelName(eq("Channel Name"));
+      verify(targetConfig).setUseOldApi(eq(true));
+      verify(targetConfig).setWebhookUrl(eq("https://example.org/example"));
+      verify(targetConfig).setDescription(eq("The characteristics of someone or something"));
+      verify(processedTemplate).getBody();
+      verify(processedTemplate).getButton();
+      verify(processedTemplate, atLeast(1)).getSubject();
+      verify(processedTemplate, atLeast(1)).getThemeColor();
+      verify(button).getLinkType();
+      verify(button).isEnabled();
+    }
+  }
+
+  /**
+   * Test {@link
+   * MicrosoftTeamsNotificationChannel#sendNotification(MicrosoftTeamsNotificationTargetConfig,
+   * MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)} with {@code
+   * MicrosoftTeamsNotificationTargetConfig}, {@code
+   * MicrosoftTeamsDeliveryMethodNotificationTemplate}, {@code NotificationProcessingContext}.
+   *
+   * <p>Method under test: {@link
+   * MicrosoftTeamsNotificationChannel#sendNotification(MicrosoftTeamsNotificationTargetConfig,
+   * MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)}
+   */
+  @Test
+  @DisplayName(
+      "Test sendNotification(MicrosoftTeamsNotificationTargetConfig, MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext) with 'MicrosoftTeamsNotificationTargetConfig', 'MicrosoftTeamsDeliveryMethodNotificationTemplate', 'NotificationProcessingContext'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "void MicrosoftTeamsNotificationChannel.sendNotification(MicrosoftTeamsNotificationTargetConfig, MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)"
+  })
+  void
+      testSendNotificationWithMicrosoftTeamsNotificationTargetConfigMicrosoftTeamsDeliveryMethodNotificationTemplateNotificationProcessingContext3()
+          throws Exception {
+    try (MockedStatic<InetAddress> mockInetAddress = mockStatic(InetAddress.class)) {
+
+      // Arrange
+      mockInetAddress
+          .when(() -> InetAddress.getAllByName(Mockito.<String>any()))
+          .thenReturn(new InetAddress[] {mock(InetAddress.class)});
+      MicrosoftTeamsNotificationTargetConfig targetConfig =
+          mock(MicrosoftTeamsNotificationTargetConfig.class);
       when(targetConfig.getUseOldApi()).thenReturn(false);
       doNothing().when(targetConfig).setChannelName(Mockito.<String>any());
       doNothing().when(targetConfig).setUseOldApi(Mockito.<Boolean>any());
@@ -61,16 +205,19 @@ class MicrosoftTeamsNotificationChannelDiffblueTest {
       when(button.getLink()).thenReturn("Link");
       when(button.getLinkType()).thenReturn(LinkType.LINK);
       when(button.isEnabled()).thenReturn(true);
-      MicrosoftTeamsDeliveryMethodNotificationTemplate processedTemplate = mock(
-          MicrosoftTeamsDeliveryMethodNotificationTemplate.class);
+      MicrosoftTeamsDeliveryMethodNotificationTemplate processedTemplate =
+          mock(MicrosoftTeamsDeliveryMethodNotificationTemplate.class);
       when(processedTemplate.getBody()).thenReturn("Not all who wander are lost");
       when(processedTemplate.getSubject()).thenReturn("Hello from the Dreaming Spires");
       when(processedTemplate.getThemeColor()).thenReturn("Theme Color");
       when(processedTemplate.getButton()).thenReturn(button);
 
       // Act and Assert
-      assertThrows(IllegalStateException.class,
-          () -> microsoftTeamsNotificationChannel.sendNotification(targetConfig, processedTemplate, null));
+      assertThrows(
+          IllegalStateException.class,
+          () ->
+              microsoftTeamsNotificationChannel.sendNotification(
+                  targetConfig, processedTemplate, null));
       verify(targetConfig, atLeast(1)).getUseOldApi();
       verify(targetConfig).setChannelName(eq("Channel Name"));
       verify(targetConfig).setUseOldApi(eq(true));
@@ -88,23 +235,34 @@ class MicrosoftTeamsNotificationChannelDiffblueTest {
   }
 
   /**
-   * Test {@link MicrosoftTeamsNotificationChannel#sendNotification(MicrosoftTeamsNotificationTargetConfig, MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)} with {@code MicrosoftTeamsNotificationTargetConfig}, {@code MicrosoftTeamsDeliveryMethodNotificationTemplate}, {@code NotificationProcessingContext}.
-   * <p>
-   * Method under test: {@link MicrosoftTeamsNotificationChannel#sendNotification(MicrosoftTeamsNotificationTargetConfig, MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)}
+   * Test {@link
+   * MicrosoftTeamsNotificationChannel#sendNotification(MicrosoftTeamsNotificationTargetConfig,
+   * MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)} with {@code
+   * MicrosoftTeamsNotificationTargetConfig}, {@code
+   * MicrosoftTeamsDeliveryMethodNotificationTemplate}, {@code NotificationProcessingContext}.
+   *
+   * <p>Method under test: {@link
+   * MicrosoftTeamsNotificationChannel#sendNotification(MicrosoftTeamsNotificationTargetConfig,
+   * MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)}
    */
   @Test
-  @DisplayName("Test sendNotification(MicrosoftTeamsNotificationTargetConfig, MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext) with 'MicrosoftTeamsNotificationTargetConfig', 'MicrosoftTeamsDeliveryMethodNotificationTemplate', 'NotificationProcessingContext'")
+  @DisplayName(
+      "Test sendNotification(MicrosoftTeamsNotificationTargetConfig, MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext) with 'MicrosoftTeamsNotificationTargetConfig', 'MicrosoftTeamsDeliveryMethodNotificationTemplate', 'NotificationProcessingContext'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void MicrosoftTeamsNotificationChannel.sendNotification(MicrosoftTeamsNotificationTargetConfig, MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)"})
-  void testSendNotificationWithMicrosoftTeamsNotificationTargetConfigMicrosoftTeamsDeliveryMethodNotificationTemplateNotificationProcessingContext2()
-      throws Exception {
+    "void MicrosoftTeamsNotificationChannel.sendNotification(MicrosoftTeamsNotificationTargetConfig, MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)"
+  })
+  void
+      testSendNotificationWithMicrosoftTeamsNotificationTargetConfigMicrosoftTeamsDeliveryMethodNotificationTemplateNotificationProcessingContext4()
+          throws Exception {
     try (MockedStatic<InetAddress> mockInetAddress = mockStatic(InetAddress.class)) {
 
       // Arrange
-      mockInetAddress.when(() -> InetAddress.getAllByName(Mockito.<String>any()))
-          .thenReturn(new InetAddress[]{mock(InetAddress.class)});
-      MicrosoftTeamsNotificationTargetConfig targetConfig = mock(MicrosoftTeamsNotificationTargetConfig.class);
+      mockInetAddress
+          .when(() -> InetAddress.getAllByName(Mockito.<String>any()))
+          .thenReturn(new InetAddress[] {mock(InetAddress.class)});
+      MicrosoftTeamsNotificationTargetConfig targetConfig =
+          mock(MicrosoftTeamsNotificationTargetConfig.class);
       when(targetConfig.getUseOldApi()).thenReturn(false);
       doNothing().when(targetConfig).setChannelName(Mockito.<String>any());
       doNothing().when(targetConfig).setUseOldApi(Mockito.<Boolean>any());
@@ -118,16 +276,19 @@ class MicrosoftTeamsNotificationChannelDiffblueTest {
       when(button.isSetEntityIdInState()).thenThrow(new IllegalStateException("message"));
       when(button.getLinkType()).thenReturn(LinkType.DASHBOARD);
       when(button.isEnabled()).thenReturn(true);
-      MicrosoftTeamsDeliveryMethodNotificationTemplate processedTemplate = mock(
-          MicrosoftTeamsDeliveryMethodNotificationTemplate.class);
+      MicrosoftTeamsDeliveryMethodNotificationTemplate processedTemplate =
+          mock(MicrosoftTeamsDeliveryMethodNotificationTemplate.class);
       when(processedTemplate.getBody()).thenReturn("Not all who wander are lost");
       when(processedTemplate.getSubject()).thenReturn("Hello from the Dreaming Spires");
       when(processedTemplate.getThemeColor()).thenReturn("Theme Color");
       when(processedTemplate.getButton()).thenReturn(button);
 
       // Act and Assert
-      assertThrows(IllegalStateException.class,
-          () -> microsoftTeamsNotificationChannel.sendNotification(targetConfig, processedTemplate, null));
+      assertThrows(
+          IllegalStateException.class,
+          () ->
+              microsoftTeamsNotificationChannel.sendNotification(
+                  targetConfig, processedTemplate, null));
       verify(targetConfig, atLeast(1)).getUseOldApi();
       verify(targetConfig).setChannelName(eq("Channel Name"));
       verify(targetConfig).setUseOldApi(eq(true));
@@ -144,23 +305,34 @@ class MicrosoftTeamsNotificationChannelDiffblueTest {
   }
 
   /**
-   * Test {@link MicrosoftTeamsNotificationChannel#sendNotification(MicrosoftTeamsNotificationTargetConfig, MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)} with {@code MicrosoftTeamsNotificationTargetConfig}, {@code MicrosoftTeamsDeliveryMethodNotificationTemplate}, {@code NotificationProcessingContext}.
-   * <p>
-   * Method under test: {@link MicrosoftTeamsNotificationChannel#sendNotification(MicrosoftTeamsNotificationTargetConfig, MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)}
+   * Test {@link
+   * MicrosoftTeamsNotificationChannel#sendNotification(MicrosoftTeamsNotificationTargetConfig,
+   * MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)} with {@code
+   * MicrosoftTeamsNotificationTargetConfig}, {@code
+   * MicrosoftTeamsDeliveryMethodNotificationTemplate}, {@code NotificationProcessingContext}.
+   *
+   * <p>Method under test: {@link
+   * MicrosoftTeamsNotificationChannel#sendNotification(MicrosoftTeamsNotificationTargetConfig,
+   * MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)}
    */
   @Test
-  @DisplayName("Test sendNotification(MicrosoftTeamsNotificationTargetConfig, MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext) with 'MicrosoftTeamsNotificationTargetConfig', 'MicrosoftTeamsDeliveryMethodNotificationTemplate', 'NotificationProcessingContext'")
+  @DisplayName(
+      "Test sendNotification(MicrosoftTeamsNotificationTargetConfig, MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext) with 'MicrosoftTeamsNotificationTargetConfig', 'MicrosoftTeamsDeliveryMethodNotificationTemplate', 'NotificationProcessingContext'")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "void MicrosoftTeamsNotificationChannel.sendNotification(MicrosoftTeamsNotificationTargetConfig, MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)"})
-  void testSendNotificationWithMicrosoftTeamsNotificationTargetConfigMicrosoftTeamsDeliveryMethodNotificationTemplateNotificationProcessingContext3()
-      throws Exception {
+    "void MicrosoftTeamsNotificationChannel.sendNotification(MicrosoftTeamsNotificationTargetConfig, MicrosoftTeamsDeliveryMethodNotificationTemplate, NotificationProcessingContext)"
+  })
+  void
+      testSendNotificationWithMicrosoftTeamsNotificationTargetConfigMicrosoftTeamsDeliveryMethodNotificationTemplateNotificationProcessingContext5()
+          throws Exception {
     try (MockedStatic<InetAddress> mockInetAddress = mockStatic(InetAddress.class)) {
 
       // Arrange
-      mockInetAddress.when(() -> InetAddress.getAllByName(Mockito.<String>any()))
-          .thenReturn(new InetAddress[]{mock(InetAddress.class)});
-      MicrosoftTeamsNotificationTargetConfig targetConfig = mock(MicrosoftTeamsNotificationTargetConfig.class);
+      mockInetAddress
+          .when(() -> InetAddress.getAllByName(Mockito.<String>any()))
+          .thenReturn(new InetAddress[] {mock(InetAddress.class)});
+      MicrosoftTeamsNotificationTargetConfig targetConfig =
+          mock(MicrosoftTeamsNotificationTargetConfig.class);
       when(targetConfig.getUseOldApi()).thenReturn(true);
       doNothing().when(targetConfig).setChannelName(Mockito.<String>any());
       doNothing().when(targetConfig).setUseOldApi(Mockito.<Boolean>any());
@@ -174,16 +346,19 @@ class MicrosoftTeamsNotificationChannelDiffblueTest {
       when(button.isSetEntityIdInState()).thenThrow(new IllegalStateException("message"));
       when(button.getLinkType()).thenReturn(LinkType.DASHBOARD);
       when(button.isEnabled()).thenReturn(true);
-      MicrosoftTeamsDeliveryMethodNotificationTemplate processedTemplate = mock(
-          MicrosoftTeamsDeliveryMethodNotificationTemplate.class);
+      MicrosoftTeamsDeliveryMethodNotificationTemplate processedTemplate =
+          mock(MicrosoftTeamsDeliveryMethodNotificationTemplate.class);
       when(processedTemplate.getBody()).thenReturn("Not all who wander are lost");
       when(processedTemplate.getSubject()).thenReturn("Hello from the Dreaming Spires");
       when(processedTemplate.getThemeColor()).thenReturn("Theme Color");
       when(processedTemplate.getButton()).thenReturn(button);
 
       // Act and Assert
-      assertThrows(IllegalStateException.class,
-          () -> microsoftTeamsNotificationChannel.sendNotification(targetConfig, processedTemplate, null));
+      assertThrows(
+          IllegalStateException.class,
+          () ->
+              microsoftTeamsNotificationChannel.sendNotification(
+                  targetConfig, processedTemplate, null));
       verify(targetConfig, atLeast(1)).getUseOldApi();
       verify(targetConfig).setChannelName(eq("Channel Name"));
       verify(targetConfig).setUseOldApi(eq(true));

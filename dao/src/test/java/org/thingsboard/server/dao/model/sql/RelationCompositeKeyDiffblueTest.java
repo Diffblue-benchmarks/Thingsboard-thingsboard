@@ -1,18 +1,18 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertSame;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.relation.EntityRelation;
 import org.thingsboard.server.dao.entity.BaseEntityService;
 import org.thingsboard.server.dao.model.ModelConstants;
 
-public class RelationCompositeKeyDiffblueTest {
+class RelationCompositeKeyDiffblueTest {
   /**
    * Test {@link RelationCompositeKey#equals(Object)}, and {@link RelationCompositeKey#hashCode()}.
    *
@@ -29,12 +29,13 @@ public class RelationCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RelationCompositeKey.equals(Object)",
     "int RelationCompositeKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     RelationCompositeKey relationCompositeKey = new RelationCompositeKey();
     RelationCompositeKey relationCompositeKey2 = new RelationCompositeKey();
@@ -61,12 +62,13 @@ public class RelationCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RelationCompositeKey.equals(Object)",
     "int RelationCompositeKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
     // Arrange
     UUID fromId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     RelationCompositeKey relationCompositeKey =
@@ -109,12 +111,13 @@ public class RelationCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RelationCompositeKey.equals(Object)",
     "int RelationCompositeKey.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     RelationCompositeKey relationCompositeKey = new RelationCompositeKey();
 
@@ -135,12 +138,13 @@ public class RelationCompositeKeyDiffblueTest {
    * <p>Method under test: {@link RelationCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RelationCompositeKey.equals(Object)",
     "int RelationCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     UUID fromId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
     RelationCompositeKey relationCompositeKey =
@@ -167,12 +171,13 @@ public class RelationCompositeKeyDiffblueTest {
    * <p>Method under test: {@link RelationCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RelationCompositeKey.equals(Object)",
     "int RelationCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     RelationCompositeKey relationCompositeKey = new RelationCompositeKey();
     UUID fromId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -200,12 +205,13 @@ public class RelationCompositeKeyDiffblueTest {
    * <p>Method under test: {@link RelationCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RelationCompositeKey.equals(Object)",
     "int RelationCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     RelationCompositeKey relationCompositeKey = new RelationCompositeKey();
     relationCompositeKey.setFromType("jane.doe@example.org");
@@ -225,12 +231,13 @@ public class RelationCompositeKeyDiffblueTest {
    * <p>Method under test: {@link RelationCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RelationCompositeKey.equals(Object)",
     "int RelationCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     RelationCompositeKey relationCompositeKey = new RelationCompositeKey();
     relationCompositeKey.setToId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
@@ -250,12 +257,13 @@ public class RelationCompositeKeyDiffblueTest {
    * <p>Method under test: {@link RelationCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RelationCompositeKey.equals(Object)",
     "int RelationCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
     // Arrange
     RelationCompositeKey relationCompositeKey = new RelationCompositeKey();
     relationCompositeKey.setToType("To Type");
@@ -275,12 +283,13 @@ public class RelationCompositeKeyDiffblueTest {
    * <p>Method under test: {@link RelationCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RelationCompositeKey.equals(Object)",
     "int RelationCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
     // Arrange
     RelationCompositeKey relationCompositeKey = new RelationCompositeKey();
     relationCompositeKey.setRelationType("Relation Type");
@@ -300,12 +309,13 @@ public class RelationCompositeKeyDiffblueTest {
    * <p>Method under test: {@link RelationCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RelationCompositeKey.equals(Object)",
     "int RelationCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
     // Arrange
     RelationCompositeKey relationCompositeKey = new RelationCompositeKey();
     relationCompositeKey.setRelationTypeGroup("Relation Type Group");
@@ -325,12 +335,13 @@ public class RelationCompositeKeyDiffblueTest {
    * <p>Method under test: {@link RelationCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RelationCompositeKey.equals(Object)",
     "int RelationCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
     // Arrange
     RelationCompositeKey relationCompositeKey = new RelationCompositeKey();
 
@@ -352,12 +363,13 @@ public class RelationCompositeKeyDiffblueTest {
    * <p>Method under test: {@link RelationCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RelationCompositeKey.equals(Object)",
     "int RelationCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
     // Arrange
     RelationCompositeKey relationCompositeKey = new RelationCompositeKey();
 
@@ -379,12 +391,13 @@ public class RelationCompositeKeyDiffblueTest {
    * <p>Method under test: {@link RelationCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RelationCompositeKey.equals(Object)",
     "int RelationCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
     // Arrange
     RelationCompositeKey relationCompositeKey = new RelationCompositeKey();
 
@@ -406,12 +419,13 @@ public class RelationCompositeKeyDiffblueTest {
    * <p>Method under test: {@link RelationCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RelationCompositeKey.equals(Object)",
     "int RelationCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual11() {
     // Arrange
     RelationCompositeKey relationCompositeKey = new RelationCompositeKey();
 
@@ -433,12 +447,13 @@ public class RelationCompositeKeyDiffblueTest {
    * <p>Method under test: {@link RelationCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RelationCompositeKey.equals(Object)",
     "int RelationCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual12() {
     // Arrange
     RelationCompositeKey relationCompositeKey = new RelationCompositeKey();
 
@@ -460,12 +475,13 @@ public class RelationCompositeKeyDiffblueTest {
    * <p>Method under test: {@link RelationCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RelationCompositeKey.equals(Object)",
     "int RelationCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new RelationCompositeKey(), null);
   }
@@ -481,12 +497,13 @@ public class RelationCompositeKeyDiffblueTest {
    * <p>Method under test: {@link RelationCompositeKey#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean RelationCompositeKey.equals(Object)",
     "int RelationCompositeKey.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new RelationCompositeKey(), "Different type to RelationCompositeKey");
   }
@@ -514,7 +531,8 @@ public class RelationCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void RelationCompositeKey.<init>()",
     "void RelationCompositeKey.<init>(UUID, String, UUID, String, String, String)",
@@ -532,7 +550,7 @@ public class RelationCompositeKeyDiffblueTest {
     "void RelationCompositeKey.setToType(String)",
     "String RelationCompositeKey.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange and Act
     RelationCompositeKey actualRelationCompositeKey = new RelationCompositeKey();
     UUID fromId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
@@ -595,7 +613,8 @@ public class RelationCompositeKeyDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters; when fromString '784f394c-42b6-435a-983c-b7beff2784f9'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void RelationCompositeKey.<init>()",
     "void RelationCompositeKey.<init>(UUID, String, UUID, String, String, String)",
@@ -613,7 +632,7 @@ public class RelationCompositeKeyDiffblueTest {
     "void RelationCompositeKey.setToType(String)",
     "String RelationCompositeKey.toString()"
   })
-  public void testGettersAndSetters_whenFromString784f394c42b6435a983cB7beff2784f9() {
+  void testGettersAndSetters_whenFromString784f394c42b6435a983cB7beff2784f9() {
     // Arrange
     UUID fromId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
 
@@ -664,9 +683,10 @@ public class RelationCompositeKeyDiffblueTest {
    * <p>Method under test: {@link RelationCompositeKey#RelationCompositeKey(EntityRelation)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new RelationCompositeKey(EntityRelation)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void RelationCompositeKey.<init>(EntityRelation)"})
-  public void testNewRelationCompositeKey() {
+  void testNewRelationCompositeKey() {
     // Arrange
     EntityRelation relation =
         new EntityRelation(

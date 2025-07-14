@@ -1,12 +1,12 @@
 package org.thingsboard.server.dao.audit;
 
-import static org.junit.Assert.assertFalse;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class AuditLogLevelMaskDiffblueTest {
+class AuditLogLevelMaskDiffblueTest {
   /**
    * Test getters and setters.
    *
@@ -18,9 +18,10 @@ public class AuditLogLevelMaskDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean AuditLogLevelMask.isRead()", "boolean AuditLogLevelMask.isWrite()"})
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     AuditLogLevelMask valueOfResult = AuditLogLevelMask.valueOf("OFF");
 

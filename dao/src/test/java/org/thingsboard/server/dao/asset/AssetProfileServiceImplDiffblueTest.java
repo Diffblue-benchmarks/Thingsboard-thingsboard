@@ -1,10 +1,10 @@
 package org.thingsboard.server.dao.asset;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.ArgumentMatchers.isNull;
@@ -14,7 +14,6 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -22,13 +21,14 @@ import java.util.List;
 import java.util.UUID;
 import java.util.function.Function;
 import org.hibernate.exception.ConstraintViolationException;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.thingsboard.server.common.data.EntityInfo;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.asset.AssetProfile;
@@ -46,8 +46,8 @@ import org.thingsboard.server.dao.exception.DataValidationException;
 import org.thingsboard.server.dao.model.ModelConstants;
 import org.thingsboard.server.dao.service.DataValidator;
 
-@RunWith(MockitoJUnitRunner.class)
-public class AssetProfileServiceImplDiffblueTest {
+@ExtendWith(MockitoExtension.class)
+class AssetProfileServiceImplDiffblueTest {
   @Mock private AssetProfileDao assetProfileDao;
 
   @InjectMocks private AssetProfileServiceImpl assetProfileServiceImpl;
@@ -65,9 +65,11 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#handleEvictEvent(AssetProfileEvictEvent)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test handleEvictEvent(AssetProfileEvictEvent) with 'AssetProfileEvictEvent'; then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileServiceImpl.handleEvictEvent(AssetProfileEvictEvent)"})
-  public void testHandleEvictEventWithAssetProfileEvictEvent_thenThrowDataValidationException() {
+  void testHandleEvictEventWithAssetProfileEvictEvent_thenThrowDataValidationException() {
     // Arrange
     AssetProfile savedAssetProfile = mock(AssetProfile.class);
     when(savedAssetProfile.getId()).thenThrow(new DataValidationException("An error occurred"));
@@ -89,9 +91,10 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#saveAssetProfile(AssetProfile)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test saveAssetProfile(AssetProfile) with 'assetProfile'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AssetProfile AssetProfileServiceImpl.saveAssetProfile(AssetProfile)"})
-  public void testSaveAssetProfileWithAssetProfile() {
+  void testSaveAssetProfileWithAssetProfile() {
     // Arrange
     when(dataValidator.validate(
             Mockito.<AssetProfile>any(), Mockito.<Function<AssetProfile, TenantId>>any()))
@@ -112,11 +115,13 @@ public class AssetProfileServiceImplDiffblueTest {
    * boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test saveAssetProfile(AssetProfile, boolean, boolean) with 'assetProfile', 'doValidate', 'publishSaveEvent'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "AssetProfile AssetProfileServiceImpl.saveAssetProfile(AssetProfile, boolean, boolean)"
   })
-  public void testSaveAssetProfileWithAssetProfileDoValidatePublishSaveEvent() {
+  void testSaveAssetProfileWithAssetProfileDoValidatePublishSaveEvent() {
     // Arrange
     when(dataValidator.validate(
             Mockito.<AssetProfile>any(), Mockito.<Function<AssetProfile, TenantId>>any()))
@@ -136,9 +141,10 @@ public class AssetProfileServiceImplDiffblueTest {
    * AssetProfileId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteAssetProfile(TenantId, AssetProfileId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileServiceImpl.deleteAssetProfile(TenantId, AssetProfileId)"})
-  public void testDeleteAssetProfile() {
+  void testDeleteAssetProfile() {
     // Arrange
     when(assetProfileDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -160,9 +166,10 @@ public class AssetProfileServiceImplDiffblueTest {
    * AssetProfileId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteAssetProfile(TenantId, AssetProfileId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileServiceImpl.deleteAssetProfile(TenantId, AssetProfileId)"})
-  public void testDeleteAssetProfile2() {
+  void testDeleteAssetProfile2() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
     assetProfile.setId(new AssetProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
@@ -198,9 +205,11 @@ public class AssetProfileServiceImplDiffblueTest {
    * AssetProfileId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteAssetProfile(TenantId, AssetProfileId); given AssetProfileDao findById(TenantId, UUID) return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileServiceImpl.deleteAssetProfile(TenantId, AssetProfileId)"})
-  public void testDeleteAssetProfile_givenAssetProfileDaoFindByIdReturnNull() {
+  void testDeleteAssetProfile_givenAssetProfileDaoFindByIdReturnNull() {
     // Arrange
     when(assetProfileDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(null);
 
@@ -226,9 +235,11 @@ public class AssetProfileServiceImplDiffblueTest {
    * AssetProfileId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteAssetProfile(TenantId, AssetProfileId); given AssetProfileDao findById(TenantId, UUID) return 'null'; then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileServiceImpl.deleteAssetProfile(TenantId, AssetProfileId)"})
-  public void testDeleteAssetProfile_givenAssetProfileDaoFindByIdReturnNull_thenCallsGetId() {
+  void testDeleteAssetProfile_givenAssetProfileDaoFindByIdReturnNull_thenCallsGetId() {
     // Arrange
     when(assetProfileDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(null);
     AssetProfileId assetProfileId = mock(AssetProfileId.class);
@@ -254,9 +265,11 @@ public class AssetProfileServiceImplDiffblueTest {
    * AssetProfileId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteAssetProfile(TenantId, AssetProfileId); given AssetProfile() Default is 'true'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileServiceImpl.deleteAssetProfile(TenantId, AssetProfileId)"})
-  public void testDeleteAssetProfile_givenAssetProfileDefaultIsTrue() {
+  void testDeleteAssetProfile_givenAssetProfileDefaultIsTrue() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
     assetProfile.setDefault(true);
@@ -287,9 +300,10 @@ public class AssetProfileServiceImplDiffblueTest {
    * AssetProfileId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteAssetProfile(TenantId, AssetProfileId); then calls isDefault()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileServiceImpl.deleteAssetProfile(TenantId, AssetProfileId)"})
-  public void testDeleteAssetProfile_thenCallsIsDefault() {
+  void testDeleteAssetProfile_thenCallsIsDefault() {
     // Arrange
     AssetProfile assetProfile = mock(AssetProfile.class);
     when(assetProfile.isDefault()).thenThrow(new DataValidationException("An error occurred"));
@@ -318,9 +332,11 @@ public class AssetProfileServiceImplDiffblueTest {
    * AssetProfileId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteAssetProfile(TenantId, AssetProfileId); then throw ConstraintViolationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileServiceImpl.deleteAssetProfile(TenantId, AssetProfileId)"})
-  public void testDeleteAssetProfile_thenThrowConstraintViolationException() {
+  void testDeleteAssetProfile_thenThrowConstraintViolationException() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
     assetProfile.setId(new AssetProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
@@ -352,9 +368,10 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#deleteEntity(TenantId, EntityId, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEntity(TenantId, EntityId, boolean)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileServiceImpl.deleteEntity(TenantId, EntityId, boolean)"})
-  public void testDeleteEntity() {
+  void testDeleteEntity() {
     // Arrange
     when(assetProfileDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -374,9 +391,10 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#deleteEntity(TenantId, EntityId, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEntity(TenantId, EntityId, boolean)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileServiceImpl.deleteEntity(TenantId, EntityId, boolean)"})
-  public void testDeleteEntity2() {
+  void testDeleteEntity2() {
     // Arrange
     AssetProfile assetProfile = mock(AssetProfile.class);
     when(assetProfile.isDefault()).thenThrow(new DataValidationException("An error occurred"));
@@ -406,9 +424,11 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#deleteEntity(TenantId, EntityId, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteEntity(TenantId, EntityId, boolean); given AssetProfileDao findById(TenantId, UUID) return 'null'; when NULL_CUSTOMER_ID")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileServiceImpl.deleteEntity(TenantId, EntityId, boolean)"})
-  public void testDeleteEntity_givenAssetProfileDaoFindByIdReturnNull_whenNull_customer_id() {
+  void testDeleteEntity_givenAssetProfileDaoFindByIdReturnNull_whenNull_customer_id() {
     // Arrange
     when(assetProfileDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(null);
 
@@ -432,9 +452,11 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#deleteEntity(TenantId, EntityId, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteEntity(TenantId, EntityId, boolean); given AssetProfile isDefault() return 'false'; when 'false'; then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileServiceImpl.deleteEntity(TenantId, EntityId, boolean)"})
-  public void testDeleteEntity_givenAssetProfileIsDefaultReturnFalse_whenFalse_thenCallsGetId() {
+  void testDeleteEntity_givenAssetProfileIsDefaultReturnFalse_whenFalse_thenCallsGetId() {
     // Arrange
     AssetProfile assetProfile = mock(AssetProfile.class);
     when(assetProfile.isDefault()).thenReturn(false);
@@ -465,9 +487,11 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#deleteEntity(TenantId, EntityId, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteEntity(TenantId, EntityId, boolean); given AssetProfile isDefault() return 'true'; then calls isDefault()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileServiceImpl.deleteEntity(TenantId, EntityId, boolean)"})
-  public void testDeleteEntity_givenAssetProfileIsDefaultReturnTrue_thenCallsIsDefault() {
+  void testDeleteEntity_givenAssetProfileIsDefaultReturnTrue_thenCallsIsDefault() {
     // Arrange
     AssetProfile assetProfile = mock(AssetProfile.class);
     when(assetProfile.isDefault()).thenReturn(true);
@@ -495,9 +519,10 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#deleteEntity(TenantId, EntityId, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEntity(TenantId, EntityId, boolean); then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileServiceImpl.deleteEntity(TenantId, EntityId, boolean)"})
-  public void testDeleteEntity_thenCallsGetId() {
+  void testDeleteEntity_thenCallsGetId() {
     // Arrange
     AssetProfile assetProfile = mock(AssetProfile.class);
     when(assetProfile.getId()).thenThrow(new DataValidationException("An error occurred"));
@@ -524,9 +549,10 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#deleteEntity(TenantId, EntityId, boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteEntity(TenantId, EntityId, boolean); then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileServiceImpl.deleteEntity(TenantId, EntityId, boolean)"})
-  public void testDeleteEntity_thenCallsGetId2() {
+  void testDeleteEntity_thenCallsGetId2() {
     // Arrange
     AssetProfile assetProfile = mock(AssetProfile.class);
     when(assetProfile.getId()).thenThrow(new DataValidationException("An error occurred"));
@@ -550,9 +576,10 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#findAssetProfiles(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAssetProfiles(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData AssetProfileServiceImpl.findAssetProfiles(TenantId, PageLink)"})
-  public void testFindAssetProfiles() {
+  void testFindAssetProfiles() {
     // Arrange
     when(assetProfileDao.findAssetProfiles(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -572,9 +599,10 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#findAssetProfiles(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAssetProfiles(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData AssetProfileServiceImpl.findAssetProfiles(TenantId, PageLink)"})
-  public void testFindAssetProfiles2() {
+  void testFindAssetProfiles2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize()).thenThrow(new DataValidationException("An error occurred"));
@@ -592,9 +620,10 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#findAssetProfiles(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAssetProfiles(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData AssetProfileServiceImpl.findAssetProfiles(TenantId, PageLink)"})
-  public void testFindAssetProfiles3() {
+  void testFindAssetProfiles3() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPage()).thenThrow(new DataValidationException("An error occurred"));
@@ -618,9 +647,11 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#findAssetProfiles(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAssetProfiles(TenantId, PageLink); given SortOrder with 'Property' and direction is 'ASC'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData AssetProfileServiceImpl.findAssetProfiles(TenantId, PageLink)"})
-  public void testFindAssetProfiles_givenSortOrderWithPropertyAndDirectionIsAsc() {
+  void testFindAssetProfiles_givenSortOrderWithPropertyAndDirectionIsAsc() {
     // Arrange
     PageData<AssetProfile> emptyPageDataResult = PageData.emptyPageData();
     when(assetProfileDao.findAssetProfiles(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
@@ -652,9 +683,11 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#findAssetProfiles(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAssetProfiles(TenantId, PageLink); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData AssetProfileServiceImpl.findAssetProfiles(TenantId, PageLink)"})
-  public void testFindAssetProfiles_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindAssetProfiles_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<AssetProfile> emptyPageDataResult = PageData.emptyPageData();
     when(assetProfileDao.findAssetProfiles(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
@@ -686,9 +719,11 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#findAssetProfiles(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAssetProfiles(TenantId, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData AssetProfileServiceImpl.findAssetProfiles(TenantId, PageLink)"})
-  public void testFindAssetProfiles_givenSortOrderWithPropertyIsNull() {
+  void testFindAssetProfiles_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<AssetProfile> emptyPageDataResult = PageData.emptyPageData();
     when(assetProfileDao.findAssetProfiles(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
@@ -720,9 +755,10 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#findAssetProfiles(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAssetProfiles(TenantId, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData AssetProfileServiceImpl.findAssetProfiles(TenantId, PageLink)"})
-  public void testFindAssetProfiles_thenCallsGetProperty() {
+  void testFindAssetProfiles_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty()).thenThrow(new DataValidationException("An error occurred"));
@@ -752,9 +788,11 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#findAssetProfiles(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAssetProfiles(TenantId, PageLink); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData AssetProfileServiceImpl.findAssetProfiles(TenantId, PageLink)"})
-  public void testFindAssetProfiles_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindAssetProfiles_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<AssetProfile> emptyPageDataResult = PageData.emptyPageData();
     when(assetProfileDao.findAssetProfiles(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
@@ -776,9 +814,10 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#findAssetProfileInfos(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAssetProfileInfos(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData AssetProfileServiceImpl.findAssetProfileInfos(TenantId, PageLink)"})
-  public void testFindAssetProfileInfos() {
+  void testFindAssetProfileInfos() {
     // Arrange
     when(assetProfileDao.findAssetProfileInfos(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
         .thenThrow(new DataValidationException("An error occurred"));
@@ -798,9 +837,10 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#findAssetProfileInfos(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAssetProfileInfos(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData AssetProfileServiceImpl.findAssetProfileInfos(TenantId, PageLink)"})
-  public void testFindAssetProfileInfos2() {
+  void testFindAssetProfileInfos2() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPageSize()).thenThrow(new DataValidationException("An error occurred"));
@@ -819,9 +859,10 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#findAssetProfileInfos(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAssetProfileInfos(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData AssetProfileServiceImpl.findAssetProfileInfos(TenantId, PageLink)"})
-  public void testFindAssetProfileInfos3() {
+  void testFindAssetProfileInfos3() {
     // Arrange
     PageLink pageLink = mock(PageLink.class);
     when(pageLink.getPage()).thenThrow(new DataValidationException("An error occurred"));
@@ -846,9 +887,11 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#findAssetProfileInfos(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAssetProfileInfos(TenantId, PageLink); given SortOrder with 'Property' and direction is 'ASC'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData AssetProfileServiceImpl.findAssetProfileInfos(TenantId, PageLink)"})
-  public void testFindAssetProfileInfos_givenSortOrderWithPropertyAndDirectionIsAsc() {
+  void testFindAssetProfileInfos_givenSortOrderWithPropertyAndDirectionIsAsc() {
     // Arrange
     PageData<AssetProfileInfo> emptyPageDataResult = PageData.emptyPageData();
     when(assetProfileDao.findAssetProfileInfos(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
@@ -881,9 +924,11 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#findAssetProfileInfos(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAssetProfileInfos(TenantId, PageLink); given SortOrder(String) with property is empty string")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData AssetProfileServiceImpl.findAssetProfileInfos(TenantId, PageLink)"})
-  public void testFindAssetProfileInfos_givenSortOrderWithPropertyIsEmptyString() {
+  void testFindAssetProfileInfos_givenSortOrderWithPropertyIsEmptyString() {
     // Arrange
     PageData<AssetProfileInfo> emptyPageDataResult = PageData.emptyPageData();
     when(assetProfileDao.findAssetProfileInfos(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
@@ -916,9 +961,11 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#findAssetProfileInfos(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAssetProfileInfos(TenantId, PageLink); given SortOrder(String) with property is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData AssetProfileServiceImpl.findAssetProfileInfos(TenantId, PageLink)"})
-  public void testFindAssetProfileInfos_givenSortOrderWithPropertyIsNull() {
+  void testFindAssetProfileInfos_givenSortOrderWithPropertyIsNull() {
     // Arrange
     PageData<AssetProfileInfo> emptyPageDataResult = PageData.emptyPageData();
     when(assetProfileDao.findAssetProfileInfos(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
@@ -951,9 +998,10 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#findAssetProfileInfos(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findAssetProfileInfos(TenantId, PageLink); then calls getProperty()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData AssetProfileServiceImpl.findAssetProfileInfos(TenantId, PageLink)"})
-  public void testFindAssetProfileInfos_thenCallsGetProperty() {
+  void testFindAssetProfileInfos_thenCallsGetProperty() {
     // Arrange
     SortOrder sortOrder = mock(SortOrder.class);
     when(sortOrder.getProperty()).thenThrow(new DataValidationException("An error occurred"));
@@ -984,9 +1032,11 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#findAssetProfileInfos(TenantId, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAssetProfileInfos(TenantId, PageLink); when FIRST_PAGE; then return EMPTY_PAGE_DATA")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData AssetProfileServiceImpl.findAssetProfileInfos(TenantId, PageLink)"})
-  public void testFindAssetProfileInfos_whenFirst_page_thenReturnEmpty_page_data() {
+  void testFindAssetProfileInfos_whenFirst_page_thenReturnEmpty_page_data() {
     // Arrange
     PageData<AssetProfileInfo> emptyPageDataResult = PageData.emptyPageData();
     when(assetProfileDao.findAssetProfileInfos(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
@@ -1009,9 +1059,10 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#createDefaultAssetProfile(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test createDefaultAssetProfile(TenantId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"AssetProfile AssetProfileServiceImpl.createDefaultAssetProfile(TenantId)"})
-  public void testCreateDefaultAssetProfile() {
+  void testCreateDefaultAssetProfile() {
     // Arrange
     when(dataValidator.validate(
             Mockito.<AssetProfile>any(), Mockito.<Function<AssetProfile, TenantId>>any()))
@@ -1036,11 +1087,13 @@ public class AssetProfileServiceImplDiffblueTest {
    * AssetProfileId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test setDefaultAssetProfile(TenantId, AssetProfileId); given AssetProfile isDefault() return 'true'; then calls getId()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileServiceImpl.setDefaultAssetProfile(TenantId, AssetProfileId)"
   })
-  public void testSetDefaultAssetProfile_givenAssetProfileIsDefaultReturnTrue_thenCallsGetId() {
+  void testSetDefaultAssetProfile_givenAssetProfileIsDefaultReturnTrue_thenCallsGetId() {
     // Arrange
     AssetProfile assetProfile = mock(AssetProfile.class);
     when(assetProfile.isDefault()).thenReturn(true);
@@ -1074,11 +1127,13 @@ public class AssetProfileServiceImplDiffblueTest {
    * AssetProfileId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test setDefaultAssetProfile(TenantId, AssetProfileId); given AssetProfile isDefault() return 'true'; then return 'false'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean AssetProfileServiceImpl.setDefaultAssetProfile(TenantId, AssetProfileId)"
   })
-  public void testSetDefaultAssetProfile_givenAssetProfileIsDefaultReturnTrue_thenReturnFalse() {
+  void testSetDefaultAssetProfile_givenAssetProfileIsDefaultReturnTrue_thenReturnFalse() {
     // Arrange
     AssetProfile assetProfile = mock(AssetProfile.class);
     when(assetProfile.isDefault()).thenReturn(true);
@@ -1099,16 +1154,13 @@ public class AssetProfileServiceImplDiffblueTest {
   /**
    * Test {@link AssetProfileServiceImpl#deleteAssetProfilesByTenantId(TenantId)}.
    *
-   * <ul>
-   *   <li>Then calls {@link AssetProfileDao#findAssetProfiles(TenantId, PageLink)}.
-   * </ul>
-   *
    * <p>Method under test: {@link AssetProfileServiceImpl#deleteAssetProfilesByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteAssetProfilesByTenantId(TenantId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileServiceImpl.deleteAssetProfilesByTenantId(TenantId)"})
-  public void testDeleteAssetProfilesByTenantId_thenCallsFindAssetProfiles() {
+  void testDeleteAssetProfilesByTenantId() {
     // Arrange
     PageData<AssetProfile> emptyPageDataResult = PageData.emptyPageData();
     when(assetProfileDao.findAssetProfiles(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
@@ -1118,6 +1170,83 @@ public class AssetProfileServiceImplDiffblueTest {
     assetProfileServiceImpl.deleteAssetProfilesByTenantId(ModelConstants.SYSTEM_TENANT);
 
     // Assert
+    verify(assetProfileDao).findAssetProfiles(isA(TenantId.class), isA(PageLink.class));
+  }
+
+  /**
+   * Test {@link AssetProfileServiceImpl#deleteAssetProfilesByTenantId(TenantId)}.
+   *
+   * <ul>
+   *   <li>Then throw {@link ConstraintViolationException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link AssetProfileServiceImpl#deleteAssetProfilesByTenantId(TenantId)}
+   */
+  @Test
+  @DisplayName(
+      "Test deleteAssetProfilesByTenantId(TenantId); then throw ConstraintViolationException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AssetProfileServiceImpl.deleteAssetProfilesByTenantId(TenantId)"})
+  void testDeleteAssetProfilesByTenantId_thenThrowConstraintViolationException() {
+    // Arrange
+    AssetProfile assetProfile = new AssetProfile();
+    assetProfile.setId(new AssetProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    ArrayList<AssetProfile> data = new ArrayList<>();
+    data.add(assetProfile);
+    PageData<AssetProfile> pageData = new PageData<>(data, 100, 100L, true);
+
+    doThrow(
+            new ConstraintViolationException(
+                "An error occurred",
+                new SQLException(),
+                "Executing deleteAssetProfilesByTenantId, tenantId [{}]"))
+        .when(assetProfileDao)
+        .removeById(Mockito.<TenantId>any(), Mockito.<UUID>any());
+    when(assetProfileDao.findAssetProfiles(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
+        .thenReturn(pageData);
+
+    // Act and Assert
+    assertThrows(
+        ConstraintViolationException.class,
+        () -> assetProfileServiceImpl.deleteAssetProfilesByTenantId(ModelConstants.SYSTEM_TENANT));
+    verify(assetProfileDao).removeById(isA(TenantId.class), isA(UUID.class));
+    verify(assetProfileDao).findAssetProfiles(isA(TenantId.class), isA(PageLink.class));
+  }
+
+  /**
+   * Test {@link AssetProfileServiceImpl#deleteAssetProfilesByTenantId(TenantId)}.
+   *
+   * <ul>
+   *   <li>Then throw {@link DataValidationException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link AssetProfileServiceImpl#deleteAssetProfilesByTenantId(TenantId)}
+   */
+  @Test
+  @DisplayName("Test deleteAssetProfilesByTenantId(TenantId); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AssetProfileServiceImpl.deleteAssetProfilesByTenantId(TenantId)"})
+  void testDeleteAssetProfilesByTenantId_thenThrowDataValidationException() {
+    // Arrange
+    AssetProfile assetProfile = new AssetProfile();
+    assetProfile.setId(new AssetProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
+
+    ArrayList<AssetProfile> data = new ArrayList<>();
+    data.add(assetProfile);
+    PageData<AssetProfile> pageData = new PageData<>(data, 100, 100L, true);
+
+    doThrow(new DataValidationException("An error occurred"))
+        .when(assetProfileDao)
+        .removeById(Mockito.<TenantId>any(), Mockito.<UUID>any());
+    when(assetProfileDao.findAssetProfiles(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
+        .thenReturn(pageData);
+
+    // Act and Assert
+    assertThrows(
+        DataValidationException.class,
+        () -> assetProfileServiceImpl.deleteAssetProfilesByTenantId(ModelConstants.SYSTEM_TENANT));
+    verify(assetProfileDao).removeById(isA(TenantId.class), isA(UUID.class));
     verify(assetProfileDao).findAssetProfiles(isA(TenantId.class), isA(PageLink.class));
   }
 
@@ -1132,9 +1261,11 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#deleteByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteByTenantId(TenantId); given AssetProfileDao findAssetProfiles(TenantId, PageLink) return emptyPageData")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileServiceImpl.deleteByTenantId(TenantId)"})
-  public void testDeleteByTenantId_givenAssetProfileDaoFindAssetProfilesReturnEmptyPageData() {
+  void testDeleteByTenantId_givenAssetProfileDaoFindAssetProfilesReturnEmptyPageData() {
     // Arrange
     PageData<AssetProfile> emptyPageDataResult = PageData.emptyPageData();
     when(assetProfileDao.findAssetProfiles(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
@@ -1157,9 +1288,10 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#deleteByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteByTenantId(TenantId); then throw ConstraintViolationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileServiceImpl.deleteByTenantId(TenantId)"})
-  public void testDeleteByTenantId_thenThrowConstraintViolationException() {
+  void testDeleteByTenantId_thenThrowConstraintViolationException() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
     assetProfile.setId(new AssetProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
@@ -1196,9 +1328,10 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#deleteByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteByTenantId(TenantId); then throw DataValidationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void AssetProfileServiceImpl.deleteByTenantId(TenantId)"})
-  public void testDeleteByTenantId_thenThrowDataValidationException() {
+  void testDeleteByTenantId_thenThrowDataValidationException() {
     // Arrange
     AssetProfile assetProfile = new AssetProfile();
     assetProfile.setId(new AssetProfileId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9")));
@@ -1227,9 +1360,10 @@ public class AssetProfileServiceImplDiffblueTest {
    * <p>Method under test: {@link AssetProfileServiceImpl#getEntityType()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getEntityType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityType AssetProfileServiceImpl.getEntityType()"})
-  public void testGetEntityType() {
+  void testGetEntityType() {
     // Arrange, Act and Assert
     assertEquals(EntityType.ASSET_PROFILE, new AssetProfileServiceImpl().getEntityType());
   }
@@ -1246,11 +1380,13 @@ public class AssetProfileServiceImplDiffblueTest {
    * boolean)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findAssetProfileNamesByTenantId(TenantId, boolean); when SYSTEM_TENANT; then return Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "List AssetProfileServiceImpl.findAssetProfileNamesByTenantId(TenantId, boolean)"
   })
-  public void testFindAssetProfileNamesByTenantId_whenSystem_tenant_thenReturnEmpty() {
+  void testFindAssetProfileNamesByTenantId_whenSystem_tenant_thenReturnEmpty() {
     // Arrange
     when(assetProfileDao.findTenantAssetProfileNames(Mockito.<UUID>any(), anyBoolean()))
         .thenReturn(new ArrayList<>());

@@ -1,31 +1,31 @@
 package org.thingsboard.server.dao.aspect;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Map;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.TenantId;
 import org.thingsboard.server.dao.aspect.DbCallStatsSnapshot.DbCallStatsSnapshotBuilder;
 import org.thingsboard.server.dao.model.ModelConstants;
 
 @ContextConfiguration(classes = {DbCallStatsSnapshotBuilder.class})
-@RunWith(SpringJUnit4ClassRunner.class)
-public class DbCallStatsSnapshotDiffblueTest {
+@ExtendWith(SpringExtension.class)
+class DbCallStatsSnapshotDiffblueTest {
   @Autowired private DbCallStatsSnapshotBuilder dbCallStatsSnapshotBuilder;
 
   /**
@@ -43,7 +43,8 @@ public class DbCallStatsSnapshotDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test DbCallStatsSnapshotBuilder build()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void DbCallStatsSnapshotBuilder.<init>()",
     "DbCallStatsSnapshot DbCallStatsSnapshotBuilder.build()",
@@ -54,7 +55,7 @@ public class DbCallStatsSnapshotDiffblueTest {
     "DbCallStatsSnapshotBuilder DbCallStatsSnapshotBuilder.totalSuccess(int)",
     "DbCallStatsSnapshotBuilder DbCallStatsSnapshotBuilder.totalTiming(long)"
   })
-  public void testDbCallStatsSnapshotBuilderBuild() {
+  void testDbCallStatsSnapshotBuilderBuild() {
     // Arrange
     DbCallStatsSnapshotBuilder builderResult = DbCallStatsSnapshot.builder();
     HashMap<String, MethodCallStatsSnapshot> methodStats = new HashMap<>();
@@ -90,9 +91,10 @@ public class DbCallStatsSnapshotDiffblueTest {
    * <p>Method under test: {@link DbCallStatsSnapshot#getTotalCalls()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getTotalCalls()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"int DbCallStatsSnapshot.getTotalCalls()"})
-  public void testGetTotalCalls() {
+  void testGetTotalCalls() {
     // Arrange, Act and Assert
     assertEquals(
         2,
@@ -116,12 +118,13 @@ public class DbCallStatsSnapshotDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DbCallStatsSnapshot.equals(Object)",
     "int DbCallStatsSnapshot.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     DbCallStatsSnapshotBuilder builderResult = DbCallStatsSnapshot.builder();
     DbCallStatsSnapshot buildResult =
@@ -164,12 +167,13 @@ public class DbCallStatsSnapshotDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DbCallStatsSnapshot.equals(Object)",
     "int DbCallStatsSnapshot.hashCode()"
   })
-  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     DbCallStatsSnapshotBuilder builderResult = DbCallStatsSnapshot.builder();
     DbCallStatsSnapshot buildResult =
@@ -198,12 +202,13 @@ public class DbCallStatsSnapshotDiffblueTest {
    * <p>Method under test: {@link DbCallStatsSnapshot#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DbCallStatsSnapshot.equals(Object)",
     "int DbCallStatsSnapshot.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     DbCallStatsSnapshotBuilder dbCallStatsSnapshotBuilder = mock(DbCallStatsSnapshotBuilder.class);
     when(dbCallStatsSnapshotBuilder.methodStats(
@@ -242,12 +247,13 @@ public class DbCallStatsSnapshotDiffblueTest {
    * <p>Method under test: {@link DbCallStatsSnapshot#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DbCallStatsSnapshot.equals(Object)",
     "int DbCallStatsSnapshot.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
     // Arrange
     DbCallStatsSnapshotBuilder dbCallStatsSnapshotBuilder = mock(DbCallStatsSnapshotBuilder.class);
     when(dbCallStatsSnapshotBuilder.tenantId(Mockito.<TenantId>any()))
@@ -289,12 +295,13 @@ public class DbCallStatsSnapshotDiffblueTest {
    * <p>Method under test: {@link DbCallStatsSnapshot#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DbCallStatsSnapshot.equals(Object)",
     "int DbCallStatsSnapshot.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
     // Arrange
     DbCallStatsSnapshotBuilder dbCallStatsSnapshotBuilder = mock(DbCallStatsSnapshotBuilder.class);
     when(dbCallStatsSnapshotBuilder.totalFailure(anyInt()))
@@ -339,12 +346,13 @@ public class DbCallStatsSnapshotDiffblueTest {
    * <p>Method under test: {@link DbCallStatsSnapshot#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DbCallStatsSnapshot.equals(Object)",
     "int DbCallStatsSnapshot.hashCode()"
   })
-  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
     // Arrange
     DbCallStatsSnapshotBuilder dbCallStatsSnapshotBuilder = mock(DbCallStatsSnapshotBuilder.class);
     when(dbCallStatsSnapshotBuilder.totalSuccess(anyInt()))
@@ -391,12 +399,13 @@ public class DbCallStatsSnapshotDiffblueTest {
    * <p>Method under test: {@link DbCallStatsSnapshot#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DbCallStatsSnapshot.equals(Object)",
     "int DbCallStatsSnapshot.hashCode()"
   })
-  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange
     DbCallStatsSnapshotBuilder builderResult = DbCallStatsSnapshot.builder();
     DbCallStatsSnapshot buildResult =
@@ -423,12 +432,13 @@ public class DbCallStatsSnapshotDiffblueTest {
    * <p>Method under test: {@link DbCallStatsSnapshot#equals(Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "boolean DbCallStatsSnapshot.equals(Object)",
     "int DbCallStatsSnapshot.hashCode()"
   })
-  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange
     DbCallStatsSnapshotBuilder builderResult = DbCallStatsSnapshot.builder();
     DbCallStatsSnapshot buildResult =
@@ -459,7 +469,8 @@ public class DbCallStatsSnapshotDiffblueTest {
    * </ul>
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getters and setters")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "Map DbCallStatsSnapshot.getMethodStats()",
     "TenantId DbCallStatsSnapshot.getTenantId()",
@@ -468,7 +479,7 @@ public class DbCallStatsSnapshotDiffblueTest {
     "long DbCallStatsSnapshot.getTotalTiming()",
     "String DbCallStatsSnapshot.toString()"
   })
-  public void testGettersAndSetters() {
+  void testGettersAndSetters() {
     // Arrange
     DbCallStatsSnapshotBuilder builderResult = DbCallStatsSnapshot.builder();
     HashMap<String, MethodCallStatsSnapshot> methodStats = new HashMap<>();
@@ -508,9 +519,10 @@ public class DbCallStatsSnapshotDiffblueTest {
    * Map)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new DbCallStatsSnapshot(TenantId, int, int, long, Map)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void DbCallStatsSnapshot.<init>(TenantId, int, int, long, Map)"})
-  public void testNewDbCallStatsSnapshot() {
+  void testNewDbCallStatsSnapshot() {
     // Arrange
     TenantId tenantId = ModelConstants.SYSTEM_TENANT;
 

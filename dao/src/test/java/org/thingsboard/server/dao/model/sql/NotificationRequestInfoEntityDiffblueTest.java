@@ -1,20 +1,20 @@
 package org.thingsboard.server.dao.model.sql;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.util.UUID;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.notification.NotificationRequestStatus;
 import org.thingsboard.server.dao.customer.CustomerServiceImpl;
 
-public class NotificationRequestInfoEntityDiffblueTest {
+class NotificationRequestInfoEntityDiffblueTest {
   /**
    * Test {@link
    * NotificationRequestInfoEntity#NotificationRequestInfoEntity(NotificationRequestEntity, String,
@@ -25,11 +25,12 @@ public class NotificationRequestInfoEntityDiffblueTest {
    * Object)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new NotificationRequestInfoEntity(NotificationRequestEntity, String, Object)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "void NotificationRequestInfoEntity.<init>(NotificationRequestEntity, String, Object)"
   })
-  public void testNewNotificationRequestInfoEntity() {
+  void testNewNotificationRequestInfoEntity() {
     // Arrange
     NotificationRequestEntity requestEntity = new NotificationRequestEntity();
     requestEntity.setAdditionalConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);

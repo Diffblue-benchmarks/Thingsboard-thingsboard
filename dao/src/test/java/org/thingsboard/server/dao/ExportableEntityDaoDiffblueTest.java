@@ -1,22 +1,22 @@
 package org.thingsboard.server.dao;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import jakarta.persistence.EntityManagerFactory;
 import java.util.ArrayList;
 import java.util.UUID;
 import javax.sql.DataSource;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -27,7 +27,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.aot.DisabledInAotMode;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.support.TransactionTemplate;
 import org.thingsboard.server.common.data.Dashboard;
 import org.thingsboard.server.common.data.asset.Asset;
@@ -46,9 +46,9 @@ import org.thingsboard.server.dao.sql.dashboard.JpaDashboardDao;
 @ContextConfiguration(classes = {JpaDashboardDao.class, JpaAssetDao.class})
 @DisabledInAotMode
 @EnableConfigurationProperties
+@ExtendWith(SpringExtension.class)
 @PropertySource("classpath:application-test.properties")
-@RunWith(SpringJUnit4ClassRunner.class)
-public class ExportableEntityDaoDiffblueTest {
+class ExportableEntityDaoDiffblueTest {
   @MockBean private AssetProfileRepository assetProfileRepository;
 
   @MockBean private AssetRepository assetRepository;
@@ -75,11 +75,12 @@ public class ExportableEntityDaoDiffblueTest {
    * <p>Method under test: {@link ExportableEntityDao#findByTenantIdAndName(UUID, String)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findByTenantIdAndName(UUID, String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "org.thingsboard.server.common.data.ExportableEntity ExportableEntityDao.findByTenantIdAndName(UUID, String)"
   })
-  public void testFindByTenantIdAndName() {
+  void testFindByTenantIdAndName() {
     // Arrange, Act and Assert
     assertThrows(
         UnsupportedOperationException.class,
@@ -98,9 +99,10 @@ public class ExportableEntityDaoDiffblueTest {
    * <p>Method under test: {@link ExportableEntityDao#findIdsByTenantId(UUID, PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findIdsByTenantId(UUID, PageLink); then return TotalElements is zero")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"PageData ExportableEntityDao.findIdsByTenantId(UUID, PageLink)"})
-  public void testFindIdsByTenantId_thenReturnTotalElementsIsZero() {
+  void testFindIdsByTenantId_thenReturnTotalElementsIsZero() {
     // Arrange
     when(assetRepository.findByTenantId(
             Mockito.<UUID>any(), Mockito.<String>any(), Mockito.<Pageable>any()))
@@ -126,11 +128,12 @@ public class ExportableEntityDaoDiffblueTest {
    * <p>Method under test: {@link ExportableEntityDao#findDefaultEntityByTenantId(UUID)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findDefaultEntityByTenantId(UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "org.thingsboard.server.common.data.ExportableEntity ExportableEntityDao.findDefaultEntityByTenantId(UUID)"
   })
-  public void testFindDefaultEntityByTenantId() {
+  void testFindDefaultEntityByTenantId() {
     // Arrange, Act and Assert
     assertThrows(
         UnsupportedOperationException.class,

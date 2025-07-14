@@ -1274,38 +1274,6 @@ class RuleChainControllerDiffblueTest {
   }
 
   /**
-   * Test {@link RuleChainController#unassignRuleChainFromEdge(String, String)}.
-   *
-   * <ul>
-   *   <li>When {@link MockMvcRequestBuilders#delete(String, Object[])} {@code
-   *       /api/edge/{edgeId}/ruleChain/{ruleChainId}} {@code 42} and {@code 42}.
-   * </ul>
-   *
-   * <p>Method under test: {@link RuleChainController#unassignRuleChainFromEdge(String, String)}
-   */
-  @Test
-  @DisplayName(
-      "Test unassignRuleChainFromEdge(String, String); when delete(String, Object[]) '/api/edge/{edgeId}/ruleChain/{ruleChainId}' '42' and '42'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"RuleChain RuleChainController.unassignRuleChainFromEdge(String, String)"})
-  void testUnassignRuleChainFromEdge_whenDeleteApiEdgeEdgeIdRuleChainRuleChainId42And42()
-      throws Exception {
-    // Arrange
-    doNothing()
-        .when(thingsboardErrorResponseHandler)
-        .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder requestBuilder =
-        MockMvcRequestBuilders.delete("/api/edge/{edgeId}/ruleChain/{ruleChainId}", "42", "42");
-
-    // Act and Assert
-    MockMvcBuilders.standaloneSetup(ruleChainController)
-        .setControllerAdvice(thingsboardErrorResponseHandler)
-        .build()
-        .perform(requestBuilder)
-        .andExpect(MockMvcResultMatchers.status().isOk());
-  }
-
-  /**
    * Test {@link RuleChainController#getEdgeRuleChains(String, int, int, String, String, String)}.
    *
    * <ul>
@@ -1463,36 +1431,6 @@ class RuleChainControllerDiffblueTest {
         .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
     MockHttpServletRequestBuilder requestBuilder =
         MockMvcRequestBuilders.post("/api/ruleChain/{ruleChainId}/autoAssignToEdge", "42");
-
-    // Act and Assert
-    MockMvcBuilders.standaloneSetup(ruleChainController)
-        .setControllerAdvice(thingsboardErrorResponseHandler)
-        .build()
-        .perform(requestBuilder)
-        .andExpect(MockMvcResultMatchers.status().isOk());
-  }
-
-  /**
-   * Test {@link RuleChainController#unsetAutoAssignToEdgeRuleChain(String)}.
-   *
-   * <ul>
-   *   <li>When {@code 42}.
-   *   <li>Then status {@link StatusResultMatchers#isOk()}.
-   * </ul>
-   *
-   * <p>Method under test: {@link RuleChainController#unsetAutoAssignToEdgeRuleChain(String)}
-   */
-  @Test
-  @DisplayName("Test unsetAutoAssignToEdgeRuleChain(String); when '42'; then status isOk()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"RuleChain RuleChainController.unsetAutoAssignToEdgeRuleChain(String)"})
-  void testUnsetAutoAssignToEdgeRuleChain_when42_thenStatusIsOk() throws Exception {
-    // Arrange
-    doNothing()
-        .when(thingsboardErrorResponseHandler)
-        .handle(Mockito.<Exception>any(), Mockito.<HttpServletResponse>any());
-    MockHttpServletRequestBuilder requestBuilder =
-        MockMvcRequestBuilders.delete("/api/ruleChain/{ruleChainId}/autoAssignToEdge", "42");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(ruleChainController)

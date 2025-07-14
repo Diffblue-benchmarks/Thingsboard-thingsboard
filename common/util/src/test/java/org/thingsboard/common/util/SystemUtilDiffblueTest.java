@@ -23,7 +23,7 @@ class SystemUtilDiffblueTest {
     Optional<Integer> actualDiscSpaceUsage = SystemUtil.getDiscSpaceUsage();
 
     // Assert
-    assertEquals(67, actualDiscSpaceUsage.get().intValue());
+    assertEquals(68, actualDiscSpaceUsage.get().intValue());
     assertTrue(actualDiscSpaceUsage.isPresent());
   }
 

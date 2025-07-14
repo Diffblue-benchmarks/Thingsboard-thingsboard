@@ -1,10 +1,9 @@
 package org.thingsboard.server.dao;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.Properties;
 import org.hibernate.boot.TempTableDdlTransactionHandling;
@@ -41,10 +40,11 @@ import org.hibernate.tool.schema.internal.StandardTableExporter;
 import org.hibernate.tool.schema.internal.StandardTableMigrator;
 import org.hibernate.tool.schema.internal.StandardUniqueKeyExporter;
 import org.hibernate.tool.schema.internal.StandardUserDefinedTypeExporter;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class ThingsboardPostgreSQLDialectDiffblueTest {
+class ThingsboardPostgreSQLDialectDiffblueTest {
   /**
    * Test new {@link ThingsboardPostgreSQLDialect} (default constructor).
    *
@@ -52,9 +52,10 @@ public class ThingsboardPostgreSQLDialectDiffblueTest {
    * ThingsboardPostgreSQLDialect}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new ThingsboardPostgreSQLDialect (default constructor)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ThingsboardPostgreSQLDialect.<init>()"})
-  public void testNewThingsboardPostgreSQLDialect() {
+  void testNewThingsboardPostgreSQLDialect() {
     // Arrange and Act
     ThingsboardPostgreSQLDialect actualThingsboardPostgreSQLDialect =
         new ThingsboardPostgreSQLDialect();

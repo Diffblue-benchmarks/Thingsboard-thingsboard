@@ -16,26 +16,52 @@ import org.thingsboard.server.exception.ThingsboardErrorResponseHandler;
 
 @ExtendWith(MockitoExtension.class)
 class AssetProfileControllerDiffblueTest {
-  @InjectMocks
-  private AssetProfileController assetProfileController;
+  @InjectMocks private AssetProfileController assetProfileController;
 
-  @Mock
-  private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+  @Mock private ThingsboardErrorResponseHandler thingsboardErrorResponseHandler;
+
+  /**
+   * Test {@link AssetProfileController#getAssetProfileById(String, boolean)}.
+   *
+   * <p>Method under test: {@link AssetProfileController#getAssetProfileById(String, boolean)}
+   */
+  @Test
+  @DisplayName("Test getAssetProfileById(String, boolean)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({
+    "org.thingsboard.server.common.data.asset.AssetProfile AssetProfileController.getAssetProfileById(String, boolean)"
+  })
+  void testGetAssetProfileById() throws Exception {
+    // Arrange
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.get("/api/assetProfile/{assetProfileId}", "42")
+            .param("inlineImages", "https://example.org/example");
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(assetProfileController)
+        .setControllerAdvice(thingsboardErrorResponseHandler)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().is(400));
+  }
 
   /**
    * Test {@link AssetProfileController#getAssetProfiles(int, int, String, String, String)}.
-   * <p>
-   * Method under test: {@link AssetProfileController#getAssetProfiles(int, int, String, String, String)}
+   *
+   * <p>Method under test: {@link AssetProfileController#getAssetProfiles(int, int, String, String,
+   * String)}
    */
   @Test
   @DisplayName("Test getAssetProfiles(int, int, String, String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData AssetProfileController.getAssetProfiles(int, int, String, String, String)"})
+    "org.thingsboard.server.common.data.page.PageData AssetProfileController.getAssetProfiles(int, int, String, String, String)"
+  })
   void testGetAssetProfiles() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.get("/api/assetProfiles")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/assetProfiles")
+            .param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
     // Act and Assert
@@ -48,18 +74,21 @@ class AssetProfileControllerDiffblueTest {
 
   /**
    * Test {@link AssetProfileController#getAssetProfileInfos(int, int, String, String, String)}.
-   * <p>
-   * Method under test: {@link AssetProfileController#getAssetProfileInfos(int, int, String, String, String)}
+   *
+   * <p>Method under test: {@link AssetProfileController#getAssetProfileInfos(int, int, String,
+   * String, String)}
    */
   @Test
   @DisplayName("Test getAssetProfileInfos(int, int, String, String, String)")
   @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
-      "org.thingsboard.server.common.data.page.PageData AssetProfileController.getAssetProfileInfos(int, int, String, String, String)"})
+    "org.thingsboard.server.common.data.page.PageData AssetProfileController.getAssetProfileInfos(int, int, String, String, String)"
+  })
   void testGetAssetProfileInfos() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder paramResult = MockMvcRequestBuilders.get("/api/assetProfileInfos")
-        .param("page", "https://example.org/example");
+    MockHttpServletRequestBuilder paramResult =
+        MockMvcRequestBuilders.get("/api/assetProfileInfos")
+            .param("page", "https://example.org/example");
     MockHttpServletRequestBuilder requestBuilder = paramResult.param("pageSize", String.valueOf(1));
 
     // Act and Assert
@@ -72,8 +101,8 @@ class AssetProfileControllerDiffblueTest {
 
   /**
    * Test {@link AssetProfileController#getAssetProfileNames(boolean)}.
-   * <p>
-   * Method under test: {@link AssetProfileController#getAssetProfileNames(boolean)}
+   *
+   * <p>Method under test: {@link AssetProfileController#getAssetProfileNames(boolean)}
    */
   @Test
   @DisplayName("Test getAssetProfileNames(boolean)")
@@ -81,8 +110,9 @@ class AssetProfileControllerDiffblueTest {
   @MethodsUnderTest({"java.util.List AssetProfileController.getAssetProfileNames(boolean)"})
   void testGetAssetProfileNames() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/api/assetProfile/names")
-        .param("activeOnly", "https://example.org/example");
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.get("/api/assetProfile/names")
+            .param("activeOnly", "https://example.org/example");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(assetProfileController)

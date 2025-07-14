@@ -1,22 +1,23 @@
 package org.thingsboard.server.dao.exception;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
-public class BufferLimitExceptionDiffblueTest {
+class BufferLimitExceptionDiffblueTest {
   /**
    * Test new {@link BufferLimitException} (default constructor).
    *
    * <p>Method under test: default or parameterless constructor of {@link BufferLimitException}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test new BufferLimitException (default constructor)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void BufferLimitException.<init>()"})
-  public void testNewBufferLimitException() {
+  void testNewBufferLimitException() {
     // Arrange and Act
     BufferLimitException actualBufferLimitException = new BufferLimitException();
 

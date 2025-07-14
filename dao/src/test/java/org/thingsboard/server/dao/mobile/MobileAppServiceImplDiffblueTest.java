@@ -1,10 +1,10 @@
 package org.thingsboard.server.dao.mobile;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.atLeast;
@@ -12,22 +12,22 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.function.Function;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.aot.DisabledInAotMode;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.thingsboard.server.common.data.EntityType;
 import org.thingsboard.server.common.data.id.EntityId;
 import org.thingsboard.server.common.data.id.HasId;
@@ -48,8 +48,8 @@ import org.thingsboard.server.dao.oauth2.OAuth2ClientDao;
 
 @ContextConfiguration(classes = {MobileAppServiceImpl.class})
 @DisabledInAotMode
-@RunWith(SpringJUnit4ClassRunner.class)
-public class MobileAppServiceImplDiffblueTest {
+@ExtendWith(SpringExtension.class)
+class MobileAppServiceImplDiffblueTest {
   @MockBean private CleanUpService cleanUpService;
 
   @MockBean private MobileAppDao mobileAppDao;
@@ -64,9 +64,10 @@ public class MobileAppServiceImplDiffblueTest {
    * <p>Method under test: {@link MobileAppServiceImpl#saveMobileApp(TenantId, MobileApp)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test saveMobileApp(TenantId, MobileApp)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"MobileApp MobileAppServiceImpl.saveMobileApp(TenantId, MobileApp)"})
-  public void testSaveMobileApp() {
+  void testSaveMobileApp() {
     // Arrange
     MobileApp mobileApp = new MobileApp();
     when(mobileAppDao.save(Mockito.<TenantId>any(), Mockito.<MobileApp>any()))
@@ -91,9 +92,11 @@ public class MobileAppServiceImplDiffblueTest {
    * <p>Method under test: {@link MobileAppServiceImpl#deleteMobileAppById(TenantId, MobileAppId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test deleteMobileAppById(TenantId, MobileAppId); then calls removeById(TenantId, UUID)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void MobileAppServiceImpl.deleteMobileAppById(TenantId, MobileAppId)"})
-  public void testDeleteMobileAppById_thenCallsRemoveById() {
+  void testDeleteMobileAppById_thenCallsRemoveById() {
     // Arrange
     doNothing().when(cleanUpService).handleEntityDeletionEvent(Mockito.<DeleteEntityEvent<?>>any());
     doNothing().when(mobileAppDao).removeById(Mockito.<TenantId>any(), Mockito.<UUID>any());
@@ -118,9 +121,10 @@ public class MobileAppServiceImplDiffblueTest {
    * <p>Method under test: {@link MobileAppServiceImpl#findMobileAppById(TenantId, MobileAppId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findMobileAppById(TenantId, MobileAppId); then return MobileApp()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"MobileApp MobileAppServiceImpl.findMobileAppById(TenantId, MobileAppId)"})
-  public void testFindMobileAppById_thenReturnMobileApp() {
+  void testFindMobileAppById_thenReturnMobileApp() {
     // Arrange
     MobileApp mobileApp = new MobileApp();
     when(mobileAppDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(mobileApp);
@@ -143,11 +147,12 @@ public class MobileAppServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findMobileAppInfosByTenantId(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData MobileAppServiceImpl.findMobileAppInfosByTenantId(TenantId, PageLink)"
   })
-  public void testFindMobileAppInfosByTenantId() {
+  void testFindMobileAppInfosByTenantId() {
     // Arrange
     PageData<MobileApp> emptyPageDataResult = PageData.emptyPageData();
     when(mobileAppDao.findByTenantId(Mockito.<TenantId>any(), Mockito.<PageLink>any()))
@@ -172,11 +177,12 @@ public class MobileAppServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findMobileAppInfosByTenantId(TenantId, PageLink)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData MobileAppServiceImpl.findMobileAppInfosByTenantId(TenantId, PageLink)"
   })
-  public void testFindMobileAppInfosByTenantId2() {
+  void testFindMobileAppInfosByTenantId2() {
     // Arrange
     PageData<MobileApp> pageData = new PageData<>(new ArrayList<>(), 3, 3L, true);
 
@@ -204,11 +210,13 @@ public class MobileAppServiceImplDiffblueTest {
    * PageLink)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findMobileAppInfosByTenantId(TenantId, PageLink); then calls mapData(Function)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "PageData MobileAppServiceImpl.findMobileAppInfosByTenantId(TenantId, PageLink)"
   })
-  public void testFindMobileAppInfosByTenantId_thenCallsMapData() {
+  void testFindMobileAppInfosByTenantId_thenCallsMapData() {
     // Arrange
     PageData<MobileApp> pageData = mock(PageData.class);
     PageData<Object> emptyPageDataResult = PageData.emptyPageData();
@@ -242,11 +250,13 @@ public class MobileAppServiceImplDiffblueTest {
    * <p>Method under test: {@link MobileAppServiceImpl#findMobileAppInfoById(TenantId, MobileAppId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test findMobileAppInfoById(TenantId, MobileAppId); given MobileAppDao findById(TenantId, UUID) return 'null'; then return 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "MobileAppInfo MobileAppServiceImpl.findMobileAppInfoById(TenantId, MobileAppId)"
   })
-  public void testFindMobileAppInfoById_givenMobileAppDaoFindByIdReturnNull_thenReturnNull() {
+  void testFindMobileAppInfoById_givenMobileAppDaoFindByIdReturnNull_thenReturnNull() {
     // Arrange
     when(mobileAppDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(null);
 
@@ -271,11 +281,12 @@ public class MobileAppServiceImplDiffblueTest {
    * <p>Method under test: {@link MobileAppServiceImpl#findMobileAppInfoById(TenantId, MobileAppId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findMobileAppInfoById(TenantId, MobileAppId); then return AppSecret is 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({
     "MobileAppInfo MobileAppServiceImpl.findMobileAppInfoById(TenantId, MobileAppId)"
   })
-  public void testFindMobileAppInfoById_thenReturnAppSecretIsNull() {
+  void testFindMobileAppInfoById_thenReturnAppSecretIsNull() {
     // Arrange
     when(mobileAppDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any()))
         .thenReturn(new MobileApp());
@@ -313,9 +324,11 @@ public class MobileAppServiceImplDiffblueTest {
    * List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test updateOauth2Clients(TenantId, MobileAppId, List); given ArrayList() add 'null'; then calls addOauth2Client(MobileAppOauth2Client)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void MobileAppServiceImpl.updateOauth2Clients(TenantId, MobileAppId, List)"})
-  public void testUpdateOauth2Clients_givenArrayListAddNull_thenCallsAddOauth2Client() {
+  void testUpdateOauth2Clients_givenArrayListAddNull_thenCallsAddOauth2Client() {
     // Arrange
     ArrayList<MobileAppOauth2Client> mobileAppOauth2ClientList = new ArrayList<>();
     mobileAppOauth2ClientList.add(null);
@@ -349,9 +362,11 @@ public class MobileAppServiceImplDiffblueTest {
    * List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test updateOauth2Clients(TenantId, MobileAppId, List); given 'null'; when ArrayList() add 'null'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void MobileAppServiceImpl.updateOauth2Clients(TenantId, MobileAppId, List)"})
-  public void testUpdateOauth2Clients_givenNull_whenArrayListAddNull() {
+  void testUpdateOauth2Clients_givenNull_whenArrayListAddNull() {
     // Arrange
     ArrayList<MobileAppOauth2Client> mobileAppOauth2ClientList = new ArrayList<>();
     mobileAppOauth2ClientList.add(new MobileAppOauth2Client());
@@ -380,9 +395,11 @@ public class MobileAppServiceImplDiffblueTest {
    * List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test updateOauth2Clients(TenantId, MobileAppId, List); then calls removeOauth2Client(MobileAppOauth2Client)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void MobileAppServiceImpl.updateOauth2Clients(TenantId, MobileAppId, List)"})
-  public void testUpdateOauth2Clients_thenCallsRemoveOauth2Client() {
+  void testUpdateOauth2Clients_thenCallsRemoveOauth2Client() {
     // Arrange
     ArrayList<MobileAppOauth2Client> mobileAppOauth2ClientList = new ArrayList<>();
     mobileAppOauth2ClientList.add(new MobileAppOauth2Client());
@@ -410,9 +427,11 @@ public class MobileAppServiceImplDiffblueTest {
    * List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName(
+      "Test updateOauth2Clients(TenantId, MobileAppId, List); then calls removeOauth2Client(MobileAppOauth2Client)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void MobileAppServiceImpl.updateOauth2Clients(TenantId, MobileAppId, List)"})
-  public void testUpdateOauth2Clients_thenCallsRemoveOauth2Client2() {
+  void testUpdateOauth2Clients_thenCallsRemoveOauth2Client2() {
     // Arrange
     ArrayList<MobileAppOauth2Client> mobileAppOauth2ClientList = new ArrayList<>();
     mobileAppOauth2ClientList.add(new MobileAppOauth2Client());
@@ -441,9 +460,10 @@ public class MobileAppServiceImplDiffblueTest {
    * List)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test updateOauth2Clients(TenantId, MobileAppId, List); when ArrayList()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void MobileAppServiceImpl.updateOauth2Clients(TenantId, MobileAppId, List)"})
-  public void testUpdateOauth2Clients_whenArrayList() {
+  void testUpdateOauth2Clients_whenArrayList() {
     // Arrange
     when(mobileAppDao.findOauth2ClientsByMobileAppId(
             Mockito.<TenantId>any(), Mockito.<MobileAppId>any()))
@@ -467,9 +487,10 @@ public class MobileAppServiceImplDiffblueTest {
    * <p>Method under test: {@link MobileAppServiceImpl#findEntity(TenantId, EntityId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test findEntity(TenantId, EntityId); when NULL_CUSTOMER_ID; then return Present")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Optional MobileAppServiceImpl.findEntity(TenantId, EntityId)"})
-  public void testFindEntity_whenNull_customer_id_thenReturnPresent() {
+  void testFindEntity_whenNull_customer_id_thenReturnPresent() {
     // Arrange
     MobileApp mobileApp = new MobileApp();
     when(mobileAppDao.findById(Mockito.<TenantId>any(), Mockito.<UUID>any())).thenReturn(mobileApp);
@@ -491,9 +512,10 @@ public class MobileAppServiceImplDiffblueTest {
    * <p>Method under test: {@link MobileAppServiceImpl#deleteMobileAppsByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteMobileAppsByTenantId(TenantId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void MobileAppServiceImpl.deleteMobileAppsByTenantId(TenantId)"})
-  public void testDeleteMobileAppsByTenantId() {
+  void testDeleteMobileAppsByTenantId() {
     // Arrange
     doNothing().when(mobileAppDao).deleteByTenantId(Mockito.<TenantId>any());
 
@@ -510,9 +532,10 @@ public class MobileAppServiceImplDiffblueTest {
    * <p>Method under test: {@link MobileAppServiceImpl#deleteByTenantId(TenantId)}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test deleteByTenantId(TenantId)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void MobileAppServiceImpl.deleteByTenantId(TenantId)"})
-  public void testDeleteByTenantId() {
+  void testDeleteByTenantId() {
     // Arrange
     doNothing().when(mobileAppDao).deleteByTenantId(Mockito.<TenantId>any());
 
@@ -529,9 +552,10 @@ public class MobileAppServiceImplDiffblueTest {
    * <p>Method under test: {@link MobileAppServiceImpl#getEntityType()}
    */
   @Test
-  @Category(MaintainedByDiffblue.class)
+  @DisplayName("Test getEntityType()")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"EntityType MobileAppServiceImpl.getEntityType()"})
-  public void testGetEntityType() {
+  void testGetEntityType() {
     // Arrange, Act and Assert
     assertEquals(EntityType.MOBILE_APP, new MobileAppServiceImpl().getEntityType());
   }
