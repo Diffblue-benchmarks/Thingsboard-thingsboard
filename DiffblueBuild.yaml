@@ -371,6 +371,7 @@ phase:
           - -DartifactId=${DIFFBLUE_COVER_REFACTORING_RECIPES_ARTIFACT_ID}
           - -Dversion=${DIFFBLUE_COVER_REFACTORING_RECIPES_VERSION}
           - -Dpackaging=jar
+          - -Pskip-install-deb
 
       # ... the second is the rewrite plugin jar file...
       - name: ~
@@ -381,6 +382,7 @@ phase:
           - -DartifactId=${DIFFBLUE_OPEN_REWRITE_ARTIFACT_ID}
           - -Dversion=${DIFFBLUE_OPEN_REWRITE_VERSION}
           - -Dpackaging=jar
+          - -Pskip-install-deb
 
       # ... and finally, the rewrite plugin's pom.
       - name: ~
@@ -391,6 +393,7 @@ phase:
           - -DartifactId=${DIFFBLUE_OPEN_REWRITE_ARTIFACT_ID}
           - -Dversion=${DIFFBLUE_OPEN_REWRITE_VERSION}
           - -Dpackaging=pom
+          - -Pskip-install-deb
 
       # Once they've been installed, we can run the rewrite plugin to apply the suggested refactorings.
       - name: org.openrewrite.maven:rewrite-maven-plugin
