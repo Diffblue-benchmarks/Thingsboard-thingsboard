@@ -235,13 +235,7 @@ phase:
   classpath:
     goals:
       - name: ~
-        goal: install
-        flags:
-          - -Dmaven.compiler.failOnWarning=false
-          - --also-make
-          - -DskipTests
-          - -DskipITs
-          - --threads=1C
+        goal: dependency:build-classpath
 
   # The launcher phase is used to download the JUnit Jupiter launcher - run on a project (?)
   launcher: ~
