@@ -405,7 +405,7 @@ phase:
 
   # The validate phase checks to make sure that the tests that have been created will work in the user's build system
   validate:
-    timeout: PT60M
+    timeout: PT120M
     goals:
       - name: ~
         goal: clean
