@@ -1,0 +1,2245 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.09.01-44e352d-licensed",
+    "creationTimestamp" : "2025-10-15T16:32:46.816531087Z",
+    "command" : "dcover create --exclude-modules=org.thingsboard:ui-ngx,org.thingsboard:application,org.thingsboard.msa:tb,org.thingsboard.msa:web-ui,org.thingsboard.msa:vc-executor-docker,org.thingsboard.msa:tb-node,org.thingsboard.msa.transport:mqtt,org.thingsboard.msa.transport:http,org.thingsboard.msa.transport:coap,org.thingsboard.msa.transport:lwm2m,org.thingsboard.msa.transport:snmp,org.thingsboard.msa:js-executor,org.thingsboard.msa:monitoring --coverage-reports --upload http://localhost:8080 --project-name Thingsboard-thingsboard --name with-diffblue-tests",
+    "totalTime" : 418.499,
+    "environmentDetectionTime" : 0.168,
+    "indexingTime" : 0.331,
+    "entryPointsTime" : 0.153,
+    "generationTime" : 6584.031,
+    "timeToFirstTest" : 8109.668,
+    "timeToLastTest" : 7765.062,
+    "indexQueryTime" : 5.7250000000000005,
+    "verificationTime" : 914.751,
+    "validationTime" : 23.809
+  },
+  "codes" : {
+    "R000" : "Success",
+    "R004" : "No meaningful assertions found",
+    "R013" : "No inputs found that don't throw a trivial exception",
+    "R081" : "Exception in arrange section",
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T003" : "Private method",
+    "T005" : "Trivial constructor",
+    "T007" : "Framework configuration callback",
+    "T009" : "No implementation for abstract class",
+    "T010" : "Abstract or interface method",
+    "T012" : "Synthetic method",
+    "T020" : "Other trivial method",
+    "T023" : "Testability unknown",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation"
+  },
+  "summary" : {
+    "classesCount" : 19,
+    "methodsCount" : 170,
+    "cumulativeDiffblueTestCount" : 74,
+    "cumulativeManualTestCount" : 10,
+    "completeTestCount" : 74,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 663,
+    "perMethodTestability" : {
+      "T000" : 51,
+      "T001" : 32,
+      "T003" : 10,
+      "T005" : 7,
+      "T007" : 3,
+      "T009" : 3,
+      "T010" : 41,
+      "T012" : 15,
+      "T020" : 6,
+      "T023" : 2
+    },
+    "perMethodOutcome" : {
+      "R000" : 81,
+      "R004" : 2,
+      "R013" : 10,
+      "R081" : 3,
+      "T003" : 10,
+      "T007" : 3,
+      "T009" : 3,
+      "T010" : 41,
+      "T012" : 15,
+      "T023" : 2
+    },
+    "perTestOutcome" : {
+      "R000" : 74
+    },
+    "perTestValidation" : {
+      "V000" : 74,
+      "V003" : 1
+    }
+  },
+  "classes" : {
+    "org.thingsboard.server.actors.AbstractTbActor" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 3,
+        "T010" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 3
+      }
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem" : {
+      "methodsCount" : 35,
+      "completeTestCount" : 16,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 17,
+        "T001" : 6,
+        "T003" : 3,
+        "T007" : 1,
+        "T012" : 6,
+        "T020" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 19,
+        "R004" : 1,
+        "R013" : 4,
+        "T003" : 3,
+        "T007" : 1,
+        "T012" : 6,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 16
+      }
+    },
+    "org.thingsboard.server.actors.Dispatcher" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 11,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 2,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 6,
+        "T007" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 11
+      }
+    },
+    "org.thingsboard.server.actors.InitFailureStrategy" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T001" : 2,
+        "T003" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 6,
+        "T003" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 4
+      }
+    },
+    "org.thingsboard.server.actors.JsInvokeStats" : {
+      "methodsCount" : 10,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T009" : 3,
+        "T010" : 7
+      },
+      "perMethodOutcome" : {
+        "T009" : 3,
+        "T010" : 7
+      }
+    },
+    "org.thingsboard.server.actors.ProcessFailureStrategy" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 1,
+        "T003" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 4,
+        "T003" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 3
+      }
+    },
+    "org.thingsboard.server.actors.TbActor" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T010" : 2
+      },
+      "perMethodOutcome" : {
+        "R000" : 3,
+        "R004" : 1,
+        "T010" : 2
+      },
+      "perTestOutcome" : {
+        "R000" : 4
+      }
+    },
+    "org.thingsboard.server.actors.TbActorCreator" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 2
+      },
+      "perMethodOutcome" : {
+        "T010" : 2
+      }
+    },
+    "org.thingsboard.server.actors.TbActorCtx" : {
+      "methodsCount" : 10,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 10
+      },
+      "perMethodOutcome" : {
+        "T010" : 10
+      }
+    },
+    "org.thingsboard.server.actors.TbActorException" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.thingsboard.server.actors.TbActorId" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T010" : 1
+      }
+    },
+    "org.thingsboard.server.actors.TbActorMailbox" : {
+      "methodsCount" : 42,
+      "completeTestCount" : 11,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 13,
+        "T001" : 14,
+        "T003" : 5,
+        "T012" : 9,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 21,
+        "R013" : 6,
+        "T003" : 5,
+        "T012" : 9,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 11
+      }
+    },
+    "org.thingsboard.server.actors.TbActorNotRegisteredException" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.thingsboard.server.actors.TbActorRef" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 3
+      },
+      "perMethodOutcome" : {
+        "T010" : 3
+      }
+    },
+    "org.thingsboard.server.actors.TbActorSystem" : {
+      "methodsCount" : 15,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 15
+      },
+      "perMethodOutcome" : {
+        "T010" : 15
+      }
+    },
+    "org.thingsboard.server.actors.TbActorSystemSettings" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 8,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 3,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 7,
+        "T007" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 8
+      }
+    },
+    "org.thingsboard.server.actors.TbEntityActorId" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T001" : 1,
+        "T005" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 3,
+        "R081" : 3
+      },
+      "perTestOutcome" : {
+        "R000" : 5
+      }
+    },
+    "org.thingsboard.server.actors.TbRuleNodeUpdateException" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.thingsboard.server.actors.TbStringActorId" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 6,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 2,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 5
+      },
+      "perTestOutcome" : {
+        "R000" : 6
+      }
+    }
+  },
+  "methods" : {
+    "org.thingsboard.server.actors.AbstractTbActor.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.actors.AbstractTbActor.getActorRef:()Lorg/thingsboard/server/actors/TbActorRef;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.server.actors.AbstractTbActor.getCtx:()Lorg/thingsboard/server/actors/TbActorCtx;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.actors.AbstractTbActor.init:(Lorg/thingsboard/server/actors/TbActorCtx;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        27,
+        28
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.<init>:(Lorg/thingsboard/server/actors/TbActorSystemSettings;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        52,
+        42,
+        43,
+        44,
+        45,
+        53,
+        54,
+        55
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.broadcastToChildren:(Lorg/thingsboard/server/actors/TbActorId;Ljava/util/function/Predicate;Lorg/thingsboard/server/common/msg/TbActorMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        169,
+        170
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.broadcastToChildren:(Lorg/thingsboard/server/actors/TbActorId;Ljava/util/function/Predicate;Lorg/thingsboard/server/common/msg/TbActorMsg;Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        173,
+        174,
+        175,
+        183
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.broadcastToChildren:(Lorg/thingsboard/server/actors/TbActorId;Lorg/thingsboard/server/common/msg/TbActorMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        159,
+        160
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.broadcastToChildren:(Lorg/thingsboard/server/actors/TbActorId;Lorg/thingsboard/server/common/msg/TbActorMsg;Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        164,
+        165
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        39
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.createActor:(Ljava/lang/String;Lorg/thingsboard/server/actors/TbActorCreator;Lorg/thingsboard/server/actors/TbActorId;)Lorg/thingsboard/server/actors/TbActorRef;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        91,
+        92,
+        93,
+        94,
+        97,
+        98,
+        99,
+        100,
+        102,
+        103,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        123,
+        124,
+        127,
+        128,
+        129,
+        127,
+        128,
+        129,
+        131
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.createChildActor:(Ljava/lang/String;Lorg/thingsboard/server/actors/TbActorCreator;Lorg/thingsboard/server/actors/TbActorId;)Lorg/thingsboard/server/actors/TbActorRef;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        87
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.createDispatcher:(Ljava/lang/String;Ljava/util/concurrent/ExecutorService;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        59,
+        60,
+        61,
+        63
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.createRootActor:(Ljava/lang/String;Lorg/thingsboard/server/actors/TbActorCreator;)Lorg/thingsboard/server/actors/TbActorRef;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        82
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.destroyDispatcher:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        67,
+        68,
+        69,
+        71,
+        73
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        39
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.filterChildren:(Lorg/thingsboard/server/actors/TbActorId;Ljava/util/function/Predicate;)Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        187,
+        188,
+        189,
+        191
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.getActor:(Lorg/thingsboard/server/actors/TbActorId;)Lorg/thingsboard/server/actors/TbActorRef;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        77
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.getActorCreationLocks:()Ljava/util/concurrent/ConcurrentMap;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        44
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.getActors:()Ljava/util/concurrent/ConcurrentMap;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        43
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.getDispatchers:()Ljava/util/concurrent/ConcurrentMap;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        42
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.getParentChildMap:()Ljava/util/concurrent/ConcurrentMap;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        45
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.getScheduler:()Ljava/util/concurrent/ScheduledExecutorService;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        49
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.getSettings:()Lorg/thingsboard/server/actors/TbActorSystemSettings;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        47
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.hashCode:()I" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        39
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.lambda$broadcastToChildren$2:(Lorg/thingsboard/server/actors/TbActorId;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        164
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.lambda$broadcastToChildren$3:(Lorg/thingsboard/server/common/msg/TbActorMsg;ZLorg/thingsboard/server/actors/TbActorId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        177,
+        180,
+        178,
+        179,
+        181
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.lambda$createActor$0:(Lorg/thingsboard/server/actors/TbActorId;)Ljava/util/concurrent/locks/ReentrantLock;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        102
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.lambda$createActor$1:(Lorg/thingsboard/server/actors/TbActorId;)Ljava/util/Set;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        121
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.lambda$stop$4:(Lorg/thingsboard/server/actors/TbActorId;Ljava/util/Set;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        208
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.lambda$stop$5:(Lorg/thingsboard/server/actors/Dispatcher;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        219,
+        221,
+        224,
+        222,
+        223,
+        225
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.stop:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R004",
+      "lineNumbers" : [
+        218,
+        226,
+        227,
+        229,
+        230
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.stop:(Lorg/thingsboard/server/actors/TbActorId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        202,
+        203,
+        204,
+        205,
+        206,
+        208,
+        210,
+        211,
+        212,
+        214
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.stop:(Lorg/thingsboard/server/actors/TbActorRef;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        197,
+        198
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.tell:(Lorg/thingsboard/server/actors/TbActorId;Lorg/thingsboard/server/common/msg/TbActorMsg;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        141,
+        142
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.tell:(Lorg/thingsboard/server/actors/TbActorId;Lorg/thingsboard/server/common/msg/TbActorMsg;Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        145,
+        146,
+        147,
+        149,
+        150,
+        152,
+        154
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.tellWithHighPriority:(Lorg/thingsboard/server/actors/TbActorId;Lorg/thingsboard/server/common/msg/TbActorMsg;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        136,
+        137
+      ]
+    },
+    "org.thingsboard.server.actors.DefaultTbActorSystem.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        39
+      ]
+    },
+    "org.thingsboard.server.actors.Dispatcher.<init>:(Ljava/lang/String;Ljava/util/concurrent/ExecutorService;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.actors.Dispatcher.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.actors.Dispatcher.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 10,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 10
+      },
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.actors.Dispatcher.getDispatcherId:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.actors.Dispatcher.getExecutor:()Ljava/util/concurrent/ExecutorService;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.server.actors.Dispatcher.hashCode:()I" : {
+      "completeTestCount" : 10,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 10
+      },
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.actors.Dispatcher.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.actors.InitFailureStrategy.<init>:(ZJ)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        29,
+        30,
+        31,
+        32
+      ]
+    },
+    "org.thingsboard.server.actors.InitFailureStrategy.getRetryDelay:()J" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.server.actors.InitFailureStrategy.isStop:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.server.actors.InitFailureStrategy.retryImmediately:()Lorg/thingsboard/server/actors/InitFailureStrategy;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.server.actors.InitFailureStrategy.retryWithDelay:(J)Lorg/thingsboard/server/actors/InitFailureStrategy;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        39
+      ]
+    },
+    "org.thingsboard.server.actors.InitFailureStrategy.stop:()Lorg/thingsboard/server/actors/InitFailureStrategy;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        43
+      ]
+    },
+    "org.thingsboard.server.actors.InitFailureStrategy.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.server.actors.JsInvokeStats.getFailures:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.JsInvokeStats.getRequests:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.JsInvokeStats.getResponses:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.JsInvokeStats.incrementFailures:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        32,
+        33
+      ]
+    },
+    "org.thingsboard.server.actors.JsInvokeStats.incrementFailures:(I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.JsInvokeStats.incrementRequests:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        20,
+        21
+      ]
+    },
+    "org.thingsboard.server.actors.JsInvokeStats.incrementRequests:(I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.JsInvokeStats.incrementResponses:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        26,
+        27
+      ]
+    },
+    "org.thingsboard.server.actors.JsInvokeStats.incrementResponses:(I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.JsInvokeStats.reset:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.ProcessFailureStrategy.<init>:(Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        27,
+        28,
+        29
+      ]
+    },
+    "org.thingsboard.server.actors.ProcessFailureStrategy.isStop:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.server.actors.ProcessFailureStrategy.resume:()Lorg/thingsboard/server/actors/ProcessFailureStrategy;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        36
+      ]
+    },
+    "org.thingsboard.server.actors.ProcessFailureStrategy.stop:()Lorg/thingsboard/server/actors/ProcessFailureStrategy;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.server.actors.ProcessFailureStrategy.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.server.actors.TbActor.destroy:(Lorg/thingsboard/server/common/msg/TbActorStopReason;Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R004",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.actors.TbActor.getActorRef:()Lorg/thingsboard/server/actors/TbActorRef;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActor.init:(Lorg/thingsboard/server/actors/TbActorCtx;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.server.actors.TbActor.onInitFailure:(ILjava/lang/Throwable;)Lorg/thingsboard/server/actors/InitFailureStrategy;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        34
+      ]
+    },
+    "org.thingsboard.server.actors.TbActor.onProcessFailure:(Lorg/thingsboard/server/common/msg/TbActorMsg;Ljava/lang/Throwable;)Lorg/thingsboard/server/actors/ProcessFailureStrategy;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        38,
+        39,
+        41
+      ]
+    },
+    "org.thingsboard.server.actors.TbActor.process:(Lorg/thingsboard/server/common/msg/TbActorMsg;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorCreator.createActor:()Lorg/thingsboard/server/actors/TbActor;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorCreator.createActorId:()Lorg/thingsboard/server/actors/TbActorId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorCtx.broadcastToChildren:(Lorg/thingsboard/server/common/msg/TbActorMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorCtx.broadcastToChildren:(Lorg/thingsboard/server/common/msg/TbActorMsg;Ljava/util/function/Predicate;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorCtx.broadcastToChildren:(Lorg/thingsboard/server/common/msg/TbActorMsg;Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorCtx.broadcastToChildrenByType:(Lorg/thingsboard/server/common/msg/TbActorMsg;Lorg/thingsboard/server/common/data/EntityType;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorCtx.filterChildren:(Ljava/util/function/Predicate;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorCtx.getOrCreateChildActor:(Lorg/thingsboard/server/actors/TbActorId;Ljava/util/function/Supplier;Ljava/util/function/Supplier;Ljava/util/function/Supplier;)Lorg/thingsboard/server/actors/TbActorRef;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorCtx.getParentRef:()Lorg/thingsboard/server/actors/TbActorRef;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorCtx.getSelf:()Lorg/thingsboard/server/actors/TbActorId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorCtx.stop:(Lorg/thingsboard/server/actors/TbActorId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorCtx.tell:(Lorg/thingsboard/server/actors/TbActorId;Lorg/thingsboard/server/common/msg/TbActorMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorException.<init>:(Ljava/lang/String;Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        23,
+        24
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorId.getEntityType:()Lorg/thingsboard/server/common/data/EntityType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.<init>:(Lorg/thingsboard/server/actors/TbActorSystem;Lorg/thingsboard/server/actors/TbActorSystemSettings;Lorg/thingsboard/server/actors/TbActorId;Lorg/thingsboard/server/actors/TbActorRef;Lorg/thingsboard/server/actors/TbActor;Lorg/thingsboard/server/actors/Dispatcher;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        36,
+        53,
+        54,
+        55,
+        56,
+        57,
+        36
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.broadcastToChildren:(Lorg/thingsboard/server/common/msg/TbActorMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        193,
+        194
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.broadcastToChildren:(Lorg/thingsboard/server/common/msg/TbActorMsg;Ljava/util/function/Predicate;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        208,
+        209
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.broadcastToChildren:(Lorg/thingsboard/server/common/msg/TbActorMsg;Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        198,
+        199
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.broadcastToChildrenByType:(Lorg/thingsboard/server/common/msg/TbActorMsg;Lorg/thingsboard/server/common/data/EntityType;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        203,
+        204
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.destroy:(Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        232,
+        233,
+        235,
+        236,
+        246
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.enqueue:(Lorg/thingsboard/server/common/msg/TbActorMsg;Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        107,
+        108,
+        109,
+        111,
+        113,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        122,
+        124,
+        126,
+        129
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.filterChildren:(Ljava/util/function/Predicate;)Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        213
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.getActor:()Lorg/thingsboard/server/actors/TbActor;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        51
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.getActorId:()Lorg/thingsboard/server/actors/TbActorId;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        250
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.getBusy:()Ljava/util/concurrent/atomic/AtomicBoolean;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        55
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.getDestroyInProgress:()Ljava/util/concurrent/atomic/AtomicBoolean;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        57
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.getDispatcher:()Lorg/thingsboard/server/actors/Dispatcher;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        52
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.getHighPriorityMsgs:()Ljava/util/concurrent/ConcurrentLinkedQueue;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        53
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.getNormalPriorityMsgs:()Ljava/util/concurrent/ConcurrentLinkedQueue;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        54
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.getOrCreateChildActor:(Lorg/thingsboard/server/actors/TbActorId;Ljava/util/function/Supplier;Ljava/util/function/Supplier;Ljava/util/function/Supplier;)Lorg/thingsboard/server/actors/TbActorRef;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        223,
+        224,
+        225,
+        227
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.getParentRef:()Lorg/thingsboard/server/actors/TbActorRef;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        50
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.getReady:()Ljava/util/concurrent/atomic/AtomicBoolean;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        56
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.getSelf:()Lorg/thingsboard/server/actors/TbActorId;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        183
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.getSelfId:()Lorg/thingsboard/server/actors/TbActorId;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        49
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.getSettings:()Lorg/thingsboard/server/actors/TbActorSystemSettings;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        48
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.getStopReason:()Lorg/thingsboard/server/common/msg/TbActorStopReason;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        58
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.getSystem:()Lorg/thingsboard/server/actors/TbActorSystem;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        47
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.initActor:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        61,
+        62
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.isUnrecoverable:(Ljava/lang/Throwable;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        100,
+        101,
+        103
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.lambda$broadcastToChildrenByType$5:(Lorg/thingsboard/server/common/data/EntityType;Lorg/thingsboard/server/actors/TbActorId;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        203
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.lambda$destroy$6:(Lorg/thingsboard/server/common/msg/TbActorMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        240
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.lambda$destroy$7:(Lorg/thingsboard/server/common/msg/TbActorMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        241
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.lambda$destroy$8:(Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        238,
+        239,
+        240,
+        241,
+        244,
+        242,
+        243,
+        245
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.lambda$initActor$0:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        61
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.lambda$processMailbox$4:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        175
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.lambda$tryInit$1:(I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        90
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.lambda$tryInit$2:(I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        90
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.lambda$tryInit$3:(I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        94
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.processMailbox:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        148,
+        149,
+        150,
+        151,
+        152,
+        154,
+        156,
+        157,
+        167,
+        158,
+        159,
+        160,
+        167,
+        161,
+        162,
+        163,
+        164,
+        165,
+        167,
+        169,
+        170,
+        149,
+        173,
+        174,
+        175,
+        177,
+        179
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.stop:(Lorg/thingsboard/server/actors/TbActorId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        218,
+        219
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.tell:(Lorg/thingsboard/server/actors/TbActorId;Lorg/thingsboard/server/common/msg/TbActorMsg;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        188,
+        189
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.tell:(Lorg/thingsboard/server/common/msg/TbActorMsg;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        255,
+        256
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.tellWithHighPriority:(Lorg/thingsboard/server/common/msg/TbActorMsg;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        260,
+        261
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.tryInit:(I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        96,
+        74,
+        76,
+        77,
+        78,
+        80,
+        81,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        92,
+        93,
+        94,
+        97
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorMailbox.tryProcessQueue:(Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        132,
+        133,
+        134,
+        135,
+        137,
+        140,
+        143,
+        145
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorNotRegisteredException.<init>:(Lorg/thingsboard/server/actors/TbActorId;Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        26,
+        27,
+        28
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorNotRegisteredException.getTarget:()Lorg/thingsboard/server/actors/TbActorId;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorRef.getActorId:()Lorg/thingsboard/server/actors/TbActorId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorRef.tell:(Lorg/thingsboard/server/common/msg/TbActorMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorRef.tellWithHighPriority:(Lorg/thingsboard/server/common/msg/TbActorMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorSystem.broadcastToChildren:(Lorg/thingsboard/server/actors/TbActorId;Ljava/util/function/Predicate;Lorg/thingsboard/server/common/msg/TbActorMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorSystem.broadcastToChildren:(Lorg/thingsboard/server/actors/TbActorId;Lorg/thingsboard/server/common/msg/TbActorMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorSystem.broadcastToChildren:(Lorg/thingsboard/server/actors/TbActorId;Lorg/thingsboard/server/common/msg/TbActorMsg;Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorSystem.createChildActor:(Ljava/lang/String;Lorg/thingsboard/server/actors/TbActorCreator;Lorg/thingsboard/server/actors/TbActorId;)Lorg/thingsboard/server/actors/TbActorRef;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorSystem.createDispatcher:(Ljava/lang/String;Ljava/util/concurrent/ExecutorService;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorSystem.createRootActor:(Ljava/lang/String;Lorg/thingsboard/server/actors/TbActorCreator;)Lorg/thingsboard/server/actors/TbActorRef;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorSystem.destroyDispatcher:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorSystem.filterChildren:(Lorg/thingsboard/server/actors/TbActorId;Ljava/util/function/Predicate;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorSystem.getActor:(Lorg/thingsboard/server/actors/TbActorId;)Lorg/thingsboard/server/actors/TbActorRef;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorSystem.getScheduler:()Ljava/util/concurrent/ScheduledExecutorService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorSystem.stop:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorSystem.stop:(Lorg/thingsboard/server/actors/TbActorId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorSystem.stop:(Lorg/thingsboard/server/actors/TbActorRef;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorSystem.tell:(Lorg/thingsboard/server/actors/TbActorId;Lorg/thingsboard/server/common/msg/TbActorMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorSystem.tellWithHighPriority:(Lorg/thingsboard/server/actors/TbActorId;Lorg/thingsboard/server/common/msg/TbActorMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.actors.TbActorSystemSettings.<init>:(III)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorSystemSettings.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorSystemSettings.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 7,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 7
+      },
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorSystemSettings.getActorThroughput:()I" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorSystemSettings.getMaxActorInitAttempts:()I" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorSystemSettings.getSchedulerPoolSize:()I" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorSystemSettings.hashCode:()I" : {
+      "completeTestCount" : 7,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 7
+      },
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.actors.TbActorSystemSettings.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.actors.TbEntityActorId.<init>:(Lorg/thingsboard/server/common/data/id/EntityId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29,
+        30,
+        31
+      ]
+    },
+    "org.thingsboard.server.actors.TbEntityActorId.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      },
+      "lineNumbers" : [
+        40,
+        41,
+        42,
+        43
+      ]
+    },
+    "org.thingsboard.server.actors.TbEntityActorId.getEntityId:()Lorg/thingsboard/server/common/data/id/EntityId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.server.actors.TbEntityActorId.getEntityType:()Lorg/thingsboard/server/common/data/EntityType;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        53
+      ]
+    },
+    "org.thingsboard.server.actors.TbEntityActorId.hashCode:()I" : {
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      },
+      "lineNumbers" : [
+        48
+      ]
+    },
+    "org.thingsboard.server.actors.TbEntityActorId.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.server.actors.TbRuleNodeUpdateException.<init>:(Ljava/lang/String;Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        23,
+        24
+      ]
+    },
+    "org.thingsboard.server.actors.TbStringActorId.<init>:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        26,
+        27,
+        28
+      ]
+    },
+    "org.thingsboard.server.actors.TbStringActorId.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        37,
+        38,
+        39,
+        40
+      ]
+    },
+    "org.thingsboard.server.actors.TbStringActorId.getEntityType:()Lorg/thingsboard/server/common/data/EntityType;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        50
+      ]
+    },
+    "org.thingsboard.server.actors.TbStringActorId.hashCode:()I" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        45
+      ]
+    },
+    "org.thingsboard.server.actors.TbStringActorId.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        32
+      ]
+    }
+  },
+  "validationMetrics" : { }
+}

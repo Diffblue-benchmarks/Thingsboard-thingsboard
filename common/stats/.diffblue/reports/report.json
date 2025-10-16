@@ -1,0 +1,988 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.09.01-44e352d-licensed",
+    "creationTimestamp" : "2025-10-15T16:32:46.816531087Z",
+    "command" : "dcover create --exclude-modules=org.thingsboard:ui-ngx,org.thingsboard:application,org.thingsboard.msa:tb,org.thingsboard.msa:web-ui,org.thingsboard.msa:vc-executor-docker,org.thingsboard.msa:tb-node,org.thingsboard.msa.transport:mqtt,org.thingsboard.msa.transport:http,org.thingsboard.msa.transport:coap,org.thingsboard.msa.transport:lwm2m,org.thingsboard.msa.transport:snmp,org.thingsboard.msa:js-executor,org.thingsboard.msa:monitoring --coverage-reports --upload http://localhost:8080 --project-name Thingsboard-thingsboard --name with-diffblue-tests",
+    "totalTime" : 143.683,
+    "environmentDetectionTime" : 0.04,
+    "indexingTime" : 0.369,
+    "entryPointsTime" : 0.031,
+    "generationTime" : 42679.437,
+    "timeToFirstTest" : 45868.398,
+    "timeToLastTest" : 44973.59,
+    "indexQueryTime" : 3.862,
+    "verificationTime" : 1637.79,
+    "validationTime" : 20.434
+  },
+  "codes" : {
+    "R000" : "Success",
+    "R004" : "No meaningful assertions found",
+    "R013" : "No inputs found that don't throw a trivial exception",
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T003" : "Private method",
+    "T005" : "Trivial constructor",
+    "T008" : "Private and never called",
+    "T010" : "Abstract or interface method",
+    "T012" : "Synthetic method",
+    "T023" : "Testability unknown",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation"
+  },
+  "summary" : {
+    "classesCount" : 12,
+    "methodsCount" : 68,
+    "cumulativeDiffblueTestCount" : 47,
+    "cumulativeManualTestCount" : 0,
+    "completeTestCount" : 47,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 308,
+    "perMethodTestability" : {
+      "T000" : 28,
+      "T001" : 3,
+      "T003" : 5,
+      "T005" : 6,
+      "T008" : 1,
+      "T010" : 16,
+      "T012" : 7,
+      "T023" : 2
+    },
+    "perMethodOutcome" : {
+      "R000" : 31,
+      "R004" : 2,
+      "R013" : 2,
+      "T003" : 5,
+      "T005" : 2,
+      "T008" : 1,
+      "T010" : 16,
+      "T012" : 7,
+      "T023" : 2
+    },
+    "perTestOutcome" : {
+      "R000" : 47
+    },
+    "perTestValidation" : {
+      "V000" : 47,
+      "V003" : 2
+    }
+  },
+  "classes" : {
+    "org.thingsboard.server.common.stats.DefaultCounter" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 4,
+        "R013" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 4
+      }
+    },
+    "org.thingsboard.server.common.stats.DefaultMessagesStats" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 7,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 7,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 7,
+        "R013" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 7
+      }
+    },
+    "org.thingsboard.server.common.stats.DefaultStatsFactory" : {
+      "methodsCount" : 10,
+      "completeTestCount" : 20,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 7,
+        "T003" : 1,
+        "T005" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 6,
+        "R004" : 1,
+        "T003" : 1,
+        "T005" : 1,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 20
+      }
+    },
+    "org.thingsboard.server.common.stats.DefaultStatsFactory$StubCounter" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 3,
+        "T008" : 1
+      },
+      "perMethodOutcome" : {
+        "T003" : 3,
+        "T008" : 1
+      }
+    },
+    "org.thingsboard.server.common.stats.FstStatsServiceImpl" : {
+      "methodsCount" : 9,
+      "completeTestCount" : 8,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T005" : 1,
+        "T012" : 4
+      },
+      "perMethodOutcome" : {
+        "R000" : 4,
+        "T005" : 1,
+        "T012" : 4
+      },
+      "perTestOutcome" : {
+        "R000" : 8
+      }
+    },
+    "org.thingsboard.server.common.stats.MessagesStats" : {
+      "methodsCount" : 10,
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T010" : 7
+      },
+      "perMethodOutcome" : {
+        "R000" : 3,
+        "T010" : 7
+      },
+      "perTestOutcome" : {
+        "R000" : 3
+      }
+    },
+    "org.thingsboard.server.common.stats.StatsCounter" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.thingsboard.server.common.stats.StatsFactory" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 6
+      },
+      "perMethodOutcome" : {
+        "T010" : 6
+      }
+    },
+    "org.thingsboard.server.common.stats.StatsTimer" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T001" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 4,
+        "R004" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 3
+      }
+    },
+    "org.thingsboard.server.common.stats.StatsType" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 1,
+        "T003" : 1,
+        "T012" : 3,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "T003" : 1,
+        "T012" : 3,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.thingsboard.server.common.stats.TbApiUsageReportClient" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 2
+      },
+      "perMethodOutcome" : {
+        "T010" : 2
+      }
+    },
+    "org.thingsboard.server.common.stats.TbApiUsageStateClient" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T010" : 1
+      }
+    }
+  },
+  "methods" : {
+    "org.thingsboard.server.common.stats.DefaultCounter.<init>:(Ljava/util/concurrent/atomic/AtomicInteger;Lio/micrometer/core/instrument/Counter;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        26,
+        27,
+        28,
+        29
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultCounter.add:(I)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        45,
+        46,
+        47
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultCounter.clear:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        37,
+        38
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultCounter.get:()I" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        41
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultCounter.increment:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        32,
+        33,
+        34
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultMessagesStats.<init>:(Lorg/thingsboard/server/common/stats/StatsCounter;Lorg/thingsboard/server/common/stats/StatsCounter;Lorg/thingsboard/server/common/stats/StatsCounter;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        23,
+        24,
+        25,
+        26,
+        27
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultMessagesStats.getFailed:()I" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        56
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultMessagesStats.getSuccessful:()I" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        51
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultMessagesStats.getTotal:()I" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        46
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultMessagesStats.incrementFailed:(I)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        41,
+        42
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultMessagesStats.incrementSuccessful:(I)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        36,
+        37
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultMessagesStats.incrementTotal:(I)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        31,
+        32
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultMessagesStats.reset:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        61,
+        62,
+        63,
+        64
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultStatsFactory$StubCounter.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T008",
+      "perMethodOutcome" : "T008",
+      "lineNumbers" : [
+        126
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultStatsFactory$StubCounter.count:()D" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        133
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultStatsFactory$StubCounter.getId:()Lio/micrometer/core/instrument/Meter$Id;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        138
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultStatsFactory$StubCounter.increment:(D)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        129
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultStatsFactory.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.server.common.stats.DefaultStatsFactory.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultStatsFactory.createDefaultCounter:(Ljava/lang/String;[Ljava/lang/String;)Lorg/thingsboard/server/common/stats/DefaultCounter;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        76,
+        78,
+        79,
+        80,
+        76
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultStatsFactory.createGauge:(Ljava/lang/String;Ljava/lang/Number;[Ljava/lang/String;)Ljava/lang/Number;" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        86
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultStatsFactory.createMessagesStats:(Ljava/lang/String;)Lorg/thingsboard/server/common/stats/MessagesStats;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        91,
+        92,
+        93,
+        94
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultStatsFactory.createStatsCounter:(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lorg/thingsboard/server/common/stats/StatsCounter;" : {
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      },
+      "lineNumbers" : [
+        66,
+        67,
+        69,
+        67
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultStatsFactory.createTimer:(Ljava/lang/String;[Ljava/lang/String;)Lio/micrometer/core/instrument/Timer;" : {
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      },
+      "lineNumbers" : [
+        99,
+        100,
+        101,
+        102,
+        103,
+        105
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultStatsFactory.createTimer:(Lorg/thingsboard/server/common/stats/StatsType;Ljava/lang/String;[Ljava/lang/String;)Lorg/thingsboard/server/common/stats/StatsTimer;" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        110,
+        111,
+        112,
+        110
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultStatsFactory.getTags:(Ljava/lang/String;[Ljava/lang/String;)[Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        116,
+        117,
+        118,
+        119,
+        121,
+        123
+      ]
+    },
+    "org.thingsboard.server.common.stats.DefaultStatsFactory.init:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R004",
+      "lineNumbers" : [
+        54,
+        55,
+        56,
+        57,
+        58,
+        57,
+        61
+      ]
+    },
+    "org.thingsboard.server.common.stats.FstStatsServiceImpl.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        27,
+        28,
+        29,
+        30,
+        31
+      ]
+    },
+    "org.thingsboard.server.common.stats.FstStatsServiceImpl.incrementDecode:(Ljava/lang/Class;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        43,
+        44
+      ]
+    },
+    "org.thingsboard.server.common.stats.FstStatsServiceImpl.incrementEncode:(Ljava/lang/Class;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        38,
+        39
+      ]
+    },
+    "org.thingsboard.server.common.stats.FstStatsServiceImpl.lambda$incrementDecode$1:(Ljava/lang/String;)Lorg/thingsboard/server/common/stats/StatsCounter;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        43
+      ]
+    },
+    "org.thingsboard.server.common.stats.FstStatsServiceImpl.lambda$incrementEncode$0:(Ljava/lang/String;)Lorg/thingsboard/server/common/stats/StatsCounter;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        38
+      ]
+    },
+    "org.thingsboard.server.common.stats.FstStatsServiceImpl.lambda$recordDecodeTime$3:(Ljava/lang/String;)Lio/micrometer/core/instrument/Timer;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        55
+      ]
+    },
+    "org.thingsboard.server.common.stats.FstStatsServiceImpl.lambda$recordEncodeTime$2:(Ljava/lang/String;)Lio/micrometer/core/instrument/Timer;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        49
+      ]
+    },
+    "org.thingsboard.server.common.stats.FstStatsServiceImpl.recordDecodeTime:(Ljava/lang/Class;J)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        54,
+        55,
+        56
+      ]
+    },
+    "org.thingsboard.server.common.stats.FstStatsServiceImpl.recordEncodeTime:(Ljava/lang/Class;J)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        48,
+        49,
+        50
+      ]
+    },
+    "org.thingsboard.server.common.stats.MessagesStats.getFailed:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.common.stats.MessagesStats.getSuccessful:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.common.stats.MessagesStats.getTotal:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.common.stats.MessagesStats.incrementFailed:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        32,
+        33
+      ]
+    },
+    "org.thingsboard.server.common.stats.MessagesStats.incrementFailed:(I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.common.stats.MessagesStats.incrementSuccessful:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        26,
+        27
+      ]
+    },
+    "org.thingsboard.server.common.stats.MessagesStats.incrementSuccessful:(I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.common.stats.MessagesStats.incrementTotal:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        20,
+        21
+      ]
+    },
+    "org.thingsboard.server.common.stats.MessagesStats.incrementTotal:(I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.common.stats.MessagesStats.reset:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.common.stats.StatsCounter.<init>:(Ljava/util/concurrent/atomic/AtomicInteger;Lio/micrometer/core/instrument/Counter;Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        26,
+        27,
+        28
+      ]
+    },
+    "org.thingsboard.server.common.stats.StatsCounter.getName:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.common.stats.StatsFactory.createDefaultCounter:(Ljava/lang/String;[Ljava/lang/String;)Lorg/thingsboard/server/common/stats/DefaultCounter;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.common.stats.StatsFactory.createGauge:(Ljava/lang/String;Ljava/lang/Number;[Ljava/lang/String;)Ljava/lang/Number;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.common.stats.StatsFactory.createMessagesStats:(Ljava/lang/String;)Lorg/thingsboard/server/common/stats/MessagesStats;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.common.stats.StatsFactory.createStatsCounter:(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lorg/thingsboard/server/common/stats/StatsCounter;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.common.stats.StatsFactory.createTimer:(Ljava/lang/String;[Ljava/lang/String;)Lio/micrometer/core/instrument/Timer;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.common.stats.StatsFactory.createTimer:(Lorg/thingsboard/server/common/stats/StatsType;Ljava/lang/String;[Ljava/lang/String;)Lorg/thingsboard/server/common/stats/StatsTimer;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.common.stats.StatsTimer.<init>:(Ljava/lang/String;Lio/micrometer/core/instrument/Timer;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        32,
+        33,
+        34,
+        35
+      ]
+    },
+    "org.thingsboard.server.common.stats.StatsTimer.getAvg:()D" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        44,
+        45,
+        47
+      ]
+    },
+    "org.thingsboard.server.common.stats.StatsTimer.getName:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.common.stats.StatsTimer.record:(J)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        38,
+        39,
+        40,
+        41
+      ]
+    },
+    "org.thingsboard.server.common.stats.StatsTimer.reset:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R004",
+      "lineNumbers" : [
+        51,
+        52,
+        53
+      ]
+    },
+    "org.thingsboard.server.common.stats.StatsType.$values:()[Lorg/thingsboard/server/common/stats/StatsType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        18
+      ]
+    },
+    "org.thingsboard.server.common.stats.StatsType.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.server.common.stats.StatsType.<init>:(Ljava/lang/String;ILjava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        29,
+        30,
+        31
+      ]
+    },
+    "org.thingsboard.server.common.stats.StatsType.getName:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        34
+      ]
+    },
+    "org.thingsboard.server.common.stats.StatsType.valueOf:(Ljava/lang/String;)Lorg/thingsboard/server/common/stats/StatsType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        18
+      ]
+    },
+    "org.thingsboard.server.common.stats.StatsType.values:()[Lorg/thingsboard/server/common/stats/StatsType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        18
+      ]
+    },
+    "org.thingsboard.server.common.stats.TbApiUsageReportClient.report:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/CustomerId;Lorg/thingsboard/server/common/data/ApiUsageRecordKey;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.common.stats.TbApiUsageReportClient.report:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/CustomerId;Lorg/thingsboard/server/common/data/ApiUsageRecordKey;J)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.common.stats.TbApiUsageStateClient.getApiUsageState:(Lorg/thingsboard/server/common/data/id/TenantId;)Lorg/thingsboard/server/common/data/ApiUsageState;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    }
+  },
+  "validationMetrics" : { }
+}

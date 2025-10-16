@@ -1,0 +1,245 @@
+/**
+ * Copyright © 2016-2024 The Thingsboard Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.thingsboard.rule.engine.api;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+
+class EmptyNodeConfigurationDiffblueTest {
+  /**
+   * Test {@link EmptyNodeConfiguration#defaultConfiguration()}.
+   *
+   * <p>Method under test: {@link EmptyNodeConfiguration#defaultConfiguration()}
+   */
+  @Test
+  @DisplayName("Test defaultConfiguration()")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"EmptyNodeConfiguration EmptyNodeConfiguration.defaultConfiguration()"})
+  void testDefaultConfiguration() {
+    // Arrange
+    EmptyNodeConfiguration emptyNodeConfiguration = new EmptyNodeConfiguration();
+
+    // Act
+    EmptyNodeConfiguration actualDefaultConfigurationResult =
+        emptyNodeConfiguration.defaultConfiguration();
+
+    // Assert
+    assertEquals(emptyNodeConfiguration, actualDefaultConfigurationResult);
+  }
+
+  /**
+   * Test {@link EmptyNodeConfiguration#equals(Object)}, and {@link
+   * EmptyNodeConfiguration#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link EmptyNodeConfiguration#equals(Object)}
+   *   <li>{@link EmptyNodeConfiguration#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean EmptyNodeConfiguration.equals(Object)",
+    "int EmptyNodeConfiguration.hashCode()"
+  })
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    EmptyNodeConfiguration emptyNodeConfiguration = new EmptyNodeConfiguration();
+    EmptyNodeConfiguration emptyNodeConfiguration2 = new EmptyNodeConfiguration();
+
+    // Act and Assert
+    assertEquals(emptyNodeConfiguration, emptyNodeConfiguration2);
+    assertEquals(emptyNodeConfiguration.hashCode(), emptyNodeConfiguration2.hashCode());
+  }
+
+  /**
+   * Test {@link EmptyNodeConfiguration#equals(Object)}, and {@link
+   * EmptyNodeConfiguration#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is same.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link EmptyNodeConfiguration#equals(Object)}
+   *   <li>{@link EmptyNodeConfiguration#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean EmptyNodeConfiguration.equals(Object)",
+    "int EmptyNodeConfiguration.hashCode()"
+  })
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    EmptyNodeConfiguration emptyNodeConfiguration = new EmptyNodeConfiguration();
+
+    // Act and Assert
+    assertEquals(emptyNodeConfiguration, emptyNodeConfiguration);
+    int expectedHashCodeResult = emptyNodeConfiguration.hashCode();
+    assertEquals(expectedHashCodeResult, emptyNodeConfiguration.hashCode());
+  }
+
+  /**
+   * Test {@link EmptyNodeConfiguration#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link EmptyNodeConfiguration#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean EmptyNodeConfiguration.equals(Object)",
+    "int EmptyNodeConfiguration.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new EmptyNodeConfiguration(), 1);
+  }
+
+  /**
+   * Test {@link EmptyNodeConfiguration#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link EmptyNodeConfiguration#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean EmptyNodeConfiguration.equals(Object)",
+    "int EmptyNodeConfiguration.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    EmptyNodeConfiguration emptyNodeConfiguration = new EmptyNodeConfiguration();
+    emptyNodeConfiguration.setVersion(1);
+
+    // Act and Assert
+    assertNotEquals(emptyNodeConfiguration, new EmptyNodeConfiguration());
+  }
+
+  /**
+   * Test {@link EmptyNodeConfiguration#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link EmptyNodeConfiguration#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean EmptyNodeConfiguration.equals(Object)",
+    "int EmptyNodeConfiguration.hashCode()"
+  })
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new EmptyNodeConfiguration(), null);
+  }
+
+  /**
+   * Test {@link EmptyNodeConfiguration#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link EmptyNodeConfiguration#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean EmptyNodeConfiguration.equals(Object)",
+    "int EmptyNodeConfiguration.hashCode()"
+  })
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new EmptyNodeConfiguration(), "Different type to EmptyNodeConfiguration");
+  }
+
+  /**
+   * Test getters and setters.
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>default or parameterless constructor of {@link EmptyNodeConfiguration}
+   *   <li>{@link EmptyNodeConfiguration#setVersion(int)}
+   *   <li>{@link EmptyNodeConfiguration#toString()}
+   *   <li>{@link EmptyNodeConfiguration#getVersion()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "void EmptyNodeConfiguration.<init>()",
+    "int EmptyNodeConfiguration.getVersion()",
+    "void EmptyNodeConfiguration.setVersion(int)",
+    "String EmptyNodeConfiguration.toString()"
+  })
+  void testGettersAndSetters() {
+    // Arrange and Act
+    EmptyNodeConfiguration actualEmptyNodeConfiguration = new EmptyNodeConfiguration();
+    actualEmptyNodeConfiguration.setVersion(1);
+    String actualToStringResult = actualEmptyNodeConfiguration.toString();
+
+    // Assert
+    assertEquals("EmptyNodeConfiguration(version=1)", actualToStringResult);
+    assertEquals(1, actualEmptyNodeConfiguration.getVersion());
+  }
+}

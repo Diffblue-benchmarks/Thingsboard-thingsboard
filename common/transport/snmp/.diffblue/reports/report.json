@@ -1,0 +1,2846 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.09.01-44e352d-licensed",
+    "creationTimestamp" : "2025-10-15T16:32:46.816531087Z",
+    "command" : "dcover create --exclude-modules=org.thingsboard:ui-ngx,org.thingsboard:application,org.thingsboard.msa:tb,org.thingsboard.msa:web-ui,org.thingsboard.msa:vc-executor-docker,org.thingsboard.msa:tb-node,org.thingsboard.msa.transport:mqtt,org.thingsboard.msa.transport:http,org.thingsboard.msa.transport:coap,org.thingsboard.msa.transport:lwm2m,org.thingsboard.msa.transport:snmp,org.thingsboard.msa:js-executor,org.thingsboard.msa:monitoring --coverage-reports --upload http://localhost:8080 --project-name Thingsboard-thingsboard --name with-diffblue-tests",
+    "totalTime" : 1852.209,
+    "environmentDetectionTime" : 0.23,
+    "indexingTime" : 0.358,
+    "entryPointsTime" : 0.219,
+    "generationTime" : 42138.916,
+    "timeToFirstTest" : 45113.71,
+    "timeToLastTest" : 44303.889,
+    "indexQueryTime" : 13.620000000000001,
+    "verificationTime" : 1596.914,
+    "validationTime" : 23.557
+  },
+  "codes" : {
+    "R000" : "Success",
+    "R004" : "No meaningful assertions found",
+    "R011" : "Sandboxing policy violation",
+    "R013" : "No inputs found that don't throw a trivial exception",
+    "R024" : "Analysis service shutdown unexpectedly",
+    "R027" : "Missing beans when creating Spring context",
+    "R081" : "Exception in arrange section",
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T002" : "Trivial setter",
+    "T003" : "Private method",
+    "T004" : "In anonymous inner class",
+    "T005" : "Trivial constructor",
+    "T007" : "Framework configuration callback",
+    "T012" : "Synthetic method",
+    "T020" : "Other trivial method",
+    "T021" : "Empty method body",
+    "T023" : "Testability unknown",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation",
+    "W002" : "Test compiled, but did not pass"
+  },
+  "summary" : {
+    "classesCount" : 19,
+    "methodsCount" : 191,
+    "cumulativeDiffblueTestCount" : 76,
+    "cumulativeManualTestCount" : 0,
+    "completeTestCount" : 76,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 1295,
+    "perMethodTestability" : {
+      "T000" : 47,
+      "T001" : 14,
+      "T002" : 14,
+      "T003" : 44,
+      "T004" : 3,
+      "T005" : 7,
+      "T007" : 1,
+      "T012" : 49,
+      "T020" : 2,
+      "T021" : 2,
+      "T023" : 8
+    },
+    "perMethodOutcome" : {
+      "R000" : 41,
+      "R004" : 1,
+      "R011" : 4,
+      "R013" : 8,
+      "R024" : 2,
+      "R027" : 7,
+      "R081" : 15,
+      "T003" : 44,
+      "T004" : 3,
+      "T005" : 8,
+      "T007" : 1,
+      "T012" : 49,
+      "T023" : 8
+    },
+    "perTestOutcome" : {
+      "R000" : 76
+    },
+    "perTestValidation" : {
+      "V000" : 76,
+      "V003" : 2
+    },
+    "warnings" : {
+      "W002" : 6
+    }
+  },
+  "classes" : {
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext" : {
+      "methodsCount" : 21,
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 7,
+        "T001" : 2,
+        "T003" : 5,
+        "T012" : 5,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 3,
+        "R011" : 4,
+        "R024" : 1,
+        "R027" : 2,
+        "T003" : 5,
+        "T012" : 5,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 4
+      }
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext$1" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T004" : 3,
+        "T012" : 2
+      },
+      "perMethodOutcome" : {
+        "T004" : 3,
+        "T012" : 2
+      }
+    },
+    "org.thingsboard.server.transport.snmp.event.ServiceListChangedEventListener" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "T005" : 1,
+        "T012" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    },
+    "org.thingsboard.server.transport.snmp.event.SnmpTransportListChangedEvent" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1
+      },
+      "perMethodOutcome" : {
+        "R004" : 1
+      }
+    },
+    "org.thingsboard.server.transport.snmp.event.SnmpTransportListChangedEventListener" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "T005" : 1,
+        "T012" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.thingsboard.server.transport.snmp.service.PduService" : {
+      "methodsCount" : 16,
+      "completeTestCount" : 32,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 5,
+        "T003" : 2,
+        "T005" : 1,
+        "T012" : 7,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 4,
+        "R027" : 1,
+        "T003" : 2,
+        "T005" : 1,
+        "T012" : 7,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 32
+      }
+    },
+    "org.thingsboard.server.transport.snmp.service.PduService$1" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "T023" : 1
+      }
+    },
+    "org.thingsboard.server.transport.snmp.service.ProtoTransportEntityService" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 3,
+        "T005" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 3
+      }
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpAuthService" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 9,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1,
+        "T012" : 3
+      },
+      "perMethodOutcome" : {
+        "R000" : 2,
+        "T005" : 1,
+        "T012" : 3
+      },
+      "perTestOutcome" : {
+        "R000" : 9
+      },
+      "warnings" : {
+        "W002" : 6
+      }
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpAuthService$1" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "T023" : 1
+      }
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportBalancingService" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T003" : 2,
+        "T005" : 1,
+        "T012" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "R027" : 1,
+        "T003" : 2,
+        "T005" : 1,
+        "T012" : 1,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService" : {
+      "methodsCount" : 50,
+      "completeTestCount" : 10,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 9,
+        "T001" : 2,
+        "T003" : 11,
+        "T012" : 27,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 7,
+        "R027" : 3,
+        "T003" : 11,
+        "T005" : 1,
+        "T012" : 27,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 10
+      }
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext" : {
+      "methodsCount" : 13,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 13
+      },
+      "perMethodOutcome" : {
+        "T003" : 13
+      }
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext$RequestContextBuilder" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 8
+      },
+      "perMethodOutcome" : {
+        "T003" : 8
+      }
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$ResponseDataMapper" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 1
+      },
+      "perMethodOutcome" : {
+        "T003" : 1
+      }
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$ResponseProcessor" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 1
+      },
+      "perMethodOutcome" : {
+        "T003" : 1
+      }
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext" : {
+      "methodsCount" : 26,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 9,
+        "T001" : 8,
+        "T002" : 5,
+        "T005" : 1,
+        "T021" : 2,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "R013" : 8,
+        "R081" : 15,
+        "T005" : 1,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext$DeviceSessionContextBuilder" : {
+      "methodsCount" : 10,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T002" : 7,
+        "T005" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 10
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.thingsboard.server.transport.snmp.session.ScheduledTask" : {
+      "methodsCount" : 14,
+      "completeTestCount" : 10,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T001" : 2,
+        "T002" : 2,
+        "T003" : 1,
+        "T005" : 1,
+        "T007" : 1,
+        "T012" : 2,
+        "T020" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 8,
+        "R024" : 1,
+        "T003" : 1,
+        "T007" : 1,
+        "T012" : 2,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 10
+      }
+    }
+  },
+  "methods" : {
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext$1.<init>:(Lorg/thingsboard/server/transport/snmp/SnmpTransportContext;Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        190
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext$1.lambda$onSuccess$0:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;Lorg/thingsboard/server/common/transport/auth/ValidateDeviceCredentialsResponse;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        196,
+        197
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext$1.onError:(Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        206,
+        207,
+        208
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext$1.onSuccess:(Ljava/lang/Object;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        190
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext$1.onSuccess:(Lorg/thingsboard/server/common/transport/auth/ValidateDeviceCredentialsResponse;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        193,
+        194,
+        195,
+        198,
+        200,
+        202
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext.<init>:(Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService;Lorg/thingsboard/server/common/transport/TransportDeviceProfileCache;Lorg/thingsboard/server/common/transport/TransportService;Lorg/thingsboard/server/transport/snmp/service/ProtoTransportEntityService;Lorg/thingsboard/server/transport/snmp/service/SnmpTransportBalancingService;Lorg/thingsboard/server/transport/snmp/service/SnmpAuthService;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "F009",
+      "lineNumbers" : [
+        63,
+        74,
+        75,
+        63
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext.destroyDeviceSession:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext.establishDeviceSession:(Lorg/thingsboard/server/common/data/Device;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        102,
+        103,
+        105,
+        106,
+        108,
+        109,
+        110,
+        111,
+        114,
+        115,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        133,
+        129,
+        130,
+        131,
+        132,
+        134,
+        135,
+        136,
+        137
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext.fetchDevicesAndEstablishSessions:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R027",
+      "lineNumbers" : [
+        79,
+        81,
+        82,
+        83,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        94,
+        95,
+        96,
+        98,
+        99
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext.getSessions:()Ljava/util/Collection;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        300
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext.getSnmpAuthService:()Lorg/thingsboard/server/transport/snmp/service/SnmpAuthService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R011",
+      "lineNumbers" : [
+        71
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext.getSnmpTransportService:()Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R011",
+      "lineNumbers" : [
+        65
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext.lambda$fetchDevicesAndEstablishSessions$0:(Ljava/lang/String;)Lorg/thingsboard/server/common/data/id/DeviceId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        88
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext.lambda$fetchDevicesAndEstablishSessions$1:(Lorg/thingsboard/server/common/data/id/DeviceId;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        90
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext.lambda$fetchDevicesAndEstablishSessions$2:(Lorg/thingsboard/server/common/data/Device;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        92
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext.lambda$fetchDevicesAndEstablishSessions$3:(Lorg/thingsboard/server/common/data/Device;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        92
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext.lambda$onSnmpTransportListChanged$4:(Lorg/thingsboard/server/common/data/id/DeviceId;Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        289,
+        290,
+        291
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext.onDeviceDeleted:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        264,
+        265
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext.onDeviceProfileUpdated:(Lorg/thingsboard/server/common/data/DeviceProfile;Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "F009",
+      "lineNumbers" : [
+        268,
+        269,
+        270
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext.onDeviceUpdatedOrCreated:(Lorg/thingsboard/server/common/transport/DeviceUpdatedEvent;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "F009",
+      "lineNumbers" : [
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        242,
+        243,
+        244,
+        247,
+        248,
+        249,
+        250,
+        251,
+        253,
+        256,
+        257,
+        261
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext.onSnmpTransportListChanged:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "F009",
+      "lineNumbers" : [
+        273,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280,
+        281,
+        283,
+        285,
+        287,
+        288,
+        293,
+        294,
+        295,
+        296
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext.registerSessionMsgListener:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        188,
+        189,
+        188,
+        210
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext.registerTransportSession:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;Lorg/thingsboard/server/common/transport/auth/ValidateDeviceCredentialsResponse;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        213,
+        214,
+        213,
+        216,
+        218,
+        219,
+        220,
+        221,
+        219,
+        222,
+        223,
+        224,
+        222,
+        226,
+        227,
+        228,
+        229
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.SnmpTransportContext.updateDeviceSession:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;Lorg/thingsboard/server/common/data/Device;Lorg/thingsboard/server/common/data/DeviceProfile;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        140,
+        142,
+        143,
+        144,
+        145,
+        146,
+        149,
+        150,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        166,
+        172,
+        168,
+        169,
+        170,
+        171,
+        173
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.event.ServiceListChangedEventListener.<init>:(Lorg/thingsboard/server/transport/snmp/service/SnmpTransportBalancingService;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.event.ServiceListChangedEventListener.onTbApplicationEvent:(Lorg/thingsboard/server/queue/discovery/event/ServiceListChangedEvent;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        33,
+        34
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.event.ServiceListChangedEventListener.onTbApplicationEvent:(Lorg/thingsboard/server/queue/discovery/event/TbApplicationEvent;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.event.SnmpTransportListChangedEvent.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R004",
+      "lineNumbers" : [
+        22,
+        23
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.event.SnmpTransportListChangedEventListener.<init>:(Lorg/thingsboard/server/transport/snmp/SnmpTransportContext;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.event.SnmpTransportListChangedEventListener.onTbApplicationEvent:(Lorg/thingsboard/server/queue/discovery/event/TbApplicationEvent;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.event.SnmpTransportListChangedEventListener.onTbApplicationEvent:(Lorg/thingsboard/server/transport/snmp/event/SnmpTransportListChangedEvent;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        32,
+        33
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.PduService$1.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.server.transport.snmp.service.PduService.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.server.transport.snmp.service.PduService.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        54
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.PduService.createPdus:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;Lorg/thingsboard/server/common/data/transport/snmp/config/SnmpCommunicationConfig;Ljava/util/Map;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R027",
+      "lineNumbers" : [
+        64,
+        65,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        78,
+        70,
+        79,
+        80,
+        82,
+        84
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.PduService.createSingleVariablePdu:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;Lorg/thingsboard/server/common/data/transport/snmp/SnmpMethod;Ljava/lang/String;Ljava/lang/String;Lorg/thingsboard/server/common/data/kv/DataType;)Lorg/snmp4j/PDU;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        88,
+        89,
+        91,
+        92,
+        94
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.PduService.lambda$createPdus$0:(Ljava/util/Map;Lorg/thingsboard/server/common/data/transport/snmp/SnmpMapping;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        71
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.PduService.lambda$createPdus$1:(Lorg/thingsboard/server/common/data/transport/snmp/SnmpMapping;Ljava/lang/String;)Lorg/snmp4j/smi/VariableBinding;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        74,
+        75
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.PduService.lambda$createPdus$2:(Lorg/thingsboard/server/common/data/transport/snmp/SnmpMapping;)Lorg/snmp4j/smi/VariableBinding;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        77
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.PduService.lambda$createPdus$3:(Ljava/util/Map;Lorg/thingsboard/server/common/data/transport/snmp/SnmpMapping;)Lorg/snmp4j/smi/VariableBinding;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        77,
+        72,
+        73,
+        77
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.PduService.lambda$processPdus$4:(Ljava/util/Map;Lcom/google/gson/JsonObject;Lorg/snmp4j/smi/OID;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        152,
+        154,
+        155,
+        156,
+        157,
+        160,
+        161
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.PduService.lambda$processPdus$5:(Lorg/snmp4j/PDU;)Ljava/util/stream/Stream;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        168
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.PduService.lambda$processPdus$6:(Lorg/snmp4j/smi/VariableBinding;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        170
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.PduService.processPdus:(Ljava/util/List;)Ljava/util/Map;" : {
+      "completeTestCount" : 6,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 6
+      },
+      "lineNumbers" : [
+        167,
+        168,
+        169,
+        170,
+        171,
+        167
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.PduService.processPdus:(Ljava/util/List;Ljava/util/List;)Lcom/google/gson/JsonObject;" : {
+      "completeTestCount" : 8,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 8
+      },
+      "lineNumbers" : [
+        140,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        150,
+        151,
+        163
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.PduService.processValue:(Ljava/lang/String;Lorg/thingsboard/server/common/data/kv/DataType;Ljava/lang/String;Lcom/google/gson/JsonObject;)V" : {
+      "completeTestCount" : 15,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 15
+      },
+      "lineNumbers" : [
+        176,
+        179,
+        180,
+        183,
+        184,
+        186,
+        187,
+        189,
+        199,
+        193,
+        194,
+        195,
+        197,
+        200
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.PduService.setUpPdu:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;)Lorg/snmp4j/PDU;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        119,
+        120,
+        121,
+        124,
+        125,
+        127,
+        128,
+        129,
+        130,
+        131,
+        133,
+        135
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.PduService.toSnmpVariable:(Ljava/lang/String;Lorg/thingsboard/server/common/data/kv/DataType;)Lorg/snmp4j/smi/Variable;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        98,
+        100,
+        103,
+        104,
+        105,
+        112,
+        114
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.ProtoTransportEntityService.<init>:(Lorg/thingsboard/server/common/transport/TransportService;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        36
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.ProtoTransportEntityService.getDeviceById:(Lorg/thingsboard/server/common/data/id/DeviceId;)Lorg/thingsboard/server/common/data/Device;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        41,
+        42,
+        43,
+        44,
+        41,
+        46,
+        47,
+        50,
+        51,
+        54,
+        55,
+        56,
+        58,
+        59,
+        58,
+        61,
+        62,
+        63,
+        65
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.ProtoTransportEntityService.getDeviceCredentialsByDeviceId:(Lorg/thingsboard/server/common/data/id/DeviceId;)Lorg/thingsboard/server/common/data/security/DeviceCredentials;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        69,
+        70,
+        71,
+        72,
+        73,
+        69,
+        76,
+        77,
+        79
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.ProtoTransportEntityService.getSnmpDevicesIds:(II)Lorg/thingsboard/server/gen/transport/TransportProtos$GetSnmpDevicesResponseMsg;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        84,
+        85,
+        86,
+        87,
+        88
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpAuthService$1.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpAuthService.<init>:(Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        44
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpAuthService.cleanUpSnmpAuthInfo:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        115,
+        116,
+        117,
+        118,
+        119,
+        121
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpAuthService.lambda$setUpSnmpTarget$0:(Lorg/thingsboard/server/common/data/device/data/SnmpDeviceTransportConfiguration;)Ljava/lang/UnsupportedOperationException;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        79
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpAuthService.lambda$setUpSnmpTarget$1:(Lorg/thingsboard/server/common/data/device/data/SnmpDeviceTransportConfiguration;)Ljava/lang/UnsupportedOperationException;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        85
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpAuthService.lambda$setUpSnmpTarget$2:()Ljava/lang/IllegalArgumentException;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        106
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpAuthService.setUpSnmpTarget:(Lorg/thingsboard/server/common/data/device/profile/SnmpDeviceProfileTransportConfiguration;Lorg/thingsboard/server/common/data/device/data/SnmpDeviceTransportConfiguration;)Lorg/snmp4j/Target;" : {
+      "completeTestCount" : 7,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 7
+      },
+      "warnings" : {
+        "W002" : 6
+      },
+      "lineNumbers" : [
+        54,
+        55,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        71,
+        72,
+        73,
+        75,
+        76,
+        77,
+        76,
+        78,
+        79,
+        81,
+        82,
+        83,
+        82,
+        84,
+        85,
+        87,
+        88,
+        89,
+        91,
+        92,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        102,
+        105,
+        106,
+        107,
+        108,
+        109,
+        111
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportBalancingService.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportBalancingService.<init>:(Lorg/thingsboard/server/queue/discovery/PartitionService;Lorg/springframework/context/ApplicationEventPublisher;Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        36,
+        43,
+        44,
+        36
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportBalancingService.isManagedByCurrentTransport:(Ljava/util/UUID;)Z" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        52,
+        53,
+        54,
+        56
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportBalancingService.lambda$recalculatePartitions$0:(Lorg/thingsboard/server/gen/transport/TransportProtos$ServiceInfo;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        66
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportBalancingService.onServiceListChanged:(Lorg/thingsboard/server/queue/discovery/event/ServiceListChangedEvent;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R027",
+      "lineNumbers" : [
+        47,
+        48,
+        49
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportBalancingService.recalculatePartitions:(Ljava/util/List;Lorg/thingsboard/server/gen/transport/TransportProtos$ServiceInfo;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        71,
+        72,
+        74,
+        75,
+        76,
+        77,
+        78,
+        75,
+        81,
+        84,
+        85,
+        86,
+        88,
+        90
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportBalancingService.resolvePartitionIndexForEntity:(Ljava/util/UUID;)I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        60
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext$RequestContextBuilder.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        494
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext$RequestContextBuilder.build:()Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$RequestContext;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        494
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext$RequestContextBuilder.communicationSpec:(Lorg/thingsboard/server/common/data/transport/snmp/SnmpCommunicationSpec;)Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$RequestContext$RequestContextBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        494
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext$RequestContextBuilder.method:(Lorg/thingsboard/server/common/data/transport/snmp/SnmpMethod;)Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$RequestContext$RequestContextBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        494
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext$RequestContextBuilder.requestId:(Ljava/lang/Integer;)Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$RequestContext$RequestContextBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        494
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext$RequestContextBuilder.requestSize:(I)Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$RequestContext$RequestContextBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        494
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext$RequestContextBuilder.responseMappings:(Ljava/util/List;)Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$RequestContext$RequestContextBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        494
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext$RequestContextBuilder.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        494
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext.<init>:(Ljava/lang/Integer;Lorg/thingsboard/server/common/data/transport/snmp/SnmpCommunicationSpec;Lorg/thingsboard/server/common/data/transport/snmp/SnmpMethod;Ljava/util/List;I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        495,
+        496,
+        497,
+        498,
+        499,
+        500,
+        501,
+        502,
+        504
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext.builder:()Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$RequestContext$RequestContextBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        494
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        484
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        484
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext.getCommunicationSpec:()Lorg/thingsboard/server/common/data/transport/snmp/SnmpCommunicationSpec;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        487
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext.getMethod:()Lorg/thingsboard/server/common/data/transport/snmp/SnmpMethod;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        488
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext.getRequestId:()Ljava/lang/Integer;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        486
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext.getRequestSize:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        491
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext.getResponseMappings:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        489
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext.getResponseParts:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        492
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        484
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext.setResponseParts:(Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        484
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$RequestContext.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        484
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$ResponseDataMapper.map:(Ljava/util/List;Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$RequestContext;)Lcom/google/gson/JsonObject;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003"
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService$ResponseProcessor.process:(Lcom/google/gson/JsonObject;Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$RequestContext;Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003"
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.<init>:(Lorg/thingsboard/server/common/transport/TransportService;Lorg/thingsboard/server/transport/snmp/service/PduService;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        86,
+        99,
+        100,
+        86
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.cancelQueryingTasks:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        180,
+        181,
+        182
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.configureResponseDataMappers:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        401,
+        414,
+        417,
+        418,
+        421
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.configureResponseProcessors:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        424,
+        430,
+        436,
+        445,
+        453
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.createQueryingTasks:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;)V" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        157,
+        158,
+        159,
+        177
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.getName:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        462
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.getSnmp:()Lorg/snmp4j/Snmp;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        94
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.init:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        115,
+        116,
+        118,
+        119,
+        120,
+        122,
+        123
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.initializeSnmp:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        137,
+        139,
+        140,
+        142,
+        143,
+        145,
+        147,
+        148,
+        149,
+        151,
+        152,
+        153,
+        154
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$configureResponseDataMappers$17:(Lorg/snmp4j/smi/OID;Lorg/thingsboard/server/common/data/transport/snmp/SnmpMapping;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        405
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$configureResponseDataMappers$18:(Ljava/lang/String;Lcom/google/gson/JsonObject;Lorg/thingsboard/server/common/data/transport/snmp/SnmpMapping;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        408,
+        409
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$configureResponseDataMappers$19:(Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$RequestContext;Lcom/google/gson/JsonObject;Lorg/snmp4j/smi/OID;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        404,
+        405,
+        406,
+        407,
+        410
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$configureResponseDataMappers$20:(Ljava/util/List;Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$RequestContext;)Lcom/google/gson/JsonObject;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        402,
+        403,
+        411
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$configureResponseDataMappers$21:(Ljava/util/List;Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$RequestContext;)Lcom/google/gson/JsonObject;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        415
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$configureResponseDataMappers$22:(Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$ResponseDataMapper;Lorg/thingsboard/server/common/data/transport/snmp/SnmpCommunicationSpec;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        419,
+        420
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$configureResponseProcessors$23:(Lcom/google/gson/JsonObject;Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$RequestContext;Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        425,
+        426,
+        427,
+        428
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$configureResponseProcessors$24:(Lcom/google/gson/JsonObject;Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$RequestContext;Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        431,
+        432,
+        433,
+        434
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$configureResponseProcessors$25:(Lcom/google/gson/JsonObject;Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$RequestContext;Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        437,
+        438,
+        439,
+        440,
+        441,
+        442,
+        443
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$configureResponseProcessors$26:(Lcom/google/gson/JsonObject;Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$RequestContext;Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        446,
+        447,
+        448,
+        449,
+        450,
+        451,
+        452
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$createQueryingTasks$0:(Lorg/thingsboard/server/common/data/transport/snmp/config/SnmpCommunicationConfig;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        158
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$createQueryingTasks$1:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;Lorg/thingsboard/server/common/data/transport/snmp/config/RepeatingQueryingSnmpCommunicationConfig;Lorg/thingsboard/server/common/data/transport/snmp/config/SnmpCommunicationConfig;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        166,
+        167,
+        172,
+        169,
+        170,
+        171,
+        173
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$createQueryingTasks$2:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;Lorg/thingsboard/server/common/data/transport/snmp/config/SnmpCommunicationConfig;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        160,
+        161,
+        163,
+        164,
+        174,
+        164,
+        175,
+        176
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$onAttributeUpdate$5:(Lorg/thingsboard/server/common/data/transport/snmp/config/SnmpCommunicationConfig;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        235
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$onAttributeUpdate$6:(Ljava/util/Map$Entry;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        241
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$onAttributeUpdate$7:(Lorg/thingsboard/server/gen/transport/TransportProtos$AttributeUpdateNotificationMsg;Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;Lorg/thingsboard/server/common/data/transport/snmp/config/SnmpCommunicationConfig;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        238,
+        239,
+        243,
+        244
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$onToDeviceRpcRequest$10:(Ljava/lang/String;Lorg/thingsboard/server/common/data/transport/snmp/SnmpMapping;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        263
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$onToDeviceRpcRequest$11:()Ljava/lang/IllegalArgumentException;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        265
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$onToDeviceRpcRequest$8:(Lorg/thingsboard/server/common/data/transport/snmp/config/SnmpCommunicationConfig;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        259
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$onToDeviceRpcRequest$9:()Ljava/lang/IllegalArgumentException;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        261
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$processIncomingTrap$14:(Lorg/thingsboard/server/common/data/transport/snmp/config/SnmpCommunicationConfig;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        373
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$processIncomingTrap$15:()Ljava/lang/IllegalArgumentException;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        374
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$processIncomingTrap$16:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;Lorg/snmp4j/PDU;Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$RequestContext;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        382,
+        383
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$processPdu$13:(Lorg/snmp4j/smi/IpAddress;Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        342
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$processResponseEvent$12:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;Ljava/util/List;Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$RequestContext;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        323,
+        326,
+        324,
+        325,
+        327
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$sendRequest$3:(Lorg/snmp4j/PDU;Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$RequestContext;Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        215,
+        216
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.lambda$sendRequest$4:()Ljava/lang/Void;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        220
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.onAttributeUpdate:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;Lorg/thingsboard/server/gen/transport/TransportProtos$AttributeUpdateNotificationMsg;)V" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        234,
+        235,
+        236,
+        237,
+        245
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.onToDeviceRpcRequest:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;Lorg/thingsboard/server/gen/transport/TransportProtos$ToDeviceRpcRequestMsg;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        248,
+        249,
+        251,
+        252,
+        254,
+        255,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        265,
+        267,
+        268,
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.processIncomingTrap:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;Lorg/snmp4j/CommandResponderEvent;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        365,
+        366,
+        367,
+        368,
+        371,
+        372,
+        373,
+        374,
+        375,
+        376,
+        377,
+        378,
+        379,
+        381,
+        384
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.processPdu:(Lorg/snmp4j/CommandResponderEvent;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R027",
+      "lineNumbers" : [
+        340,
+        341,
+        342,
+        343,
+        344,
+        345,
+        346,
+        347,
+        348,
+        349,
+        350,
+        349,
+        351,
+        352,
+        355,
+        357,
+        361,
+        358,
+        359,
+        360,
+        359,
+        362
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.processResponse:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;Ljava/util/List;Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$RequestContext;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        387,
+        388,
+        390,
+        391,
+        392,
+        393,
+        396,
+        397,
+        398
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.processResponseEvent:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;Lorg/snmp4j/event/ResponseEvent;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        283,
+        284,
+        285,
+        286,
+        287,
+        288,
+        291,
+        292,
+        295,
+        296,
+        297,
+        298,
+        299,
+        301,
+        303,
+        305,
+        306,
+        307,
+        308,
+        309,
+        310,
+        311,
+        313,
+        314,
+        316,
+        317,
+        321,
+        328
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.reportActivity:(Lorg/thingsboard/server/gen/transport/TransportProtos$SessionInfoProto;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        456,
+        457
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.sendPdu:(Lorg/snmp4j/PDU;Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$RequestContext;Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        224,
+        226,
+        230,
+        227,
+        228,
+        229,
+        231
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.sendRequest:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;Ljava/util/List;Lorg/thingsboard/server/transport/snmp/service/SnmpTransportService$RequestContext;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        201,
+        202,
+        203,
+        204,
+        205,
+        208,
+        209,
+        210,
+        211,
+        212,
+        214,
+        217,
+        209,
+        220
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.sendRequest:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;Lorg/thingsboard/server/common/data/transport/snmp/config/SnmpCommunicationConfig;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        186
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.sendRequest:(Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;Lorg/thingsboard/server/common/data/transport/snmp/config/SnmpCommunicationConfig;Ljava/util/Map;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.shutdown:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R027",
+      "lineNumbers" : [
+        467,
+        468,
+        469,
+        471,
+        472,
+        474,
+        476,
+        479,
+        477,
+        478,
+        481,
+        482
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.service.SnmpTransportService.stop:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R027",
+      "lineNumbers" : [
+        127,
+        128,
+        130,
+        131,
+        133
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext$DeviceSessionContextBuilder.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        78
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext$DeviceSessionContextBuilder.build:()Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        78
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext$DeviceSessionContextBuilder.device:(Lorg/thingsboard/server/common/data/Device;)Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext$DeviceSessionContextBuilder;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        78
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext$DeviceSessionContextBuilder.deviceProfile:(Lorg/thingsboard/server/common/data/DeviceProfile;)Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext$DeviceSessionContextBuilder;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        78
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext$DeviceSessionContextBuilder.deviceTransportConfiguration:(Lorg/thingsboard/server/common/data/device/data/SnmpDeviceTransportConfiguration;)Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext$DeviceSessionContextBuilder;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        78
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext$DeviceSessionContextBuilder.profileTransportConfiguration:(Lorg/thingsboard/server/common/data/device/profile/SnmpDeviceProfileTransportConfiguration;)Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext$DeviceSessionContextBuilder;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        78
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext$DeviceSessionContextBuilder.snmpTransportContext:(Lorg/thingsboard/server/transport/snmp/SnmpTransportContext;)Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext$DeviceSessionContextBuilder;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        78
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext$DeviceSessionContextBuilder.tenantId:(Lorg/thingsboard/server/common/data/id/TenantId;)Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext$DeviceSessionContextBuilder;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        78
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext$DeviceSessionContextBuilder.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        78
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext$DeviceSessionContextBuilder.token:(Ljava/lang/String;)Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext$DeviceSessionContextBuilder;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        78
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.<init>:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/Device;Lorg/thingsboard/server/common/data/DeviceProfile;Ljava/lang/String;Lorg/thingsboard/server/common/data/device/profile/SnmpDeviceProfileTransportConfiguration;Lorg/thingsboard/server/common/data/device/data/SnmpDeviceTransportConfiguration;Lorg/thingsboard/server/transport/snmp/SnmpTransportContext;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        83,
+        69,
+        70,
+        75,
+        84,
+        85,
+        86,
+        87,
+        89,
+        90,
+        92,
+        93,
+        95,
+        96
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.builder:()Lorg/thingsboard/server/transport/snmp/session/DeviceSessionContext$DeviceSessionContextBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        78
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.close:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        125,
+        126
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.getDevice:()Lorg/thingsboard/server/common/data/Device;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        61
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.getDeviceTransportConfiguration:()Lorg/thingsboard/server/common/data/device/data/SnmpDeviceTransportConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        58
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.getProfileTransportConfiguration:()Lorg/thingsboard/server/common/data/device/profile/SnmpDeviceProfileTransportConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        55
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.getQueryingTasks:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        75
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.getTarget:()Lorg/snmp4j/Target;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        52
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.getTenantId:()Lorg/thingsboard/server/common/data/id/TenantId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        64
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.getToken:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        129
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.initializeTarget:(Lorg/thingsboard/server/common/data/device/profile/SnmpDeviceProfileTransportConfiguration;Lorg/thingsboard/server/common/data/device/data/SnmpDeviceTransportConfiguration;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        119,
+        120,
+        121,
+        122
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.isActive:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        70
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.nextMsgId:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        134
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.onAttributeUpdate:(Ljava/util/UUID;Lorg/thingsboard/server/gen/transport/TransportProtos$AttributeUpdateNotificationMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        143,
+        145,
+        148,
+        146,
+        147,
+        149
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.onDeviceDeleted:(Lorg/thingsboard/server/common/data/id/DeviceId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        108,
+        109
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.onDeviceProfileUpdate:(Lorg/thingsboard/server/gen/transport/TransportProtos$SessionInfoProto;Lorg/thingsboard/server/common/data/DeviceProfile;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        100,
+        101,
+        102,
+        104
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.onGetAttributesResponse:(Lorg/thingsboard/server/gen/transport/TransportProtos$GetAttributeResponseMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        139
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.onRemoteSessionCloseCommand:(Ljava/util/UUID;Lorg/thingsboard/server/gen/transport/TransportProtos$SessionCloseNotificationProto;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        153,
+        154,
+        155,
+        156,
+        159
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.onResponse:(Lorg/snmp4j/event/ResponseEvent;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        113,
+        114,
+        116
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.onToDeviceRpcRequest:(Ljava/util/UUID;Lorg/thingsboard/server/gen/transport/TransportProtos$ToDeviceRpcRequestMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        163,
+        165,
+        166,
+        169,
+        167,
+        168,
+        170
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.onToServerRpcResponse:(Lorg/thingsboard/server/gen/transport/TransportProtos$ToServerRpcResponseMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        174
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.setDevice:(Lorg/thingsboard/server/common/data/Device;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        62
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.setDeviceTransportConfiguration:(Lorg/thingsboard/server/common/data/device/data/SnmpDeviceTransportConfiguration;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        59
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.setProfileTransportConfiguration:(Lorg/thingsboard/server/common/data/device/profile/SnmpDeviceProfileTransportConfiguration;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        56
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.DeviceSessionContext.setSessionTimeoutHandler:(Ljava/lang/Runnable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        72
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.ScheduledTask.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.server.transport.snmp.session.ScheduledTask.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        28,
+        32
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.ScheduledTask.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.ScheduledTask.cancel:()V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R024",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        56,
+        57,
+        58,
+        60
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.ScheduledTask.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 7,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 7
+      },
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.ScheduledTask.getScheduledFuture:()Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.ScheduledTask.hashCode:()I" : {
+      "completeTestCount" : 7,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 7
+      },
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.ScheduledTask.init:(Lcom/google/common/util/concurrent/AsyncCallable;JLjava/util/concurrent/ScheduledExecutorService;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "F009",
+      "lineNumbers" : [
+        35,
+        36
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.ScheduledTask.isStopped:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.ScheduledTask.lambda$schedule$0:(Lcom/google/common/util/concurrent/AsyncCallable;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        40,
+        41,
+        44,
+        45,
+        46,
+        47
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.ScheduledTask.lambda$schedule$1:(Lcom/google/common/util/concurrent/AsyncCallable;JLjava/util/concurrent/ScheduledExecutorService;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        51
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.ScheduledTask.schedule:(Lcom/google/common/util/concurrent/AsyncCallable;JLjava/util/concurrent/ScheduledExecutorService;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        39,
+        50,
+        51,
+        53
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.ScheduledTask.setScheduledFuture:(Lcom/google/common/util/concurrent/ListenableFuture;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.ScheduledTask.setStopped:(Z)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.server.transport.snmp.session.ScheduledTask.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        28
+      ]
+    }
+  },
+  "validationMetrics" : { }
+}

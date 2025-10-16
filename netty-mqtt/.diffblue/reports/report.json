@@ -1,0 +1,3480 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.09.01-44e352d-licensed",
+    "creationTimestamp" : "2025-10-15T16:32:46.816531087Z",
+    "command" : "dcover create --exclude-modules=org.thingsboard:ui-ngx,org.thingsboard:application,org.thingsboard.msa:tb,org.thingsboard.msa:web-ui,org.thingsboard.msa:vc-executor-docker,org.thingsboard.msa:tb-node,org.thingsboard.msa.transport:mqtt,org.thingsboard.msa.transport:http,org.thingsboard.msa.transport:coap,org.thingsboard.msa.transport:lwm2m,org.thingsboard.msa.transport:snmp,org.thingsboard.msa:js-executor,org.thingsboard.msa:monitoring --coverage-reports --upload http://localhost:8080 --project-name Thingsboard-thingsboard --name with-diffblue-tests",
+    "totalTime" : 327.728,
+    "environmentDetectionTime" : 0.783,
+    "indexingTime" : 0.312,
+    "entryPointsTime" : 0.639,
+    "generationTime" : 226.496,
+    "timeToFirstTest" : 56.071,
+    "timeToLastTest" : 281.807,
+    "indexQueryTime" : 8.252,
+    "verificationTime" : 22.668,
+    "validationTime" : 25.053
+  },
+  "codes" : {
+    "R000" : "Success",
+    "R002" : "Missing observers",
+    "R004" : "No meaningful assertions found",
+    "R011" : "Sandboxing policy violation",
+    "R013" : "No inputs found that don't throw a trivial exception",
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T002" : "Trivial setter",
+    "T003" : "Private method",
+    "T004" : "In anonymous inner class",
+    "T005" : "Trivial constructor",
+    "T009" : "No implementation for abstract class",
+    "T010" : "Abstract or interface method",
+    "T012" : "Synthetic method",
+    "T020" : "Other trivial method",
+    "T023" : "Testability unknown",
+    "V000" : "Validated successfully"
+  },
+  "summary" : {
+    "classesCount" : 23,
+    "methodsCount" : 236,
+    "cumulativeDiffblueTestCount" : 133,
+    "cumulativeManualTestCount" : 2,
+    "completeTestCount" : 133,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 1430,
+    "perMethodTestability" : {
+      "T000" : 64,
+      "T001" : 58,
+      "T002" : 15,
+      "T003" : 20,
+      "T004" : 3,
+      "T005" : 12,
+      "T009" : 5,
+      "T010" : 24,
+      "T012" : 29,
+      "T020" : 1,
+      "T023" : 5
+    },
+    "perMethodOutcome" : {
+      "R000" : 140,
+      "R002" : 4,
+      "R004" : 1,
+      "R011" : 1,
+      "R013" : 3,
+      "T003" : 20,
+      "T004" : 3,
+      "T005" : 1,
+      "T009" : 5,
+      "T010" : 24,
+      "T012" : 29,
+      "T023" : 5
+    },
+    "perTestOutcome" : {
+      "R000" : 133
+    },
+    "perTestValidation" : {
+      "V000" : 133
+    }
+  },
+  "classes" : {
+    "org.thingsboard.mqtt.ChannelClosedException" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T005" : 5
+      },
+      "perMethodOutcome" : {
+        "R000" : 5
+      },
+      "perTestOutcome" : {
+        "R000" : 5
+      }
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler" : {
+      "methodsCount" : 25,
+      "completeTestCount" : 35,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 6,
+        "T003" : 9,
+        "T012" : 9,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 5,
+        "R011" : 1,
+        "T003" : 9,
+        "T012" : 9,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 35
+      }
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler$1" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T004" : 3,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "T004" : 3,
+        "T012" : 1
+      }
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler$2" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "T023" : 1
+      }
+    },
+    "org.thingsboard.mqtt.MqttClient" : {
+      "methodsCount" : 21,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T010" : 20
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "T010" : 20
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.thingsboard.mqtt.MqttClientCallback" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T009" : 5,
+        "T010" : 2
+      },
+      "perMethodOutcome" : {
+        "T009" : 5,
+        "T010" : 2
+      }
+    },
+    "org.thingsboard.mqtt.MqttClientConfig" : {
+      "methodsCount" : 27,
+      "completeTestCount" : 11,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 7,
+        "T001" : 13,
+        "T002" : 7
+      },
+      "perMethodOutcome" : {
+        "R000" : 26,
+        "R013" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 11
+      }
+    },
+    "org.thingsboard.mqtt.MqttClientImpl" : {
+      "methodsCount" : 53,
+      "completeTestCount" : 18,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 19,
+        "T001" : 14,
+        "T002" : 2,
+        "T003" : 5,
+        "T012" : 12,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 32,
+        "R004" : 1,
+        "R013" : 2,
+        "T003" : 5,
+        "T012" : 12,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 18
+      }
+    },
+    "org.thingsboard.mqtt.MqttClientImpl$MqttChannelInitializer" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 2,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "T003" : 2,
+        "T012" : 1
+      }
+    },
+    "org.thingsboard.mqtt.MqttConnectResult" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 3,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 4
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.thingsboard.mqtt.MqttHandler" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T010" : 1
+      }
+    },
+    "org.thingsboard.mqtt.MqttIncomingQos2Publish" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.thingsboard.mqtt.MqttLastWill" : {
+      "methodsCount" : 9,
+      "completeTestCount" : 10,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T001" : 4,
+        "T005" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 8,
+        "T005" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 10
+      }
+    },
+    "org.thingsboard.mqtt.MqttLastWill$Builder" : {
+      "methodsCount" : 10,
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T001" : 4,
+        "T002" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 10
+      },
+      "perTestOutcome" : {
+        "R000" : 4
+      }
+    },
+    "org.thingsboard.mqtt.MqttPendingPublish" : {
+      "methodsCount" : 16,
+      "completeTestCount" : 14,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 7,
+        "T001" : 6,
+        "T002" : 1,
+        "T012" : 2
+      },
+      "perMethodOutcome" : {
+        "R000" : 14,
+        "T012" : 2
+      },
+      "perTestOutcome" : {
+        "R000" : 14
+      }
+    },
+    "org.thingsboard.mqtt.MqttPendingSubscription" : {
+      "methodsCount" : 12,
+      "completeTestCount" : 7,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 5,
+        "T001" : 5,
+        "T002" : 1,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 11,
+        "T012" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 7
+      }
+    },
+    "org.thingsboard.mqtt.MqttPendingSubscription$MqttPendingHandler" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 2,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 3
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.thingsboard.mqtt.MqttPendingUnsubscription" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 6,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T001" : 2,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 6,
+        "T012" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 6
+      }
+    },
+    "org.thingsboard.mqtt.MqttPingHandler" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 6,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T003" : 3,
+        "T005" : 1,
+        "T012" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2,
+        "R002" : 1,
+        "T003" : 3,
+        "T012" : 1,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 6
+      }
+    },
+    "org.thingsboard.mqtt.MqttPingHandler$1" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "T023" : 1
+      }
+    },
+    "org.thingsboard.mqtt.MqttSubscription" : {
+      "methodsCount" : 9,
+      "completeTestCount" : 10,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T001" : 4,
+        "T002" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 9
+      },
+      "perTestOutcome" : {
+        "R000" : 10
+      }
+    },
+    "org.thingsboard.mqtt.PendingOperation" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T010" : 1
+      }
+    },
+    "org.thingsboard.mqtt.RetransmissionHandler" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T002" : 2,
+        "T003" : 1,
+        "T005" : 1,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2,
+        "R002" : 3,
+        "T003" : 1,
+        "T012" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 3
+      }
+    }
+  },
+  "methods" : {
+    "org.thingsboard.mqtt.ChannelClosedException.<init>:()V" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        25,
+        26
+      ]
+    },
+    "org.thingsboard.mqtt.ChannelClosedException.<init>:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        29,
+        30
+      ]
+    },
+    "org.thingsboard.mqtt.ChannelClosedException.<init>:(Ljava/lang/String;Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        33,
+        34
+      ]
+    },
+    "org.thingsboard.mqtt.ChannelClosedException.<init>:(Ljava/lang/String;Ljava/lang/Throwable;ZZ)V" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        41,
+        42
+      ]
+    },
+    "org.thingsboard.mqtt.ChannelClosedException.<init>:(Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        37,
+        38
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler$1.<init>:(Lorg/thingsboard/mqtt/MqttChannelHandler;Lio/netty/handler/codec/mqtt/MqttPublishMessage;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        160
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler$1.onFailure:(Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        168,
+        169
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler$1.onSuccess:(Ljava/lang/Object;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        160
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler$1.onSuccess:(Ljava/lang/Void;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        163,
+        164
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler$2.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.<init>:(Lorg/thingsboard/mqtt/MqttClientImpl;Lio/netty/util/concurrent/Promise;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R011",
+      "lineNumbers" : [
+        54,
+        55,
+        56,
+        57
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.channelActive:(Lio/netty/channel/ChannelHandlerContext;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        99,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        123,
+        124
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.channelInactive:(Lio/netty/channel/ChannelHandlerContext;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        128,
+        129
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.channelRead0:(Lio/netty/channel/ChannelHandlerContext;Lio/netty/handler/codec/mqtt/MqttMessage;)V" : {
+      "completeTestCount" : 29,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 29
+      },
+      "lineNumbers" : [
+        61,
+        62,
+        64,
+        65,
+        67,
+        68,
+        70,
+        71,
+        73,
+        74,
+        76,
+        77,
+        79,
+        80,
+        82,
+        83,
+        85,
+        86,
+        88,
+        89,
+        92,
+        93,
+        95
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.channelRead0:(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        48
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.exceptionCaught:(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        346,
+        347,
+        348,
+        350,
+        353,
+        356,
+        357,
+        356,
+        357,
+        358
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.handleConack:(Lio/netty/channel/Channel;Lio/netty/handler/codec/mqtt/MqttConnAckMessage;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        176,
+        178,
+        180,
+        185,
+        194,
+        195,
+        196,
+        205,
+        206,
+        210,
+        211,
+        213
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.handleDisconnect:(Lio/netty/handler/codec/mqtt/MqttMessage;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        338,
+        339,
+        341
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.handlePuback:(Lio/netty/handler/codec/mqtt/MqttPubAckMessage;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        285,
+        286,
+        287,
+        289,
+        290,
+        291,
+        292,
+        293,
+        294,
+        296
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.handlePubcomp:(Lio/netty/handler/codec/mqtt/MqttMessage;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        329,
+        330,
+        331,
+        332,
+        333,
+        334,
+        335
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.handlePublish:(Lio/netty/channel/Channel;Lio/netty/handler/codec/mqtt/MqttPublishMessage;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        239,
+        241,
+        242,
+        245,
+        246,
+        247,
+        251,
+        247,
+        256,
+        257,
+        258,
+        259,
+        261,
+        262,
+        264,
+        268
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.handlePubrec:(Lio/netty/channel/Channel;Lio/netty/handler/codec/mqtt/MqttMessage;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        299,
+        300,
+        302,
+        303,
+        304,
+        305,
+        307,
+        308,
+        309
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.handlePubrel:(Lio/netty/channel/Channel;Lio/netty/handler/codec/mqtt/MqttMessage;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        312,
+        313,
+        314,
+        315,
+        316,
+        319,
+        316,
+        321,
+        325,
+        321,
+        326
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.handleSubAck:(Lio/netty/handler/codec/mqtt/MqttSubAckMessage;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        216,
+        217,
+        218,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        228,
+        230,
+        231,
+        233,
+        234,
+        236
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.handleUnsuback:(Lio/netty/handler/codec/mqtt/MqttUnsubAckMessage;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        271,
+        272,
+        273,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280,
+        282
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.invokeHandlersForIncomingPublish:(Lio/netty/handler/codec/mqtt/MqttPublishMessage;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        132,
+        133,
+        135,
+        136,
+        137,
+        150,
+        137,
+        152,
+        153,
+        158,
+        153,
+        160,
+        170,
+        160,
+        171,
+        160,
+        170,
+        160,
+        171,
+        172
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.lambda$handleConack$2:(Ljava/util/Map$Entry;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        180
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.lambda$handleConack$3:(Lio/netty/channel/Channel;Ljava/util/Map$Entry;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        181,
+        182,
+        183
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.lambda$handleConack$4:(Lio/netty/channel/Channel;Ljava/lang/Integer;Lorg/thingsboard/mqtt/MqttPendingPublish;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        193
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.lambda$handlePublish$5:(Lio/netty/handler/codec/mqtt/MqttPublishMessage;Lio/netty/channel/Channel;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        248,
+        249,
+        250,
+        251
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.lambda$handlePubrel$6:(Lorg/thingsboard/mqtt/MqttIncomingQos2Publish;Ljava/lang/Void;)Ljava/lang/Void;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        317,
+        318
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.lambda$handlePubrel$7:(Lio/netty/handler/codec/mqtt/MqttMessage;Lio/netty/channel/Channel;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        322,
+        323,
+        324,
+        325
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.lambda$invokeHandlersForIncomingPublish$0:(Lorg/thingsboard/mqtt/MqttSubscription;Lio/netty/handler/codec/mqtt/MqttPublishMessage;Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/lang/Void;)Ljava/lang/Void;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        138,
+        139,
+        141,
+        142,
+        143,
+        144,
+        145,
+        147,
+        148,
+        149
+      ]
+    },
+    "org.thingsboard.mqtt.MqttChannelHandler.lambda$invokeHandlersForIncomingPublish$1:(Ljava/util/concurrent/atomic/AtomicBoolean;Lio/netty/handler/codec/mqtt/MqttPublishMessage;Ljava/lang/Void;)Ljava/lang/Void;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        154,
+        155,
+        157
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClient.connect:(Ljava/lang/String;)Lio/netty/util/concurrent/Promise;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttClient.connect:(Ljava/lang/String;I)Lio/netty/util/concurrent/Promise;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttClient.create:(Lorg/thingsboard/mqtt/MqttClientConfig;Lorg/thingsboard/mqtt/MqttHandler;Lorg/thingsboard/common/util/ListeningExecutor;)Lorg/thingsboard/mqtt/MqttClient;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        188
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClient.disconnect:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttClient.getClientConfig:()Lorg/thingsboard/mqtt/MqttClientConfig;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttClient.getEventLoop:()Lio/netty/channel/EventLoopGroup;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttClient.getHandlerExecutor:()Lorg/thingsboard/common/util/ListeningExecutor;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttClient.isConnected:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttClient.off:(Ljava/lang/String;)Lio/netty/util/concurrent/Future;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttClient.off:(Ljava/lang/String;Lorg/thingsboard/mqtt/MqttHandler;)Lio/netty/util/concurrent/Future;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttClient.on:(Ljava/lang/String;Lorg/thingsboard/mqtt/MqttHandler;)Lio/netty/util/concurrent/Future;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttClient.on:(Ljava/lang/String;Lorg/thingsboard/mqtt/MqttHandler;Lio/netty/handler/codec/mqtt/MqttQoS;)Lio/netty/util/concurrent/Future;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttClient.once:(Ljava/lang/String;Lorg/thingsboard/mqtt/MqttHandler;)Lio/netty/util/concurrent/Future;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttClient.once:(Ljava/lang/String;Lorg/thingsboard/mqtt/MqttHandler;Lio/netty/handler/codec/mqtt/MqttQoS;)Lio/netty/util/concurrent/Future;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttClient.publish:(Ljava/lang/String;Lio/netty/buffer/ByteBuf;)Lio/netty/util/concurrent/Future;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttClient.publish:(Ljava/lang/String;Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/mqtt/MqttQoS;)Lio/netty/util/concurrent/Future;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttClient.publish:(Ljava/lang/String;Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/mqtt/MqttQoS;Z)Lio/netty/util/concurrent/Future;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttClient.publish:(Ljava/lang/String;Lio/netty/buffer/ByteBuf;Z)Lio/netty/util/concurrent/Future;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttClient.reconnect:()Lio/netty/util/concurrent/Promise;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttClient.setCallback:(Lorg/thingsboard/mqtt/MqttClientCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttClient.setEventLoop:(Lio/netty/channel/EventLoopGroup;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttClientCallback.connectionLost:(Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttClientCallback.onConnAck:(Lio/netty/handler/codec/mqtt/MqttConnAckMessage;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        43
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientCallback.onDisconnect:(Lio/netty/handler/codec/mqtt/MqttMessage;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        55
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientCallback.onPubAck:(Lio/netty/handler/codec/mqtt/MqttPubAckMessage;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        46
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientCallback.onSubAck:(Lio/netty/handler/codec/mqtt/MqttSubAckMessage;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        49
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientCallback.onSuccessfulReconnect:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttClientCallback.onUnsubAck:(Lio/netty/handler/codec/mqtt/MqttUnsubAckMessage;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        52
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        51,
+        52
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.<init>:(Lio/netty/handler/ssl/SslContext;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        54,
+        38,
+        39,
+        40,
+        41,
+        42,
+        44,
+        46,
+        47,
+        48,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        59,
+        62,
+        63,
+        64
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.getChannelClass:()Ljava/lang/Class;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        137
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.getClientId:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        68
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.getLastWill:()Lorg/thingsboard/mqtt/MqttLastWill;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        129
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.getMaxBytesInMessage:()I" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        173
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.getOwnerId:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        34
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.getPassword:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        112
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.getProtocolVersion:()Lio/netty/handler/codec/mqtt/MqttVersion;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        91
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.getReconnectDelay:()J" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        157
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.getSslContext:()Lio/netty/handler/ssl/SslContext;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        145
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.getTimeoutSeconds:()I" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        80
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.getUsername:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        103
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.isCleanSession:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        120
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.isReconnect:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        149
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.setChannelClass:(Ljava/lang/Class;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        141,
+        142
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.setCleanSession:(Z)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        124,
+        125
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.setClientId:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        72,
+        73,
+        75,
+        77
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.setLastWill:(Lorg/thingsboard/mqtt/MqttLastWill;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        133,
+        134
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.setMaxBytesInMessage:(I)V" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        184,
+        185,
+        187,
+        188
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.setOwnerId:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.setPassword:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        116,
+        117
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.setProtocolVersion:(Lio/netty/handler/codec/mqtt/MqttVersion;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        95,
+        96,
+        98,
+        99
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.setReconnect:(Z)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        153,
+        154
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.setReconnectDelay:(J)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        166,
+        167,
+        169,
+        170
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.setTimeoutSeconds:(I)V" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        84,
+        85,
+        87,
+        88
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientConfig.setUsername:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        107,
+        108
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl$MqttChannelInitializer.<init>:(Lorg/thingsboard/mqtt/MqttClientImpl;Lio/netty/util/concurrent/Promise;Ljava/lang/String;ILio/netty/handler/ssl/SslContext;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        572,
+        573,
+        574,
+        575,
+        576,
+        577
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl$MqttChannelInitializer.initChannel:(Lio/netty/channel/Channel;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        564
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl$MqttChannelInitializer.initChannel:(Lio/netty/channel/socket/SocketChannel;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        581,
+        582,
+        585,
+        586,
+        587,
+        588,
+        589,
+        590
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.<init>:(Lorg/thingsboard/mqtt/MqttClientConfig;Lorg/thingsboard/mqtt/MqttHandler;Lorg/thingsboard/common/util/ListeningExecutor;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        109,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        87,
+        88,
+        110,
+        111,
+        112,
+        113
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.<init>:(Lorg/thingsboard/mqtt/MqttHandler;Lorg/thingsboard/common/util/ListeningExecutor;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        100,
+        101
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.checkSubscriptions:(Ljava/lang/String;Lio/netty/util/concurrent/Promise;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        515,
+        516,
+        517,
+        518,
+        519,
+        521,
+        523,
+        524,
+        526,
+        527,
+        528,
+        530
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.connect:(Ljava/lang/String;)Lio/netty/util/concurrent/Promise;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        124
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.connect:(Ljava/lang/String;I)Lio/netty/util/concurrent/Promise;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        136
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.connect:(Ljava/lang/String;IZ)Lio/netty/util/concurrent/Promise;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        140,
+        141,
+        142,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        154,
+        185
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.createSubscription:(Ljava/lang/String;Lorg/thingsboard/mqtt/MqttHandler;ZLio/netty/handler/codec/mqtt/MqttQoS;)Lio/netty/util/concurrent/Future;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        480,
+        481,
+        482,
+        483,
+        484,
+        485,
+        488,
+        489,
+        490,
+        491,
+        492,
+        495,
+        496,
+        497,
+        498,
+        499,
+        500,
+        502,
+        504,
+        505,
+        506,
+        507,
+        509,
+        511
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.disconnect:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R004",
+      "lineNumbers" : [
+        427,
+        428,
+        429,
+        430,
+        431,
+        432,
+        438
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.getCallback:()Lorg/thingsboard/mqtt/MqttClientCallback;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        91
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.getClientConfig:()Lorg/thingsboard/mqtt/MqttClientConfig;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        422
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.getDefaultHandler:()Lorg/thingsboard/mqtt/MqttHandler;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        594
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.getEventLoop:()Lio/netty/channel/EventLoopGroup;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        219
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.getHandlerExecutor:()Lorg/thingsboard/common/util/ListeningExecutor;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        236
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.getHandlerToSubscription:()Lcom/google/common/collect/HashMultimap;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        545
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.getNewMessageId:()Lio/netty/handler/codec/mqtt/MqttMessageIdVariableHeader;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        472,
+        473,
+        474,
+        475,
+        476
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.getPendingPublishes:()Ljava/util/concurrent/ConcurrentMap;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        557
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.getPendingServerUnsubscribes:()Ljava/util/concurrent/ConcurrentMap;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        553
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.getPendingSubscribeTopics:()Ljava/util/Set;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        541
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.getPendingSubscriptions:()Ljava/util/concurrent/ConcurrentMap;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        533
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.getQos2PendingIncomingPublishes:()Ljava/util/concurrent/ConcurrentMap;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        561
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.getServerSubscriptions:()Ljava/util/Set;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        549
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.getSubscriptions:()Lcom/google/common/collect/HashMultimap;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        537
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.isConnected:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        200
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.isReconnect:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        449
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.lambda$checkSubscriptions$11:(Lio/netty/handler/codec/mqtt/MqttMessageIdVariableHeader;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        522
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.lambda$connect$0:(Ljava/lang/Integer;Lorg/thingsboard/mqtt/MqttPendingSubscription;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        167
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.lambda$connect$1:(Ljava/lang/Integer;Lorg/thingsboard/mqtt/MqttPendingUnsubscription;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        171
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.lambda$connect$2:(Ljava/lang/Integer;Lorg/thingsboard/mqtt/MqttPendingPublish;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        174
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.lambda$connect$3:(Ljava/lang/String;ILio/netty/channel/ChannelFuture;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        159,
+        160,
+        162,
+        163,
+        164,
+        165,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.lambda$connect$4:(Ljava/lang/String;IZLio/netty/channel/ChannelFuture;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        155,
+        156,
+        157,
+        158,
+        181,
+        182,
+        184
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.lambda$createSubscription$10:(Lio/netty/handler/codec/mqtt/MqttMessageIdVariableHeader;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        503
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.lambda$createSubscription$9:(Ljava/lang/String;Ljava/util/Map$Entry;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        482
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.lambda$disconnect$8:(Lio/netty/channel/ChannelFuture;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        433,
+        434,
+        436
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.lambda$publish$6:(Lio/netty/handler/codec/mqtt/MqttPublishVariableHeader;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        388
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.lambda$publish$7:(Lorg/thingsboard/mqtt/MqttPendingPublish;Lio/netty/util/concurrent/Promise;Lio/netty/util/concurrent/Future;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        394,
+        395,
+        396,
+        397,
+        399,
+        400,
+        401,
+        402,
+        403,
+        405,
+        408
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.lambda$scheduleConnectIfRequired$5:(Ljava/lang/String;IZ)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        194
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.off:(Ljava/lang/String;)Lio/netty/util/concurrent/Future;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        320,
+        321,
+        322,
+        323,
+        324,
+        325,
+        326,
+        327,
+        328,
+        329,
+        330
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.off:(Ljava/lang/String;Lorg/thingsboard/mqtt/MqttHandler;)Lio/netty/util/concurrent/Future;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.on:(Ljava/lang/String;Lorg/thingsboard/mqtt/MqttHandler;)Lio/netty/util/concurrent/Future;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        248
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.on:(Ljava/lang/String;Lorg/thingsboard/mqtt/MqttHandler;Lio/netty/handler/codec/mqtt/MqttQoS;)Lio/netty/util/concurrent/Future;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        261
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.onSuccessfulReconnect:()V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        453,
+        454,
+        456
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.once:(Ljava/lang/String;Lorg/thingsboard/mqtt/MqttHandler;)Lio/netty/util/concurrent/Future;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        274
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.once:(Ljava/lang/String;Lorg/thingsboard/mqtt/MqttHandler;Lio/netty/handler/codec/mqtt/MqttQoS;)Lio/netty/util/concurrent/Future;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        288
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.publish:(Ljava/lang/String;Lio/netty/buffer/ByteBuf;)Lio/netty/util/concurrent/Future;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        342
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.publish:(Ljava/lang/String;Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/mqtt/MqttQoS;)Lio/netty/util/concurrent/Future;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        355
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.publish:(Ljava/lang/String;Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/mqtt/MqttQoS;Z)Lio/netty/util/concurrent/Future;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        382,
+        383,
+        384,
+        385,
+        386,
+        387,
+        388,
+        389,
+        390,
+        392,
+        393,
+        410,
+        412
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.publish:(Ljava/lang/String;Lio/netty/buffer/ByteBuf;Z)Lio/netty/util/concurrent/Future;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        368
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.reconnect:()Lio/netty/util/concurrent/Promise;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        205,
+        206,
+        207,
+        209
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.scheduleConnectIfRequired:(Ljava/lang/String;IZ)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        189,
+        190,
+        191,
+        192,
+        194,
+        196
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.sendAndFlushPacket:(Ljava/lang/Object;)Lio/netty/channel/ChannelFuture;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        460,
+        461,
+        463,
+        464,
+        465,
+        467
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.setCallback:(Lorg/thingsboard/mqtt/MqttClientCallback;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        442,
+        443
+      ]
+    },
+    "org.thingsboard.mqtt.MqttClientImpl.setEventLoop:(Lio/netty/channel/EventLoopGroup;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        231,
+        232
+      ]
+    },
+    "org.thingsboard.mqtt.MqttConnectResult.<init>:(ZLio/netty/handler/codec/mqtt/MqttConnectReturnCode;Lio/netty/channel/ChannelFuture;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        28,
+        29,
+        30,
+        31,
+        32
+      ]
+    },
+    "org.thingsboard.mqtt.MqttConnectResult.getCloseFuture:()Lio/netty/channel/ChannelFuture;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        43
+      ]
+    },
+    "org.thingsboard.mqtt.MqttConnectResult.getReturnCode:()Lio/netty/handler/codec/mqtt/MqttConnectReturnCode;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        39
+      ]
+    },
+    "org.thingsboard.mqtt.MqttConnectResult.isSuccess:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.mqtt.MqttHandler.onMessage:(Ljava/lang/String;Lio/netty/buffer/ByteBuf;)Ljava/util/concurrent/Future;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.MqttIncomingQos2Publish.<init>:(Lio/netty/handler/codec/mqtt/MqttPublishMessage;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        24,
+        25,
+        26
+      ]
+    },
+    "org.thingsboard.mqtt.MqttIncomingQos2Publish.getIncomingPublish:()Lio/netty/handler/codec/mqtt/MqttPublishMessage;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.mqtt.MqttLastWill$Builder.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        64
+      ]
+    },
+    "org.thingsboard.mqtt.MqttLastWill$Builder.build:()Lorg/thingsboard/mqtt/MqttLastWill;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        117
+      ]
+    },
+    "org.thingsboard.mqtt.MqttLastWill$Builder.getMessage:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        84
+      ]
+    },
+    "org.thingsboard.mqtt.MqttLastWill$Builder.getQos:()Lio/netty/handler/codec/mqtt/MqttQoS;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        105
+      ]
+    },
+    "org.thingsboard.mqtt.MqttLastWill$Builder.getTopic:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        72
+      ]
+    },
+    "org.thingsboard.mqtt.MqttLastWill$Builder.isRetain:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        96
+      ]
+    },
+    "org.thingsboard.mqtt.MqttLastWill$Builder.setMessage:(Ljava/lang/String;)Lorg/thingsboard/mqtt/MqttLastWill$Builder;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        88,
+        89,
+        91,
+        92
+      ]
+    },
+    "org.thingsboard.mqtt.MqttLastWill$Builder.setQos:(Lio/netty/handler/codec/mqtt/MqttQoS;)Lorg/thingsboard/mqtt/MqttLastWill$Builder;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        109,
+        110,
+        112,
+        113
+      ]
+    },
+    "org.thingsboard.mqtt.MqttLastWill$Builder.setRetain:(Z)Lorg/thingsboard/mqtt/MqttLastWill$Builder;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        100,
+        101
+      ]
+    },
+    "org.thingsboard.mqtt.MqttLastWill$Builder.setTopic:(Ljava/lang/String;)Lorg/thingsboard/mqtt/MqttLastWill$Builder;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        76,
+        77,
+        79,
+        80
+      ]
+    },
+    "org.thingsboard.mqtt.MqttLastWill.<init>:(Ljava/lang/String;Ljava/lang/String;ZLio/netty/handler/codec/mqtt/MqttQoS;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        28,
+        29,
+        30,
+        32,
+        33,
+        35,
+        36,
+        38,
+        39,
+        40,
+        41,
+        42
+      ]
+    },
+    "org.thingsboard.mqtt.MqttLastWill.builder:()Lorg/thingsboard/mqtt/MqttLastWill$Builder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        61
+      ]
+    },
+    "org.thingsboard.mqtt.MqttLastWill.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 8,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 8
+      },
+      "lineNumbers" : [
+        123,
+        124,
+        126,
+        128,
+        129,
+        130,
+        131
+      ]
+    },
+    "org.thingsboard.mqtt.MqttLastWill.getMessage:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        49
+      ]
+    },
+    "org.thingsboard.mqtt.MqttLastWill.getQos:()Lio/netty/handler/codec/mqtt/MqttQoS;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        57
+      ]
+    },
+    "org.thingsboard.mqtt.MqttLastWill.getTopic:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        45
+      ]
+    },
+    "org.thingsboard.mqtt.MqttLastWill.hashCode:()I" : {
+      "completeTestCount" : 8,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 8
+      },
+      "lineNumbers" : [
+        137,
+        138,
+        139,
+        140,
+        141
+      ]
+    },
+    "org.thingsboard.mqtt.MqttLastWill.isRetain:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        53
+      ]
+    },
+    "org.thingsboard.mqtt.MqttLastWill.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingPublish.<init>:(ILio/netty/util/concurrent/Promise;Lio/netty/buffer/ByteBuf;Lio/netty/handler/codec/mqtt/MqttPublishMessage;Lio/netty/handler/codec/mqtt/MqttQoS;Lorg/thingsboard/mqtt/PendingOperation;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        40,
+        38,
+        41,
+        42,
+        43,
+        44,
+        45,
+        47,
+        48,
+        49,
+        50
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingPublish.getFuture:()Lio/netty/util/concurrent/Promise;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        57
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingPublish.getMessage:()Lio/netty/handler/codec/mqtt/MqttPublishMessage;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        73
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingPublish.getMessageId:()I" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        53
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingPublish.getPayload:()Lio/netty/buffer/ByteBuf;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        61
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingPublish.getQos:()Lio/netty/handler/codec/mqtt/MqttQoS;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        77
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingPublish.isSent:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        65
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingPublish.lambda$startPublishRetransmissionTimer$0:(Ljava/util/function/Consumer;Lio/netty/handler/codec/mqtt/MqttFixedHeader;Lio/netty/handler/codec/mqtt/MqttPublishMessage;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        82
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingPublish.lambda$startPubrelRetransmissionTimer$1:(Ljava/util/function/Consumer;Lio/netty/handler/codec/mqtt/MqttFixedHeader;Lio/netty/handler/codec/mqtt/MqttMessage;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        96
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingPublish.onChannelClosed:()V" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        105,
+        106,
+        107,
+        108,
+        110
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingPublish.onPubackReceived:()V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        87,
+        88
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingPublish.onPubcompReceived:()V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        101,
+        102
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingPublish.setPubrelMessage:(Lio/netty/handler/codec/mqtt/MqttMessage;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        91,
+        92
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingPublish.setSent:(Z)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        69,
+        70
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingPublish.startPublishRetransmissionTimer:(Lio/netty/channel/EventLoop;Ljava/util/function/Consumer;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        81,
+        83,
+        84
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingPublish.startPubrelRetransmissionTimer:(Lio/netty/channel/EventLoop;Ljava/util/function/Consumer;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        95,
+        97,
+        98
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingSubscription$MqttPendingHandler.<init>:(Lorg/thingsboard/mqtt/MqttPendingSubscription;Lorg/thingsboard/mqtt/MqttHandler;Z)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        90,
+        91,
+        92,
+        93
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingSubscription$MqttPendingHandler.getHandler:()Lorg/thingsboard/mqtt/MqttHandler;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        96
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingSubscription$MqttPendingHandler.isOnce:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        100
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingSubscription.<init>:(Lio/netty/util/concurrent/Promise;Ljava/lang/String;Lio/netty/handler/codec/mqtt/MqttSubscribeMessage;Lorg/thingsboard/mqtt/PendingOperation;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        37,
+        30,
+        35,
+        38,
+        39,
+        40,
+        42,
+        43,
+        44
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingSubscription.addHandler:(Lorg/thingsboard/mqtt/MqttHandler;Z)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        67,
+        68
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingSubscription.getFuture:()Lio/netty/util/concurrent/Promise;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        47
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingSubscription.getHandlers:()Ljava/util/Set;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        71
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingSubscription.getSubscribeMessage:()Lio/netty/handler/codec/mqtt/MqttSubscribeMessage;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingSubscription.getTopic:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        51
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingSubscription.isSent:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        55
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingSubscription.lambda$startRetransmitTimer$0:(Ljava/util/function/Consumer;Lio/netty/handler/codec/mqtt/MqttFixedHeader;Lio/netty/handler/codec/mqtt/MqttSubscribeMessage;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        77
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingSubscription.onChannelClosed:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        105,
+        106
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingSubscription.onSubackReceived:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        83,
+        84
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingSubscription.setSent:(Z)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        59,
+        60
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingSubscription.startRetransmitTimer:(Lio/netty/channel/EventLoop;Ljava/util/function/Consumer;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        75,
+        76,
+        78,
+        80
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingUnsubscription.<init>:(Lio/netty/util/concurrent/Promise;Ljava/lang/String;Lio/netty/handler/codec/mqtt/MqttUnsubscribeMessage;Lorg/thingsboard/mqtt/PendingOperation;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        31,
+        32,
+        33,
+        35,
+        36,
+        37
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingUnsubscription.getFuture:()Lio/netty/util/concurrent/Promise;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        40
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingUnsubscription.getTopic:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        44
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingUnsubscription.lambda$startRetransmissionTimer$0:(Ljava/util/function/Consumer;Lio/netty/handler/codec/mqtt/MqttFixedHeader;Lio/netty/handler/codec/mqtt/MqttUnsubscribeMessage;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        49
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingUnsubscription.onChannelClosed:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        58,
+        59
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingUnsubscription.onUnsubackReceived:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        54,
+        55
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPendingUnsubscription.startRetransmissionTimer:(Lio/netty/channel/EventLoop;Ljava/util/function/Consumer;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        48,
+        50,
+        51
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPingHandler$1.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.mqtt.MqttPingHandler.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.mqtt.MqttPingHandler.<init>:(I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        40,
+        41,
+        42
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPingHandler.channelRead:(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;)V" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        46,
+        47,
+        48,
+        50,
+        51,
+        52,
+        53,
+        54,
+        56,
+        58
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPingHandler.handlePingReq:(Lio/netty/channel/Channel;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        94,
+        95,
+        96,
+        97
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPingHandler.handlePingResp:(Lio/netty/channel/Channel;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        100,
+        101,
+        102,
+        103,
+        105
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPingHandler.lambda$sendPingReq$0:(Lio/netty/channel/Channel;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        86,
+        87,
+        89
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPingHandler.sendPingReq:(Lio/netty/channel/Channel;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        80,
+        81,
+        82,
+        84,
+        85,
+        91
+      ]
+    },
+    "org.thingsboard.mqtt.MqttPingHandler.userEventTriggered:(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        62,
+        64,
+        65,
+        66,
+        68,
+        69,
+        70,
+        72,
+        73,
+        77
+      ]
+    },
+    "org.thingsboard.mqtt.MqttSubscription.<init>:(Ljava/lang/String;Lorg/thingsboard/mqtt/MqttHandler;Z)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        30,
+        31,
+        32,
+        34,
+        35,
+        37,
+        38,
+        39,
+        40,
+        41
+      ]
+    },
+    "org.thingsboard.mqtt.MqttSubscription.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 6,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 6
+      },
+      "lineNumbers" : [
+        65,
+        66,
+        68,
+        70
+      ]
+    },
+    "org.thingsboard.mqtt.MqttSubscription.getHandler:()Lorg/thingsboard/mqtt/MqttHandler;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        48
+      ]
+    },
+    "org.thingsboard.mqtt.MqttSubscription.getTopic:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        44
+      ]
+    },
+    "org.thingsboard.mqtt.MqttSubscription.hashCode:()I" : {
+      "completeTestCount" : 6,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 6
+      },
+      "lineNumbers" : [
+        75,
+        76,
+        77,
+        78
+      ]
+    },
+    "org.thingsboard.mqtt.MqttSubscription.isCalled:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        56
+      ]
+    },
+    "org.thingsboard.mqtt.MqttSubscription.isOnce:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        52
+      ]
+    },
+    "org.thingsboard.mqtt.MqttSubscription.matches:(Ljava/lang/String;)Z" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        60
+      ]
+    },
+    "org.thingsboard.mqtt.MqttSubscription.setCalled:(Z)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        82,
+        83
+      ]
+    },
+    "org.thingsboard.mqtt.PendingOperation.isCanceled:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.mqtt.RetransmissionHandler.<init>:(Lorg/thingsboard/mqtt/PendingOperation;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        29,
+        35,
+        29
+      ]
+    },
+    "org.thingsboard.mqtt.RetransmissionHandler.lambda$startTimer$0:(Lio/netty/channel/EventLoop;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        55,
+        56,
+        58,
+        59,
+        60,
+        61,
+        63,
+        64,
+        65,
+        66
+      ]
+    },
+    "org.thingsboard.mqtt.RetransmissionHandler.setHandle:(Ljava/util/function/BiConsumer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        77,
+        78
+      ]
+    },
+    "org.thingsboard.mqtt.RetransmissionHandler.setOriginalMessage:(Lio/netty/handler/codec/mqtt/MqttMessage;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        81,
+        82
+      ]
+    },
+    "org.thingsboard.mqtt.RetransmissionHandler.start:(Lio/netty/channel/EventLoop;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        40,
+        41,
+        43,
+        44,
+        46,
+        47,
+        48
+      ]
+    },
+    "org.thingsboard.mqtt.RetransmissionHandler.startTimer:(Lio/netty/channel/EventLoop;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        51,
+        52,
+        54,
+        67
+      ]
+    },
+    "org.thingsboard.mqtt.RetransmissionHandler.stop:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        70,
+        71,
+        72,
+        74
+      ]
+    }
+  },
+  "validationMetrics" : { }
+}

@@ -1,0 +1,685 @@
+/**
+ * Copyright © 2016-2024 The Thingsboard Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.thingsboard.server.common.data.device.data;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+
+class PowerSavingConfigurationDiffblueTest {
+  /**
+   * Test {@link PowerSavingConfiguration#equals(Object)}, and {@link
+   * PowerSavingConfiguration#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link PowerSavingConfiguration#equals(Object)}
+   *   <li>{@link PowerSavingConfiguration#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean PowerSavingConfiguration.equals(Object)",
+    "int PowerSavingConfiguration.hashCode()"
+  })
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    PowerSavingConfiguration powerSavingConfiguration = new PowerSavingConfiguration();
+    powerSavingConfiguration.setEdrxCycle(1L);
+    powerSavingConfiguration.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration.setPsmActivityTimer(1L);
+
+    PowerSavingConfiguration powerSavingConfiguration2 = new PowerSavingConfiguration();
+    powerSavingConfiguration2.setEdrxCycle(1L);
+    powerSavingConfiguration2.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration2.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration2.setPsmActivityTimer(1L);
+
+    // Act and Assert
+    assertEquals(powerSavingConfiguration, powerSavingConfiguration2);
+    assertEquals(powerSavingConfiguration.hashCode(), powerSavingConfiguration2.hashCode());
+  }
+
+  /**
+   * Test {@link PowerSavingConfiguration#equals(Object)}, and {@link
+   * PowerSavingConfiguration#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link PowerSavingConfiguration#equals(Object)}
+   *   <li>{@link PowerSavingConfiguration#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean PowerSavingConfiguration.equals(Object)",
+    "int PowerSavingConfiguration.hashCode()"
+  })
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    PowerSavingConfiguration powerSavingConfiguration = new PowerSavingConfiguration();
+    powerSavingConfiguration.setEdrxCycle(null);
+    powerSavingConfiguration.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration.setPsmActivityTimer(1L);
+
+    PowerSavingConfiguration powerSavingConfiguration2 = new PowerSavingConfiguration();
+    powerSavingConfiguration2.setEdrxCycle(null);
+    powerSavingConfiguration2.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration2.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration2.setPsmActivityTimer(1L);
+
+    // Act and Assert
+    assertEquals(powerSavingConfiguration, powerSavingConfiguration2);
+    assertEquals(powerSavingConfiguration.hashCode(), powerSavingConfiguration2.hashCode());
+  }
+
+  /**
+   * Test {@link PowerSavingConfiguration#equals(Object)}, and {@link
+   * PowerSavingConfiguration#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link PowerSavingConfiguration#equals(Object)}
+   *   <li>{@link PowerSavingConfiguration#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean PowerSavingConfiguration.equals(Object)",
+    "int PowerSavingConfiguration.hashCode()"
+  })
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+    // Arrange
+    PowerSavingConfiguration powerSavingConfiguration = new PowerSavingConfiguration();
+    powerSavingConfiguration.setEdrxCycle(1L);
+    powerSavingConfiguration.setPagingTransmissionWindow(null);
+    powerSavingConfiguration.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration.setPsmActivityTimer(1L);
+
+    PowerSavingConfiguration powerSavingConfiguration2 = new PowerSavingConfiguration();
+    powerSavingConfiguration2.setEdrxCycle(1L);
+    powerSavingConfiguration2.setPagingTransmissionWindow(null);
+    powerSavingConfiguration2.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration2.setPsmActivityTimer(1L);
+
+    // Act and Assert
+    assertEquals(powerSavingConfiguration, powerSavingConfiguration2);
+    assertEquals(powerSavingConfiguration.hashCode(), powerSavingConfiguration2.hashCode());
+  }
+
+  /**
+   * Test {@link PowerSavingConfiguration#equals(Object)}, and {@link
+   * PowerSavingConfiguration#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link PowerSavingConfiguration#equals(Object)}
+   *   <li>{@link PowerSavingConfiguration#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean PowerSavingConfiguration.equals(Object)",
+    "int PowerSavingConfiguration.hashCode()"
+  })
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
+    // Arrange
+    PowerSavingConfiguration powerSavingConfiguration = new PowerSavingConfiguration();
+    powerSavingConfiguration.setEdrxCycle(1L);
+    powerSavingConfiguration.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration.setPowerMode(null);
+    powerSavingConfiguration.setPsmActivityTimer(1L);
+
+    PowerSavingConfiguration powerSavingConfiguration2 = new PowerSavingConfiguration();
+    powerSavingConfiguration2.setEdrxCycle(1L);
+    powerSavingConfiguration2.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration2.setPowerMode(null);
+    powerSavingConfiguration2.setPsmActivityTimer(1L);
+
+    // Act and Assert
+    assertEquals(powerSavingConfiguration, powerSavingConfiguration2);
+    assertEquals(powerSavingConfiguration.hashCode(), powerSavingConfiguration2.hashCode());
+  }
+
+  /**
+   * Test {@link PowerSavingConfiguration#equals(Object)}, and {@link
+   * PowerSavingConfiguration#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link PowerSavingConfiguration#equals(Object)}
+   *   <li>{@link PowerSavingConfiguration#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean PowerSavingConfiguration.equals(Object)",
+    "int PowerSavingConfiguration.hashCode()"
+  })
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
+    // Arrange
+    PowerSavingConfiguration powerSavingConfiguration = new PowerSavingConfiguration();
+    powerSavingConfiguration.setEdrxCycle(1L);
+    powerSavingConfiguration.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration.setPsmActivityTimer(null);
+
+    PowerSavingConfiguration powerSavingConfiguration2 = new PowerSavingConfiguration();
+    powerSavingConfiguration2.setEdrxCycle(1L);
+    powerSavingConfiguration2.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration2.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration2.setPsmActivityTimer(null);
+
+    // Act and Assert
+    assertEquals(powerSavingConfiguration, powerSavingConfiguration2);
+    assertEquals(powerSavingConfiguration.hashCode(), powerSavingConfiguration2.hashCode());
+  }
+
+  /**
+   * Test {@link PowerSavingConfiguration#equals(Object)}, and {@link
+   * PowerSavingConfiguration#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is same.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link PowerSavingConfiguration#equals(Object)}
+   *   <li>{@link PowerSavingConfiguration#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean PowerSavingConfiguration.equals(Object)",
+    "int PowerSavingConfiguration.hashCode()"
+  })
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    PowerSavingConfiguration powerSavingConfiguration = new PowerSavingConfiguration();
+    powerSavingConfiguration.setEdrxCycle(1L);
+    powerSavingConfiguration.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration.setPsmActivityTimer(1L);
+
+    // Act and Assert
+    assertEquals(powerSavingConfiguration, powerSavingConfiguration);
+    int expectedHashCodeResult = powerSavingConfiguration.hashCode();
+    assertEquals(expectedHashCodeResult, powerSavingConfiguration.hashCode());
+  }
+
+  /**
+   * Test {@link PowerSavingConfiguration#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link PowerSavingConfiguration#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean PowerSavingConfiguration.equals(Object)",
+    "int PowerSavingConfiguration.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    PowerSavingConfiguration powerSavingConfiguration = new PowerSavingConfiguration();
+    powerSavingConfiguration.setEdrxCycle(3L);
+    powerSavingConfiguration.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration.setPsmActivityTimer(1L);
+
+    PowerSavingConfiguration powerSavingConfiguration2 = new PowerSavingConfiguration();
+    powerSavingConfiguration2.setEdrxCycle(1L);
+    powerSavingConfiguration2.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration2.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration2.setPsmActivityTimer(1L);
+
+    // Act and Assert
+    assertNotEquals(powerSavingConfiguration, powerSavingConfiguration2);
+  }
+
+  /**
+   * Test {@link PowerSavingConfiguration#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link PowerSavingConfiguration#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean PowerSavingConfiguration.equals(Object)",
+    "int PowerSavingConfiguration.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    PowerSavingConfiguration powerSavingConfiguration = new PowerSavingConfiguration();
+    powerSavingConfiguration.setEdrxCycle(null);
+    powerSavingConfiguration.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration.setPsmActivityTimer(1L);
+
+    PowerSavingConfiguration powerSavingConfiguration2 = new PowerSavingConfiguration();
+    powerSavingConfiguration2.setEdrxCycle(1L);
+    powerSavingConfiguration2.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration2.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration2.setPsmActivityTimer(1L);
+
+    // Act and Assert
+    assertNotEquals(powerSavingConfiguration, powerSavingConfiguration2);
+  }
+
+  /**
+   * Test {@link PowerSavingConfiguration#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link PowerSavingConfiguration#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean PowerSavingConfiguration.equals(Object)",
+    "int PowerSavingConfiguration.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+    // Arrange
+    PowerSavingConfiguration powerSavingConfiguration = new PowerSavingConfiguration();
+    powerSavingConfiguration.setEdrxCycle(1L);
+    powerSavingConfiguration.setPagingTransmissionWindow(3L);
+    powerSavingConfiguration.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration.setPsmActivityTimer(1L);
+
+    PowerSavingConfiguration powerSavingConfiguration2 = new PowerSavingConfiguration();
+    powerSavingConfiguration2.setEdrxCycle(1L);
+    powerSavingConfiguration2.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration2.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration2.setPsmActivityTimer(1L);
+
+    // Act and Assert
+    assertNotEquals(powerSavingConfiguration, powerSavingConfiguration2);
+  }
+
+  /**
+   * Test {@link PowerSavingConfiguration#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link PowerSavingConfiguration#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean PowerSavingConfiguration.equals(Object)",
+    "int PowerSavingConfiguration.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+    // Arrange
+    PowerSavingConfiguration powerSavingConfiguration = new PowerSavingConfiguration();
+    powerSavingConfiguration.setEdrxCycle(1L);
+    powerSavingConfiguration.setPagingTransmissionWindow(null);
+    powerSavingConfiguration.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration.setPsmActivityTimer(1L);
+
+    PowerSavingConfiguration powerSavingConfiguration2 = new PowerSavingConfiguration();
+    powerSavingConfiguration2.setEdrxCycle(1L);
+    powerSavingConfiguration2.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration2.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration2.setPsmActivityTimer(1L);
+
+    // Act and Assert
+    assertNotEquals(powerSavingConfiguration, powerSavingConfiguration2);
+  }
+
+  /**
+   * Test {@link PowerSavingConfiguration#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link PowerSavingConfiguration#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean PowerSavingConfiguration.equals(Object)",
+    "int PowerSavingConfiguration.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+    // Arrange
+    PowerSavingConfiguration powerSavingConfiguration = new PowerSavingConfiguration();
+    powerSavingConfiguration.setEdrxCycle(1L);
+    powerSavingConfiguration.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration.setPowerMode(null);
+    powerSavingConfiguration.setPsmActivityTimer(1L);
+
+    PowerSavingConfiguration powerSavingConfiguration2 = new PowerSavingConfiguration();
+    powerSavingConfiguration2.setEdrxCycle(1L);
+    powerSavingConfiguration2.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration2.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration2.setPsmActivityTimer(1L);
+
+    // Act and Assert
+    assertNotEquals(powerSavingConfiguration, powerSavingConfiguration2);
+  }
+
+  /**
+   * Test {@link PowerSavingConfiguration#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link PowerSavingConfiguration#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean PowerSavingConfiguration.equals(Object)",
+    "int PowerSavingConfiguration.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+    // Arrange
+    PowerSavingConfiguration powerSavingConfiguration = new PowerSavingConfiguration();
+    powerSavingConfiguration.setEdrxCycle(1L);
+    powerSavingConfiguration.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration.setPowerMode(PowerMode.DRX);
+    powerSavingConfiguration.setPsmActivityTimer(1L);
+
+    PowerSavingConfiguration powerSavingConfiguration2 = new PowerSavingConfiguration();
+    powerSavingConfiguration2.setEdrxCycle(1L);
+    powerSavingConfiguration2.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration2.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration2.setPsmActivityTimer(1L);
+
+    // Act and Assert
+    assertNotEquals(powerSavingConfiguration, powerSavingConfiguration2);
+  }
+
+  /**
+   * Test {@link PowerSavingConfiguration#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link PowerSavingConfiguration#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean PowerSavingConfiguration.equals(Object)",
+    "int PowerSavingConfiguration.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+    // Arrange
+    PowerSavingConfiguration powerSavingConfiguration = new PowerSavingConfiguration();
+    powerSavingConfiguration.setEdrxCycle(1L);
+    powerSavingConfiguration.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration.setPsmActivityTimer(3L);
+
+    PowerSavingConfiguration powerSavingConfiguration2 = new PowerSavingConfiguration();
+    powerSavingConfiguration2.setEdrxCycle(1L);
+    powerSavingConfiguration2.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration2.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration2.setPsmActivityTimer(1L);
+
+    // Act and Assert
+    assertNotEquals(powerSavingConfiguration, powerSavingConfiguration2);
+  }
+
+  /**
+   * Test {@link PowerSavingConfiguration#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link PowerSavingConfiguration#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean PowerSavingConfiguration.equals(Object)",
+    "int PowerSavingConfiguration.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+    // Arrange
+    PowerSavingConfiguration powerSavingConfiguration = new PowerSavingConfiguration();
+    powerSavingConfiguration.setEdrxCycle(1L);
+    powerSavingConfiguration.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration.setPsmActivityTimer(null);
+
+    PowerSavingConfiguration powerSavingConfiguration2 = new PowerSavingConfiguration();
+    powerSavingConfiguration2.setEdrxCycle(1L);
+    powerSavingConfiguration2.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration2.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration2.setPsmActivityTimer(1L);
+
+    // Act and Assert
+    assertNotEquals(powerSavingConfiguration, powerSavingConfiguration2);
+  }
+
+  /**
+   * Test {@link PowerSavingConfiguration#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link PowerSavingConfiguration#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean PowerSavingConfiguration.equals(Object)",
+    "int PowerSavingConfiguration.hashCode()"
+  })
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange
+    PowerSavingConfiguration powerSavingConfiguration = new PowerSavingConfiguration();
+    powerSavingConfiguration.setEdrxCycle(1L);
+    powerSavingConfiguration.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration.setPsmActivityTimer(1L);
+
+    // Act and Assert
+    assertNotEquals(powerSavingConfiguration, null);
+  }
+
+  /**
+   * Test {@link PowerSavingConfiguration#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link PowerSavingConfiguration#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean PowerSavingConfiguration.equals(Object)",
+    "int PowerSavingConfiguration.hashCode()"
+  })
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange
+    PowerSavingConfiguration powerSavingConfiguration = new PowerSavingConfiguration();
+    powerSavingConfiguration.setEdrxCycle(1L);
+    powerSavingConfiguration.setPagingTransmissionWindow(1L);
+    powerSavingConfiguration.setPowerMode(PowerMode.PSM);
+    powerSavingConfiguration.setPsmActivityTimer(1L);
+
+    // Act and Assert
+    assertNotEquals(powerSavingConfiguration, "Different type to PowerSavingConfiguration");
+  }
+
+  /**
+   * Test getters and setters.
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>default or parameterless constructor of {@link PowerSavingConfiguration}
+   *   <li>{@link PowerSavingConfiguration#setEdrxCycle(Long)}
+   *   <li>{@link PowerSavingConfiguration#setPagingTransmissionWindow(Long)}
+   *   <li>{@link PowerSavingConfiguration#setPowerMode(PowerMode)}
+   *   <li>{@link PowerSavingConfiguration#setPsmActivityTimer(Long)}
+   *   <li>{@link PowerSavingConfiguration#toString()}
+   *   <li>{@link PowerSavingConfiguration#getEdrxCycle()}
+   *   <li>{@link PowerSavingConfiguration#getPagingTransmissionWindow()}
+   *   <li>{@link PowerSavingConfiguration#getPowerMode()}
+   *   <li>{@link PowerSavingConfiguration#getPsmActivityTimer()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "void PowerSavingConfiguration.<init>()",
+    "Long PowerSavingConfiguration.getEdrxCycle()",
+    "Long PowerSavingConfiguration.getPagingTransmissionWindow()",
+    "PowerMode PowerSavingConfiguration.getPowerMode()",
+    "Long PowerSavingConfiguration.getPsmActivityTimer()",
+    "void PowerSavingConfiguration.setEdrxCycle(Long)",
+    "void PowerSavingConfiguration.setPagingTransmissionWindow(Long)",
+    "void PowerSavingConfiguration.setPowerMode(PowerMode)",
+    "void PowerSavingConfiguration.setPsmActivityTimer(Long)",
+    "String PowerSavingConfiguration.toString()"
+  })
+  void testGettersAndSetters() {
+    // Arrange and Act
+    PowerSavingConfiguration actualPowerSavingConfiguration = new PowerSavingConfiguration();
+    actualPowerSavingConfiguration.setEdrxCycle(1L);
+    actualPowerSavingConfiguration.setPagingTransmissionWindow(1L);
+    actualPowerSavingConfiguration.setPowerMode(PowerMode.PSM);
+    actualPowerSavingConfiguration.setPsmActivityTimer(1L);
+    String actualToStringResult = actualPowerSavingConfiguration.toString();
+    Long actualEdrxCycle = actualPowerSavingConfiguration.getEdrxCycle();
+    Long actualPagingTransmissionWindow =
+        actualPowerSavingConfiguration.getPagingTransmissionWindow();
+    PowerMode actualPowerMode = actualPowerSavingConfiguration.getPowerMode();
+    Long actualPsmActivityTimer = actualPowerSavingConfiguration.getPsmActivityTimer();
+
+    // Assert
+    assertEquals(
+        "PowerSavingConfiguration(powerMode=PSM, psmActivityTimer=1, edrxCycle=1, pagingTransmissionWindow=1)",
+        actualToStringResult);
+    assertEquals(1L, actualEdrxCycle.longValue());
+    assertEquals(1L, actualPagingTransmissionWindow.longValue());
+    assertEquals(1L, actualPsmActivityTimer.longValue());
+    assertEquals(PowerMode.PSM, actualPowerMode);
+  }
+}

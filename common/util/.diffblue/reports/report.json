@@ -1,0 +1,2286 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.09.01-44e352d-licensed",
+    "creationTimestamp" : "2025-10-15T16:32:46.816531087Z",
+    "command" : "dcover create --exclude-modules=org.thingsboard:ui-ngx,org.thingsboard:application,org.thingsboard.msa:tb,org.thingsboard.msa:web-ui,org.thingsboard.msa:vc-executor-docker,org.thingsboard.msa:tb-node,org.thingsboard.msa.transport:mqtt,org.thingsboard.msa.transport:http,org.thingsboard.msa.transport:coap,org.thingsboard.msa.transport:lwm2m,org.thingsboard.msa.transport:snmp,org.thingsboard.msa:js-executor,org.thingsboard.msa:monitoring --coverage-reports --upload http://localhost:8080 --project-name Thingsboard-thingsboard --name with-diffblue-tests",
+    "totalTime" : 555.511,
+    "environmentDetectionTime" : 0.113,
+    "indexingTime" : 0.323,
+    "entryPointsTime" : 0.102,
+    "generationTime" : 4636.096,
+    "timeToFirstTest" : 5698.161,
+    "timeToLastTest" : 5554.914,
+    "indexQueryTime" : 7.657,
+    "verificationTime" : 721.743,
+    "validationTime" : 45.27
+  },
+  "codes" : {
+    "R000" : "Success",
+    "R002" : "Missing observers",
+    "R004" : "No meaningful assertions found",
+    "R008" : "Failed to instantiate class under test",
+    "R013" : "No inputs found that don't throw a trivial exception",
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T003" : "Private method",
+    "T004" : "In anonymous inner class",
+    "T005" : "Trivial constructor",
+    "T007" : "Framework configuration callback",
+    "T008" : "Private and never called",
+    "T009" : "No implementation for abstract class",
+    "T010" : "Abstract or interface method",
+    "T012" : "Synthetic method",
+    "T020" : "Other trivial method",
+    "T023" : "Testability unknown",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation",
+    "W001" : "Test did not compile",
+    "W002" : "Test compiled, but did not pass"
+  },
+  "summary" : {
+    "classesCount" : 19,
+    "methodsCount" : 146,
+    "cumulativeDiffblueTestCount" : 385,
+    "cumulativeManualTestCount" : 29,
+    "completeTestCount" : 409,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 1059,
+    "perMethodTestability" : {
+      "T000" : 89,
+      "T001" : 2,
+      "T003" : 8,
+      "T004" : 3,
+      "T005" : 7,
+      "T007" : 1,
+      "T008" : 1,
+      "T009" : 9,
+      "T010" : 4,
+      "T012" : 11,
+      "T020" : 2,
+      "T023" : 9
+    },
+    "perMethodOutcome" : {
+      "R000" : 76,
+      "R002" : 2,
+      "R004" : 2,
+      "R008" : 3,
+      "R013" : 2,
+      "T003" : 8,
+      "T004" : 3,
+      "T005" : 8,
+      "T007" : 1,
+      "T008" : 1,
+      "T009" : 9,
+      "T010" : 4,
+      "T012" : 11,
+      "T023" : 9,
+      "W002" : 5
+    },
+    "perTestOutcome" : {
+      "R000" : 409
+    },
+    "perTestValidation" : {
+      "V000" : 403,
+      "V003" : 6
+    },
+    "warnings" : {
+      "W001" : 1,
+      "W002" : 5
+    }
+  },
+  "classes" : {
+    "org.thingsboard.common.util.AbstractListeningExecutor" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T009" : 6,
+        "T010" : 2
+      },
+      "perMethodOutcome" : {
+        "T009" : 6,
+        "T010" : 2
+      }
+    },
+    "org.thingsboard.common.util.AzureIotHubUtil" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T003" : 2,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 3,
+        "T003" : 2,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 4
+      }
+    },
+    "org.thingsboard.common.util.DeduplicationUtil" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1,
+        "T012" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "T005" : 1,
+        "T012" : 1,
+        "T023" : 1,
+        "W002" : 1
+      },
+      "warnings" : {
+        "W002" : 1
+      }
+    },
+    "org.thingsboard.common.util.DonAsynchron" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 4,
+        "T005" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 5
+      }
+    },
+    "org.thingsboard.common.util.DonAsynchron$1" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T004" : 3
+      },
+      "perMethodOutcome" : {
+        "T004" : 3
+      }
+    },
+    "org.thingsboard.common.util.ExceptionUtil" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T005" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "T005" : 2,
+        "T023" : 1
+      }
+    },
+    "org.thingsboard.common.util.ExecutorProvider" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T010" : 1
+      }
+    },
+    "org.thingsboard.common.util.JacksonUtil" : {
+      "methodsCount" : 48,
+      "completeTestCount" : 338,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 40,
+        "T003" : 1,
+        "T005" : 1,
+        "T012" : 5,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 39,
+        "R013" : 1,
+        "T003" : 1,
+        "T005" : 1,
+        "T012" : 5,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 338
+      },
+      "warnings" : {
+        "W001" : 1
+      }
+    },
+    "org.thingsboard.common.util.KvUtil" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 20,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T005" : 1,
+        "T012" : 3
+      },
+      "perMethodOutcome" : {
+        "R000" : 3,
+        "T005" : 1,
+        "T012" : 3
+      },
+      "perTestOutcome" : {
+        "R000" : 20
+      }
+    },
+    "org.thingsboard.common.util.KvUtil$1" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "T023" : 1
+      }
+    },
+    "org.thingsboard.common.util.LinkedHashMapRemoveEldest" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T001" : 2,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 4,
+        "R008" : 3,
+        "T007" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    },
+    "org.thingsboard.common.util.ListeningExecutor" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T009" : 3,
+        "T010" : 1,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "T009" : 3,
+        "T010" : 1,
+        "T012" : 1
+      }
+    },
+    "org.thingsboard.common.util.RegexUtils" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 9,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T003" : 1,
+        "T012" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 4,
+        "T003" : 1,
+        "T012" : 1,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 9
+      }
+    },
+    "org.thingsboard.common.util.SslUtil" : {
+      "methodsCount" : 9,
+      "completeTestCount" : 11,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 5,
+        "T003" : 2,
+        "T008" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 4,
+        "R013" : 1,
+        "T003" : 2,
+        "T008" : 1,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 11
+      }
+    },
+    "org.thingsboard.common.util.SystemUtil" : {
+      "methodsCount" : 9,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 6,
+        "T003" : 1,
+        "T005" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2,
+        "T003" : 1,
+        "T005" : 1,
+        "T023" : 1,
+        "W002" : 4
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "warnings" : {
+        "W002" : 4
+      }
+    },
+    "org.thingsboard.common.util.TbStopWatch" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 13,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 8
+      },
+      "perMethodOutcome" : {
+        "R000" : 8
+      },
+      "perTestOutcome" : {
+        "R000" : 13
+      }
+    },
+    "org.thingsboard.common.util.ThingsBoardExecutors" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2,
+        "T005" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    },
+    "org.thingsboard.common.util.ThingsBoardForkJoinWorkerThreadFactory" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 3
+      },
+      "perTestOutcome" : {
+        "R000" : 3
+      }
+    },
+    "org.thingsboard.common.util.ThingsBoardThreadFactory" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T003" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R002" : 2,
+        "R004" : 2,
+        "T003" : 1,
+        "T023" : 1
+      }
+    }
+  },
+  "methods" : {
+    "org.thingsboard.common.util.AbstractListeningExecutor.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.common.util.AbstractListeningExecutor.destroy:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        40,
+        41,
+        43
+      ]
+    },
+    "org.thingsboard.common.util.AbstractListeningExecutor.execute:(Ljava/lang/Runnable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        56,
+        57
+      ]
+    },
+    "org.thingsboard.common.util.AbstractListeningExecutor.executeAsync:(Ljava/lang/Runnable;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        51
+      ]
+    },
+    "org.thingsboard.common.util.AbstractListeningExecutor.executeAsync:(Ljava/util/concurrent/Callable;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        47
+      ]
+    },
+    "org.thingsboard.common.util.AbstractListeningExecutor.executor:()Lcom/google/common/util/concurrent/ListeningExecutorService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        60
+      ]
+    },
+    "org.thingsboard.common.util.AbstractListeningExecutor.getThreadPollSize:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.common.util.AbstractListeningExecutor.init:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        35,
+        36
+      ]
+    },
+    "org.thingsboard.common.util.AzureIotHubUtil.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.common.util.AzureIotHubUtil.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        62,
+        63
+      ]
+    },
+    "org.thingsboard.common.util.AzureIotHubUtil.buildExpiresOn:()J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        87,
+        88,
+        89
+      ]
+    },
+    "org.thingsboard.common.util.AzureIotHubUtil.buildSasToken:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82
+      ]
+    },
+    "org.thingsboard.common.util.AzureIotHubUtil.buildUsername:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        66
+      ]
+    },
+    "org.thingsboard.common.util.AzureIotHubUtil.getDefaultCaCert:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        94,
+        96,
+        100,
+        97,
+        98,
+        99,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        112,
+        103,
+        115,
+        112,
+        113,
+        114,
+        117
+      ]
+    },
+    "org.thingsboard.common.util.DeduplicationUtil.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.common.util.DeduplicationUtil.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.common.util.DeduplicationUtil.alreadyProcessed:(Ljava/lang/Object;J)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        30,
+        31,
+        41
+      ]
+    },
+    "org.thingsboard.common.util.DeduplicationUtil.lambda$alreadyProcessed$0:(JLjava/util/concurrent/atomic/AtomicBoolean;Ljava/lang/Object;Ljava/lang/Long;)Ljava/lang/Long;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        32,
+        33,
+        34,
+        35,
+        36,
+        39
+      ]
+    },
+    "org.thingsboard.common.util.DonAsynchron$1.<init>:(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        36
+      ]
+    },
+    "org.thingsboard.common.util.DonAsynchron$1.onFailure:(Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        48,
+        49
+      ]
+    },
+    "org.thingsboard.common.util.DonAsynchron$1.onSuccess:(Ljava/lang/Object;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        40,
+        43,
+        41,
+        42,
+        44
+      ]
+    },
+    "org.thingsboard.common.util.DonAsynchron.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.common.util.DonAsynchron.submit:(Ljava/util/concurrent/Callable;Ljava/util/function/Consumer;Ljava/util/function/Consumer;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        59
+      ]
+    },
+    "org.thingsboard.common.util.DonAsynchron.submit:(Ljava/util/concurrent/Callable;Ljava/util/function/Consumer;Ljava/util/function/Consumer;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        63,
+        64,
+        65
+      ]
+    },
+    "org.thingsboard.common.util.DonAsynchron.withCallback:(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/util/function/Consumer;Ljava/util/function/Consumer;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        31,
+        32
+      ]
+    },
+    "org.thingsboard.common.util.DonAsynchron.withCallback:(Lcom/google/common/util/concurrent/ListenableFuture;Ljava/util/function/Consumer;Ljava/util/function/Consumer;Ljava/util/concurrent/Executor;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        36,
+        51,
+        52,
+        54,
+        56
+      ]
+    },
+    "org.thingsboard.common.util.ExceptionUtil.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.common.util.ExceptionUtil.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.common.util.ExceptionUtil.lookupException:(Ljava/lang/Throwable;Ljava/lang/Class;)Ljava/lang/Exception;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "F009",
+      "lineNumbers" : [
+        32,
+        33,
+        34,
+        36
+      ]
+    },
+    "org.thingsboard.common.util.ExceptionUtil.lookupExceptionInCause:(Ljava/lang/Throwable;[Ljava/lang/Class;)Ljava/lang/Exception;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "F009",
+      "lineNumbers" : [
+        41,
+        42,
+        43,
+        44,
+        42,
+        47,
+        49
+      ]
+    },
+    "org.thingsboard.common.util.ExceptionUtil.toString:(Ljava/lang/Exception;Lorg/thingsboard/server/common/data/id/EntityId;Z)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "F009",
+      "lineNumbers" : [
+        53,
+        54,
+        55,
+        57,
+        58,
+        59,
+        60,
+        62,
+        63
+      ]
+    },
+    "org.thingsboard.common.util.ExecutorProvider.getExecutor:()Ljava/util/concurrent/ScheduledExecutorService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.common.util.JacksonUtil.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.common.util.JacksonUtil.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        60
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.addKvEntry:(Lcom/fasterxml/jackson/databind/node/ObjectNode;Lorg/thingsboard/server/common/data/kv/KvEntry;)V" : {
+      "completeTestCount" : 10,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 10
+      },
+      "lineNumbers" : [
+        407,
+        408
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.addKvEntry:(Lcom/fasterxml/jackson/databind/node/ObjectNode;Lorg/thingsboard/server/common/data/kv/KvEntry;Ljava/lang/String;)V" : {
+      "completeTestCount" : 10,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 10
+      },
+      "lineNumbers" : [
+        411,
+        412
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.addKvEntry:(Lcom/fasterxml/jackson/databind/node/ObjectNode;Lorg/thingsboard/server/common/data/kv/KvEntry;Ljava/lang/String;Lcom/fasterxml/jackson/databind/ObjectMapper;)V" : {
+      "completeTestCount" : 12,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 12
+      },
+      "lineNumbers" : [
+        415,
+        416,
+        417,
+        418,
+        419,
+        420,
+        421,
+        422,
+        423,
+        426,
+        428
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.asObject:(Lcom/fasterxml/jackson/databind/JsonNode;)Lcom/fasterxml/jackson/databind/node/ObjectNode;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        321
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.clone:(Ljava/lang/Object;)Ljava/lang/Object;" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        290,
+        291
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.constructCollectionType:(Ljava/lang/Class;Ljava/lang/Class;)Lcom/fasterxml/jackson/databind/JavaType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        390
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.convertValue:(Ljava/lang/Object;Lcom/fasterxml/jackson/core/type/TypeReference;)Ljava/lang/Object;" : {
+      "completeTestCount" : 11,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 11
+      },
+      "lineNumbers" : [
+        98,
+        99,
+        100
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.convertValue:(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;" : {
+      "completeTestCount" : 11,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 11
+      },
+      "lineNumbers" : [
+        90,
+        91,
+        92
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.fromBytes:([B)Lcom/fasterxml/jackson/databind/JsonNode;" : {
+      "completeTestCount" : 8,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 8
+      },
+      "lineNumbers" : [
+        154,
+        155,
+        156
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.fromBytes:([BLcom/fasterxml/jackson/core/type/TypeReference;)Ljava/lang/Object;" : {
+      "completeTestCount" : 10,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 10
+      },
+      "lineNumbers" : [
+        146,
+        147,
+        148
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.fromBytes:([BLjava/lang/Class;)Ljava/lang/Object;" : {
+      "completeTestCount" : 11,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 11
+      },
+      "lineNumbers" : [
+        138,
+        139,
+        140
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.fromReader:(Ljava/io/Reader;Ljava/lang/Class;)Ljava/lang/Object;" : {
+      "completeTestCount" : 12,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 12
+      },
+      "lineNumbers" : [
+        374,
+        375,
+        376
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.fromString:(Ljava/lang/String;Lcom/fasterxml/jackson/core/type/TypeReference;)Ljava/lang/Object;" : {
+      "completeTestCount" : 14,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 14
+      },
+      "lineNumbers" : [
+        114,
+        115,
+        116
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.fromString:(Ljava/lang/String;Lcom/fasterxml/jackson/databind/JavaType;)Ljava/lang/Object;" : {
+      "completeTestCount" : 13,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 13
+      },
+      "lineNumbers" : [
+        122,
+        123,
+        124
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.fromString:(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;" : {
+      "completeTestCount" : 11,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 11
+      },
+      "lineNumbers" : [
+        106,
+        107,
+        108
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.fromString:(Ljava/lang/String;Ljava/lang/Class;Z)Ljava/lang/Object;" : {
+      "completeTestCount" : 11,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 11
+      },
+      "lineNumbers" : [
+        130,
+        131,
+        132
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.getObjectMapperWithJavaTimeModule:()Lcom/fasterxml/jackson/databind/ObjectMapper;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        82,
+        83,
+        84,
+        85,
+        82
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.getSafely:(Lcom/fasterxml/jackson/databind/JsonNode;[Ljava/lang/String;)Lcom/fasterxml/jackson/databind/JsonNode;" : {
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      },
+      "lineNumbers" : [
+        307,
+        308,
+        310,
+        311,
+        312,
+        314,
+        310,
+        317
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.lambda$addKvEntry$2:(Lcom/fasterxml/jackson/databind/node/ObjectNode;Ljava/lang/String;Ljava/lang/Boolean;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        416
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.lambda$addKvEntry$3:(Lcom/fasterxml/jackson/databind/node/ObjectNode;Ljava/lang/String;Ljava/lang/Double;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        418
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.lambda$addKvEntry$4:(Lcom/fasterxml/jackson/databind/node/ObjectNode;Ljava/lang/String;Ljava/lang/Long;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        420
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.lambda$replaceUuidsRecursively$0:(Ljava/util/function/UnaryOperator;Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        343
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.lambda$replaceUuidsRecursively$1:(Ljava/util/function/UnaryOperator;Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        357
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.newArrayNode:()Lcom/fasterxml/jackson/databind/node/ArrayNode;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        281
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.newArrayNode:(Lcom/fasterxml/jackson/databind/ObjectMapper;)Lcom/fasterxml/jackson/databind/node/ArrayNode;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        285
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.newObjectNode:()Lcom/fasterxml/jackson/databind/node/ObjectNode;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        273
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.newObjectNode:(Lcom/fasterxml/jackson/databind/ObjectMapper;)Lcom/fasterxml/jackson/databind/node/ObjectNode;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        277
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.readValue:(Ljava/io/File;Lcom/fasterxml/jackson/core/type/TypeReference;)Ljava/lang/Object;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        232,
+        233,
+        234
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.readValue:(Ljava/io/File;Ljava/lang/Class;)Ljava/lang/Object;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        240,
+        241,
+        242
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.readValue:(Ljava/lang/String;Lcom/fasterxml/jackson/databind/type/CollectionType;)Ljava/lang/Object;" : {
+      "completeTestCount" : 12,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 12
+      },
+      "lineNumbers" : [
+        224,
+        225,
+        226
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.replaceUuidsRecursively:(Lcom/fasterxml/jackson/databind/JsonNode;Ljava/util/Set;Ljava/util/regex/Pattern;Ljava/util/function/UnaryOperator;Z)V" : {
+      "completeTestCount" : 6,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 6
+      },
+      "lineNumbers" : [
+        325,
+        326,
+        328,
+        329,
+        330,
+        331,
+        332,
+        333,
+        335,
+        336,
+        337,
+        338,
+        339,
+        340,
+        342,
+        343,
+        344,
+        345,
+        348,
+        349,
+        350,
+        351,
+        352,
+        353,
+        354,
+        355,
+        356,
+        357,
+        358,
+        359,
+        351,
+        364
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.toFlatMap:(Lcom/fasterxml/jackson/databind/JsonNode;)Ljava/util/Map;" : {
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      },
+      "lineNumbers" : [
+        367,
+        368,
+        369
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.toFlatMap:(Lcom/fasterxml/jackson/databind/JsonNode;Ljava/lang/String;Ljava/util/Map;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        394,
+        395,
+        396,
+        397,
+        398,
+        399,
+        400,
+        401,
+        402,
+        404
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.toJsonNode:(Ljava/io/File;)Lcom/fasterxml/jackson/databind/JsonNode;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        256,
+        257,
+        258
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.toJsonNode:(Ljava/io/InputStream;)Lcom/fasterxml/jackson/databind/JsonNode;" : {
+      "completeTestCount" : 10,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 10
+      },
+      "lineNumbers" : [
+        265,
+        266,
+        267
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.toJsonNode:(Ljava/lang/String;)Lcom/fasterxml/jackson/databind/JsonNode;" : {
+      "completeTestCount" : 8,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 8
+      },
+      "lineNumbers" : [
+        208
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.toJsonNode:(Ljava/lang/String;Lcom/fasterxml/jackson/databind/ObjectMapper;)Lcom/fasterxml/jackson/databind/JsonNode;" : {
+      "completeTestCount" : 6,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 6
+      },
+      "lineNumbers" : [
+        212,
+        213,
+        216,
+        217,
+        218
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.toJsonNode:(Ljava/nio/file/Path;)Lcom/fasterxml/jackson/databind/JsonNode;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        248,
+        249,
+        250
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.toPlainText:(Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 6,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 6
+      },
+      "lineNumbers" : [
+        186,
+        187,
+        189,
+        190,
+        192,
+        193,
+        194,
+        196
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.toPrettyString:(Ljava/lang/Object;)Ljava/lang/String;" : {
+      "completeTestCount" : 35,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 35
+      },
+      "lineNumbers" : [
+        179,
+        180,
+        181
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.toString:(Ljava/lang/Object;)Ljava/lang/String;" : {
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      },
+      "lineNumbers" : [
+        162,
+        163,
+        164
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.treeToValue:(Lcom/fasterxml/jackson/databind/JsonNode;Ljava/lang/Class;)Ljava/lang/Object;" : {
+      "completeTestCount" : 18,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 18
+      },
+      "warnings" : {
+        "W001" : 1
+      },
+      "lineNumbers" : [
+        201,
+        202,
+        203
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.valueToTree:(Ljava/lang/Object;)Lcom/fasterxml/jackson/databind/JsonNode;" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        295
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.writeValue:(Ljava/io/Writer;Ljava/lang/Object;)V" : {
+      "completeTestCount" : 8,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 8
+      },
+      "lineNumbers" : [
+        382,
+        386,
+        383,
+        384,
+        387
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.writeValueAsBytes:(Ljava/lang/Object;)[B" : {
+      "completeTestCount" : 28,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 28
+      },
+      "lineNumbers" : [
+        300,
+        301,
+        302
+      ]
+    },
+    "org.thingsboard.common.util.JacksonUtil.writeValueAsString:(Ljava/lang/Object;)Ljava/lang/String;" : {
+      "completeTestCount" : 20,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 20
+      },
+      "lineNumbers" : [
+        170,
+        171,
+        172
+      ]
+    },
+    "org.thingsboard.common.util.KvUtil$1.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.common.util.KvUtil.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.common.util.KvUtil.getBoolValue:(Lorg/thingsboard/server/common/data/kv/KvEntry;)Ljava/lang/Boolean;" : {
+      "completeTestCount" : 7,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 7
+      },
+      "lineNumbers" : [
+        65,
+        67,
+        69,
+        71,
+        74,
+        75,
+        76,
+        80,
+        81,
+        82,
+        85
+      ]
+    },
+    "org.thingsboard.common.util.KvUtil.getDoubleValue:(Lorg/thingsboard/server/common/data/kv/KvEntry;)Ljava/lang/Double;" : {
+      "completeTestCount" : 8,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 8
+      },
+      "lineNumbers" : [
+        40,
+        42,
+        44,
+        46,
+        49,
+        50,
+        51,
+        55,
+        56,
+        57,
+        60
+      ]
+    },
+    "org.thingsboard.common.util.KvUtil.getStringValue:(Lorg/thingsboard/server/common/data/kv/KvEntry;)Ljava/lang/String;" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        23,
+        25,
+        27,
+        29,
+        31,
+        33,
+        35
+      ]
+    },
+    "org.thingsboard.common.util.KvUtil.lambda$getBoolValue$1:(Ljava/lang/Long;)Ljava/lang/Boolean;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        67
+      ]
+    },
+    "org.thingsboard.common.util.KvUtil.lambda$getBoolValue$2:(Ljava/lang/Double;)Ljava/lang/Boolean;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        69
+      ]
+    },
+    "org.thingsboard.common.util.KvUtil.lambda$getDoubleValue$0:(Ljava/lang/Boolean;)Ljava/lang/Double;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        46
+      ]
+    },
+    "org.thingsboard.common.util.LinkedHashMapRemoveEldest.<init>:(JLjava/util/function/BiConsumer;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        40,
+        41,
+        42,
+        43
+      ]
+    },
+    "org.thingsboard.common.util.LinkedHashMapRemoveEldest.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.common.util.LinkedHashMapRemoveEldest.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R008",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.common.util.LinkedHashMapRemoveEldest.getMaxEntries:()J" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        37
+      ]
+    },
+    "org.thingsboard.common.util.LinkedHashMapRemoveEldest.getRemovalConsumer:()Ljava/util/function/BiConsumer;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        38
+      ]
+    },
+    "org.thingsboard.common.util.LinkedHashMapRemoveEldest.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R008",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.common.util.LinkedHashMapRemoveEldest.removeEldestEntry:(Ljava/util/Map$Entry;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R008",
+      "lineNumbers" : [
+        47,
+        48,
+        50,
+        51
+      ]
+    },
+    "org.thingsboard.common.util.LinkedHashMapRemoveEldest.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        34
+      ]
+    },
+    "org.thingsboard.common.util.ListeningExecutor.executeAsync:(Ljava/lang/Runnable;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.common.util.ListeningExecutor.executeAsync:(Ljava/util/concurrent/Callable;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.common.util.ListeningExecutor.lambda$executeAsync$0:(Ljava/lang/Runnable;)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        29,
+        30
+      ]
+    },
+    "org.thingsboard.common.util.ListeningExecutor.submit:(Ljava/lang/Runnable;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        39
+      ]
+    },
+    "org.thingsboard.common.util.ListeningExecutor.submit:(Ljava/util/concurrent/Callable;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.common.util.RegexUtils.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.common.util.RegexUtils.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.common.util.RegexUtils.getMatch:(Ljava/lang/String;Ljava/util/regex/Pattern;I)Ljava/lang/String;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        54,
+        55,
+        57,
+        58,
+        60
+      ]
+    },
+    "org.thingsboard.common.util.RegexUtils.lambda$replace$0:(Ljava/util/function/UnaryOperator;Ljava/util/regex/MatchResult;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        41
+      ]
+    },
+    "org.thingsboard.common.util.RegexUtils.matches:(Ljava/lang/String;Ljava/util/regex/Pattern;)Z" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        50
+      ]
+    },
+    "org.thingsboard.common.util.RegexUtils.replace:(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Function;)Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        46
+      ]
+    },
+    "org.thingsboard.common.util.RegexUtils.replace:(Ljava/lang/String;Ljava/util/regex/Pattern;Ljava/util/function/UnaryOperator;)Ljava/lang/String;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        40
+      ]
+    },
+    "org.thingsboard.common.util.SslUtil.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.common.util.SslUtil.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T008",
+      "perMethodOutcome" : "T008",
+      "lineNumbers" : [
+        60,
+        61
+      ]
+    },
+    "org.thingsboard.common.util.SslUtil.getPassword:(Ljava/lang/String;)[C" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        134
+      ]
+    },
+    "org.thingsboard.common.util.SslUtil.readCertFile:(Ljava/io/Reader;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        74,
+        75,
+        76,
+        78,
+        79,
+        80,
+        81,
+        82,
+        84,
+        76,
+        85
+      ]
+    },
+    "org.thingsboard.common.util.SslUtil.readCertFile:(Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        65,
+        63
+      ]
+    },
+    "org.thingsboard.common.util.SslUtil.readCertFileByPath:(Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        70,
+        68
+      ]
+    },
+    "org.thingsboard.common.util.SslUtil.readPrivateKey:(Ljava/io/Reader;Ljava/lang/String;)Ljava/security/PrivateKey;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        107,
+        108,
+        109,
+        110,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        129,
+        110,
+        130
+      ]
+    },
+    "org.thingsboard.common.util.SslUtil.readPrivateKey:(Ljava/lang/String;Ljava/lang/String;)Ljava/security/PrivateKey;" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        90,
+        91,
+        92,
+        94,
+        88
+      ]
+    },
+    "org.thingsboard.common.util.SslUtil.readPrivateKeyByFilePath:(Ljava/lang/String;Ljava/lang/String;)Ljava/security/PrivateKey;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        99,
+        100,
+        101,
+        103,
+        97
+      ]
+    },
+    "org.thingsboard.common.util.SystemUtil.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.common.util.SystemUtil.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.common.util.SystemUtil.getCpuCount:()Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        71,
+        72,
+        73,
+        75
+      ]
+    },
+    "org.thingsboard.common.util.SystemUtil.getCpuUsage:()Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        62,
+        63,
+        64,
+        66
+      ]
+    },
+    "org.thingsboard.common.util.SystemUtil.getDiscSpaceUsage:()Ljava/util/Optional;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        87
+      ]
+    },
+    "org.thingsboard.common.util.SystemUtil.getMemoryUsage:()Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        48
+      ]
+    },
+    "org.thingsboard.common.util.SystemUtil.getTotalDiscSpace:()Ljava/util/Optional;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        92,
+        93,
+        94,
+        95,
+        97
+      ]
+    },
+    "org.thingsboard.common.util.SystemUtil.getTotalMemory:()Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        53,
+        54,
+        55,
+        57
+      ]
+    },
+    "org.thingsboard.common.util.SystemUtil.toPercent:(JJ)I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        101,
+        102,
+        103,
+        104
+      ]
+    },
+    "org.thingsboard.common.util.TbStopWatch.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.common.util.TbStopWatch.create:()Lorg/thingsboard/common/util/TbStopWatch;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        32,
+        33,
+        34
+      ]
+    },
+    "org.thingsboard.common.util.TbStopWatch.create:(Ljava/lang/String;)Lorg/thingsboard/common/util/TbStopWatch;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        38,
+        39,
+        40
+      ]
+    },
+    "org.thingsboard.common.util.TbStopWatch.startNew:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        44,
+        45,
+        46
+      ]
+    },
+    "org.thingsboard.common.util.TbStopWatch.stopAndGetLastTaskTimeMillis:()J" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        59,
+        60
+      ]
+    },
+    "org.thingsboard.common.util.TbStopWatch.stopAndGetLastTaskTimeNanos:()J" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        64,
+        65
+      ]
+    },
+    "org.thingsboard.common.util.TbStopWatch.stopAndGetTotalTimeMillis:()J" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        49,
+        50
+      ]
+    },
+    "org.thingsboard.common.util.TbStopWatch.stopAndGetTotalTimeNanos:()J" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        54,
+        55
+      ]
+    },
+    "org.thingsboard.common.util.ThingsBoardExecutors.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.common.util.ThingsBoardExecutors.newWorkStealingPool:(ILjava/lang/Class;)Ljava/util/concurrent/ExecutorService;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        48
+      ]
+    },
+    "org.thingsboard.common.util.ThingsBoardExecutors.newWorkStealingPool:(ILjava/lang/String;)Ljava/util/concurrent/ExecutorService;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        42
+      ]
+    },
+    "org.thingsboard.common.util.ThingsBoardForkJoinWorkerThreadFactory.<init>:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        30,
+        28,
+        30,
+        31,
+        32
+      ]
+    },
+    "org.thingsboard.common.util.ThingsBoardForkJoinWorkerThreadFactory.newThread:(Ljava/util/concurrent/ForkJoinPool;)Ljava/util/concurrent/ForkJoinWorkerThread;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        36,
+        37,
+        38,
+        39
+      ]
+    },
+    "org.thingsboard.common.util.ThingsBoardForkJoinWorkerThreadFactory.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.common.util.ThingsBoardThreadFactory.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.common.util.ThingsBoardThreadFactory.<init>:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        35,
+        28,
+        36,
+        37,
+        38,
+        39,
+        40,
+        42
+      ]
+    },
+    "org.thingsboard.common.util.ThingsBoardThreadFactory.addThreadNamePrefix:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R004",
+      "lineNumbers" : [
+        55,
+        56,
+        57,
+        58
+      ]
+    },
+    "org.thingsboard.common.util.ThingsBoardThreadFactory.forName:(Ljava/lang/String;)Lorg/thingsboard/common/util/ThingsBoardThreadFactory;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.common.util.ThingsBoardThreadFactory.newThread:(Ljava/lang/Runnable;)Ljava/lang/Thread;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        62,
+        63,
+        65,
+        66,
+        67,
+        68,
+        69
+      ]
+    },
+    "org.thingsboard.common.util.ThingsBoardThreadFactory.updateCurrentThreadName:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R004",
+      "lineNumbers" : [
+        45,
+        46,
+        47,
+        48,
+        50,
+        51,
+        52
+      ]
+    }
+  },
+  "validationMetrics" : { }
+}

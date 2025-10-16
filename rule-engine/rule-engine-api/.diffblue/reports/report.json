@@ -1,0 +1,3648 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.09.01-44e352d-licensed",
+    "creationTimestamp" : "2025-10-15T16:32:46.816531087Z",
+    "command" : "dcover create --exclude-modules=org.thingsboard:ui-ngx,org.thingsboard:application,org.thingsboard.msa:tb,org.thingsboard.msa:web-ui,org.thingsboard.msa:vc-executor-docker,org.thingsboard.msa:tb-node,org.thingsboard.msa.transport:mqtt,org.thingsboard.msa.transport:http,org.thingsboard.msa.transport:coap,org.thingsboard.msa.transport:lwm2m,org.thingsboard.msa.transport:snmp,org.thingsboard.msa:js-executor,org.thingsboard.msa:monitoring --coverage-reports --upload http://localhost:8080 --project-name Thingsboard-thingsboard --name with-diffblue-tests",
+    "totalTime" : 167.495,
+    "environmentDetectionTime" : 0.155,
+    "indexingTime" : 0.394,
+    "entryPointsTime" : 0.147,
+    "generationTime" : 48116.962,
+    "timeToFirstTest" : 52237.932,
+    "timeToLastTest" : 50905.695,
+    "indexQueryTime" : 6.9,
+    "verificationTime" : 1875.65,
+    "validationTime" : 21.645
+  },
+  "codes" : {
+    "R000" : "Success",
+    "R013" : "No inputs found that don't throw a trivial exception",
+    "R081" : "Exception in arrange section",
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T002" : "Trivial setter",
+    "T003" : "Private method",
+    "T005" : "Trivial constructor",
+    "T007" : "Framework configuration callback",
+    "T009" : "No implementation for abstract class",
+    "T010" : "Abstract or interface method",
+    "T012" : "Synthetic method",
+    "T020" : "Other trivial method",
+    "T023" : "Testability unknown",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation",
+    "W001" : "Test did not compile"
+  },
+  "summary" : {
+    "classesCount" : 34,
+    "methodsCount" : 394,
+    "cumulativeDiffblueTestCount" : 116,
+    "cumulativeManualTestCount" : 7,
+    "completeTestCount" : 116,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 739,
+    "perMethodTestability" : {
+      "T000" : 25,
+      "T001" : 41,
+      "T002" : 39,
+      "T003" : 1,
+      "T005" : 21,
+      "T007" : 3,
+      "T009" : 4,
+      "T010" : 248,
+      "T012" : 2,
+      "T020" : 9,
+      "T023" : 1
+    },
+    "perMethodOutcome" : {
+      "R000" : 83,
+      "R013" : 4,
+      "R081" : 43,
+      "T003" : 1,
+      "T005" : 5,
+      "T007" : 3,
+      "T009" : 4,
+      "T010" : 248,
+      "T012" : 2,
+      "T023" : 1
+    },
+    "perTestOutcome" : {
+      "R000" : 116
+    },
+    "perTestValidation" : {
+      "V000" : 116,
+      "V003" : 6
+    },
+    "warnings" : {
+      "W001" : 1
+    }
+  },
+  "classes" : {
+    "org.thingsboard.rule.engine.api.EmptyNodeConfiguration" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 8,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T001" : 1,
+        "T002" : 1,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 7,
+        "T007" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 8
+      }
+    },
+    "org.thingsboard.rule.engine.api.MailService" : {
+      "methodsCount" : 15,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 15
+      },
+      "perMethodOutcome" : {
+        "T010" : 15
+      }
+    },
+    "org.thingsboard.rule.engine.api.NodeConfiguration" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T010" : 1
+      }
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition" : {
+      "methodsCount" : 31,
+      "completeTestCount" : 30,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 13,
+        "T002" : 13,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 30,
+        "T007" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 30
+      }
+    },
+    "org.thingsboard.rule.engine.api.NotificationCenter" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 7
+      },
+      "perMethodOutcome" : {
+        "T010" : 7
+      }
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAlarmService" : {
+      "methodsCount" : 20,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T009" : 1,
+        "T010" : 19
+      },
+      "perMethodOutcome" : {
+        "T009" : 1,
+        "T010" : 19
+      }
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineApiUsageStateService" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T010" : 1
+      }
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAssetProfileCache" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 4
+      },
+      "perMethodOutcome" : {
+        "T010" : 4
+      }
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceProfileCache" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 4
+      },
+      "perMethodOutcome" : {
+        "T010" : 4
+      }
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest" : {
+      "methodsCount" : 18,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T001" : 13,
+        "T005" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "R013" : 2,
+        "R081" : 14,
+        "T005" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder" : {
+      "methodsCount" : 16,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T002" : 13,
+        "T005" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R081" : 16
+      }
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcResponse" : {
+      "methodsCount" : 9,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 4,
+        "T005" : 2,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R013" : 2,
+        "R081" : 6,
+        "T005" : 1
+      }
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcResponse$RuleEngineDeviceRpcResponseBuilder" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T002" : 4,
+        "T005" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R081" : 7
+      }
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceStateManager" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 4
+      },
+      "perMethodOutcome" : {
+        "T010" : 4
+      }
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineRpcService" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 4
+      },
+      "perMethodOutcome" : {
+        "T010" : 4
+      }
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService" : {
+      "methodsCount" : 32,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 32
+      },
+      "perMethodOutcome" : {
+        "T010" : 32
+      }
+    },
+    "org.thingsboard.rule.engine.api.RuleNode" : {
+      "methodsCount" : 20,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 20
+      },
+      "perMethodOutcome" : {
+        "T010" : 20
+      }
+    },
+    "org.thingsboard.rule.engine.api.ScriptEngine" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 7
+      },
+      "perMethodOutcome" : {
+        "T010" : 7
+      }
+    },
+    "org.thingsboard.rule.engine.api.SmsService" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 4
+      },
+      "perMethodOutcome" : {
+        "T010" : 4
+      }
+    },
+    "org.thingsboard.rule.engine.api.TbContext" : {
+      "methodsCount" : 115,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 115
+      },
+      "perMethodOutcome" : {
+        "T010" : 115
+      }
+    },
+    "org.thingsboard.rule.engine.api.TbEmail" : {
+      "methodsCount" : 14,
+      "completeTestCount" : 21,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 8,
+        "T005" : 2,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 12,
+        "T005" : 1,
+        "T007" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 21
+      }
+    },
+    "org.thingsboard.rule.engine.api.TbEmail$TbEmailBuilder" : {
+      "methodsCount" : 11,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T002" : 8,
+        "T005" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 11
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.thingsboard.rule.engine.api.TbNode" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T009" : 3,
+        "T010" : 2
+      },
+      "perMethodOutcome" : {
+        "T009" : 3,
+        "T010" : 2
+      }
+    },
+    "org.thingsboard.rule.engine.api.TbNodeConfiguration" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 8,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 1,
+        "T005" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 5
+      },
+      "perTestOutcome" : {
+        "R000" : 8
+      }
+    },
+    "org.thingsboard.rule.engine.api.TbNodeException" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 1,
+        "T005" : 4
+      },
+      "perMethodOutcome" : {
+        "R000" : 5
+      },
+      "perTestOutcome" : {
+        "R000" : 4
+      }
+    },
+    "org.thingsboard.rule.engine.api.TbNodeState" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "T005" : 1
+      }
+    },
+    "org.thingsboard.rule.engine.api.notification.FirebaseService" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T010" : 1
+      }
+    },
+    "org.thingsboard.rule.engine.api.notification.SlackService" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 3
+      },
+      "perMethodOutcome" : {
+        "T010" : 3
+      }
+    },
+    "org.thingsboard.rule.engine.api.sms.SmsSender" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 2
+      },
+      "perMethodOutcome" : {
+        "T010" : 2
+      }
+    },
+    "org.thingsboard.rule.engine.api.sms.SmsSenderFactory" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T010" : 1
+      }
+    },
+    "org.thingsboard.rule.engine.api.sms.exception.SmsException" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 2
+      },
+      "perMethodOutcome" : {
+        "T010" : 2
+      }
+    },
+    "org.thingsboard.rule.engine.api.sms.exception.SmsParseException" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T005" : 2
+      },
+      "perMethodOutcome" : {
+        "R000" : 2
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    },
+    "org.thingsboard.rule.engine.api.sms.exception.SmsSendException" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T005" : 2
+      },
+      "perMethodOutcome" : {
+        "R000" : 2
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    },
+    "org.thingsboard.rule.engine.api.util.TbNodeUtils" : {
+      "methodsCount" : 13,
+      "completeTestCount" : 39,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 8,
+        "T003" : 1,
+        "T005" : 1,
+        "T012" : 2,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 8,
+        "T003" : 1,
+        "T005" : 1,
+        "T012" : 2,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 39
+      },
+      "warnings" : {
+        "W001" : 1
+      }
+    }
+  },
+  "methods" : {
+    "org.thingsboard.rule.engine.api.EmptyNodeConfiguration.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.rule.engine.api.EmptyNodeConfiguration.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.rule.engine.api.EmptyNodeConfiguration.defaultConfiguration:()Lorg/thingsboard/rule/engine/api/EmptyNodeConfiguration;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.rule.engine.api.EmptyNodeConfiguration.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 6,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 6
+      },
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.rule.engine.api.EmptyNodeConfiguration.getVersion:()I" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.rule.engine.api.EmptyNodeConfiguration.hashCode:()I" : {
+      "completeTestCount" : 6,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 6
+      },
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.rule.engine.api.EmptyNodeConfiguration.setVersion:(I)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.rule.engine.api.EmptyNodeConfiguration.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.rule.engine.api.MailService.isConfigured:(Lorg/thingsboard/server/common/data/id/TenantId;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.MailService.send:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/CustomerId;Lorg/thingsboard/rule/engine/api/TbEmail;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.MailService.send:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/CustomerId;Lorg/thingsboard/rule/engine/api/TbEmail;Lorg/springframework/mail/javamail/JavaMailSender;J)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.MailService.sendAccountActivatedEmail:(Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.MailService.sendAccountLockoutEmail:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.MailService.sendActivationEmail:(Ljava/lang/String;JLjava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.MailService.sendApiFeatureStateEmail:(Lorg/thingsboard/server/common/data/ApiFeature;Lorg/thingsboard/server/common/data/ApiUsageStateValue;Ljava/lang/String;Lorg/thingsboard/server/common/data/ApiUsageRecordState;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.MailService.sendEmail:(Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.MailService.sendPasswordWasResetEmail:(Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.MailService.sendResetPasswordEmail:(Ljava/lang/String;JLjava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.MailService.sendResetPasswordEmailAsync:(Ljava/lang/String;JLjava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.MailService.sendTestMail:(Lcom/fasterxml/jackson/databind/JsonNode;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.MailService.sendTwoFaVerificationEmail:(Ljava/lang/String;Ljava/lang/String;I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.MailService.testConnection:(Lorg/thingsboard/server/common/data/id/TenantId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.MailService.updateMailConfiguration:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.NodeConfiguration.defaultConfiguration:()Lorg/thingsboard/rule/engine/api/NodeConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 29,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 29
+      },
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.getConfigDirective:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        33
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.getDefaultConfiguration:()Lcom/fasterxml/jackson/databind/JsonNode;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.getDescription:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.getDetails:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.getDocUrl:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        36
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.getIcon:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        34
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.getIconUrl:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.getRelationTypes:()[Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.getUiResources:()[Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.hashCode:()I" : {
+      "completeTestCount" : 29,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 29
+      },
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.isCustomRelations:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.isInEnabled:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.isOutEnabled:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.isRuleChainNode:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.setConfigDirective:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.setCustomRelations:(Z)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.setDefaultConfiguration:(Lcom/fasterxml/jackson/databind/JsonNode;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.setDescription:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.setDetails:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.setDocUrl:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.setIcon:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.setIconUrl:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.setInEnabled:(Z)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.setOutEnabled:(Z)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.setRelationTypes:([Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.setRuleChainNode:(Z)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.setUiResources:([Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NodeDefinition.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.rule.engine.api.NotificationCenter.deleteNotification:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/UserId;Lorg/thingsboard/server/common/data/id/NotificationId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.NotificationCenter.deleteNotificationRequest:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/NotificationRequestId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.NotificationCenter.getAvailableDeliveryMethods:(Lorg/thingsboard/server/common/data/id/TenantId;)Ljava/util/Set;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.NotificationCenter.markAllNotificationsAsRead:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/notification/NotificationDeliveryMethod;Lorg/thingsboard/server/common/data/id/UserId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.NotificationCenter.markNotificationAsRead:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/UserId;Lorg/thingsboard/server/common/data/id/NotificationId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.NotificationCenter.processNotificationRequest:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/notification/NotificationRequest;Lcom/google/common/util/concurrent/FutureCallback;)Lorg/thingsboard/server/common/data/notification/NotificationRequest;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.NotificationCenter.sendGeneralWebNotification:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/notification/targets/platform/UsersFilter;Lorg/thingsboard/server/common/data/notification/template/NotificationTemplate;Lorg/thingsboard/server/common/data/notification/info/GeneralNotificationInfo;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAlarmService.acknowledgeAlarm:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/AlarmId;J)Lorg/thingsboard/server/common/data/alarm/AlarmApiCallResult;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAlarmService.assignAlarm:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/AlarmId;Lorg/thingsboard/server/common/data/id/UserId;J)Lorg/thingsboard/server/common/data/alarm/AlarmApiCallResult;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAlarmService.clearAlarm:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/AlarmId;JLcom/fasterxml/jackson/databind/JsonNode;)Lorg/thingsboard/server/common/data/alarm/AlarmApiCallResult;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAlarmService.createAlarm:(Lorg/thingsboard/server/common/data/alarm/AlarmCreateOrUpdateActiveRequest;)Lorg/thingsboard/server/common/data/alarm/AlarmApiCallResult;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAlarmService.deleteAlarm:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/AlarmId;)Ljava/lang/Boolean;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAlarmService.findAlarmById:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/AlarmId;)Lorg/thingsboard/server/common/data/alarm/Alarm;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAlarmService.findAlarmByIdAsync:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/AlarmId;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAlarmService.findAlarmDataByQueryForEntities:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/query/AlarmDataQuery;Ljava/util/Collection;)Lorg/thingsboard/server/common/data/page/PageData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAlarmService.findAlarmInfoById:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/AlarmId;)Lorg/thingsboard/server/common/data/alarm/AlarmInfo;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAlarmService.findAlarmInfoByIdAsync:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/AlarmId;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        86
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAlarmService.findAlarmTypesByTenantId:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/page/PageLink;)Lorg/thingsboard/server/common/data/page/PageData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAlarmService.findAlarms:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/alarm/AlarmQuery;)Lorg/thingsboard/server/common/data/page/PageData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAlarmService.findAlarmsV2:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/alarm/AlarmQueryV2;)Lorg/thingsboard/server/common/data/page/PageData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAlarmService.findCustomerAlarms:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/CustomerId;Lorg/thingsboard/server/common/data/alarm/AlarmQuery;)Lorg/thingsboard/server/common/data/page/PageData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAlarmService.findCustomerAlarmsV2:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/CustomerId;Lorg/thingsboard/server/common/data/alarm/AlarmQueryV2;)Lorg/thingsboard/server/common/data/page/PageData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAlarmService.findHighestAlarmSeverity:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/data/alarm/AlarmSearchStatus;Lorg/thingsboard/server/common/data/alarm/AlarmStatus;Ljava/lang/String;)Lorg/thingsboard/server/common/data/alarm/AlarmSeverity;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAlarmService.findLatestActiveByOriginatorAndType:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/lang/String;)Lorg/thingsboard/server/common/data/alarm/Alarm;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAlarmService.findLatestByOriginatorAndType:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/lang/String;)Lorg/thingsboard/server/common/data/alarm/Alarm;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAlarmService.unassignAlarm:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/AlarmId;J)Lorg/thingsboard/server/common/data/alarm/AlarmApiCallResult;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAlarmService.updateAlarm:(Lorg/thingsboard/server/common/data/alarm/AlarmUpdateRequest;)Lorg/thingsboard/server/common/data/alarm/AlarmApiCallResult;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineApiUsageStateService.findApiUsageStateById:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/ApiUsageStateId;)Lorg/thingsboard/server/common/data/ApiUsageState;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAssetProfileCache.addListener:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/util/function/Consumer;Ljava/util/function/BiConsumer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAssetProfileCache.get:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/AssetId;)Lorg/thingsboard/server/common/data/asset/AssetProfile;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAssetProfileCache.get:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/AssetProfileId;)Lorg/thingsboard/server/common/data/asset/AssetProfile;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineAssetProfileCache.removeListener:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceProfileCache.addListener:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/util/function/Consumer;Ljava/util/function/BiConsumer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceProfileCache.get:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/DeviceId;)Lorg/thingsboard/server/common/data/DeviceProfile;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceProfileCache.get:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/DeviceProfileId;)Lorg/thingsboard/server/common/data/DeviceProfile;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceProfileCache.removeListener:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder.additionalInfo:(Ljava/lang/String;)Lorg/thingsboard/rule/engine/api/RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder.body:(Ljava/lang/String;)Lorg/thingsboard/rule/engine/api/RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder.build:()Lorg/thingsboard/rule/engine/api/RuleEngineDeviceRpcRequest;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder.deviceId:(Lorg/thingsboard/server/common/data/id/DeviceId;)Lorg/thingsboard/rule/engine/api/RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder.expirationTime:(J)Lorg/thingsboard/rule/engine/api/RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder.method:(Ljava/lang/String;)Lorg/thingsboard/rule/engine/api/RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder.oneway:(Z)Lorg/thingsboard/rule/engine/api/RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder.originServiceId:(Ljava/lang/String;)Lorg/thingsboard/rule/engine/api/RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder.persisted:(Z)Lorg/thingsboard/rule/engine/api/RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder.requestId:(I)Lorg/thingsboard/rule/engine/api/RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder.requestUUID:(Ljava/util/UUID;)Lorg/thingsboard/rule/engine/api/RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder.restApiCall:(Z)Lorg/thingsboard/rule/engine/api/RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder.retries:(Ljava/lang/Integer;)Lorg/thingsboard/rule/engine/api/RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder.tenantId:(Lorg/thingsboard/server/common/data/id/TenantId;)Lorg/thingsboard/rule/engine/api/RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest.<init>:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/DeviceId;ILjava/util/UUID;Ljava/lang/String;ZZLjava/lang/String;Ljava/lang/String;JZLjava/lang/String;Ljava/lang/Integer;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest.builder:()Lorg/thingsboard/rule/engine/api/RuleEngineDeviceRpcRequest$RuleEngineDeviceRpcRequestBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest.getAdditionalInfo:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        43
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest.getBody:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        40
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest.getDeviceId:()Lorg/thingsboard/server/common/data/id/DeviceId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        33
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest.getExpirationTime:()J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        41
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest.getMethod:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        39
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest.getOriginServiceId:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        36
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest.getRequestId:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        34
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest.getRequestUUID:()Ljava/util/UUID;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest.getRetries:()Ljava/lang/Integer;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        44
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest.getTenantId:()Lorg/thingsboard/server/common/data/id/TenantId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest.isOneway:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        37
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest.isPersisted:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        38
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest.isRestApiCall:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        42
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcRequest.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcResponse$RuleEngineDeviceRpcResponseBuilder.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcResponse$RuleEngineDeviceRpcResponseBuilder.build:()Lorg/thingsboard/rule/engine/api/RuleEngineDeviceRpcResponse;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcResponse$RuleEngineDeviceRpcResponseBuilder.deviceId:(Lorg/thingsboard/server/common/data/id/DeviceId;)Lorg/thingsboard/rule/engine/api/RuleEngineDeviceRpcResponse$RuleEngineDeviceRpcResponseBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcResponse$RuleEngineDeviceRpcResponseBuilder.error:(Ljava/util/Optional;)Lorg/thingsboard/rule/engine/api/RuleEngineDeviceRpcResponse$RuleEngineDeviceRpcResponseBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcResponse$RuleEngineDeviceRpcResponseBuilder.requestId:(I)Lorg/thingsboard/rule/engine/api/RuleEngineDeviceRpcResponse$RuleEngineDeviceRpcResponseBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcResponse$RuleEngineDeviceRpcResponseBuilder.response:(Ljava/util/Optional;)Lorg/thingsboard/rule/engine/api/RuleEngineDeviceRpcResponse$RuleEngineDeviceRpcResponseBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcResponse$RuleEngineDeviceRpcResponseBuilder.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcResponse.<init>:(Lorg/thingsboard/server/common/data/id/DeviceId;ILjava/util/Optional;Ljava/util/Optional;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcResponse.builder:()Lorg/thingsboard/rule/engine/api/RuleEngineDeviceRpcResponse$RuleEngineDeviceRpcResponseBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcResponse.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcResponse.getDeviceId:()Lorg/thingsboard/server/common/data/id/DeviceId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcResponse.getError:()Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcResponse.getRequestId:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        33
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcResponse.getResponse:()Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        34
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcResponse.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceRpcResponse.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceStateManager.onDeviceActivity:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/DeviceId;JLorg/thingsboard/server/common/msg/queue/TbCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceStateManager.onDeviceConnect:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/DeviceId;JLorg/thingsboard/server/common/msg/queue/TbCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceStateManager.onDeviceDisconnect:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/DeviceId;JLorg/thingsboard/server/common/msg/queue/TbCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineDeviceStateManager.onDeviceInactivity:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/DeviceId;JLorg/thingsboard/server/common/msg/queue/TbCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineRpcService.findRpcById:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/RpcId;)Lorg/thingsboard/server/common/data/rpc/Rpc;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineRpcService.sendRestApiCallReply:(Ljava/lang/String;Ljava/util/UUID;Lorg/thingsboard/server/common/msg/TbMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineRpcService.sendRpcReplyToDevice:(Ljava/lang/String;Ljava/util/UUID;ILjava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineRpcService.sendRpcRequestToDevice:(Lorg/thingsboard/rule/engine/api/RuleEngineDeviceRpcRequest;Ljava/util/function/Consumer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.deleteAllLatest:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Lcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.deleteAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/lang/String;Ljava/util/List;Lcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.deleteAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/lang/String;Ljava/util/List;ZLcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.deleteAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/data/AttributeScope;Ljava/util/List;Lcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.deleteAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/data/AttributeScope;Ljava/util/List;ZLcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.deleteLatest:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/util/List;Lcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.deleteTimeseriesAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/util/List;Ljava/util/List;Lcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/CustomerId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/util/List;JLcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/lang/String;Ljava/util/List;Lcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/lang/String;Ljava/util/List;ZLcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/util/List;Lcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/data/AttributeScope;Ljava/util/List;Lcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/data/AttributeScope;Ljava/util/List;ZLcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/data/kv/TsKvEntry;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAttrAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/lang/String;Ljava/lang/String;D)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAttrAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/lang/String;Ljava/lang/String;DLcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAttrAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/lang/String;Ljava/lang/String;J)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAttrAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/lang/String;Ljava/lang/String;JLcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAttrAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAttrAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAttrAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/lang/String;Ljava/lang/String;Z)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAttrAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/lang/String;Ljava/lang/String;ZLcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAttrAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/data/AttributeScope;Ljava/lang/String;D)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAttrAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/data/AttributeScope;Ljava/lang/String;DLcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAttrAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/data/AttributeScope;Ljava/lang/String;J)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAttrAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/data/AttributeScope;Ljava/lang/String;JLcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAttrAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/data/AttributeScope;Ljava/lang/String;Ljava/lang/String;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAttrAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/data/AttributeScope;Ljava/lang/String;Ljava/lang/String;Lcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAttrAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/data/AttributeScope;Ljava/lang/String;Z)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveAttrAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/data/AttributeScope;Ljava/lang/String;ZLcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveLatestAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/util/List;Lcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleEngineTelemetryService.saveWithoutLatestAndNotify:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/CustomerId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/util/List;JLcom/google/common/util/concurrent/FutureCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleNode.clusteringMode:()Lorg/thingsboard/server/common/data/plugin/ComponentClusteringMode;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleNode.configClazz:()Ljava/lang/Class;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleNode.configDirective:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleNode.customRelations:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleNode.docUrl:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleNode.hasQueueName:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleNode.icon:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleNode.iconUrl:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleNode.inEnabled:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleNode.name:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleNode.nodeDescription:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleNode.nodeDetails:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleNode.outEnabled:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleNode.relationTypes:()[Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleNode.ruleChainNode:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleNode.ruleChainTypes:()[Lorg/thingsboard/server/common/data/rule/RuleChainType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleNode.scope:()Lorg/thingsboard/server/common/data/plugin/ComponentScope;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleNode.type:()Lorg/thingsboard/server/common/data/plugin/ComponentType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleNode.uiResources:()[Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.RuleNode.version:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.ScriptEngine.destroy:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.ScriptEngine.executeFilterAsync:(Lorg/thingsboard/server/common/msg/TbMsg;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.ScriptEngine.executeGenerateAsync:(Lorg/thingsboard/server/common/msg/TbMsg;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.ScriptEngine.executeJsonAsync:(Lorg/thingsboard/server/common/msg/TbMsg;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.ScriptEngine.executeSwitchAsync:(Lorg/thingsboard/server/common/msg/TbMsg;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.ScriptEngine.executeToStringAsync:(Lorg/thingsboard/server/common/msg/TbMsg;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.ScriptEngine.executeUpdateAsync:(Lorg/thingsboard/server/common/msg/TbMsg;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.SmsService.isConfigured:(Lorg/thingsboard/server/common/data/id/TenantId;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.SmsService.sendSms:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/CustomerId;[Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.SmsService.sendTestSms:(Lorg/thingsboard/server/common/data/sms/config/TestSmsRequest;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.SmsService.updateSmsConfiguration:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.ack:(Lorg/thingsboard/server/common/msg/TbMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.addAssetProfileListeners:(Ljava/util/function/Consumer;Ljava/util/function/BiConsumer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.addDeviceProfileListeners:(Ljava/util/function/Consumer;Ljava/util/function/BiConsumer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.addTenantProfileListener:(Ljava/util/function/Consumer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.alarmActionMsg:(Lorg/thingsboard/server/common/data/alarm/Alarm;Lorg/thingsboard/server/common/data/id/RuleNodeId;Ljava/lang/String;)Lorg/thingsboard/server/common/msg/TbMsg;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.alarmActionMsg:(Lorg/thingsboard/server/common/data/alarm/Alarm;Lorg/thingsboard/server/common/data/id/RuleNodeId;Lorg/thingsboard/server/common/data/msg/TbMsgType;)Lorg/thingsboard/server/common/msg/TbMsg;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.assetCreatedMsg:(Lorg/thingsboard/server/common/data/asset/Asset;Lorg/thingsboard/server/common/data/id/RuleNodeId;)Lorg/thingsboard/server/common/msg/TbMsg;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.attributesDeletedActionMsg:(Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/data/id/RuleNodeId;Ljava/lang/String;Ljava/util/List;)Lorg/thingsboard/server/common/msg/TbMsg;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.attributesUpdatedActionMsg:(Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/data/id/RuleNodeId;Ljava/lang/String;Ljava/util/List;)Lorg/thingsboard/server/common/msg/TbMsg;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.checkTenantEntity:(Lorg/thingsboard/server/common/data/id/EntityId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.clearRuleNodeStates:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.createJsScriptEngine:(Ljava/lang/String;[Ljava/lang/String;)Lorg/thingsboard/rule/engine/api/ScriptEngine;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.createScriptEngine:(Lorg/thingsboard/server/common/data/script/ScriptLanguage;Ljava/lang/String;[Ljava/lang/String;)Lorg/thingsboard/rule/engine/api/ScriptEngine;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.customerCreatedMsg:(Lorg/thingsboard/server/common/data/Customer;Lorg/thingsboard/server/common/data/id/RuleNodeId;)Lorg/thingsboard/server/common/msg/TbMsg;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.deviceCreatedMsg:(Lorg/thingsboard/server/common/data/Device;Lorg/thingsboard/server/common/data/id/RuleNodeId;)Lorg/thingsboard/server/common/msg/TbMsg;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.enqueue:(Lorg/thingsboard/server/common/msg/TbMsg;Ljava/lang/Runnable;Ljava/util/function/Consumer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.enqueue:(Lorg/thingsboard/server/common/msg/TbMsg;Ljava/lang/String;Ljava/lang/Runnable;Ljava/util/function/Consumer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.enqueueForTellFailure:(Lorg/thingsboard/server/common/msg/TbMsg;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.enqueueForTellFailure:(Lorg/thingsboard/server/common/msg/TbMsg;Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.enqueueForTellNext:(Lorg/thingsboard/server/common/msg/TbMsg;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.enqueueForTellNext:(Lorg/thingsboard/server/common/msg/TbMsg;Ljava/lang/String;Ljava/lang/Runnable;Ljava/util/function/Consumer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.enqueueForTellNext:(Lorg/thingsboard/server/common/msg/TbMsg;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Runnable;Ljava/util/function/Consumer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.enqueueForTellNext:(Lorg/thingsboard/server/common/msg/TbMsg;Ljava/lang/String;Ljava/util/Set;Ljava/lang/Runnable;Ljava/util/function/Consumer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.enqueueForTellNext:(Lorg/thingsboard/server/common/msg/TbMsg;Ljava/util/Set;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.enqueueForTellNext:(Lorg/thingsboard/server/common/msg/TbMsg;Ljava/util/Set;Ljava/lang/Runnable;Ljava/util/function/Consumer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.findRuleNodeStateForEntity:(Lorg/thingsboard/server/common/data/id/EntityId;)Lorg/thingsboard/server/common/data/rule/RuleNodeState;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.findRuleNodeStates:(Lorg/thingsboard/server/common/data/page/PageLink;)Lorg/thingsboard/server/common/data/page/PageData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getAlarmCommentService:()Lorg/thingsboard/server/dao/alarm/AlarmCommentService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getAlarmService:()Lorg/thingsboard/rule/engine/api/RuleEngineAlarmService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getAssetProfileCache:()Lorg/thingsboard/rule/engine/api/RuleEngineAssetProfileCache;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getAssetProfileService:()Lorg/thingsboard/server/dao/asset/AssetProfileService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getAssetService:()Lorg/thingsboard/server/dao/asset/AssetService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getAttributesService:()Lorg/thingsboard/server/dao/attributes/AttributesService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getAuditLogService:()Lorg/thingsboard/server/dao/audit/AuditLogService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getCassandraCluster:()Lorg/thingsboard/server/dao/cassandra/CassandraCluster;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getClusterService:()Lorg/thingsboard/server/cluster/TbClusterService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getCustomerService:()Lorg/thingsboard/server/dao/customer/CustomerService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getDashboardService:()Lorg/thingsboard/server/dao/dashboard/DashboardService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getDbCallbackExecutor:()Lorg/thingsboard/common/util/ListeningExecutor;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getDeviceCredentialsService:()Lorg/thingsboard/server/dao/device/DeviceCredentialsService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getDeviceProfileCache:()Lorg/thingsboard/rule/engine/api/RuleEngineDeviceProfileCache;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getDeviceProfileService:()Lorg/thingsboard/server/dao/device/DeviceProfileService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getDeviceService:()Lorg/thingsboard/server/dao/device/DeviceService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getDeviceStateManager:()Lorg/thingsboard/rule/engine/api/RuleEngineDeviceStateManager;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getDeviceStateNodeRateLimitConfig:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getDomainService:()Lorg/thingsboard/server/dao/domain/DomainService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getEdgeEventService:()Lorg/thingsboard/server/dao/edge/EdgeEventService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getEdgeService:()Lorg/thingsboard/server/dao/edge/EdgeService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getEntityService:()Lorg/thingsboard/server/dao/entity/EntityService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getEntityViewService:()Lorg/thingsboard/server/dao/entityview/EntityViewService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getEventService:()Lorg/thingsboard/server/dao/event/EventService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getExternalCallExecutor:()Lorg/thingsboard/common/util/ListeningExecutor;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getMailExecutor:()Lorg/thingsboard/common/util/ListeningExecutor;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getMailService:(Z)Lorg/thingsboard/rule/engine/api/MailService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getMobileAppService:()Lorg/thingsboard/server/dao/mobile/MobileAppService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getNotificationCenter:()Lorg/thingsboard/rule/engine/api/NotificationCenter;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getNotificationExecutor:()Lorg/thingsboard/common/util/ListeningExecutor;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getNotificationRequestService:()Lorg/thingsboard/server/dao/notification/NotificationRequestService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getNotificationRuleService:()Lorg/thingsboard/server/dao/notification/NotificationRuleService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getNotificationTargetService:()Lorg/thingsboard/server/dao/notification/NotificationTargetService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getNotificationTemplateService:()Lorg/thingsboard/server/dao/notification/NotificationTemplateService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getOAuth2ClientService:()Lorg/thingsboard/server/dao/oauth2/OAuth2ClientService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getOtaPackageService:()Lorg/thingsboard/server/dao/ota/OtaPackageService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getPubSubRuleNodeExecutorProvider:()Lorg/thingsboard/common/util/ExecutorProvider;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getQueueName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getQueueService:()Lorg/thingsboard/server/dao/queue/QueueService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getQueueStatsService:()Lorg/thingsboard/server/dao/queue/QueueStatsService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getRelationService:()Lorg/thingsboard/server/dao/relation/RelationService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getResourceService:()Lorg/thingsboard/server/dao/resource/ResourceService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getRpcService:()Lorg/thingsboard/rule/engine/api/RuleEngineRpcService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getRuleChainName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getRuleChainService:()Lorg/thingsboard/server/dao/rule/RuleChainService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getRuleEngineApiUsageStateService:()Lorg/thingsboard/rule/engine/api/RuleEngineApiUsageStateService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getSelf:()Lorg/thingsboard/server/common/data/rule/RuleNode;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getSelfId:()Lorg/thingsboard/server/common/data/id/RuleNodeId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getServiceId:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getSharedEventLoop:()Lio/netty/channel/EventLoopGroup;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getSlackService:()Lorg/thingsboard/rule/engine/api/notification/SlackService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getSmsExecutor:()Lorg/thingsboard/common/util/ListeningExecutor;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getSmsSenderFactory:()Lorg/thingsboard/rule/engine/api/sms/SmsSenderFactory;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getSmsService:()Lorg/thingsboard/rule/engine/api/SmsService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getTelemetryService:()Lorg/thingsboard/rule/engine/api/RuleEngineTelemetryService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getTenantId:()Lorg/thingsboard/server/common/data/id/TenantId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getTenantProfile:()Lorg/thingsboard/server/common/data/TenantProfile;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getTenantService:()Lorg/thingsboard/server/dao/tenant/TenantService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getTimeseriesService:()Lorg/thingsboard/server/dao/timeseries/TimeseriesService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getUserService:()Lorg/thingsboard/server/dao/user/UserService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getWidgetBundleService:()Lorg/thingsboard/server/dao/widget/WidgetsBundleService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.getWidgetTypeService:()Lorg/thingsboard/server/dao/widget/WidgetTypeService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.input:(Lorg/thingsboard/server/common/msg/TbMsg;Lorg/thingsboard/server/common/data/id/RuleChainId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.isExternalNodeForceAck:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.isLocalEntity:(Lorg/thingsboard/server/common/data/id/EntityId;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.logJsEvalFailure:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.logJsEvalRequest:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.logJsEvalResponse:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.newMsg:(Ljava/lang/String;Ljava/lang/String;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/data/id/CustomerId;Lorg/thingsboard/server/common/msg/TbMsgMetaData;Ljava/lang/String;)Lorg/thingsboard/server/common/msg/TbMsg;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.newMsg:(Ljava/lang/String;Ljava/lang/String;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/msg/TbMsgMetaData;Ljava/lang/String;)Lorg/thingsboard/server/common/msg/TbMsg;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.newMsg:(Ljava/lang/String;Lorg/thingsboard/server/common/data/msg/TbMsgType;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/data/id/CustomerId;Lorg/thingsboard/server/common/msg/TbMsgMetaData;Ljava/lang/String;)Lorg/thingsboard/server/common/msg/TbMsg;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.newMsg:(Ljava/lang/String;Lorg/thingsboard/server/common/data/msg/TbMsgType;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/msg/TbMsgMetaData;Ljava/lang/String;)Lorg/thingsboard/server/common/msg/TbMsg;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.output:(Lorg/thingsboard/server/common/msg/TbMsg;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.removeListeners:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.removeRuleNodeStateForEntity:(Lorg/thingsboard/server/common/data/id/EntityId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.saveRuleNodeState:(Lorg/thingsboard/server/common/data/rule/RuleNodeState;)Lorg/thingsboard/server/common/data/rule/RuleNodeState;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.schedule:(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.submitCassandraReadTask:(Lorg/thingsboard/server/dao/nosql/CassandraStatementTask;)Lorg/thingsboard/server/dao/nosql/TbResultSetFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.submitCassandraWriteTask:(Lorg/thingsboard/server/dao/nosql/CassandraStatementTask;)Lorg/thingsboard/server/dao/nosql/TbResultSetFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.tellFailure:(Lorg/thingsboard/server/common/msg/TbMsg;Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.tellNext:(Lorg/thingsboard/server/common/msg/TbMsg;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.tellNext:(Lorg/thingsboard/server/common/msg/TbMsg;Ljava/util/Set;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.tellSelf:(Lorg/thingsboard/server/common/msg/TbMsg;J)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.tellSuccess:(Lorg/thingsboard/server/common/msg/TbMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.transformMsg:(Lorg/thingsboard/server/common/msg/TbMsg;Ljava/lang/String;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/msg/TbMsgMetaData;Ljava/lang/String;)Lorg/thingsboard/server/common/msg/TbMsg;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.transformMsg:(Lorg/thingsboard/server/common/msg/TbMsg;Lorg/thingsboard/server/common/data/msg/TbMsgType;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/msg/TbMsgMetaData;Ljava/lang/String;)Lorg/thingsboard/server/common/msg/TbMsg;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.transformMsg:(Lorg/thingsboard/server/common/msg/TbMsg;Lorg/thingsboard/server/common/msg/TbMsgMetaData;Ljava/lang/String;)Lorg/thingsboard/server/common/msg/TbMsg;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbContext.transformMsgOriginator:(Lorg/thingsboard/server/common/msg/TbMsg;Lorg/thingsboard/server/common/data/id/EntityId;)Lorg/thingsboard/server/common/msg/TbMsg;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbEmail$TbEmailBuilder.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail$TbEmailBuilder.bcc:(Ljava/lang/String;)Lorg/thingsboard/rule/engine/api/TbEmail$TbEmailBuilder;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail$TbEmailBuilder.body:(Ljava/lang/String;)Lorg/thingsboard/rule/engine/api/TbEmail$TbEmailBuilder;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail$TbEmailBuilder.build:()Lorg/thingsboard/rule/engine/api/TbEmail;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail$TbEmailBuilder.cc:(Ljava/lang/String;)Lorg/thingsboard/rule/engine/api/TbEmail$TbEmailBuilder;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail$TbEmailBuilder.from:(Ljava/lang/String;)Lorg/thingsboard/rule/engine/api/TbEmail$TbEmailBuilder;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail$TbEmailBuilder.html:(Z)Lorg/thingsboard/rule/engine/api/TbEmail$TbEmailBuilder;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail$TbEmailBuilder.images:(Ljava/util/Map;)Lorg/thingsboard/rule/engine/api/TbEmail$TbEmailBuilder;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail$TbEmailBuilder.subject:(Ljava/lang/String;)Lorg/thingsboard/rule/engine/api/TbEmail$TbEmailBuilder;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail$TbEmailBuilder.to:(Ljava/lang/String;)Lorg/thingsboard/rule/engine/api/TbEmail$TbEmailBuilder;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail$TbEmailBuilder.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail.<init>:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Z)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail.builder:()Lorg/thingsboard/rule/engine/api/TbEmail$TbEmailBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 20,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 20
+      },
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail.getBcc:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail.getBody:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail.getCc:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail.getFrom:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail.getImages:()Ljava/util/Map;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        33
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail.getSubject:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail.getTo:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail.hashCode:()I" : {
+      "completeTestCount" : 20,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 20
+      },
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail.isHtml:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        34
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbEmail.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbNode.destroy:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbNode.init:(Lorg/thingsboard/rule/engine/api/TbContext;Lorg/thingsboard/rule/engine/api/TbNodeConfiguration;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbNode.onMsg:(Lorg/thingsboard/rule/engine/api/TbContext;Lorg/thingsboard/server/common/msg/TbMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.TbNode.onPartitionChangeMsg:(Lorg/thingsboard/rule/engine/api/TbContext;Lorg/thingsboard/server/common/msg/queue/PartitionChangeMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        38
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbNode.upgrade:(ILcom/fasterxml/jackson/databind/JsonNode;)Lorg/thingsboard/server/common/data/util/TbPair;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        51
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbNodeConfiguration.<init>:(Lcom/fasterxml/jackson/databind/JsonNode;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbNodeConfiguration.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 7,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 7
+      },
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbNodeConfiguration.getData:()Lcom/fasterxml/jackson/databind/JsonNode;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbNodeConfiguration.hashCode:()I" : {
+      "completeTestCount" : 7,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 7
+      },
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbNodeConfiguration.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbNodeException.<init>:(Ljava/lang/Exception;)V" : {
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      },
+      "lineNumbers" : [
+        39,
+        40
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbNodeException.<init>:(Ljava/lang/Exception;Z)V" : {
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      },
+      "lineNumbers" : [
+        43,
+        44,
+        45
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbNodeException.<init>:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      },
+      "lineNumbers" : [
+        30,
+        31
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbNodeException.<init>:(Ljava/lang/String;Z)V" : {
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      },
+      "lineNumbers" : [
+        34,
+        35,
+        36
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbNodeException.isUnrecoverable:()Z" : {
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      },
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.rule.engine.api.TbNodeState.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.rule.engine.api.notification.FirebaseService.sendMessage:(Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/lang/Integer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.notification.SlackService.getToken:(Lorg/thingsboard/server/common/data/id/TenantId;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.notification.SlackService.listConversations:(Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/String;Lorg/thingsboard/server/common/data/notification/targets/slack/SlackConversationType;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.notification.SlackService.sendMessage:(Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.sms.SmsSender.destroy:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.sms.SmsSender.sendSms:(Ljava/lang/String;Ljava/lang/String;)I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.sms.SmsSenderFactory.createSmsSender:(Lorg/thingsboard/server/common/data/sms/config/SmsProviderConfiguration;)Lorg/thingsboard/rule/engine/api/sms/SmsSender;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.rule.engine.api.sms.exception.SmsException.<init>:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        21,
+        22
+      ]
+    },
+    "org.thingsboard.rule.engine.api.sms.exception.SmsException.<init>:(Ljava/lang/String;Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        25,
+        26
+      ]
+    },
+    "org.thingsboard.rule.engine.api.sms.exception.SmsParseException.<init>:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        21,
+        22
+      ]
+    },
+    "org.thingsboard.rule.engine.api.sms.exception.SmsParseException.<init>:(Ljava/lang/String;Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        25,
+        26
+      ]
+    },
+    "org.thingsboard.rule.engine.api.sms.exception.SmsSendException.<init>:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        21,
+        22
+      ]
+    },
+    "org.thingsboard.rule.engine.api.sms.exception.SmsSendException.<init>:(Ljava/lang/String;Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        25,
+        26
+      ]
+    },
+    "org.thingsboard.rule.engine.api.util.TbNodeUtils.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.thingsboard.rule.engine.api.util.TbNodeUtils.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        37
+      ]
+    },
+    "org.thingsboard.rule.engine.api.util.TbNodeUtils.convert:(Lorg/thingsboard/rule/engine/api/TbNodeConfiguration;Ljava/lang/Class;)Ljava/lang/Object;" : {
+      "completeTestCount" : 15,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 15
+      },
+      "warnings" : {
+        "W001" : 1
+      },
+      "lineNumbers" : [
+        43,
+        44,
+        45
+      ]
+    },
+    "org.thingsboard.rule.engine.api.util.TbNodeUtils.formatDataVarTemplate:(Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        111
+      ]
+    },
+    "org.thingsboard.rule.engine.api.util.TbNodeUtils.formatMetadataVarTemplate:(Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        115
+      ]
+    },
+    "org.thingsboard.rule.engine.api.util.TbNodeUtils.lambda$processPatterns$0:(Lorg/thingsboard/server/common/msg/TbMsg;Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        51
+      ]
+    },
+    "org.thingsboard.rule.engine.api.util.TbNodeUtils.lambda$processPatterns$1:(Lorg/thingsboard/server/common/msg/TbMsgMetaData;Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        89
+      ]
+    },
+    "org.thingsboard.rule.engine.api.util.TbNodeUtils.processPattern:(Ljava/lang/String;Lorg/thingsboard/server/common/msg/TbMsg;)Ljava/lang/String;" : {
+      "completeTestCount" : 6,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 6
+      },
+      "lineNumbers" : [
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        70,
+        71,
+        66,
+        75,
+        76,
+        78,
+        80,
+        81,
+        82
+      ]
+    },
+    "org.thingsboard.rule.engine.api.util.TbNodeUtils.processPattern:(Ljava/lang/String;Lorg/thingsboard/server/common/msg/TbMsgMetaData;)Ljava/lang/String;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        95
+      ]
+    },
+    "org.thingsboard.rule.engine.api.util.TbNodeUtils.processPatterns:(Ljava/util/List;Lorg/thingsboard/server/common/msg/TbMsg;)Ljava/util/List;" : {
+      "completeTestCount" : 8,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 8
+      },
+      "lineNumbers" : [
+        50,
+        51,
+        53
+      ]
+    },
+    "org.thingsboard.rule.engine.api.util.TbNodeUtils.processPatterns:(Ljava/util/List;Lorg/thingsboard/server/common/msg/TbMsgMetaData;)Ljava/util/List;" : {
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      },
+      "lineNumbers" : [
+        88,
+        89,
+        91
+      ]
+    },
+    "org.thingsboard.rule.engine.api.util.TbNodeUtils.processTemplate:(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        99,
+        100,
+        101,
+        102,
+        103
+      ]
+    },
+    "org.thingsboard.rule.engine.api.util.TbNodeUtils.processVar:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        107
+      ]
+    }
+  },
+  "validationMetrics" : { }
+}

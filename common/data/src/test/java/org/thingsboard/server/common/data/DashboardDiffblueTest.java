@@ -1,0 +1,440 @@
+/**
+ * Copyright © 2016-2024 The Thingsboard Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.thingsboard.server.common.data;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import com.fasterxml.jackson.databind.node.DoubleNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import java.util.List;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+class DashboardDiffblueTest {
+  /**
+   * Test {@link Dashboard#getExternalId()}.
+   *
+   * <p>Method under test: {@link Dashboard#getExternalId()}
+   */
+  @Test
+  @DisplayName("Test getExternalId()")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"org.thingsboard.server.common.data.id.DashboardId Dashboard.getExternalId()"})
+  void testGetExternalId() {
+    // Arrange, Act and Assert
+    assertNull(new Dashboard().getExternalId());
+  }
+
+  /**
+   * Test {@link Dashboard#Dashboard(DashboardInfo)}.
+   *
+   * <ul>
+   *   <li>Given {@code true}.
+   *   <li>Then return MobileHide.
+   * </ul>
+   *
+   * <p>Method under test: {@link Dashboard#Dashboard(DashboardInfo)}
+   */
+  @Test
+  @DisplayName("Test new Dashboard(DashboardInfo); given 'true'; then return MobileHide")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void Dashboard.<init>(DashboardInfo)"})
+  void testNewDashboard_givenTrue_thenReturnMobileHide() {
+    // Arrange
+    DashboardInfo dashboardInfo = new DashboardInfo();
+    dashboardInfo.setMobileHide(true);
+
+    // Act
+    Dashboard actualDashboard = new Dashboard(dashboardInfo);
+
+    // Assert
+    assertNull(actualDashboard.getConfiguration());
+    assertNull(actualDashboard.getMobileOrder());
+    assertNull(actualDashboard.getVersion());
+    assertNull(actualDashboard.getImage());
+    assertNull(actualDashboard.getName());
+    assertNull(actualDashboard.getTitle());
+    assertNull(actualDashboard.getAssignedCustomers());
+    assertNull(actualDashboard.getUuidId());
+    assertNull(actualDashboard.getExternalId());
+    assertNull(actualDashboard.getId());
+    assertNull(actualDashboard.getTenantId());
+    assertEquals(0L, actualDashboard.getCreatedTime());
+    List<ObjectNode> entityAliasesConfig = actualDashboard.getEntityAliasesConfig();
+    assertTrue(entityAliasesConfig.isEmpty());
+    assertTrue(actualDashboard.isMobileHide());
+    assertSame(entityAliasesConfig, actualDashboard.getWidgetsConfig());
+  }
+
+  /**
+   * Test {@link Dashboard#Dashboard(Dashboard)}.
+   *
+   * <ul>
+   *   <li>Given {@code true}.
+   *   <li>When {@link Dashboard#Dashboard()} MobileHide is {@code true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link Dashboard#Dashboard(Dashboard)}
+   */
+  @Test
+  @DisplayName("Test new Dashboard(Dashboard); given 'true'; when Dashboard() MobileHide is 'true'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void Dashboard.<init>(Dashboard)"})
+  void testNewDashboard_givenTrue_whenDashboardMobileHideIsTrue() {
+    // Arrange
+    Dashboard dashboard = new Dashboard();
+    dashboard.setMobileHide(true);
+
+    // Act
+    Dashboard actualDashboard = new Dashboard(dashboard);
+
+    // Assert
+    assertEquals(dashboard, actualDashboard);
+  }
+
+  /**
+   * Test {@link Dashboard#Dashboard(Dashboard)}.
+   *
+   * <ul>
+   *   <li>When {@link Dashboard#Dashboard()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link Dashboard#Dashboard(Dashboard)}
+   */
+  @Test
+  @DisplayName("Test new Dashboard(Dashboard); when Dashboard()")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void Dashboard.<init>(Dashboard)"})
+  void testNewDashboard_whenDashboard() {
+    // Arrange
+    Dashboard dashboard = new Dashboard();
+
+    // Act
+    Dashboard actualDashboard = new Dashboard(dashboard);
+
+    // Assert
+    assertEquals(dashboard, actualDashboard);
+  }
+
+  /**
+   * Test {@link Dashboard#Dashboard(DashboardInfo)}.
+   *
+   * <ul>
+   *   <li>When {@link DashboardInfo#DashboardInfo()}.
+   *   <li>Then return not MobileHide.
+   * </ul>
+   *
+   * <p>Method under test: {@link Dashboard#Dashboard(DashboardInfo)}
+   */
+  @Test
+  @DisplayName(
+      "Test new Dashboard(DashboardInfo); when DashboardInfo(); then return not MobileHide")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void Dashboard.<init>(DashboardInfo)"})
+  void testNewDashboard_whenDashboardInfo_thenReturnNotMobileHide() {
+    // Arrange and Act
+    Dashboard actualDashboard = new Dashboard(new DashboardInfo());
+
+    // Assert
+    assertNull(actualDashboard.getConfiguration());
+    assertNull(actualDashboard.getMobileOrder());
+    assertNull(actualDashboard.getVersion());
+    assertNull(actualDashboard.getImage());
+    assertNull(actualDashboard.getName());
+    assertNull(actualDashboard.getTitle());
+    assertNull(actualDashboard.getAssignedCustomers());
+    assertNull(actualDashboard.getUuidId());
+    assertNull(actualDashboard.getExternalId());
+    assertNull(actualDashboard.getId());
+    assertNull(actualDashboard.getTenantId());
+    assertEquals(0L, actualDashboard.getCreatedTime());
+    assertFalse(actualDashboard.isMobileHide());
+    List<ObjectNode> entityAliasesConfig = actualDashboard.getEntityAliasesConfig();
+    assertTrue(entityAliasesConfig.isEmpty());
+    assertSame(entityAliasesConfig, actualDashboard.getWidgetsConfig());
+  }
+
+  /**
+   * Test {@link Dashboard#getEntityAliasesConfig()}.
+   *
+   * <ul>
+   *   <li>Given {@link Dashboard#Dashboard()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link Dashboard#getEntityAliasesConfig()}
+   */
+  @Test
+  @DisplayName("Test getEntityAliasesConfig(); given Dashboard()")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"List Dashboard.getEntityAliasesConfig()"})
+  void testGetEntityAliasesConfig_givenDashboard() {
+    // Arrange, Act and Assert
+    assertTrue(new Dashboard().getEntityAliasesConfig().isEmpty());
+  }
+
+  /**
+   * Test {@link Dashboard#getEntityAliasesConfig()}.
+   *
+   * <ul>
+   *   <li>Given {@link Dashboard#Dashboard()} Configuration is valueOf ten.
+   * </ul>
+   *
+   * <p>Method under test: {@link Dashboard#getEntityAliasesConfig()}
+   */
+  @Test
+  @DisplayName("Test getEntityAliasesConfig(); given Dashboard() Configuration is valueOf ten")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"List Dashboard.getEntityAliasesConfig()"})
+  void testGetEntityAliasesConfig_givenDashboardConfigurationIsValueOfTen() {
+    // Arrange
+    Dashboard dashboard = new Dashboard();
+    dashboard.setConfiguration(DoubleNode.valueOf(10.0d));
+
+    // Act and Assert
+    assertTrue(dashboard.getEntityAliasesConfig().isEmpty());
+  }
+
+  /**
+   * Test {@link Dashboard#getWidgetsConfig()}.
+   *
+   * <ul>
+   *   <li>Given {@link Dashboard#Dashboard()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link Dashboard#getWidgetsConfig()}
+   */
+  @Test
+  @DisplayName("Test getWidgetsConfig(); given Dashboard()")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"List Dashboard.getWidgetsConfig()"})
+  void testGetWidgetsConfig_givenDashboard() {
+    // Arrange, Act and Assert
+    assertTrue(new Dashboard().getWidgetsConfig().isEmpty());
+  }
+
+  /**
+   * Test {@link Dashboard#getWidgetsConfig()}.
+   *
+   * <ul>
+   *   <li>Given {@link Dashboard#Dashboard()} Configuration is valueOf ten.
+   * </ul>
+   *
+   * <p>Method under test: {@link Dashboard#getWidgetsConfig()}
+   */
+  @Test
+  @DisplayName("Test getWidgetsConfig(); given Dashboard() Configuration is valueOf ten")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"List Dashboard.getWidgetsConfig()"})
+  void testGetWidgetsConfig_givenDashboardConfigurationIsValueOfTen() {
+    // Arrange
+    Dashboard dashboard = new Dashboard();
+    dashboard.setConfiguration(DoubleNode.valueOf(10.0d));
+
+    // Act and Assert
+    assertTrue(dashboard.getWidgetsConfig().isEmpty());
+  }
+
+  /**
+   * Test {@link Dashboard#equals(Object)}, and {@link Dashboard#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link Dashboard#equals(Object)}
+   *   <li>{@link Dashboard#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean Dashboard.equals(Object)", "int Dashboard.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    Dashboard dashboard = new Dashboard();
+    Dashboard dashboard2 = new Dashboard();
+
+    // Act and Assert
+    assertEquals(dashboard, dashboard2);
+    assertEquals(dashboard.hashCode(), dashboard2.hashCode());
+  }
+
+  /**
+   * Test {@link Dashboard#equals(Object)}, and {@link Dashboard#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is same.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link Dashboard#equals(Object)}
+   *   <li>{@link Dashboard#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean Dashboard.equals(Object)", "int Dashboard.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    Dashboard dashboard = new Dashboard();
+
+    // Act and Assert
+    assertEquals(dashboard, dashboard);
+    int expectedHashCodeResult = dashboard.hashCode();
+    assertEquals(expectedHashCodeResult, dashboard.hashCode());
+  }
+
+  /**
+   * Test {@link Dashboard#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link Dashboard#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean Dashboard.equals(Object)", "int Dashboard.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    HomeDashboard homeDashboard = new HomeDashboard(new Dashboard(), true);
+
+    // Act and Assert
+    assertNotEquals(homeDashboard, new Dashboard());
+  }
+
+  /**
+   * Test {@link Dashboard#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link Dashboard#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean Dashboard.equals(Object)", "int Dashboard.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    Dashboard dashboard = new Dashboard();
+
+    // Act and Assert
+    assertNotEquals(dashboard, new HomeDashboard(new Dashboard(), true));
+  }
+
+  /**
+   * Test {@link Dashboard#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link Dashboard#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean Dashboard.equals(Object)", "int Dashboard.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+    // Arrange
+    Dashboard dashboard = new Dashboard();
+
+    HomeDashboard homeDashboard = mock(HomeDashboard.class);
+    when(homeDashboard.canEqual(Mockito.<Object>any())).thenReturn(true);
+
+    // Act and Assert
+    assertNotEquals(dashboard, homeDashboard);
+  }
+
+  /**
+   * Test {@link Dashboard#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link Dashboard#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean Dashboard.equals(Object)", "int Dashboard.hashCode()"})
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new Dashboard(), null);
+  }
+
+  /**
+   * Test {@link Dashboard#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link Dashboard#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean Dashboard.equals(Object)", "int Dashboard.hashCode()"})
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new Dashboard(), "Different type to Dashboard");
+  }
+}

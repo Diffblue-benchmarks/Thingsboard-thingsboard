@@ -1,0 +1,118 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.09.01-44e352d-licensed",
+    "creationTimestamp" : "2025-10-15T16:32:46.816531087Z",
+    "command" : "dcover create --exclude-modules=org.thingsboard:ui-ngx,org.thingsboard:application,org.thingsboard.msa:tb,org.thingsboard.msa:web-ui,org.thingsboard.msa:vc-executor-docker,org.thingsboard.msa:tb-node,org.thingsboard.msa.transport:mqtt,org.thingsboard.msa.transport:http,org.thingsboard.msa.transport:coap,org.thingsboard.msa.transport:lwm2m,org.thingsboard.msa.transport:snmp,org.thingsboard.msa:js-executor,org.thingsboard.msa:monitoring --coverage-reports --upload http://localhost:8080 --project-name Thingsboard-thingsboard --name with-diffblue-tests",
+    "totalTime" : 93.87,
+    "environmentDetectionTime" : 0.035,
+    "indexingTime" : 0.418,
+    "entryPointsTime" : 0.027,
+    "generationTime" : 73394.928,
+    "timeToFirstTest" : 83056.687,
+    "timeToLastTest" : 79284.398,
+    "indexQueryTime" : 6.562,
+    "verificationTime" : 4616.121,
+    "validationTime" : 1662.981
+  },
+  "codes" : {
+    "T003" : "Private method",
+    "T005" : "Trivial constructor",
+    "T006" : "Main method",
+    "T012" : "Synthetic method",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation"
+  },
+  "summary" : {
+    "classesCount" : 1,
+    "methodsCount" : 4,
+    "cumulativeDiffblueTestCount" : 0,
+    "cumulativeManualTestCount" : 0,
+    "completeTestCount" : 0,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 29,
+    "perMethodTestability" : {
+      "T003" : 1,
+      "T005" : 1,
+      "T006" : 1,
+      "T012" : 1
+    },
+    "perMethodOutcome" : {
+      "T003" : 1,
+      "T005" : 1,
+      "T006" : 1,
+      "T012" : 1
+    },
+    "perTestValidation" : {
+      "V000" : 9574,
+      "V003" : 6
+    }
+  },
+  "classes" : {
+    "org.thingsboard.server.lwm2m.ThingsboardLwm2mTransportApplication" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 1,
+        "T005" : 1,
+        "T006" : 1,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "T003" : 1,
+        "T005" : 1,
+        "T006" : 1,
+        "T012" : 1
+      }
+    }
+  },
+  "methods" : {
+    "org.thingsboard.server.lwm2m.ThingsboardLwm2mTransportApplication.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.server.lwm2m.ThingsboardLwm2mTransportApplication.lambda$updateArguments$0:(Ljava/lang/String;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        42
+      ]
+    },
+    "org.thingsboard.server.lwm2m.ThingsboardLwm2mTransportApplication.main:([Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T006",
+      "perMethodOutcome" : "T006",
+      "lineNumbers" : [
+        38,
+        39
+      ]
+    },
+    "org.thingsboard.server.lwm2m.ThingsboardLwm2mTransportApplication.updateArguments:([Ljava/lang/String;)[Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        42,
+        43,
+        44,
+        45,
+        46,
+        48
+      ]
+    }
+  },
+  "validationMetrics" : { }
+}
