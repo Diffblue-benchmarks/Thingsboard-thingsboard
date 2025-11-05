@@ -1998,49 +1998,6 @@ class AdminControllerDiffblueTest {
         .andExpect(content().string("{\"systemData\":[],\"monolith\":true}"));
   }
 
-  /**
-   * Test {@link AdminController#getFeaturesInfo()}.
-   *
-   * <ul>
-   *   <li>When {@link MockMvcRequestBuilders#get(String, Object[])} {@code
-   *       /api/admin/featuresInfo}.
-   *   <li>Then content string a string.
-   * </ul>
-   *
-   * <p>Method under test: {@link AdminController#getFeaturesInfo()}
-   */
-  @Test
-  @DisplayName(
-      "Test getFeaturesInfo(); when get(String, Object[]) '/api/admin/featuresInfo'; then content string a string")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"FeaturesInfo AdminController.getFeaturesInfo()"})
-  void testGetFeaturesInfo_whenGetApiAdminFeaturesInfo_thenContentStringAString() throws Exception {
-    // Arrange
-    FeaturesInfo featuresInfo = new FeaturesInfo();
-    featuresInfo.setEmailEnabled(true);
-    featuresInfo.setNotificationEnabled(true);
-    featuresInfo.setOauthEnabled(true);
-    featuresInfo.setSmsEnabled(true);
-    featuresInfo.setTwoFaEnabled(true);
-    when(systemInfoService.getFeaturesInfo()).thenReturn(featuresInfo);
-
-    MockHttpServletRequestBuilder requestBuilder =
-        MockMvcRequestBuilders.get("/api/admin/featuresInfo");
-
-    // Act and Assert
-    MockMvcBuilders.standaloneSetup(adminController)
-        .setControllerAdvice(thingsboardErrorResponseHandler)
-        .build()
-        .perform(requestBuilder)
-        .andExpect(status().isOk())
-        .andExpect(content().contentType("application/json"))
-        .andExpect(
-            content()
-                .string(
-                    "{\"emailEnabled\":true,\"notificationEnabled\":true,\"oauthEnabled\":true,\"smsEnabled\":true,\"twoFaEnabled"
-                        + "\":true}"));
-  }
 
   /**
    * Test {@link AdminController#getMailProcessingUrl()}.

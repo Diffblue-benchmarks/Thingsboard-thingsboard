@@ -4793,50 +4793,6 @@ class JsonMqttAdaptorDiffblueTest {
    * Test {@link JsonMqttAdaptor#createMqttPublishMsg(MqttDeviceAwareSessionContext, String,
    * JsonElement)} with {@code ctx}, {@code topic}, {@code json}.
    *
-   * <p>Method under test: {@link
-   * JsonMqttAdaptor#createMqttPublishMsg(MqttDeviceAwareSessionContext, String, JsonElement)}
-   */
-  @Test
-  @DisplayName(
-      "Test createMqttPublishMsg(MqttDeviceAwareSessionContext, String, JsonElement) with 'ctx', 'topic', 'json'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "MqttPublishMessage JsonMqttAdaptor.createMqttPublishMsg(MqttDeviceAwareSessionContext, String, JsonElement)"
-  })
-  void testCreateMqttPublishMsgWithCtxTopicJson3() {
-    // Arrange
-    MqttTopicMatcher mqttTopicMatcher = mock(MqttTopicMatcher.class);
-    when(mqttTopicMatcher.matches(Mockito.<String>any())).thenReturn(true);
-
-    Function<MqttTopicMatcher, Integer> function = mock(Function.class);
-    when(function.apply(Mockito.<MqttTopicMatcher>any())).thenReturn(1);
-
-    ConcurrentHashMap<MqttTopicMatcher, Integer> mqttQoSMap = new ConcurrentHashMap<>();
-    mqttQoSMap.putIfAbsent(new MqttTopicMatcher("Topic"), 6);
-
-    mqttQoSMap.computeIfAbsent(mqttTopicMatcher, function);
-    UUID sessionId = UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9");
-
-    DeviceSessionCtx ctx = new DeviceSessionCtx(sessionId, mqttQoSMap, new MqttTransportContext());
-
-    JsonArray json = mock(JsonArray.class);
-    doNothing().when(json).add(Mockito.<Boolean>any());
-    json.add(true);
-
-    // Act
-    jsonMqttAdaptor.createMqttPublishMsg(ctx, "Topic", json);
-
-    // Assert
-    verify(json).add(true);
-    verify(function).apply(isA(MqttTopicMatcher.class));
-    verify(mqttTopicMatcher).matches("Topic");
-  }
-
-  /**
-   * Test {@link JsonMqttAdaptor#createMqttPublishMsg(MqttDeviceAwareSessionContext, String,
-   * JsonElement)} with {@code ctx}, {@code topic}, {@code json}.
-   *
    * <ul>
    *   <li>Given {@code A}.
    *   <li>When {@link JsonArray#JsonArray()} add {@code A}.

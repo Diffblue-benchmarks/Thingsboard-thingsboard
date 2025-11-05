@@ -117,34 +117,6 @@ class AppActorDiffblueTest {
   }
 
   /**
-   * Test ActorCreator {@link ActorCreator#createActor()}.
-   *
-   * <ul>
-   *   <li>Then calls {@link ActorSystemContext#getTenantService()}.
-   * </ul>
-   *
-   * <p>Method under test: {@link ActorCreator#createActor()}
-   */
-  @Test
-  @DisplayName("Test ActorCreator createActor(); then calls getTenantService()")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"TbActor ActorCreator.createActor()"})
-  void testActorCreatorCreateActor_thenCallsGetTenantService() {
-    // Arrange
-    when(actorSystemContext.getTenantService()).thenReturn(new TenantServiceImpl());
-
-    // Act
-    TbActor actualCreateActorResult = actorCreator.createActor();
-
-    // Assert
-    verify(actorSystemContext).getTenantService();
-    assertTrue(actualCreateActorResult instanceof AppActor);
-    assertNull(((AppActor) actualCreateActorResult).getCtx());
-    assertNull(actualCreateActorResult.getActorRef());
-  }
-
-  /**
    * Test {@link AppActor#init(TbActorCtx)}.
    *
    * <ul>

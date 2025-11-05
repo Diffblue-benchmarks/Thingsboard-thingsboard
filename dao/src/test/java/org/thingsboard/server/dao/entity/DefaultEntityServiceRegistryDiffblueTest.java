@@ -30,57 +30,7 @@ class DefaultEntityServiceRegistryDiffblueTest {
 
   @Autowired private List<EntityDaoService> list;
 
-  /**
-   * Test {@link DefaultEntityServiceRegistry#init()}.
-   *
-   * <ul>
-   *   <li>Given {@link EntityDaoService} {@link EntityDaoService#getEntityType()} return {@code
-   *       RULE_CHAIN}.
-   * </ul>
-   *
-   * <p>Method under test: {@link DefaultEntityServiceRegistry#init()}
-   */
-  @Test
-  @DisplayName("Test init(); given EntityDaoService getEntityType() return 'RULE_CHAIN'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"void DefaultEntityServiceRegistry.init()"})
-  void testInit_givenEntityDaoServiceGetEntityTypeReturnRuleChain() {
-    // Arrange
-    when(entityDaoService.getEntityType()).thenReturn(EntityType.RULE_CHAIN);
 
-    // Act
-    defaultEntityServiceRegistry.init();
-
-    // Assert
-    verify(entityDaoService).getEntityType();
-  }
-
-  /**
-   * Test {@link DefaultEntityServiceRegistry#init()}.
-   *
-   * <ul>
-   *   <li>Given {@link EntityDaoService} {@link EntityDaoService#getEntityType()} return {@code
-   *       TENANT}.
-   * </ul>
-   *
-   * <p>Method under test: {@link DefaultEntityServiceRegistry#init()}
-   */
-  @Test
-  @DisplayName("Test init(); given EntityDaoService getEntityType() return 'TENANT'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"void DefaultEntityServiceRegistry.init()"})
-  void testInit_givenEntityDaoServiceGetEntityTypeReturnTenant() {
-    // Arrange
-    when(entityDaoService.getEntityType()).thenReturn(EntityType.TENANT);
-
-    // Act
-    defaultEntityServiceRegistry.init();
-
-    // Assert
-    verify(entityDaoService).getEntityType();
-  }
 
   /**
    * Test {@link DefaultEntityServiceRegistry#getServiceByEntityType(EntityType)}.

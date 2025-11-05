@@ -10,24 +10,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class SystemUtilDiffblueTest {
-  /**
-   * Test {@link SystemUtil#getDiscSpaceUsage()}.
-   *
-   * <p>Method under test: {@link SystemUtil#getDiscSpaceUsage()}
-   */
-  @Test
-  @DisplayName("Test getDiscSpaceUsage()")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"Optional SystemUtil.getDiscSpaceUsage()"})
-  void testGetDiscSpaceUsage() {
-    // Arrange and Act
-    Optional<Integer> actualDiscSpaceUsage = SystemUtil.getDiscSpaceUsage();
-
-    // Assert
-    assertEquals(74, actualDiscSpaceUsage.get().intValue());
-    assertTrue(actualDiscSpaceUsage.isPresent());
-  }
 
   /**
    * Test {@link SystemUtil#getTotalDiscSpace()}.

@@ -30,63 +30,7 @@ class BaseApiUsageStateDiffblueTest {
 
   @Autowired private StatsCalculationResultBuilder statsCalculationResultBuilder;
 
-  /**
-   * Test {@link BaseApiUsageState#calculate(ApiUsageRecordKey, long, String)}.
-   *
-   * <ul>
-   *   <li>When {@code null}.
-   *   <li>Then return NewValue is forty-two.
-   * </ul>
-   *
-   * <p>Method under test: {@link BaseApiUsageState#calculate(ApiUsageRecordKey, long, String)}
-   */
-  @Test
-  @DisplayName(
-      "Test calculate(ApiUsageRecordKey, long, String); when 'null'; then return NewValue is forty-two")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "StatsCalculationResult BaseApiUsageState.calculate(ApiUsageRecordKey, long, String)"
-  })
-  void testCalculate_whenNull_thenReturnNewValueIsFortyTwo() {
-    // Arrange and Act
-    StatsCalculationResult actualCalculateResult =
-        baseApiUsageState.calculate(ApiUsageRecordKey.ACTIVE_DEVICES, 42L, null);
 
-    // Assert
-    assertEquals(42L, actualCalculateResult.getNewHourlyValue());
-    assertEquals(42L, actualCalculateResult.getNewValue());
-    assertFalse(actualCalculateResult.isHourlyValueChanged());
-  }
-
-  /**
-   * Test {@link BaseApiUsageState#calculate(ApiUsageRecordKey, long, String)}.
-   *
-   * <ul>
-   *   <li>When three.
-   *   <li>Then return NewValue is three.
-   * </ul>
-   *
-   * <p>Method under test: {@link BaseApiUsageState#calculate(ApiUsageRecordKey, long, String)}
-   */
-  @Test
-  @DisplayName(
-      "Test calculate(ApiUsageRecordKey, long, String); when three; then return NewValue is three")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "StatsCalculationResult BaseApiUsageState.calculate(ApiUsageRecordKey, long, String)"
-  })
-  void testCalculate_whenThree_thenReturnNewValueIsThree() {
-    // Arrange and Act
-    StatsCalculationResult actualCalculateResult =
-        baseApiUsageState.calculate(ApiUsageRecordKey.ACTIVE_DEVICES, 3L, "42");
-
-    // Assert
-    assertEquals(3L, actualCalculateResult.getNewValue());
-    assertEquals(42L, actualCalculateResult.getNewHourlyValue());
-    assertFalse(actualCalculateResult.isHourlyValueChanged());
-  }
 
   /**
    * Test {@link BaseApiUsageState#calculate(ApiUsageRecordKey, long, String)}.

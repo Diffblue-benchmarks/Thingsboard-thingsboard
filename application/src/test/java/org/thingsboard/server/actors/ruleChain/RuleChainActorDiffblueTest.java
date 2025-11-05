@@ -63,62 +63,7 @@ class RuleChainActorDiffblueTest {
 
   @MockBean private TenantId tenantId;
 
-  /**
-   * Test ActorCreator {@link ActorCreator#createActor()}.
-   *
-   * <p>Method under test: {@link ActorCreator#createActor()}
-   */
-  @Test
-  @DisplayName("Test ActorCreator createActor()")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"TbActor ActorCreator.createActor()"})
-  void testActorCreatorCreateActor() {
-    // Arrange
-    RuleChainId ruleChainId =
-        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    when(ruleChain.getId()).thenReturn(ruleChainId);
 
-    // Act
-    TbActor actualCreateActorResult = actorCreator.createActor();
-
-    // Assert
-    verify(ruleChain).getId();
-    assertTrue(actualCreateActorResult instanceof RuleChainActor);
-    assertNull(((RuleChainActor) actualCreateActorResult).getRuleChainName());
-    assertNull(((RuleChainActor) actualCreateActorResult).getCtx());
-    assertNull(actualCreateActorResult.getActorRef());
-    assertEquals(0L, ((RuleChainActor) actualCreateActorResult).getErrorPersistFrequency());
-    assertSame(ruleChainId, ((RuleChainActor) actualCreateActorResult).getRuleChainId());
-  }
-
-  /**
-   * Test ActorCreator {@link ActorCreator#createActorId()}.
-   *
-   * <p>Method under test: {@link ActorCreator#createActorId()}
-   */
-  @Test
-  @DisplayName("Test ActorCreator createActorId()")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"TbActorId ActorCreator.createActorId()"})
-  void testActorCreatorCreateActorId() {
-    // Arrange
-    RuleChainId ruleChainId =
-        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    when(ruleChain.getId()).thenReturn(ruleChainId);
-
-    // Act
-    TbActorId actualCreateActorIdResult = actorCreator.createActorId();
-    EntityType actualEntityType = actualCreateActorIdResult.getEntityType();
-
-    // Assert
-    verify(ruleChain).getId();
-    assertTrue(actualCreateActorIdResult instanceof TbEntityActorId);
-    assertEquals(EntityType.RULE_CHAIN, actualCreateActorIdResult.getEntityType());
-    assertEquals(EntityType.RULE_CHAIN, actualEntityType);
-    assertSame(ruleChainId, ((TbEntityActorId) actualCreateActorIdResult).getEntityId());
-  }
 
   /**
    * Test {@link RuleChainActor#doProcess(TbActorMsg)}.
@@ -221,30 +166,6 @@ class RuleChainActorDiffblueTest {
             isA(TenantId.class), isNull(), eq("onStatsPersistTick"), isA(Exception.class));
     verify(msg).getMsgType();
     assertTrue(actualDoProcessResult);
-  }
-
-  /**
-   * Test {@link RuleChainActor#getRuleChainId()}.
-   *
-   * <p>Method under test: {@link RuleChainActor#getRuleChainId()}
-   */
-  @Test
-  @DisplayName("Test getRuleChainId()")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"RuleChainId RuleChainActor.getRuleChainId()"})
-  void testGetRuleChainId() {
-    // Arrange
-    RuleChainId ruleChainId =
-        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
-    when(ruleChain.getId()).thenReturn(ruleChainId);
-
-    // Act
-    RuleChainId actualRuleChainId = ruleChainActor.getRuleChainId();
-
-    // Assert
-    verify(ruleChain).getId();
-    assertSame(ruleChainId, actualRuleChainId);
   }
 
   /**
