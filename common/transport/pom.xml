@@ -43,4 +43,14 @@
         <module>snmp</module>
     </modules>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId>
+            <version>1.9.10</version>
+        </dependency>
+
+    </dependencies>
+
 </project>
