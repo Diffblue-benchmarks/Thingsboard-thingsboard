@@ -89,6 +89,12 @@
 <!--            <scope>test</scope>-->
 <!--        </dependency>-->
 
+<!--        <dependency>-->
+<!--            <groupId>org.jetbrains.kotlin</groupId>-->
+<!--            <artifactId>kotlin-stdlib</artifactId>-->
+<!--            <version>1.9.10</version>-->
+<!--        </dependency>-->
+
     </dependencies>
 
     <build>

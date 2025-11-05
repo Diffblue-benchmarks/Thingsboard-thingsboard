@@ -1,0 +1,153 @@
+package org.thingsboard.server.common.data.notification.targets.platform;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+
+class AffectedUserFilterDiffblueTest {
+  /**
+   * Test {@link AffectedUserFilter#equals(Object)}, and {@link AffectedUserFilter#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link AffectedUserFilter#equals(Object)}
+   *   <li>{@link AffectedUserFilter#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean AffectedUserFilter.equals(Object)",
+    "int AffectedUserFilter.hashCode()"
+  })
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    AffectedUserFilter affectedUserFilter = new AffectedUserFilter();
+    AffectedUserFilter affectedUserFilter2 = new AffectedUserFilter();
+
+    // Act and Assert
+    assertEquals(affectedUserFilter, affectedUserFilter2);
+    assertEquals(affectedUserFilter.hashCode(), affectedUserFilter2.hashCode());
+  }
+
+  /**
+   * Test {@link AffectedUserFilter#equals(Object)}, and {@link AffectedUserFilter#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is same.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link AffectedUserFilter#equals(Object)}
+   *   <li>{@link AffectedUserFilter#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean AffectedUserFilter.equals(Object)",
+    "int AffectedUserFilter.hashCode()"
+  })
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    AffectedUserFilter affectedUserFilter = new AffectedUserFilter();
+
+    // Act and Assert
+    assertEquals(affectedUserFilter, affectedUserFilter);
+    int expectedHashCodeResult = affectedUserFilter.hashCode();
+    assertEquals(expectedHashCodeResult, affectedUserFilter.hashCode());
+  }
+
+  /**
+   * Test {@link AffectedUserFilter#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link AffectedUserFilter#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean AffectedUserFilter.equals(Object)",
+    "int AffectedUserFilter.hashCode()"
+  })
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new AffectedUserFilter(), null);
+  }
+
+  /**
+   * Test {@link AffectedUserFilter#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link AffectedUserFilter#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean AffectedUserFilter.equals(Object)",
+    "int AffectedUserFilter.hashCode()"
+  })
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new AffectedUserFilter(), "Different type to AffectedUserFilter");
+  }
+
+  /**
+   * Test getters and setters.
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>default or parameterless constructor of {@link AffectedUserFilter}
+   *   <li>{@link AffectedUserFilter#toString()}
+   *   <li>{@link AffectedUserFilter#getType()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "void AffectedUserFilter.<init>()",
+    "UsersFilterType AffectedUserFilter.getType()",
+    "String AffectedUserFilter.toString()"
+  })
+  void testGettersAndSetters() {
+    // Arrange and Act
+    AffectedUserFilter actualAffectedUserFilter = new AffectedUserFilter();
+    String actualToStringResult = actualAffectedUserFilter.toString();
+
+    // Assert
+    assertEquals("AffectedUserFilter()", actualToStringResult);
+    assertEquals(UsersFilterType.AFFECTED_USER, actualAffectedUserFilter.getType());
+  }
+}

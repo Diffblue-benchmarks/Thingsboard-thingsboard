@@ -1,0 +1,384 @@
+package org.thingsboard.server.common.data.edge;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import com.fasterxml.jackson.databind.node.NullNode;
+import java.util.UUID;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.thingsboard.server.common.data.id.CustomerId;
+import org.thingsboard.server.common.data.id.RuleChainId;
+import org.thingsboard.server.common.data.id.TenantId;
+
+class EdgeDiffblueTest {
+  /**
+   * Test {@link Edge#Edge(Edge)}.
+   *
+   * <ul>
+   *   <li>When {@link Edge#Edge()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link Edge#Edge(Edge)}
+   */
+  @Test
+  @DisplayName("Test new Edge(Edge); when Edge()")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void Edge.<init>(Edge)"})
+  void testNewEdge_whenEdge() {
+    // Arrange and Act
+    Edge actualEdge = new Edge(new Edge());
+
+    // Assert
+    assertTrue(actualEdge.getAdditionalInfo() instanceof NullNode);
+    assertNull(actualEdge.getVersion());
+    assertNull(actualEdge.getLabel());
+    assertNull(actualEdge.getName());
+    assertNull(actualEdge.getRoutingKey());
+    assertNull(actualEdge.getSecret());
+    assertNull(actualEdge.getType());
+    assertNull(actualEdge.getUuidId());
+    assertNull(actualEdge.getCustomerId());
+    assertNull(actualEdge.getId());
+    assertNull(actualEdge.getRootRuleChainId());
+    assertNull(actualEdge.getTenantId());
+    assertEquals(0L, actualEdge.getCreatedTime());
+  }
+
+  /**
+   * Test {@link Edge#Edge(Edge)}.
+   *
+   * <ul>
+   *   <li>When {@link Edge#Edge(Edge)} with edge is {@link Edge#Edge()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link Edge#Edge(Edge)}
+   */
+  @Test
+  @DisplayName("Test new Edge(Edge); when Edge(Edge) with edge is Edge()")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void Edge.<init>(Edge)"})
+  void testNewEdge_whenEdgeWithEdgeIsEdge() {
+    // Arrange and Act
+    Edge actualEdge = new Edge(new Edge(new Edge()));
+
+    // Assert
+    assertTrue(actualEdge.getAdditionalInfo() instanceof NullNode);
+    assertNull(actualEdge.getVersion());
+    assertNull(actualEdge.getLabel());
+    assertNull(actualEdge.getName());
+    assertNull(actualEdge.getRoutingKey());
+    assertNull(actualEdge.getSecret());
+    assertNull(actualEdge.getType());
+    assertNull(actualEdge.getUuidId());
+    assertNull(actualEdge.getCustomerId());
+    assertNull(actualEdge.getId());
+    assertNull(actualEdge.getRootRuleChainId());
+    assertNull(actualEdge.getTenantId());
+    assertEquals(0L, actualEdge.getCreatedTime());
+  }
+
+  /**
+   * Test {@link Edge#Edge(Edge)}.
+   *
+   * <ul>
+   *   <li>When {@link Edge#Edge(Edge)} with edge is {@link Edge#Edge(Edge)}.
+   * </ul>
+   *
+   * <p>Method under test: {@link Edge#Edge(Edge)}
+   */
+  @Test
+  @DisplayName("Test new Edge(Edge); when Edge(Edge) with edge is Edge(Edge)")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void Edge.<init>(Edge)"})
+  void testNewEdge_whenEdgeWithEdgeIsEdge2() {
+    // Arrange
+    Edge edge = new Edge(new Edge(new Edge()));
+
+    // Act
+    Edge actualEdge = new Edge(edge);
+
+    // Assert
+    assertTrue(actualEdge.getAdditionalInfo() instanceof NullNode);
+    assertNull(actualEdge.getVersion());
+    assertNull(actualEdge.getLabel());
+    assertNull(actualEdge.getName());
+    assertNull(actualEdge.getRoutingKey());
+    assertNull(actualEdge.getSecret());
+    assertNull(actualEdge.getType());
+    assertNull(actualEdge.getUuidId());
+    assertNull(actualEdge.getCustomerId());
+    assertNull(actualEdge.getId());
+    assertNull(actualEdge.getRootRuleChainId());
+    assertNull(actualEdge.getTenantId());
+    assertEquals(0L, actualEdge.getCreatedTime());
+  }
+
+  /**
+   * Test {@link Edge#update(Edge)}.
+   *
+   * <ul>
+   *   <li>Given one.
+   *   <li>When {@link EdgeInfo} {@link EdgeInfo#getVersion()} return one.
+   *   <li>Then {@link Edge#Edge()} Label is {@code Label}.
+   * </ul>
+   *
+   * <p>Method under test: {@link Edge#update(Edge)}
+   */
+  @Test
+  @DisplayName(
+      "Test update(Edge); given one; when EdgeInfo getVersion() return one; then Edge() Label is 'Label'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void Edge.update(Edge)"})
+  void testUpdate_givenOne_whenEdgeInfoGetVersionReturnOne_thenEdgeLabelIsLabel() {
+    // Arrange
+    Edge edge = new Edge();
+
+    EdgeInfo edge2 = mock(EdgeInfo.class);
+    when(edge2.getVersion()).thenReturn(1L);
+    when(edge2.getLabel()).thenReturn("Label");
+    when(edge2.getName()).thenReturn("Name");
+    when(edge2.getRoutingKey()).thenReturn("Routing Key");
+    when(edge2.getSecret()).thenReturn("Secret");
+    when(edge2.getType()).thenReturn("Type");
+    CustomerId customerId = new CustomerId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    when(edge2.getCustomerId()).thenReturn(customerId);
+    RuleChainId ruleChainId =
+        new RuleChainId(UUID.fromString("784f394c-42b6-435a-983c-b7beff2784f9"));
+    when(edge2.getRootRuleChainId()).thenReturn(ruleChainId);
+    when(edge2.getTenantId()).thenReturn(TenantId.SYS_TENANT_ID);
+
+    // Act
+    edge.update(edge2);
+
+    // Assert
+    verify(edge2).getCustomerId();
+    verify(edge2).getLabel();
+    verify(edge2).getName();
+    verify(edge2).getRootRuleChainId();
+    verify(edge2).getRoutingKey();
+    verify(edge2).getSecret();
+    verify(edge2).getTenantId();
+    verify(edge2).getType();
+    verify(edge2).getVersion();
+    assertEquals("Label", edge.getLabel());
+    assertEquals("Name", edge.getName());
+    assertEquals("Routing Key", edge.getRoutingKey());
+    assertEquals("Secret", edge.getSecret());
+    assertEquals("Type", edge.getType());
+    assertEquals(1L, edge.getVersion().longValue());
+    assertSame(customerId, edge.getCustomerId());
+    assertSame(ruleChainId, edge.getRootRuleChainId());
+  }
+
+  /**
+   * Test {@link Edge#getId()}.
+   *
+   * <p>Method under test: {@link Edge#getId()}
+   */
+  @Test
+  @DisplayName("Test getId()")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"org.thingsboard.server.common.data.id.EdgeId Edge.getId()"})
+  void testGetId() {
+    // Arrange, Act and Assert
+    assertNull(new Edge().getId());
+  }
+
+  /**
+   * Test {@link Edge#getCreatedTime()}.
+   *
+   * <p>Method under test: {@link Edge#getCreatedTime()}
+   */
+  @Test
+  @DisplayName("Test getCreatedTime()")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"long Edge.getCreatedTime()"})
+  void testGetCreatedTime() {
+    // Arrange, Act and Assert
+    assertEquals(0L, new Edge().getCreatedTime());
+  }
+
+  /**
+   * Test {@link Edge#equals(Object)}, and {@link Edge#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link Edge#equals(Object)}
+   *   <li>{@link Edge#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean Edge.equals(Object)", "int Edge.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    Edge edge = new Edge();
+    Edge edge2 = new Edge();
+
+    // Act and Assert
+    assertEquals(edge, edge2);
+    assertEquals(edge.hashCode(), edge2.hashCode());
+  }
+
+  /**
+   * Test {@link Edge#equals(Object)}, and {@link Edge#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is same.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link Edge#equals(Object)}
+   *   <li>{@link Edge#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean Edge.equals(Object)", "int Edge.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    Edge edge = new Edge();
+
+    // Act and Assert
+    assertEquals(edge, edge);
+    int expectedHashCodeResult = edge.hashCode();
+    assertEquals(expectedHashCodeResult, edge.hashCode());
+  }
+
+  /**
+   * Test {@link Edge#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean Edge.equals(Object)", "int Edge.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    EdgeInfo edgeInfo = new EdgeInfo();
+
+    // Act and Assert
+    assertNotEquals(edgeInfo, new Edge());
+  }
+
+  /**
+   * Test {@link Edge#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean Edge.equals(Object)", "int Edge.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    Edge edge = new Edge(new Edge());
+
+    // Act and Assert
+    assertNotEquals(edge, new Edge());
+  }
+
+  /**
+   * Test {@link Edge#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean Edge.equals(Object)", "int Edge.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+    // Arrange
+    Edge edge = new Edge();
+
+    // Act and Assert
+    assertNotEquals(edge, new EdgeInfo());
+  }
+
+  /**
+   * Test {@link Edge#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean Edge.equals(Object)", "int Edge.hashCode()"})
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new Edge(), null);
+  }
+
+  /**
+   * Test {@link Edge#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link Edge#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean Edge.equals(Object)", "int Edge.hashCode()"})
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new Edge(), "Different type to Edge");
+  }
+}

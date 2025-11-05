@@ -1,0 +1,444 @@
+package org.thingsboard.common.util;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.thingsboard.server.common.data.kv.BooleanDataEntry;
+import org.thingsboard.server.common.data.kv.DoubleDataEntry;
+import org.thingsboard.server.common.data.kv.JsonDataEntry;
+import org.thingsboard.server.common.data.kv.KvEntry;
+import org.thingsboard.server.common.data.kv.LongDataEntry;
+import org.thingsboard.server.common.data.kv.StringDataEntry;
+
+class KvUtilDiffblueTest {
+  /**
+   * Test {@link KvUtil#getStringValue(KvEntry)}.
+   *
+   * <ul>
+   *   <li>Then return {@link Boolean#TRUE} toString.
+   * </ul>
+   *
+   * <p>Method under test: {@link KvUtil#getStringValue(KvEntry)}
+   */
+  @Test
+  @DisplayName("Test getStringValue(KvEntry); then return TRUE toString")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"java.lang.String KvUtil.getStringValue(KvEntry)"})
+  void testGetStringValue_thenReturnTrueToString() {
+    // Arrange, Act and Assert
+    assertEquals(Boolean.TRUE.toString(), KvUtil.getStringValue(new BooleanDataEntry("Key", true)));
+  }
+
+  /**
+   * Test {@link KvUtil#getStringValue(KvEntry)}.
+   *
+   * <ul>
+   *   <li>When {@link DoubleDataEntry#DoubleDataEntry(String, Double)} with {@code Key} and value
+   *       is ten.
+   *   <li>Then return {@code 10.0}.
+   * </ul>
+   *
+   * <p>Method under test: {@link KvUtil#getStringValue(KvEntry)}
+   */
+  @Test
+  @DisplayName(
+      "Test getStringValue(KvEntry); when DoubleDataEntry(String, Double) with 'Key' and value is ten; then return '10.0'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"java.lang.String KvUtil.getStringValue(KvEntry)"})
+  void testGetStringValue_whenDoubleDataEntryWithKeyAndValueIsTen_thenReturn100() {
+    // Arrange, Act and Assert
+    assertEquals("10.0", KvUtil.getStringValue(new DoubleDataEntry("Key", 10.0d)));
+  }
+
+  /**
+   * Test {@link KvUtil#getStringValue(KvEntry)}.
+   *
+   * <ul>
+   *   <li>When {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is
+   *       {@code 42}.
+   *   <li>Then return {@code 42}.
+   * </ul>
+   *
+   * <p>Method under test: {@link KvUtil#getStringValue(KvEntry)}
+   */
+  @Test
+  @DisplayName(
+      "Test getStringValue(KvEntry); when JsonDataEntry(String, String) with 'Key' and value is '42'; then return '42'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"java.lang.String KvUtil.getStringValue(KvEntry)"})
+  void testGetStringValue_whenJsonDataEntryWithKeyAndValueIs42_thenReturn42() {
+    // Arrange, Act and Assert
+    assertEquals("42", KvUtil.getStringValue(new JsonDataEntry("Key", "42")));
+  }
+
+  /**
+   * Test {@link KvUtil#getStringValue(KvEntry)}.
+   *
+   * <ul>
+   *   <li>When {@link LongDataEntry#LongDataEntry(String, Long)} with {@code Key} and value is
+   *       forty-two.
+   *   <li>Then return {@code 42}.
+   * </ul>
+   *
+   * <p>Method under test: {@link KvUtil#getStringValue(KvEntry)}
+   */
+  @Test
+  @DisplayName(
+      "Test getStringValue(KvEntry); when LongDataEntry(String, Long) with 'Key' and value is forty-two; then return '42'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"java.lang.String KvUtil.getStringValue(KvEntry)"})
+  void testGetStringValue_whenLongDataEntryWithKeyAndValueIsFortyTwo_thenReturn42() {
+    // Arrange, Act and Assert
+    assertEquals("42", KvUtil.getStringValue(new LongDataEntry("Key", 42L)));
+  }
+
+  /**
+   * Test {@link KvUtil#getStringValue(KvEntry)}.
+   *
+   * <ul>
+   *   <li>When {@link StringDataEntry#StringDataEntry(String, String)} with {@code Key} and value
+   *       is {@code 42}.
+   *   <li>Then return {@code 42}.
+   * </ul>
+   *
+   * <p>Method under test: {@link KvUtil#getStringValue(KvEntry)}
+   */
+  @Test
+  @DisplayName(
+      "Test getStringValue(KvEntry); when StringDataEntry(String, String) with 'Key' and value is '42'; then return '42'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"java.lang.String KvUtil.getStringValue(KvEntry)"})
+  void testGetStringValue_whenStringDataEntryWithKeyAndValueIs42_thenReturn42() {
+    // Arrange, Act and Assert
+    assertEquals("42", KvUtil.getStringValue(new StringDataEntry("Key", "42")));
+  }
+
+  /**
+   * Test {@link KvUtil#getDoubleValue(KvEntry)}.
+   *
+   * <ul>
+   *   <li>Then return doubleValue is one.
+   * </ul>
+   *
+   * <p>Method under test: {@link KvUtil#getDoubleValue(KvEntry)}
+   */
+  @Test
+  @DisplayName("Test getDoubleValue(KvEntry); then return doubleValue is one")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"java.lang.Double KvUtil.getDoubleValue(KvEntry)"})
+  void testGetDoubleValue_thenReturnDoubleValueIsOne() {
+    // Arrange, Act and Assert
+    assertEquals(1.0d, KvUtil.getDoubleValue(new BooleanDataEntry("Key", true)).doubleValue());
+  }
+
+  /**
+   * Test {@link KvUtil#getDoubleValue(KvEntry)}.
+   *
+   * <ul>
+   *   <li>Then return doubleValue is ten.
+   * </ul>
+   *
+   * <p>Method under test: {@link KvUtil#getDoubleValue(KvEntry)}
+   */
+  @Test
+  @DisplayName("Test getDoubleValue(KvEntry); then return doubleValue is ten")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"java.lang.Double KvUtil.getDoubleValue(KvEntry)"})
+  void testGetDoubleValue_thenReturnDoubleValueIsTen() {
+    // Arrange, Act and Assert
+    assertEquals(10.0d, KvUtil.getDoubleValue(new DoubleDataEntry("Key", 10.0d)).doubleValue());
+  }
+
+  /**
+   * Test {@link KvUtil#getDoubleValue(KvEntry)}.
+   *
+   * <ul>
+   *   <li>Then return doubleValue is zero.
+   * </ul>
+   *
+   * <p>Method under test: {@link KvUtil#getDoubleValue(KvEntry)}
+   */
+  @Test
+  @DisplayName("Test getDoubleValue(KvEntry); then return doubleValue is zero")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"java.lang.Double KvUtil.getDoubleValue(KvEntry)"})
+  void testGetDoubleValue_thenReturnDoubleValueIsZero() {
+    // Arrange, Act and Assert
+    assertEquals(0.0d, KvUtil.getDoubleValue(new BooleanDataEntry("Key", false)).doubleValue());
+  }
+
+  /**
+   * Test {@link KvUtil#getDoubleValue(KvEntry)}.
+   *
+   * <ul>
+   *   <li>When {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is
+   *       {@code 42}.
+   * </ul>
+   *
+   * <p>Method under test: {@link KvUtil#getDoubleValue(KvEntry)}
+   */
+  @Test
+  @DisplayName(
+      "Test getDoubleValue(KvEntry); when JsonDataEntry(String, String) with 'Key' and value is '42'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"java.lang.Double KvUtil.getDoubleValue(KvEntry)"})
+  void testGetDoubleValue_whenJsonDataEntryWithKeyAndValueIs42() {
+    // Arrange, Act and Assert
+    assertEquals(42.0d, KvUtil.getDoubleValue(new JsonDataEntry("Key", "42")).doubleValue());
+  }
+
+  /**
+   * Test {@link KvUtil#getDoubleValue(KvEntry)}.
+   *
+   * <ul>
+   *   <li>When {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and {@code
+   *       Value}.
+   *   <li>Then return {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link KvUtil#getDoubleValue(KvEntry)}
+   */
+  @Test
+  @DisplayName(
+      "Test getDoubleValue(KvEntry); when JsonDataEntry(String, String) with 'Key' and 'Value'; then return 'null'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"java.lang.Double KvUtil.getDoubleValue(KvEntry)"})
+  void testGetDoubleValue_whenJsonDataEntryWithKeyAndValue_thenReturnNull() {
+    // Arrange, Act and Assert
+    assertNull(KvUtil.getDoubleValue(new JsonDataEntry("Key", "Value")));
+  }
+
+  /**
+   * Test {@link KvUtil#getDoubleValue(KvEntry)}.
+   *
+   * <ul>
+   *   <li>When {@link LongDataEntry#LongDataEntry(String, Long)} with {@code Key} and value is
+   *       forty-two.
+   * </ul>
+   *
+   * <p>Method under test: {@link KvUtil#getDoubleValue(KvEntry)}
+   */
+  @Test
+  @DisplayName(
+      "Test getDoubleValue(KvEntry); when LongDataEntry(String, Long) with 'Key' and value is forty-two")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"java.lang.Double KvUtil.getDoubleValue(KvEntry)"})
+  void testGetDoubleValue_whenLongDataEntryWithKeyAndValueIsFortyTwo() {
+    // Arrange, Act and Assert
+    assertEquals(42.0d, KvUtil.getDoubleValue(new LongDataEntry("Key", 42L)).doubleValue());
+  }
+
+  /**
+   * Test {@link KvUtil#getDoubleValue(KvEntry)}.
+   *
+   * <ul>
+   *   <li>When {@link StringDataEntry#StringDataEntry(String, String)} with {@code Key} and value
+   *       is {@code 42}.
+   * </ul>
+   *
+   * <p>Method under test: {@link KvUtil#getDoubleValue(KvEntry)}
+   */
+  @Test
+  @DisplayName(
+      "Test getDoubleValue(KvEntry); when StringDataEntry(String, String) with 'Key' and value is '42'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"java.lang.Double KvUtil.getDoubleValue(KvEntry)"})
+  void testGetDoubleValue_whenStringDataEntryWithKeyAndValueIs42() {
+    // Arrange, Act and Assert
+    assertEquals(42.0d, KvUtil.getDoubleValue(new StringDataEntry("Key", "42")).doubleValue());
+  }
+
+  /**
+   * Test {@link KvUtil#getDoubleValue(KvEntry)}.
+   *
+   * <ul>
+   *   <li>When {@link StringDataEntry#StringDataEntry(String, String)} with {@code Key} and {@code
+   *       Value}.
+   *   <li>Then return {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link KvUtil#getDoubleValue(KvEntry)}
+   */
+  @Test
+  @DisplayName(
+      "Test getDoubleValue(KvEntry); when StringDataEntry(String, String) with 'Key' and 'Value'; then return 'null'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"java.lang.Double KvUtil.getDoubleValue(KvEntry)"})
+  void testGetDoubleValue_whenStringDataEntryWithKeyAndValue_thenReturnNull() {
+    // Arrange, Act and Assert
+    assertNull(KvUtil.getDoubleValue(new StringDataEntry("Key", "Value")));
+  }
+
+  /**
+   * Test {@link KvUtil#getBoolValue(KvEntry)}.
+   *
+   * <ul>
+   *   <li>When {@link BooleanDataEntry#BooleanDataEntry(String, Boolean)} with {@code Key} and
+   *       value is {@code true}.
+   *   <li>Then return {@code true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link KvUtil#getBoolValue(KvEntry)}
+   */
+  @Test
+  @DisplayName(
+      "Test getBoolValue(KvEntry); when BooleanDataEntry(String, Boolean) with 'Key' and value is 'true'; then return 'true'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"Boolean KvUtil.getBoolValue(KvEntry)"})
+  void testGetBoolValue_whenBooleanDataEntryWithKeyAndValueIsTrue_thenReturnTrue() {
+    // Arrange, Act and Assert
+    assertTrue(KvUtil.getBoolValue(new BooleanDataEntry("Key", true)));
+  }
+
+  /**
+   * Test {@link KvUtil#getBoolValue(KvEntry)}.
+   *
+   * <ul>
+   *   <li>When {@link DoubleDataEntry#DoubleDataEntry(String, Double)} with {@code Key} and value
+   *       is ten.
+   *   <li>Then return {@code true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link KvUtil#getBoolValue(KvEntry)}
+   */
+  @Test
+  @DisplayName(
+      "Test getBoolValue(KvEntry); when DoubleDataEntry(String, Double) with 'Key' and value is ten; then return 'true'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"Boolean KvUtil.getBoolValue(KvEntry)"})
+  void testGetBoolValue_whenDoubleDataEntryWithKeyAndValueIsTen_thenReturnTrue() {
+    // Arrange, Act and Assert
+    assertTrue(KvUtil.getBoolValue(new DoubleDataEntry("Key", 10.0d)));
+  }
+
+  /**
+   * Test {@link KvUtil#getBoolValue(KvEntry)}.
+   *
+   * <ul>
+   *   <li>When {@link DoubleDataEntry#DoubleDataEntry(String, Double)} with {@code Key} and value
+   *       is zero.
+   *   <li>Then return {@code false}.
+   * </ul>
+   *
+   * <p>Method under test: {@link KvUtil#getBoolValue(KvEntry)}
+   */
+  @Test
+  @DisplayName(
+      "Test getBoolValue(KvEntry); when DoubleDataEntry(String, Double) with 'Key' and value is zero; then return 'false'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"Boolean KvUtil.getBoolValue(KvEntry)"})
+  void testGetBoolValue_whenDoubleDataEntryWithKeyAndValueIsZero_thenReturnFalse() {
+    // Arrange, Act and Assert
+    assertFalse(KvUtil.getBoolValue(new DoubleDataEntry("Key", 0.0d)));
+  }
+
+  /**
+   * Test {@link KvUtil#getBoolValue(KvEntry)}.
+   *
+   * <ul>
+   *   <li>When {@link JsonDataEntry#JsonDataEntry(String, String)} with {@code Key} and value is
+   *       {@code 42}.
+   *   <li>Then return {@code false}.
+   * </ul>
+   *
+   * <p>Method under test: {@link KvUtil#getBoolValue(KvEntry)}
+   */
+  @Test
+  @DisplayName(
+      "Test getBoolValue(KvEntry); when JsonDataEntry(String, String) with 'Key' and value is '42'; then return 'false'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"Boolean KvUtil.getBoolValue(KvEntry)"})
+  void testGetBoolValue_whenJsonDataEntryWithKeyAndValueIs42_thenReturnFalse() {
+    // Arrange, Act and Assert
+    assertFalse(KvUtil.getBoolValue(new JsonDataEntry("Key", "42")));
+  }
+
+  /**
+   * Test {@link KvUtil#getBoolValue(KvEntry)}.
+   *
+   * <ul>
+   *   <li>When {@link LongDataEntry#LongDataEntry(String, Long)} with {@code Key} and value is
+   *       forty-two.
+   *   <li>Then return {@code true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link KvUtil#getBoolValue(KvEntry)}
+   */
+  @Test
+  @DisplayName(
+      "Test getBoolValue(KvEntry); when LongDataEntry(String, Long) with 'Key' and value is forty-two; then return 'true'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"Boolean KvUtil.getBoolValue(KvEntry)"})
+  void testGetBoolValue_whenLongDataEntryWithKeyAndValueIsFortyTwo_thenReturnTrue() {
+    // Arrange, Act and Assert
+    assertTrue(KvUtil.getBoolValue(new LongDataEntry("Key", 42L)));
+  }
+
+  /**
+   * Test {@link KvUtil#getBoolValue(KvEntry)}.
+   *
+   * <ul>
+   *   <li>When {@link LongDataEntry#LongDataEntry(String, Long)} with {@code Key} and value is
+   *       zero.
+   *   <li>Then return {@code false}.
+   * </ul>
+   *
+   * <p>Method under test: {@link KvUtil#getBoolValue(KvEntry)}
+   */
+  @Test
+  @DisplayName(
+      "Test getBoolValue(KvEntry); when LongDataEntry(String, Long) with 'Key' and value is zero; then return 'false'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"Boolean KvUtil.getBoolValue(KvEntry)"})
+  void testGetBoolValue_whenLongDataEntryWithKeyAndValueIsZero_thenReturnFalse() {
+    // Arrange, Act and Assert
+    assertFalse(KvUtil.getBoolValue(new LongDataEntry("Key", 0L)));
+  }
+
+  /**
+   * Test {@link KvUtil#getBoolValue(KvEntry)}.
+   *
+   * <ul>
+   *   <li>When {@link StringDataEntry#StringDataEntry(String, String)} with {@code Key} and value
+   *       is {@code 42}.
+   *   <li>Then return {@code false}.
+   * </ul>
+   *
+   * <p>Method under test: {@link KvUtil#getBoolValue(KvEntry)}
+   */
+  @Test
+  @DisplayName(
+      "Test getBoolValue(KvEntry); when StringDataEntry(String, String) with 'Key' and value is '42'; then return 'false'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"Boolean KvUtil.getBoolValue(KvEntry)"})
+  void testGetBoolValue_whenStringDataEntryWithKeyAndValueIs42_thenReturnFalse() {
+    // Arrange, Act and Assert
+    assertFalse(KvUtil.getBoolValue(new StringDataEntry("Key", "42")));
+  }
+}

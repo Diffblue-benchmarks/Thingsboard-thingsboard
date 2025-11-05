@@ -1,0 +1,205 @@
+package org.thingsboard.server.service.edge.instructions;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import java.io.File;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
+import org.thingsboard.server.service.install.InstallScripts;
+
+@DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
+@ExtendWith(MockitoExtension.class)
+class BaseEdgeInstallUpgradeInstructionsServiceDiffblueTest {
+  @Mock private InstallScripts installScripts;
+
+  /**
+   * Test {@link BaseEdgeInstallUpgradeInstructionsService#getTagVersion(String)}.
+   *
+   * <ul>
+   *   <li>When {@code .0}.
+   *   <li>Then return empty string.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseEdgeInstallUpgradeInstructionsService#getTagVersion(String)}
+   */
+  @Test
+  @DisplayName("Test getTagVersion(String); when '.0'; then return empty string")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"String BaseEdgeInstallUpgradeInstructionsService.getTagVersion(String)"})
+  void testGetTagVersion_when0_thenReturnEmptyString() {
+    // Arrange, Act and Assert
+    assertEquals(
+        "", new DefaultEdgeInstallInstructionsService(new InstallScripts()).getTagVersion(".0"));
+  }
+
+  /**
+   * Test {@link BaseEdgeInstallUpgradeInstructionsService#getTagVersion(String)}.
+   *
+   * <ul>
+   *   <li>When {@code 1.0.2}.
+   *   <li>Then return {@code 1.0.2}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseEdgeInstallUpgradeInstructionsService#getTagVersion(String)}
+   */
+  @Test
+  @DisplayName("Test getTagVersion(String); when '1.0.2'; then return '1.0.2'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"String BaseEdgeInstallUpgradeInstructionsService.getTagVersion(String)"})
+  void testGetTagVersion_when102_thenReturn102() {
+    // Arrange, Act and Assert
+    assertEquals(
+        "1.0.2",
+        new DefaultEdgeInstallInstructionsService(new InstallScripts()).getTagVersion("1.0.2"));
+  }
+
+  /**
+   * Test {@link BaseEdgeInstallUpgradeInstructionsService#resolveFile(String, String[])}.
+   *
+   * <ul>
+   *   <li>Given {@link InstallScripts}.
+   *   <li>Then throw {@link RuntimeException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseEdgeInstallUpgradeInstructionsService#resolveFile(String,
+   * String[])}
+   */
+  @Test
+  @DisplayName(
+      "Test resolveFile(String, String[]); given InstallScripts; then throw RuntimeException")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "java.nio.file.Path BaseEdgeInstallUpgradeInstructionsService.resolveFile(String, String[])"
+  })
+  void testResolveFile_givenInstallScripts_thenThrowRuntimeException() {
+    // Arrange
+    when(installScripts.getDataDir()).thenThrow(new RuntimeException());
+
+    // Act and Assert
+    assertThrows(
+        RuntimeException.class,
+        () ->
+            new DefaultEdgeInstallInstructionsService(installScripts)
+                .resolveFile("Sub Dir", "Sub Dirs"));
+    verify(installScripts).getDataDir();
+  }
+
+  /**
+   * Test {@link BaseEdgeInstallUpgradeInstructionsService#resolveFile(String, String[])}.
+   *
+   * <ul>
+   *   <li>Then return toFile Name is {@code Sub Dirs}.
+   * </ul>
+   *
+   * <p>Method under test: {@link BaseEdgeInstallUpgradeInstructionsService#resolveFile(String,
+   * String[])}
+   */
+  @Test
+  @DisplayName("Test resolveFile(String, String[]); then return toFile Name is 'Sub Dirs'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "java.nio.file.Path BaseEdgeInstallUpgradeInstructionsService.resolveFile(String, String[])"
+  })
+  void testResolveFile_thenReturnToFileNameIsSubDirs() {
+    // Arrange, Act and Assert
+    File toFileResult =
+        new DefaultEdgeInstallInstructionsService(new InstallScripts())
+            .resolveFile("Sub Dir", "Sub Dirs")
+            .toFile();
+    assertEquals("Sub Dirs", toFileResult.getName());
+    assertTrue(toFileResult.isAbsolute());
+  }
+
+  /**
+   * Test {@link BaseEdgeInstallUpgradeInstructionsService#getEdgeInstructionsDir()}.
+   *
+   * <ul>
+   *   <li>Given {@link InstallScripts}.
+   *   <li>Then throw {@link RuntimeException}.
+   * </ul>
+   *
+   * <p>Method under test: {@link
+   * BaseEdgeInstallUpgradeInstructionsService#getEdgeInstructionsDir()}
+   */
+  @Test
+  @DisplayName("Test getEdgeInstructionsDir(); given InstallScripts; then throw RuntimeException")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "java.nio.file.Path BaseEdgeInstallUpgradeInstructionsService.getEdgeInstructionsDir()"
+  })
+  void testGetEdgeInstructionsDir_givenInstallScripts_thenThrowRuntimeException() {
+    // Arrange
+    when(installScripts.getDataDir()).thenThrow(new RuntimeException());
+
+    // Act and Assert
+    assertThrows(
+        RuntimeException.class,
+        () -> new DefaultEdgeInstallInstructionsService(installScripts).getEdgeInstructionsDir());
+    verify(installScripts).getDataDir();
+  }
+
+  /**
+   * Test {@link BaseEdgeInstallUpgradeInstructionsService#getEdgeInstructionsDir()}.
+   *
+   * <ul>
+   *   <li>Then return toFile Name is {@code install}.
+   * </ul>
+   *
+   * <p>Method under test: {@link
+   * BaseEdgeInstallUpgradeInstructionsService#getEdgeInstructionsDir()}
+   */
+  @Test
+  @DisplayName("Test getEdgeInstructionsDir(); then return toFile Name is 'install'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "java.nio.file.Path BaseEdgeInstallUpgradeInstructionsService.getEdgeInstructionsDir()"
+  })
+  void testGetEdgeInstructionsDir_thenReturnToFileNameIsInstall() {
+    // Arrange, Act and Assert
+    File toFileResult =
+        new DefaultEdgeInstallInstructionsService(new InstallScripts())
+            .getEdgeInstructionsDir()
+            .toFile();
+    assertEquals("install", toFileResult.getName());
+    assertTrue(toFileResult.isAbsolute());
+  }
+
+  /**
+   * Test {@link BaseEdgeInstallUpgradeInstructionsService#setAppVersion(String)}.
+   *
+   * <p>Method under test: {@link BaseEdgeInstallUpgradeInstructionsService#setAppVersion(String)}
+   */
+  @Test
+  @DisplayName("Test setAppVersion(String)")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void BaseEdgeInstallUpgradeInstructionsService.setAppVersion(String)"})
+  void testSetAppVersion() {
+    // Arrange
+    DefaultEdgeInstallInstructionsService defaultEdgeInstallInstructionsService =
+        new DefaultEdgeInstallInstructionsService(new InstallScripts());
+
+    // Act
+    defaultEdgeInstallInstructionsService.setAppVersion("1.0.2");
+
+    // Assert
+    assertEquals("1.0.2", defaultEdgeInstallInstructionsService.appVersion);
+  }
+}

@@ -1,0 +1,434 @@
+package org.thingsboard.server.common.data.sync.ie;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.thingsboard.server.common.data.sync.ie.EntityImportSettings.EntityImportSettingsBuilder;
+
+@ContextConfiguration(classes = {EntityImportSettingsBuilder.class})
+@ExtendWith(SpringExtension.class)
+class EntityImportSettingsDiffblueTest {
+  @Autowired private EntityImportSettingsBuilder entityImportSettingsBuilder;
+
+  /**
+   * Test EntityImportSettingsBuilder {@link EntityImportSettingsBuilder#build()}.
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link EntityImportSettingsBuilder#build()}
+   *   <li>{@link EntityImportSettingsBuilder#saveAttributes(boolean)}
+   *   <li>{@link EntityImportSettingsBuilder#saveCredentials(boolean)}
+   *   <li>{@link EntityImportSettingsBuilder#updateRelations(boolean)}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test EntityImportSettingsBuilder build()")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "void EntityImportSettingsBuilder.<init>()",
+    "EntityImportSettings EntityImportSettingsBuilder.build()",
+    "EntityImportSettingsBuilder EntityImportSettingsBuilder.findExistingByName(boolean)",
+    "EntityImportSettingsBuilder EntityImportSettingsBuilder.saveAttributes(boolean)",
+    "EntityImportSettingsBuilder EntityImportSettingsBuilder.saveCredentials(boolean)",
+    "String EntityImportSettingsBuilder.toString()",
+    "EntityImportSettingsBuilder EntityImportSettingsBuilder.updateRelations(boolean)"
+  })
+  void testEntityImportSettingsBuilderBuild() {
+    // Arrange and Act
+    EntityImportSettings actualEntityImportSettings =
+        EntityImportSettings.builder()
+            .saveAttributes(true)
+            .saveCredentials(true)
+            .updateRelations(true)
+            .build();
+
+    // Assert
+    assertFalse(actualEntityImportSettings.isFindExistingByName());
+    assertTrue(actualEntityImportSettings.isSaveAttributes());
+    assertTrue(actualEntityImportSettings.isSaveCredentials());
+    assertTrue(actualEntityImportSettings.isUpdateRelations());
+  }
+
+  /**
+   * Test {@link EntityImportSettings#equals(Object)}, and {@link EntityImportSettings#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link EntityImportSettings#equals(Object)}
+   *   <li>{@link EntityImportSettings#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean EntityImportSettings.equals(Object)",
+    "int EntityImportSettings.hashCode()"
+  })
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    EntityImportSettings entityImportSettings =
+        EntityImportSettings.builder()
+            .saveAttributes(true)
+            .saveCredentials(true)
+            .updateRelations(true)
+            .build();
+    EntityImportSettings entityImportSettings2 =
+        EntityImportSettings.builder()
+            .saveAttributes(true)
+            .saveCredentials(true)
+            .updateRelations(true)
+            .build();
+
+    // Act and Assert
+    assertEquals(entityImportSettings, entityImportSettings2);
+    assertEquals(entityImportSettings.hashCode(), entityImportSettings2.hashCode());
+  }
+
+  /**
+   * Test {@link EntityImportSettings#equals(Object)}, and {@link EntityImportSettings#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is same.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link EntityImportSettings#equals(Object)}
+   *   <li>{@link EntityImportSettings#hashCode()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean EntityImportSettings.equals(Object)",
+    "int EntityImportSettings.hashCode()"
+  })
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    EntityImportSettings entityImportSettings =
+        EntityImportSettings.builder()
+            .saveAttributes(true)
+            .saveCredentials(true)
+            .updateRelations(true)
+            .build();
+
+    // Act and Assert
+    assertEquals(entityImportSettings, entityImportSettings);
+    int expectedHashCodeResult = entityImportSettings.hashCode();
+    assertEquals(expectedHashCodeResult, entityImportSettings.hashCode());
+  }
+
+  /**
+   * Test {@link EntityImportSettings#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link EntityImportSettings#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean EntityImportSettings.equals(Object)",
+    "int EntityImportSettings.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    EntityImportSettings entityImportSettings =
+        EntityImportSettings.builder()
+            .saveAttributes(false)
+            .saveCredentials(true)
+            .updateRelations(true)
+            .build();
+
+    // Act and Assert
+    assertNotEquals(
+        entityImportSettings,
+        EntityImportSettings.builder()
+            .saveAttributes(true)
+            .saveCredentials(true)
+            .updateRelations(true)
+            .build());
+  }
+
+  /**
+   * Test {@link EntityImportSettings#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link EntityImportSettings#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean EntityImportSettings.equals(Object)",
+    "int EntityImportSettings.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    EntityImportSettings entityImportSettings =
+        EntityImportSettings.builder()
+            .saveAttributes(true)
+            .saveCredentials(false)
+            .updateRelations(true)
+            .build();
+
+    // Act and Assert
+    assertNotEquals(
+        entityImportSettings,
+        EntityImportSettings.builder()
+            .saveAttributes(true)
+            .saveCredentials(true)
+            .updateRelations(true)
+            .build());
+  }
+
+  /**
+   * Test {@link EntityImportSettings#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link EntityImportSettings#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean EntityImportSettings.equals(Object)",
+    "int EntityImportSettings.hashCode()"
+  })
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+    // Arrange
+    EntityImportSettings entityImportSettings =
+        EntityImportSettings.builder()
+            .saveAttributes(true)
+            .saveCredentials(true)
+            .updateRelations(false)
+            .build();
+
+    // Act and Assert
+    assertNotEquals(
+        entityImportSettings,
+        EntityImportSettings.builder()
+            .saveAttributes(true)
+            .saveCredentials(true)
+            .updateRelations(true)
+            .build());
+  }
+
+  /**
+   * Test {@link EntityImportSettings#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link EntityImportSettings#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean EntityImportSettings.equals(Object)",
+    "int EntityImportSettings.hashCode()"
+  })
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(
+        EntityImportSettings.builder()
+            .saveAttributes(true)
+            .saveCredentials(true)
+            .updateRelations(true)
+            .build(),
+        null);
+  }
+
+  /**
+   * Test {@link EntityImportSettings#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link EntityImportSettings#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean EntityImportSettings.equals(Object)",
+    "int EntityImportSettings.hashCode()"
+  })
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(
+        EntityImportSettings.builder()
+            .saveAttributes(true)
+            .saveCredentials(true)
+            .updateRelations(true)
+            .build(),
+        "Different type to EntityImportSettings");
+  }
+
+  /**
+   * Test getters and setters.
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link EntityImportSettings#EntityImportSettings()}
+   *   <li>{@link EntityImportSettings#setFindExistingByName(boolean)}
+   *   <li>{@link EntityImportSettings#setSaveAttributes(boolean)}
+   *   <li>{@link EntityImportSettings#setSaveCredentials(boolean)}
+   *   <li>{@link EntityImportSettings#setUpdateRelations(boolean)}
+   *   <li>{@link EntityImportSettings#toString()}
+   *   <li>{@link EntityImportSettings#isFindExistingByName()}
+   *   <li>{@link EntityImportSettings#isSaveAttributes()}
+   *   <li>{@link EntityImportSettings#isSaveCredentials()}
+   *   <li>{@link EntityImportSettings#isUpdateRelations()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test getters and setters")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "void EntityImportSettings.<init>()",
+    "void EntityImportSettings.<init>(boolean, boolean, boolean, boolean)",
+    "boolean EntityImportSettings.isFindExistingByName()",
+    "boolean EntityImportSettings.isSaveAttributes()",
+    "boolean EntityImportSettings.isSaveCredentials()",
+    "boolean EntityImportSettings.isUpdateRelations()",
+    "void EntityImportSettings.setFindExistingByName(boolean)",
+    "void EntityImportSettings.setSaveAttributes(boolean)",
+    "void EntityImportSettings.setSaveCredentials(boolean)",
+    "void EntityImportSettings.setUpdateRelations(boolean)",
+    "String EntityImportSettings.toString()"
+  })
+  void testGettersAndSetters() {
+    // Arrange and Act
+    EntityImportSettings actualEntityImportSettings = new EntityImportSettings();
+    actualEntityImportSettings.setFindExistingByName(true);
+    actualEntityImportSettings.setSaveAttributes(true);
+    actualEntityImportSettings.setSaveCredentials(true);
+    actualEntityImportSettings.setUpdateRelations(true);
+    String actualToStringResult = actualEntityImportSettings.toString();
+    boolean actualIsFindExistingByNameResult = actualEntityImportSettings.isFindExistingByName();
+    boolean actualIsSaveAttributesResult = actualEntityImportSettings.isSaveAttributes();
+    boolean actualIsSaveCredentialsResult = actualEntityImportSettings.isSaveCredentials();
+
+    // Assert
+    assertEquals(
+        "EntityImportSettings(findExistingByName=true, updateRelations=true, saveAttributes=true, saveCredentials"
+            + "=true)",
+        actualToStringResult);
+    assertTrue(actualIsFindExistingByNameResult);
+    assertTrue(actualIsSaveAttributesResult);
+    assertTrue(actualIsSaveCredentialsResult);
+    assertTrue(actualEntityImportSettings.isUpdateRelations());
+  }
+
+  /**
+   * Test getters and setters.
+   *
+   * <ul>
+   *   <li>When {@code true}.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link EntityImportSettings#EntityImportSettings(boolean, boolean, boolean, boolean)}
+   *   <li>{@link EntityImportSettings#setFindExistingByName(boolean)}
+   *   <li>{@link EntityImportSettings#setSaveAttributes(boolean)}
+   *   <li>{@link EntityImportSettings#setSaveCredentials(boolean)}
+   *   <li>{@link EntityImportSettings#setUpdateRelations(boolean)}
+   *   <li>{@link EntityImportSettings#toString()}
+   *   <li>{@link EntityImportSettings#isFindExistingByName()}
+   *   <li>{@link EntityImportSettings#isSaveAttributes()}
+   *   <li>{@link EntityImportSettings#isSaveCredentials()}
+   *   <li>{@link EntityImportSettings#isUpdateRelations()}
+   * </ul>
+   */
+  @Test
+  @DisplayName("Test getters and setters; when 'true'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "void EntityImportSettings.<init>()",
+    "void EntityImportSettings.<init>(boolean, boolean, boolean, boolean)",
+    "boolean EntityImportSettings.isFindExistingByName()",
+    "boolean EntityImportSettings.isSaveAttributes()",
+    "boolean EntityImportSettings.isSaveCredentials()",
+    "boolean EntityImportSettings.isUpdateRelations()",
+    "void EntityImportSettings.setFindExistingByName(boolean)",
+    "void EntityImportSettings.setSaveAttributes(boolean)",
+    "void EntityImportSettings.setSaveCredentials(boolean)",
+    "void EntityImportSettings.setUpdateRelations(boolean)",
+    "String EntityImportSettings.toString()"
+  })
+  void testGettersAndSetters_whenTrue() {
+    // Arrange and Act
+    EntityImportSettings actualEntityImportSettings =
+        new EntityImportSettings(true, true, true, true);
+    actualEntityImportSettings.setFindExistingByName(true);
+    actualEntityImportSettings.setSaveAttributes(true);
+    actualEntityImportSettings.setSaveCredentials(true);
+    actualEntityImportSettings.setUpdateRelations(true);
+    String actualToStringResult = actualEntityImportSettings.toString();
+    boolean actualIsFindExistingByNameResult = actualEntityImportSettings.isFindExistingByName();
+    boolean actualIsSaveAttributesResult = actualEntityImportSettings.isSaveAttributes();
+    boolean actualIsSaveCredentialsResult = actualEntityImportSettings.isSaveCredentials();
+
+    // Assert
+    assertEquals(
+        "EntityImportSettings(findExistingByName=true, updateRelations=true, saveAttributes=true, saveCredentials"
+            + "=true)",
+        actualToStringResult);
+    assertTrue(actualIsFindExistingByNameResult);
+    assertTrue(actualIsSaveAttributesResult);
+    assertTrue(actualIsSaveCredentialsResult);
+    assertTrue(actualEntityImportSettings.isUpdateRelations());
+  }
+}
