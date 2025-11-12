@@ -46,6 +46,16 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.11.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>5.14.1</version>
+        </dependency>
+        <dependency>
             <groupId>org.thingsboard.common.transport</groupId>
             <artifactId>coap</artifactId>
         </dependency>
