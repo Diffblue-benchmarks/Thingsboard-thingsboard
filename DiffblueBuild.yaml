@@ -147,7 +147,7 @@ global:
       flags: ~
       goals:
         - name: format
-          goal: format
+          goal: com.mycila:license-maven-plugin:format
           flags: ~
         - name: disable
           goal: ~
