@@ -605,6 +605,25 @@
                 </pluginManagement>
             </build>
         </profile>
+        <profile>
+            <id>skip-install-deb</id>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-install-plugin</artifactId>
+                            <executions>
+                                <execution>
+                                    <id>install-deb</id>
+                                    <phase>none</phase>
+                                </execution>
+                            </executions>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
     </profiles>
 
     <build>
