@@ -153,6 +153,11 @@
             <groupId>com.datastax.oss</groupId>
             <artifactId>java-driver-query-builder</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.diffblue.cover</groupId>
+            <artifactId>cover-annotations</artifactId>
+            <version>1.3.0</version>
+        </dependency>
         <dependency> <!--need for datastax-->
             <groupId>io.netty</groupId>
             <artifactId>netty-transport-native-epoll</artifactId>
