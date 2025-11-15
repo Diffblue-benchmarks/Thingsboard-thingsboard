@@ -1,0 +1,749 @@
+{
+  "meta" : {
+    "reportVersion" : "2.6"
+  },
+  "run" : {
+    "version" : "2024.10.01-2ee2e3d-licensed",
+    "creationTimestamp" : "2025-11-13T01:54:22.041175123Z",
+    "command" : "dcover coverage-reports --exclude-modules=org.thingsboard:ui-ngx,org.thingsboard:application,org.thingsboard.msa:tb,org.thingsboard.msa:web-ui,org.thingsboard.msa:vc-executor-docker,org.thingsboard.msa:tb-node,org.thingsboard.msa.transport:mqtt,org.thingsboard.msa.transport:http,org.thingsboard.msa.transport:coap,org.thingsboard.msa.transport:lwm2m,org.thingsboard.msa.transport:snmp,org.thingsboard.msa:js-executor,org.thingsboard.msa:monitoring",
+    "totalTime" : 213.606,
+    "environmentDetectionTime" : 199.425,
+    "indexingTime" : 0.0,
+    "entryPointsTime" : 0.0,
+    "generationTime" : 0.0,
+    "timeToFirstTest" : 213.606,
+    "timeToLastTest" : 213.606,
+    "indexQueryTime" : 0.0,
+    "verificationTime" : 0.0,
+    "validationTime" : 0.0
+  },
+  "codes" : {
+    "T000" : "Method eligible for test creation",
+    "T003" : "Private method",
+    "T005" : "Trivial constructor",
+    "T006" : "Main method",
+    "T012" : "Synthetic method"
+  },
+  "summary" : {
+    "classesCount" : 6,
+    "methodsCount" : 38,
+    "cumulativeDiffblueTestCount" : 0,
+    "cumulativeManualTestCount" : 0,
+    "completeTestCount" : 0,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 513,
+    "perMethodTestability" : {
+      "T000" : 9,
+      "T003" : 23,
+      "T005" : 3,
+      "T006" : 2,
+      "T012" : 1
+    },
+    "perMethodOutcome" : {
+      "T000" : 9,
+      "T003" : 23,
+      "T005" : 3,
+      "T006" : 2,
+      "T012" : 1
+    }
+  },
+  "classes" : {
+    "org.thingsboard.client.tools.MqttSslClient" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T005" : 1,
+        "T006" : 1,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "T005" : 1,
+        "T006" : 1,
+        "T012" : 1
+      }
+    },
+    "org.thingsboard.client.tools.migrator.DictionaryParser" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T003" : 4
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T003" : 4
+      }
+    },
+    "org.thingsboard.client.tools.migrator.MigratorTool" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 1,
+        "T005" : 1,
+        "T006" : 1
+      },
+      "perMethodOutcome" : {
+        "T003" : 1,
+        "T005" : 1,
+        "T006" : 1
+      }
+    },
+    "org.thingsboard.client.tools.migrator.PgCaMigrator" : {
+      "methodsCount" : 17,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T003" : 15
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T003" : 15
+      }
+    },
+    "org.thingsboard.client.tools.migrator.RelatedEntitiesParser" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T003" : 3
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T003" : 3
+      }
+    },
+    "org.thingsboard.client.tools.migrator.WriterBuilder" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 3,
+        "T005" : 1
+      }
+    }
+  },
+  "methods" : {
+    "org.thingsboard.client.tools.MqttSslClient.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        37
+      ]
+    },
+    "org.thingsboard.client.tools.MqttSslClient.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        38
+      ]
+    },
+    "org.thingsboard.client.tools.MqttSslClient.main:([Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T006",
+      "perMethodOutcome" : "T006",
+      "lineNumbers" : [
+        51,
+        53,
+        54,
+        55,
+        56,
+        57,
+        59,
+        60,
+        61,
+        62,
+        64,
+        65,
+        66,
+        67,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        82,
+        80,
+        81,
+        83
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.DictionaryParser.<init>:(Ljava/io/File;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        30,
+        28,
+        31,
+        32
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.DictionaryParser.getKeyByKeyId:(Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.DictionaryParser.isBlockFinished:(Ljava/lang/String;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        39
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.DictionaryParser.isBlockStarted:(Ljava/lang/String;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        43
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.DictionaryParser.parseDictionaryDump:(Lorg/apache/commons/io/LineIterator;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        49,
+        50,
+        52,
+        53,
+        57,
+        58,
+        57,
+        58,
+        59
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.DictionaryParser.processBlock:(Lorg/apache/commons/io/LineIterator;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        64,
+        65,
+        66,
+        67,
+        70,
+        71,
+        73
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.MigratorTool.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.MigratorTool.main:([Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T006",
+      "perMethodOutcome" : "T006",
+      "lineNumbers" : [
+        31,
+        34,
+        35,
+        36,
+        37,
+        38,
+        40,
+        41,
+        42,
+        44,
+        45,
+        47,
+        48,
+        49,
+        52,
+        57,
+        54,
+        55,
+        56,
+        59
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.MigratorTool.parseArgs:([Ljava/lang/String;)Lorg/apache/commons/cli/CommandLine;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        62,
+        64,
+        65,
+        66,
+        68,
+        69,
+        70,
+        72,
+        73,
+        74,
+        76,
+        77,
+        78,
+        80,
+        81,
+        82,
+        84,
+        85,
+        86,
+        88,
+        89,
+        92,
+        93,
+        94,
+        95,
+        97,
+        99
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.PgCaMigrator.<init>:(Ljava/io/File;Ljava/io/File;Ljava/io/File;Ljava/io/File;Lorg/thingsboard/client/tools/migrator/RelatedEntitiesParser;Lorg/thingsboard/client/tools/migrator/DictionaryParser;Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        72,
+        43,
+        44,
+        46,
+        47,
+        48,
+        49,
+        51,
+        61,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        81,
+        82,
+        83,
+        84,
+        86
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.PgCaMigrator.addPartitions:(Ljava/util/List;Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        158,
+        159,
+        160,
+        161,
+        162
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.PgCaMigrator.addTimeseries:(Ljava/util/List;Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        165,
+        166
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.PgCaMigrator.addTypeIdKey:(Ljava/util/List;Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        152,
+        153,
+        154,
+        155
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.PgCaMigrator.addValues:(Ljava/util/List;Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        169,
+        170,
+        171,
+        172,
+        173,
+        174
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.PgCaMigrator.castToNumericIfPossible:(Ljava/util/List;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        252,
+        253,
+        254,
+        255,
+        256,
+        257,
+        258,
+        259,
+        263,
+        261,
+        262,
+        265,
+        267
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.PgCaMigrator.isBlockFinished:(Ljava/lang/String;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        271
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.PgCaMigrator.isBlockLatestStarted:(Ljava/lang/String;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        279
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.PgCaMigrator.isBlockTsStarted:(Ljava/lang/String;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        275
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.PgCaMigrator.logLinesMigrated:(J)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        146,
+        147,
+        149
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.PgCaMigrator.logLinesProcessed:(J)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        140,
+        141,
+        143
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.PgCaMigrator.migrate:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        89,
+        90,
+        92,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        126,
+        128,
+        129,
+        132,
+        133,
+        134,
+        135,
+        136,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.PgCaMigrator.processBlock:(Lorg/apache/commons/io/LineIterator;Lorg/apache/cassandra/io/sstable/CQLSSTableWriter;Ljava/io/File;Ljava/util/function/Function;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        223,
+        224,
+        225,
+        226,
+        228,
+        229,
+        230,
+        231,
+        234,
+        235,
+        237,
+        240,
+        241,
+        242,
+        246,
+        244,
+        245,
+        246,
+        248
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.PgCaMigrator.processPartitions:(Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        208,
+        209,
+        210
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.PgCaMigrator.toPartitionTs:(J)J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        203,
+        204
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.PgCaMigrator.toValuesLatest:(Ljava/util/List;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        192,
+        193,
+        195,
+        196,
+        197,
+        199
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.PgCaMigrator.toValuesTs:(Ljava/util/List;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        178,
+        180,
+        182,
+        183,
+        184,
+        186,
+        188
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.RelatedEntitiesParser.<init>:(Ljava/io/File;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        50,
+        29,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        31,
+        51,
+        52
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.RelatedEntitiesParser.getEntityType:(Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        55
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.RelatedEntitiesParser.isBlockFinished:(Ljava/lang/String;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        59
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.RelatedEntitiesParser.processAllTables:(Lorg/apache/commons/io/LineIterator;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        65,
+        66,
+        67,
+        68,
+        69,
+        71,
+        74,
+        75,
+        74,
+        75,
+        76
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.RelatedEntitiesParser.processBlock:(Lorg/apache/commons/io/LineIterator;Lorg/thingsboard/server/common/data/EntityType;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        80,
+        81,
+        82,
+        83,
+        85,
+        87
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.WriterBuilder.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.WriterBuilder.getLatestWriter:(Ljava/io/File;)Lorg/apache/cassandra/io/sstable/CQLSSTableWriter;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        70,
+        71,
+        72,
+        73,
+        75,
+        70
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.WriterBuilder.getPartitionWriter:(Ljava/io/File;)Lorg/apache/cassandra/io/sstable/CQLSSTableWriter;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        79,
+        80,
+        81,
+        82,
+        84,
+        79
+      ]
+    },
+    "org.thingsboard.client.tools.migrator.WriterBuilder.getTsWriter:(Ljava/io/File;)Lorg/apache/cassandra/io/sstable/CQLSSTableWriter;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        61,
+        62,
+        63,
+        64,
+        66,
+        61
+      ]
+    }
+  }
+}

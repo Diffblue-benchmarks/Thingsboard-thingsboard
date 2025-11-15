@@ -1,0 +1,270 @@
+/**
+ * Copyright © 2016-2024 The Thingsboard Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.thingsboard.server.common.data.sync.vc;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import org.junit.jupiter.api.Test;
+
+class EntityVersionDiffblueTest {
+  /**
+   * Methods under test:
+   * <ul>
+   *   <li>{@link EntityVersion#equals(Object)}
+   *   <li>{@link EntityVersion#hashCode()}
+   * </ul>
+   */
+  @Test
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    EntityVersion entityVersion = new EntityVersion(10L, "42", "Name", "JaneDoe");
+    EntityVersion entityVersion2 = new EntityVersion(10L, "42", "Name", "JaneDoe");
+
+    // Act and Assert
+    assertEquals(entityVersion, entityVersion2);
+    int expectedHashCodeResult = entityVersion.hashCode();
+    assertEquals(expectedHashCodeResult, entityVersion2.hashCode());
+  }
+
+  /**
+   * Methods under test:
+   * <ul>
+   *   <li>{@link EntityVersion#equals(Object)}
+   *   <li>{@link EntityVersion#hashCode()}
+   * </ul>
+   */
+  @Test
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    EntityVersion entityVersion = new EntityVersion(10L, null, "Name", "JaneDoe");
+    EntityVersion entityVersion2 = new EntityVersion(10L, null, "Name", "JaneDoe");
+
+    // Act and Assert
+    assertEquals(entityVersion, entityVersion2);
+    int expectedHashCodeResult = entityVersion.hashCode();
+    assertEquals(expectedHashCodeResult, entityVersion2.hashCode());
+  }
+
+  /**
+   * Methods under test:
+   * <ul>
+   *   <li>{@link EntityVersion#equals(Object)}
+   *   <li>{@link EntityVersion#hashCode()}
+   * </ul>
+   */
+  @Test
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+    // Arrange
+    EntityVersion entityVersion = new EntityVersion(10L, "42", null, "JaneDoe");
+    EntityVersion entityVersion2 = new EntityVersion(10L, "42", null, "JaneDoe");
+
+    // Act and Assert
+    assertEquals(entityVersion, entityVersion2);
+    int expectedHashCodeResult = entityVersion.hashCode();
+    assertEquals(expectedHashCodeResult, entityVersion2.hashCode());
+  }
+
+  /**
+   * Methods under test:
+   * <ul>
+   *   <li>{@link EntityVersion#equals(Object)}
+   *   <li>{@link EntityVersion#hashCode()}
+   * </ul>
+   */
+  @Test
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
+    // Arrange
+    EntityVersion entityVersion = new EntityVersion(10L, "42", "Name", null);
+    EntityVersion entityVersion2 = new EntityVersion(10L, "42", "Name", null);
+
+    // Act and Assert
+    assertEquals(entityVersion, entityVersion2);
+    int expectedHashCodeResult = entityVersion.hashCode();
+    assertEquals(expectedHashCodeResult, entityVersion2.hashCode());
+  }
+
+  /**
+   * Methods under test:
+   * <ul>
+   *   <li>{@link EntityVersion#equals(Object)}
+   *   <li>{@link EntityVersion#hashCode()}
+   * </ul>
+   */
+  @Test
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    EntityVersion entityVersion = new EntityVersion(10L, "42", "Name", "JaneDoe");
+
+    // Act and Assert
+    assertEquals(entityVersion, entityVersion);
+    int expectedHashCodeResult = entityVersion.hashCode();
+    assertEquals(expectedHashCodeResult, entityVersion.hashCode());
+  }
+
+  /**
+   * Method under test: {@link EntityVersion#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    EntityVersion entityVersion = new EntityVersion(1L, "42", "Name", "JaneDoe");
+
+    // Act and Assert
+    assertNotEquals(entityVersion, new EntityVersion(10L, "42", "Name", "JaneDoe"));
+  }
+
+  /**
+   * Method under test: {@link EntityVersion#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    EntityVersion entityVersion = new EntityVersion(10L, "Name", "Name", "JaneDoe");
+
+    // Act and Assert
+    assertNotEquals(entityVersion, new EntityVersion(10L, "42", "Name", "JaneDoe"));
+  }
+
+  /**
+   * Method under test: {@link EntityVersion#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+    // Arrange
+    EntityVersion entityVersion = new EntityVersion(10L, null, "Name", "JaneDoe");
+
+    // Act and Assert
+    assertNotEquals(entityVersion, new EntityVersion(10L, "42", "Name", "JaneDoe"));
+  }
+
+  /**
+   * Method under test: {@link EntityVersion#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+    // Arrange
+    EntityVersion entityVersion = new EntityVersion(10L, "42", "42", "JaneDoe");
+
+    // Act and Assert
+    assertNotEquals(entityVersion, new EntityVersion(10L, "42", "Name", "JaneDoe"));
+  }
+
+  /**
+   * Method under test: {@link EntityVersion#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+    // Arrange
+    EntityVersion entityVersion = new EntityVersion(10L, "42", null, "JaneDoe");
+
+    // Act and Assert
+    assertNotEquals(entityVersion, new EntityVersion(10L, "42", "Name", "JaneDoe"));
+  }
+
+  /**
+   * Method under test: {@link EntityVersion#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+    // Arrange
+    EntityVersion entityVersion = new EntityVersion(10L, "42", "Name", "42");
+
+    // Act and Assert
+    assertNotEquals(entityVersion, new EntityVersion(10L, "42", "Name", "JaneDoe"));
+  }
+
+  /**
+   * Method under test: {@link EntityVersion#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+    // Arrange
+    EntityVersion entityVersion = new EntityVersion(10L, "42", "Name", null);
+
+    // Act and Assert
+    assertNotEquals(entityVersion, new EntityVersion(10L, "42", "Name", "JaneDoe"));
+  }
+
+  /**
+   * Method under test: {@link EntityVersion#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new EntityVersion(10L, "42", "Name", "JaneDoe"), null);
+  }
+
+  /**
+   * Method under test: {@link EntityVersion#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new EntityVersion(10L, "42", "Name", "JaneDoe"), "Different type to EntityVersion");
+  }
+
+  /**
+   * Methods under test:
+   * <ul>
+   *   <li>{@link EntityVersion#EntityVersion()}
+   *   <li>{@link EntityVersion#setAuthor(String)}
+   *   <li>{@link EntityVersion#setId(String)}
+   *   <li>{@link EntityVersion#setName(String)}
+   *   <li>{@link EntityVersion#setTimestamp(long)}
+   *   <li>{@link EntityVersion#toString()}
+   *   <li>{@link EntityVersion#getAuthor()}
+   *   <li>{@link EntityVersion#getId()}
+   *   <li>{@link EntityVersion#getName()}
+   *   <li>{@link EntityVersion#getTimestamp()}
+   * </ul>
+   */
+  @Test
+  void testGettersAndSetters() {
+    // Arrange and Act
+    EntityVersion actualEntityVersion = new EntityVersion();
+    actualEntityVersion.setAuthor("JaneDoe");
+    actualEntityVersion.setId("42");
+    actualEntityVersion.setName("Name");
+    actualEntityVersion.setTimestamp(10L);
+    String actualToStringResult = actualEntityVersion.toString();
+    String actualAuthor = actualEntityVersion.getAuthor();
+    String actualId = actualEntityVersion.getId();
+    String actualName = actualEntityVersion.getName();
+
+    // Assert that nothing has changed
+    assertEquals("42", actualId);
+    assertEquals("EntityVersion(timestamp=10, id=42, name=Name, author=JaneDoe)", actualToStringResult);
+    assertEquals("JaneDoe", actualAuthor);
+    assertEquals("Name", actualName);
+    assertEquals(10L, actualEntityVersion.getTimestamp());
+  }
+
+  /**
+   * Method under test:
+   * {@link EntityVersion#EntityVersion(long, String, String, String)}
+   */
+  @Test
+  void testNewEntityVersion() {
+    // Arrange and Act
+    EntityVersion actualEntityVersion = new EntityVersion(10L, "42", "Name", "JaneDoe");
+
+    // Assert
+    assertEquals("42", actualEntityVersion.getId());
+    assertEquals("JaneDoe", actualEntityVersion.getAuthor());
+    assertEquals("Name", actualEntityVersion.getName());
+    assertEquals(10L, actualEntityVersion.getTimestamp());
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "meta" : {
+    "reportVersion" : "2.6"
+  },
+  "run" : {
+    "version" : "2024.10.01-2ee2e3d-licensed",
+    "creationTimestamp" : "2025-11-13T01:36:35.048343992Z",
+    "command" : "dcover coverage-reports --exclude-modules=org.thingsboard:ui-ngx,org.thingsboard:application,org.thingsboard.msa:tb,org.thingsboard.msa:web-ui,org.thingsboard.msa:vc-executor-docker,org.thingsboard.msa:tb-node,org.thingsboard.msa.transport:mqtt,org.thingsboard.msa.transport:http,org.thingsboard.msa.transport:coap,org.thingsboard.msa.transport:lwm2m,org.thingsboard.msa.transport:snmp,org.thingsboard.msa:js-executor,org.thingsboard.msa:monitoring",
+    "totalTime" : 213.196,
+    "environmentDetectionTime" : 201.596,
+    "indexingTime" : 0.0,
+    "entryPointsTime" : 0.0,
+    "generationTime" : 0.0,
+    "timeToFirstTest" : 213.196,
+    "timeToLastTest" : 213.196,
+    "indexQueryTime" : 0.0,
+    "verificationTime" : 0.0,
+    "validationTime" : 0.0
+  },
+  "codes" : {
+    "T003" : "Private method",
+    "T005" : "Trivial constructor",
+    "T006" : "Main method",
+    "T012" : "Synthetic method"
+  },
+  "summary" : {
+    "classesCount" : 1,
+    "methodsCount" : 4,
+    "cumulativeDiffblueTestCount" : 0,
+    "cumulativeManualTestCount" : 0,
+    "completeTestCount" : 0,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 27,
+    "perMethodTestability" : {
+      "T003" : 1,
+      "T005" : 1,
+      "T006" : 1,
+      "T012" : 1
+    },
+    "perMethodOutcome" : {
+      "T003" : 1,
+      "T005" : 1,
+      "T006" : 1,
+      "T012" : 1
+    }
+  },
+  "classes" : {
+    "org.thingsboard.server.http.ThingsboardHttpTransportApplication" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 1,
+        "T005" : 1,
+        "T006" : 1,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "T003" : 1,
+        "T005" : 1,
+        "T006" : 1,
+        "T012" : 1
+      }
+    }
+  },
+  "methods" : {
+    "org.thingsboard.server.http.ThingsboardHttpTransportApplication.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.http.ThingsboardHttpTransportApplication.lambda$updateArguments$0:(Ljava/lang/String;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        40
+      ]
+    },
+    "org.thingsboard.server.http.ThingsboardHttpTransportApplication.main:([Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T006",
+      "perMethodOutcome" : "T006",
+      "lineNumbers" : [
+        36,
+        37
+      ]
+    },
+    "org.thingsboard.server.http.ThingsboardHttpTransportApplication.updateArguments:([Ljava/lang/String;)[Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        40,
+        41,
+        42,
+        43,
+        44,
+        46
+      ]
+    }
+  }
+}

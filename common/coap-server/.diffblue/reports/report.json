@@ -1,0 +1,1294 @@
+{
+  "meta" : {
+    "reportVersion" : "2.6"
+  },
+  "run" : {
+    "version" : "2024.10.01-2ee2e3d-licensed",
+    "creationTimestamp" : "2025-11-13T04:01:10.81162803Z",
+    "command" : "dcover create --exclude-modules=org.thingsboard:ui-ngx,org.thingsboard:application,org.thingsboard.msa:tb,org.thingsboard.msa:web-ui,org.thingsboard.msa:vc-executor-docker,org.thingsboard.msa:tb-node,org.thingsboard.msa.transport:mqtt,org.thingsboard.msa.transport:http,org.thingsboard.msa.transport:coap,org.thingsboard.msa.transport:lwm2m,org.thingsboard.msa.transport:snmp,org.thingsboard.msa:js-executor,org.thingsboard.msa:monitoring --coverage-reports --upload http://localhost:8080 --project-name Thingsboard-thingsboard --name with-diffblue-tests",
+    "totalTime" : 173534.439,
+    "environmentDetectionTime" : 0.554,
+    "indexingTime" : 0.312,
+    "entryPointsTime" : 0.55,
+    "generationTime" : 162126.376,
+    "timeToFirstTest" : 433.293,
+    "timeToLastTest" : 1389.251,
+    "indexQueryTime" : 15.051,
+    "verificationTime" : 3636.71,
+    "validationTime" : 143.5
+  },
+  "codes" : {
+    "R000" : "Success",
+    "R002" : "Missing observers",
+    "R004" : "No meaningful assertions found",
+    "R013" : "No inputs found that don't throw a trivial exception",
+    "R027" : "Missing beans when creating Spring context",
+    "R081" : "Exception in arrange section",
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T002" : "Trivial setter",
+    "T003" : "Private method",
+    "T004" : "In anonymous inner class",
+    "T005" : "Trivial constructor",
+    "T007" : "Framework configuration callback",
+    "T010" : "Abstract or interface method",
+    "T012" : "Synthetic method",
+    "T020" : "Other trivial method",
+    "T021" : "Empty method body",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation"
+  },
+  "summary" : {
+    "classesCount" : 9,
+    "methodsCount" : 86,
+    "cumulativeDiffblueTestCount" : 31,
+    "cumulativeManualTestCount" : 1,
+    "completeTestCount" : 31,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 458,
+    "perMethodTestability" : {
+      "T000" : 25,
+      "T001" : 23,
+      "T002" : 8,
+      "T003" : 7,
+      "T004" : 3,
+      "T005" : 3,
+      "T007" : 3,
+      "T010" : 2,
+      "T012" : 8,
+      "T020" : 3,
+      "T021" : 1
+    },
+    "perMethodOutcome" : {
+      "R000" : 45,
+      "R002" : 1,
+      "R004" : 1,
+      "R013" : 2,
+      "R027" : 4,
+      "R081" : 7,
+      "T003" : 7,
+      "T004" : 3,
+      "T005" : 3,
+      "T007" : 3,
+      "T010" : 2,
+      "T012" : 8
+    },
+    "perTestOutcome" : {
+      "R000" : 31
+    },
+    "perTestValidation" : {
+      "V000" : 31,
+      "V003" : 48
+    }
+  },
+  "classes" : {
+    "org.thingsboard.server.coapserver.CoapServerContext" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 3,
+        "T005" : 1,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 3,
+        "T005" : 1,
+        "T012" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.thingsboard.server.coapserver.CoapServerService" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 2
+      },
+      "perMethodOutcome" : {
+        "T010" : 2
+      }
+    },
+    "org.thingsboard.server.coapserver.DefaultCoapServerService" : {
+      "methodsCount" : 10,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T003" : 4,
+        "T005" : 1,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "R027" : 3,
+        "T003" : 4,
+        "T005" : 1,
+        "T012" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier" : {
+      "methodsCount" : 20,
+      "completeTestCount" : 14,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 9,
+        "T001" : 4,
+        "T002" : 3,
+        "T007" : 1,
+        "T012" : 1,
+        "T020" : 1,
+        "T021" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 17,
+        "R004" : 1,
+        "T007" : 1,
+        "T012" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 14
+      }
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier$1" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T004" : 3,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "T004" : 3,
+        "T012" : 1
+      }
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInMemoryStorage" : {
+      "methodsCount" : 14,
+      "completeTestCount" : 11,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 5,
+        "T001" : 3,
+        "T002" : 2,
+        "T007" : 1,
+        "T012" : 2,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 11,
+        "T007" : 1,
+        "T012" : 2
+      },
+      "perTestOutcome" : {
+        "R000" : 11
+      }
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInfo" : {
+      "methodsCount" : 11,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T001" : 3,
+        "T002" : 3,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "R013" : 2,
+        "R081" : 7,
+        "T007" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSettings" : {
+      "methodsCount" : 15,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 10,
+        "T003" : 1,
+        "T005" : 1,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 11,
+        "R027" : 1,
+        "T003" : 1,
+        "T005" : 1,
+        "T012" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    },
+    "org.thingsboard.server.coapserver.TbCoapServerMessageDeliverer" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T003" : 2,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "R002" : 1,
+        "T003" : 2,
+        "T012" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    }
+  },
+  "methods" : {
+    "org.thingsboard.server.coapserver.CoapServerContext.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.server.coapserver.CoapServerContext.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.server.coapserver.CoapServerContext.getDtlsSettings:()Lorg/thingsboard/server/coapserver/TbCoapDtlsSettings;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        37
+      ]
+    },
+    "org.thingsboard.server.coapserver.CoapServerContext.getHost:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.coapserver.CoapServerContext.getPort:()Ljava/lang/Integer;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        33
+      ]
+    },
+    "org.thingsboard.server.coapserver.CoapServerService.getCoapServer:()Lorg/eclipse/californium/core/CoapServer;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.coapserver.CoapServerService.getDtlsSessionsMap:()Ljava/util/concurrent/ConcurrentMap;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.coapserver.DefaultCoapServerService.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        43
+      ]
+    },
+    "org.thingsboard.server.coapserver.DefaultCoapServerService.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        46
+      ]
+    },
+    "org.thingsboard.server.coapserver.DefaultCoapServerService.createCoapServer:()Lorg/eclipse/californium/core/CoapServer;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        99,
+        100,
+        101,
+        102,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        121,
+        122,
+        123,
+        125,
+        126
+      ]
+    },
+    "org.thingsboard.server.coapserver.DefaultCoapServerService.evictTimeoutSessions:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        134,
+        135
+      ]
+    },
+    "org.thingsboard.server.coapserver.DefaultCoapServerService.getCoapServer:()Lorg/eclipse/californium/core/CoapServer;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R027",
+      "lineNumbers" : [
+        74,
+        75,
+        77
+      ]
+    },
+    "org.thingsboard.server.coapserver.DefaultCoapServerService.getDtlsSessionReportTimeout:()J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        138
+      ]
+    },
+    "org.thingsboard.server.coapserver.DefaultCoapServerService.getDtlsSessionsMap:()Ljava/util/concurrent/ConcurrentMap;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        83
+      ]
+    },
+    "org.thingsboard.server.coapserver.DefaultCoapServerService.init:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R027",
+      "lineNumbers" : [
+        59,
+        60
+      ]
+    },
+    "org.thingsboard.server.coapserver.DefaultCoapServerService.isDtlsEnabled:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        130
+      ]
+    },
+    "org.thingsboard.server.coapserver.DefaultCoapServerService.shutdown:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R027",
+      "lineNumbers" : [
+        64,
+        65,
+        67,
+        68,
+        69,
+        70
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier$1.<init>:(Lorg/thingsboard/server/coapserver/TbCoapDtlsCertificateVerifier;[Lorg/thingsboard/server/common/transport/auth/ValidateDeviceCredentialsResponse;Ljava/util/concurrent/CountDownLatch;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        92
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier$1.onError:(Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        103,
+        104,
+        105
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier$1.onSuccess:(Ljava/lang/Object;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        92
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier$1.onSuccess:(Lorg/thingsboard/server/common/transport/auth/ValidateDeviceCredentialsResponse;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        95,
+        96,
+        98,
+        99
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        54
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier.<init>:(Lorg/thingsboard/server/common/transport/TransportService;Lorg/thingsboard/server/queue/discovery/TbServiceInfoProvider;JJZ)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        64,
+        65,
+        66,
+        67,
+        68,
+        69
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        55
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 7,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 7
+      },
+      "lineNumbers" : [
+        55
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier.evictTimeoutSessions:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R004",
+      "lineNumbers" : [
+        146,
+        147
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier.getAcceptedIssuers:()Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        134
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier.getDtlsSessionReportTimeout:()J" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        150
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier.getServiceInfoProvider:()Lorg/thingsboard/server/queue/discovery/TbServiceInfoProvider;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        61
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier.getSupportedCertificateTypes:()Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        73
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier.getTbCoapDtlsSessionInMemoryStorage:()Lorg/thingsboard/server/coapserver/TbCoapDtlsSessionInMemoryStorage;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        58
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier.getTbCoapDtlsSessionsMap:()Ljava/util/concurrent/ConcurrentMap;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        142
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier.getTransportService:()Lorg/thingsboard/server/common/transport/TransportService;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        60
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier.hashCode:()I" : {
+      "completeTestCount" : 7,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 7
+      },
+      "lineNumbers" : [
+        55
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier.isSkipValidityCheckForClientCert:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        62
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier.setResultHandler:(Lorg/eclipse/californium/scandium/dtls/HandshakeResultHandler;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        139
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier.setServiceInfoProvider:(Lorg/thingsboard/server/queue/discovery/TbServiceInfoProvider;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        55
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier.setSkipValidityCheckForClientCert:(Z)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        55
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier.setTransportService:(Lorg/thingsboard/server/common/transport/TransportService;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        55
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        55
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsCertificateVerifier.verifyCertificate:(Lorg/eclipse/californium/scandium/dtls/ConnectionId;Lorg/eclipse/californium/scandium/util/ServerNames;Ljava/net/InetSocketAddress;ZZZLorg/eclipse/californium/scandium/dtls/CertificateMessage;)Lorg/eclipse/californium/scandium/dtls/CertificateVerificationResult;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        79,
+        80,
+        81,
+        83,
+        84,
+        87,
+        88,
+        89,
+        90,
+        91,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        114,
+        123,
+        116,
+        120,
+        121,
+        122,
+        81,
+        125,
+        126,
+        127,
+        128
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInMemoryStorage.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInMemoryStorage.<init>:(JJ)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        34,
+        29,
+        35,
+        36,
+        37
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInMemoryStorage.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInMemoryStorage.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 6,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 6
+      },
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInMemoryStorage.evictTimeoutSessions:()V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        45,
+        46,
+        54
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInMemoryStorage.getDtlsSessionInactivityTimeout:()J" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInMemoryStorage.getDtlsSessionReportTimeout:()J" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInMemoryStorage.getDtlsSessionsMap:()Ljava/util/concurrent/ConcurrentMap;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInMemoryStorage.hashCode:()I" : {
+      "completeTestCount" : 6,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 6
+      },
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInMemoryStorage.lambda$evictTimeoutSessions$0:(JLjava/util/Map$Entry;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        47,
+        48,
+        49,
+        51
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInMemoryStorage.put:(Ljava/net/InetSocketAddress;Lorg/thingsboard/server/coapserver/TbCoapDtlsSessionInfo;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        40,
+        41,
+        42
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInMemoryStorage.setDtlsSessionInactivityTimeout:(J)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInMemoryStorage.setDtlsSessionReportTimeout:(J)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInMemoryStorage.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInfo.<init>:(Lorg/thingsboard/server/common/transport/auth/ValidateDeviceCredentialsResponse;Lorg/thingsboard/server/common/data/DeviceProfile;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        30,
+        31,
+        32,
+        33,
+        34
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInfo.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInfo.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInfo.getDeviceProfile:()Lorg/thingsboard/server/common/data/DeviceProfile;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInfo.getLastActivityTime:()J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInfo.getMsg:()Lorg/thingsboard/server/common/transport/auth/ValidateDeviceCredentialsResponse;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInfo.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInfo.setDeviceProfile:(Lorg/thingsboard/server/common/data/DeviceProfile;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInfo.setLastActivityTime:(J)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInfo.setMsg:(Lorg/thingsboard/server/common/transport/auth/ValidateDeviceCredentialsResponse;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSessionInfo.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSettings.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        52
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSettings.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        55
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSettings.coapDtlsCredentials:()Lorg/thingsboard/server/common/transport/config/ssl/SslCredentialsConfig;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        72
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSettings.dtlsConnectorConfig:(Lorg/eclipse/californium/elements/config/Configuration;)Lorg/eclipse/californium/scandium/config/DtlsConnectorConfig;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R027",
+      "lineNumbers" : [
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        108,
+        111,
+        120,
+        121,
+        120,
+        122
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSettings.getCIdLength:()Ljava/lang/Integer;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        67
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSettings.getCoapDtlsCredentialsConfig:()Lorg/thingsboard/server/common/transport/config/ssl/SslCredentialsConfig;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        77
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSettings.getDtlsRetransmissionTimeout:()I" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        64
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSettings.getDtlsSessionInactivityTimeout:()J" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        83
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSettings.getDtlsSessionReportTimeout:()J" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        86
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSettings.getHost:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        58
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSettings.getInetSocketAddress:()Ljava/net/InetSocketAddress;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        126,
+        127
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSettings.getPort:()Ljava/lang/Integer;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        61
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSettings.getServiceInfoProvider:()Lorg/thingsboard/server/queue/discovery/TbServiceInfoProvider;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        92
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSettings.getTransportService:()Lorg/thingsboard/server/common/transport/TransportService;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        89
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapDtlsSettings.isSkipValidityCheckForClientCert:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        80
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapServerMessageDeliverer.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapServerMessageDeliverer.<init>:(Lorg/eclipse/californium/core/server/resources/Resource;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        32,
+        33
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapServerMessageDeliverer.findResource:(Lorg/eclipse/californium/core/network/Exchange;)Lorg/eclipse/californium/core/server/resources/Resource;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        37,
+        38
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapServerMessageDeliverer.toPath:(Ljava/util/List;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        52,
+        53,
+        54,
+        55,
+        56,
+        58,
+        60
+      ]
+    },
+    "org.thingsboard.server.coapserver.TbCoapServerMessageDeliverer.validateUriPath:(Lorg/eclipse/californium/core/network/Exchange;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        49
+      ]
+    }
+  },
+  "validationMetrics" : {
+    "failingTests" : [
+      "org.thingsboard.server.transport.mqtt.MqttTransportHandlerDiffblueTest.testChannelRead2"
+    ]
+  }
+}

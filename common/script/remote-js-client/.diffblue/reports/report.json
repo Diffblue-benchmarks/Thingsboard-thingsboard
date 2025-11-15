@@ -1,0 +1,502 @@
+{
+  "meta" : {
+    "reportVersion" : "2.6"
+  },
+  "run" : {
+    "version" : "2024.10.01-2ee2e3d-licensed",
+    "creationTimestamp" : "2025-11-13T01:16:25.483051556Z",
+    "command" : "dcover coverage-reports --exclude-modules=org.thingsboard:ui-ngx,org.thingsboard:application,org.thingsboard.msa:tb,org.thingsboard.msa:web-ui,org.thingsboard.msa:vc-executor-docker,org.thingsboard.msa:tb-node,org.thingsboard.msa.transport:mqtt,org.thingsboard.msa.transport:http,org.thingsboard.msa.transport:coap,org.thingsboard.msa.transport:lwm2m,org.thingsboard.msa.transport:snmp,org.thingsboard.msa:js-executor,org.thingsboard.msa:monitoring",
+    "totalTime" : 211.923,
+    "environmentDetectionTime" : 201.858,
+    "indexingTime" : 0.0,
+    "entryPointsTime" : 0.0,
+    "generationTime" : 0.0,
+    "timeToFirstTest" : 211.923,
+    "timeToLastTest" : 211.923,
+    "indexQueryTime" : 0.0,
+    "verificationTime" : 0.0,
+    "validationTime" : 0.0
+  },
+  "codes" : {
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T003" : "Private method",
+    "T005" : "Trivial constructor",
+    "T012" : "Synthetic method"
+  },
+  "summary" : {
+    "classesCount" : 4,
+    "methodsCount" : 31,
+    "cumulativeDiffblueTestCount" : 0,
+    "cumulativeManualTestCount" : 0,
+    "completeTestCount" : 0,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 279,
+    "perMethodTestability" : {
+      "T000" : 12,
+      "T001" : 7,
+      "T003" : 2,
+      "T005" : 3,
+      "T012" : 7
+    },
+    "perMethodOutcome" : {
+      "T000" : 12,
+      "T001" : 7,
+      "T003" : 2,
+      "T005" : 3,
+      "T012" : 7
+    }
+  },
+  "classes" : {
+    "org.thingsboard.server.service.script.JsExecutorService" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1,
+        "T005" : 1
+      }
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService" : {
+      "methodsCount" : 24,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 9,
+        "T001" : 7,
+        "T003" : 2,
+        "T012" : 6
+      },
+      "perMethodOutcome" : {
+        "T000" : 9,
+        "T001" : 7,
+        "T003" : 2,
+        "T012" : 6
+      }
+    },
+    "org.thingsboard.server.service.script.RemoteJsRequestEncoder" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1,
+        "T005" : 1,
+        "T012" : 1
+      }
+    },
+    "org.thingsboard.server.service.script.RemoteJsResponseDecoder" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1,
+        "T005" : 1
+      }
+    }
+  },
+  "methods" : {
+    "org.thingsboard.server.service.script.JsExecutorService.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.server.service.script.JsExecutorService.getThreadPollSize:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        54
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.<init>:(Ljava/util/Optional;Ljava/util/Optional;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        86,
+        82,
+        83,
+        82,
+        107,
+        108,
+        87
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.buildJsInvokeRequest:(Lorg/thingsboard/script/api/js/JsScriptInfo;[Ljava/lang/Object;ZLjava/lang/String;)Lorg/thingsboard/server/gen/js/JsInvokeProtos$RemoteJsRequest;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        202,
+        203,
+        202,
+        206,
+        207,
+        208,
+        209
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.constructFunctionName:(Ljava/util/UUID;Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        277
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.doEval:(Ljava/util/UUID;Lorg/thingsboard/script/api/js/JsScriptInfo;Ljava/lang/String;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        129,
+        130,
+        131,
+        132,
+        134,
+        135,
+        136,
+        138,
+        139,
+        140
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.doInvokeFunction:(Ljava/util/UUID;Lorg/thingsboard/script/api/js/JsScriptInfo;[Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        161,
+        162,
+        163,
+        164,
+        167,
+        170,
+        171,
+        172,
+        174,
+        177,
+        178,
+        179
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.doRelease:(Ljava/util/UUID;Lorg/thingsboard/script/api/js/JsScriptInfo;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        242,
+        243,
+        244,
+        247,
+        248,
+        249,
+        251,
+        252,
+        253,
+        255,
+        256,
+        257,
+        259,
+        261,
+        262,
+        263,
+        265,
+        266,
+        269,
+        270,
+        269,
+        270,
+        272,
+        274
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.getCallbackExecutor:()Ljava/util/concurrent/Executor;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        91
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.getMaxBlackListDurationSec:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        74
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.getMaxErrors:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        70
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.getMaxEvalRequestsTimeout:()J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        59
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.getMaxInvokeRequestsTimeout:()J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.getScriptHash:(Ljava/util/UUID;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        281,
+        282
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.getStatsName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        96
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.handleInvokeError:(Ljava/util/UUID;Ljava/util/UUID;Lorg/thingsboard/script/api/js/JsScriptInfo;Lorg/thingsboard/server/gen/js/JsInvokeProtos$JsInvokeErrorCode;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        234,
+        227,
+        237
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.init:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        113,
+        114,
+        115
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.isStatsEnabled:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        78
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.lambda$doEval$0:(Ljava/util/UUID;Lorg/thingsboard/script/api/js/JsScriptInfo;Ljava/lang/String;Lorg/thingsboard/server/queue/common/TbProtoQueueMsg;)Ljava/util/UUID;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        141,
+        142,
+        143,
+        145,
+        146,
+        148,
+        149,
+        148,
+        149,
+        150,
+        152,
+        153,
+        152,
+        154
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.lambda$doInvokeFunction$1:(Lorg/springframework/util/StopWatch;Ljava/util/UUID;Ljava/util/UUID;Lorg/thingsboard/script/api/js/JsScriptInfo;Ljava/lang/String;[Ljava/lang/Object;Lorg/thingsboard/server/queue/common/TbProtoQueueMsg;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        180,
+        181,
+        182,
+        184,
+        185,
+        186,
+        188
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.lambda$doRelease$3:(Ljava/lang/String;Ljava/lang/String;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        243
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.lambda$doRelease$4:(Ljava/lang/String;Ljava/lang/String;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        265
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.lambda$handleInvokeError$2:(Ljava/util/UUID;Ljava/util/UUID;Lorg/thingsboard/script/api/js/JsScriptInfo;[Ljava/lang/Object;Lorg/thingsboard/server/queue/common/TbProtoQueueMsg;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        228,
+        229,
+        230,
+        232
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.printStats:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        101,
+        102
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsInvokeService.stop:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        120,
+        121,
+        122,
+        124,
+        125
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsRequestEncoder.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsRequestEncoder.encode:(Ljava/lang/Object;)[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsRequestEncoder.encode:(Lorg/thingsboard/server/queue/common/TbProtoQueueMsg;)[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        33,
+        34,
+        35
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsResponseDecoder.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.service.script.RemoteJsResponseDecoder.decode:(Lorg/thingsboard/server/queue/TbQueueMsg;)Lorg/thingsboard/server/queue/common/TbProtoQueueMsg;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        34,
+        35,
+        36
+      ]
+    }
+  }
+}

@@ -1,0 +1,324 @@
+/**
+ * Copyright © 2016-2024 The Thingsboard Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.thingsboard.server.cache;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.io.UnsupportedEncodingException;
+import org.junit.jupiter.api.Test;
+import org.springframework.data.redis.serializer.SerializationException;
+import org.thingsboard.server.common.data.AdminSettings;
+import org.thingsboard.server.common.data.Dashboard;
+import org.thingsboard.server.common.data.TenantProfile;
+import org.thingsboard.server.common.data.device.data.CoapDeviceTransportConfiguration;
+
+class TbJsonRedisSerializerDiffblueTest {
+  /**
+   * Method under test: {@link TbJsonRedisSerializer#serialize(Object)}
+   */
+  @Test
+  void testSerialize() throws UnsupportedEncodingException, SerializationException {
+    // Arrange
+    Class<Object> clazz = Object.class;
+    TbJsonRedisSerializer<Object, Object> tbJsonRedisSerializer = new TbJsonRedisSerializer<>(clazz);
+
+    // Act
+    byte[] actualSerializeResult = tbJsonRedisSerializer.serialize("42");
+
+    // Assert
+    assertArrayEquals("\"42\"".getBytes("UTF-8"), actualSerializeResult);
+  }
+
+  /**
+   * Method under test: {@link TbJsonRedisSerializer#serialize(Object)}
+   */
+  @Test
+  void testSerialize2() throws UnsupportedEncodingException, SerializationException {
+    // Arrange
+    Class<Object> clazz = Object.class;
+    TbJsonRedisSerializer<Object, Object> tbJsonRedisSerializer = new TbJsonRedisSerializer<>(clazz);
+
+    // Act
+    byte[] actualSerializeResult = tbJsonRedisSerializer.serialize(null);
+
+    // Assert
+    assertArrayEquals("null".getBytes("UTF-8"), actualSerializeResult);
+  }
+
+  /**
+   * Method under test: {@link TbJsonRedisSerializer#serialize(Object)}
+   */
+  @Test
+  void testSerialize3() throws SerializationException {
+    // Arrange
+    Class<Object> clazz = Object.class;
+    TbJsonRedisSerializer<Object, Object> tbJsonRedisSerializer = new TbJsonRedisSerializer<>(clazz);
+
+    // Act
+    byte[] actualSerializeResult = tbJsonRedisSerializer.serialize(new AdminSettings());
+
+    // Assert
+    assertEquals(71, actualSerializeResult.length);
+    assertEquals(',', actualSerializeResult[10]);
+    assertEquals(',', actualSerializeResult[53]);
+    assertEquals(':', actualSerializeResult[24]);
+    assertEquals(':', actualSerializeResult[48]);
+    assertEquals(':', actualSerializeResult[5]);
+    assertEquals(':', actualSerializeResult[65]);
+    assertEquals('T', actualSerializeResult[19]);
+    assertEquals('V', actualSerializeResult[59]);
+    assertEquals('"', actualSerializeResult[1]);
+    assertEquals('"', actualSerializeResult[11]);
+    assertEquals('"', actualSerializeResult[23]);
+    assertEquals('"', actualSerializeResult[4]);
+    assertEquals('"', actualSerializeResult[47]);
+    assertEquals('"', actualSerializeResult[54]);
+    assertEquals('"', actualSerializeResult[Double.SIZE]);
+    assertEquals('a', actualSerializeResult[15]);
+    assertEquals('a', actualSerializeResult[60]);
+    assertEquals('c', actualSerializeResult[12]);
+    assertEquals('d', actualSerializeResult[18]);
+    assertEquals('d', actualSerializeResult[3]);
+    assertEquals('e', actualSerializeResult[14]);
+    assertEquals('e', actualSerializeResult[17]);
+    assertEquals('e', actualSerializeResult[22]);
+    assertEquals('e', actualSerializeResult[63]);
+    assertEquals('i', actualSerializeResult[2]);
+    assertEquals('i', actualSerializeResult[20]);
+    assertEquals('j', actualSerializeResult[55]);
+    assertEquals('l', actualSerializeResult[51]);
+    assertEquals('l', actualSerializeResult[52]);
+    assertEquals('l', actualSerializeResult[61]);
+    assertEquals('l', actualSerializeResult[68]);
+    assertEquals('l', actualSerializeResult[69]);
+    assertEquals('l', actualSerializeResult[8]);
+    assertEquals('l', actualSerializeResult[9]);
+    assertEquals('m', actualSerializeResult[21]);
+    assertEquals('n', actualSerializeResult[49]);
+    assertEquals('n', actualSerializeResult[58]);
+    assertEquals('n', actualSerializeResult[6]);
+    assertEquals('n', actualSerializeResult[66]);
+    assertEquals('o', actualSerializeResult[57]);
+    assertEquals('r', actualSerializeResult[13]);
+    assertEquals('s', actualSerializeResult[56]);
+    assertEquals('t', actualSerializeResult[Short.SIZE]);
+    assertEquals('u', actualSerializeResult[50]);
+    assertEquals('u', actualSerializeResult[62]);
+    assertEquals('u', actualSerializeResult[67]);
+    assertEquals('u', actualSerializeResult[7]);
+    assertEquals('y', actualSerializeResult[46]);
+    assertEquals('{', actualSerializeResult[0]);
+    assertEquals('}', actualSerializeResult[70]);
+  }
+
+  /**
+   * Method under test: {@link TbJsonRedisSerializer#serialize(Object)}
+   */
+  @Test
+  void testSerialize4() throws SerializationException {
+    // Arrange
+    Class<Object> clazz = Object.class;
+    TbJsonRedisSerializer<Object, Object> tbJsonRedisSerializer = new TbJsonRedisSerializer<>(clazz);
+
+    // Act
+    byte[] actualSerializeResult = tbJsonRedisSerializer.serialize(new Dashboard());
+
+    // Assert
+    assertEquals(198, actualSerializeResult.length);
+    assertEquals(',', actualSerializeResult[10]);
+    assertEquals(',', actualSerializeResult[185]);
+    assertEquals(':', actualSerializeResult[180]);
+    assertEquals(':', actualSerializeResult[192]);
+    assertEquals(':', actualSerializeResult[24]);
+    assertEquals(':', actualSerializeResult[5]);
+    assertEquals('T', actualSerializeResult[19]);
+    assertEquals('"', actualSerializeResult[1]);
+    assertEquals('"', actualSerializeResult[11]);
+    assertEquals('"', actualSerializeResult[179]);
+    assertEquals('"', actualSerializeResult[186]);
+    assertEquals('"', actualSerializeResult[191]);
+    assertEquals('"', actualSerializeResult[23]);
+    assertEquals('"', actualSerializeResult[4]);
+    assertEquals('a', actualSerializeResult[15]);
+    assertEquals('a', actualSerializeResult[174]);
+    assertEquals('a', actualSerializeResult[188]);
+    assertEquals('c', actualSerializeResult[12]);
+    assertEquals('d', actualSerializeResult[18]);
+    assertEquals('d', actualSerializeResult[3]);
+    assertEquals('e', actualSerializeResult[14]);
+    assertEquals('e', actualSerializeResult[17]);
+    assertEquals('e', actualSerializeResult[190]);
+    assertEquals('e', actualSerializeResult[22]);
+    assertEquals('i', actualSerializeResult[176]);
+    assertEquals('i', actualSerializeResult[2]);
+    assertEquals('i', actualSerializeResult[20]);
+    assertEquals('l', actualSerializeResult[183]);
+    assertEquals('l', actualSerializeResult[184]);
+    assertEquals('l', actualSerializeResult[195]);
+    assertEquals('l', actualSerializeResult[196]);
+    assertEquals('l', actualSerializeResult[8]);
+    assertEquals('l', actualSerializeResult[9]);
+    assertEquals('m', actualSerializeResult[189]);
+    assertEquals('m', actualSerializeResult[21]);
+    assertEquals('n', actualSerializeResult[178]);
+    assertEquals('n', actualSerializeResult[181]);
+    assertEquals('n', actualSerializeResult[187]);
+    assertEquals('n', actualSerializeResult[193]);
+    assertEquals('n', actualSerializeResult[6]);
+    assertEquals('o', actualSerializeResult[177]);
+    assertEquals('r', actualSerializeResult[13]);
+    assertEquals('r', actualSerializeResult[173]);
+    assertEquals('t', actualSerializeResult[175]);
+    assertEquals('t', actualSerializeResult[Short.SIZE]);
+    assertEquals('u', actualSerializeResult[182]);
+    assertEquals('u', actualSerializeResult[194]);
+    assertEquals('u', actualSerializeResult[7]);
+    assertEquals('{', actualSerializeResult[0]);
+    assertEquals('}', actualSerializeResult[197]);
+  }
+
+  /**
+   * Method under test: {@link TbJsonRedisSerializer#serialize(Object)}
+   */
+  @Test
+  void testSerialize5() throws SerializationException {
+    // Arrange
+    Class<Object> clazz = Object.class;
+    TbJsonRedisSerializer<Object, Object> tbJsonRedisSerializer = new TbJsonRedisSerializer<>(clazz);
+
+    // Act
+    byte[] actualSerializeResult = tbJsonRedisSerializer.serialize(new TenantProfile());
+
+    // Assert
+    assertEquals(2023, actualSerializeResult.length);
+    assertEquals(',', actualSerializeResult[10]);
+    assertEquals(',', actualSerializeResult[2006]);
+    assertEquals(':', actualSerializeResult[2000]);
+    assertEquals(':', actualSerializeResult[2016]);
+    assertEquals(':', actualSerializeResult[24]);
+    assertEquals(':', actualSerializeResult[5]);
+    assertEquals('T', actualSerializeResult[19]);
+    assertEquals('"', actualSerializeResult[1]);
+    assertEquals('"', actualSerializeResult[11]);
+    assertEquals('"', actualSerializeResult[1999]);
+    assertEquals('"', actualSerializeResult[2007]);
+    assertEquals('"', actualSerializeResult[2015]);
+    assertEquals('"', actualSerializeResult[23]);
+    assertEquals('"', actualSerializeResult[4]);
+    assertEquals('a', actualSerializeResult[15]);
+    assertEquals('a', actualSerializeResult[2011]);
+    assertEquals('a', actualSerializeResult[2018]);
+    assertEquals('c', actualSerializeResult[12]);
+    assertEquals('d', actualSerializeResult[18]);
+    assertEquals('d', actualSerializeResult[2008]);
+    assertEquals('d', actualSerializeResult[3]);
+    assertEquals('e', actualSerializeResult[14]);
+    assertEquals('e', actualSerializeResult[17]);
+    assertEquals('e', actualSerializeResult[2009]);
+    assertEquals('e', actualSerializeResult[2021]);
+    assertEquals('e', actualSerializeResult[22]);
+    assertEquals('f', actualSerializeResult[2010]);
+    assertEquals('f', actualSerializeResult[2017]);
+    assertEquals('i', actualSerializeResult[2]);
+    assertEquals('i', actualSerializeResult[20]);
+    assertEquals('l', actualSerializeResult[2003]);
+    assertEquals('l', actualSerializeResult[2004]);
+    assertEquals('l', actualSerializeResult[2013]);
+    assertEquals('l', actualSerializeResult[2019]);
+    assertEquals('l', actualSerializeResult[8]);
+    assertEquals('l', actualSerializeResult[9]);
+    assertEquals('m', actualSerializeResult[21]);
+    assertEquals('n', actualSerializeResult[1998]);
+    assertEquals('n', actualSerializeResult[2001]);
+    assertEquals('n', actualSerializeResult[6]);
+    assertEquals('r', actualSerializeResult[13]);
+    assertEquals('s', actualSerializeResult[2020]);
+    assertEquals('t', actualSerializeResult[2014]);
+    assertEquals('t', actualSerializeResult[Short.SIZE]);
+    assertEquals('u', actualSerializeResult[2002]);
+    assertEquals('u', actualSerializeResult[2012]);
+    assertEquals('u', actualSerializeResult[7]);
+    assertEquals('{', actualSerializeResult[0]);
+    assertEquals('}', actualSerializeResult[2005]);
+    assertEquals('}', actualSerializeResult[2022]);
+  }
+
+  /**
+   * Method under test: {@link TbJsonRedisSerializer#serialize(Object)}
+   */
+  @Test
+  void testSerialize6() throws SerializationException {
+    // Arrange
+    Class<Object> clazz = Object.class;
+    TbJsonRedisSerializer<Object, Object> tbJsonRedisSerializer = new TbJsonRedisSerializer<>(clazz);
+
+    // Act
+    byte[] actualSerializeResult = tbJsonRedisSerializer.serialize(new CoapDeviceTransportConfiguration());
+
+    // Assert
+    assertEquals(105, actualSerializeResult.length);
+    assertEquals(',', actualSerializeResult[14]);
+    assertEquals(':', actualSerializeResult[7]);
+    assertEquals(':', actualSerializeResult[99]);
+    assertEquals('A', actualSerializeResult[11]);
+    assertEquals('C', actualSerializeResult[9]);
+    assertEquals('M', actualSerializeResult[21]);
+    assertEquals('O', actualSerializeResult[10]);
+    assertEquals('P', actualSerializeResult[12]);
+    assertEquals('T', actualSerializeResult[80]);
+    assertEquals('W', actualSerializeResult[92]);
+    assertEquals('"', actualSerializeResult[1]);
+    assertEquals('"', actualSerializeResult[13]);
+    assertEquals('"', actualSerializeResult[15]);
+    assertEquals('"', actualSerializeResult[6]);
+    assertEquals('"', actualSerializeResult[8]);
+    assertEquals('"', actualSerializeResult[98]);
+    assertEquals('a', actualSerializeResult[82]);
+    assertEquals('d', actualSerializeResult[23]);
+    assertEquals('d', actualSerializeResult[95]);
+    assertEquals('e', actualSerializeResult[19]);
+    assertEquals('e', actualSerializeResult[24]);
+    assertEquals('e', actualSerializeResult[5]);
+    assertEquals('i', actualSerializeResult[86]);
+    assertEquals('i', actualSerializeResult[89]);
+    assertEquals('i', actualSerializeResult[93]);
+    assertEquals('l', actualSerializeResult[102]);
+    assertEquals('l', actualSerializeResult[103]);
+    assertEquals('m', actualSerializeResult[85]);
+    assertEquals('n', actualSerializeResult[100]);
+    assertEquals('n', actualSerializeResult[83]);
+    assertEquals('n', actualSerializeResult[91]);
+    assertEquals('n', actualSerializeResult[94]);
+    assertEquals('o', actualSerializeResult[17]);
+    assertEquals('o', actualSerializeResult[22]);
+    assertEquals('o', actualSerializeResult[90]);
+    assertEquals('o', actualSerializeResult[96]);
+    assertEquals('p', actualSerializeResult[4]);
+    assertEquals('p', actualSerializeResult[Short.SIZE]);
+    assertEquals('r', actualSerializeResult[20]);
+    assertEquals('r', actualSerializeResult[81]);
+    assertEquals('s', actualSerializeResult[84]);
+    assertEquals('s', actualSerializeResult[87]);
+    assertEquals('s', actualSerializeResult[88]);
+    assertEquals('t', actualSerializeResult[2]);
+    assertEquals('u', actualSerializeResult[101]);
+    assertEquals('w', actualSerializeResult[18]);
+    assertEquals('w', actualSerializeResult[97]);
+    assertEquals('y', actualSerializeResult[3]);
+    assertEquals('{', actualSerializeResult[0]);
+    assertEquals('}', actualSerializeResult[104]);
+  }
+}

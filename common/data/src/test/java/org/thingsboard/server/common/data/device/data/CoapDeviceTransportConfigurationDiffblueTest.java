@@ -1,0 +1,169 @@
+/**
+ * Copyright © 2016-2024 The Thingsboard Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.thingsboard.server.common.data.device.data;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.BiFunction;
+import org.junit.jupiter.api.Test;
+import org.thingsboard.server.common.data.DeviceTransportType;
+
+class CoapDeviceTransportConfigurationDiffblueTest {
+  /**
+   * Methods under test:
+   * <ul>
+   *   <li>{@link CoapDeviceTransportConfiguration#equals(Object)}
+   *   <li>{@link CoapDeviceTransportConfiguration#hashCode()}
+   * </ul>
+   */
+  @Test
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    CoapDeviceTransportConfiguration coapDeviceTransportConfiguration = new CoapDeviceTransportConfiguration();
+    CoapDeviceTransportConfiguration coapDeviceTransportConfiguration2 = new CoapDeviceTransportConfiguration();
+
+    // Act and Assert
+    assertEquals(coapDeviceTransportConfiguration, coapDeviceTransportConfiguration2);
+    int expectedHashCodeResult = coapDeviceTransportConfiguration.hashCode();
+    assertEquals(expectedHashCodeResult, coapDeviceTransportConfiguration2.hashCode());
+  }
+
+  /**
+   * Method under test:
+   * {@link CoapDeviceTransportConfiguration#put(String, Object)}
+   */
+  @Test
+  void testPut() {
+    // Arrange
+    CoapDeviceTransportConfiguration coapDeviceTransportConfiguration = new CoapDeviceTransportConfiguration();
+
+    // Act
+    coapDeviceTransportConfiguration.put("Name", "Value");
+
+    // Assert
+    Map<String, Object> properties = coapDeviceTransportConfiguration.getProperties();
+    assertEquals(1, properties.size());
+    assertEquals("Value", properties.get("Name"));
+  }
+
+  /**
+   * Method under test:
+   * {@link CoapDeviceTransportConfiguration#put(String, Object)}
+   */
+  @Test
+  void testPut2() {
+    // Arrange
+    HashMap<String, Object> properties = new HashMap<>();
+    properties.computeIfPresent("foo", mock(BiFunction.class));
+
+    CoapDeviceTransportConfiguration coapDeviceTransportConfiguration = new CoapDeviceTransportConfiguration();
+    coapDeviceTransportConfiguration.setProperties(properties);
+
+    // Act
+    coapDeviceTransportConfiguration.put("Name", "Value");
+
+    // Assert
+    Map<String, Object> properties2 = coapDeviceTransportConfiguration.getProperties();
+    assertEquals(1, properties2.size());
+    assertEquals("Value", properties2.get("Name"));
+    assertSame(properties, properties2);
+  }
+
+  /**
+   * Methods under test:
+   * <ul>
+   *   <li>{@link CoapDeviceTransportConfiguration#equals(Object)}
+   *   <li>{@link CoapDeviceTransportConfiguration#hashCode()}
+   * </ul>
+   */
+  @Test
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    CoapDeviceTransportConfiguration coapDeviceTransportConfiguration = new CoapDeviceTransportConfiguration();
+
+    // Act and Assert
+    assertEquals(coapDeviceTransportConfiguration, coapDeviceTransportConfiguration);
+    int expectedHashCodeResult = coapDeviceTransportConfiguration.hashCode();
+    assertEquals(expectedHashCodeResult, coapDeviceTransportConfiguration.hashCode());
+  }
+
+  /**
+   * Method under test: {@link CoapDeviceTransportConfiguration#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    CoapDeviceTransportConfiguration coapDeviceTransportConfiguration = new CoapDeviceTransportConfiguration();
+    coapDeviceTransportConfiguration.put("Name", "Value");
+
+    // Act and Assert
+    assertNotEquals(coapDeviceTransportConfiguration, new CoapDeviceTransportConfiguration());
+  }
+
+  /**
+   * Method under test: {@link CoapDeviceTransportConfiguration#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new CoapDeviceTransportConfiguration(), null);
+  }
+
+  /**
+   * Method under test: {@link CoapDeviceTransportConfiguration#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new CoapDeviceTransportConfiguration(), "Different type to CoapDeviceTransportConfiguration");
+  }
+
+  /**
+   * Methods under test:
+   * <ul>
+   *   <li>default or parameterless constructor of
+   * {@link CoapDeviceTransportConfiguration}
+   *   <li>{@link CoapDeviceTransportConfiguration#setProperties(Map)}
+   *   <li>{@link CoapDeviceTransportConfiguration#toString()}
+   *   <li>{@link CoapDeviceTransportConfiguration#getProperties()}
+   *   <li>{@link CoapDeviceTransportConfiguration#getType()}
+   *   <li>{@link CoapDeviceTransportConfiguration#properties()}
+   * </ul>
+   */
+  @Test
+  void testGettersAndSetters() {
+    // Arrange and Act
+    CoapDeviceTransportConfiguration actualCoapDeviceTransportConfiguration = new CoapDeviceTransportConfiguration();
+    HashMap<String, Object> properties = new HashMap<>();
+    actualCoapDeviceTransportConfiguration.setProperties(properties);
+    String actualToStringResult = actualCoapDeviceTransportConfiguration.toString();
+    Map<String, Object> actualProperties = actualCoapDeviceTransportConfiguration.getProperties();
+    DeviceTransportType actualType = actualCoapDeviceTransportConfiguration.getType();
+    Map<String, Object> actualPropertiesResult = actualCoapDeviceTransportConfiguration.properties();
+
+    // Assert that nothing has changed
+    assertEquals("CoapDeviceTransportConfiguration(properties={})", actualToStringResult);
+    assertEquals(DeviceTransportType.COAP, actualType);
+    assertTrue(actualProperties.isEmpty());
+    assertSame(properties, actualProperties);
+    assertSame(properties, actualPropertiesResult);
+  }
+}

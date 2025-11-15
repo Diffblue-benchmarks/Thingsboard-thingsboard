@@ -1,0 +1,89 @@
+/**
+ * Copyright © 2016-2024 The Thingsboard Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.thingsboard.server.actors;
+
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.mockito.Mockito.mock;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
+import org.junit.jupiter.api.Test;
+
+class AbstractTbActorDiffblueTest {
+  /**
+   * Method under test: {@link AbstractTbActor#getCtx()}
+   */
+  @Test
+  void testGetCtx() {
+    // Arrange
+    TbActorId actorId = mock(TbActorId.class);
+    CountDownLatch latch = new CountDownLatch(1);
+    AtomicInteger invocationCount = new AtomicInteger(1);
+
+    // Act and Assert
+    assertNull((new SlowInitActor(actorId, new ActorTestCtx(latch, invocationCount, 3, new AtomicLong(1L)))).getCtx());
+  }
+
+  /**
+   * Method under test: {@link AbstractTbActor#init(TbActorCtx)}
+   */
+  @Test
+  void testInit() throws TbActorException {
+    // Arrange
+    TbActorId actorId = mock(TbActorId.class);
+    CountDownLatch latch = new CountDownLatch(1);
+    AtomicInteger invocationCount = new AtomicInteger(1);
+    SlowInitActor slowInitActor = new SlowInitActor(actorId,
+        new ActorTestCtx(latch, invocationCount, 3, new AtomicLong(1L)));
+    DefaultTbActorSystem system = new DefaultTbActorSystem(new TbActorSystemSettings(1, 3, 3));
+    TbActorSystemSettings settings = new TbActorSystemSettings(1, 3, 3);
+
+    TbActorId selfId = mock(TbActorId.class);
+    TbActorRef parentRef = mock(TbActorRef.class);
+    TbActorId actorId2 = mock(TbActorId.class);
+    CountDownLatch latch2 = new CountDownLatch(1);
+    AtomicInteger invocationCount2 = new AtomicInteger(1);
+    SlowInitActor actor = new SlowInitActor(actorId2,
+        new ActorTestCtx(latch2, invocationCount2, 3, new AtomicLong(1L)));
+
+    TbActorMailbox ctx = new TbActorMailbox(system, settings, selfId, parentRef, actor,
+        new Dispatcher("42", ForkJoinPool.commonPool()));
+
+    // Act
+    slowInitActor.init(ctx);
+
+    // Assert
+    assertSame(ctx, slowInitActor.getActorRef());
+    assertSame(ctx, slowInitActor.getCtx());
+  }
+
+  /**
+   * Method under test: {@link AbstractTbActor#getActorRef()}
+   */
+  @Test
+  void testGetActorRef() {
+    // Arrange
+    TbActorId actorId = mock(TbActorId.class);
+    CountDownLatch latch = new CountDownLatch(1);
+    AtomicInteger invocationCount = new AtomicInteger(1);
+
+    // Act and Assert
+    assertNull(
+        (new SlowInitActor(actorId, new ActorTestCtx(latch, invocationCount, 3, new AtomicLong(1L)))).getActorRef());
+  }
+}

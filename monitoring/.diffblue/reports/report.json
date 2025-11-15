@@ -1,0 +1,3801 @@
+{
+  "meta" : {
+    "reportVersion" : "2.6"
+  },
+  "run" : {
+    "version" : "2024.10.01-2ee2e3d-licensed",
+    "creationTimestamp" : "2025-11-13T02:05:01.06821525Z",
+    "command" : "dcover coverage-reports --exclude-modules=org.thingsboard:ui-ngx,org.thingsboard:application,org.thingsboard.msa:tb,org.thingsboard.msa:web-ui,org.thingsboard.msa:vc-executor-docker,org.thingsboard.msa:tb-node,org.thingsboard.msa.transport:mqtt,org.thingsboard.msa.transport:http,org.thingsboard.msa.transport:coap,org.thingsboard.msa.transport:lwm2m,org.thingsboard.msa.transport:snmp,org.thingsboard.msa:js-executor,org.thingsboard.msa:monitoring",
+    "totalTime" : 216.686,
+    "environmentDetectionTime" : 201.058,
+    "indexingTime" : 0.0,
+    "entryPointsTime" : 0.0,
+    "generationTime" : 0.0,
+    "timeToFirstTest" : 216.686,
+    "timeToLastTest" : 216.686,
+    "indexQueryTime" : 0.0,
+    "verificationTime" : 0.0,
+    "validationTime" : 0.0
+  },
+  "codes" : {
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T002" : "Trivial setter",
+    "T003" : "Private method",
+    "T004" : "In anonymous inner class",
+    "T005" : "Trivial constructor",
+    "T006" : "Main method",
+    "T007" : "Framework configuration callback",
+    "T008" : "Private and never called",
+    "T009" : "No implementation for abstract class",
+    "T010" : "Abstract or interface method",
+    "T012" : "Synthetic method",
+    "T020" : "Other trivial method",
+    "T021" : "Empty method body"
+  },
+  "summary" : {
+    "classesCount" : 44,
+    "methodsCount" : 287,
+    "cumulativeDiffblueTestCount" : 0,
+    "cumulativeManualTestCount" : 0,
+    "completeTestCount" : 0,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 1567,
+    "perMethodTestability" : {
+      "T000" : 87,
+      "T001" : 33,
+      "T002" : 14,
+      "T003" : 12,
+      "T004" : 21,
+      "T005" : 29,
+      "T006" : 1,
+      "T007" : 9,
+      "T008" : 1,
+      "T009" : 8,
+      "T010" : 22,
+      "T012" : 40,
+      "T020" : 8,
+      "T021" : 2
+    },
+    "perMethodOutcome" : {
+      "T000" : 87,
+      "T001" : 33,
+      "T002" : 14,
+      "T003" : 12,
+      "T004" : 21,
+      "T005" : 29,
+      "T006" : 1,
+      "T007" : 9,
+      "T008" : 1,
+      "T009" : 8,
+      "T010" : 22,
+      "T012" : 40,
+      "T020" : 8,
+      "T021" : 2
+    }
+  },
+  "classes" : {
+    "org.thingsboard.monitoring.ThingsboardMonitoringApplication" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1,
+        "T006" : 1,
+        "T012" : 3
+      },
+      "perMethodOutcome" : {
+        "T000" : 1,
+        "T005" : 1,
+        "T006" : 1,
+        "T012" : 3
+      }
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient" : {
+      "methodsCount" : 10,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 5,
+        "T001" : 1,
+        "T002" : 1,
+        "T005" : 2,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 5,
+        "T001" : 1,
+        "T002" : 1,
+        "T005" : 2,
+        "T012" : 1
+      }
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$1" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T004" : 3
+      },
+      "perMethodOutcome" : {
+        "T004" : 3
+      }
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$2" : {
+      "methodsCount" : 18,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T004" : 18
+      },
+      "perMethodOutcome" : {
+        "T004" : 18
+      }
+    },
+    "org.thingsboard.monitoring.client.TbClient" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2
+      },
+      "perMethodOutcome" : {
+        "T000" : 2
+      }
+    },
+    "org.thingsboard.monitoring.client.WsClient" : {
+      "methodsCount" : 14,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 11,
+        "T003" : 1,
+        "T012" : 1,
+        "T021" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 11,
+        "T003" : 1,
+        "T012" : 1,
+        "T021" : 1
+      }
+    },
+    "org.thingsboard.monitoring.client.WsClientFactory" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1,
+        "T005" : 1,
+        "T012" : 1
+      }
+    },
+    "org.thingsboard.monitoring.config.MonitoringConfig" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T010" : 1
+      }
+    },
+    "org.thingsboard.monitoring.config.MonitoringTarget" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T010" : 3
+      },
+      "perMethodOutcome" : {
+        "T000" : 1,
+        "T010" : 3
+      }
+    },
+    "org.thingsboard.monitoring.config.transport.CoapTransportMonitoringConfig" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "T001" : 1,
+        "T005" : 1
+      }
+    },
+    "org.thingsboard.monitoring.config.transport.DeviceConfig" : {
+      "methodsCount" : 11,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T001" : 3,
+        "T002" : 2,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 3,
+        "T001" : 3,
+        "T002" : 2,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.monitoring.config.transport.HttpTransportMonitoringConfig" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "T001" : 1,
+        "T005" : 1
+      }
+    },
+    "org.thingsboard.monitoring.config.transport.Lwm2mTransportMonitoringConfig" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "T001" : 1,
+        "T005" : 1
+      }
+    },
+    "org.thingsboard.monitoring.config.transport.MqttTransportMonitoringConfig" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 2,
+        "T002" : 1,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T001" : 2,
+        "T002" : 1,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.monitoring.config.transport.TransportInfo" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T001" : 3,
+        "T005" : 1,
+        "T007" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 3,
+        "T001" : 3,
+        "T005" : 1,
+        "T007" : 1
+      }
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringConfig" : {
+      "methodsCount" : 10,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 8,
+        "T010" : 2
+      },
+      "perMethodOutcome" : {
+        "T000" : 8,
+        "T010" : 2
+      }
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringTarget" : {
+      "methodsCount" : 14,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T001" : 3,
+        "T002" : 4,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 4,
+        "T001" : 3,
+        "T002" : 4,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.monitoring.config.transport.TransportType" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 2,
+        "T003" : 1,
+        "T012" : 4
+      },
+      "perMethodOutcome" : {
+        "T001" : 2,
+        "T003" : 1,
+        "T012" : 4
+      }
+    },
+    "org.thingsboard.monitoring.data.Latencies" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T005" : 1
+      }
+    },
+    "org.thingsboard.monitoring.data.Latency" : {
+      "methodsCount" : 9,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T001" : 2,
+        "T003" : 1,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 4,
+        "T001" : 2,
+        "T003" : 1,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.monitoring.data.MonitoredServiceKey" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "T005" : 1
+      }
+    },
+    "org.thingsboard.monitoring.data.ServiceFailureException" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1,
+        "T005" : 1
+      }
+    },
+    "org.thingsboard.monitoring.data.cmd.CmdsWrapper" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 1,
+        "T002" : 1,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T001" : 1,
+        "T002" : 1,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataCmd" : {
+      "methodsCount" : 11,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 3,
+        "T002" : 3,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T001" : 3,
+        "T002" : 3,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataUpdate" : {
+      "methodsCount" : 11,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T001" : 1,
+        "T002" : 1,
+        "T005" : 1,
+        "T007" : 1,
+        "T012" : 3,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 3,
+        "T001" : 1,
+        "T002" : 1,
+        "T005" : 1,
+        "T007" : 1,
+        "T012" : 3,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.monitoring.data.cmd.LatestValueCmd" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 1,
+        "T002" : 1,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T001" : 1,
+        "T002" : 1,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.monitoring.data.notification.HighLatencyNotification" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1,
+        "T005" : 1,
+        "T012" : 1
+      }
+    },
+    "org.thingsboard.monitoring.data.notification.Notification" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T010" : 1
+      }
+    },
+    "org.thingsboard.monitoring.data.notification.ServiceFailureNotification" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T001" : 3,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1,
+        "T001" : 3,
+        "T005" : 1
+      }
+    },
+    "org.thingsboard.monitoring.data.notification.ServiceRecoveryNotification" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1,
+        "T005" : 1
+      }
+    },
+    "org.thingsboard.monitoring.notification.NotificationService" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T012" : 3
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T012" : 3
+      }
+    },
+    "org.thingsboard.monitoring.notification.channels.NotificationChannel" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T010" : 1
+      }
+    },
+    "org.thingsboard.monitoring.notification.channels.impl.SlackNotificationChannel" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1,
+        "T008" : 1,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1,
+        "T005" : 1,
+        "T008" : 1,
+        "T012" : 1
+      }
+    },
+    "org.thingsboard.monitoring.service.BaseHealthChecker" : {
+      "methodsCount" : 16,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 2,
+        "T009" : 4,
+        "T010" : 8,
+        "T012" : 2
+      },
+      "perMethodOutcome" : {
+        "T003" : 2,
+        "T009" : 4,
+        "T010" : 8,
+        "T012" : 2
+      }
+    },
+    "org.thingsboard.monitoring.service.BaseMonitoringService" : {
+      "methodsCount" : 15,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T003" : 5,
+        "T010" : 4,
+        "T012" : 5
+      },
+      "perMethodOutcome" : {
+        "T000" : 1,
+        "T003" : 5,
+        "T010" : 4,
+        "T012" : 5
+      }
+    },
+    "org.thingsboard.monitoring.service.MonitoringReporter" : {
+      "methodsCount" : 11,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T005" : 1,
+        "T012" : 6
+      },
+      "perMethodOutcome" : {
+        "T000" : 4,
+        "T005" : 1,
+        "T012" : 6
+      }
+    },
+    "org.thingsboard.monitoring.service.transport.TransportHealthChecker" : {
+      "methodsCount" : 11,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 2,
+        "T009" : 4,
+        "T010" : 2,
+        "T012" : 3
+      },
+      "perMethodOutcome" : {
+        "T003" : 2,
+        "T009" : 4,
+        "T010" : 2,
+        "T012" : 3
+      }
+    },
+    "org.thingsboard.monitoring.service.transport.TransportsMonitoringService" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 1,
+        "T005" : 1,
+        "T012" : 2
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T001" : 1,
+        "T005" : 1,
+        "T012" : 2
+      }
+    },
+    "org.thingsboard.monitoring.service.transport.impl.CoapTransportHealthChecker" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T001" : 1,
+        "T005" : 1,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 3,
+        "T001" : 1,
+        "T005" : 1,
+        "T012" : 1
+      }
+    },
+    "org.thingsboard.monitoring.service.transport.impl.HttpTransportHealthChecker" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 1,
+        "T005" : 1,
+        "T012" : 1,
+        "T021" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T001" : 1,
+        "T005" : 1,
+        "T012" : 1,
+        "T021" : 1
+      }
+    },
+    "org.thingsboard.monitoring.service.transport.impl.Lwm2mTransportHealthChecker" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T001" : 1,
+        "T005" : 1,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 4,
+        "T001" : 1,
+        "T005" : 1,
+        "T012" : 1
+      }
+    },
+    "org.thingsboard.monitoring.service.transport.impl.MqttTransportHealthChecker" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T001" : 1,
+        "T005" : 1,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 3,
+        "T001" : 1,
+        "T005" : 1,
+        "T012" : 1
+      }
+    },
+    "org.thingsboard.monitoring.util.ResourceUtils" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T005" : 1
+      }
+    },
+    "org.thingsboard.monitoring.util.TbStopWatch" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3
+      },
+      "perMethodOutcome" : {
+        "T000" : 3
+      }
+    }
+  },
+  "methods" : {
+    "org.thingsboard.monitoring.ThingsboardMonitoringApplication.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        37
+      ]
+    },
+    "org.thingsboard.monitoring.ThingsboardMonitoringApplication.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        38
+      ]
+    },
+    "org.thingsboard.monitoring.ThingsboardMonitoringApplication.lambda$startMonitoring$0:(Lorg/thingsboard/monitoring/service/BaseMonitoringService;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        57,
+        58
+      ]
+    },
+    "org.thingsboard.monitoring.ThingsboardMonitoringApplication.lambda$startMonitoring$1:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        56,
+        59
+      ]
+    },
+    "org.thingsboard.monitoring.ThingsboardMonitoringApplication.main:([Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T006",
+      "perMethodOutcome" : "T006",
+      "lineNumbers" : [
+        47,
+        48,
+        49,
+        50
+      ]
+    },
+    "org.thingsboard.monitoring.ThingsboardMonitoringApplication.startMonitoring:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        54,
+        55,
+        60
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$1.<init>:(Lorg/thingsboard/monitoring/client/Lwm2mClient;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        116
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$1.createSecuredEndpoint:(Lorg/eclipse/californium/scandium/config/DtlsConnectorConfig;Lorg/eclipse/californium/core/network/config/NetworkConfig;Lorg/eclipse/californium/core/observe/ObservationStore;)Lorg/eclipse/californium/core/network/CoapEndpoint;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        130,
+        131,
+        132,
+        133,
+        134
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$1.createUnsecuredEndpoint:(Ljava/net/InetSocketAddress;Lorg/eclipse/californium/core/network/config/NetworkConfig;Lorg/eclipse/californium/core/observe/ObservationStore;)Lorg/eclipse/californium/core/network/CoapEndpoint;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        121,
+        122,
+        123,
+        124
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$2.<init>:(Lorg/thingsboard/monitoring/client/Lwm2mClient;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        148
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$2.onBootstrapFailure:(Lorg/eclipse/leshan/client/servers/ServerIdentity;Lorg/eclipse/leshan/core/request/BootstrapRequest;Lorg/eclipse/leshan/core/ResponseCode;Ljava/lang/String;Ljava/lang/Exception;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        158
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$2.onBootstrapStarted:(Lorg/eclipse/leshan/client/servers/ServerIdentity;Lorg/eclipse/leshan/core/request/BootstrapRequest;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        151
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$2.onBootstrapSuccess:(Lorg/eclipse/leshan/client/servers/ServerIdentity;Lorg/eclipse/leshan/core/request/BootstrapRequest;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        154
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$2.onBootstrapTimeout:(Lorg/eclipse/leshan/client/servers/ServerIdentity;Lorg/eclipse/leshan/core/request/BootstrapRequest;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        161
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$2.onDeregistrationFailure:(Lorg/eclipse/leshan/client/servers/ServerIdentity;Lorg/eclipse/leshan/core/request/DeregisterRequest;Lorg/eclipse/leshan/core/ResponseCode;Ljava/lang/String;Ljava/lang/Exception;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        215,
+        216
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$2.onDeregistrationStarted:(Lorg/eclipse/leshan/client/servers/ServerIdentity;Lorg/eclipse/leshan/core/request/DeregisterRequest;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        205,
+        206
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$2.onDeregistrationSuccess:(Lorg/eclipse/leshan/client/servers/ServerIdentity;Lorg/eclipse/leshan/core/request/DeregisterRequest;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        210,
+        211
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$2.onDeregistrationTimeout:(Lorg/eclipse/leshan/client/servers/ServerIdentity;Lorg/eclipse/leshan/core/request/DeregisterRequest;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        220,
+        221
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$2.onRegistrationFailure:(Lorg/eclipse/leshan/client/servers/ServerIdentity;Lorg/eclipse/leshan/core/request/RegisterRequest;Lorg/eclipse/leshan/core/ResponseCode;Ljava/lang/String;Ljava/lang/Exception;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        175,
+        176
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$2.onRegistrationStarted:(Lorg/eclipse/leshan/client/servers/ServerIdentity;Lorg/eclipse/leshan/core/request/RegisterRequest;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        165,
+        166
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$2.onRegistrationSuccess:(Lorg/eclipse/leshan/client/servers/ServerIdentity;Lorg/eclipse/leshan/core/request/RegisterRequest;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        170,
+        171
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$2.onRegistrationTimeout:(Lorg/eclipse/leshan/client/servers/ServerIdentity;Lorg/eclipse/leshan/core/request/RegisterRequest;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        180,
+        181
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$2.onUnexpectedError:(Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        225,
+        226
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$2.onUpdateFailure:(Lorg/eclipse/leshan/client/servers/ServerIdentity;Lorg/eclipse/leshan/core/request/UpdateRequest;Lorg/eclipse/leshan/core/ResponseCode;Ljava/lang/String;Ljava/lang/Exception;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        195,
+        196
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$2.onUpdateStarted:(Lorg/eclipse/leshan/client/servers/ServerIdentity;Lorg/eclipse/leshan/core/request/UpdateRequest;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        185,
+        186
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$2.onUpdateSuccess:(Lorg/eclipse/leshan/client/servers/ServerIdentity;Lorg/eclipse/leshan/core/request/UpdateRequest;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        190,
+        191
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient$2.onUpdateTimeout:(Lorg/eclipse/leshan/client/servers/ServerIdentity;Lorg/eclipse/leshan/core/request/UpdateRequest;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        200,
+        201
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        68,
+        75
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        87,
+        77,
+        88
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient.<init>:(Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        82,
+        77,
+        83,
+        84,
+        85
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient.destroy:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        257,
+        258,
+        260
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient.getAvailableResourceIds:(Lorg/eclipse/leshan/core/model/ObjectModel;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        238
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient.getLeshanClient:()Lorg/eclipse/leshan/client/californium/LeshanClient;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        71
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient.initClient:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        91,
+        92,
+        93,
+        94,
+        93,
+        97,
+        98,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        112,
+        113,
+        114,
+        116,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        148,
+        229,
+        231,
+        233,
+        234
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient.read:(Lorg/eclipse/leshan/client/servers/ServerIdentity;I)Lorg/eclipse/leshan/core/response/ReadResponse;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        243,
+        244,
+        246
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient.send:(Ljava/lang/String;I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        251,
+        252,
+        249,
+        253
+      ]
+    },
+    "org.thingsboard.monitoring.client.Lwm2mClient.setLeshanClient:(Lorg/eclipse/leshan/client/californium/LeshanClient;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        72
+      ]
+    },
+    "org.thingsboard.monitoring.client.TbClient.<init>:(Ljava/lang/String;I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        38,
+        39,
+        40,
+        41,
+        38,
+        42
+      ]
+    },
+    "org.thingsboard.monitoring.client.TbClient.logIn:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        45,
+        46
+      ]
+    },
+    "org.thingsboard.monitoring.client.WsClient.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        48
+      ]
+    },
+    "org.thingsboard.monitoring.client.WsClient.<init>:(Ljava/net/URI;J)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        60,
+        55,
+        61,
+        62
+      ]
+    },
+    "org.thingsboard.monitoring.client.WsClient.getLastMsg:()Lcom/fasterxml/jackson/databind/JsonNode;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        170,
+        171,
+        172,
+        173,
+        175,
+        178
+      ]
+    },
+    "org.thingsboard.monitoring.client.WsClient.getTelemetryUpdate:(Ljava/util/UUID;Ljava/lang/String;)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        183,
+        184,
+        185,
+        186
+      ]
+    },
+    "org.thingsboard.monitoring.client.WsClient.onClose:(ILjava/lang/String;Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        91,
+        92
+      ]
+    },
+    "org.thingsboard.monitoring.client.WsClient.onError:(Ljava/lang/Exception;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        96,
+        97
+      ]
+    },
+    "org.thingsboard.monitoring.client.WsClient.onMessage:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        71,
+        72,
+        74,
+        76,
+        77,
+        78,
+        79,
+        81,
+        82,
+        85,
+        86,
+        85,
+        86,
+        87
+      ]
+    },
+    "org.thingsboard.monitoring.client.WsClient.onOpen:(Lorg/java_websocket/handshake/ServerHandshake;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "T021",
+      "lineNumbers" : [
+        67
+      ]
+    },
+    "org.thingsboard.monitoring.client.WsClient.onSetSSLParameters:(Ljavax/net/ssl/SSLParameters;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        191,
+        192
+      ]
+    },
+    "org.thingsboard.monitoring.client.WsClient.registerWaitForUpdate:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        100,
+        102,
+        103,
+        105,
+        106,
+        105,
+        106,
+        107,
+        108
+      ]
+    },
+    "org.thingsboard.monitoring.client.WsClient.send:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        112,
+        114,
+        116,
+        117,
+        116,
+        117,
+        118,
+        119
+      ]
+    },
+    "org.thingsboard.monitoring.client.WsClient.subscribeForTelemetry:(Ljava/util/List;Ljava/lang/String;)Lorg/thingsboard/monitoring/client/WsClient;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        122,
+        123,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        132,
+        133,
+        134,
+        136,
+        137,
+        138,
+        139
+      ]
+    },
+    "org.thingsboard.monitoring.client.WsClient.waitForReply:()Lcom/fasterxml/jackson/databind/JsonNode;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        158,
+        159,
+        160,
+        164,
+        162,
+        163,
+        165,
+        166
+      ]
+    },
+    "org.thingsboard.monitoring.client.WsClient.waitForUpdate:(J)Lcom/fasterxml/jackson/databind/JsonNode;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        143,
+        145,
+        146,
+        147,
+        151,
+        149,
+        150,
+        152,
+        153
+      ]
+    },
+    "org.thingsboard.monitoring.client.WsClientFactory.<init>:(Lorg/thingsboard/monitoring/service/MonitoringReporter;Lorg/thingsboard/monitoring/util/TbStopWatch;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.monitoring.client.WsClientFactory.createClient:(Ljava/lang/String;)Lorg/thingsboard/monitoring/client/WsClient;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        51,
+        52,
+        53,
+        55,
+        56
+      ]
+    },
+    "org.thingsboard.monitoring.client.WsClientFactory.lambda$createClient$0:([Ljava/security/cert/X509Certificate;Ljava/lang/String;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        48
+      ]
+    },
+    "org.thingsboard.monitoring.config.MonitoringConfig.getTargets:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.monitoring.config.MonitoringTarget.getBaseUrl:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.monitoring.config.MonitoringTarget.getDeviceId:()Ljava/util/UUID;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.monitoring.config.MonitoringTarget.getQueue:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.monitoring.config.MonitoringTarget.isCheckDomainIps:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.monitoring.config.transport.CoapTransportMonitoringConfig.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.CoapTransportMonitoringConfig.getTransportType:()Lorg/thingsboard/monitoring/config/transport/TransportType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.DeviceConfig.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.DeviceConfig.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.DeviceConfig.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.DeviceConfig.getCredentials:()Lorg/thingsboard/server/common/data/security/DeviceCredentials;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.DeviceConfig.getId:()Ljava/util/UUID;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.DeviceConfig.getName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.DeviceConfig.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.DeviceConfig.setCredentials:(Lorg/thingsboard/server/common/data/security/DeviceCredentials;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.DeviceConfig.setId:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        32,
+        33
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.DeviceConfig.setName:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.DeviceConfig.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.HttpTransportMonitoringConfig.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.HttpTransportMonitoringConfig.getTransportType:()Lorg/thingsboard/monitoring/config/transport/TransportType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.Lwm2mTransportMonitoringConfig.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.Lwm2mTransportMonitoringConfig.getTransportType:()Lorg/thingsboard/monitoring/config/transport/TransportType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.MqttTransportMonitoringConfig.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.MqttTransportMonitoringConfig.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.MqttTransportMonitoringConfig.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.MqttTransportMonitoringConfig.getQos:()Ljava/lang/Integer;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.MqttTransportMonitoringConfig.getTransportType:()Lorg/thingsboard/monitoring/config/transport/TransportType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.MqttTransportMonitoringConfig.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.MqttTransportMonitoringConfig.setQos:(Ljava/lang/Integer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.MqttTransportMonitoringConfig.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportInfo.<init>:(Lorg/thingsboard/monitoring/config/transport/TransportType;Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportInfo.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportInfo.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportInfo.getBaseUrl:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportInfo.getQueue:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportInfo.getTransportType:()Lorg/thingsboard/monitoring/config/transport/TransportType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportInfo.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportInfo.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        29,
+        30,
+        32
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringConfig.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringConfig.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringConfig.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringConfig.getRequestTimeoutMs:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringConfig.getTargets:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringConfig.getTransportType:()Lorg/thingsboard/monitoring/config/transport/TransportType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringConfig.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringConfig.setRequestTimeoutMs:(I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringConfig.setTargets:(Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringConfig.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringTarget.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringTarget.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringTarget.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringTarget.getBaseUrl:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringTarget.getDevice:()Lorg/thingsboard/monitoring/config/transport/DeviceConfig;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringTarget.getDeviceId:()Ljava/util/UUID;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        34
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringTarget.getQueue:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        38
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringTarget.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringTarget.isCheckDomainIps:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringTarget.setBaseUrl:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringTarget.setCheckDomainIps:(Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringTarget.setDevice:(Lorg/thingsboard/monitoring/config/transport/DeviceConfig;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringTarget.setQueue:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportMonitoringTarget.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportType.$values:()[Lorg/thingsboard/monitoring/config/transport/TransportType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportType.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        30,
+        31,
+        32,
+        33,
+        26
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportType.<init>:(Ljava/lang/String;ILjava/lang/String;Ljava/lang/Class;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportType.getName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportType.getServiceClass:()Ljava/lang/Class;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        36
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportType.valueOf:(Ljava/lang/String;)Lorg/thingsboard/monitoring/config/transport/TransportType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.monitoring.config.transport.TransportType.values:()[Lorg/thingsboard/monitoring/config/transport/TransportType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.monitoring.data.Latencies.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        18
+      ]
+    },
+    "org.thingsboard.monitoring.data.Latencies.request:(Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.monitoring.data.Latencies.wsUpdate:(Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.monitoring.data.Latency.<init>:(Ljava/lang/String;D)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.monitoring.data.Latency.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.monitoring.data.Latency.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.monitoring.data.Latency.getFormattedValue:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.monitoring.data.Latency.getKey:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.monitoring.data.Latency.getValue:()D" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.monitoring.data.Latency.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.monitoring.data.Latency.of:(Ljava/lang/String;D)Lorg/thingsboard/monitoring/data/Latency;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.monitoring.data.Latency.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.monitoring.data.MonitoredServiceKey.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        18
+      ]
+    },
+    "org.thingsboard.monitoring.data.ServiceFailureException.<init>:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        25,
+        26
+      ]
+    },
+    "org.thingsboard.monitoring.data.ServiceFailureException.<init>:(Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        21,
+        22
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.CmdsWrapper.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.CmdsWrapper.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.CmdsWrapper.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.CmdsWrapper.getEntityDataCmds:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.CmdsWrapper.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.CmdsWrapper.setEntityDataCmds:(Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.CmdsWrapper.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataCmd.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataCmd.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataCmd.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataCmd.getCmdId:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataCmd.getLatestCmd:()Lorg/thingsboard/monitoring/data/cmd/LatestValueCmd;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataCmd.getQuery:()Lorg/thingsboard/server/common/data/query/EntityDataQuery;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataCmd.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataCmd.setCmdId:(I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataCmd.setLatestCmd:(Lorg/thingsboard/monitoring/data/cmd/LatestValueCmd;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataCmd.setQuery:(Lorg/thingsboard/server/common/data/query/EntityDataQuery;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataCmd.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        21
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataUpdate.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataUpdate.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataUpdate.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataUpdate.getLatest:(Ljava/util/UUID;Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        35,
+        37,
+        38,
+        39,
+        40,
+        41,
+        37
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataUpdate.getUpdate:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataUpdate.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataUpdate.lambda$getLatest$0:(Ljava/util/UUID;Lorg/thingsboard/server/common/data/query/EntityData;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        38
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataUpdate.lambda$getLatest$1:(Ljava/util/Map;)Ljava/util/Map;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        39
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataUpdate.lambda$getLatest$2:(Ljava/lang/String;Ljava/util/Map;)Lorg/thingsboard/server/common/data/query/TsValue;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        40
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataUpdate.setUpdate:(Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.EntityDataUpdate.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.LatestValueCmd.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.LatestValueCmd.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.LatestValueCmd.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.LatestValueCmd.getKeys:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.LatestValueCmd.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.LatestValueCmd.setKeys:(Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.monitoring.data.cmd.LatestValueCmd.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.monitoring.data.notification.HighLatencyNotification.<init>:(Ljava/util/Collection;I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        27,
+        28,
+        29,
+        30
+      ]
+    },
+    "org.thingsboard.monitoring.data.notification.HighLatencyNotification.getText:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        34,
+        35,
+        36,
+        39
+      ]
+    },
+    "org.thingsboard.monitoring.data.notification.HighLatencyNotification.lambda$getText$0:(Ljava/lang/StringBuilder;Lorg/thingsboard/monitoring/data/Latency;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        37,
+        38
+      ]
+    },
+    "org.thingsboard.monitoring.data.notification.Notification.getText:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.monitoring.data.notification.ServiceFailureNotification.<init>:(Ljava/lang/Object;Ljava/lang/Throwable;I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        28,
+        29,
+        30,
+        31,
+        32
+      ]
+    },
+    "org.thingsboard.monitoring.data.notification.ServiceFailureNotification.getError:()Ljava/lang/Throwable;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.monitoring.data.notification.ServiceFailureNotification.getFailuresCount:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.monitoring.data.notification.ServiceFailureNotification.getServiceKey:()Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.monitoring.data.notification.ServiceFailureNotification.getText:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        36,
+        37,
+        38,
+        39,
+        40,
+        43,
+        44,
+        46
+      ]
+    },
+    "org.thingsboard.monitoring.data.notification.ServiceRecoveryNotification.<init>:(Ljava/lang/Object;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        22,
+        23,
+        24
+      ]
+    },
+    "org.thingsboard.monitoring.data.notification.ServiceRecoveryNotification.getText:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.monitoring.notification.NotificationService.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.monitoring.notification.NotificationService.<init>:(Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        31,
+        36,
+        31
+      ]
+    },
+    "org.thingsboard.monitoring.notification.NotificationService.lambda$sendNotification$0:(Lorg/thingsboard/monitoring/notification/channels/NotificationChannel;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        51,
+        54,
+        52,
+        53,
+        55
+      ]
+    },
+    "org.thingsboard.monitoring.notification.NotificationService.lambda$sendNotification$1:(Ljava/lang/String;Lorg/thingsboard/monitoring/notification/channels/NotificationChannel;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        49,
+        56
+      ]
+    },
+    "org.thingsboard.monitoring.notification.NotificationService.sendNotification:(Lorg/thingsboard/monitoring/data/notification/Notification;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        43,
+        44,
+        46,
+        48,
+        57
+      ]
+    },
+    "org.thingsboard.monitoring.notification.channels.NotificationChannel.sendNotification:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.monitoring.notification.channels.impl.SlackNotificationChannel.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.monitoring.notification.channels.impl.SlackNotificationChannel.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        33
+      ]
+    },
+    "org.thingsboard.monitoring.notification.channels.impl.SlackNotificationChannel.init:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T008",
+      "perMethodOutcome" : "T008",
+      "lineNumbers" : [
+        42,
+        43,
+        44,
+        45,
+        46
+      ]
+    },
+    "org.thingsboard.monitoring.notification.channels.impl.SlackNotificationChannel.sendNotification:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        50,
+        51
+      ]
+    },
+    "org.thingsboard.monitoring.service.BaseHealthChecker.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        39
+      ]
+    },
+    "org.thingsboard.monitoring.service.BaseHealthChecker.<init>:(Lorg/thingsboard/monitoring/config/MonitoringConfig;Lorg/thingsboard/monitoring/config/MonitoringTarget;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        38,
+        56,
+        38
+      ]
+    },
+    "org.thingsboard.monitoring.service.BaseHealthChecker.check:(Lorg/thingsboard/monitoring/client/WsClient;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        69,
+        71,
+        73,
+        74,
+        76,
+        77,
+        78,
+        79,
+        80,
+        83,
+        81,
+        82,
+        85,
+        86,
+        88,
+        89,
+        94,
+        90,
+        91,
+        94,
+        92,
+        93,
+        96,
+        99
+      ]
+    },
+    "org.thingsboard.monitoring.service.BaseHealthChecker.checkWsUpdate:(Lorg/thingsboard/monitoring/client/WsClient;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        111,
+        112
+      ]
+    },
+    "org.thingsboard.monitoring.service.BaseHealthChecker.createTestPayload:(Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.monitoring.service.BaseHealthChecker.destroyClient:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.monitoring.service.BaseHealthChecker.getAssociates:()Ljava/util/Map;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        56
+      ]
+    },
+    "org.thingsboard.monitoring.service.BaseHealthChecker.getConfig:()Lorg/thingsboard/monitoring/config/MonitoringConfig;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        42
+      ]
+    },
+    "org.thingsboard.monitoring.service.BaseHealthChecker.getInfo:()Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.monitoring.service.BaseHealthChecker.getKey:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.monitoring.service.BaseHealthChecker.getTarget:()Lorg/thingsboard/monitoring/config/MonitoringTarget;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        44
+      ]
+    },
+    "org.thingsboard.monitoring.service.BaseHealthChecker.init:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        63,
+        64
+      ]
+    },
+    "org.thingsboard.monitoring.service.BaseHealthChecker.initClient:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.monitoring.service.BaseHealthChecker.initialize:(Lorg/thingsboard/monitoring/client/TbClient;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.monitoring.service.BaseHealthChecker.lambda$check$0:(Lorg/thingsboard/monitoring/client/WsClient;Lorg/thingsboard/monitoring/service/BaseHealthChecker;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        97,
+        98
+      ]
+    },
+    "org.thingsboard.monitoring.service.BaseHealthChecker.sendTestPayload:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.monitoring.service.BaseMonitoringService.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        45
+      ]
+    },
+    "org.thingsboard.monitoring.service.BaseMonitoringService.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        46,
+        50,
+        51
+      ]
+    },
+    "org.thingsboard.monitoring.service.BaseMonitoringService.check:(Lorg/thingsboard/monitoring/service/BaseHealthChecker;Lorg/thingsboard/monitoring/client/WsClient;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        123,
+        125,
+        126,
+        127,
+        128,
+        129,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        145,
+        146,
+        147,
+        150
+      ]
+    },
+    "org.thingsboard.monitoring.service.BaseMonitoringService.createHealthChecker:(Lorg/thingsboard/monitoring/config/MonitoringConfig;Lorg/thingsboard/monitoring/config/MonitoringTarget;)Lorg/thingsboard/monitoring/service/BaseHealthChecker;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.monitoring.service.BaseMonitoringService.createTarget:(Ljava/lang/String;)Lorg/thingsboard/monitoring/config/MonitoringTarget;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.monitoring.service.BaseMonitoringService.getAssociatedUrls:(Ljava/lang/String;)Ljava/util/Set;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        154,
+        155,
+        156,
+        157,
+        164,
+        155,
+        152
+      ]
+    },
+    "org.thingsboard.monitoring.service.BaseMonitoringService.getName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.monitoring.service.BaseMonitoringService.init:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        66,
+        67,
+        69,
+        70,
+        82
+      ]
+    },
+    "org.thingsboard.monitoring.service.BaseMonitoringService.initHealthChecker:(Lorg/thingsboard/monitoring/config/MonitoringTarget;Lorg/thingsboard/monitoring/config/MonitoringConfig;)Lorg/thingsboard/monitoring/service/BaseHealthChecker;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        85,
+        86,
+        87,
+        88,
+        89
+      ]
+    },
+    "org.thingsboard.monitoring.service.BaseMonitoringService.lambda$getAssociatedUrls$3:(Ljava/net/URI;Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        159,
+        160,
+        161
+      ]
+    },
+    "org.thingsboard.monitoring.service.BaseMonitoringService.lambda$init$0:(Lorg/thingsboard/monitoring/service/BaseHealthChecker;Lorg/thingsboard/monitoring/config/MonitoringConfig;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        77,
+        78
+      ]
+    },
+    "org.thingsboard.monitoring.service.BaseMonitoringService.lambda$init$1:(Lorg/thingsboard/monitoring/config/MonitoringConfig;Lorg/thingsboard/monitoring/config/MonitoringTarget;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        72,
+        73,
+        75,
+        76,
+        80
+      ]
+    },
+    "org.thingsboard.monitoring.service.BaseMonitoringService.lambda$init$2:(Lorg/thingsboard/monitoring/config/MonitoringConfig;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        71,
+        81
+      ]
+    },
+    "org.thingsboard.monitoring.service.BaseMonitoringService.runChecks:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        93,
+        94,
+        97,
+        98,
+        99,
+        100,
+        102,
+        103,
+        104,
+        105,
+        107,
+        108,
+        109,
+        110,
+        102,
+        111,
+        112,
+        119,
+        113,
+        115,
+        118,
+        116,
+        117,
+        120
+      ]
+    },
+    "org.thingsboard.monitoring.service.BaseMonitoringService.stopHealthChecker:(Lorg/thingsboard/monitoring/service/BaseHealthChecker;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        168,
+        169,
+        170,
+        171
+      ]
+    },
+    "org.thingsboard.monitoring.service.MonitoringReporter.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        45
+      ]
+    },
+    "org.thingsboard.monitoring.service.MonitoringReporter.<init>:(Lorg/thingsboard/monitoring/notification/NotificationService;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        44,
+        50,
+        51,
+        44
+      ]
+    },
+    "org.thingsboard.monitoring.service.MonitoringReporter.lambda$reportLatencies$0:(Lorg/thingsboard/monitoring/data/Latency;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        69
+      ]
+    },
+    "org.thingsboard.monitoring.service.MonitoringReporter.lambda$reportLatencies$1:(Lorg/thingsboard/monitoring/data/Latency;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        74
+      ]
+    },
+    "org.thingsboard.monitoring.service.MonitoringReporter.lambda$reportLatencies$2:(Ljava/lang/String;Lorg/thingsboard/monitoring/client/TbClient;)Lorg/thingsboard/server/common/data/asset/Asset;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        86,
+        87,
+        88,
+        89,
+        90,
+        91
+      ]
+    },
+    "org.thingsboard.monitoring.service.MonitoringReporter.lambda$reportLatencies$3:(Lcom/fasterxml/jackson/databind/node/ObjectNode;Lorg/thingsboard/monitoring/data/Latency;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        98,
+        99
+      ]
+    },
+    "org.thingsboard.monitoring.service.MonitoringReporter.lambda$serviceFailure$4:(Ljava/lang/Object;)Ljava/util/concurrent/atomic/AtomicInteger;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        118
+      ]
+    },
+    "org.thingsboard.monitoring.service.MonitoringReporter.reportLatencies:(Lorg/thingsboard/monitoring/client/TbClient;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        66,
+        67,
+        69,
+        70,
+        69,
+        71,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        83,
+        84,
+        85,
+        93,
+        96,
+        97,
+        100,
+        101,
+        104,
+        102,
+        103,
+        105
+      ]
+    },
+    "org.thingsboard.monitoring.service.MonitoringReporter.reportLatency:(Ljava/lang/String;J)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        108,
+        109,
+        110,
+        111,
+        112
+      ]
+    },
+    "org.thingsboard.monitoring.service.MonitoringReporter.serviceFailure:(Ljava/lang/Object;Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        115,
+        116,
+        118,
+        119,
+        120,
+        121,
+        122,
+        124
+      ]
+    },
+    "org.thingsboard.monitoring.service.MonitoringReporter.serviceIsOk:(Ljava/lang/Object;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        127,
+        128,
+        129,
+        131,
+        132,
+        133,
+        134,
+        136,
+        138
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.TransportHealthChecker.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        50
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.TransportHealthChecker.<init>:(Lorg/thingsboard/monitoring/config/transport/TransportMonitoringConfig;Lorg/thingsboard/monitoring/config/transport/TransportMonitoringTarget;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        54,
+        55
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.TransportHealthChecker.createTestPayload:(Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        72
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.TransportHealthChecker.getInfo:()Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        77
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.TransportHealthChecker.getKey:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        82
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.TransportHealthChecker.getOrCreateDevice:(Lorg/thingsboard/monitoring/client/TbClient;)Lorg/thingsboard/server/common/data/Device;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        89,
+        90,
+        91,
+        92,
+        93,
+        96,
+        97,
+        98,
+        100,
+        101,
+        102,
+        103,
+        105,
+        106,
+        107,
+        109,
+        110,
+        111,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        126
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.TransportHealthChecker.getOrCreateDeviceProfile:(Lorg/thingsboard/monitoring/client/TbClient;)Lorg/thingsboard/server/common/data/DeviceProfile;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        155,
+        158,
+        159,
+        160
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.TransportHealthChecker.getTransportType:()Lorg/thingsboard/monitoring/config/transport/TransportType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.monitoring.service.transport.TransportHealthChecker.initialize:(Lorg/thingsboard/monitoring/client/TbClient;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        59,
+        60,
+        61,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.TransportHealthChecker.lambda$getOrCreateDeviceProfile$1:(Lorg/thingsboard/monitoring/client/TbClient;)Lorg/thingsboard/server/common/data/TbResourceInfo;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        151,
+        152,
+        153
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.TransportHealthChecker.lambda$initialize$0:(Lorg/thingsboard/server/common/data/Device;)Ljava/lang/IllegalArgumentException;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        61
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.TransportsMonitoringService.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.TransportsMonitoringService.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.TransportsMonitoringService.createHealthChecker:(Lorg/thingsboard/monitoring/config/MonitoringConfig;Lorg/thingsboard/monitoring/config/MonitoringTarget;)Lorg/thingsboard/monitoring/service/BaseHealthChecker;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.TransportsMonitoringService.createHealthChecker:(Lorg/thingsboard/monitoring/config/transport/TransportMonitoringConfig;Lorg/thingsboard/monitoring/config/transport/TransportMonitoringTarget;)Lorg/thingsboard/monitoring/service/BaseHealthChecker;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        33
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.TransportsMonitoringService.createTarget:(Ljava/lang/String;)Lorg/thingsboard/monitoring/config/transport/TransportMonitoringTarget;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        38,
+        39,
+        40
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.TransportsMonitoringService.getName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        45
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.CoapTransportHealthChecker.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.CoapTransportHealthChecker.<init>:(Lorg/thingsboard/monitoring/config/transport/CoapTransportMonitoringConfig;Lorg/thingsboard/monitoring/config/transport/TransportMonitoringTarget;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        41,
+        42
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.CoapTransportHealthChecker.destroyClient:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        66,
+        67,
+        68,
+        69,
+        71
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.CoapTransportHealthChecker.getTransportType:()Lorg/thingsboard/monitoring/config/transport/TransportType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        75
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.CoapTransportHealthChecker.initClient:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        53
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.CoapTransportHealthChecker.sendTestPayload:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        57,
+        58,
+        59,
+        60,
+        62
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.HttpTransportHealthChecker.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        33
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.HttpTransportHealthChecker.<init>:(Lorg/thingsboard/monitoring/config/transport/HttpTransportMonitoringConfig;Lorg/thingsboard/monitoring/config/transport/TransportMonitoringTarget;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        39,
+        40
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.HttpTransportHealthChecker.destroyClient:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "T021",
+      "lineNumbers" : [
+        60
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.HttpTransportHealthChecker.getTransportType:()Lorg/thingsboard/monitoring/config/transport/TransportType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        64
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.HttpTransportHealthChecker.initClient:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        51
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.HttpTransportHealthChecker.sendTestPayload:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        55,
+        56,
+        57
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.Lwm2mTransportHealthChecker.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.Lwm2mTransportHealthChecker.<init>:(Lorg/thingsboard/monitoring/config/transport/Lwm2mTransportMonitoringConfig;Lorg/thingsboard/monitoring/config/transport/TransportMonitoringTarget;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        36,
+        37
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.Lwm2mTransportHealthChecker.createTestPayload:(Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        56
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.Lwm2mTransportHealthChecker.destroyClient:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        61,
+        62,
+        63,
+        65
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.Lwm2mTransportHealthChecker.getTransportType:()Lorg/thingsboard/monitoring/config/transport/TransportType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        69
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.Lwm2mTransportHealthChecker.initClient:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        41,
+        42,
+        43,
+        44,
+        45,
+        47
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.Lwm2mTransportHealthChecker.sendTestPayload:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        51,
+        52
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.MqttTransportHealthChecker.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.MqttTransportHealthChecker.<init>:(Lorg/thingsboard/monitoring/config/transport/MqttTransportMonitoringConfig;Lorg/thingsboard/monitoring/config/transport/TransportMonitoringTarget;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        43,
+        44
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.MqttTransportHealthChecker.destroyClient:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        75,
+        76,
+        77,
+        78,
+        80
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.MqttTransportHealthChecker.getTransportType:()Lorg/thingsboard/monitoring/config/transport/TransportType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        84
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.MqttTransportHealthChecker.initClient:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        48,
+        49,
+        50,
+        51,
+        52,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        61,
+        63
+      ]
+    },
+    "org.thingsboard.monitoring.service.transport.impl.MqttTransportHealthChecker.sendTestPayload:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        67,
+        68,
+        69,
+        70,
+        71
+      ]
+    },
+    "org.thingsboard.monitoring.util.ResourceUtils.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.monitoring.util.ResourceUtils.getResource:(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        27,
+        28,
+        29,
+        31,
+        25
+      ]
+    },
+    "org.thingsboard.monitoring.util.ResourceUtils.getResourceAsStream:(Ljava/lang/String;)Ljava/io/InputStream;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        35,
+        36,
+        37,
+        39
+      ]
+    },
+    "org.thingsboard.monitoring.util.TbStopWatch.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        25,
+        27
+      ]
+    },
+    "org.thingsboard.monitoring.util.TbStopWatch.getTime:()J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        35,
+        36,
+        37,
+        38
+      ]
+    },
+    "org.thingsboard.monitoring.util.TbStopWatch.start:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        30,
+        31,
+        32
+      ]
+    }
+  }
+}

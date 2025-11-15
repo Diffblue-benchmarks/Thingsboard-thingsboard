@@ -1,0 +1,236 @@
+/**
+ * Copyright © 2016-2024 The Thingsboard Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.thingsboard.server.common.data.query;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import org.thingsboard.server.common.data.id.EntityId;
+import org.thingsboard.server.common.data.id.TenantId;
+import org.thingsboard.server.common.data.relation.EntitySearchDirection;
+
+class AssetSearchQueryFilterDiffblueTest {
+  /**
+   * Methods under test:
+   * <ul>
+   *   <li>{@link AssetSearchQueryFilter#equals(Object)}
+   *   <li>{@link AssetSearchQueryFilter#hashCode()}
+   * </ul>
+   */
+  @Test
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    AssetSearchQueryFilter assetSearchQueryFilter = new AssetSearchQueryFilter();
+    assetSearchQueryFilter.setAssetTypes(new ArrayList<>());
+    assetSearchQueryFilter.setDirection(EntitySearchDirection.FROM);
+    assetSearchQueryFilter.setFetchLastLevelOnly(true);
+    assetSearchQueryFilter.setMaxLevel(3);
+    assetSearchQueryFilter.setRelationType("Relation Type");
+    assetSearchQueryFilter.setRootEntity(TenantId.SYS_TENANT_ID);
+
+    AssetSearchQueryFilter assetSearchQueryFilter2 = new AssetSearchQueryFilter();
+    assetSearchQueryFilter2.setAssetTypes(new ArrayList<>());
+    assetSearchQueryFilter2.setDirection(EntitySearchDirection.FROM);
+    assetSearchQueryFilter2.setFetchLastLevelOnly(true);
+    assetSearchQueryFilter2.setMaxLevel(3);
+    assetSearchQueryFilter2.setRelationType("Relation Type");
+    assetSearchQueryFilter2.setRootEntity(TenantId.SYS_TENANT_ID);
+
+    // Act and Assert
+    assertEquals(assetSearchQueryFilter, assetSearchQueryFilter2);
+    int expectedHashCodeResult = assetSearchQueryFilter.hashCode();
+    assertEquals(expectedHashCodeResult, assetSearchQueryFilter2.hashCode());
+  }
+
+  /**
+   * Methods under test:
+   * <ul>
+   *   <li>{@link AssetSearchQueryFilter#equals(Object)}
+   *   <li>{@link AssetSearchQueryFilter#hashCode()}
+   * </ul>
+   */
+  @Test
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    AssetSearchQueryFilter assetSearchQueryFilter = new AssetSearchQueryFilter();
+    assetSearchQueryFilter.setAssetTypes(new ArrayList<>());
+    assetSearchQueryFilter.setDirection(EntitySearchDirection.FROM);
+    assetSearchQueryFilter.setFetchLastLevelOnly(true);
+    assetSearchQueryFilter.setMaxLevel(3);
+    assetSearchQueryFilter.setRelationType("Relation Type");
+    assetSearchQueryFilter.setRootEntity(TenantId.SYS_TENANT_ID);
+
+    // Act and Assert
+    assertEquals(assetSearchQueryFilter, assetSearchQueryFilter);
+    int expectedHashCodeResult = assetSearchQueryFilter.hashCode();
+    assertEquals(expectedHashCodeResult, assetSearchQueryFilter.hashCode());
+  }
+
+  /**
+   * Method under test: {@link AssetSearchQueryFilter#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    ArrayList<String> assetTypes = new ArrayList<>();
+    assetTypes.add("Relation Type");
+
+    AssetSearchQueryFilter assetSearchQueryFilter = new AssetSearchQueryFilter();
+    assetSearchQueryFilter.setAssetTypes(assetTypes);
+    assetSearchQueryFilter.setDirection(EntitySearchDirection.FROM);
+    assetSearchQueryFilter.setFetchLastLevelOnly(true);
+    assetSearchQueryFilter.setMaxLevel(3);
+    assetSearchQueryFilter.setRelationType("Relation Type");
+    assetSearchQueryFilter.setRootEntity(TenantId.SYS_TENANT_ID);
+
+    AssetSearchQueryFilter assetSearchQueryFilter2 = new AssetSearchQueryFilter();
+    assetSearchQueryFilter2.setAssetTypes(new ArrayList<>());
+    assetSearchQueryFilter2.setDirection(EntitySearchDirection.FROM);
+    assetSearchQueryFilter2.setFetchLastLevelOnly(true);
+    assetSearchQueryFilter2.setMaxLevel(3);
+    assetSearchQueryFilter2.setRelationType("Relation Type");
+    assetSearchQueryFilter2.setRootEntity(TenantId.SYS_TENANT_ID);
+
+    // Act and Assert
+    assertNotEquals(assetSearchQueryFilter, assetSearchQueryFilter2);
+  }
+
+  /**
+   * Method under test: {@link AssetSearchQueryFilter#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    AssetSearchQueryFilter assetSearchQueryFilter = new AssetSearchQueryFilter();
+    assetSearchQueryFilter.setAssetTypes(new ArrayList<>());
+    assetSearchQueryFilter.setDirection(null);
+    assetSearchQueryFilter.setFetchLastLevelOnly(true);
+    assetSearchQueryFilter.setMaxLevel(3);
+    assetSearchQueryFilter.setRelationType("Relation Type");
+    assetSearchQueryFilter.setRootEntity(TenantId.SYS_TENANT_ID);
+
+    AssetSearchQueryFilter assetSearchQueryFilter2 = new AssetSearchQueryFilter();
+    assetSearchQueryFilter2.setAssetTypes(new ArrayList<>());
+    assetSearchQueryFilter2.setDirection(EntitySearchDirection.FROM);
+    assetSearchQueryFilter2.setFetchLastLevelOnly(true);
+    assetSearchQueryFilter2.setMaxLevel(3);
+    assetSearchQueryFilter2.setRelationType("Relation Type");
+    assetSearchQueryFilter2.setRootEntity(TenantId.SYS_TENANT_ID);
+
+    // Act and Assert
+    assertNotEquals(assetSearchQueryFilter, assetSearchQueryFilter2);
+  }
+
+  /**
+   * Method under test: {@link AssetSearchQueryFilter#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+    // Arrange
+    AssetSearchQueryFilter assetSearchQueryFilter = new AssetSearchQueryFilter();
+    assetSearchQueryFilter.setAssetTypes(new ArrayList<>());
+    assetSearchQueryFilter.setDirection(EntitySearchDirection.FROM);
+    assetSearchQueryFilter.setFetchLastLevelOnly(true);
+    assetSearchQueryFilter.setMaxLevel(3);
+    assetSearchQueryFilter.setRelationType("Relation Type");
+    assetSearchQueryFilter.setRootEntity(mock(EntityId.class));
+
+    AssetSearchQueryFilter assetSearchQueryFilter2 = new AssetSearchQueryFilter();
+    assetSearchQueryFilter2.setAssetTypes(new ArrayList<>());
+    assetSearchQueryFilter2.setDirection(EntitySearchDirection.FROM);
+    assetSearchQueryFilter2.setFetchLastLevelOnly(true);
+    assetSearchQueryFilter2.setMaxLevel(3);
+    assetSearchQueryFilter2.setRelationType("Relation Type");
+    assetSearchQueryFilter2.setRootEntity(TenantId.SYS_TENANT_ID);
+
+    // Act and Assert
+    assertNotEquals(assetSearchQueryFilter, assetSearchQueryFilter2);
+  }
+
+  /**
+   * Method under test: {@link AssetSearchQueryFilter#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange
+    AssetSearchQueryFilter assetSearchQueryFilter = new AssetSearchQueryFilter();
+    assetSearchQueryFilter.setAssetTypes(new ArrayList<>());
+    assetSearchQueryFilter.setDirection(EntitySearchDirection.FROM);
+    assetSearchQueryFilter.setFetchLastLevelOnly(true);
+    assetSearchQueryFilter.setMaxLevel(3);
+    assetSearchQueryFilter.setRelationType("Relation Type");
+    assetSearchQueryFilter.setRootEntity(TenantId.SYS_TENANT_ID);
+
+    // Act and Assert
+    assertNotEquals(assetSearchQueryFilter, null);
+  }
+
+  /**
+   * Method under test: {@link AssetSearchQueryFilter#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange
+    AssetSearchQueryFilter assetSearchQueryFilter = new AssetSearchQueryFilter();
+    assetSearchQueryFilter.setAssetTypes(new ArrayList<>());
+    assetSearchQueryFilter.setDirection(EntitySearchDirection.FROM);
+    assetSearchQueryFilter.setFetchLastLevelOnly(true);
+    assetSearchQueryFilter.setMaxLevel(3);
+    assetSearchQueryFilter.setRelationType("Relation Type");
+    assetSearchQueryFilter.setRootEntity(TenantId.SYS_TENANT_ID);
+
+    // Act and Assert
+    assertNotEquals(assetSearchQueryFilter, "Different type to AssetSearchQueryFilter");
+  }
+
+  /**
+   * Methods under test:
+   * <ul>
+   *   <li>default or parameterless constructor of {@link AssetSearchQueryFilter}
+   *   <li>{@link AssetSearchQueryFilter#setAssetTypes(List)}
+   *   <li>{@link AssetSearchQueryFilter#toString()}
+   *   <li>{@link AssetSearchQueryFilter#getAssetTypes()}
+   *   <li>{@link AssetSearchQueryFilter#getType()}
+   * </ul>
+   */
+  @Test
+  void testGettersAndSetters() {
+    // Arrange and Act
+    AssetSearchQueryFilter actualAssetSearchQueryFilter = new AssetSearchQueryFilter();
+    ArrayList<String> assetTypes = new ArrayList<>();
+    actualAssetSearchQueryFilter.setAssetTypes(assetTypes);
+    String actualToStringResult = actualAssetSearchQueryFilter.toString();
+    List<String> actualAssetTypes = actualAssetSearchQueryFilter.getAssetTypes();
+    EntityFilterType actualType = actualAssetSearchQueryFilter.getType();
+
+    // Assert that nothing has changed
+    assertEquals(
+        "AssetSearchQueryFilter(super=EntitySearchQueryFilter(rootEntity=null, relationType=null, direction=null,"
+            + " maxLevel=0, fetchLastLevelOnly=false), assetTypes=[])",
+        actualToStringResult);
+    assertEquals(0, actualAssetSearchQueryFilter.getMaxLevel());
+    assertEquals(EntityFilterType.ASSET_SEARCH_QUERY, actualType);
+    assertFalse(actualAssetSearchQueryFilter.isFetchLastLevelOnly());
+    assertTrue(actualAssetTypes.isEmpty());
+    assertSame(assetTypes, actualAssetTypes);
+  }
+}

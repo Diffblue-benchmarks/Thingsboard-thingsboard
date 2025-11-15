@@ -1,0 +1,217 @@
+/**
+ * Copyright © 2016-2024 The Thingsboard Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.thingsboard.server.dao.device.provision;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.mockito.Mockito.mock;
+import java.util.UUID;
+import org.junit.jupiter.api.Test;
+import org.thingsboard.server.common.data.id.DeviceCredentialsId;
+import org.thingsboard.server.common.data.security.DeviceCredentials;
+
+class ProvisionResponseDiffblueTest {
+  /**
+   * Methods under test:
+   * <ul>
+   *   <li>{@link ProvisionResponse#equals(Object)}
+   *   <li>{@link ProvisionResponse#hashCode()}
+   * </ul>
+   */
+  @Test
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    ProvisionResponse provisionResponse = new ProvisionResponse(new DeviceCredentials(),
+        ProvisionResponseStatus.UNKNOWN);
+    ProvisionResponse provisionResponse2 = new ProvisionResponse(new DeviceCredentials(),
+        ProvisionResponseStatus.UNKNOWN);
+
+    // Act and Assert
+    assertEquals(provisionResponse, provisionResponse2);
+    int expectedHashCodeResult = provisionResponse.hashCode();
+    assertEquals(expectedHashCodeResult, provisionResponse2.hashCode());
+  }
+
+  /**
+   * Methods under test:
+   * <ul>
+   *   <li>{@link ProvisionResponse#equals(Object)}
+   *   <li>{@link ProvisionResponse#hashCode()}
+   * </ul>
+   */
+  @Test
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    ProvisionResponse provisionResponse = new ProvisionResponse(null, ProvisionResponseStatus.UNKNOWN);
+    ProvisionResponse provisionResponse2 = new ProvisionResponse(null, ProvisionResponseStatus.UNKNOWN);
+
+    // Act and Assert
+    assertEquals(provisionResponse, provisionResponse2);
+    int expectedHashCodeResult = provisionResponse.hashCode();
+    assertEquals(expectedHashCodeResult, provisionResponse2.hashCode());
+  }
+
+  /**
+   * Methods under test:
+   * <ul>
+   *   <li>{@link ProvisionResponse#equals(Object)}
+   *   <li>{@link ProvisionResponse#hashCode()}
+   * </ul>
+   */
+  @Test
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+    // Arrange
+    ProvisionResponse provisionResponse = new ProvisionResponse(new DeviceCredentials(), null);
+    ProvisionResponse provisionResponse2 = new ProvisionResponse(new DeviceCredentials(), null);
+
+    // Act and Assert
+    assertEquals(provisionResponse, provisionResponse2);
+    int expectedHashCodeResult = provisionResponse.hashCode();
+    assertEquals(expectedHashCodeResult, provisionResponse2.hashCode());
+  }
+
+  /**
+   * Methods under test:
+   * <ul>
+   *   <li>{@link ProvisionResponse#equals(Object)}
+   *   <li>{@link ProvisionResponse#hashCode()}
+   * </ul>
+   */
+  @Test
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    ProvisionResponse provisionResponse = new ProvisionResponse(new DeviceCredentials(),
+        ProvisionResponseStatus.UNKNOWN);
+
+    // Act and Assert
+    assertEquals(provisionResponse, provisionResponse);
+    int expectedHashCodeResult = provisionResponse.hashCode();
+    assertEquals(expectedHashCodeResult, provisionResponse.hashCode());
+  }
+
+  /**
+   * Method under test: {@link ProvisionResponse#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    ProvisionResponse provisionResponse = new ProvisionResponse(null, ProvisionResponseStatus.UNKNOWN);
+
+    // Act and Assert
+    assertNotEquals(provisionResponse, new ProvisionResponse(new DeviceCredentials(), ProvisionResponseStatus.UNKNOWN));
+  }
+
+  /**
+   * Method under test: {@link ProvisionResponse#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    ProvisionResponse provisionResponse = new ProvisionResponse(
+        new DeviceCredentials(new DeviceCredentialsId(UUID.randomUUID())), ProvisionResponseStatus.UNKNOWN);
+
+    // Act and Assert
+    assertNotEquals(provisionResponse, new ProvisionResponse(new DeviceCredentials(), ProvisionResponseStatus.UNKNOWN));
+  }
+
+  /**
+   * Method under test: {@link ProvisionResponse#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+    // Arrange
+    ProvisionResponse provisionResponse = new ProvisionResponse(mock(DeviceCredentials.class),
+        ProvisionResponseStatus.UNKNOWN);
+
+    // Act and Assert
+    assertNotEquals(provisionResponse, new ProvisionResponse(new DeviceCredentials(), ProvisionResponseStatus.UNKNOWN));
+  }
+
+  /**
+   * Method under test: {@link ProvisionResponse#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+    // Arrange
+    ProvisionResponse provisionResponse = new ProvisionResponse(new DeviceCredentials(), null);
+
+    // Act and Assert
+    assertNotEquals(provisionResponse, new ProvisionResponse(new DeviceCredentials(), ProvisionResponseStatus.UNKNOWN));
+  }
+
+  /**
+   * Method under test: {@link ProvisionResponse#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+    // Arrange
+    ProvisionResponse provisionResponse = new ProvisionResponse(new DeviceCredentials(),
+        ProvisionResponseStatus.SUCCESS);
+
+    // Act and Assert
+    assertNotEquals(provisionResponse, new ProvisionResponse(new DeviceCredentials(), ProvisionResponseStatus.UNKNOWN));
+  }
+
+  /**
+   * Method under test: {@link ProvisionResponse#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new ProvisionResponse(new DeviceCredentials(), ProvisionResponseStatus.UNKNOWN), null);
+  }
+
+  /**
+   * Method under test: {@link ProvisionResponse#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new ProvisionResponse(new DeviceCredentials(), ProvisionResponseStatus.UNKNOWN),
+        "Different type to ProvisionResponse");
+  }
+
+  /**
+   * Methods under test:
+   * <ul>
+   *   <li>
+   * {@link ProvisionResponse#ProvisionResponse(DeviceCredentials, ProvisionResponseStatus)}
+   *   <li>{@link ProvisionResponse#toString()}
+   *   <li>{@link ProvisionResponse#getDeviceCredentials()}
+   *   <li>{@link ProvisionResponse#getResponseStatus()}
+   * </ul>
+   */
+  @Test
+  void testGettersAndSetters() {
+    // Arrange
+    DeviceCredentials deviceCredentials = new DeviceCredentials();
+
+    // Act
+    ProvisionResponse actualProvisionResponse = new ProvisionResponse(deviceCredentials,
+        ProvisionResponseStatus.UNKNOWN);
+    String actualToStringResult = actualProvisionResponse.toString();
+    DeviceCredentials actualDeviceCredentials = actualProvisionResponse.getDeviceCredentials();
+
+    // Assert
+    assertEquals(
+        "ProvisionResponse(deviceCredentials=DeviceCredentials [deviceId=null, credentialsType=null,"
+            + " credentialsId=null, credentialsValue=null, createdTime=0, id=null], responseStatus=UNKNOWN)",
+        actualToStringResult);
+    assertEquals(ProvisionResponseStatus.UNKNOWN, actualProvisionResponse.getResponseStatus());
+    assertSame(deviceCredentials, actualDeviceCredentials);
+  }
+}

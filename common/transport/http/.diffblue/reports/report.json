@@ -1,0 +1,1086 @@
+{
+  "meta" : {
+    "reportVersion" : "2.6"
+  },
+  "run" : {
+    "version" : "2024.10.01-2ee2e3d-licensed",
+    "creationTimestamp" : "2025-11-13T04:01:10.81162803Z",
+    "command" : "dcover create --exclude-modules=org.thingsboard:ui-ngx,org.thingsboard:application,org.thingsboard.msa:tb,org.thingsboard.msa:web-ui,org.thingsboard.msa:vc-executor-docker,org.thingsboard.msa:tb-node,org.thingsboard.msa.transport:mqtt,org.thingsboard.msa.transport:http,org.thingsboard.msa.transport:coap,org.thingsboard.msa.transport:lwm2m,org.thingsboard.msa.transport:snmp,org.thingsboard.msa:js-executor,org.thingsboard.msa:monitoring --coverage-reports --upload http://localhost:8080 --project-name Thingsboard-thingsboard --name with-diffblue-tests",
+    "totalTime" : 154525.222,
+    "environmentDetectionTime" : 0.439,
+    "indexingTime" : 0.28,
+    "entryPointsTime" : 0.434,
+    "generationTime" : 146953.262,
+    "timeToFirstTest" : 433.293,
+    "timeToLastTest" : 1389.251,
+    "indexQueryTime" : 17.893,
+    "verificationTime" : 2981.369,
+    "validationTime" : 139.36
+  },
+  "codes" : {
+    "F009" : "Internal error",
+    "R000" : "Success",
+    "R002" : "Missing observers",
+    "R026" : "Failed to create Spring context",
+    "R027" : "Missing beans when creating Spring context",
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T003" : "Private method",
+    "T005" : "Trivial constructor",
+    "T012" : "Synthetic method",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation",
+    "W002" : "Test compiled, but did not pass"
+  },
+  "summary" : {
+    "classesCount" : 10,
+    "methodsCount" : 71,
+    "cumulativeDiffblueTestCount" : 13,
+    "cumulativeManualTestCount" : 3,
+    "completeTestCount" : 15,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 699,
+    "perMethodTestability" : {
+      "T000" : 25,
+      "T001" : 3,
+      "T003" : 17,
+      "T005" : 6,
+      "T012" : 20
+    },
+    "perMethodOutcome" : {
+      "F009" : 4,
+      "R000" : 10,
+      "R002" : 3,
+      "R026" : 1,
+      "R027" : 12,
+      "T003" : 17,
+      "T005" : 3,
+      "T012" : 20,
+      "W002" : 1
+    },
+    "perTestOutcome" : {
+      "R000" : 15
+    },
+    "perTestValidation" : {
+      "V000" : 15,
+      "V003" : 48
+    },
+    "warnings" : {
+      "W002" : 3
+    }
+  },
+  "classes" : {
+    "org.thingsboard.server.transport.http.DeviceApiController" : {
+      "methodsCount" : 25,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 11,
+        "T001" : 1,
+        "T003" : 2,
+        "T005" : 1,
+        "T012" : 10
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "R027" : 11,
+        "T003" : 2,
+        "T005" : 1,
+        "T012" : 10
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$DeviceAuthCallback" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "F009" : 2,
+        "R002" : 1,
+        "T012" : 1
+      }
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$DeviceProvisionCallback" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2,
+        "R002" : 1,
+        "T012" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 4
+      }
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$GetOtaPackageCallback" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "F009" : 2,
+        "R002" : 1,
+        "T012" : 1
+      }
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$HttpOkCallback" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 3,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "T003" : 3,
+        "T012" : 1
+      }
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$HttpSessionListener" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 7
+      },
+      "perMethodOutcome" : {
+        "T003" : 7
+      }
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$SessionCloseOnErrorCallback" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 3,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "T003" : 3,
+        "T012" : 1
+      }
+    },
+    "org.thingsboard.server.transport.http.HttpTransportContext" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T001" : 2,
+        "T005" : 1,
+        "T012" : 2
+      },
+      "perMethodOutcome" : {
+        "R000" : 3,
+        "T005" : 1,
+        "T012" : 2
+      },
+      "perTestOutcome" : {
+        "R000" : 3
+      }
+    },
+    "org.thingsboard.server.transport.http.config.PayloadSizeFilter" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 7,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 5,
+        "T003" : 2,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 4,
+        "T003" : 2,
+        "T012" : 1,
+        "W002" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 7
+      },
+      "warnings" : {
+        "W002" : 3
+      }
+    },
+    "org.thingsboard.server.transport.http.config.TransportSecurityConfiguration" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1,
+        "T012" : 2
+      },
+      "perMethodOutcome" : {
+        "R026" : 1,
+        "R027" : 1,
+        "T005" : 1,
+        "T012" : 2
+      }
+    }
+  },
+  "methods" : {
+    "org.thingsboard.server.transport.http.DeviceApiController$DeviceAuthCallback.<init>:(Lorg/thingsboard/server/common/transport/TransportContext;Lorg/springframework/web/context/request/async/DeferredResult;Ljava/util/function/Consumer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        450
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$DeviceAuthCallback.onError:(Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "F009",
+      "lineNumbers" : [
+        467,
+        468,
+        469,
+        470,
+        472,
+        474,
+        475
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$DeviceAuthCallback.onSuccess:(Ljava/lang/Object;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        450
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$DeviceAuthCallback.onSuccess:(Lorg/thingsboard/server/common/transport/auth/ValidateDeviceCredentialsResponse;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "F009",
+      "lineNumbers" : [
+        458,
+        459,
+        461,
+        463
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$DeviceProvisionCallback.<init>:(Lorg/springframework/web/context/request/async/DeferredResult;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        478
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$DeviceProvisionCallback.onError:(Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        489,
+        490,
+        491,
+        492,
+        494,
+        496,
+        497
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$DeviceProvisionCallback.onSuccess:(Ljava/lang/Object;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        478
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$DeviceProvisionCallback.onSuccess:(Lorg/thingsboard/server/gen/transport/TransportProtos$ProvisionDeviceResponseMsg;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        484,
+        485
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$GetOtaPackageCallback.<init>:(Lorg/thingsboard/server/common/transport/TransportContext;Lorg/springframework/web/context/request/async/DeferredResult;Ljava/lang/String;Ljava/lang/String;II)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        500
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$GetOtaPackageCallback.onError:(Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "F009",
+      "lineNumbers" : [
+        530,
+        531,
+        532,
+        533,
+        535,
+        537,
+        538
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$GetOtaPackageCallback.onSuccess:(Ljava/lang/Object;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        500
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$GetOtaPackageCallback.onSuccess:(Lorg/thingsboard/server/gen/transport/TransportProtos$GetOtaPackageResponseMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "F009",
+      "lineNumbers" : [
+        511,
+        512,
+        513,
+        514,
+        515,
+        516,
+        517,
+        518,
+        519,
+        520,
+        521,
+        522,
+        523,
+        524,
+        526
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$HttpOkCallback.<init>:(Lorg/springframework/web/context/request/async/DeferredResult;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        563,
+        564,
+        565
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$HttpOkCallback.onError:(Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        574,
+        575
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$HttpOkCallback.onSuccess:(Ljava/lang/Object;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        560
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$HttpOkCallback.onSuccess:(Ljava/lang/Void;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        569,
+        570
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$HttpSessionListener.<init>:(Lorg/springframework/web/context/request/async/DeferredResult;Lorg/thingsboard/server/common/transport/TransportService;Lorg/thingsboard/server/gen/transport/TransportProtos$SessionInfoProto;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        578
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$HttpSessionListener.onAttributeUpdate:(Ljava/util/UUID;Lorg/thingsboard/server/gen/transport/TransportProtos$AttributeUpdateNotificationMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        592,
+        593,
+        594
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$HttpSessionListener.onDeviceDeleted:(Lorg/thingsboard/server/common/data/id/DeviceId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        616,
+        617,
+        618,
+        619
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$HttpSessionListener.onGetAttributesResponse:(Lorg/thingsboard/server/gen/transport/TransportProtos$GetAttributeResponseMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        587,
+        588
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$HttpSessionListener.onRemoteSessionCloseCommand:(Ljava/util/UUID;Lorg/thingsboard/server/gen/transport/TransportProtos$SessionCloseNotificationProto;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        598,
+        599,
+        600
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$HttpSessionListener.onToDeviceRpcRequest:(Ljava/util/UUID;Lorg/thingsboard/server/gen/transport/TransportProtos$ToDeviceRpcRequestMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        604,
+        605,
+        606,
+        607
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$HttpSessionListener.onToServerRpcResponse:(Lorg/thingsboard/server/gen/transport/TransportProtos$ToServerRpcResponseMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        611,
+        612
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$SessionCloseOnErrorCallback.<init>:(Lorg/thingsboard/server/common/transport/TransportService;Lorg/thingsboard/server/gen/transport/TransportProtos$SessionInfoProto;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        545,
+        546,
+        547,
+        548
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$SessionCloseOnErrorCallback.onError:(Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        556,
+        557
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$SessionCloseOnErrorCallback.onSuccess:(Ljava/lang/Object;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        541
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController$SessionCloseOnErrorCallback.onSuccess:(Ljava/lang/Void;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        552
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        86
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        87
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.claimDevice:(Ljava/lang/String;Ljava/lang/String;)Lorg/springframework/web/context/request/async/DeferredResult;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R027",
+      "lineNumbers" : [
+        231,
+        232,
+        239
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.getDeviceAttributes:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/springframework/web/context/request/async/DeferredResult;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R027",
+      "lineNumbers" : [
+        152,
+        153,
+        170
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.getFirmware:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)Lorg/springframework/web/context/request/async/DeferredResult;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R027",
+      "lineNumbers" : [
+        377
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.getName:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        633
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.getOtaPackageCallback:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILorg/thingsboard/server/common/data/ota/OtaPackageType;)Lorg/springframework/web/context/request/async/DeferredResult;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        436,
+        437,
+        447
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.getSoftware:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)Lorg/springframework/web/context/request/async/DeferredResult;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R027",
+      "lineNumbers" : [
+        403
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.lambda$claimDevice$3:(Ljava/lang/String;Lorg/springframework/web/context/request/async/DeferredResult;Lorg/thingsboard/server/gen/transport/TransportProtos$SessionInfoProto;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        234,
+        235,
+        236,
+        238
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.lambda$getDeviceAttributes$0:(Ljava/lang/String;Ljava/lang/String;Lorg/springframework/web/context/request/async/DeferredResult;Lorg/thingsboard/server/gen/transport/TransportProtos$SessionInfoProto;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        155,
+        156,
+        157,
+        158,
+        159,
+        161,
+        162,
+        164,
+        165,
+        166,
+        167,
+        165,
+        168,
+        169
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.lambda$getOtaPackageCallback$8:(Lorg/thingsboard/server/common/data/ota/OtaPackageType;Lorg/springframework/web/context/request/async/DeferredResult;Ljava/lang/String;Ljava/lang/String;IILorg/thingsboard/server/gen/transport/TransportProtos$SessionInfoProto;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        439,
+        440,
+        441,
+        442,
+        443,
+        444,
+        445,
+        446
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.lambda$postDeviceAttributes$1:(Ljava/lang/String;Lorg/springframework/web/context/request/async/DeferredResult;Lorg/thingsboard/server/gen/transport/TransportProtos$SessionInfoProto;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        189,
+        190,
+        192
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.lambda$postRpcRequest$6:(Ljava/lang/String;Lorg/springframework/web/context/request/async/DeferredResult;Lorg/thingsboard/server/gen/transport/TransportProtos$SessionInfoProto;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        316,
+        317,
+        318,
+        319,
+        320,
+        318,
+        321,
+        322,
+        323,
+        321,
+        325
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.lambda$postTelemetry$2:(Ljava/lang/String;Lorg/springframework/web/context/request/async/DeferredResult;Lorg/thingsboard/server/gen/transport/TransportProtos$SessionInfoProto;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        209,
+        210,
+        212
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.lambda$replyToCommand$5:(Ljava/lang/Integer;Ljava/lang/String;Lorg/springframework/web/context/request/async/DeferredResult;Lorg/thingsboard/server/gen/transport/TransportProtos$SessionInfoProto;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        286,
+        287,
+        288
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.lambda$subscribeToAttributes$7:(Lorg/springframework/web/context/request/async/DeferredResult;JLorg/thingsboard/server/gen/transport/TransportProtos$SessionInfoProto;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        343,
+        344,
+        345,
+        346,
+        344,
+        347,
+        350
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.lambda$subscribeToCommands$4:(Lorg/springframework/web/context/request/async/DeferredResult;JLorg/thingsboard/server/gen/transport/TransportProtos$SessionInfoProto;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        256,
+        257,
+        258,
+        259,
+        257,
+        260,
+        263
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.parseMediaType:(Ljava/lang/String;)Lorg/springframework/http/MediaType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        625,
+        626,
+        627
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.postDeviceAttributes:(Ljava/lang/String;Ljava/lang/String;)Lorg/springframework/web/context/request/async/DeferredResult;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R027",
+      "lineNumbers" : [
+        186,
+        187,
+        193
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.postRpcRequest:(Ljava/lang/String;Ljava/lang/String;Ljakarta/servlet/http/HttpServletRequest;)Lorg/springframework/web/context/request/async/DeferredResult;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R027",
+      "lineNumbers" : [
+        313,
+        314,
+        326
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.postTelemetry:(Ljava/lang/String;Ljava/lang/String;Ljakarta/servlet/http/HttpServletRequest;)Lorg/springframework/web/context/request/async/DeferredResult;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R027",
+      "lineNumbers" : [
+        206,
+        207,
+        213
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.provisionDevice:(Ljava/lang/String;)Lorg/springframework/web/context/request/async/DeferredResult;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R027",
+      "lineNumbers" : [
+        429,
+        430,
+        432
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.replyToCommand:(Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Ljakarta/servlet/http/HttpServletRequest;)Lorg/springframework/web/context/request/async/DeferredResult;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R027",
+      "lineNumbers" : [
+        283,
+        284,
+        289
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.subscribeToAttributes:(Ljava/lang/String;J)Lorg/springframework/web/context/request/async/DeferredResult;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R027",
+      "lineNumbers" : [
+        340,
+        341,
+        351
+      ]
+    },
+    "org.thingsboard.server.transport.http.DeviceApiController.subscribeToCommands:(Ljava/lang/String;J)Lorg/springframework/web/context/request/async/DeferredResult;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R027",
+      "lineNumbers" : [
+        253,
+        254,
+        264
+      ]
+    },
+    "org.thingsboard.server.transport.http.HttpTransportContext.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.server.transport.http.HttpTransportContext.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.server.transport.http.HttpTransportContext.getDefaultTimeout:()J" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        37
+      ]
+    },
+    "org.thingsboard.server.transport.http.HttpTransportContext.getMaxRequestTimeout:()J" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        41
+      ]
+    },
+    "org.thingsboard.server.transport.http.HttpTransportContext.lambda$tomcatAsyncTimeoutConnectorCustomizer$0:(Lorg/apache/catalina/connector/Connector;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        48,
+        49,
+        50,
+        51,
+        53
+      ]
+    },
+    "org.thingsboard.server.transport.http.HttpTransportContext.tomcatAsyncTimeoutConnectorCustomizer:()Lorg/springframework/boot/web/embedded/tomcat/TomcatConnectorCustomizer;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        47
+      ]
+    },
+    "org.thingsboard.server.transport.http.config.PayloadSizeFilter.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        34
+      ]
+    },
+    "org.thingsboard.server.transport.http.config.PayloadSizeFilter.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        35,
+        38,
+        39
+      ]
+    },
+    "org.thingsboard.server.transport.http.config.PayloadSizeFilter.<init>:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "warnings" : {
+        "W002" : 2
+      },
+      "lineNumbers" : [
+        41,
+        38,
+        39,
+        42,
+        44,
+        45,
+        46,
+        49,
+        47,
+        48,
+        42,
+        51,
+        52
+      ]
+    },
+    "org.thingsboard.server.transport.http.config.PayloadSizeFilter.checkMaxPayloadSizeExceeded:(Ljakarta/servlet/http/HttpServletRequest;Ljakarta/servlet/http/HttpServletResponse;J)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        68,
+        69,
+        70,
+        71,
+        73
+      ]
+    },
+    "org.thingsboard.server.transport.http.config.PayloadSizeFilter.doFilterInternal:(Ljakarta/servlet/http/HttpServletRequest;Ljakarta/servlet/http/HttpServletResponse;Ljakarta/servlet/FilterChain;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        56,
+        57,
+        58,
+        59,
+        63,
+        64,
+        65
+      ]
+    },
+    "org.thingsboard.server.transport.http.config.PayloadSizeFilter.handleMaxPayloadSizeExceededException:(Ljakarta/servlet/http/HttpServletResponse;Lorg/thingsboard/server/common/msg/tools/MaxPayloadSizeExceededException;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        87,
+        88,
+        89
+      ]
+    },
+    "org.thingsboard.server.transport.http.config.PayloadSizeFilter.shouldNotFilterAsyncDispatch:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        78
+      ]
+    },
+    "org.thingsboard.server.transport.http.config.PayloadSizeFilter.shouldNotFilterErrorDispatch:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        83
+      ]
+    },
+    "org.thingsboard.server.transport.http.config.TransportSecurityConfiguration.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        33
+      ]
+    },
+    "org.thingsboard.server.transport.http.config.TransportSecurityConfiguration.httpTransportFilterChain:(Lorg/springframework/security/config/annotation/web/builders/HttpSecurity;)Lorg/springframework/security/web/SecurityFilterChain;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R027",
+      "lineNumbers" : [
+        47,
+        48,
+        49,
+        51,
+        52,
+        54,
+        55
+      ]
+    },
+    "org.thingsboard.server.transport.http.config.TransportSecurityConfiguration.lambda$httpTransportFilterChain$0:(Lorg/springframework/security/config/annotation/web/configurers/CorsConfigurer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        50
+      ]
+    },
+    "org.thingsboard.server.transport.http.config.TransportSecurityConfiguration.lambda$httpTransportFilterChain$1:(Lorg/springframework/security/config/annotation/web/configurers/AuthorizeHttpRequestsConfigurer$AuthorizationManagerRequestMatcherRegistry;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        53
+      ]
+    },
+    "org.thingsboard.server.transport.http.config.TransportSecurityConfiguration.transportPayloadSizeFilter:()Lorg/thingsboard/server/transport/http/config/PayloadSizeFilter;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R026",
+      "lineNumbers" : [
+        41
+      ]
+    }
+  },
+  "validationMetrics" : {
+    "failingTests" : [
+      "org.thingsboard.server.transport.mqtt.MqttTransportHandlerDiffblueTest.testChannelRead2"
+    ]
+  }
+}
