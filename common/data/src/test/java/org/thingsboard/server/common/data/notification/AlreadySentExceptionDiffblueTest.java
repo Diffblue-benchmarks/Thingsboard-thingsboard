@@ -1,0 +1,44 @@
+/**
+ * Copyright © 2016-2024 The Thingsboard Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.thingsboard.server.common.data.notification;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+
+class AlreadySentExceptionDiffblueTest {
+  /**
+   * Test new {@link AlreadySentException} (default constructor).
+   * <p>
+   * Method under test: default or parameterless constructor of {@link AlreadySentException}
+   */
+  @Test
+  @DisplayName("Test new AlreadySentException (default constructor)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void AlreadySentException.<init>()"})
+  void testNewAlreadySentException() {
+    // Arrange and Act
+    AlreadySentException actualAlreadySentException = new AlreadySentException();
+
+    // Assert
+    assertNull(actualAlreadySentException.getMessage());
+    assertNull(actualAlreadySentException.getCause());
+    assertEquals(0, actualAlreadySentException.getSuppressed().length);
+  }
+}

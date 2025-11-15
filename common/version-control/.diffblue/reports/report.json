@@ -1,0 +1,2976 @@
+{
+  "meta" : {
+    "reportVersion" : "2.6"
+  },
+  "run" : {
+    "version" : "2025.02.02-08b2a5a-licensed",
+    "creationTimestamp" : "2025-11-13T14:22:39.908071242Z",
+    "command" : "dcover coverage-reports --exclude-modules=org.thingsboard:ui-ngx,org.thingsboard:application,org.thingsboard.msa:tb,org.thingsboard.msa:web-ui,org.thingsboard.msa:vc-executor-docker,org.thingsboard.msa:tb-node,org.thingsboard.msa.transport:mqtt,org.thingsboard.msa.transport:http,org.thingsboard.msa.transport:coap,org.thingsboard.msa.transport:lwm2m,org.thingsboard.msa.transport:snmp,org.thingsboard.msa:js-executor,org.thingsboard.msa:monitoring",
+    "totalTime" : 214.628,
+    "environmentDetectionTime" : 201.989,
+    "indexingTime" : 0.0,
+    "entryPointsTime" : 0.0,
+    "generationTime" : 0.0,
+    "timeToFirstTest" : 214.628,
+    "timeToLastTest" : 214.628,
+    "indexQueryTime" : 0.0,
+    "verificationTime" : 0.0,
+    "validationTime" : 0.0
+  },
+  "codes" : {
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T002" : "Trivial setter",
+    "T003" : "Private method",
+    "T004" : "In anonymous inner class",
+    "T005" : "Trivial constructor",
+    "T007" : "Framework configuration callback",
+    "T010" : "Abstract or interface method",
+    "T012" : "Synthetic method",
+    "T020" : "Other trivial method"
+  },
+  "summary" : {
+    "classesCount" : 15,
+    "methodsCount" : 227,
+    "cumulativeDiffblueTestCount" : 0,
+    "cumulativeManualTestCount" : 0,
+    "completeTestCount" : 0,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 842,
+    "perMethodTestability" : {
+      "T000" : 66,
+      "T001" : 30,
+      "T002" : 10,
+      "T003" : 45,
+      "T004" : 6,
+      "T005" : 6,
+      "T007" : 5,
+      "T010" : 18,
+      "T012" : 35,
+      "T020" : 6
+    },
+    "perMethodOutcome" : {
+      "T000" : 66,
+      "T001" : 30,
+      "T002" : 10,
+      "T003" : 45,
+      "T004" : 6,
+      "T005" : 6,
+      "T007" : 5,
+      "T010" : 18,
+      "T012" : 35,
+      "T020" : 6
+    }
+  },
+  "classes" : {
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService" : {
+      "methodsCount" : 51,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 6,
+        "T003" : 24,
+        "T005" : 1,
+        "T012" : 20
+      },
+      "perMethodOutcome" : {
+        "T000" : 6,
+        "T003" : 24,
+        "T005" : 1,
+        "T012" : 20
+      }
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService$1" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T004" : 3
+      },
+      "perMethodOutcome" : {
+        "T004" : 3
+      }
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService" : {
+      "methodsCount" : 28,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 20,
+        "T003" : 4,
+        "T005" : 1,
+        "T012" : 3
+      },
+      "perMethodOutcome" : {
+        "T000" : 20,
+        "T003" : 4,
+        "T005" : 1,
+        "T012" : 3
+      }
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository" : {
+      "methodsCount" : 37,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 24,
+        "T001" : 2,
+        "T003" : 7,
+        "T012" : 4
+      },
+      "perMethodOutcome" : {
+        "T000" : 24,
+        "T001" : 2,
+        "T003" : 7,
+        "T012" : 4
+      }
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$AuthHandler" : {
+      "methodsCount" : 10,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 6,
+        "T012" : 4
+      },
+      "perMethodOutcome" : {
+        "T003" : 6,
+        "T012" : 4
+      }
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$AuthHandler$1" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T004" : 3
+      },
+      "perMethodOutcome" : {
+        "T004" : 3
+      }
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Commit" : {
+      "methodsCount" : 10,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T001" : 5,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 3,
+        "T001" : 5,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$CommitFilter" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 3
+      },
+      "perMethodOutcome" : {
+        "T003" : 3
+      }
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Diff" : {
+      "methodsCount" : 15,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 5,
+        "T002" : 5,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T001" : 5,
+        "T002" : 5,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$FileType" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 1,
+        "T012" : 4
+      },
+      "perMethodOutcome" : {
+        "T003" : 1,
+        "T012" : 4
+      }
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$RepoFile" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 3,
+        "T005" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T001" : 3,
+        "T005" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Status" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 3,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T001" : 3,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepositoryService" : {
+      "methodsCount" : 18,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 18
+      },
+      "perMethodOutcome" : {
+        "T010" : 18
+      }
+    },
+    "org.thingsboard.server.service.sync.vc.PendingCommit" : {
+      "methodsCount" : 19,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T001" : 8,
+        "T002" : 5,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 4,
+        "T001" : 8,
+        "T002" : 5,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.service.sync.vc.VersionControlRequestCtx" : {
+      "methodsCount" : 10,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T001" : 4,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 3,
+        "T001" : 4,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      }
+    }
+  },
+  "methods" : {
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService$1.<init>:(Lorg/thingsboard/server/service/sync/vc/DefaultClusterVersionControlService;Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;J)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        553
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService$1.onFailure:(Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        562,
+        563
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService$1.onSuccess:(Ljava/lang/Object;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        557,
+        558
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        102
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.<init>:(Lorg/thingsboard/server/queue/discovery/PartitionService;Lorg/thingsboard/server/queue/provider/TbQueueProducerProvider;Lorg/thingsboard/server/queue/provider/TbVersionControlQueueFactory;Lorg/thingsboard/server/service/sync/vc/GitRepositoryService;Lorg/thingsboard/server/queue/discovery/TopicService;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        105,
+        114,
+        115,
+        131,
+        105
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.addToCommit:(Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;Lorg/thingsboard/server/service/sync/vc/PendingCommit;Lorg/thingsboard/server/gen/transport/TransportProtos$AddMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        432,
+        433,
+        434,
+        435,
+        436,
+        437,
+        438,
+        439,
+        440,
+        441,
+        443
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.afterStartUp:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        188,
+        189
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.deleteFromCommit:(Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;Lorg/thingsboard/server/service/sync/vc/PendingCommit;Lorg/thingsboard/server/gen/transport/TransportProtos$DeleteMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        428,
+        429
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.doAbortCurrentCommit:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/service/sync/vc/PendingCommit;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        446,
+        447
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.doAbortCurrentCommit:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/service/sync/vc/PendingCommit;Ljava/lang/Exception;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        450,
+        451,
+        453
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.filterTbApplicationEvent:(Lorg/thingsboard/server/queue/discovery/event/PartitionChangeEvent;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        183
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.filterTbApplicationEvent:(Lorg/thingsboard/server/queue/discovery/event/TbApplicationEvent;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        102
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.getRelativePath:(Lorg/thingsboard/server/common/data/EntityType;Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        540,
+        541,
+        542,
+        544
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.getRepoLock:(Lorg/thingsboard/server/common/data/id/TenantId;)Ljava/util/concurrent/locks/Lock;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        548
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.handleClearRepositoryCommand:(Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        457,
+        458,
+        462,
+        459,
+        460,
+        461,
+        463
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.handleCommitRequest:(Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;Lorg/thingsboard/server/gen/transport/TransportProtos$CommitRequestMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        381,
+        382,
+        383,
+        384,
+        385,
+        386,
+        387,
+        388,
+        389,
+        390,
+        392,
+        393,
+        394,
+        396,
+        397,
+        398,
+        399,
+        400,
+        401,
+        402,
+        403,
+        408,
+        405,
+        406,
+        407,
+        410,
+        413
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.handleEntitiesContentRequest:(Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;Lorg/thingsboard/server/gen/transport/TransportProtos$EntitiesContentRequestMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        256,
+        257,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        263,
+        265,
+        266,
+        267,
+        268,
+        269,
+        261,
+        282,
+        286
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.handleEntityContentRequest:(Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;Lorg/thingsboard/server/gen/transport/TransportProtos$EntityContentRequestMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        289,
+        290,
+        291,
+        293,
+        294,
+        295,
+        297,
+        298,
+        304
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.handleError:(Ljava/lang/Exception;)Ljava/lang/Exception;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        487,
+        488,
+        490
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.handleInitRepositoryCommand:(Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        467,
+        468,
+        472,
+        469,
+        470,
+        471,
+        473
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.handleListBranches:(Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;Lorg/thingsboard/server/gen/transport/TransportProtos$ListBranchesRequestMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        354,
+        355,
+        357,
+        358,
+        359
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.handleListEntities:(Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;Lorg/thingsboard/server/gen/transport/TransportProtos$ListEntitiesRequestMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        340,
+        341,
+        342,
+        343,
+        351
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.handleListVersions:(Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;Lorg/thingsboard/server/gen/transport/TransportProtos$ListVersionsRequestMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        308,
+        309,
+        310,
+        311,
+        313,
+        315,
+        316,
+        318,
+        319,
+        320,
+        321,
+        322,
+        324,
+        326,
+        327,
+        326,
+        328,
+        337
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.handleTestRepositoryCommand:(Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        478,
+        479,
+        483,
+        480,
+        481,
+        482,
+        484
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.handleVersionsDiffRequest:(Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;Lorg/thingsboard/server/gen/transport/TransportProtos$VersionsDiffRequestMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        362,
+        363,
+        374,
+        376,
+        378
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.init:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        136,
+        137,
+        138,
+        139,
+        138,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.lambda$addToCommit$14:(Lorg/thingsboard/server/gen/transport/TransportProtos$AddMsg;Ljava/lang/String;)[Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        435
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.lambda$getRepoLock$16:(Lorg/thingsboard/server/common/data/id/TenantId;)Ljava/util/concurrent/locks/Lock;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        548
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.lambda$handleEntitiesContentRequest$1:(Lorg/thingsboard/server/gen/transport/TransportProtos$EntitiesContentResponseMsg$Builder;Lorg/thingsboard/server/gen/transport/TransportProtos$VersionControlResponseMsg$Builder;)Lorg/thingsboard/server/gen/transport/TransportProtos$VersionControlResponseMsg$Builder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        278
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.lambda$handleEntitiesContentRequest$2:(Ljava/util/List;IILjava/util/concurrent/atomic/AtomicInteger;Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277,
+        273,
+        278,
+        279
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.lambda$handleEntitiesContentRequest$3:(Lorg/thingsboard/server/gen/transport/TransportProtos$VersionControlResponseMsg$Builder;)Lorg/thingsboard/server/gen/transport/TransportProtos$VersionControlResponseMsg$Builder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        282,
+        283,
+        284,
+        282
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.lambda$handleEntityContentRequest$4:(Ljava/lang/String;ILjava/util/concurrent/atomic/AtomicInteger;Lorg/thingsboard/server/gen/transport/TransportProtos$VersionControlResponseMsg$Builder;)Lorg/thingsboard/server/gen/transport/TransportProtos$VersionControlResponseMsg$Builder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        300,
+        301,
+        302,
+        300
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.lambda$handleEntityContentRequest$5:(Ljava/lang/String;Ljava/util/concurrent/atomic/AtomicInteger;Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;ILjava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        299,
+        300,
+        303
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.lambda$handleListBranches$10:(Lorg/thingsboard/server/common/data/sync/vc/BranchInfo;)Lorg/thingsboard/server/gen/transport/TransportProtos$BranchInfoProto;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        355,
+        356,
+        357,
+        355
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.lambda$handleListBranches$11:(Ljava/util/List;Lorg/thingsboard/server/gen/transport/TransportProtos$VersionControlResponseMsg$Builder;)Lorg/thingsboard/server/gen/transport/TransportProtos$VersionControlResponseMsg$Builder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        358
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.lambda$handleListEntities$8:(Lorg/thingsboard/server/common/data/id/EntityId;)Lorg/thingsboard/server/gen/transport/TransportProtos$VersionedEntityInfoProto;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        346,
+        347,
+        348,
+        349,
+        346
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.lambda$handleListEntities$9:(Ljava/util/List;Lorg/thingsboard/server/gen/transport/TransportProtos$VersionControlResponseMsg$Builder;)Lorg/thingsboard/server/gen/transport/TransportProtos$VersionControlResponseMsg$Builder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        344,
+        345,
+        350,
+        345,
+        344
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.lambda$handleListVersions$6:(Lorg/thingsboard/server/common/data/sync/vc/EntityVersion;)Lorg/thingsboard/server/gen/transport/TransportProtos$EntityVersionProto;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        334
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.lambda$handleListVersions$7:(Lorg/thingsboard/server/common/data/page/PageData;Lorg/thingsboard/server/gen/transport/TransportProtos$VersionControlResponseMsg$Builder;)Lorg/thingsboard/server/gen/transport/TransportProtos$VersionControlResponseMsg$Builder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        329,
+        330,
+        331,
+        332,
+        333,
+        335,
+        333,
+        329
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.lambda$handleVersionsDiffRequest$12:(Lorg/thingsboard/server/service/sync/vc/GitRepository$Diff;)Lorg/thingsboard/server/gen/transport/TransportProtos$EntityVersionsDiff;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        364,
+        365,
+        366,
+        367,
+        368,
+        369,
+        370,
+        371,
+        372,
+        365
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.lambda$handleVersionsDiffRequest$13:(Ljava/util/List;Lorg/thingsboard/server/gen/transport/TransportProtos$VersionControlResponseMsg$Builder;)Lorg/thingsboard/server/gen/transport/TransportProtos$VersionControlResponseMsg$Builder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        376,
+        377,
+        376
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.lambda$processMsgs$0:(Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;Lorg/thingsboard/server/gen/transport/TransportProtos$ToVersionControlServiceMsg;)Ljava/lang/Void;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        199
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.lambda$reply$15:(Lorg/thingsboard/server/gen/transport/TransportProtos$CommitResponseMsg$Builder;Lorg/thingsboard/server/gen/transport/TransportProtos$VersionControlResponseMsg$Builder;)Lorg/thingsboard/server/gen/transport/TransportProtos$VersionControlResponseMsg$Builder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        505
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.logTaskExecution:(Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;Lcom/google/common/util/concurrent/ListenableFuture;J)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        552,
+        553,
+        564,
+        553,
+        566
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.onTbApplicationEvent:(Lorg/thingsboard/server/queue/discovery/event/PartitionChangeEvent;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        164,
+        165,
+        166,
+        167,
+        169,
+        170,
+        174,
+        175,
+        171,
+        172,
+        174,
+        175,
+        174,
+        175,
+        177,
+        178,
+        179
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.onTbApplicationEvent:(Lorg/thingsboard/server/queue/discovery/event/TbApplicationEvent;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        102
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.prepareCommit:(Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;Ljava/util/UUID;Lorg/thingsboard/server/gen/transport/TransportProtos$PrepareMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        416,
+        417,
+        418,
+        419,
+        420,
+        421,
+        423,
+        424,
+        425
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.processMessage:(Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;Lorg/thingsboard/server/gen/transport/TransportProtos$ToVersionControlServiceMsg;)Ljava/lang/Void;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        212,
+        213,
+        215,
+        216,
+        218,
+        219,
+        220,
+        221,
+        223,
+        224,
+        225,
+        226,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        250,
+        251,
+        247,
+        248,
+        250,
+        251,
+        250,
+        251,
+        252
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.processMsgs:(Ljava/util/List;Lorg/thingsboard/server/queue/TbQueueConsumer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        204,
+        207,
+        205,
+        206,
+        208,
+        209
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.reply:(Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;Ljava/util/Optional;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        509,
+        510
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.reply:(Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;Ljava/util/Optional;Ljava/util/function/Function;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        517,
+        518,
+        519,
+        520,
+        521,
+        522,
+        523,
+        524,
+        525,
+        526,
+        527,
+        529,
+        531,
+        534,
+        535,
+        536,
+        537
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.reply:(Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;Ljava/util/function/Function;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        513,
+        514
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.reply:(Lorg/thingsboard/server/service/sync/vc/VersionControlRequestCtx;Lorg/thingsboard/server/common/data/sync/vc/VersionCreationResult;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        494,
+        495,
+        496,
+        498,
+        499,
+        500,
+        501,
+        502,
+        505,
+        506
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultClusterVersionControlService.stop:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        153,
+        154,
+        156,
+        157,
+        159,
+        160
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        53
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        56,
+        64
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.abort:(Lorg/thingsboard/server/service/sync/vc/PendingCommit;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        161,
+        162
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.add:(Lorg/thingsboard/server/service/sync/vc/PendingCommit;Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        112,
+        113,
+        114
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.checkRepository:(Lorg/thingsboard/server/common/data/id/TenantId;)Lorg/thingsboard/server/service/sync/vc/GitRepository;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        202,
+        203,
+        205,
+        207,
+        208,
+        209,
+        212
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.cleanUp:(Lorg/thingsboard/server/service/sync/vc/PendingCommit;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        145,
+        146,
+        148,
+        153,
+        149,
+        150,
+        151,
+        154,
+        155,
+        156,
+        142,
+        157
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.clearRepository:(Lorg/thingsboard/server/common/data/id/TenantId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        256,
+        257,
+        258,
+        259,
+        260,
+        262
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.deleteFolderContent:(Lorg/thingsboard/server/service/sync/vc/PendingCommit;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        106,
+        107,
+        108
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.fetch:(Lorg/thingsboard/server/common/data/id/TenantId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        166,
+        167,
+        168,
+        169,
+        170
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.fromRelativePath:(Ljava/lang/String;)Lorg/thingsboard/server/common/data/id/EntityId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        277,
+        278,
+        279
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.getActiveRepositoryTenants:()Ljava/util/Set;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        75
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.getAuthor:(Lorg/thingsboard/server/service/sync/vc/GitRepository$Commit;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        269,
+        270,
+        271,
+        273
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.getContentsDiff:(Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        186,
+        187
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.getFileContentAtCommit:(Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        174,
+        175
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.getRepositorySettings:(Lorg/thingsboard/server/common/data/id/TenantId;)Lorg/thingsboard/server/common/data/sync/vc/RepositorySettings;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        250,
+        251
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.getVersionsDiffList:(Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        180,
+        181
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.init:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        68,
+        69,
+        71
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.initRepository:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/sync/vc/RepositorySettings;Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        242,
+        243,
+        245,
+        246
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.lambda$checkRepository$0:()Ljava/lang/IllegalStateException;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        203
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.lambda$listEntitiesAtVersion$1:(Ljava/lang/String;)Lorg/thingsboard/server/common/data/sync/vc/VersionedEntityInfo;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        226,
+        227,
+        228,
+        229
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.listBranches:(Lorg/thingsboard/server/common/data/id/TenantId;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        192,
+        194,
+        195,
+        197
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.listEntitiesAtVersion:(Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        223,
+        224,
+        225,
+        231,
+        224
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.listVersions:(Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/String;Ljava/lang/String;Lorg/thingsboard/server/common/data/page/PageLink;)Lorg/thingsboard/server/common/data/page/PageData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        217,
+        218
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.openOrCloneRepository:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/sync/vc/RepositorySettings;Z)Lorg/thingsboard/server/service/sync/vc/GitRepository;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        283,
+        284,
+        285,
+        286,
+        287,
+        288
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.prepareCommit:(Lorg/thingsboard/server/service/sync/vc/PendingCommit;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        80,
+        81,
+        83,
+        84,
+        85,
+        86,
+        88,
+        90,
+        92,
+        93,
+        94,
+        95,
+        101,
+        98,
+        100,
+        102
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.push:(Lorg/thingsboard/server/service/sync/vc/PendingCommit;)Lorg/thingsboard/server/common/data/sync/vc/VersionCreationResult;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        118,
+        120,
+        122,
+        123,
+        124,
+        125,
+        126,
+        128,
+        129,
+        130,
+        131,
+        133,
+        138,
+        133,
+        134,
+        136,
+        138,
+        139
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.testRepository:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/sync/vc/RepositorySettings;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        236,
+        237,
+        238
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.DefaultGitRepositoryService.toVersion:(Lorg/thingsboard/server/service/sync/vc/GitRepository$Commit;)Lorg/thingsboard/server/common/data/sync/vc/EntityVersion;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        265
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$AuthHandler$1.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        541
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$AuthHandler$1.accept:(Ljava/lang/String;Ljava/net/InetSocketAddress;Ljava/security/PublicKey;Lorg/eclipse/jgit/transport/sshd/ServerKeyDatabase$Configuration;Lorg/eclipse/jgit/transport/CredentialsProvider;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        549
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$AuthHandler$1.lookup:(Ljava/lang/String;Ljava/net/InetSocketAddress;Lorg/eclipse/jgit/transport/sshd/ServerKeyDatabase$Configuration;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        544
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$AuthHandler.<init>:(Lorg/eclipse/jgit/transport/CredentialsProvider;Lorg/eclipse/jgit/transport/sshd/SshdSessionFactory;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        492
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$AuthHandler.configureCommand:(Lorg/eclipse/jgit/api/TransportCommand;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        515,
+        516,
+        518,
+        519,
+        526
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$AuthHandler.createFor:(Lorg/thingsboard/server/common/data/sync/vc/RepositorySettings;Ljava/io/File;)Lorg/thingsboard/server/service/sync/vc/GitRepository$AuthHandler;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        498,
+        499,
+        501,
+        502,
+        503,
+        504,
+        505,
+        506,
+        507,
+        509,
+        511
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$AuthHandler.lambda$configureCommand$0:(Lorg/eclipse/jgit/transport/Transport;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        520,
+        521,
+        522,
+        524
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$AuthHandler.lambda$loadKeyPairs$3:(Ljava/lang/String;Lorg/apache/sshd/common/session/SessionContext;Lorg/apache/sshd/common/NamedResource;I)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        561
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$AuthHandler.lambda$newSshdSessionFactory$1:(Ljava/lang/Iterable;Ljava/io/File;)Ljava/lang/Iterable;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        538
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$AuthHandler.lambda$newSshdSessionFactory$2:(Ljava/io/File;Ljava/io/File;)Lorg/eclipse/jgit/transport/sshd/ServerKeyDatabase;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        541
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$AuthHandler.loadKeyPairs:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Iterable;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        558,
+        560,
+        561,
+        560,
+        562,
+        563,
+        564,
+        566
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$AuthHandler.newCredentialsProvider:(Ljava/lang/String;Ljava/lang/String;)Lorg/eclipse/jgit/transport/CredentialsProvider;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        529
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$AuthHandler.newSshdSessionFactory:(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)Lorg/eclipse/jgit/transport/sshd/SshdSessionFactory;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        533,
+        534,
+        535,
+        536,
+        537,
+        538,
+        539,
+        540,
+        541,
+        552,
+        554
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Commit.<init>:(JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        598
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Commit.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        598
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Commit.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        598
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Commit.getAuthorEmail:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        604
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Commit.getAuthorName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        603
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Commit.getId:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        601
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Commit.getMessage:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        602
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Commit.getTimestamp:()J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        600
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Commit.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        598
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Commit.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        598
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$CommitFilter.<init>:(Ljava/lang/String;Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        575,
+        576,
+        577,
+        578
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$CommitFilter.include:(Lorg/eclipse/jgit/revwalk/RevWalk;Lorg/eclipse/jgit/revwalk/RevCommit;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        582,
+        583,
+        582
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$CommitFilter.requiresCommitBody:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        593
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Diff.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        614
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Diff.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        614
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Diff.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        614
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Diff.getChangeType:()Lorg/eclipse/jgit/diff/DiffEntry$ChangeType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        617
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Diff.getDiffStringValue:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        620
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Diff.getFileContentAtCommit1:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        618
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Diff.getFileContentAtCommit2:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        619
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Diff.getFilePath:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        616
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Diff.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        614
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Diff.setChangeType:(Lorg/eclipse/jgit/diff/DiffEntry$ChangeType;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        614
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Diff.setDiffStringValue:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        614
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Diff.setFileContentAtCommit1:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        614
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Diff.setFileContentAtCommit2:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        614
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Diff.setFilePath:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        614
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Diff.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        614
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$FileType.$values:()[Lorg/thingsboard/server/service/sync/vc/GitRepository$FileType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        625
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$FileType.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        626,
+        625
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$FileType.<init>:(Ljava/lang/String;I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        625
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$FileType.valueOf:(Ljava/lang/String;)Lorg/thingsboard/server/service/sync/vc/GitRepository$FileType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        625
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$FileType.values:()[Lorg/thingsboard/server/service/sync/vc/GitRepository$FileType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        625
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$RepoFile.<init>:(Ljava/lang/String;Ljava/lang/String;Lorg/thingsboard/server/service/sync/vc/GitRepository$FileType;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        623
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$RepoFile.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        623
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$RepoFile.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        623
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$RepoFile.name:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        623
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$RepoFile.path:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        623
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$RepoFile.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        623
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$RepoFile.type:()Lorg/thingsboard/server/service/sync/vc/GitRepository$FileType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        623
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Status.<init>:(Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        607
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Status.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        607
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Status.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        607
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Status.getAdded:()Ljava/util/Set;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        609
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Status.getModified:()Ljava/util/Set;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        610
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Status.getRemoved:()Ljava/util/Set;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        611
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Status.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        607
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository$Status.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        607
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        95,
+        455
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.<init>:(Lorg/eclipse/jgit/api/Git;Lorg/thingsboard/server/common/data/sync/vc/RepositorySettings;Lorg/thingsboard/server/service/sync/vc/GitRepository$AuthHandler;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        108,
+        109,
+        110,
+        111,
+        112,
+        113
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.add:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        326,
+        327,
+        328,
+        329
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.checkoutBranch:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        318,
+        319,
+        320,
+        321,
+        322,
+        323
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.clone:(Lorg/thingsboard/server/common/data/sync/vc/RepositorySettings;Ljava/io/File;)Lorg/thingsboard/server/service/sync/vc/GitRepository;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.commit:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/thingsboard/server/service/sync/vc/GitRepository$Commit;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        341,
+        342,
+        343,
+        344,
+        342,
+        345
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.create:(Lorg/thingsboard/server/common/data/sync/vc/RepositorySettings;Ljava/io/File;)Lorg/thingsboard/server/service/sync/vc/GitRepository;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        116,
+        117,
+        118,
+        119,
+        120
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.createAndCheckoutOrphanBranch:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        310,
+        311,
+        312,
+        313,
+        314,
+        311,
+        315
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.deleteLocalBranchIfExists:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        203,
+        204,
+        205,
+        206,
+        204,
+        207
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.execute:(Lorg/eclipse/jgit/api/GitCommand;)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        449,
+        450,
+        452
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.exists:(Ljava/lang/String;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        444,
+        445,
+        442
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.fetch:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        189,
+        190,
+        192,
+        193,
+        194,
+        193,
+        195,
+        196,
+        197,
+        199
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.getContentsDiff:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        359,
+        360,
+        362,
+        363,
+        364,
+        366,
+        367,
+        368,
+        369
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.getDiffList:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        373,
+        375,
+        376,
+        377,
+        379,
+        380,
+        381,
+        383,
+        384,
+        385,
+        386,
+        387,
+        390,
+        391,
+        412,
+        390
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.getDirectory:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        103
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.getFileContentAtCommit:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        289,
+        290,
+        291,
+        292,
+        293,
+        295,
+        296,
+        297,
+        299,
+        300,
+        304,
+        305,
+        300,
+        301,
+        302,
+        296,
+        291
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.getSettings:()Lorg/thingsboard/server/common/data/sync/vc/RepositorySettings;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        100
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.iterableToPageData:(Ljava/lang/Iterable;Ljava/util/function/Function;Lorg/thingsboard/server/common/data/page/PageLink;Ljava/util/function/Function;)Lorg/thingsboard/server/common/data/page/PageData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        469,
+        470,
+        471,
+        472,
+        473,
+        474,
+        475,
+        476,
+        477,
+        480,
+        481,
+        482,
+        484,
+        486,
+        487,
+        488,
+        489
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.lambda$getDiffList$1:(Ljava/io/ByteArrayOutputStream;Lorg/eclipse/jgit/diff/DiffFormatter;Ljava/lang/String;Ljava/lang/String;Lorg/eclipse/jgit/diff/DiffEntry;)Lorg/thingsboard/server/service/sync/vc/GitRepository$Diff;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        392,
+        394,
+        395,
+        396,
+        397,
+        398,
+        400,
+        402,
+        401,
+        404,
+        406,
+        405,
+        407,
+        408,
+        409
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.lambda$listBranches$0:(Lorg/eclipse/jgit/lib/Ref;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        232
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.lambda$static$2:(Lorg/thingsboard/server/common/data/page/PageLink;)Ljava/util/Comparator;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        456,
+        457,
+        458,
+        459,
+        460,
+        462
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.listBranches:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        229,
+        230,
+        231,
+        230,
+        231,
+        232,
+        233,
+        234,
+        230
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.listCommits:(Ljava/lang/String;Ljava/lang/String;Lorg/thingsboard/server/common/data/page/PageLink;)Lorg/thingsboard/server/common/data/page/PageData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        242,
+        243,
+        244,
+        245,
+        247,
+        248,
+        250,
+        251,
+        252,
+        255,
+        256
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.listCommits:(Ljava/lang/String;Lorg/thingsboard/server/common/data/page/PageLink;)Lorg/thingsboard/server/common/data/page/PageData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        238
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.listFilesAtCommit:(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        260
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.listFilesAtCommit:(Ljava/lang/String;Ljava/lang/String;I)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        265,
+        266,
+        267,
+        268,
+        269,
+        270,
+        271,
+        273,
+        274,
+        275,
+        276,
+        277,
+        279,
+        280,
+        283,
+        268,
+        284,
+        263
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.merge:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        219,
+        220,
+        221,
+        222,
+        224,
+        225,
+        224,
+        226
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.open:(Ljava/io/File;Lorg/thingsboard/server/common/data/sync/vc/RepositorySettings;)Lorg/thingsboard/server/service/sync/vc/GitRepository;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        136,
+        137,
+        138,
+        139
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.openOrClone:(Ljava/nio/file/Path;Lorg/thingsboard/server/common/data/sync/vc/RepositorySettings;Z)Lorg/thingsboard/server/service/sync/vc/GitRepository;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        144,
+        145,
+        146,
+        147,
+        150,
+        151,
+        152,
+        153,
+        155,
+        158
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.push:(Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        350,
+        351,
+        353,
+        354,
+        355,
+        354,
+        356
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.resetAndClean:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        210,
+        211,
+        212,
+        211,
+        213,
+        214,
+        215,
+        213,
+        216
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.resolve:(Ljava/lang/String;)Lorg/eclipse/jgit/lib/ObjectId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        432,
+        433,
+        435,
+        436,
+        437,
+        439
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.resolveCommit:(Ljava/lang/String;)Lorg/eclipse/jgit/revwalk/RevCommit;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        428
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.status:()Lorg/thingsboard/server/service/sync/vc/GitRepository$Status;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        332,
+        333,
+        334,
+        335,
+        336,
+        337
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.test:(Lorg/thingsboard/server/common/data/sync/vc/RepositorySettings;Ljava/io/File;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        162,
+        163,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        174,
+        175,
+        176,
+        177,
+        178,
+        176,
+        179,
+        182,
+        183,
+        184,
+        181,
+        182,
+        183,
+        184,
+        186
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.toBranchInfo:(Lorg/eclipse/jgit/lib/Ref;)Lorg/thingsboard/server/common/data/sync/vc/BranchInfo;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        416,
+        417,
+        418,
+        419
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepository.toCommit:(Lorg/eclipse/jgit/revwalk/RevCommit;)Lorg/thingsboard/server/service/sync/vc/GitRepository$Commit;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        423,
+        424,
+        423
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepositoryService.abort:(Lorg/thingsboard/server/service/sync/vc/PendingCommit;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepositoryService.add:(Lorg/thingsboard/server/service/sync/vc/PendingCommit;Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepositoryService.cleanUp:(Lorg/thingsboard/server/service/sync/vc/PendingCommit;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepositoryService.clearRepository:(Lorg/thingsboard/server/common/data/id/TenantId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepositoryService.deleteFolderContent:(Lorg/thingsboard/server/service/sync/vc/PendingCommit;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepositoryService.fetch:(Lorg/thingsboard/server/common/data/id/TenantId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepositoryService.getActiveRepositoryTenants:()Ljava/util/Set;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepositoryService.getContentsDiff:(Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepositoryService.getFileContentAtCommit:(Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepositoryService.getRepositorySettings:(Lorg/thingsboard/server/common/data/id/TenantId;)Lorg/thingsboard/server/common/data/sync/vc/RepositorySettings;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepositoryService.getVersionsDiffList:(Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepositoryService.initRepository:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/sync/vc/RepositorySettings;Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepositoryService.listBranches:(Lorg/thingsboard/server/common/data/id/TenantId;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepositoryService.listEntitiesAtVersion:(Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepositoryService.listVersions:(Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/String;Ljava/lang/String;Lorg/thingsboard/server/common/data/page/PageLink;)Lorg/thingsboard/server/common/data/page/PageData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepositoryService.prepareCommit:(Lorg/thingsboard/server/service/sync/vc/PendingCommit;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepositoryService.push:(Lorg/thingsboard/server/service/sync/vc/PendingCommit;)Lorg/thingsboard/server/common/data/sync/vc/VersionCreationResult;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.service.sync.vc.GitRepositoryService.testRepository:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/sync/vc/RepositorySettings;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.service.sync.vc.PendingCommit.<init>:(Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/String;Ljava/util/UUID;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.PendingCommit.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.PendingCommit.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.PendingCommit.getAuthorEmail:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        36
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.PendingCommit.getAuthorName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.PendingCommit.getBranch:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.PendingCommit.getChunkedMsgs:()Ljava/util/Map;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        52,
+        53,
+        55
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.PendingCommit.getNodeId:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.PendingCommit.getTenantId:()Lorg/thingsboard/server/common/data/id/TenantId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.PendingCommit.getTxId:()Ljava/util/UUID;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.PendingCommit.getVersionName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        33
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.PendingCommit.getWorkingBranch:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.PendingCommit.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.PendingCommit.setAuthorEmail:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.PendingCommit.setAuthorName:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.PendingCommit.setBranch:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.PendingCommit.setChunkedMsgs:(Ljava/util/Map;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.PendingCommit.setVersionName:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.PendingCommit.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.VersionControlRequestCtx.<init>:(Ljava/lang/String;Ljava/util/UUID;Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/sync/vc/RepositorySettings;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.VersionControlRequestCtx.<init>:(Lorg/thingsboard/server/gen/transport/TransportProtos$ToVersionControlServiceMsg;Lorg/thingsboard/server/common/data/sync/vc/RepositorySettings;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.VersionControlRequestCtx.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.VersionControlRequestCtx.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.VersionControlRequestCtx.getNodeId:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.VersionControlRequestCtx.getRequestId:()Ljava/util/UUID;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.VersionControlRequestCtx.getSettings:()Lorg/thingsboard/server/common/data/sync/vc/RepositorySettings;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.VersionControlRequestCtx.getTenantId:()Lorg/thingsboard/server/common/data/id/TenantId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.VersionControlRequestCtx.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.server.service.sync.vc.VersionControlRequestCtx.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        43
+      ]
+    }
+  }
+}

@@ -1,0 +1,592 @@
+{
+  "meta" : {
+    "reportVersion" : "2.6"
+  },
+  "run" : {
+    "version" : "2025.02.02-08b2a5a-licensed",
+    "creationTimestamp" : "2025-11-13T14:04:31.218790202Z",
+    "command" : "dcover coverage-reports --exclude-modules=org.thingsboard:ui-ngx,org.thingsboard:application,org.thingsboard.msa:tb,org.thingsboard.msa:web-ui,org.thingsboard.msa:vc-executor-docker,org.thingsboard.msa:tb-node,org.thingsboard.msa.transport:mqtt,org.thingsboard.msa.transport:http,org.thingsboard.msa.transport:coap,org.thingsboard.msa.transport:lwm2m,org.thingsboard.msa.transport:snmp,org.thingsboard.msa:js-executor,org.thingsboard.msa:monitoring",
+    "totalTime" : 207.673,
+    "environmentDetectionTime" : 197.878,
+    "indexingTime" : 0.0,
+    "entryPointsTime" : 0.0,
+    "generationTime" : 0.0,
+    "timeToFirstTest" : 207.673,
+    "timeToLastTest" : 207.673,
+    "indexQueryTime" : 0.0,
+    "verificationTime" : 0.0,
+    "validationTime" : 0.0
+  },
+  "codes" : {
+    "T009" : "No implementation for abstract class",
+    "T010" : "Abstract or interface method"
+  },
+  "summary" : {
+    "classesCount" : 12,
+    "methodsCount" : 68,
+    "cumulativeDiffblueTestCount" : 0,
+    "cumulativeManualTestCount" : 0,
+    "completeTestCount" : 0,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 152,
+    "perMethodTestability" : {
+      "T009" : 1,
+      "T010" : 67
+    },
+    "perMethodOutcome" : {
+      "T009" : 1,
+      "T010" : 67
+    }
+  },
+  "classes" : {
+    "org.thingsboard.server.cluster.TbClusterService" : {
+      "methodsCount" : 32,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 32
+      },
+      "perMethodOutcome" : {
+        "T010" : 32
+      }
+    },
+    "org.thingsboard.server.queue.TbQueueAdmin" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T009" : 1,
+        "T010" : 3
+      },
+      "perMethodOutcome" : {
+        "T009" : 1,
+        "T010" : 3
+      }
+    },
+    "org.thingsboard.server.queue.TbQueueCallback" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 2
+      },
+      "perMethodOutcome" : {
+        "T010" : 2
+      }
+    },
+    "org.thingsboard.server.queue.TbQueueClusterService" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 2
+      },
+      "perMethodOutcome" : {
+        "T010" : 2
+      }
+    },
+    "org.thingsboard.server.queue.TbQueueConsumer" : {
+      "methodsCount" : 9,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 9
+      },
+      "perMethodOutcome" : {
+        "T010" : 9
+      }
+    },
+    "org.thingsboard.server.queue.TbQueueHandler" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T010" : 1
+      }
+    },
+    "org.thingsboard.server.queue.TbQueueMsg" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 3
+      },
+      "perMethodOutcome" : {
+        "T010" : 3
+      }
+    },
+    "org.thingsboard.server.queue.TbQueueMsgDecoder" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T010" : 1
+      }
+    },
+    "org.thingsboard.server.queue.TbQueueMsgHeaders" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 3
+      },
+      "perMethodOutcome" : {
+        "T010" : 3
+      }
+    },
+    "org.thingsboard.server.queue.TbQueueProducer" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 4
+      },
+      "perMethodOutcome" : {
+        "T010" : 4
+      }
+    },
+    "org.thingsboard.server.queue.TbQueueRequestTemplate" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 5
+      },
+      "perMethodOutcome" : {
+        "T010" : 5
+      }
+    },
+    "org.thingsboard.server.queue.TbQueueResponseTemplate" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 2
+      },
+      "perMethodOutcome" : {
+        "T010" : 2
+      }
+    }
+  },
+  "methods" : {
+    "org.thingsboard.server.cluster.TbClusterService.broadcastEntityStateChangeEvent:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/data/plugin/ComponentLifecycleEvent;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.broadcastToCore:(Lorg/thingsboard/server/gen/transport/TransportProtos$ToCoreNotificationMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.onApiStateChange:(Lorg/thingsboard/server/common/data/ApiUsageState;Lorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.onDeviceAssignedToTenant:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/Device;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.onDeviceDeleted:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/Device;Lorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.onDeviceProfileChange:(Lorg/thingsboard/server/common/data/DeviceProfile;Lorg/thingsboard/server/common/data/DeviceProfile;Lorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.onDeviceProfileDelete:(Lorg/thingsboard/server/common/data/DeviceProfile;Lorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.onDeviceUpdated:(Lorg/thingsboard/server/common/data/Device;Lorg/thingsboard/server/common/data/Device;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.onEdgeEventUpdate:(Lorg/thingsboard/server/common/msg/edge/EdgeEventUpdateMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.onEdgeHighPriorityMsg:(Lorg/thingsboard/server/common/msg/edge/EdgeHighPriorityMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.onEdgeStateChangeEvent:(Lorg/thingsboard/server/common/msg/plugin/ComponentLifecycleMsg;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.onResourceChange:(Lorg/thingsboard/server/common/data/TbResourceInfo;Lorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.onResourceDeleted:(Lorg/thingsboard/server/common/data/TbResourceInfo;Lorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.onTenantChange:(Lorg/thingsboard/server/common/data/Tenant;Lorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.onTenantDelete:(Lorg/thingsboard/server/common/data/Tenant;Lorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.onTenantProfileChange:(Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.onTenantProfileDelete:(Lorg/thingsboard/server/common/data/TenantProfile;Lorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.pushEdgeSyncRequestToEdge:(Lorg/thingsboard/server/common/msg/edge/ToEdgeSyncRequest;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.pushEdgeSyncResponseToCore:(Lorg/thingsboard/server/common/msg/edge/FromEdgeSyncResponse;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.pushMsgToCore:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/gen/transport/TransportProtos$ToCoreMsg;Lorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.pushMsgToCore:(Lorg/thingsboard/server/common/msg/ToDeviceActorNotificationMsg;Lorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.pushMsgToCore:(Lorg/thingsboard/server/common/msg/queue/TopicPartitionInfo;Ljava/util/UUID;Lorg/thingsboard/server/gen/transport/TransportProtos$ToCoreMsg;Lorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.pushMsgToEdge:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/gen/transport/TransportProtos$ToEdgeMsg;Lorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.pushMsgToRuleEngine:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/msg/TbMsg;Lorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.pushMsgToRuleEngine:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;Lorg/thingsboard/server/common/msg/TbMsg;ZLorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.pushMsgToRuleEngine:(Lorg/thingsboard/server/common/msg/queue/TopicPartitionInfo;Ljava/util/UUID;Lorg/thingsboard/server/gen/transport/TransportProtos$ToRuleEngineMsg;Lorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.pushMsgToVersionControl:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/gen/transport/TransportProtos$ToVersionControlServiceMsg;Lorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.pushNotificationToCore:(Ljava/lang/String;Lorg/thingsboard/server/common/msg/rpc/FromDeviceRpcResponse;Lorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.pushNotificationToCore:(Ljava/lang/String;Lorg/thingsboard/server/gen/transport/TransportProtos$RestApiCallResponseMsgProto;Lorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.pushNotificationToRuleEngine:(Ljava/lang/String;Lorg/thingsboard/server/common/msg/rpc/FromDeviceRpcResponse;Lorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.pushNotificationToTransport:(Ljava/lang/String;Lorg/thingsboard/server/gen/transport/TransportProtos$ToTransportMsg;Lorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cluster.TbClusterService.sendNotificationMsgToEdge:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EdgeId;Lorg/thingsboard/server/common/data/id/EntityId;Ljava/lang/String;Lorg/thingsboard/server/common/data/edge/EdgeEventType;Lorg/thingsboard/server/common/data/edge/EdgeEventActionType;Lorg/thingsboard/server/common/data/id/EdgeId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueAdmin.createTopicIfNotExists:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        21,
+        22
+      ]
+    },
+    "org.thingsboard.server.queue.TbQueueAdmin.createTopicIfNotExists:(Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueAdmin.deleteTopic:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueAdmin.destroy:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueCallback.onFailure:(Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueCallback.onSuccess:(Lorg/thingsboard/server/queue/TbQueueMsgMetadata;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueClusterService.onQueuesDelete:(Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueClusterService.onQueuesUpdate:(Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueConsumer.commit:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueConsumer.getFullTopicNames:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueConsumer.getTopic:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueConsumer.isStopped:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueConsumer.poll:(J)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueConsumer.stop:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueConsumer.subscribe:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueConsumer.subscribe:(Ljava/util/Set;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueConsumer.unsubscribe:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueHandler.handle:(Lorg/thingsboard/server/queue/TbQueueMsg;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueMsg.getData:()[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueMsg.getHeaders:()Lorg/thingsboard/server/queue/TbQueueMsgHeaders;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueMsg.getKey:()Ljava/util/UUID;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueMsgDecoder.decode:(Lorg/thingsboard/server/queue/TbQueueMsg;)Lorg/thingsboard/server/queue/TbQueueMsg;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueMsgHeaders.get:(Ljava/lang/String;)[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueMsgHeaders.getData:()Ljava/util/Map;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueMsgHeaders.put:(Ljava/lang/String;[B)[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueProducer.getDefaultTopic:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueProducer.init:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueProducer.send:(Lorg/thingsboard/server/common/msg/queue/TopicPartitionInfo;Lorg/thingsboard/server/queue/TbQueueMsg;Lorg/thingsboard/server/queue/TbQueueCallback;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueProducer.stop:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueRequestTemplate.init:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueRequestTemplate.send:(Lorg/thingsboard/server/queue/TbQueueMsg;)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueRequestTemplate.send:(Lorg/thingsboard/server/queue/TbQueueMsg;J)Lcom/google/common/util/concurrent/ListenableFuture;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueRequestTemplate.setMessagesStats:(Lorg/thingsboard/server/common/stats/MessagesStats;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueRequestTemplate.stop:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueResponseTemplate.init:(Lorg/thingsboard/server/queue/TbQueueHandler;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.queue.TbQueueResponseTemplate.stop:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    }
+  }
+}

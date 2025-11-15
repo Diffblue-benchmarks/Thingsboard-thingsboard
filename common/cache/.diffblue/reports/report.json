@@ -1,0 +1,5221 @@
+{
+  "meta" : {
+    "reportVersion" : "2.6"
+  },
+  "run" : {
+    "version" : "2025.02.02-08b2a5a-licensed",
+    "creationTimestamp" : "2025-11-13T14:11:25.605118163Z",
+    "command" : "dcover coverage-reports --exclude-modules=org.thingsboard:ui-ngx,org.thingsboard:application,org.thingsboard.msa:tb,org.thingsboard.msa:web-ui,org.thingsboard.msa:vc-executor-docker,org.thingsboard.msa:tb-node,org.thingsboard.msa.transport:mqtt,org.thingsboard.msa.transport:http,org.thingsboard.msa.transport:coap,org.thingsboard.msa.transport:lwm2m,org.thingsboard.msa.transport:snmp,org.thingsboard.msa:js-executor,org.thingsboard.msa:monitoring",
+    "totalTime" : 216.955,
+    "environmentDetectionTime" : 199.11,
+    "indexingTime" : 0.0,
+    "entryPointsTime" : 0.0,
+    "generationTime" : 0.0,
+    "timeToFirstTest" : 216.956,
+    "timeToLastTest" : 216.956,
+    "indexQueryTime" : 0.0,
+    "verificationTime" : 0.0,
+    "validationTime" : 0.0
+  },
+  "codes" : {
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T002" : "Trivial setter",
+    "T003" : "Private method",
+    "T004" : "In anonymous inner class",
+    "T005" : "Trivial constructor",
+    "T007" : "Framework configuration callback",
+    "T010" : "Abstract or interface method",
+    "T012" : "Synthetic method",
+    "T020" : "Other trivial method"
+  },
+  "summary" : {
+    "classesCount" : 63,
+    "methodsCount" : 415,
+    "cumulativeDiffblueTestCount" : 0,
+    "cumulativeManualTestCount" : 4,
+    "completeTestCount" : 0,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 1832,
+    "perMethodTestability" : {
+      "T000" : 184,
+      "T001" : 39,
+      "T002" : 19,
+      "T003" : 25,
+      "T004" : 3,
+      "T005" : 35,
+      "T007" : 14,
+      "T010" : 37,
+      "T012" : 39,
+      "T020" : 20
+    },
+    "perMethodOutcome" : {
+      "T000" : 184,
+      "T001" : 39,
+      "T002" : 19,
+      "T003" : 25,
+      "T004" : 3,
+      "T005" : 35,
+      "T007" : 14,
+      "T010" : 37,
+      "T012" : 39,
+      "T020" : 20
+    }
+  },
+  "classes" : {
+    "org.thingsboard.server.cache.CacheSpecs" : {
+      "methodsCount" : 9,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 2,
+        "T002" : 2,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T001" : 2,
+        "T002" : 2,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.cache.CacheSpecsMap" : {
+      "methodsCount" : 10,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T001" : 2,
+        "T002" : 2,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 3,
+        "T001" : 2,
+        "T002" : 2,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.cache.CaffeineTbCacheTransaction" : {
+      "methodsCount" : 10,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T001" : 3,
+        "T002" : 1,
+        "T012" : 2
+      },
+      "perMethodOutcome" : {
+        "T000" : 4,
+        "T001" : 3,
+        "T002" : 1,
+        "T012" : 2
+      }
+    },
+    "org.thingsboard.server.cache.CaffeineTbTransactionalCache" : {
+      "methodsCount" : 21,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 15,
+        "T003" : 1,
+        "T010" : 2,
+        "T012" : 3
+      },
+      "perMethodOutcome" : {
+        "T000" : 15,
+        "T003" : 1,
+        "T010" : 2,
+        "T012" : 3
+      }
+    },
+    "org.thingsboard.server.cache.RedisSslCredentials" : {
+      "methodsCount" : 11,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 3,
+        "T002" : 3,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T001" : 3,
+        "T002" : 3,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.cache.RedisTbCacheTransaction" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T005" : 1,
+        "T012" : 2
+      },
+      "perMethodOutcome" : {
+        "T000" : 3,
+        "T005" : 1,
+        "T012" : 2
+      }
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache" : {
+      "methodsCount" : 28,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 19,
+        "T010" : 1,
+        "T012" : 8
+      },
+      "perMethodOutcome" : {
+        "T000" : 19,
+        "T010" : 1,
+        "T012" : 8
+      }
+    },
+    "org.thingsboard.server.cache.SimpleTbCacheValueWrapper" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T001" : 1,
+        "T003" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 3,
+        "T001" : 1,
+        "T003" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration" : {
+      "methodsCount" : 45,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 38,
+        "T003" : 4,
+        "T010" : 2,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 38,
+        "T003" : 4,
+        "T010" : 2,
+        "T012" : 1
+      }
+    },
+    "org.thingsboard.server.cache.TBRedisClusterConfiguration" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T003" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1,
+        "T003" : 1,
+        "T005" : 1
+      }
+    },
+    "org.thingsboard.server.cache.TBRedisSentinelConfiguration" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T003" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1,
+        "T003" : 1,
+        "T005" : 1
+      }
+    },
+    "org.thingsboard.server.cache.TBRedisStandaloneConfiguration" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T003" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1,
+        "T003" : 1,
+        "T005" : 1
+      }
+    },
+    "org.thingsboard.server.cache.TbCacheTransaction" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 3
+      },
+      "perMethodOutcome" : {
+        "T010" : 3
+      }
+    },
+    "org.thingsboard.server.cache.TbCacheValueWrapper" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T010" : 1
+      }
+    },
+    "org.thingsboard.server.cache.TbCaffeineCacheConfiguration" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T003" : 2,
+        "T005" : 1,
+        "T012" : 3
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T003" : 2,
+        "T005" : 1,
+        "T012" : 3
+      }
+    },
+    "org.thingsboard.server.cache.TbJavaRedisSerializer" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3
+      },
+      "perMethodOutcome" : {
+        "T000" : 3
+      }
+    },
+    "org.thingsboard.server.cache.TbJsonRedisSerializer" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T005" : 1
+      }
+    },
+    "org.thingsboard.server.cache.TbRedisSerializer" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 2
+      },
+      "perMethodOutcome" : {
+        "T010" : 2
+      }
+    },
+    "org.thingsboard.server.cache.TbTransactionalCache" : {
+      "methodsCount" : 13,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T010" : 9
+      },
+      "perMethodOutcome" : {
+        "T000" : 4,
+        "T010" : 9
+      }
+    },
+    "org.thingsboard.server.cache.TbTypedJsonRedisSerializer" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T005" : 1
+      }
+    },
+    "org.thingsboard.server.cache.VersionedCacheKey" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1
+      }
+    },
+    "org.thingsboard.server.cache.VersionedCaffeineTbCache" : {
+      "methodsCount" : 13,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 5,
+        "T003" : 3,
+        "T010" : 1,
+        "T012" : 4
+      },
+      "perMethodOutcome" : {
+        "T000" : 5,
+        "T003" : 3,
+        "T010" : 1,
+        "T012" : 4
+      }
+    },
+    "org.thingsboard.server.cache.VersionedRedisTbCache" : {
+      "methodsCount" : 18,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 7,
+        "T003" : 2,
+        "T010" : 1,
+        "T012" : 8
+      },
+      "perMethodOutcome" : {
+        "T000" : 7,
+        "T003" : 2,
+        "T010" : 1,
+        "T012" : 8
+      }
+    },
+    "org.thingsboard.server.cache.VersionedTbCache" : {
+      "methodsCount" : 12,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T010" : 5,
+        "T012" : 4
+      },
+      "perMethodOutcome" : {
+        "T000" : 3,
+        "T010" : 5,
+        "T012" : 4
+      }
+    },
+    "org.thingsboard.server.cache.customer.CustomerCacheEvictEvent" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 3,
+        "T005" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T001" : 3,
+        "T005" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.cache.customer.CustomerCacheKey" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 3,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.cache.customer.CustomerCaffeineCache" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1
+      }
+    },
+    "org.thingsboard.server.cache.customer.CustomerRedisCache" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1
+      }
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheEvictEvent" : {
+      "methodsCount" : 11,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 5,
+        "T002" : 1,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T001" : 5,
+        "T002" : 1,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheKey" : {
+      "methodsCount" : 13,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T001" : 3,
+        "T005" : 5,
+        "T007" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 4,
+        "T001" : 3,
+        "T005" : 5,
+        "T007" : 1
+      }
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheKey$DeviceCacheKeyBuilder" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T002" : 3,
+        "T005" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1,
+        "T002" : 3,
+        "T005" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.cache.device.DeviceCaffeineCache" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1
+      }
+    },
+    "org.thingsboard.server.cache.device.DeviceRedisCache" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1
+      }
+    },
+    "org.thingsboard.server.cache.device.DeviceRedisCache$1" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T004" : 3,
+        "T012" : 2
+      },
+      "perMethodOutcome" : {
+        "T004" : 3,
+        "T012" : 2
+      }
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheEvictEvent" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 3,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T001" : 3,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheKey" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 2,
+        "T005" : 2,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T001" : 2,
+        "T005" : 2,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheKey$EdgeCacheKeyBuilder" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T002" : 2,
+        "T005" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1,
+        "T002" : 2,
+        "T005" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.cache.edge.EdgeCaffeineCache" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1
+      }
+    },
+    "org.thingsboard.server.cache.edge.EdgeRedisCache" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1
+      }
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheKey" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 2,
+        "T005" : 2,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T001" : 2,
+        "T005" : 2,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheKey$RelatedEdgesCacheKeyBuilder" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T002" : 2,
+        "T005" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1,
+        "T002" : 2,
+        "T005" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheValue" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 1,
+        "T002" : 1,
+        "T005" : 2,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T001" : 1,
+        "T002" : 1,
+        "T005" : 2,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCaffeineCache" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1
+      }
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesEvictEvent" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 2,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T001" : 2,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesRedisCache" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1
+      }
+    },
+    "org.thingsboard.server.cache.limits.DefaultRateLimitService" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 6,
+        "T012" : 2
+      },
+      "perMethodOutcome" : {
+        "T000" : 6,
+        "T012" : 2
+      }
+    },
+    "org.thingsboard.server.cache.limits.DefaultRateLimitService$RateLimitKey" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 8
+      },
+      "perMethodOutcome" : {
+        "T003" : 8
+      }
+    },
+    "org.thingsboard.server.cache.limits.RateLimitService" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 5
+      },
+      "perMethodOutcome" : {
+        "T010" : 5
+      }
+    },
+    "org.thingsboard.server.cache.limits.TenantProfileProvider" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T010" : 1
+      }
+    },
+    "org.thingsboard.server.cache.ota.CaffeineOtaPackageCache" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 4,
+        "T005" : 1
+      }
+    },
+    "org.thingsboard.server.cache.ota.OtaPackageDataCache" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T010" : 4
+      },
+      "perMethodOutcome" : {
+        "T000" : 1,
+        "T010" : 4
+      }
+    },
+    "org.thingsboard.server.cache.ota.RedisOtaPackageDataCache" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T003" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 4,
+        "T003" : 1,
+        "T005" : 1
+      }
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoCacheKey" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 2,
+        "T005" : 2,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T001" : 2,
+        "T005" : 2,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoCacheKey$ResourceInfoCacheKeyBuilder" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T002" : 2,
+        "T005" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1,
+        "T002" : 2,
+        "T005" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoCaffeineCache" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1
+      }
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoEvictEvent" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 2,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T001" : 2,
+        "T005" : 1,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoRedisCache" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1
+      }
+    },
+    "org.thingsboard.server.cache.user.UserCacheEvictEvent" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 3,
+        "T005" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 2,
+        "T001" : 3,
+        "T005" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.cache.user.UserCacheKey" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T007" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 3,
+        "T007" : 1,
+        "T020" : 1
+      }
+    },
+    "org.thingsboard.server.cache.user.UserCaffeineCache" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1
+      }
+    },
+    "org.thingsboard.server.cache.user.UserRedisCache" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1
+      }
+    },
+    "org.thingsboard.server.cache.usersUpdateTime.UsersSessionInvalidationCaffeineCache" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1
+      }
+    },
+    "org.thingsboard.server.cache.usersUpdateTime.UsersSessionInvalidationRedisCache" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1
+      },
+      "perMethodOutcome" : {
+        "T000" : 1
+      }
+    }
+  },
+  "methods" : {
+    "org.thingsboard.server.cache.CacheSpecs.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.cache.CacheSpecs.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.cache.CacheSpecs.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.cache.CacheSpecs.getMaxSize:()Ljava/lang/Integer;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.server.cache.CacheSpecs.getTimeToLiveInMinutes:()Ljava/lang/Integer;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.cache.CacheSpecs.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.cache.CacheSpecs.setMaxSize:(Ljava/lang/Integer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.cache.CacheSpecs.setTimeToLiveInMinutes:(Ljava/lang/Integer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.cache.CacheSpecs.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.cache.CacheSpecsMap.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.cache.CacheSpecsMap.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.cache.CacheSpecsMap.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.cache.CacheSpecsMap.getRefreshTokenExpTime:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        34
+      ]
+    },
+    "org.thingsboard.server.cache.CacheSpecsMap.getSpecs:()Ljava/util/Map;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        36
+      ]
+    },
+    "org.thingsboard.server.cache.CacheSpecsMap.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.cache.CacheSpecsMap.replaceTheJWTTokenRefreshExpTime:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        41,
+        42,
+        43,
+        44,
+        47
+      ]
+    },
+    "org.thingsboard.server.cache.CacheSpecsMap.setRefreshTokenExpTime:(I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.cache.CacheSpecsMap.setSpecs:(Ljava/util/Map;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.cache.CacheSpecsMap.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbCacheTransaction.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbCacheTransaction.<init>:(Lorg/thingsboard/server/cache/CaffeineTbTransactionalCache;Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        30,
+        32,
+        33,
+        41,
+        30
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbCacheTransaction.commit:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        50
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbCacheTransaction.getId:()Ljava/util/UUID;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbCacheTransaction.getKeys:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbCacheTransaction.isFailed:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        37
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbCacheTransaction.put:(Ljava/io/Serializable;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        45,
+        46
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbCacheTransaction.put:(Ljava/lang/Object;Ljava/lang/Object;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbCacheTransaction.rollback:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        55,
+        56
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbCacheTransaction.setFailed:(Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        38
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbTransactionalCache.<init>:(Ljava/lang/String;Lorg/springframework/cache/Cache;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        36,
+        42,
+        43,
+        44,
+        36
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbTransactionalCache.<init>:(Lorg/springframework/cache/CacheManager;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        46,
+        42,
+        43,
+        44,
+        47,
+        48,
+        49,
+        50
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbTransactionalCache.commit:(Ljava/util/UUID;Ljava/util/Map;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        143,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        155,
+        157,
+        158,
+        160,
+        161,
+        163,
+        161,
+        163,
+        164
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbTransactionalCache.doEvict:(Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        124,
+        125
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbTransactionalCache.doPutIfAbsent:(Ljava/io/Serializable;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        120,
+        121
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbTransactionalCache.evict:(Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        81,
+        83,
+        84,
+        86,
+        87,
+        86,
+        87,
+        88
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbTransactionalCache.evict:(Ljava/util/Collection;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        92,
+        94,
+        99,
+        100,
+        99,
+        100,
+        101
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbTransactionalCache.evictOrPut:(Ljava/io/Serializable;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        106,
+        107
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbTransactionalCache.failAllTransactionsByKey:(Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        192,
+        193,
+        194,
+        195,
+        196,
+        198
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbTransactionalCache.get:(Ljava/io/Serializable;)Lorg/thingsboard/server/cache/TbCacheValueWrapper;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        54
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbTransactionalCache.getCacheName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        39
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbTransactionalCache.lambda$evict$1:(Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        95,
+        96,
+        97
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbTransactionalCache.lambda$new$0:(Ljava/lang/String;)Ljava/lang/IllegalArgumentException;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        49
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbTransactionalCache.lambda$newTransaction$2:(Ljava/io/Serializable;)Ljava/util/Set;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        133
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbTransactionalCache.newTransaction:(Ljava/util/List;)Lorg/thingsboard/server/cache/TbCacheTransaction;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        128,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        138,
+        136,
+        138,
+        139
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbTransactionalCache.newTransactionForKey:(Ljava/io/Serializable;)Lorg/thingsboard/server/cache/TbCacheTransaction;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        111
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbTransactionalCache.newTransactionForKeys:(Ljava/util/List;)Lorg/thingsboard/server/cache/TbCacheTransaction;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        116
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbTransactionalCache.put:(Ljava/io/Serializable;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        59,
+        61,
+        62,
+        64,
+        65,
+        64,
+        65,
+        66
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbTransactionalCache.putIfAbsent:(Ljava/io/Serializable;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        70,
+        72,
+        73,
+        75,
+        76,
+        75,
+        76,
+        77
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbTransactionalCache.removeTransaction:(Ljava/util/UUID;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        187,
+        189
+      ]
+    },
+    "org.thingsboard.server.cache.CaffeineTbTransactionalCache.rollback:(Ljava/util/UUID;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        168,
+        170,
+        172,
+        173,
+        172,
+        173,
+        174
+      ]
+    },
+    "org.thingsboard.server.cache.RedisSslCredentials.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.server.cache.RedisSslCredentials.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.server.cache.RedisSslCredentials.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.server.cache.RedisSslCredentials.getCertFile:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.server.cache.RedisSslCredentials.getUserCertFile:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.cache.RedisSslCredentials.getUserKeyFile:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.RedisSslCredentials.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.server.cache.RedisSslCredentials.setCertFile:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.server.cache.RedisSslCredentials.setUserCertFile:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.server.cache.RedisSslCredentials.setUserKeyFile:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.server.cache.RedisSslCredentials.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbCacheTransaction.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbCacheTransaction.<init>:(Lorg/thingsboard/server/cache/RedisTbTransactionalCache;Lorg/springframework/data/redis/connection/RedisConnection;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbCacheTransaction.commit:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        40,
+        41,
+        42,
+        44,
+        42,
+        44,
+        45
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbCacheTransaction.put:(Ljava/io/Serializable;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        34,
+        35
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbCacheTransaction.put:(Ljava/lang/Object;Ljava/lang/Object;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbCacheTransaction.rollback:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        51,
+        53,
+        54,
+        53,
+        54,
+        55
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        45,
+        48,
+        49
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.<init>:(Ljava/lang/String;Lorg/thingsboard/server/cache/CacheSpecsMap;Lorg/springframework/data/redis/connection/RedisConnectionFactory;Lorg/thingsboard/server/cache/TBRedisCacheConfiguration;Lorg/thingsboard/server/cache/TbRedisSerializer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        68,
+        58,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.doGet:(Ljava/io/Serializable;Lorg/springframework/data/redis/connection/RedisConnection;)[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        112
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.evict:(Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        141,
+        142,
+        144,
+        145,
+        146,
+        144,
+        147
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.evict:(Ljava/util/Collection;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        151,
+        152,
+        155,
+        156,
+        158,
+        159,
+        160,
+        158,
+        161
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.evictOrPut:(Ljava/io/Serializable;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        165,
+        166,
+        168,
+        169,
+        170,
+        171,
+        173,
+        175,
+        168,
+        176
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.get:(Ljava/io/Serializable;)Lorg/thingsboard/server/cache/TbCacheValueWrapper;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        90,
+        91,
+        93,
+        94,
+        95,
+        96,
+        108,
+        96,
+        97,
+        98,
+        108,
+        98,
+        100,
+        101,
+        102,
+        103,
+        104,
+        106,
+        108,
+        106,
+        93
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.getAndPutInTransaction:(Ljava/io/Serializable;Ljava/util/function/Supplier;Ljava/util/function/Function;Ljava/util/function/Function;Z)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        193,
+        194,
+        196
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.getCacheName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        54
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.getConnection:([B)Lorg/springframework/data/redis/connection/RedisConnection;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        200,
+        201,
+        203,
+        205,
+        206,
+        208,
+        209,
+        211
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.getConnectionFactory:()Lorg/springframework/data/redis/connection/jedis/JedisConnectionFactory;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        56
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.getRawKey:(Ljava/io/Serializable;)[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        227,
+        230,
+        234,
+        231,
+        232,
+        233,
+        235,
+        236,
+        237,
+        239
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.getRawValue:(Ljava/io/Serializable;)[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        243,
+        244,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.lambda$evict$5:(I)[[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        159
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.lambda$new$0:(Ljava/lang/String;Ljava/util/Map;)Lorg/thingsboard/server/cache/CacheSpecs;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        75
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.lambda$new$1:(Ljava/lang/Integer;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        77
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.lambda$new$2:(Ljava/lang/Integer;)Lorg/springframework/data/redis/core/types/Expiration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        78
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.lambda$new$3:(Ljava/lang/String;Ljava/util/Map;)Lorg/thingsboard/server/cache/CacheSpecs;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        82
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.lambda$new$4:(Ljava/lang/Integer;)Ljava/lang/Boolean;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        84
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.lambda$newTransactionForKeys$6:(I)[[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        187
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.newTransactionForKey:(Ljava/io/Serializable;)Lorg/thingsboard/server/cache/TbCacheTransaction;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        180,
+        181,
+        182
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.newTransactionForKeys:(Ljava/util/List;)Lorg/thingsboard/server/cache/TbCacheTransaction;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        187,
+        188
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.put:(Ljava/io/Serializable;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        117,
+        118,
+        120,
+        121,
+        122,
+        120,
+        123
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.put:(Ljava/io/Serializable;Ljava/io/Serializable;Lorg/springframework/data/redis/connection/RedisConnection;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        126,
+        127
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.put:(Lorg/springframework/data/redis/connection/RedisConnection;Ljava/io/Serializable;Ljava/io/Serializable;Lorg/springframework/data/redis/connection/RedisStringCommands$SetOption;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        260,
+        261,
+        263,
+        264,
+        265
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.put:(Lorg/springframework/data/redis/connection/RedisConnection;[BLjava/io/Serializable;Lorg/springframework/data/redis/connection/RedisStringCommands$SetOption;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        268,
+        269,
+        270
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.putIfAbsent:(Ljava/io/Serializable;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        131,
+        132,
+        134,
+        135,
+        136,
+        134,
+        137
+      ]
+    },
+    "org.thingsboard.server.cache.RedisTbTransactionalCache.watch:([[B)Lorg/springframework/data/redis/connection/RedisConnection;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        215,
+        217,
+        218,
+        222,
+        219,
+        220,
+        221,
+        223
+      ]
+    },
+    "org.thingsboard.server.cache.SimpleTbCacheValueWrapper.<init>:(Ljava/lang/Object;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.server.cache.SimpleTbCacheValueWrapper.empty:()Lorg/thingsboard/server/cache/SimpleTbCacheValueWrapper;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.server.cache.SimpleTbCacheValueWrapper.get:()Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.SimpleTbCacheValueWrapper.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.server.cache.SimpleTbCacheValueWrapper.wrap:(Ljava/lang/Object;)Lorg/thingsboard/server/cache/SimpleTbCacheValueWrapper;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        39
+      ]
+    },
+    "org.thingsboard.server.cache.SimpleTbCacheValueWrapper.wrap:(Lorg/springframework/cache/Cache$ValueWrapper;)Lorg/thingsboard/server/cache/SimpleTbCacheValueWrapper;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        44
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        64
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.buildPoolConfig:()Lredis/clients/jedis/JedisPoolConfig;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.cacheManager:(Lorg/springframework/data/redis/connection/RedisConnectionFactory;)Lorg/springframework/cache/CacheManager;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        129
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.createAndInitKeyManagerFactory:()Ljavax/net/ssl/KeyManagerFactory;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        203,
+        204,
+        205
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.createAndInitTrustManagerFactory:()Ljavax/net/ssl/TrustManagerFactory;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        197,
+        198,
+        199
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.createSslSocketFactory:()Ljavax/net/ssl/SSLSocketFactory;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.getEvictTtlInMs:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        71
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.getEvictionRunsMs:()J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        95
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.getMaxIdle:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        77
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.getMaxTotal:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        74
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.getMaxWaitMills:()J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        98
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.getMinEvictableMs:()J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        92
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.getMinIdle:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        80
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.getNodes:(Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        164,
+        165,
+        167,
+        168,
+        169,
+        170,
+        171,
+        168,
+        174
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.getNumberTestsPerEvictionRun:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        101
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.getRedisSslCredentials:()Lorg/thingsboard/server/cache/RedisSslCredentials;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        115
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.isBlockWhenExhausted:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        104
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.isSslEnabled:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        107
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.isTestOnBorrow:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        83
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.isTestOnReturn:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        86
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.isTestWhileIdle:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        89
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.loadFactory:()Lorg/springframework/data/redis/connection/jedis/JedisConnectionFactory;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.loadKeyStore:()Ljava/security/KeyStore;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        209,
+        210,
+        212,
+        213,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        229
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.redisConnectionFactory:()Lorg/springframework/data/redis/connection/RedisConnectionFactory;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        111
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.redisTemplate:()Lorg/springframework/data/redis/core/RedisTemplate;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        136,
+        137,
+        138
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.registerDefaultConverters:(Lorg/springframework/core/convert/converter/ConverterRegistry;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        142,
+        143,
+        144
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.setBlockWhenExhausted:(Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.setEvictTtlInMs:(I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.setEvictionRunsMs:(J)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.setMaxIdle:(I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.setMaxTotal:(I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.setMaxWaitMills:(J)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.setMinEvictableMs:(J)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.setMinIdle:(I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.setNumberTestsPerEvictionRun:(I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.setRedisSslCredentials:(Lorg/thingsboard/server/cache/RedisSslCredentials;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.setSslEnabled:(Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.setTestOnBorrow:(Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.setTestOnReturn:(Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.setTestWhileIdle:(Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisCacheConfiguration.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisClusterConfiguration.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisClusterConfiguration.buildClientConfig:()Lorg/springframework/data/redis/connection/jedis/JedisClientConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        55,
+        56,
+        57,
+        58,
+        59,
+        61,
+        62,
+        63,
+        64,
+        66
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisClusterConfiguration.loadFactory:()Lorg/springframework/data/redis/connection/jedis/JedisConnectionFactory;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        47,
+        48,
+        49,
+        50,
+        51
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisSentinelConfiguration.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisSentinelConfiguration.buildClientConfig:()Lorg/springframework/data/redis/connection/jedis/JedisClientConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        63,
+        64,
+        65,
+        66,
+        67,
+        69,
+        70,
+        71,
+        72,
+        74
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisSentinelConfiguration.loadFactory:()Lorg/springframework/data/redis/connection/jedis/JedisConnectionFactory;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisStandaloneConfiguration.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisStandaloneConfiguration.buildClientConfig:()Lorg/springframework/data/redis/connection/jedis/JedisClientConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        80,
+        81,
+        82,
+        83,
+        85,
+        86,
+        87,
+        88,
+        90
+      ]
+    },
+    "org.thingsboard.server.cache.TBRedisStandaloneConfiguration.loadFactory:()Lorg/springframework/data/redis/connection/jedis/JedisConnectionFactory;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        64,
+        65,
+        66,
+        67,
+        68,
+        69
+      ]
+    },
+    "org.thingsboard.server.cache.TbCacheTransaction.commit:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.TbCacheTransaction.put:(Ljava/lang/Object;Ljava/lang/Object;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.TbCacheTransaction.rollback:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.TbCacheValueWrapper.get:()Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.TbCaffeineCacheConfiguration.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        40
+      ]
+    },
+    "org.thingsboard.server.cache.TbCaffeineCacheConfiguration.<init>:(Lorg/thingsboard/server/cache/CacheSpecsMap;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        45,
+        46,
+        47
+      ]
+    },
+    "org.thingsboard.server.cache.TbCaffeineCacheConfiguration.buildCache:(Ljava/lang/String;Lorg/thingsboard/server/cache/CacheSpecs;)Lorg/springframework/cache/caffeine/CaffeineCache;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        82
+      ]
+    },
+    "org.thingsboard.server.cache.TbCaffeineCacheConfiguration.cacheManager:()Lorg/springframework/cache/CacheManager;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        62,
+        63,
+        67,
+        69
+      ]
+    },
+    "org.thingsboard.server.cache.TbCaffeineCacheConfiguration.collectionSafeWeigher:()Lcom/github/benmanes/caffeine/cache/Weigher;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        91
+      ]
+    },
+    "org.thingsboard.server.cache.TbCaffeineCacheConfiguration.lambda$cacheManager$0:(Ljava/util/Map$Entry;)Lorg/springframework/cache/caffeine/CaffeineCache;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        60,
+        61,
+        60
+      ]
+    },
+    "org.thingsboard.server.cache.TbCaffeineCacheConfiguration.lambda$collectionSafeWeigher$1:(Ljava/lang/Object;Ljava/lang/Object;)I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        92,
+        93,
+        95
+      ]
+    },
+    "org.thingsboard.server.cache.TbCaffeineCacheConfiguration.ticker:()Lcom/github/benmanes/caffeine/cache/Ticker;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        87
+      ]
+    },
+    "org.thingsboard.server.cache.TbJavaRedisSerializer.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        21,
+        23
+      ]
+    },
+    "org.thingsboard.server.cache.TbJavaRedisSerializer.deserialize:(Ljava/lang/Object;[B)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.server.cache.TbJavaRedisSerializer.serialize:(Ljava/lang/Object;)[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.server.cache.TbJsonRedisSerializer.<init>:(Ljava/lang/Class;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        25,
+        26,
+        27
+      ]
+    },
+    "org.thingsboard.server.cache.TbJsonRedisSerializer.deserialize:(Ljava/lang/Object;[B)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        36
+      ]
+    },
+    "org.thingsboard.server.cache.TbJsonRedisSerializer.serialize:(Ljava/lang/Object;)[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.TbRedisSerializer.deserialize:(Ljava/lang/Object;[B)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.TbRedisSerializer.serialize:(Ljava/lang/Object;)[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.TbTransactionalCache.evict:(Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.TbTransactionalCache.evict:(Ljava/util/Collection;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.TbTransactionalCache.evictOrPut:(Ljava/io/Serializable;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.TbTransactionalCache.get:(Ljava/io/Serializable;)Lorg/thingsboard/server/cache/TbCacheValueWrapper;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.TbTransactionalCache.getAndPutInTransaction:(Ljava/io/Serializable;Ljava/util/function/Supplier;Ljava/util/function/Function;Ljava/util/function/Function;Z)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        67,
+        68,
+        69,
+        70,
+        72,
+        74,
+        75,
+        76,
+        77,
+        78,
+        80,
+        81,
+        83,
+        84,
+        85
+      ]
+    },
+    "org.thingsboard.server.cache.TbTransactionalCache.getAndPutInTransaction:(Ljava/io/Serializable;Ljava/util/function/Supplier;Z)Ljava/io/Serializable;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.thingsboard.server.cache.TbTransactionalCache.getCacheName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.TbTransactionalCache.getOrFetchFromDB:(Ljava/io/Serializable;Ljava/util/function/Supplier;Ljava/util/function/Function;Ljava/util/function/Function;ZZ)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        90,
+        91,
+        93,
+        94,
+        95,
+        96,
+        98
+      ]
+    },
+    "org.thingsboard.server.cache.TbTransactionalCache.getOrFetchFromDB:(Ljava/io/Serializable;Ljava/util/function/Supplier;ZZ)Ljava/io/Serializable;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        51,
+        52,
+        54,
+        55,
+        56,
+        58
+      ]
+    },
+    "org.thingsboard.server.cache.TbTransactionalCache.newTransactionForKey:(Ljava/io/Serializable;)Lorg/thingsboard/server/cache/TbCacheTransaction;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.TbTransactionalCache.newTransactionForKeys:(Ljava/util/List;)Lorg/thingsboard/server/cache/TbCacheTransaction;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.TbTransactionalCache.put:(Ljava/io/Serializable;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.TbTransactionalCache.putIfAbsent:(Ljava/io/Serializable;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.TbTypedJsonRedisSerializer.<init>:(Lcom/fasterxml/jackson/core/type/TypeReference;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        26,
+        27,
+        28
+      ]
+    },
+    "org.thingsboard.server.cache.TbTypedJsonRedisSerializer.deserialize:(Ljava/lang/Object;[B)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        37
+      ]
+    },
+    "org.thingsboard.server.cache.TbTypedJsonRedisSerializer.serialize:(Ljava/lang/Object;)[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedCacheKey.isVersioned:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedCaffeineTbCache.<init>:(Lorg/springframework/cache/CacheManager;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        28,
+        29
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedCaffeineTbCache.doGet:(Lorg/thingsboard/server/cache/VersionedCacheKey;)Lorg/thingsboard/server/common/data/util/TbPair;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        63,
+        64
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedCaffeineTbCache.doPut:(Lorg/thingsboard/server/cache/VersionedCacheKey;Ljava/io/Serializable;Ljava/lang/Long;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        50,
+        52,
+        53,
+        54,
+        55,
+        58,
+        59,
+        58,
+        59,
+        60
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedCaffeineTbCache.doPutIfAbsent:(Ljava/io/Serializable;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedCaffeineTbCache.doPutIfAbsent:(Lorg/thingsboard/server/cache/VersionedCacheKey;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        88,
+        89
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedCaffeineTbCache.evict:(Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedCaffeineTbCache.evict:(Lorg/thingsboard/server/cache/VersionedCacheKey;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        69,
+        71,
+        72,
+        74,
+        75,
+        74,
+        75,
+        76
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedCaffeineTbCache.evict:(Lorg/thingsboard/server/cache/VersionedCacheKey;Ljava/lang/Long;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        80,
+        81,
+        83,
+        84
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedCaffeineTbCache.get:(Ljava/io/Serializable;)Lorg/thingsboard/server/cache/TbCacheValueWrapper;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedCaffeineTbCache.get:(Lorg/thingsboard/server/cache/VersionedCacheKey;)Lorg/thingsboard/server/cache/TbCacheValueWrapper;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        33,
+        34,
+        35,
+        37
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedCaffeineTbCache.put:(Ljava/io/Serializable;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedCaffeineTbCache.put:(Lorg/thingsboard/server/cache/VersionedCacheKey;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        42,
+        43,
+        44,
+        46,
+        47
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedCaffeineTbCache.wrapValue:(Ljava/io/Serializable;Ljava/lang/Long;)Lorg/thingsboard/server/common/data/util/TbPair;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        92
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedRedisTbCache.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        32,
+        38,
+        62
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedRedisTbCache.<init>:(Ljava/lang/String;Lorg/thingsboard/server/cache/CacheSpecsMap;Lorg/springframework/data/redis/connection/RedisConnectionFactory;Lorg/thingsboard/server/cache/TBRedisCacheConfiguration;Lorg/thingsboard/server/cache/TbRedisSerializer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        65,
+        66
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedRedisTbCache.doGet:(Ljava/io/Serializable;Lorg/springframework/data/redis/connection/RedisConnection;)[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedRedisTbCache.doGet:(Lorg/thingsboard/server/cache/VersionedCacheKey;Lorg/springframework/data/redis/connection/RedisConnection;)[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        83,
+        84,
+        86,
+        87
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedRedisTbCache.doPut:(Lorg/thingsboard/server/cache/VersionedCacheKey;Ljava/io/Serializable;Ljava/lang/Long;Lorg/springframework/data/redis/core/types/Expiration;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        118,
+        119,
+        121,
+        122,
+        123,
+        124,
+        125,
+        123,
+        126
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedRedisTbCache.doPut:([BLjava/io/Serializable;Ljava/lang/Long;Lorg/springframework/data/redis/core/types/Expiration;Lorg/springframework/data/redis/connection/RedisConnection;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        129,
+        130,
+        131,
+        133,
+        146,
+        134,
+        135,
+        136,
+        137,
+        138,
+        141,
+        145,
+        142,
+        143,
+        144,
+        147
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedRedisTbCache.evict:(Lorg/thingsboard/server/cache/VersionedCacheKey;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedRedisTbCache.evict:(Lorg/thingsboard/server/cache/VersionedCacheKey;Ljava/lang/Long;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        151,
+        152,
+        153,
+        155
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedRedisTbCache.evictOrPut:(Ljava/io/Serializable;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedRedisTbCache.evictOrPut:(Lorg/thingsboard/server/cache/VersionedCacheKey;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        164
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedRedisTbCache.get:(Lorg/thingsboard/server/cache/VersionedCacheKey;)Lorg/thingsboard/server/cache/TbCacheValueWrapper;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedRedisTbCache.init:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        70,
+        71,
+        72,
+        73,
+        74,
+        76,
+        70,
+        78,
+        76,
+        77,
+        79
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedRedisTbCache.put:(Ljava/io/Serializable;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedRedisTbCache.put:(Ljava/io/Serializable;Ljava/io/Serializable;Lorg/springframework/data/redis/connection/RedisConnection;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedRedisTbCache.put:(Lorg/thingsboard/server/cache/VersionedCacheKey;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        92,
+        93,
+        94,
+        96,
+        97,
+        98,
+        100,
+        101
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedRedisTbCache.put:(Lorg/thingsboard/server/cache/VersionedCacheKey;Ljava/io/Serializable;Lorg/springframework/data/redis/connection/RedisConnection;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        105,
+        106,
+        107,
+        109,
+        110,
+        111,
+        113,
+        114,
+        115
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedRedisTbCache.putIfAbsent:(Ljava/io/Serializable;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedRedisTbCache.putIfAbsent:(Lorg/thingsboard/server/cache/VersionedCacheKey;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        159
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedTbCache.evict:(Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedTbCache.evict:(Ljava/util/Collection;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.VersionedTbCache.evict:(Lorg/thingsboard/server/cache/VersionedCacheKey;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.VersionedTbCache.evict:(Lorg/thingsboard/server/cache/VersionedCacheKey;Ljava/lang/Long;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.VersionedTbCache.get:(Ljava/io/Serializable;)Lorg/thingsboard/server/cache/TbCacheValueWrapper;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedTbCache.get:(Lorg/thingsboard/server/cache/VersionedCacheKey;)Lorg/thingsboard/server/cache/TbCacheValueWrapper;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.VersionedTbCache.get:(Lorg/thingsboard/server/cache/VersionedCacheKey;Ljava/util/function/Supplier;)Ljava/io/Serializable;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedTbCache.get:(Lorg/thingsboard/server/cache/VersionedCacheKey;Ljava/util/function/Supplier;Z)Ljava/io/Serializable;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        34,
+        35,
+        36,
+        34
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedTbCache.getVersion:(Ljava/io/Serializable;)Ljava/lang/Long;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        54,
+        55,
+        56,
+        57,
+        59
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedTbCache.lambda$get$0:(Ljava/util/function/Supplier;ZLorg/thingsboard/server/cache/VersionedCacheKey;)Ljava/io/Serializable;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        37,
+        38,
+        39,
+        41
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedTbCache.put:(Ljava/io/Serializable;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.cache.VersionedTbCache.put:(Lorg/thingsboard/server/cache/VersionedCacheKey;Ljava/io/Serializable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.customer.CustomerCacheEvictEvent.<init>:(Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.cache.customer.CustomerCacheEvictEvent.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.cache.customer.CustomerCacheEvictEvent.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.cache.customer.CustomerCacheEvictEvent.newTitle:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.cache.customer.CustomerCacheEvictEvent.oldTitle:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.cache.customer.CustomerCacheEvictEvent.tenantId:()Lorg/thingsboard/server/common/data/id/TenantId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.cache.customer.CustomerCacheEvictEvent.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.cache.customer.CustomerCacheKey.<init>:(Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.server.cache.customer.CustomerCacheKey.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.server.cache.customer.CustomerCacheKey.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.server.cache.customer.CustomerCacheKey.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.server.cache.customer.CustomerCacheKey.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        39
+      ]
+    },
+    "org.thingsboard.server.cache.customer.CustomerCaffeineCache.<init>:(Lorg/springframework/cache/CacheManager;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        30,
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.customer.CustomerRedisCache.<init>:(Lorg/thingsboard/server/cache/TBRedisCacheConfiguration;Lorg/thingsboard/server/cache/CacheSpecsMap;Lorg/springframework/data/redis/connection/RedisConnectionFactory;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        33,
+        34
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheEvictEvent.<init>:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/DeviceId;Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheEvictEvent.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheEvictEvent.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheEvictEvent.getDeviceId:()Lorg/thingsboard/server/common/data/id/DeviceId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheEvictEvent.getNewName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheEvictEvent.getOldName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheEvictEvent.getSavedDevice:()Lorg/thingsboard/server/common/data/Device;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheEvictEvent.getTenantId:()Lorg/thingsboard/server/common/data/id/TenantId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheEvictEvent.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheEvictEvent.setSavedDevice:(Lorg/thingsboard/server/common/data/Device;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheEvictEvent.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheKey$DeviceCacheKeyBuilder.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheKey$DeviceCacheKeyBuilder.build:()Lorg/thingsboard/server/cache/device/DeviceCacheKey;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheKey$DeviceCacheKeyBuilder.deviceId:(Lorg/thingsboard/server/common/data/id/DeviceId;)Lorg/thingsboard/server/cache/device/DeviceCacheKey$DeviceCacheKeyBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheKey$DeviceCacheKeyBuilder.deviceName:(Ljava/lang/String;)Lorg/thingsboard/server/cache/device/DeviceCacheKey$DeviceCacheKeyBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheKey$DeviceCacheKeyBuilder.tenantId:(Lorg/thingsboard/server/common/data/id/TenantId;)Lorg/thingsboard/server/cache/device/DeviceCacheKey$DeviceCacheKeyBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheKey$DeviceCacheKeyBuilder.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheKey.<init>:(Lorg/thingsboard/server/common/data/id/DeviceId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        42,
+        43
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheKey.<init>:(Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        50,
+        51
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheKey.<init>:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/DeviceId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        46,
+        47
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheKey.<init>:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/DeviceId;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheKey.builder:()Lorg/thingsboard/server/cache/device/DeviceCacheKey$DeviceCacheKeyBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheKey.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheKey.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheKey.getDeviceId:()Lorg/thingsboard/server/common/data/id/DeviceId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        38
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheKey.getDeviceName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        39
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheKey.getTenantId:()Lorg/thingsboard/server/common/data/id/TenantId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        37
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheKey.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheKey.isVersioned:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        66
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCacheKey.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        55,
+        56,
+        57,
+        58,
+        60
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceCaffeineCache.<init>:(Lorg/springframework/cache/CacheManager;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        30,
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceRedisCache$1.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        37
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceRedisCache$1.deserialize:(Ljava/lang/Object;[B)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        37
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceRedisCache$1.deserialize:(Lorg/thingsboard/server/cache/device/DeviceCacheKey;[B)Lorg/thingsboard/server/common/data/Device;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        47,
+        48,
+        49
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceRedisCache$1.serialize:(Ljava/lang/Object;)[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        37
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceRedisCache$1.serialize:(Lorg/thingsboard/server/common/data/Device;)[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        41
+      ]
+    },
+    "org.thingsboard.server.cache.device.DeviceRedisCache.<init>:(Lorg/thingsboard/server/cache/TBRedisCacheConfiguration;Lorg/thingsboard/server/cache/CacheSpecsMap;Lorg/springframework/data/redis/connection/RedisConnectionFactory;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        37,
+        53
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheEvictEvent.<init>:(Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheEvictEvent.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheEvictEvent.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheEvictEvent.getNewName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheEvictEvent.getOldName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheEvictEvent.getTenantId:()Lorg/thingsboard/server/common/data/id/TenantId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheEvictEvent.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheEvictEvent.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheKey$EdgeCacheKeyBuilder.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheKey$EdgeCacheKeyBuilder.build:()Lorg/thingsboard/server/cache/edge/EdgeCacheKey;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheKey$EdgeCacheKeyBuilder.name:(Ljava/lang/String;)Lorg/thingsboard/server/cache/edge/EdgeCacheKey$EdgeCacheKeyBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheKey$EdgeCacheKeyBuilder.tenantId:(Lorg/thingsboard/server/common/data/id/TenantId;)Lorg/thingsboard/server/cache/edge/EdgeCacheKey$EdgeCacheKeyBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheKey$EdgeCacheKeyBuilder.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheKey.<init>:(Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheKey.builder:()Lorg/thingsboard/server/cache/edge/EdgeCacheKey$EdgeCacheKeyBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheKey.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheKey.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheKey.getName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        37
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheKey.getTenantId:()Lorg/thingsboard/server/common/data/id/TenantId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        36
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheKey.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeCacheKey.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        41
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeCaffeineCache.<init>:(Lorg/springframework/cache/CacheManager;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        30,
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.edge.EdgeRedisCache.<init>:(Lorg/thingsboard/server/cache/TBRedisCacheConfiguration;Lorg/thingsboard/server/cache/CacheSpecsMap;Lorg/springframework/data/redis/connection/RedisConnectionFactory;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        33,
+        34
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheKey$RelatedEdgesCacheKeyBuilder.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheKey$RelatedEdgesCacheKeyBuilder.build:()Lorg/thingsboard/server/cache/edge/RelatedEdgesCacheKey;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheKey$RelatedEdgesCacheKeyBuilder.entityId:(Lorg/thingsboard/server/common/data/id/EntityId;)Lorg/thingsboard/server/cache/edge/RelatedEdgesCacheKey$RelatedEdgesCacheKeyBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheKey$RelatedEdgesCacheKeyBuilder.tenantId:(Lorg/thingsboard/server/common/data/id/TenantId;)Lorg/thingsboard/server/cache/edge/RelatedEdgesCacheKey$RelatedEdgesCacheKeyBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheKey$RelatedEdgesCacheKeyBuilder.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheKey.<init>:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheKey.builder:()Lorg/thingsboard/server/cache/edge/RelatedEdgesCacheKey$RelatedEdgesCacheKeyBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheKey.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheKey.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheKey.getEntityId:()Lorg/thingsboard/server/common/data/id/EntityId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        38
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheKey.getTenantId:()Lorg/thingsboard/server/common/data/id/TenantId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        37
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheKey.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheKey.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        42
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheValue.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheValue.<init>:(Lorg/thingsboard/server/common/data/page/PageData;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheValue.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheValue.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheValue.getPageData:()Lorg/thingsboard/server/common/data/page/PageData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheValue.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheValue.setPageData:(Lorg/thingsboard/server/common/data/page/PageData;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCacheValue.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesCaffeineCache.<init>:(Lorg/springframework/cache/CacheManager;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        29,
+        30
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesEvictEvent.<init>:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/EntityId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesEvictEvent.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesEvictEvent.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesEvictEvent.getEntityId:()Lorg/thingsboard/server/common/data/id/EntityId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesEvictEvent.getTenantId:()Lorg/thingsboard/server/common/data/id/TenantId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesEvictEvent.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesEvictEvent.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.thingsboard.server.cache.edge.RelatedEdgesRedisCache.<init>:(Lorg/thingsboard/server/cache/TBRedisCacheConfiguration;Lorg/thingsboard/server/cache/CacheSpecsMap;Lorg/springframework/data/redis/connection/RedisConnectionFactory;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        32,
+        33
+      ]
+    },
+    "org.thingsboard.server.cache.limits.DefaultRateLimitService$RateLimitKey.<init>:(Lorg/thingsboard/server/common/data/limit/LimitedApi;Ljava/lang/Object;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        126
+      ]
+    },
+    "org.thingsboard.server.cache.limits.DefaultRateLimitService$RateLimitKey.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        126
+      ]
+    },
+    "org.thingsboard.server.cache.limits.DefaultRateLimitService$RateLimitKey.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        126
+      ]
+    },
+    "org.thingsboard.server.cache.limits.DefaultRateLimitService$RateLimitKey.getApi:()Lorg/thingsboard/server/common/data/limit/LimitedApi;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        128
+      ]
+    },
+    "org.thingsboard.server.cache.limits.DefaultRateLimitService$RateLimitKey.getLevel:()Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        129
+      ]
+    },
+    "org.thingsboard.server.cache.limits.DefaultRateLimitService$RateLimitKey.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        126
+      ]
+    },
+    "org.thingsboard.server.cache.limits.DefaultRateLimitService$RateLimitKey.of:(Lorg/thingsboard/server/common/data/limit/LimitedApi;Ljava/lang/Object;)Lorg/thingsboard/server/cache/limits/DefaultRateLimitService$RateLimitKey;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        126
+      ]
+    },
+    "org.thingsboard.server.cache.limits.DefaultRateLimitService$RateLimitKey.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        126
+      ]
+    },
+    "org.thingsboard.server.cache.limits.DefaultRateLimitService.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        39
+      ]
+    },
+    "org.thingsboard.server.cache.limits.DefaultRateLimitService.<init>:(Lorg/thingsboard/server/cache/limits/TenantProfileProvider;Lorg/thingsboard/server/common/msg/notification/NotificationRuleProcessor;II)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ]
+    },
+    "org.thingsboard.server.cache.limits.DefaultRateLimitService.checkRateLimit:(Lorg/thingsboard/server/common/data/limit/LimitedApi;Ljava/lang/Object;Ljava/lang/String;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        99,
+        100,
+        101,
+        102,
+        104,
+        106,
+        113,
+        114,
+        115,
+        117
+      ]
+    },
+    "org.thingsboard.server.cache.limits.DefaultRateLimitService.checkRateLimit:(Lorg/thingsboard/server/common/data/limit/LimitedApi;Lorg/thingsboard/server/common/data/id/TenantId;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        61
+      ]
+    },
+    "org.thingsboard.server.cache.limits.DefaultRateLimitService.checkRateLimit:(Lorg/thingsboard/server/common/data/limit/LimitedApi;Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        66
+      ]
+    },
+    "org.thingsboard.server.cache.limits.DefaultRateLimitService.checkRateLimit:(Lorg/thingsboard/server/common/data/limit/LimitedApi;Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/Object;Z)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        71,
+        72,
+        74,
+        75,
+        76,
+        77,
+        79,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        87,
+        94
+      ]
+    },
+    "org.thingsboard.server.cache.limits.DefaultRateLimitService.cleanUp:(Lorg/thingsboard/server/common/data/limit/LimitedApi;Ljava/lang/Object;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        122,
+        123,
+        124
+      ]
+    },
+    "org.thingsboard.server.cache.limits.DefaultRateLimitService.lambda$checkRateLimit$0:(Ljava/lang/String;Lorg/thingsboard/server/common/data/limit/LimitedApi;Ljava/lang/Object;Lorg/thingsboard/server/cache/limits/DefaultRateLimitService$RateLimitKey;Lorg/thingsboard/server/common/msg/tools/TbRateLimits;)Lorg/thingsboard/server/common/msg/tools/TbRateLimits;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        107,
+        108,
+        109,
+        111
+      ]
+    },
+    "org.thingsboard.server.cache.limits.RateLimitService.checkRateLimit:(Lorg/thingsboard/server/common/data/limit/LimitedApi;Ljava/lang/Object;Ljava/lang/String;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.limits.RateLimitService.checkRateLimit:(Lorg/thingsboard/server/common/data/limit/LimitedApi;Lorg/thingsboard/server/common/data/id/TenantId;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.limits.RateLimitService.checkRateLimit:(Lorg/thingsboard/server/common/data/limit/LimitedApi;Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.limits.RateLimitService.checkRateLimit:(Lorg/thingsboard/server/common/data/limit/LimitedApi;Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/Object;Z)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.limits.RateLimitService.cleanUp:(Lorg/thingsboard/server/common/data/limit/LimitedApi;Ljava/lang/Object;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.limits.TenantProfileProvider.get:(Lorg/thingsboard/server/common/data/id/TenantId;)Lorg/thingsboard/server/common/data/TenantProfile;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.ota.CaffeineOtaPackageCache.<init>:(Lorg/springframework/cache/CacheManager;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.server.cache.ota.CaffeineOtaPackageCache.evict:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        66,
+        67
+      ]
+    },
+    "org.thingsboard.server.cache.ota.CaffeineOtaPackageCache.get:(Ljava/lang/String;)[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        34
+      ]
+    },
+    "org.thingsboard.server.cache.ota.CaffeineOtaPackageCache.get:(Ljava/lang/String;II)[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        39,
+        41,
+        42,
+        45,
+        46,
+        48,
+        50,
+        51,
+        52,
+        53,
+        56
+      ]
+    },
+    "org.thingsboard.server.cache.ota.CaffeineOtaPackageCache.put:(Ljava/lang/String;[B)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        61,
+        62
+      ]
+    },
+    "org.thingsboard.server.cache.ota.OtaPackageDataCache.evict:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.ota.OtaPackageDataCache.get:(Ljava/lang/String;)[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.ota.OtaPackageDataCache.get:(Ljava/lang/String;II)[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.ota.OtaPackageDataCache.has:(Ljava/lang/String;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        29,
+        30
+      ]
+    },
+    "org.thingsboard.server.cache.ota.OtaPackageDataCache.put:(Ljava/lang/String;[B)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.thingsboard.server.cache.ota.RedisOtaPackageDataCache.<init>:(Lorg/springframework/data/redis/connection/RedisConnectionFactory;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.thingsboard.server.cache.ota.RedisOtaPackageDataCache.evict:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        60,
+        61,
+        62,
+        60,
+        63
+      ]
+    },
+    "org.thingsboard.server.cache.ota.RedisOtaPackageDataCache.get:(Ljava/lang/String;)[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.thingsboard.server.cache.ota.RedisOtaPackageDataCache.get:(Ljava/lang/String;II)[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        40,
+        41,
+        42,
+        48,
+        42,
+        45,
+        46,
+        47,
+        48,
+        47,
+        40
+      ]
+    },
+    "org.thingsboard.server.cache.ota.RedisOtaPackageDataCache.put:(Ljava/lang/String;[B)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        53,
+        54,
+        55,
+        53,
+        56
+      ]
+    },
+    "org.thingsboard.server.cache.ota.RedisOtaPackageDataCache.toOtaPackageCacheKey:(Ljava/lang/String;)[B" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        66
+      ]
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoCacheKey$ResourceInfoCacheKeyBuilder.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoCacheKey$ResourceInfoCacheKeyBuilder.build:()Lorg/thingsboard/server/cache/resourceInfo/ResourceInfoCacheKey;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoCacheKey$ResourceInfoCacheKeyBuilder.tbResourceId:(Lorg/thingsboard/server/common/data/id/TbResourceId;)Lorg/thingsboard/server/cache/resourceInfo/ResourceInfoCacheKey$ResourceInfoCacheKeyBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoCacheKey$ResourceInfoCacheKeyBuilder.tenantId:(Lorg/thingsboard/server/common/data/id/TenantId;)Lorg/thingsboard/server/cache/resourceInfo/ResourceInfoCacheKey$ResourceInfoCacheKeyBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "T002",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoCacheKey$ResourceInfoCacheKeyBuilder.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoCacheKey.<init>:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/TbResourceId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoCacheKey.builder:()Lorg/thingsboard/server/cache/resourceInfo/ResourceInfoCacheKey$ResourceInfoCacheKeyBuilder;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoCacheKey.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoCacheKey.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoCacheKey.getTbResourceId:()Lorg/thingsboard/server/common/data/id/TbResourceId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        38
+      ]
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoCacheKey.getTenantId:()Lorg/thingsboard/server/common/data/id/TenantId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        37
+      ]
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoCacheKey.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        29
+      ]
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoCacheKey.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        42
+      ]
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoCaffeineCache.<init>:(Lorg/springframework/cache/CacheManager;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        31,
+        32
+      ]
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoEvictEvent.<init>:(Lorg/thingsboard/server/common/data/id/TenantId;Lorg/thingsboard/server/common/data/id/TbResourceId;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoEvictEvent.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoEvictEvent.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoEvictEvent.getResourceId:()Lorg/thingsboard/server/common/data/id/TbResourceId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoEvictEvent.getTenantId:()Lorg/thingsboard/server/common/data/id/TenantId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoEvictEvent.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoEvictEvent.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.thingsboard.server.cache.resourceInfo.ResourceInfoRedisCache.<init>:(Lorg/thingsboard/server/cache/TBRedisCacheConfiguration;Lorg/thingsboard/server/cache/CacheSpecsMap;Lorg/springframework/data/redis/connection/RedisConnectionFactory;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        33,
+        34
+      ]
+    },
+    "org.thingsboard.server.cache.user.UserCacheEvictEvent.<init>:(Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.cache.user.UserCacheEvictEvent.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.cache.user.UserCacheEvictEvent.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.cache.user.UserCacheEvictEvent.newEmail:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.cache.user.UserCacheEvictEvent.oldEmail:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.cache.user.UserCacheEvictEvent.tenantId:()Lorg/thingsboard/server/common/data/id/TenantId;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "T001",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.cache.user.UserCacheEvictEvent.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        20
+      ]
+    },
+    "org.thingsboard.server.cache.user.UserCacheKey.<init>:(Lorg/thingsboard/server/common/data/id/TenantId;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.thingsboard.server.cache.user.UserCacheKey.canEqual:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T007",
+      "perMethodOutcome" : "T007",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.server.cache.user.UserCacheKey.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.server.cache.user.UserCacheKey.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.thingsboard.server.cache.user.UserCacheKey.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "T020",
+      "lineNumbers" : [
+        39
+      ]
+    },
+    "org.thingsboard.server.cache.user.UserCaffeineCache.<init>:(Lorg/springframework/cache/CacheManager;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        30,
+        31
+      ]
+    },
+    "org.thingsboard.server.cache.user.UserRedisCache.<init>:(Lorg/thingsboard/server/cache/TBRedisCacheConfiguration;Lorg/thingsboard/server/cache/CacheSpecsMap;Lorg/springframework/data/redis/connection/RedisConnectionFactory;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        33,
+        34
+      ]
+    },
+    "org.thingsboard.server.cache.usersUpdateTime.UsersSessionInvalidationCaffeineCache.<init>:(Lorg/springframework/cache/CacheManager;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        32,
+        33
+      ]
+    },
+    "org.thingsboard.server.cache.usersUpdateTime.UsersSessionInvalidationRedisCache.<init>:(Lorg/thingsboard/server/cache/TBRedisCacheConfiguration;Lorg/thingsboard/server/cache/CacheSpecsMap;Lorg/springframework/data/redis/connection/RedisConnectionFactory;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T000",
+      "lineNumbers" : [
+        34,
+        35
+      ]
+    }
+  }
+}
