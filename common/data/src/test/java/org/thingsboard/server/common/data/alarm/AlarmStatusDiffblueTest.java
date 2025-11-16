@@ -1,0 +1,267 @@
+/**
+ * Copyright © 2016-2024 The Thingsboard Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.thingsboard.server.common.data.alarm;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+
+class AlarmStatusDiffblueTest {
+  /**
+   * Test {@link AlarmStatus#isAck()}.
+   *
+   * <ul>
+   *   <li>Given {@code ACTIVE_UNACK}.
+   *   <li>Then return {@code false}.
+   * </ul>
+   *
+   * <p>Method under test: {@link AlarmStatus#isAck()}
+   */
+  @Test
+  @DisplayName("Test isAck(); given 'ACTIVE_UNACK'; then return 'false'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean AlarmStatus.isAck()"})
+  void testIsAck_givenActiveUnack_thenReturnFalse() {
+    // Arrange, Act and Assert
+    assertFalse(AlarmStatus.ACTIVE_UNACK.isAck());
+  }
+
+  /**
+   * Test {@link AlarmStatus#isAck()}.
+   *
+   * <ul>
+   *   <li>Given {@link AlarmStatus#ACTIVE_ACK}.
+   *   <li>Then return {@code true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link AlarmStatus#isAck()}
+   */
+  @Test
+  @DisplayName("Test isAck(); given ACTIVE_ACK; then return 'true'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean AlarmStatus.isAck()"})
+  void testIsAck_givenActive_ack_thenReturnTrue() {
+    // Arrange, Act and Assert
+    assertTrue(AlarmStatus.ACTIVE_ACK.isAck());
+  }
+
+  /**
+   * Test {@link AlarmStatus#isAck()}.
+   *
+   * <ul>
+   *   <li>Given {@link AlarmStatus#CLEARED_ACK}.
+   *   <li>Then return {@code true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link AlarmStatus#isAck()}
+   */
+  @Test
+  @DisplayName("Test isAck(); given CLEARED_ACK; then return 'true'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean AlarmStatus.isAck()"})
+  void testIsAck_givenCleared_ack_thenReturnTrue() {
+    // Arrange, Act and Assert
+    assertTrue(AlarmStatus.CLEARED_ACK.isAck());
+  }
+
+  /**
+   * Test {@link AlarmStatus#isCleared()}.
+   *
+   * <ul>
+   *   <li>Given {@code ACTIVE_UNACK}.
+   *   <li>Then return {@code false}.
+   * </ul>
+   *
+   * <p>Method under test: {@link AlarmStatus#isCleared()}
+   */
+  @Test
+  @DisplayName("Test isCleared(); given 'ACTIVE_UNACK'; then return 'false'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean AlarmStatus.isCleared()"})
+  void testIsCleared_givenActiveUnack_thenReturnFalse() {
+    // Arrange, Act and Assert
+    assertFalse(AlarmStatus.ACTIVE_UNACK.isCleared());
+  }
+
+  /**
+   * Test {@link AlarmStatus#isCleared()}.
+   *
+   * <ul>
+   *   <li>Given {@link AlarmStatus#CLEARED_ACK}.
+   *   <li>Then return {@code true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link AlarmStatus#isCleared()}
+   */
+  @Test
+  @DisplayName("Test isCleared(); given CLEARED_ACK; then return 'true'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean AlarmStatus.isCleared()"})
+  void testIsCleared_givenCleared_ack_thenReturnTrue() {
+    // Arrange, Act and Assert
+    assertTrue(AlarmStatus.CLEARED_ACK.isCleared());
+  }
+
+  /**
+   * Test {@link AlarmStatus#isCleared()}.
+   *
+   * <ul>
+   *   <li>Given {@link AlarmStatus#CLEARED_UNACK}.
+   *   <li>Then return {@code true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link AlarmStatus#isCleared()}
+   */
+  @Test
+  @DisplayName("Test isCleared(); given CLEARED_UNACK; then return 'true'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean AlarmStatus.isCleared()"})
+  void testIsCleared_givenCleared_unack_thenReturnTrue() {
+    // Arrange, Act and Assert
+    assertTrue(AlarmStatus.CLEARED_UNACK.isCleared());
+  }
+
+  /**
+   * Test {@link AlarmStatus#getClearSearchStatus()}.
+   *
+   * <ul>
+   *   <li>Given {@code ACTIVE_UNACK}.
+   *   <li>Then return {@code ACTIVE}.
+   * </ul>
+   *
+   * <p>Method under test: {@link AlarmStatus#getClearSearchStatus()}
+   */
+  @Test
+  @DisplayName("Test getClearSearchStatus(); given 'ACTIVE_UNACK'; then return 'ACTIVE'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"AlarmSearchStatus AlarmStatus.getClearSearchStatus()"})
+  void testGetClearSearchStatus_givenActiveUnack_thenReturnActive() {
+    // Arrange, Act and Assert
+    assertEquals(AlarmSearchStatus.ACTIVE, AlarmStatus.ACTIVE_UNACK.getClearSearchStatus());
+  }
+
+  /**
+   * Test {@link AlarmStatus#getClearSearchStatus()}.
+   *
+   * <ul>
+   *   <li>Given {@link AlarmStatus#CLEARED_ACK}.
+   *   <li>Then return {@code CLEARED}.
+   * </ul>
+   *
+   * <p>Method under test: {@link AlarmStatus#getClearSearchStatus()}
+   */
+  @Test
+  @DisplayName("Test getClearSearchStatus(); given CLEARED_ACK; then return 'CLEARED'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"AlarmSearchStatus AlarmStatus.getClearSearchStatus()"})
+  void testGetClearSearchStatus_givenCleared_ack_thenReturnCleared() {
+    // Arrange, Act and Assert
+    assertEquals(AlarmSearchStatus.CLEARED, AlarmStatus.CLEARED_ACK.getClearSearchStatus());
+  }
+
+  /**
+   * Test {@link AlarmStatus#getClearSearchStatus()}.
+   *
+   * <ul>
+   *   <li>Given {@link AlarmStatus#CLEARED_UNACK}.
+   *   <li>Then return {@code CLEARED}.
+   * </ul>
+   *
+   * <p>Method under test: {@link AlarmStatus#getClearSearchStatus()}
+   */
+  @Test
+  @DisplayName("Test getClearSearchStatus(); given CLEARED_UNACK; then return 'CLEARED'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"AlarmSearchStatus AlarmStatus.getClearSearchStatus()"})
+  void testGetClearSearchStatus_givenCleared_unack_thenReturnCleared() {
+    // Arrange, Act and Assert
+    assertEquals(AlarmSearchStatus.CLEARED, AlarmStatus.CLEARED_UNACK.getClearSearchStatus());
+  }
+
+  /**
+   * Test {@link AlarmStatus#getAckSearchStatus()}.
+   *
+   * <ul>
+   *   <li>Given {@code ACTIVE_UNACK}.
+   *   <li>Then return {@code UNACK}.
+   * </ul>
+   *
+   * <p>Method under test: {@link AlarmStatus#getAckSearchStatus()}
+   */
+  @Test
+  @DisplayName("Test getAckSearchStatus(); given 'ACTIVE_UNACK'; then return 'UNACK'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"AlarmSearchStatus AlarmStatus.getAckSearchStatus()"})
+  void testGetAckSearchStatus_givenActiveUnack_thenReturnUnack() {
+    // Arrange, Act and Assert
+    assertEquals(AlarmSearchStatus.UNACK, AlarmStatus.ACTIVE_UNACK.getAckSearchStatus());
+  }
+
+  /**
+   * Test {@link AlarmStatus#getAckSearchStatus()}.
+   *
+   * <ul>
+   *   <li>Given {@link AlarmStatus#ACTIVE_ACK}.
+   *   <li>Then return {@code ACK}.
+   * </ul>
+   *
+   * <p>Method under test: {@link AlarmStatus#getAckSearchStatus()}
+   */
+  @Test
+  @DisplayName("Test getAckSearchStatus(); given ACTIVE_ACK; then return 'ACK'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"AlarmSearchStatus AlarmStatus.getAckSearchStatus()"})
+  void testGetAckSearchStatus_givenActive_ack_thenReturnAck() {
+    // Arrange, Act and Assert
+    assertEquals(AlarmSearchStatus.ACK, AlarmStatus.ACTIVE_ACK.getAckSearchStatus());
+  }
+
+  /**
+   * Test {@link AlarmStatus#getAckSearchStatus()}.
+   *
+   * <ul>
+   *   <li>Given {@link AlarmStatus#CLEARED_ACK}.
+   *   <li>Then return {@code ACK}.
+   * </ul>
+   *
+   * <p>Method under test: {@link AlarmStatus#getAckSearchStatus()}
+   */
+  @Test
+  @DisplayName("Test getAckSearchStatus(); given CLEARED_ACK; then return 'ACK'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"AlarmSearchStatus AlarmStatus.getAckSearchStatus()"})
+  void testGetAckSearchStatus_givenCleared_ack_thenReturnAck() {
+    // Arrange, Act and Assert
+    assertEquals(AlarmSearchStatus.ACK, AlarmStatus.CLEARED_ACK.getAckSearchStatus());
+  }
+}

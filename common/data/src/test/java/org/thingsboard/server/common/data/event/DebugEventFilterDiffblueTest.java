@@ -1,0 +1,728 @@
+/**
+ * Copyright © 2016-2024 The Thingsboard Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.thingsboard.server.common.data.event;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+class DebugEventFilterDiffblueTest {
+  /**
+   * Test {@link DebugEventFilter#setIsError(boolean)}.
+   *
+   * <p>Method under test: {@link DebugEventFilter#setIsError(boolean)}
+   */
+  @Test
+  @DisplayName("Test setIsError(boolean)")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void DebugEventFilter.setIsError(boolean)"})
+  void testSetIsError() {
+    // Arrange
+    RuleChainDebugEventFilter ruleChainDebugEventFilter = new RuleChainDebugEventFilter();
+
+    // Act
+    ruleChainDebugEventFilter.setIsError(true);
+
+    // Assert
+    assertTrue(ruleChainDebugEventFilter.isError());
+    assertTrue(ruleChainDebugEventFilter.isNotEmpty());
+  }
+
+  /**
+   * Test {@link DebugEventFilter#getErrorStr()}.
+   *
+   * <p>Method under test: {@link DebugEventFilter#getErrorStr()}
+   */
+  @Test
+  @DisplayName("Test getErrorStr()")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"String DebugEventFilter.getErrorStr()"})
+  void testGetErrorStr() {
+    // Arrange, Act and Assert
+    assertNull(new RuleChainDebugEventFilter().getErrorStr());
+  }
+
+  /**
+   * Test {@link DebugEventFilter#getServer()}.
+   *
+   * <p>Method under test: {@link DebugEventFilter#getServer()}
+   */
+  @Test
+  @DisplayName("Test getServer()")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"String DebugEventFilter.getServer()"})
+  void testGetServer() {
+    // Arrange, Act and Assert
+    assertNull(new RuleChainDebugEventFilter().getServer());
+  }
+
+  /**
+   * Test {@link DebugEventFilter#isError()}.
+   *
+   * <ul>
+   *   <li>Given {@link RuleChainDebugEventFilter} (default constructor) IsError is {@code true}.
+   *   <li>Then return {@code true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DebugEventFilter#isError()}
+   */
+  @Test
+  @DisplayName(
+      "Test isError(); given RuleChainDebugEventFilter (default constructor) IsError is 'true'; then return 'true'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean DebugEventFilter.isError()"})
+  void testIsError_givenRuleChainDebugEventFilterIsErrorIsTrue_thenReturnTrue() {
+    // Arrange
+    RuleChainDebugEventFilter ruleChainDebugEventFilter = new RuleChainDebugEventFilter();
+    ruleChainDebugEventFilter.setIsError(true);
+
+    // Act and Assert
+    assertTrue(ruleChainDebugEventFilter.isError());
+  }
+
+  /**
+   * Test {@link DebugEventFilter#isError()}.
+   *
+   * <ul>
+   *   <li>Given {@link RuleChainDebugEventFilter} (default constructor).
+   *   <li>Then return {@code false}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DebugEventFilter#isError()}
+   */
+  @Test
+  @DisplayName(
+      "Test isError(); given RuleChainDebugEventFilter (default constructor); then return 'false'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean DebugEventFilter.isError()"})
+  void testIsError_givenRuleChainDebugEventFilter_thenReturnFalse() {
+    // Arrange, Act and Assert
+    assertFalse(new RuleChainDebugEventFilter().isError());
+  }
+
+  /**
+   * Test {@link DebugEventFilter#isNotEmpty()}.
+   *
+   * <ul>
+   *   <li>Given {@link RuleChainDebugEventFilter} (default constructor) ErrorStr is {@code An error
+   *       occurred}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DebugEventFilter#isNotEmpty()}
+   */
+  @Test
+  @DisplayName(
+      "Test isNotEmpty(); given RuleChainDebugEventFilter (default constructor) ErrorStr is 'An error occurred'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean DebugEventFilter.isNotEmpty()"})
+  void testIsNotEmpty_givenRuleChainDebugEventFilterErrorStrIsAnErrorOccurred() {
+    // Arrange
+    RuleChainDebugEventFilter ruleChainDebugEventFilter = new RuleChainDebugEventFilter();
+    ruleChainDebugEventFilter.setErrorStr("An error occurred");
+
+    // Act and Assert
+    assertTrue(ruleChainDebugEventFilter.isNotEmpty());
+  }
+
+  /**
+   * Test {@link DebugEventFilter#isNotEmpty()}.
+   *
+   * <ul>
+   *   <li>Given {@link RuleChainDebugEventFilter} (default constructor) IsError is {@code true}.
+   *   <li>Then return {@code true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DebugEventFilter#isNotEmpty()}
+   */
+  @Test
+  @DisplayName(
+      "Test isNotEmpty(); given RuleChainDebugEventFilter (default constructor) IsError is 'true'; then return 'true'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean DebugEventFilter.isNotEmpty()"})
+  void testIsNotEmpty_givenRuleChainDebugEventFilterIsErrorIsTrue_thenReturnTrue() {
+    // Arrange
+    RuleChainDebugEventFilter ruleChainDebugEventFilter = new RuleChainDebugEventFilter();
+    ruleChainDebugEventFilter.setIsError(true);
+
+    // Act and Assert
+    assertTrue(ruleChainDebugEventFilter.isNotEmpty());
+  }
+
+  /**
+   * Test {@link DebugEventFilter#isNotEmpty()}.
+   *
+   * <ul>
+   *   <li>Given {@link RuleChainDebugEventFilter} (default constructor) Message is {@code Not all
+   *       who wander are lost}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DebugEventFilter#isNotEmpty()}
+   */
+  @Test
+  @DisplayName(
+      "Test isNotEmpty(); given RuleChainDebugEventFilter (default constructor) Message is 'Not all who wander are lost'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean DebugEventFilter.isNotEmpty()"})
+  void testIsNotEmpty_givenRuleChainDebugEventFilterMessageIsNotAllWhoWanderAreLost() {
+    // Arrange
+    RuleChainDebugEventFilter ruleChainDebugEventFilter = new RuleChainDebugEventFilter();
+    ruleChainDebugEventFilter.setMessage("Not all who wander are lost");
+
+    // Act and Assert
+    assertTrue(ruleChainDebugEventFilter.isNotEmpty());
+  }
+
+  /**
+   * Test {@link DebugEventFilter#isNotEmpty()}.
+   *
+   * <ul>
+   *   <li>Given {@link RuleChainDebugEventFilter} (default constructor) Server is empty string.
+   *   <li>Then return {@code false}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DebugEventFilter#isNotEmpty()}
+   */
+  @Test
+  @DisplayName(
+      "Test isNotEmpty(); given RuleChainDebugEventFilter (default constructor) Server is empty string; then return 'false'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean DebugEventFilter.isNotEmpty()"})
+  void testIsNotEmpty_givenRuleChainDebugEventFilterServerIsEmptyString_thenReturnFalse() {
+    // Arrange
+    RuleChainDebugEventFilter ruleChainDebugEventFilter = new RuleChainDebugEventFilter();
+    ruleChainDebugEventFilter.setServer("");
+    ruleChainDebugEventFilter.setIsError(false);
+    ruleChainDebugEventFilter.setErrorStr("");
+
+    // Act and Assert
+    assertFalse(ruleChainDebugEventFilter.isNotEmpty());
+  }
+
+  /**
+   * Test {@link DebugEventFilter#isNotEmpty()}.
+   *
+   * <ul>
+   *   <li>Given {@link RuleChainDebugEventFilter} (default constructor) Server is {@code Server}.
+   *   <li>Then return {@code true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DebugEventFilter#isNotEmpty()}
+   */
+  @Test
+  @DisplayName(
+      "Test isNotEmpty(); given RuleChainDebugEventFilter (default constructor) Server is 'Server'; then return 'true'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean DebugEventFilter.isNotEmpty()"})
+  void testIsNotEmpty_givenRuleChainDebugEventFilterServerIsServer_thenReturnTrue() {
+    // Arrange
+    RuleChainDebugEventFilter ruleChainDebugEventFilter = new RuleChainDebugEventFilter();
+    ruleChainDebugEventFilter.setServer("Server");
+
+    // Act and Assert
+    assertTrue(ruleChainDebugEventFilter.isNotEmpty());
+  }
+
+  /**
+   * Test {@link DebugEventFilter#isNotEmpty()}.
+   *
+   * <ul>
+   *   <li>Given {@link RuleChainDebugEventFilter} (default constructor).
+   *   <li>Then return {@code false}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DebugEventFilter#isNotEmpty()}
+   */
+  @Test
+  @DisplayName(
+      "Test isNotEmpty(); given RuleChainDebugEventFilter (default constructor); then return 'false'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean DebugEventFilter.isNotEmpty()"})
+  void testIsNotEmpty_givenRuleChainDebugEventFilter_thenReturnFalse() {
+    // Arrange, Act and Assert
+    assertFalse(new RuleChainDebugEventFilter().isNotEmpty());
+  }
+
+  /**
+   * Test {@link DebugEventFilter#canEqual(Object)}.
+   *
+   * <ul>
+   *   <li>When {@code Other}.
+   *   <li>Then return {@code false}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DebugEventFilter#canEqual(Object)}
+   */
+  @Test
+  @DisplayName("Test canEqual(Object); when 'Other'; then return 'false'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean DebugEventFilter.canEqual(Object)"})
+  void testCanEqual_whenOther_thenReturnFalse() {
+    // Arrange, Act and Assert
+    assertFalse(new RuleChainDebugEventFilter().canEqual("Other"));
+  }
+
+  /**
+   * Test {@link DebugEventFilter#canEqual(Object)}.
+   *
+   * <ul>
+   *   <li>When {@link RuleChainDebugEventFilter} (default constructor).
+   *   <li>Then return {@code true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DebugEventFilter#canEqual(Object)}
+   */
+  @Test
+  @DisplayName(
+      "Test canEqual(Object); when RuleChainDebugEventFilter (default constructor); then return 'true'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean DebugEventFilter.canEqual(Object)"})
+  void testCanEqual_whenRuleChainDebugEventFilter_thenReturnTrue() {
+    // Arrange
+    RuleChainDebugEventFilter ruleChainDebugEventFilter = new RuleChainDebugEventFilter();
+
+    // Act and Assert
+    assertTrue(ruleChainDebugEventFilter.canEqual(new RuleChainDebugEventFilter()));
+  }
+
+  /**
+   * Test {@link DebugEventFilter#equals(Object)}, and {@link DebugEventFilter#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DebugEventFilter#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean DebugEventFilter.equals(Object)", "int DebugEventFilter.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    RuleChainDebugEventFilter ruleChainDebugEventFilter = new RuleChainDebugEventFilter();
+    RuleChainDebugEventFilter ruleChainDebugEventFilter2 = new RuleChainDebugEventFilter();
+
+    // Act and Assert
+    assertEquals(ruleChainDebugEventFilter, ruleChainDebugEventFilter2);
+    assertEquals(ruleChainDebugEventFilter.hashCode(), ruleChainDebugEventFilter2.hashCode());
+  }
+
+  /**
+   * Test {@link DebugEventFilter#equals(Object)}, and {@link DebugEventFilter#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is same.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DebugEventFilter#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean DebugEventFilter.equals(Object)", "int DebugEventFilter.hashCode()"})
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    RuleChainDebugEventFilter ruleChainDebugEventFilter = new RuleChainDebugEventFilter();
+
+    // Act and Assert
+    assertEquals(ruleChainDebugEventFilter, ruleChainDebugEventFilter);
+    int expectedHashCodeResult = ruleChainDebugEventFilter.hashCode();
+    assertEquals(expectedHashCodeResult, ruleChainDebugEventFilter.hashCode());
+  }
+
+  /**
+   * Test {@link DebugEventFilter#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DebugEventFilter#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean DebugEventFilter.equals(Object)", "int DebugEventFilter.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    RuleChainDebugEventFilter ruleChainDebugEventFilter = new RuleChainDebugEventFilter();
+
+    RuleNodeDebugEventFilter ruleNodeDebugEventFilter = new RuleNodeDebugEventFilter();
+    ruleNodeDebugEventFilter.setDataSearch("Data Search");
+    ruleNodeDebugEventFilter.setEntityId("42");
+    ruleNodeDebugEventFilter.setEntityType("Entity Type");
+    ruleNodeDebugEventFilter.setErrorStr("An error occurred");
+    ruleNodeDebugEventFilter.setIsError(true);
+    ruleNodeDebugEventFilter.setMetadataSearch("Metadata Search");
+    ruleNodeDebugEventFilter.setMsgDirectionType("Msg Direction Type");
+    ruleNodeDebugEventFilter.setMsgId("42");
+    ruleNodeDebugEventFilter.setMsgType("Msg Type");
+    ruleNodeDebugEventFilter.setRelationType("Relation Type");
+    ruleNodeDebugEventFilter.setServer("Server");
+
+    // Act and Assert
+    assertNotEquals(ruleChainDebugEventFilter, ruleNodeDebugEventFilter);
+  }
+
+  /**
+   * Test {@link DebugEventFilter#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DebugEventFilter#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean DebugEventFilter.equals(Object)", "int DebugEventFilter.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    RuleChainDebugEventFilter ruleChainDebugEventFilter = new RuleChainDebugEventFilter();
+
+    RuleChainDebugEventFilter ruleChainDebugEventFilter2 = mock(RuleChainDebugEventFilter.class);
+    when(ruleChainDebugEventFilter2.isError()).thenReturn(true);
+    when(ruleChainDebugEventFilter2.getErrorStr()).thenReturn("An error occurred");
+    when(ruleChainDebugEventFilter2.getServer()).thenReturn("Server");
+    when(ruleChainDebugEventFilter2.getMessage()).thenReturn("Not all who wander are lost");
+    when(ruleChainDebugEventFilter2.canEqual(Mockito.<Object>any())).thenReturn(true);
+
+    // Act and Assert
+    assertNotEquals(ruleChainDebugEventFilter, ruleChainDebugEventFilter2);
+  }
+
+  /**
+   * Test {@link DebugEventFilter#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DebugEventFilter#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean DebugEventFilter.equals(Object)", "int DebugEventFilter.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+    // Arrange
+    RuleChainDebugEventFilter ruleChainDebugEventFilter = new RuleChainDebugEventFilter();
+    ruleChainDebugEventFilter.setIsError(true);
+
+    RuleChainDebugEventFilter ruleChainDebugEventFilter2 = mock(RuleChainDebugEventFilter.class);
+    when(ruleChainDebugEventFilter2.isError()).thenReturn(true);
+    when(ruleChainDebugEventFilter2.getErrorStr()).thenReturn("An error occurred");
+    when(ruleChainDebugEventFilter2.getServer()).thenReturn("Server");
+    when(ruleChainDebugEventFilter2.getMessage()).thenReturn("Not all who wander are lost");
+    when(ruleChainDebugEventFilter2.canEqual(Mockito.<Object>any())).thenReturn(true);
+
+    // Act and Assert
+    assertNotEquals(ruleChainDebugEventFilter, ruleChainDebugEventFilter2);
+  }
+
+  /**
+   * Test {@link DebugEventFilter#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DebugEventFilter#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean DebugEventFilter.equals(Object)", "int DebugEventFilter.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+    // Arrange
+    RuleChainDebugEventFilter ruleChainDebugEventFilter = new RuleChainDebugEventFilter();
+    ruleChainDebugEventFilter.setIsError(true);
+
+    RuleChainDebugEventFilter ruleChainDebugEventFilter2 = mock(RuleChainDebugEventFilter.class);
+    when(ruleChainDebugEventFilter2.isError()).thenReturn(true);
+    when(ruleChainDebugEventFilter2.getErrorStr()).thenReturn("An error occurred");
+    when(ruleChainDebugEventFilter2.getServer()).thenReturn(null);
+    when(ruleChainDebugEventFilter2.getMessage()).thenReturn("Not all who wander are lost");
+    when(ruleChainDebugEventFilter2.canEqual(Mockito.<Object>any())).thenReturn(true);
+
+    // Act and Assert
+    assertNotEquals(ruleChainDebugEventFilter, ruleChainDebugEventFilter2);
+  }
+
+  /**
+   * Test {@link DebugEventFilter#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DebugEventFilter#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean DebugEventFilter.equals(Object)", "int DebugEventFilter.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+    // Arrange
+    RuleChainDebugEventFilter ruleChainDebugEventFilter = new RuleChainDebugEventFilter();
+    ruleChainDebugEventFilter.setServer("Server");
+    ruleChainDebugEventFilter.setIsError(true);
+
+    RuleChainDebugEventFilter ruleChainDebugEventFilter2 = mock(RuleChainDebugEventFilter.class);
+    when(ruleChainDebugEventFilter2.isError()).thenReturn(true);
+    when(ruleChainDebugEventFilter2.getErrorStr()).thenReturn("An error occurred");
+    when(ruleChainDebugEventFilter2.getServer()).thenReturn(null);
+    when(ruleChainDebugEventFilter2.getMessage()).thenReturn("Not all who wander are lost");
+    when(ruleChainDebugEventFilter2.canEqual(Mockito.<Object>any())).thenReturn(true);
+
+    // Act and Assert
+    assertNotEquals(ruleChainDebugEventFilter, ruleChainDebugEventFilter2);
+  }
+
+  /**
+   * Test {@link DebugEventFilter#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DebugEventFilter#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean DebugEventFilter.equals(Object)", "int DebugEventFilter.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+    // Arrange
+    RuleChainDebugEventFilter ruleChainDebugEventFilter = new RuleChainDebugEventFilter();
+    ruleChainDebugEventFilter.setErrorStr("An error occurred");
+    ruleChainDebugEventFilter.setIsError(true);
+
+    RuleChainDebugEventFilter ruleChainDebugEventFilter2 = mock(RuleChainDebugEventFilter.class);
+    when(ruleChainDebugEventFilter2.isError()).thenReturn(true);
+    when(ruleChainDebugEventFilter2.getErrorStr()).thenReturn("An error occurred");
+    when(ruleChainDebugEventFilter2.getServer()).thenReturn(null);
+    when(ruleChainDebugEventFilter2.getMessage()).thenReturn("Not all who wander are lost");
+    when(ruleChainDebugEventFilter2.canEqual(Mockito.<Object>any())).thenReturn(true);
+
+    // Act and Assert
+    assertNotEquals(ruleChainDebugEventFilter, ruleChainDebugEventFilter2);
+  }
+
+  /**
+   * Test {@link DebugEventFilter#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DebugEventFilter#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean DebugEventFilter.equals(Object)", "int DebugEventFilter.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+    // Arrange
+    RuleChainDebugEventFilter ruleChainDebugEventFilter = new RuleChainDebugEventFilter();
+    ruleChainDebugEventFilter.setErrorStr("Error Str");
+    ruleChainDebugEventFilter.setIsError(true);
+
+    RuleChainDebugEventFilter ruleChainDebugEventFilter2 = mock(RuleChainDebugEventFilter.class);
+    when(ruleChainDebugEventFilter2.isError()).thenReturn(true);
+    when(ruleChainDebugEventFilter2.getErrorStr()).thenReturn("An error occurred");
+    when(ruleChainDebugEventFilter2.getServer()).thenReturn(null);
+    when(ruleChainDebugEventFilter2.getMessage()).thenReturn("Not all who wander are lost");
+    when(ruleChainDebugEventFilter2.canEqual(Mockito.<Object>any())).thenReturn(true);
+
+    // Act and Assert
+    assertNotEquals(ruleChainDebugEventFilter, ruleChainDebugEventFilter2);
+  }
+
+  /**
+   * Test {@link DebugEventFilter#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DebugEventFilter#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is different; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean DebugEventFilter.equals(Object)", "int DebugEventFilter.hashCode()"})
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+    // Arrange
+    RuleChainDebugEventFilter ruleChainDebugEventFilter = new RuleChainDebugEventFilter();
+    ruleChainDebugEventFilter.setServer("Server");
+    ruleChainDebugEventFilter.setIsError(true);
+
+    RuleChainDebugEventFilter ruleChainDebugEventFilter2 = mock(RuleChainDebugEventFilter.class);
+    when(ruleChainDebugEventFilter2.isError()).thenReturn(true);
+    when(ruleChainDebugEventFilter2.getErrorStr()).thenReturn("An error occurred");
+    when(ruleChainDebugEventFilter2.getServer()).thenReturn("Server");
+    when(ruleChainDebugEventFilter2.getMessage()).thenReturn("Not all who wander are lost");
+    when(ruleChainDebugEventFilter2.canEqual(Mockito.<Object>any())).thenReturn(true);
+
+    // Act and Assert
+    assertNotEquals(ruleChainDebugEventFilter, ruleChainDebugEventFilter2);
+  }
+
+  /**
+   * Test {@link DebugEventFilter#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DebugEventFilter#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean DebugEventFilter.equals(Object)", "int DebugEventFilter.hashCode()"})
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new RuleChainDebugEventFilter(), null);
+  }
+
+  /**
+   * Test {@link DebugEventFilter#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link DebugEventFilter#equals(Object)}
+   */
+  @Test
+  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean DebugEventFilter.equals(Object)", "int DebugEventFilter.hashCode()"})
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new RuleChainDebugEventFilter(), "Different type to DebugEventFilter");
+  }
+
+  /**
+   * Test {@link DebugEventFilter#setErrorStr(String)}.
+   *
+   * <p>Method under test: {@link DebugEventFilter#setErrorStr(String)}
+   */
+  @Test
+  @DisplayName("Test setErrorStr(String)")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void DebugEventFilter.setErrorStr(String)"})
+  void testSetErrorStr() {
+    // Arrange
+    RuleChainDebugEventFilter ruleChainDebugEventFilter = new RuleChainDebugEventFilter();
+
+    // Act
+    ruleChainDebugEventFilter.setErrorStr("An error occurred");
+
+    // Assert
+    assertEquals("An error occurred", ruleChainDebugEventFilter.getErrorStr());
+    assertTrue(ruleChainDebugEventFilter.isNotEmpty());
+  }
+
+  /**
+   * Test {@link DebugEventFilter#setServer(String)}.
+   *
+   * <p>Method under test: {@link DebugEventFilter#setServer(String)}
+   */
+  @Test
+  @DisplayName("Test setServer(String)")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void DebugEventFilter.setServer(String)"})
+  void testSetServer() {
+    // Arrange
+    RuleChainDebugEventFilter ruleChainDebugEventFilter = new RuleChainDebugEventFilter();
+
+    // Act
+    ruleChainDebugEventFilter.setServer("Server");
+
+    // Assert
+    assertEquals("Server", ruleChainDebugEventFilter.getServer());
+    assertTrue(ruleChainDebugEventFilter.isNotEmpty());
+  }
+
+  /**
+   * Test {@link DebugEventFilter#toString()}.
+   *
+   * <p>Method under test: {@link DebugEventFilter#toString()}
+   */
+  @Test
+  @DisplayName("Test toString()")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"String DebugEventFilter.toString()"})
+  void testToString() {
+    // Arrange, Act and Assert
+    assertEquals(
+        "RuleChainDebugEventFilter(message=null)", new RuleChainDebugEventFilter().toString());
+  }
+}

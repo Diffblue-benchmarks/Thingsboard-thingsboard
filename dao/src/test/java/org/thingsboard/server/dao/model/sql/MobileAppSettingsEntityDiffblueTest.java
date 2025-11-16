@@ -1,0 +1,1176 @@
+/**
+ * Copyright © 2016-2024 The Thingsboard Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.thingsboard.server.dao.model.sql;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.DoubleNode;
+import com.fasterxml.jackson.databind.node.MissingNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import java.util.UUID;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.thingsboard.server.common.data.EntityType;
+import org.thingsboard.server.common.data.id.TenantId;
+import org.thingsboard.server.common.data.mobile.AndroidConfig;
+import org.thingsboard.server.common.data.mobile.MobileAppSettings;
+import org.thingsboard.server.dao.customer.CustomerServiceImpl;
+import org.thingsboard.server.dao.model.ModelConstants;
+
+public class MobileAppSettingsEntityDiffblueTest {
+  /**
+   * Test {@link MobileAppSettingsEntity#equals(Object)}, and {@link
+   * MobileAppSettingsEntity#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link MobileAppSettingsEntity#equals(Object)}
+   *   <li>{@link MobileAppSettingsEntity#hashCode()}
+   * </ul>
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean MobileAppSettingsEntity.equals(Object)",
+    "int MobileAppSettingsEntity.hashCode()"
+  })
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setCreatedTime(1L);
+    mobileAppSettingsEntity.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setUseDefaultApp(true);
+    mobileAppSettingsEntity.setUuid(ModelConstants.NULL_UUID);
+
+    MobileAppSettingsEntity mobileAppSettingsEntity2 = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity2.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setCreatedTime(1L);
+    mobileAppSettingsEntity2.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setUseDefaultApp(true);
+    mobileAppSettingsEntity2.setUuid(ModelConstants.NULL_UUID);
+
+    // Act and Assert
+    assertEquals(mobileAppSettingsEntity, mobileAppSettingsEntity2);
+    assertEquals(mobileAppSettingsEntity.hashCode(), mobileAppSettingsEntity2.hashCode());
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#equals(Object)}, and {@link
+   * MobileAppSettingsEntity#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link MobileAppSettingsEntity#equals(Object)}
+   *   <li>{@link MobileAppSettingsEntity#hashCode()}
+   * </ul>
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean MobileAppSettingsEntity.equals(Object)",
+    "int MobileAppSettingsEntity.hashCode()"
+  })
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual2() {
+    // Arrange
+    MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity.setAndroidConfig(null);
+    mobileAppSettingsEntity.setCreatedTime(1L);
+    mobileAppSettingsEntity.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setUseDefaultApp(true);
+    mobileAppSettingsEntity.setUuid(ModelConstants.NULL_UUID);
+
+    MobileAppSettingsEntity mobileAppSettingsEntity2 = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity2.setAndroidConfig(null);
+    mobileAppSettingsEntity2.setCreatedTime(1L);
+    mobileAppSettingsEntity2.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setUseDefaultApp(true);
+    mobileAppSettingsEntity2.setUuid(ModelConstants.NULL_UUID);
+
+    // Act and Assert
+    assertEquals(mobileAppSettingsEntity, mobileAppSettingsEntity2);
+    assertEquals(mobileAppSettingsEntity.hashCode(), mobileAppSettingsEntity2.hashCode());
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#equals(Object)}, and {@link
+   * MobileAppSettingsEntity#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link MobileAppSettingsEntity#equals(Object)}
+   *   <li>{@link MobileAppSettingsEntity#hashCode()}
+   * </ul>
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean MobileAppSettingsEntity.equals(Object)",
+    "int MobileAppSettingsEntity.hashCode()"
+  })
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual3() {
+    // Arrange
+    MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setCreatedTime(1L);
+    mobileAppSettingsEntity.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setIosConfig(null);
+    mobileAppSettingsEntity.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setUseDefaultApp(true);
+    mobileAppSettingsEntity.setUuid(ModelConstants.NULL_UUID);
+
+    MobileAppSettingsEntity mobileAppSettingsEntity2 = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity2.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setCreatedTime(1L);
+    mobileAppSettingsEntity2.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setIosConfig(null);
+    mobileAppSettingsEntity2.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setUseDefaultApp(true);
+    mobileAppSettingsEntity2.setUuid(ModelConstants.NULL_UUID);
+
+    // Act and Assert
+    assertEquals(mobileAppSettingsEntity, mobileAppSettingsEntity2);
+    assertEquals(mobileAppSettingsEntity.hashCode(), mobileAppSettingsEntity2.hashCode());
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#equals(Object)}, and {@link
+   * MobileAppSettingsEntity#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link MobileAppSettingsEntity#equals(Object)}
+   *   <li>{@link MobileAppSettingsEntity#hashCode()}
+   * </ul>
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean MobileAppSettingsEntity.equals(Object)",
+    "int MobileAppSettingsEntity.hashCode()"
+  })
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual4() {
+    // Arrange
+    MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setCreatedTime(1L);
+    mobileAppSettingsEntity.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setQrCodeConfig(null);
+    mobileAppSettingsEntity.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setUseDefaultApp(true);
+    mobileAppSettingsEntity.setUuid(ModelConstants.NULL_UUID);
+
+    MobileAppSettingsEntity mobileAppSettingsEntity2 = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity2.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setCreatedTime(1L);
+    mobileAppSettingsEntity2.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setQrCodeConfig(null);
+    mobileAppSettingsEntity2.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setUseDefaultApp(true);
+    mobileAppSettingsEntity2.setUuid(ModelConstants.NULL_UUID);
+
+    // Act and Assert
+    assertEquals(mobileAppSettingsEntity, mobileAppSettingsEntity2);
+    assertEquals(mobileAppSettingsEntity.hashCode(), mobileAppSettingsEntity2.hashCode());
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#equals(Object)}, and {@link
+   * MobileAppSettingsEntity#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is equal.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link MobileAppSettingsEntity#equals(Object)}
+   *   <li>{@link MobileAppSettingsEntity#hashCode()}
+   * </ul>
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean MobileAppSettingsEntity.equals(Object)",
+    "int MobileAppSettingsEntity.hashCode()"
+  })
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual5() {
+    // Arrange
+    MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setCreatedTime(1L);
+    mobileAppSettingsEntity.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setTenantId(null);
+    mobileAppSettingsEntity.setUseDefaultApp(true);
+    mobileAppSettingsEntity.setUuid(ModelConstants.NULL_UUID);
+
+    MobileAppSettingsEntity mobileAppSettingsEntity2 = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity2.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setCreatedTime(1L);
+    mobileAppSettingsEntity2.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setTenantId(null);
+    mobileAppSettingsEntity2.setUseDefaultApp(true);
+    mobileAppSettingsEntity2.setUuid(ModelConstants.NULL_UUID);
+
+    // Act and Assert
+    assertEquals(mobileAppSettingsEntity, mobileAppSettingsEntity2);
+    assertEquals(mobileAppSettingsEntity.hashCode(), mobileAppSettingsEntity2.hashCode());
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#equals(Object)}, and {@link
+   * MobileAppSettingsEntity#hashCode()}.
+   *
+   * <ul>
+   *   <li>When other is same.
+   *   <li>Then return equal.
+   * </ul>
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link MobileAppSettingsEntity#equals(Object)}
+   *   <li>{@link MobileAppSettingsEntity#hashCode()}
+   * </ul>
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean MobileAppSettingsEntity.equals(Object)",
+    "int MobileAppSettingsEntity.hashCode()"
+  })
+  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setCreatedTime(1L);
+    mobileAppSettingsEntity.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setUseDefaultApp(true);
+    mobileAppSettingsEntity.setUuid(ModelConstants.NULL_UUID);
+
+    // Act and Assert
+    assertEquals(mobileAppSettingsEntity, mobileAppSettingsEntity);
+    int expectedHashCodeResult = mobileAppSettingsEntity.hashCode();
+    assertEquals(expectedHashCodeResult, mobileAppSettingsEntity.hashCode());
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean MobileAppSettingsEntity.equals(Object)",
+    "int MobileAppSettingsEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity.setAndroidConfig(DoubleNode.valueOf(10.0d));
+    mobileAppSettingsEntity.setCreatedTime(1L);
+    mobileAppSettingsEntity.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setUseDefaultApp(true);
+    mobileAppSettingsEntity.setUuid(ModelConstants.NULL_UUID);
+
+    MobileAppSettingsEntity mobileAppSettingsEntity2 = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity2.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setCreatedTime(1L);
+    mobileAppSettingsEntity2.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setUseDefaultApp(true);
+    mobileAppSettingsEntity2.setUuid(ModelConstants.NULL_UUID);
+
+    // Act and Assert
+    assertNotEquals(mobileAppSettingsEntity, mobileAppSettingsEntity2);
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean MobileAppSettingsEntity.equals(Object)",
+    "int MobileAppSettingsEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity.setAndroidConfig(null);
+    mobileAppSettingsEntity.setCreatedTime(1L);
+    mobileAppSettingsEntity.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setUseDefaultApp(true);
+    mobileAppSettingsEntity.setUuid(ModelConstants.NULL_UUID);
+
+    MobileAppSettingsEntity mobileAppSettingsEntity2 = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity2.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setCreatedTime(1L);
+    mobileAppSettingsEntity2.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setUseDefaultApp(true);
+    mobileAppSettingsEntity2.setUuid(ModelConstants.NULL_UUID);
+
+    // Act and Assert
+    assertNotEquals(mobileAppSettingsEntity, mobileAppSettingsEntity2);
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean MobileAppSettingsEntity.equals(Object)",
+    "int MobileAppSettingsEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual3() {
+    // Arrange
+    MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setCreatedTime(3L);
+    mobileAppSettingsEntity.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setUseDefaultApp(true);
+    mobileAppSettingsEntity.setUuid(ModelConstants.NULL_UUID);
+
+    MobileAppSettingsEntity mobileAppSettingsEntity2 = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity2.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setCreatedTime(1L);
+    mobileAppSettingsEntity2.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setUseDefaultApp(true);
+    mobileAppSettingsEntity2.setUuid(ModelConstants.NULL_UUID);
+
+    // Act and Assert
+    assertNotEquals(mobileAppSettingsEntity, mobileAppSettingsEntity2);
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean MobileAppSettingsEntity.equals(Object)",
+    "int MobileAppSettingsEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual4() {
+    // Arrange
+    MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setCreatedTime(1L);
+    mobileAppSettingsEntity.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setIosConfig(DoubleNode.valueOf(10.0d));
+    mobileAppSettingsEntity.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setUseDefaultApp(true);
+    mobileAppSettingsEntity.setUuid(ModelConstants.NULL_UUID);
+
+    MobileAppSettingsEntity mobileAppSettingsEntity2 = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity2.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setCreatedTime(1L);
+    mobileAppSettingsEntity2.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setUseDefaultApp(true);
+    mobileAppSettingsEntity2.setUuid(ModelConstants.NULL_UUID);
+
+    // Act and Assert
+    assertNotEquals(mobileAppSettingsEntity, mobileAppSettingsEntity2);
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean MobileAppSettingsEntity.equals(Object)",
+    "int MobileAppSettingsEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual5() {
+    // Arrange
+    MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setCreatedTime(1L);
+    mobileAppSettingsEntity.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setIosConfig(null);
+    mobileAppSettingsEntity.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setUseDefaultApp(true);
+    mobileAppSettingsEntity.setUuid(ModelConstants.NULL_UUID);
+
+    MobileAppSettingsEntity mobileAppSettingsEntity2 = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity2.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setCreatedTime(1L);
+    mobileAppSettingsEntity2.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setUseDefaultApp(true);
+    mobileAppSettingsEntity2.setUuid(ModelConstants.NULL_UUID);
+
+    // Act and Assert
+    assertNotEquals(mobileAppSettingsEntity, mobileAppSettingsEntity2);
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean MobileAppSettingsEntity.equals(Object)",
+    "int MobileAppSettingsEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual6() {
+    // Arrange
+    MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setCreatedTime(1L);
+    mobileAppSettingsEntity.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setQrCodeConfig(DoubleNode.valueOf(10.0d));
+    mobileAppSettingsEntity.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setUseDefaultApp(true);
+    mobileAppSettingsEntity.setUuid(ModelConstants.NULL_UUID);
+
+    MobileAppSettingsEntity mobileAppSettingsEntity2 = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity2.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setCreatedTime(1L);
+    mobileAppSettingsEntity2.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setUseDefaultApp(true);
+    mobileAppSettingsEntity2.setUuid(ModelConstants.NULL_UUID);
+
+    // Act and Assert
+    assertNotEquals(mobileAppSettingsEntity, mobileAppSettingsEntity2);
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean MobileAppSettingsEntity.equals(Object)",
+    "int MobileAppSettingsEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual7() {
+    // Arrange
+    MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setCreatedTime(1L);
+    mobileAppSettingsEntity.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setQrCodeConfig(null);
+    mobileAppSettingsEntity.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setUseDefaultApp(true);
+    mobileAppSettingsEntity.setUuid(ModelConstants.NULL_UUID);
+
+    MobileAppSettingsEntity mobileAppSettingsEntity2 = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity2.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setCreatedTime(1L);
+    mobileAppSettingsEntity2.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setUseDefaultApp(true);
+    mobileAppSettingsEntity2.setUuid(ModelConstants.NULL_UUID);
+
+    // Act and Assert
+    assertNotEquals(mobileAppSettingsEntity, mobileAppSettingsEntity2);
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean MobileAppSettingsEntity.equals(Object)",
+    "int MobileAppSettingsEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual8() {
+    // Arrange
+    MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setCreatedTime(1L);
+    mobileAppSettingsEntity.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setTenantId(UUID.randomUUID());
+    mobileAppSettingsEntity.setUseDefaultApp(true);
+    mobileAppSettingsEntity.setUuid(ModelConstants.NULL_UUID);
+
+    MobileAppSettingsEntity mobileAppSettingsEntity2 = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity2.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setCreatedTime(1L);
+    mobileAppSettingsEntity2.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setUseDefaultApp(true);
+    mobileAppSettingsEntity2.setUuid(ModelConstants.NULL_UUID);
+
+    // Act and Assert
+    assertNotEquals(mobileAppSettingsEntity, mobileAppSettingsEntity2);
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean MobileAppSettingsEntity.equals(Object)",
+    "int MobileAppSettingsEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual9() {
+    // Arrange
+    MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setCreatedTime(1L);
+    mobileAppSettingsEntity.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setTenantId(null);
+    mobileAppSettingsEntity.setUseDefaultApp(true);
+    mobileAppSettingsEntity.setUuid(ModelConstants.NULL_UUID);
+
+    MobileAppSettingsEntity mobileAppSettingsEntity2 = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity2.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setCreatedTime(1L);
+    mobileAppSettingsEntity2.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setUseDefaultApp(true);
+    mobileAppSettingsEntity2.setUuid(ModelConstants.NULL_UUID);
+
+    // Act and Assert
+    assertNotEquals(mobileAppSettingsEntity, mobileAppSettingsEntity2);
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is different.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean MobileAppSettingsEntity.equals(Object)",
+    "int MobileAppSettingsEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual10() {
+    // Arrange
+    MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setCreatedTime(1L);
+    mobileAppSettingsEntity.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setUseDefaultApp(false);
+    mobileAppSettingsEntity.setUuid(ModelConstants.NULL_UUID);
+
+    MobileAppSettingsEntity mobileAppSettingsEntity2 = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity2.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setCreatedTime(1L);
+    mobileAppSettingsEntity2.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity2.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity2.setUseDefaultApp(true);
+    mobileAppSettingsEntity2.setUuid(ModelConstants.NULL_UUID);
+
+    // Act and Assert
+    assertNotEquals(mobileAppSettingsEntity, mobileAppSettingsEntity2);
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is {@code null}.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean MobileAppSettingsEntity.equals(Object)",
+    "int MobileAppSettingsEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange
+    MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setCreatedTime(1L);
+    mobileAppSettingsEntity.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setUseDefaultApp(true);
+    mobileAppSettingsEntity.setUuid(ModelConstants.NULL_UUID);
+
+    // Act and Assert
+    assertNotEquals(mobileAppSettingsEntity, null);
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#equals(Object)}.
+   *
+   * <ul>
+   *   <li>When other is wrong type.
+   *   <li>Then return not equal.
+   * </ul>
+   *
+   * <p>Method under test: {@link MobileAppSettingsEntity#equals(Object)}
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "boolean MobileAppSettingsEntity.equals(Object)",
+    "int MobileAppSettingsEntity.hashCode()"
+  })
+  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange
+    MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setCreatedTime(1L);
+    mobileAppSettingsEntity.setId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setIosConfig(CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setQrCodeConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    mobileAppSettingsEntity.setTenantId(ModelConstants.NULL_UUID);
+    mobileAppSettingsEntity.setUseDefaultApp(true);
+    mobileAppSettingsEntity.setUuid(ModelConstants.NULL_UUID);
+
+    // Act and Assert
+    assertNotEquals(mobileAppSettingsEntity, "Different type to MobileAppSettingsEntity");
+  }
+
+  /**
+   * Test getters and setters.
+   *
+   * <p>Methods under test:
+   *
+   * <ul>
+   *   <li>{@link MobileAppSettingsEntity#MobileAppSettingsEntity()}
+   *   <li>{@link MobileAppSettingsEntity#setAndroidConfig(JsonNode)}
+   *   <li>{@link MobileAppSettingsEntity#setIosConfig(JsonNode)}
+   *   <li>{@link MobileAppSettingsEntity#setQrCodeConfig(JsonNode)}
+   *   <li>{@link MobileAppSettingsEntity#setTenantId(UUID)}
+   *   <li>{@link MobileAppSettingsEntity#setUseDefaultApp(boolean)}
+   *   <li>{@link MobileAppSettingsEntity#toString()}
+   *   <li>{@link MobileAppSettingsEntity#getAndroidConfig()}
+   *   <li>{@link MobileAppSettingsEntity#getIosConfig()}
+   *   <li>{@link MobileAppSettingsEntity#getQrCodeConfig()}
+   *   <li>{@link MobileAppSettingsEntity#getTenantId()}
+   *   <li>{@link MobileAppSettingsEntity#isUseDefaultApp()}
+   * </ul>
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "void MobileAppSettingsEntity.<init>()",
+    "JsonNode MobileAppSettingsEntity.getAndroidConfig()",
+    "JsonNode MobileAppSettingsEntity.getIosConfig()",
+    "JsonNode MobileAppSettingsEntity.getQrCodeConfig()",
+    "UUID MobileAppSettingsEntity.getTenantId()",
+    "boolean MobileAppSettingsEntity.isUseDefaultApp()",
+    "void MobileAppSettingsEntity.setAndroidConfig(JsonNode)",
+    "void MobileAppSettingsEntity.setIosConfig(JsonNode)",
+    "void MobileAppSettingsEntity.setQrCodeConfig(JsonNode)",
+    "void MobileAppSettingsEntity.setTenantId(UUID)",
+    "void MobileAppSettingsEntity.setUseDefaultApp(boolean)",
+    "String MobileAppSettingsEntity.toString()"
+  })
+  public void testGettersAndSetters() {
+    // Arrange and Act
+    MobileAppSettingsEntity actualMobileAppSettingsEntity = new MobileAppSettingsEntity();
+    actualMobileAppSettingsEntity.setAndroidConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    actualMobileAppSettingsEntity.setIosConfig(
+        CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON);
+    JsonNode qrCodeConfig = CustomerServiceImpl.PUBLIC_CUSTOMER_ADDITIONAL_INFO_JSON;
+    actualMobileAppSettingsEntity.setQrCodeConfig(qrCodeConfig);
+    UUID tenantId = ModelConstants.NULL_UUID;
+    actualMobileAppSettingsEntity.setTenantId(tenantId);
+    actualMobileAppSettingsEntity.setUseDefaultApp(true);
+    String actualToStringResult = actualMobileAppSettingsEntity.toString();
+    JsonNode actualAndroidConfig = actualMobileAppSettingsEntity.getAndroidConfig();
+    JsonNode actualIosConfig = actualMobileAppSettingsEntity.getIosConfig();
+    JsonNode actualQrCodeConfig = actualMobileAppSettingsEntity.getQrCodeConfig();
+    UUID actualTenantId = actualMobileAppSettingsEntity.getTenantId();
+    boolean actualIsUseDefaultAppResult = actualMobileAppSettingsEntity.isUseDefaultApp();
+
+    // Assert
+    assertEquals("13814000-1dd2-11b2-8080-808080808080", actualTenantId.toString());
+    assertEquals(
+        "MobileAppSettingsEntity(tenantId=13814000-1dd2-11b2-8080-808080808080, useDefaultApp=true, androidConfig"
+            + "={\"isPublic\":true}, iosConfig={\"isPublic\":true}, qrCodeConfig={\"isPublic\":true})",
+        actualToStringResult);
+    assertNull(actualMobileAppSettingsEntity.getId());
+    assertNull(actualMobileAppSettingsEntity.getUuid());
+    assertEquals(0L, actualMobileAppSettingsEntity.getCreatedTime());
+    assertTrue(actualIsUseDefaultAppResult);
+    assertSame(qrCodeConfig, actualAndroidConfig);
+    assertSame(qrCodeConfig, actualIosConfig);
+    assertSame(qrCodeConfig, actualQrCodeConfig);
+    assertSame(tenantId, actualTenantId);
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#MobileAppSettingsEntity(MobileAppSettings)}.
+   *
+   * <ul>
+   *   <li>Given one.
+   *   <li>Then return CreatedTime is one.
+   * </ul>
+   *
+   * <p>Method under test: {@link
+   * MobileAppSettingsEntity#MobileAppSettingsEntity(MobileAppSettings)}
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void MobileAppSettingsEntity.<init>(MobileAppSettings)"})
+  public void testNewMobileAppSettingsEntity_givenOne_thenReturnCreatedTimeIsOne() {
+    // Arrange
+    MobileAppSettings mobileAppSettings = new MobileAppSettings();
+    mobileAppSettings.setTenantId(ModelConstants.SYSTEM_TENANT);
+    mobileAppSettings.setCreatedTime(1L);
+
+    // Act
+    MobileAppSettingsEntity actualMobileAppSettingsEntity =
+        new MobileAppSettingsEntity(mobileAppSettings);
+
+    // Assert
+    assertEquals(
+        "13814000-1dd2-11b2-8080-808080808080",
+        actualMobileAppSettingsEntity.getTenantId().toString());
+    assertNull(actualMobileAppSettingsEntity.getAndroidConfig());
+    assertNull(actualMobileAppSettingsEntity.getIosConfig());
+    assertNull(actualMobileAppSettingsEntity.getQrCodeConfig());
+    assertNull(actualMobileAppSettingsEntity.getId());
+    assertNull(actualMobileAppSettingsEntity.getUuid());
+    assertEquals(1L, actualMobileAppSettingsEntity.getCreatedTime());
+    assertFalse(actualMobileAppSettingsEntity.isUseDefaultApp());
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#MobileAppSettingsEntity(MobileAppSettings)}.
+   *
+   * <ul>
+   *   <li>Given {@link ModelConstants#SYSTEM_TENANT}.
+   *   <li>Then return CreatedTime is zero.
+   * </ul>
+   *
+   * <p>Method under test: {@link
+   * MobileAppSettingsEntity#MobileAppSettingsEntity(MobileAppSettings)}
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void MobileAppSettingsEntity.<init>(MobileAppSettings)"})
+  public void testNewMobileAppSettingsEntity_givenSystem_tenant_thenReturnCreatedTimeIsZero() {
+    // Arrange
+    MobileAppSettings mobileAppSettings = new MobileAppSettings();
+    mobileAppSettings.setTenantId(ModelConstants.SYSTEM_TENANT);
+
+    // Act
+    MobileAppSettingsEntity actualMobileAppSettingsEntity =
+        new MobileAppSettingsEntity(mobileAppSettings);
+
+    // Assert
+    assertEquals(
+        "13814000-1dd2-11b2-8080-808080808080",
+        actualMobileAppSettingsEntity.getTenantId().toString());
+    assertNull(actualMobileAppSettingsEntity.getAndroidConfig());
+    assertNull(actualMobileAppSettingsEntity.getIosConfig());
+    assertNull(actualMobileAppSettingsEntity.getQrCodeConfig());
+    assertNull(actualMobileAppSettingsEntity.getId());
+    assertNull(actualMobileAppSettingsEntity.getUuid());
+    assertEquals(0L, actualMobileAppSettingsEntity.getCreatedTime());
+    assertFalse(actualMobileAppSettingsEntity.isUseDefaultApp());
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#MobileAppSettingsEntity(MobileAppSettings)}.
+   *
+   * <ul>
+   *   <li>Then AndroidConfig return {@link ObjectNode}.
+   * </ul>
+   *
+   * <p>Method under test: {@link
+   * MobileAppSettingsEntity#MobileAppSettingsEntity(MobileAppSettings)}
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void MobileAppSettingsEntity.<init>(MobileAppSettings)"})
+  public void testNewMobileAppSettingsEntity_thenAndroidConfigReturnObjectNode() {
+    // Arrange
+    MobileAppSettings mobileAppSettings = new MobileAppSettings();
+    mobileAppSettings.setAndroidConfig(
+        AndroidConfig.builder()
+            .appPackage("java.text")
+            .enabled(true)
+            .sha256CertFingerprints("b6:03:0e:39:97:9e:d0:e7:24:ce:a3:77:3e:01:42:09")
+            .storeLink("Store Link")
+            .build());
+    mobileAppSettings.setTenantId(ModelConstants.SYSTEM_TENANT);
+
+    // Act and Assert
+    assertTrue(
+        new MobileAppSettingsEntity(mobileAppSettings).getAndroidConfig() instanceof ObjectNode);
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#toData()}.
+   *
+   * <ul>
+   *   <li>Given {@link MobileAppSettingsEntity#MobileAppSettingsEntity()} IosConfig is Instance.
+   * </ul>
+   *
+   * <p>Method under test: {@link MobileAppSettingsEntity#toData()}
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"MobileAppSettings MobileAppSettingsEntity.toData()"})
+  public void testToData_givenMobileAppSettingsEntityIosConfigIsInstance() {
+    // Arrange
+    MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
+    mobileAppSettingsEntity.setIosConfig(MissingNode.getInstance());
+
+    // Act
+    MobileAppSettings actualToDataResult = mobileAppSettingsEntity.toData();
+
+    // Assert
+    assertNull(actualToDataResult.getDefaultAppStoreLink());
+    assertNull(actualToDataResult.getDefaultGooglePlayLink());
+    assertNull(actualToDataResult.getUuidId());
+    assertNull(actualToDataResult.getId().getId());
+    TenantId tenantId = actualToDataResult.getTenantId();
+    assertNull(tenantId.getId());
+    assertNull(actualToDataResult.getAndroidConfig());
+    assertNull(actualToDataResult.getIosConfig());
+    assertNull(actualToDataResult.getQrCodeConfig());
+    assertEquals(0L, actualToDataResult.getCreatedTime());
+    assertEquals(EntityType.TENANT, tenantId.getEntityType());
+    assertFalse(tenantId.isNullUid());
+    assertFalse(tenantId.isSysTenantId());
+    assertFalse(actualToDataResult.isUseDefaultApp());
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#toData()}.
+   *
+   * <ul>
+   *   <li>Given {@link MobileAppSettingsEntity#MobileAppSettingsEntity()}.
+   *   <li>Then return TenantId Id is {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link MobileAppSettingsEntity#toData()}
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"MobileAppSettings MobileAppSettingsEntity.toData()"})
+  public void testToData_givenMobileAppSettingsEntity_thenReturnTenantIdIdIsNull() {
+    // Arrange and Act
+    MobileAppSettings actualToDataResult = new MobileAppSettingsEntity().toData();
+
+    // Assert
+    assertNull(actualToDataResult.getDefaultAppStoreLink());
+    assertNull(actualToDataResult.getDefaultGooglePlayLink());
+    assertNull(actualToDataResult.getUuidId());
+    assertNull(actualToDataResult.getId().getId());
+    TenantId tenantId = actualToDataResult.getTenantId();
+    assertNull(tenantId.getId());
+    assertNull(actualToDataResult.getAndroidConfig());
+    assertNull(actualToDataResult.getIosConfig());
+    assertNull(actualToDataResult.getQrCodeConfig());
+    assertEquals(0L, actualToDataResult.getCreatedTime());
+    assertEquals(EntityType.TENANT, tenantId.getEntityType());
+    assertFalse(tenantId.isNullUid());
+    assertFalse(tenantId.isSysTenantId());
+    assertFalse(actualToDataResult.isUseDefaultApp());
+  }
+
+  /**
+   * Test {@link MobileAppSettingsEntity#toData()}.
+   *
+   * <ul>
+   *   <li>Then return TenantId Id is randomUUID.
+   * </ul>
+   *
+   * <p>Method under test: {@link MobileAppSettingsEntity#toData()}
+   */
+  @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"MobileAppSettings MobileAppSettingsEntity.toData()"})
+  public void testToData_thenReturnTenantIdIdIsRandomUUID() {
+    // Arrange
+    MobileAppSettingsEntity mobileAppSettingsEntity = new MobileAppSettingsEntity();
+    UUID tenantId = UUID.randomUUID();
+    mobileAppSettingsEntity.setTenantId(tenantId);
+
+    // Act
+    MobileAppSettings actualToDataResult = mobileAppSettingsEntity.toData();
+
+    // Assert
+    assertNull(actualToDataResult.getDefaultAppStoreLink());
+    assertNull(actualToDataResult.getDefaultGooglePlayLink());
+    assertNull(actualToDataResult.getUuidId());
+    assertNull(actualToDataResult.getId().getId());
+    assertNull(actualToDataResult.getAndroidConfig());
+    assertNull(actualToDataResult.getIosConfig());
+    assertNull(actualToDataResult.getQrCodeConfig());
+    assertEquals(0L, actualToDataResult.getCreatedTime());
+    TenantId tenantId2 = actualToDataResult.getTenantId();
+    assertEquals(EntityType.TENANT, tenantId2.getEntityType());
+    assertFalse(tenantId2.isNullUid());
+    assertFalse(tenantId2.isSysTenantId());
+    assertFalse(actualToDataResult.isUseDefaultApp());
+    assertSame(tenantId, tenantId2.getId());
+  }
+}
