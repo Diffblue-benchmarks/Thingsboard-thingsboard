@@ -108,6 +108,50 @@
                 <groupId>org.xolstice.maven.plugins</groupId>
                 <artifactId>protobuf-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <configuration>
+                <excludes>
+                    <exclude>org/thingsboard/server/gen/transport/coap/ConfigProtos.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/ConfigProtos$BleAdvertisingPeriodMode.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/ConfigProtos$ProtoBleAdvertisingPeriod.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/ConfigProtos$ProtoBleAdvertisingPeriod$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/ConfigProtos$ProtoCalibrationParameters.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/ConfigProtos$ProtoCalibrationParameters$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/ConfigProtos$ProtoConfig.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/ConfigProtos$ProtoConfig$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/ConfigProtos$ProtoOutputControlState.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/ConfigProtos$ProtoOutputControlState$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/DeviceInfoProtos.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/DeviceInfoProtos$ModemType.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/DeviceInfoProtos$ProtoDeviceInfo.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/DeviceInfoProtos$ProtoDeviceInfo$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/DeviceInfoProtos$ProtoModem.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/DeviceInfoProtos$ProtoModem$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/DeviceInfoProtos$ProtoRuntime.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/DeviceInfoProtos$ProtoRuntime$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/DeviceInfoProtos$ProtoUpdateInfo.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/DeviceInfoProtos$ProtoUpdateInfo$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/MeasurementTypeProtos.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/MeasurementTypeProtos$MeasurementType.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/MeasurementsProtos.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/MeasurementsProtos$ProtoChannel.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/MeasurementsProtos$ProtoChannel$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/MeasurementsProtos$ProtoMeasurements.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/MeasurementsProtos$ProtoMeasurements$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/ProtoRuleProtos.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/ProtoRuleProtos$Action.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/ProtoRuleProtos$CalendarType.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/ProtoRuleProtos$Condition.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/ProtoRuleProtos$LogicOperator.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/ProtoRuleProtos$ProtoCalendar.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/ProtoRuleProtos$ProtoCalendar$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/ProtoRuleProtos$ProtoRule.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/coap/ProtoRuleProtos$ProtoRule$Builder.class</exclude>
+                </excludes>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
