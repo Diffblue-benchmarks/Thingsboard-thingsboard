@@ -110,6 +110,45 @@
                 <groupId>org.xolstice.maven.plugins</groupId>
                 <artifactId>protobuf-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <configuration>
+                <excludes>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$DataSet.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$DataSet$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$DataSet$DataSetValue.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$DataSet$DataSetValue$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$DataSet$DataSetValue$DataSetValueExtension.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$DataSet$DataSetValue$DataSetValueExtension$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$DataSet$Row.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$DataSet$Row$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$MetaData.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$MetaData$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$Metric.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$Metric$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$Metric$MetricValueExtension.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$Metric$MetricValueExtension$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$PropertySet.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$PropertySet$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$PropertySetList.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$PropertySetList$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$PropertyValue.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$PropertyValue$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$PropertyValue$PropertyValueExtension.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$PropertyValue$PropertyValueExtension$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$Template.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$Template$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$Template$Parameter.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$Template$Parameter$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$Template$Parameter$ParameterValueExtension.class</exclude>
+                    <exclude>org/thingsboard/server/gen/transport/mqtt/SparkplugBProto$Payload$Template$Parameter$ParameterValueExtension$Builder.class</exclude>
+                </excludes>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 

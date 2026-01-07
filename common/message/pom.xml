@@ -112,6 +112,23 @@
                     <skip>false</skip>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <configuration>
+                <excludes>
+                    <exclude>org/thingsboard/server/common/msg/gen/MsgProtos.class</exclude>
+                    <exclude>org/thingsboard/server/common/msg/gen/MsgProtos$TbMsgMetaDataProto.class</exclude>
+                    <exclude>org/thingsboard/server/common/msg/gen/MsgProtos$TbMsgMetaDataProto$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/common/msg/gen/MsgProtos$TbMsgProcessingCtxProto.class</exclude>
+                    <exclude>org/thingsboard/server/common/msg/gen/MsgProtos$TbMsgProcessingCtxProto$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/common/msg/gen/MsgProtos$TbMsgProcessingStackItemProto.class</exclude>
+                    <exclude>org/thingsboard/server/common/msg/gen/MsgProtos$TbMsgProcessingStackItemProto$Builder.class</exclude>
+                    <exclude>org/thingsboard/server/common/msg/gen/MsgProtos$TbMsgProto.class</exclude>
+                    <exclude>org/thingsboard/server/common/msg/gen/MsgProtos$TbMsgProto$Builder.class</exclude>
+                </excludes>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
