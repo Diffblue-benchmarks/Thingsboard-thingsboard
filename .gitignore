@@ -37,3 +37,9 @@ rebuild-docker.sh
 */.run/**
 .run/**
 .run
+
+.diffblue/cache
+**.diffblue/cache
+**/.diffblue/cache
+**/**.diffblue/cache
+**/**/.diffblue/cache
